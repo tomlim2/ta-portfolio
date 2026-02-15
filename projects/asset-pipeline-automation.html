@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Asset Pipeline Automation — Younsoo Lim</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg: '#080808',
+            surface: '#121212',
+            border: '#222222',
+            muted: '#666666',
+            accent: '#3b82f6',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="bg-bg text-white">
+
+  <!-- Navigation -->
+  <nav class="fixed top-0 w-full z-50 bg-bg/80 backdrop-blur-md border-b border-border">
+    <div class="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
+      <a href="../index.html" class="text-sm font-medium tracking-wide">YOUNSOO LIM</a>
+      <div class="flex gap-8 text-sm text-muted">
+        <a href="../index.html#projects" class="hover:text-white transition">Projects</a>
+        <a href="../index.html#about" class="hover:text-white transition">About</a>
+        <a href="../index.html#contact" class="hover:text-white transition">Contact</a>
+        <a href="../private.html" class="hover:text-white transition flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+          </svg>
+          Private
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Content -->
+  <main class="max-w-6xl mx-auto px-6 pt-28 pb-24">
+
+    <!-- Back -->
+    <a href="../index.html#projects" class="inline-flex items-center gap-2 text-muted text-sm mb-8 hover:text-white transition">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+      Back to Projects
+    </a>
+
+    <!-- Project Header -->
+    <h1 class="text-4xl font-bold mb-3">Asset Pipeline Automation</h1>
+    <div class="flex gap-2 mb-6">
+      <span class="tag px-2 py-0.5 rounded bg-green-500/10 text-green-400 uppercase">Tool</span>
+      <span class="tag px-2 py-0.5 rounded bg-teal-500/10 text-teal-400 uppercase">Python</span>
+    </div>
+    <p class="text-muted text-lg max-w-2xl mb-12">Python-based pipeline tool for batch processing, validation, and automated asset import/export workflows.</p>
+
+    <!-- Hero Media -->
+    <div class="aspect-video bg-gradient-to-br from-green-900/20 to-teal-900/20 rounded-lg border border-border mb-12 flex items-center justify-center text-muted">
+      Video / Image / Interactive Demo
+    </div>
+
+    <!-- Content Sections -->
+    <div class="max-w-3xl space-y-12">
+      <div>
+        <h2 class="text-xl font-bold mb-4">Overview</h2>
+        <p class="text-muted leading-relaxed">Description of the project, its goals, challenges faced, and solutions implemented. This is where you tell the story of the project.</p>
+      </div>
+
+      <div>
+        <h2 class="text-xl font-bold mb-4">Technical Breakdown</h2>
+        <p class="text-muted leading-relaxed mb-4">Detailed explanation of the technical approach, node graphs, shader code, or pipeline architecture.</p>
+        <div class="grid grid-cols-2 gap-4">
+          <div class="aspect-video bg-surface rounded-lg border border-border flex items-center justify-center text-muted text-sm">Screenshot / Node Graph</div>
+          <div class="aspect-video bg-surface rounded-lg border border-border flex items-center justify-center text-muted text-sm">Screenshot / Before-After</div>
+        </div>
+      </div>
+
+      <div>
+        <h2 class="text-xl font-bold mb-4">Results</h2>
+        <p class="text-muted leading-relaxed">Performance metrics, before/after comparisons, artist feedback, or any quantifiable improvements.</p>
+      </div>
+    </div>
+
+    <!-- Prev/Next Navigation -->
+    <div class="flex justify-between items-center mt-16 pt-8 border-t border-border">
+      <a href="custom-toon-shader.html" class="text-muted hover:text-white transition text-sm">&larr; Custom Toon Shader</a>
+      <a href="particle-system-library.html" class="text-muted hover:text-white transition text-sm">Particle System Library &rarr;</a>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-border py-8 text-center text-muted text-xs">
+    <p>&copy; 2026 Younsoo Lim. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

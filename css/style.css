@@ -1,0 +1,16 @@
+html {
+  scroll-behavior: smooth;
+}
+
+.card:hover .card-overlay {
+  opacity: 1;
+}
+
+.card:hover .card-thumb {
+  transform: scale(1.05);
+}
+
+.tag {
+  font-size: 0.65rem;
+  letter-spacing: 0.05em;
+}

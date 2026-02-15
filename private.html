@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Private Projects — Younsoo Lim</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg: '#080808',
+            surface: '#121212',
+            border: '#222222',
+            muted: '#666666',
+            accent: '#3b82f6',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/crypto.js"></script>
+  <style>
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      10%, 30%, 50%, 70%, 90% { transform: translateX(-4px); }
+      20%, 40%, 60%, 80% { transform: translateX(4px); }
+    }
+    .shake {
+      animation: shake 0.5s ease-in-out;
+    }
+  </style>
+</head>
+<body class="bg-bg text-white">
+
+  <!-- Navigation -->
+  <nav class="fixed top-0 w-full z-50 bg-bg/80 backdrop-blur-md border-b border-border">
+    <div class="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
+      <a href="index.html" class="text-sm font-medium tracking-wide">YOUNSOO LIM</a>
+      <!-- Desktop nav links (hidden on mobile) -->
+      <div class="hidden md:flex gap-8 text-sm text-muted" id="desktop-nav">
+        <a href="index.html#projects" class="hover:text-white transition">Projects</a>
+        <a href="index.html#about" class="hover:text-white transition">About</a>
+        <a href="index.html#contact" class="hover:text-white transition">Contact</a>
+        <a href="private.html" class="text-white transition flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+          </svg>
+          Private
+        </a>
+      </div>
+
+      <!-- Hamburger button (visible on mobile only) -->
+      <button id="hamburger-btn" class="md:hidden text-muted hover:text-white transition" aria-label="Toggle menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile menu (hidden by default, slides down) -->
+    <div id="mobile-menu" class="md:hidden hidden border-t border-border bg-bg/95 backdrop-blur-md">
+      <div class="flex flex-col px-6 py-4 gap-4 text-sm text-muted">
+        <a href="index.html#projects" class="hover:text-white transition">Projects</a>
+        <a href="index.html#about" class="hover:text-white transition">About</a>
+        <a href="index.html#contact" class="hover:text-white transition">Contact</a>
+        <a href="private.html" class="text-white transition flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+          </svg>
+          Private
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Content -->
+  <section class="max-w-6xl mx-auto px-6 pt-32 pb-24">
+    <h2 class="text-2xl font-bold mb-4">Private Projects</h2>
+    <p class="text-muted mb-8">This section contains NDA-protected work. Enter the password to view.</p>
+
+    <!-- Password Form -->
+    <div id="password-form" class="max-w-sm">
+      <div class="bg-surface border border-border rounded-lg p-6">
+        <form id="decrypt-form" class="flex gap-3">
+          <input
+            type="password"
+            id="password-input"
+            placeholder="Password"
+            autocomplete="off"
+            class="flex-1 bg-transparent border border-border rounded-lg px-4 py-2 text-sm text-white placeholder-muted focus:outline-none focus:border-muted transition"
+          >
+          <button
+            type="submit"
+            class="bg-white text-black px-5 py-2 rounded-lg text-sm font-medium hover:bg-white/90 transition"
+          >Enter</button>
+        </form>
+        <p id="error-message" class="hidden text-red-500 text-sm mt-3">Incorrect password.</p>
+      </div>
+      <p class="text-xs text-muted/50 mt-4">Contact me for access credentials.</p>
+    </div>
+
+    <!-- Decrypted content area -->
+    <div id="private-content" class="hidden mt-12"></div>
+  </section>
+
+  <!-- Encrypted data blob -->
+  <script type="application/encrypted" id="encrypted-data"><!-- Replace with encrypted content from tools/encrypt.html --></script>
+
+  <!-- Footer -->
+  <footer class="border-t border-border py-8 text-center text-muted text-xs">
+    <p>&copy; 2026 Younsoo Lim. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // --- Mobile hamburger menu toggle ---
+    (function () {
+      var hamburgerBtn = document.getElementById('hamburger-btn');
+      var mobileMenu = document.getElementById('mobile-menu');
+
+      if (hamburgerBtn && mobileMenu) {
+        hamburgerBtn.addEventListener('click', function () {
+          mobileMenu.classList.toggle('hidden');
+        });
+
+        var mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(function (link) {
+          link.addEventListener('click', function () {
+            mobileMenu.classList.add('hidden');
+          });
+        });
+      }
+    })();
+
+    // --- Decrypt logic ---
+    (function () {
+      var form = document.getElementById('decrypt-form');
+      var passwordInput = document.getElementById('password-input');
+      var errorMessage = document.getElementById('error-message');
+      var passwordForm = document.getElementById('password-form');
+      var privateContent = document.getElementById('private-content');
+      var encryptedDataEl = document.getElementById('encrypted-data');
+
+      form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+
+        var password = passwordInput.value.trim();
+        if (!password) return;
+
+        // Get encrypted blob
+        var blob = (encryptedDataEl.textContent || '').trim();
+
+        // Check if blob is empty or just a comment
+        if (!blob || blob.startsWith('<!--') || blob.length < 40) {
+          privateContent.innerHTML =
+            '<p class="text-muted text-sm">No encrypted content available. Use tools/encrypt.html to generate.</p>';
+          privateContent.classList.remove('hidden');
+          passwordForm.classList.add('hidden');
+          return;
+        }
+
+        try {
+          var html = await decryptContent(blob, password);
+          privateContent.innerHTML = html;
+          privateContent.classList.remove('hidden');
+          passwordForm.classList.add('hidden');
+          errorMessage.classList.add('hidden');
+        } catch (err) {
+          // Wrong password
+          errorMessage.classList.remove('hidden');
+          passwordInput.classList.add('shake');
+          setTimeout(function () {
+            passwordInput.classList.remove('shake');
+          }, 500);
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
