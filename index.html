@@ -35,7 +35,7 @@
   <a href="#projects" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:bg-white focus:text-black focus:px-4 focus:py-2 focus:rounded focus:z-[60]">Skip to content</a>
 
   <!-- Navigation -->
-  <nav class="fixed top-0 w-full z-50 bg-bg/80 backdrop-blur-md border-b border-border">
+  <nav class="fixed top-0 w-full z-50 bg-bg/80 backdrop-blur-md">
     <div class="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
       <a href="#" onclick="window.scrollTo({top:0});return false" class="flex items-center"><img src="logo-invert.svg" alt="TOMLIM" class="h-[2rem]"></a>
       <div class="hidden md:flex gap-8 text-sm text-sub" id="desktop-nav">
@@ -74,12 +74,9 @@
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
       <!-- Card 1: Character System -->
-      <a href="projects/character-system.html" class="card group block overflow-hidden transition">
+      <a href="projects/character-system.html" class="card card-locked group block overflow-hidden transition">
         <div class="relative overflow-hidden aspect-video">
-          <div class="w-full h-full bg-gradient-to-br from-blue-900/40 to-cyan-900/40 flex items-center justify-center text-muted text-sm">Character System Preview</div>
-          <div class="card-overlay absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 transition">
-            <span class="text-sm text-white/80">View Project &rarr;</span>
-          </div>
+          <div class="card-placeholder w-full h-full bg-gradient-to-br from-blue-900/40 to-cyan-900/40 flex items-center justify-center text-muted text-sm">Character System Preview</div>
         </div>
         <div class="py-5">
           <div class="flex items-center gap-2 mb-2">
@@ -96,12 +93,9 @@
       </a>
 
       <!-- Card 2: NPR Shader System -->
-      <a href="projects/npr-shader.html" class="card group block overflow-hidden transition">
+      <a href="projects/npr-shader.html" class="card card-locked group block overflow-hidden transition">
         <div class="relative overflow-hidden aspect-video">
-          <div class="w-full h-full bg-gradient-to-br from-purple-900/40 to-pink-900/40 flex items-center justify-center text-muted text-sm">NPR Shader Preview</div>
-          <div class="card-overlay absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 transition">
-            <span class="text-sm text-white/80">View Project &rarr;</span>
-          </div>
+          <div class="card-placeholder w-full h-full bg-gradient-to-br from-purple-900/40 to-pink-900/40 flex items-center justify-center text-muted text-sm">NPR Shader Preview</div>
         </div>
         <div class="py-5">
           <div class="flex items-center gap-2 mb-2">
@@ -117,12 +111,9 @@
       </a>
 
       <!-- Card 3: PMX to VRM Pipeline -->
-      <a href="projects/pmx-to-vrm.html" class="card group block overflow-hidden transition">
+      <a href="projects/pmx-to-vrm.html" class="card card-locked group block overflow-hidden transition">
         <div class="relative overflow-hidden aspect-video">
-          <div class="w-full h-full bg-gradient-to-br from-green-900/40 to-teal-900/40 flex items-center justify-center text-muted text-sm">PMX to VRM Preview</div>
-          <div class="card-overlay absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 transition">
-            <span class="text-sm text-white/80">View Project &rarr;</span>
-          </div>
+          <div class="card-placeholder w-full h-full bg-gradient-to-br from-green-900/40 to-teal-900/40 flex items-center justify-center text-muted text-sm">PMX to VRM Preview</div>
         </div>
         <div class="py-5">
           <div class="flex items-center gap-2 mb-2">
@@ -138,12 +129,9 @@
       </a>
 
       <!-- Card 4: MegaMelange MCP -->
-      <a href="projects/megamelange.html" class="card group block overflow-hidden transition">
+      <a href="projects/megamelange.html" class="card card-locked group block overflow-hidden transition">
         <div class="relative overflow-hidden aspect-video">
-          <div class="w-full h-full bg-gradient-to-br from-orange-900/40 to-red-900/40 flex items-center justify-center text-muted text-sm">MegaMelange Preview</div>
-          <div class="card-overlay absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 transition">
-            <span class="text-sm text-white/80">View Project &rarr;</span>
-          </div>
+          <div class="card-placeholder w-full h-full bg-gradient-to-br from-orange-900/40 to-red-900/40 flex items-center justify-center text-muted text-sm">MegaMelange Preview</div>
         </div>
         <div class="py-5">
           <div class="flex items-center gap-2 mb-2">
@@ -162,10 +150,7 @@
       <!-- Card 5: MMD Player -->
       <a href="projects/mmd-player.html" class="card group block overflow-hidden transition">
         <div class="relative overflow-hidden aspect-video">
-          <div class="w-full h-full bg-gradient-to-br from-cyan-900/40 to-blue-900/40 flex items-center justify-center text-muted text-sm">MMD Player Preview</div>
-          <div class="card-overlay absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 transition">
-            <span class="text-sm text-white/80">View Project &rarr;</span>
-          </div>
+          <div class="card-placeholder w-full h-full bg-gradient-to-br from-cyan-900/40 to-blue-900/40 flex items-center justify-center text-muted text-sm">MMD Player Preview</div>
         </div>
         <div class="py-5">
           <div class="flex items-center gap-2 mb-2">
@@ -183,10 +168,7 @@
       <!-- Card 6: Matcap Painter -->
       <a href="projects/matcap-painter.html" class="card group block overflow-hidden transition">
         <div class="relative overflow-hidden aspect-video">
-          <div class="w-full h-full bg-gradient-to-br from-yellow-900/40 to-amber-900/40 flex items-center justify-center text-muted text-sm">Matcap Painter Preview</div>
-          <div class="card-overlay absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 transition">
-            <span class="text-sm text-white/80">View Project &rarr;</span>
-          </div>
+          <div class="card-placeholder w-full h-full bg-gradient-to-br from-yellow-900/40 to-amber-900/40 flex items-center justify-center text-muted text-sm">Matcap Painter Preview</div>
         </div>
         <div class="py-5">
           <div class="flex items-center gap-2 mb-2">
