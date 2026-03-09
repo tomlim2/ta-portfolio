@@ -2,6 +2,10 @@ html {
   scroll-behavior: smooth;
 }
 
+nav {
+  transition: transform 0.3s ease;
+}
+
 .card:hover .card-overlay {
   opacity: 1;
 }
@@ -13,4 +17,33 @@ html {
 .tag {
   font-size: 0.65rem;
   letter-spacing: 0.05em;
+}
+
+details summary {
+  list-style: none;
+}
+
+details summary::-webkit-details-marker {
+  display: none;
+}
+
+details summary::before {
+  content: '▶';
+  display: inline-block;
+  margin-right: 0.5rem;
+  font-size: 0.6rem;
+  transition: transform 0.2s;
+  color: #666;
+}
+
+details[open] summary::before {
+  transform: rotate(90deg);
+}
+
+blockquote {
+  font-style: italic;
+}
+
+table {
+  border-collapse: collapse;
 }

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Matcap Painter — 임연수</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg: '#080808',
+            surface: '#121212',
+            border: '#222222',
+            muted: '#666666',
+            accent: '#3b82f6',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="bg-bg text-white">
+
+  <nav class="fixed top-0 w-full z-50 bg-bg/80 backdrop-blur-md border-b border-border">
+    <div class="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
+      <a href="../index.html" class="text-sm font-medium tracking-wide">YOUNSOO LIM</a>
+      <div class="hidden md:flex gap-8 text-sm text-muted">
+        <a href="../index.html#projects" class="hover:text-white transition">Projects</a>
+        <a href="../index.html#about" class="hover:text-white transition">About</a>
+        <a href="../index.html#contact" class="hover:text-white transition">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="max-w-4xl mx-auto px-6 pt-28 pb-24">
+
+    <a href="../index.html#projects" class="inline-flex items-center gap-2 text-muted text-sm mb-8 hover:text-white transition">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+      Back to Projects
+    </a>
+
+    <h1 class="text-4xl font-bold mb-3">Matcap Painter</h1>
+    <div class="flex gap-2 mb-4">
+      <span class="tag px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-400 uppercase">Three.js</span>
+      <span class="tag px-2 py-0.5 rounded bg-yellow-500/10 text-yellow-400 uppercase">WebGPU</span>
+    </div>
+
+    <blockquote class="border-l-2 border-accent pl-4 text-muted mb-6">
+      포토샵 왕복 없이 NPR 캐릭터용 Matcap 텍스처를 실시간으로 만들고, 3D 모델에서 바로 확인하는 도구
+    </blockquote>
+
+    <div class="flex flex-wrap gap-x-8 gap-y-2 text-sm text-muted mb-8">
+      <span><strong class="text-white">역할</strong> Tool Design, Shader Development</span>
+      <span><strong class="text-white">기간</strong> 2026년 2월 (4일)</span>
+      <span><strong class="text-white">타입</strong> 개인 프로젝트</span>
+    </div>
+    <div class="flex flex-wrap gap-2 text-xs text-muted mb-12">
+      <span class="px-2 py-1 rounded border border-border">Three.js WebGPU (r172)</span>
+      <span class="px-2 py-1 rounded border border-border">Vanilla JavaScript</span>
+      <span class="px-2 py-1 rounded border border-border">Canvas 2D API</span>
+    </div>
+
+    <div class="aspect-video bg-surface rounded-lg border border-border mb-12 flex items-center justify-center text-muted text-sm">
+      Shader Mode 조작 데모 — Color Ramp 조절 → 실시간 3D 프리뷰
+    </div>
+
+    <!-- Motivation -->
+    <section class="mb-12">
+      <h2 class="text-xl font-bold mb-4">동기</h2>
+      <p class="text-muted leading-relaxed">회사 NPR 캐릭터에 <strong class="text-white">금속 질감과 머리카락 광택</strong>을 내기 위한 페이크 리플렉션 마스크용 Matcap 텍스처가 필요했다. 기존 워크플로우는 포토샵에서 수작업 → 엔진 임포트 → 확인 → 안 맞으면 다시 포토샵 반복. 결과를 보면서 실시간으로 조정할 수 없어 이터레이션이 느렸다.</p>
+    </section>
+
+    <!-- Solution -->
+    <section class="mb-12">
+      <h2 class="text-xl font-bold mb-4">해결</h2>
+
+      <div class="grid md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-surface rounded-lg border border-border p-5">
+          <h3 class="font-medium mb-2">Shader Mode — 처음부터 만들 때</h3>
+          <p class="text-muted text-sm leading-relaxed">Blender Color Ramp 스타일 UI로 Toon Ramp, Specular 하이라이트, Outline을 실시간 조절. 밴드 수와 경계를 드래그하면 3D 프리뷰에 즉시 반영.</p>
+        </div>
+        <div class="bg-surface rounded-lg border border-border p-5">
+          <h3 class="font-medium mb-2">Paint Mode — 기존 것을 편집할 때</h3>
+          <p class="text-muted text-sm leading-relaxed">오픈소스 라이브러리(nidorx/matcaps)에서 큐레이션한 229개 프리셋을 기반으로, 8레이어 포토샵 스타일로 비파괴 편집. HSV, 콘트라스트, Lift를 조정하면서 실시간 결과 확인.</p>
+        </div>
+      </div>
+
+      <div class="aspect-video bg-surface rounded-lg border border-border mb-6 flex items-center justify-center text-muted text-sm">
+        Paint Mode 레이어 편집 데모 — 8레이어 비파괴 편집 과정
+      </div>
+
+      <p class="text-muted text-sm leading-relaxed">편집 중인 Matcap 텍스처가 Sphere, Torus, 또는 GLB 모델에 실시간 적용. 포토샵↔엔진 왕복 없이 최종 결과를 바로 확인할 수 있다.</p>
+    </section>
+
+    <!-- Result -->
+    <section class="mb-12">
+      <h2 class="text-xl font-bold mb-4">결과</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b border-border text-left">
+              <th class="py-3 pr-4 text-muted font-medium">항목</th>
+              <th class="py-3 text-muted font-medium">결과</th>
+            </tr>
+          </thead>
+          <tbody class="text-muted">
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">워크플로우</td><td class="py-3">포토샵 왕복 제거 — 실시간 편집 + 3D 프리뷰</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">Shader Mode</td><td class="py-3">Toon Ramp / Specular / Outline 실시간 생성</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">Paint Mode</td><td class="py-3">229개 프리셋 + 8레이어 비파괴 편집</td></tr>
+            <tr><td class="py-3 pr-4 text-white font-medium">개발 기간</td><td class="py-3">4일</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <div class="aspect-video bg-surface rounded-lg border border-border mb-12 flex items-center justify-center text-muted text-sm">
+      UE 캐릭터 적용 Before/After — Matcap이 NPR 캐릭터에 적용된 결과
+    </div>
+
+    <hr class="border-border mb-12">
+
+    <!-- Technical Details -->
+    <section class="mb-12">
+      <h2 class="text-xl font-bold mb-6">기술 상세</h2>
+
+      <div class="space-y-3">
+        <details class="bg-surface rounded-lg border border-border">
+          <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">Per-pixel 노멀맵 렌더링</summary>
+          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">Canvas 2D에서 ray-sphere intersection으로 픽셀별 노멀을 계산하고, NdotL 라이팅을 적용. GPU 없이 CPU에서 실시간 Matcap 텍스처 생성.</div>
+        </details>
+        <details class="bg-surface rounded-lg border border-border">
+          <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">Blender Color Ramp 재구현</summary>
+          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">Step(하드 밴드) / Linear(LERP) 모드. 밴드 수와 경계를 드래그로 조절하면 Toon Ramp 셰이딩 스타일이 즉시 변경. Blender 아티스트에게 익숙한 UI.</div>
+        </details>
+        <details class="bg-surface rounded-lg border border-border">
+          <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">8레이어 컴포지팅</summary>
+          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">RGB → HSV per-pixel 변환, 더티 플래그 기반 캐싱으로 성능 확보. 레이어별 HSV/Contrast/Lift 비파괴 조정. Canvas → Three.js WebGPU CanvasTexture 실시간 파이프라인.</div>
+        </details>
+      </div>
+    </section>
+
+    <!-- Prev/Next -->
+    <div class="flex justify-between items-center mt-16 pt-8 border-t border-border">
+      <a href="mmd-player.html" class="text-muted hover:text-white transition text-sm">&larr; MMD Player</a>
+      <a href="character-system.html" class="text-muted hover:text-white transition text-sm">Character System &rarr;</a>
+    </div>
+
+  </main>
+
+  <footer class="border-t border-border py-8 text-center text-muted text-xs">
+    <p>&copy; 2026 Younsoo Lim. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

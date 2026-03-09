@@ -3,7 +3,7 @@
 (function () {
   // --- Active nav highlighting with IntersectionObserver ---
 
-  const sections = document.querySelectorAll('#projects, #about, #contact');
+  const sections = document.querySelectorAll('#projects, #about');
   const navLinks = document.querySelectorAll('.nav-link');
 
   function setActiveLink(sectionId) {
@@ -31,6 +31,21 @@
 
   sections.forEach(function (section) {
     observer.observe(section);
+  });
+
+  // --- Hide nav on scroll down, show on scroll up ---
+
+  var nav = document.querySelector('nav');
+  var lastScrollY = window.scrollY;
+
+  window.addEventListener('scroll', function () {
+    var currentScrollY = window.scrollY;
+    if (currentScrollY > lastScrollY && currentScrollY > 56) {
+      nav.style.transform = 'translateY(-100%)';
+    } else {
+      nav.style.transform = 'translateY(0)';
+    }
+    lastScrollY = currentScrollY;
   });
 
   // --- Mobile hamburger menu toggle ---

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MMD Player — 임연수</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg: '#080808',
+            surface: '#121212',
+            border: '#222222',
+            muted: '#666666',
+            accent: '#3b82f6',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="bg-bg text-white">
+
+  <nav class="fixed top-0 w-full z-50 bg-bg/80 backdrop-blur-md border-b border-border">
+    <div class="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
+      <a href="../index.html" class="text-sm font-medium tracking-wide">YOUNSOO LIM</a>
+      <div class="hidden md:flex gap-8 text-sm text-muted">
+        <a href="../index.html#projects" class="hover:text-white transition">Projects</a>
+        <a href="../index.html#about" class="hover:text-white transition">About</a>
+        <a href="../index.html#contact" class="hover:text-white transition">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="max-w-4xl mx-auto px-6 pt-28 pb-24">
+
+    <a href="../index.html#projects" class="inline-flex items-center gap-2 text-muted text-sm mb-8 hover:text-white transition">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+      Back to Projects
+    </a>
+
+    <h1 class="text-4xl font-bold mb-3">MMD Player</h1>
+    <div class="flex gap-2 mb-4">
+      <span class="tag px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-400 uppercase">Three.js</span>
+      <span class="tag px-2 py-0.5 rounded bg-blue-500/10 text-blue-400 uppercase">WebGPU</span>
+    </div>
+
+    <blockquote class="border-l-2 border-accent pl-4 text-muted mb-6">
+      모션이 캐릭터에 맞는지 미리 확인하고, 체형 차이를 자동 보정하는 WebGPU MMD 프리뷰 도구
+    </blockquote>
+
+    <div class="flex flex-wrap gap-x-8 gap-y-2 text-sm text-muted mb-8">
+      <span><strong class="text-white">역할</strong> Tool Design, Shader Development, Motion Analysis</span>
+      <span><strong class="text-white">기간</strong> 2026년 2~3월</span>
+      <span><strong class="text-white">타입</strong> 개인 프로젝트</span>
+    </div>
+    <div class="flex flex-wrap gap-2 text-xs text-muted mb-12">
+      <span class="px-2 py-1 rounded border border-border">Three.js WebGPU (r172)</span>
+      <span class="px-2 py-1 rounded border border-border">TSL Shader</span>
+      <span class="px-2 py-1 rounded border border-border">Vanilla JavaScript</span>
+    </div>
+
+    <div class="aspect-video bg-surface rounded-lg border border-border mb-12 flex items-center justify-center text-muted text-sm">
+      VMD 재생 + 이펙트 데모 영상 — 6종 이펙트가 동작하는 모션 재생 화면
+    </div>
+
+    <!-- Motivation -->
+    <section class="mb-12">
+      <h2 class="text-xl font-bold mb-4">동기</h2>
+      <p class="text-muted leading-relaxed mb-4">PMX→VRM 변환 파이프라인을 만들면서, 변환 전에 원본 모델과 모션이 제대로 동작하는지 확인할 도구가 필요했다. 임포트가 안 될 때 <strong class="text-white">PMX 원본 탓인지 VRM 컨버터 탓인지</strong> 가려내는 게 핵심 — PMX 자체에 텍스처 누락이나 본 결여가 있다면 컨버터 문제가 아니다.</p>
+      <p class="text-muted text-sm">사용자: 기획자, QA — TA뿐 아니라 비개발 직군이 직접 열어서 확인.</p>
+    </section>
+
+    <!-- Solution -->
+    <section class="mb-12">
+      <h2 class="text-xl font-bold mb-4">해결</h2>
+
+      <!-- Model families -->
+      <h3 class="font-medium mb-3">모션 호환성 자동 분석</h3>
+      <p class="text-muted text-sm leading-relaxed mb-4">VMD 모션 파일을 분석하여 PMX 모델과 본 매칭률을 계산하고, IK 충돌과 소스 모델 계열을 자동 감지. 게임사 PMX도 이 계열을 따르는데 — 예: 스타레일은 DIVA 계열, 원신은 ミリシタ 계열.</p>
+
+      <div class="overflow-x-auto mb-8">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b border-border text-left">
+              <th class="py-3 pr-4 text-muted font-medium">계열</th>
+              <th class="py-3 text-muted font-medium">특징</th>
+            </tr>
+          </thead>
+          <tbody class="text-muted">
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white">あにまさ式 (Animasa)</td><td class="py-3">MMD 기본 모델, 최소 본셋 (~30)</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white">TDA式</td><td class="py-3">세미스탠다드 본 포함 (上半身2, 腕捩 등)</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white">YYB式</td><td class="py-3">TDA 기반 + 보조 본 확장</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white">にがもん式</td><td class="py-3">간결한 본셋, 비보컬로이드 캐릭터</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white">つみだんご式</td><td class="py-3">고밀도 커스텀 본 (325개), 50 표정</td></tr>
+            <tr><td class="py-3 pr-4 text-white">ミリシタ</td><td class="py-3">영문 로마자 본, 표준 VMD와 비호환</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- IK Sizing -->
+      <h3 class="font-medium mb-3">체형 자동 보정 (IK 사이징)</h3>
+      <p class="text-muted text-sm leading-relaxed mb-4">모델 간 힙 높이 비율로 IK 포지션을 자동 스케일링. 소스 모델이 없어도 VMD 애니메이션에서 바닥 접촉 프레임의 중앙값으로 원본 체형을 추정한다.</p>
+
+      <div class="aspect-video bg-surface rounded-lg border border-border mb-8 flex items-center justify-center text-muted text-sm">
+        체형 보정 Before/After — IK 사이징 적용 전후 비교 (발 부유 → 바닥 접촉)
+      </div>
+
+      <!-- Precompute Effects -->
+      <h3 class="font-medium mb-3">모션 연동 이펙트 — Precompute 실험</h3>
+      <p class="text-muted text-sm leading-relaxed mb-4">VMD 모션 데이터에서 벡터 필드 등 CPU 기반 효과를 사전 계산하면 어떨지 실험. 결과가 매우 좋았다 — 가볍고, 모션 트랙만 있으면 이펙트 타이밍이 자동으로 잡힌다. 기획팀과 클라이언트팀에게 <strong class="text-white">"잘 움직인다"</strong>는 것을 보여주기 위한 POC.</p>
+      <p class="text-muted text-sm">6종: Foot Ripple, Spark Burst, Ground Reflect, Falling/Rising Light, Velocity Effect</p>
+    </section>
+
+    <!-- Result -->
+    <section class="mb-12">
+      <h2 class="text-xl font-bold mb-4">결과</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b border-border text-left">
+              <th class="py-3 pr-4 text-muted font-medium">항목</th>
+              <th class="py-3 text-muted font-medium">결과</th>
+            </tr>
+          </thead>
+          <tbody class="text-muted">
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">원본 검증</td><td class="py-3">PMX 탓 vs 컨버터 탓 판별 — 기획자/QA가 직접 사용</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">모션 검증</td><td class="py-3">6종 모델 계열 지원, 본 매칭률/IK 충돌 자동 감지</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">체형 보정</td><td class="py-3">소스 모델 없이 VMD만으로 체형 추정 + IK 스케일링</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">이펙트 Precompute</td><td class="py-3">6종 — 기획/클라이언트팀 설득용 POC</td></tr>
+            <tr><td class="py-3 pr-4 text-white font-medium">기술 검증</td><td class="py-3">WebGPU + TSL 셰이더 (Three.js 차세대 렌더링)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <hr class="border-border mb-12">
+
+    <!-- Technical Details -->
+    <section class="mb-12">
+      <h2 class="text-xl font-bold mb-6">기술 상세</h2>
+
+      <div class="space-y-3">
+        <details class="bg-surface rounded-lg border border-border">
+          <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">VMD Precompute — 이펙트 사전 계산</summary>
+          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">모션 데이터에서 블룸 이벤트, 발 착지 타이밍, 각속도 피크를 사전 계산. 실시간 분석 대신 precompute 방식으로 프레임 드롭 없이 이펙트를 동기화.</div>
+        </details>
+        <details class="bg-surface rounded-lg border border-border">
+          <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">IK 사이징 — 소스 모델 없이 체형 추정</summary>
+          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">타겟 모델의 rest pose에서 IK Y 위치를 기준으로 ground contact 프레임을 감지. 해당 프레임의 센터 Y 중앙값으로 소스 모델의 힙 높이를 추정하고, targetHipY / sourceHipY 비율로 IK/센터/グルーブ의 Y 포지션을 스케일링.</div>
+        </details>
+        <details class="bg-surface rounded-lg border border-border">
+          <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">TSL 셰이더 — WebGPU 커스텀 머티리얼</summary>
+          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">Three.js TSL(Three Shading Language) 기반 커스텀 머티리얼. Ground Mirror Reflection, 이펙트 파티클 등을 TSL 노드로 구현. WebGPU의 차세대 렌더링 파이프라인을 직접 검증.</div>
+        </details>
+        <details class="bg-surface rounded-lg border border-border">
+          <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">VMD 바이너리 파서 + 호환성 분석</summary>
+          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">VMD 파일에서 본 키프레임, 모프 키프레임, IK 키프레임을 파싱. PMX 모델의 본 트리와 대조하여 매칭률, 누락 본, IK 충돌을 자동 리포트.</div>
+        </details>
+      </div>
+    </section>
+
+    <!-- Prev/Next -->
+    <div class="flex justify-between items-center mt-16 pt-8 border-t border-border">
+      <a href="megamelange.html" class="text-muted hover:text-white transition text-sm">&larr; MegaMelange MCP</a>
+      <a href="matcap-painter.html" class="text-muted hover:text-white transition text-sm">Matcap Painter &rarr;</a>
+    </div>
+
+  </main>
+
+  <footer class="border-t border-border py-8 text-center text-muted text-xs">
+    <p>&copy; 2026 Younsoo Lim. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
