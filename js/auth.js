@@ -63,20 +63,20 @@ var Auth = (function () {
       clearAuth();
       return false;
     }
-    return !!localStorage.getItem(SESSION_KEY);
+    return !!sessionStorage.getItem(SESSION_KEY);
   }
 
   function setAuthed(password) {
-    localStorage.setItem(SESSION_KEY, password);
+    sessionStorage.setItem(SESSION_KEY, password);
     localStorage.setItem(TIMESTAMP_KEY, String(Date.now()));
   }
 
   function getStoredPassword() {
-    return localStorage.getItem(SESSION_KEY);
+    return sessionStorage.getItem(SESSION_KEY);
   }
 
   function clearAuth() {
-    localStorage.removeItem(SESSION_KEY);
+    sessionStorage.removeItem(SESSION_KEY);
     localStorage.removeItem(TIMESTAMP_KEY);
   }
 
