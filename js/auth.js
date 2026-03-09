@@ -2,6 +2,8 @@
 
 var Auth = (function () {
   var SESSION_KEY = 'ta-portfolio-auth';
+  var TIMESTAMP_KEY = 'ta-portfolio-auth-ts';
+  var TTL = 60 * 60 * 1000; // 1 hour
 
   function bufToBase64(buf) {
     return btoa(String.fromCharCode.apply(null, new Uint8Array(buf)));
@@ -56,19 +58,26 @@ var Auth = (function () {
   }
 
   function isAuthed() {
-    return !!sessionStorage.getItem(SESSION_KEY);
+    var ts = localStorage.getItem(TIMESTAMP_KEY);
+    if (!ts || Date.now() - Number(ts) > TTL) {
+      clearAuth();
+      return false;
+    }
+    return !!localStorage.getItem(SESSION_KEY);
   }
 
   function setAuthed(password) {
-    sessionStorage.setItem(SESSION_KEY, password);
+    localStorage.setItem(SESSION_KEY, password);
+    localStorage.setItem(TIMESTAMP_KEY, String(Date.now()));
   }
 
   function getStoredPassword() {
-    return sessionStorage.getItem(SESSION_KEY);
+    return localStorage.getItem(SESSION_KEY);
   }
 
   function clearAuth() {
-    sessionStorage.removeItem(SESSION_KEY);
+    localStorage.removeItem(SESSION_KEY);
+    localStorage.removeItem(TIMESTAMP_KEY);
   }
 
   // Try to decrypt and render the page content
