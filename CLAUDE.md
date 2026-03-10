@@ -27,6 +27,17 @@ node tools/reencrypt.mjs cinev2026
 git add -A && git commit
 ```
 
+### 서브페이지 6개 — CSS 수정 시 전부 반영
+
+CSS나 스타일 클래스를 수정할 때 **6개 서브페이지 모두** 적용할 것. 4개는 originals, 2개는 직접 수정.
+
+| 암호화 (originals) | 공개 (직접 수정) |
+|---------------------|-----------------|
+| `projects/originals/character-system.html` | `projects/matcap-painter.html` |
+| `projects/originals/megamelange.html` | `projects/mmd-player.html` |
+| `projects/originals/npr-shader.html` | |
+| `projects/originals/pmx-to-vrm.html` | |
+
 ### 파일 구조
 
 | 경로 | 용도 | gitignore |

@@ -16,9 +16,12 @@
             bg: '#080808',
             surface: '#111113',
             border: '#2a2b2f',
-            muted: '#6e7279',
+            muted: '#a8adb6',
             sub: '#b0b4ba',
             accent: '#7c8aff',
+          },
+          fontSize: {
+            sm: '1.05rem',
           },
           fontFamily: {
             sans: ['Noto Sans KR', 'system-ui', 'sans-serif'],
@@ -30,7 +33,7 @@
   <link rel="icon" href="../favicon.gif" type="image/gif">
   <link rel="stylesheet" href="../css/style.css">
 </head>
-<body class="bg-bg text-[#f0f0f0]">
+<body class="bg-bg text-[#dcdfe3]">
 
   <nav class="fixed top-0 w-full z-50 bg-bg/80 backdrop-blur-md">
     <div class="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
@@ -60,13 +63,19 @@
       Shader Mode 조작 데모 — Color Ramp 조절 → 실시간 3D 프리뷰
     </div>
 
-    <h1 class="text-4xl font-bold mb-3">Matcap Painter</h1>
+    <div class="flex items-center gap-4 mb-3">
+      <h1 class="text-4xl font-bold">Matcap Painter</h1>
+      <div class="flex gap-3 mt-2">
+        <a href="https://github.com/tomlim2/matcap-painter" target="_blank" rel="noopener" class="text-muted hover:text-white transition"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg></a>
+        <a href="https://tomlim2.github.io/matcap-painter/" target="_blank" rel="noopener" class="text-muted hover:text-white transition"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a>
+      </div>
+    </div>
 
-    <blockquote class="border-l-2 border-accent pl-4 text-muted mb-6">
+    <blockquote class="text-muted mb-6">
       포토샵 왕복 없이 NPR 캐릭터용 Matcap 텍스처를 실시간으로 만들고, 3D 모델에서 바로 확인하는 도구
     </blockquote>
 
-    <div class="flex flex-wrap gap-x-8 gap-y-2 text-sm text-muted mb-8">
+    <div class="flex flex-wrap gap-x-8 gap-y-2 text-xs text-muted mb-8">
       <span>Tool Design, Shader Development</span>
       <span>2026년 2월 (4일)</span>
       <span>개인 프로젝트</span>
@@ -76,28 +85,24 @@
       <span class="px-2 py-1 rounded border border-border">Vanilla JavaScript</span>
       <span class="px-2 py-1 rounded border border-border">Canvas 2D API</span>
     </div>
-    <div class="flex gap-4 mb-12">
-      <a href="https://github.com/tomlim2/matcap-painter" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-sm text-muted hover:text-white transition"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>GitHub</a>
-      <a href="https://tomlim2.github.io/matcap-painter/" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-sm text-muted hover:text-white transition"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>Live Demo</a>
-    </div>
 
     <!-- Motivation -->
-    <section class="mb-12">
+    <section class="mb-16">
       <h2 class="text-xl font-bold mb-4">동기</h2>
       <p class="text-muted leading-relaxed">회사 NPR 캐릭터에 <strong class="text-white">금속 질감과 머리카락 광택</strong>을 내기 위한 페이크 리플렉션 마스크용 Matcap 텍스처가 필요했다. 기존 워크플로우는 포토샵에서 수작업 → 엔진 임포트 → 확인 → 안 맞으면 다시 포토샵 반복. 결과를 보면서 실시간으로 조정할 수 없어 이터레이션이 느렸다.</p>
     </section>
 
     <!-- Solution -->
-    <section class="mb-12">
+    <section class="mb-16">
       <h2 class="text-xl font-bold mb-4">해결</h2>
 
       <div class="grid md:grid-cols-2 gap-6 mb-6">
         <div class="bg-surface rounded-lg border border-border p-5">
-          <h3 class="font-medium mb-2">Shader Mode — 처음부터 만들 때</h3>
+          <h3 class="font-medium mb-3">Shader Mode — 처음부터 만들 때</h3>
           <p class="text-muted text-sm leading-relaxed">Blender Color Ramp 스타일 UI로 Toon Ramp, Specular 하이라이트, Outline을 실시간 조절. 밴드 수와 경계를 드래그하면 3D 프리뷰에 즉시 반영.</p>
         </div>
         <div class="bg-surface rounded-lg border border-border p-5">
-          <h3 class="font-medium mb-2">Paint Mode — 기존 것을 편집할 때</h3>
+          <h3 class="font-medium mb-3">Paint Mode — 기존 것을 편집할 때</h3>
           <p class="text-muted text-sm leading-relaxed">오픈소스 라이브러리(nidorx/matcaps)에서 큐레이션한 229개 프리셋을 기반으로, 8레이어 포토샵 스타일로 비파괴 편집. HSV, 콘트라스트, Lift를 조정하면서 실시간 결과 확인.</p>
         </div>
       </div>
@@ -110,7 +115,7 @@
     </section>
 
     <!-- Result -->
-    <section class="mb-12">
+    <section class="mb-16">
       <h2 class="text-xl font-bold mb-4">결과</h2>
       <div class="overflow-x-auto">
         <table class="w-full text-sm">
@@ -137,7 +142,7 @@
     <hr class="border-border mb-12">
 
     <!-- Technical Details -->
-    <section class="mb-12">
+    <section class="mb-16">
       <h2 class="text-xl font-bold mb-6">기술 상세</h2>
 
       <div class="space-y-3">

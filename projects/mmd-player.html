@@ -16,9 +16,12 @@
             bg: '#080808',
             surface: '#111113',
             border: '#2a2b2f',
-            muted: '#6e7279',
+            muted: '#a8adb6',
             sub: '#b0b4ba',
             accent: '#7c8aff',
+          },
+          fontSize: {
+            sm: '1.05rem',
           },
           fontFamily: {
             sans: ['Noto Sans KR', 'system-ui', 'sans-serif'],
@@ -30,7 +33,7 @@
   <link rel="icon" href="../favicon.gif" type="image/gif">
   <link rel="stylesheet" href="../css/style.css">
 </head>
-<body class="bg-bg text-[#f0f0f0]">
+<body class="bg-bg text-[#dcdfe3]">
 
   <nav class="fixed top-0 w-full z-50 bg-bg/80 backdrop-blur-md">
     <div class="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
@@ -60,13 +63,18 @@
       VMD 재생 + 이펙트 데모 영상 — 6종 이펙트가 동작하는 모션 재생 화면
     </div>
 
-    <h1 class="text-4xl font-bold mb-3">MMD Player</h1>
+    <div class="flex items-center gap-4 mb-3">
+      <h1 class="text-4xl font-bold">MMD Player</h1>
+      <div class="flex gap-3 mt-2">
+        <a href="https://github.com/tomlim2/mmd-anju" target="_blank" rel="noopener" class="text-muted hover:text-white transition"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg></a>
+      </div>
+    </div>
 
-    <blockquote class="border-l-2 border-accent pl-4 text-muted mb-6">
+    <blockquote class="text-muted mb-6">
       모션이 캐릭터에 맞는지 미리 확인하고, 체형 차이를 자동 보정하는 WebGPU MMD 프리뷰 도구
     </blockquote>
 
-    <div class="flex flex-wrap gap-x-8 gap-y-2 text-sm text-muted mb-8">
+    <div class="flex flex-wrap gap-x-8 gap-y-2 text-xs text-muted mb-8">
       <span>Tool Design, Shader Development, Motion Analysis</span>
       <span>2026년 2~3월</span>
       <span>개인 프로젝트</span>
@@ -76,19 +84,16 @@
       <span class="px-2 py-1 rounded border border-border">TSL Shader</span>
       <span class="px-2 py-1 rounded border border-border">Vanilla JavaScript</span>
     </div>
-    <div class="flex gap-4 mb-12">
-      <a href="https://github.com/tomlim2/mmd-anju" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-sm text-muted hover:text-white transition"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>GitHub</a>
-    </div>
 
     <!-- Motivation -->
-    <section class="mb-12">
+    <section class="mb-16">
       <h2 class="text-xl font-bold mb-4">동기</h2>
       <p class="text-muted leading-relaxed mb-4">PMX→VRM 변환 파이프라인을 만들면서, 변환 전에 원본 모델과 모션이 제대로 동작하는지 확인할 도구가 필요했다. 임포트가 안 될 때 <strong class="text-white">PMX 원본 탓인지 VRM 컨버터 탓인지</strong> 가려내는 게 핵심 — PMX 자체에 텍스처 누락이나 본 결여가 있다면 컨버터 문제가 아니다.</p>
-      <p class="text-muted text-sm">사용자: 기획자, QA — TA뿐 아니라 비개발 직군이 직접 열어서 확인.</p>
+      <p class="text-muted text-sm leading-relaxed">사용자: 기획자, QA — TA뿐 아니라 비개발 직군이 직접 열어서 확인.</p>
     </section>
 
     <!-- Solution -->
-    <section class="mb-12">
+    <section class="mb-16">
       <h2 class="text-xl font-bold mb-4">해결</h2>
 
       <!-- Model families -->
@@ -125,11 +130,11 @@
       <!-- Precompute Effects -->
       <h3 class="font-medium mb-3">모션 연동 이펙트 — Precompute 실험</h3>
       <p class="text-muted text-sm leading-relaxed mb-4">VMD 모션 데이터에서 벡터 필드 등 CPU 기반 효과를 사전 계산하면 어떨지 실험. 결과가 매우 좋았다 — 가볍고, 모션 트랙만 있으면 이펙트 타이밍이 자동으로 잡힌다. 기획팀과 클라이언트팀에게 <strong class="text-white">"잘 움직인다"</strong>는 것을 보여주기 위한 POC.</p>
-      <p class="text-muted text-sm">6종: Foot Ripple, Spark Burst, Ground Reflect, Falling/Rising Light, Velocity Effect</p>
+      <p class="text-muted text-sm leading-relaxed">6종: Foot Ripple, Spark Burst, Ground Reflect, Falling/Rising Light, Velocity Effect</p>
     </section>
 
     <!-- Result -->
-    <section class="mb-12">
+    <section class="mb-16">
       <h2 class="text-xl font-bold mb-4">결과</h2>
       <div class="overflow-x-auto">
         <table class="w-full text-sm">
@@ -153,7 +158,7 @@
     <hr class="border-border mb-12">
 
     <!-- Technical Details -->
-    <section class="mb-12">
+    <section class="mb-16">
       <h2 class="text-xl font-bold mb-6">기술 상세</h2>
 
       <div class="space-y-3">

@@ -48,17 +48,88 @@
     lastScrollY = currentScrollY;
   });
 
-  // --- Swap lock icons if authed ---
+  // --- Lock/unlock logic ---
 
-  if (typeof Auth !== 'undefined' && Auth.isAuthed()) {
+  var UNLOCK_ICON = '<path d="M252.31-160h455.38q5.39 0 8.85-3.46t3.46-8.85v-375.38q0-5.39-3.46-8.85t-8.85-3.46H252.31q-5.39 0-8.85 3.46t-3.46 8.85v375.38q0 5.39 3.46 8.85t8.85 3.46Zm277.27-150.42Q550-330.85 550-360t-20.42-49.58Q509.15-430 480-430t-49.58 20.42Q410-389.15 410-360t20.42 49.58Q450.85-290 480-290t49.58-20.42ZM240-160v-400 400Zm12.31 60q-29.92 0-51.12-21.19Q180-142.39 180-172.31v-375.38q0-29.92 21.19-51.12Q222.39-620 252.31-620H540v-80q0-74.92 52.54-127.46Q645.08-880 720-880q74.92 0 127.46 52.54Q900-774.92 900-700h-60q0-50-35-85t-85-35q-50 0-85 35t-35 85v80h107.69q29.92 0 51.12 21.19Q780-577.61 780-547.69v375.38q0 29.92-21.19 51.12Q737.61-100 707.69-100H252.31Z"/>';
+
+  function unlockCards() {
     document.querySelectorAll('.card-locked').forEach(function (card) {
       card.classList.remove('card-locked');
     });
     document.querySelectorAll('.lock-icon').forEach(function (svg) {
-      svg.innerHTML = '<path d="M252.31-160h455.38q5.39 0 8.85-3.46t3.46-8.85v-375.38q0-5.39-3.46-8.85t-8.85-3.46H252.31q-5.39 0-8.85 3.46t-3.46 8.85v375.38q0 5.39 3.46 8.85t8.85 3.46Zm277.27-150.42Q550-330.85 550-360t-20.42-49.58Q509.15-430 480-430t-49.58 20.42Q410-389.15 410-360t20.42 49.58Q450.85-290 480-290t49.58-20.42ZM240-160v-400 400Zm12.31 60q-29.92 0-51.12-21.19Q180-142.39 180-172.31v-375.38q0-29.92 21.19-51.12Q222.39-620 252.31-620H540v-80q0-74.92 52.54-127.46Q645.08-880 720-880q74.92 0 127.46 52.54Q900-774.92 900-700h-60q0-50-35-85t-85-35q-50 0-85 35t-35 85v80h107.69q29.92 0 51.12 21.19Q780-577.61 780-547.69v375.38q0 29.92-21.19 51.12Q737.61-100 707.69-100H252.31Z"/>';
-      svg.setAttribute('fill', 'currentColor');
-      svg.setAttribute('viewBox', '0 -960 960 960');
-      svg.removeAttribute('stroke');
+      svg.innerHTML = UNLOCK_ICON;
+    });
+  }
+
+  if (typeof Auth !== 'undefined' && Auth.isAuthed()) {
+    unlockCards();
+  }
+
+  // --- Password modal for locked cards ---
+
+  var pwModal = document.getElementById('pw-modal');
+  var pwInput = document.getElementById('pw-input');
+  var pwSubmit = document.getElementById('pw-submit');
+  var pwError = document.getElementById('pw-error');
+  var pendingHref = null;
+
+  if (pwModal) {
+    // Intercept clicks on locked card placeholders
+    document.querySelectorAll('.card-locked .card-placeholder').forEach(function (placeholder) {
+      var link = placeholder.closest('a');
+      if (!link) return;
+      link.addEventListener('click', function (e) {
+        if (link.closest('.card-locked')) {
+          e.preventDefault();
+          pendingHref = link.getAttribute('href');
+          pwModal.classList.remove('hidden');
+          pwInput.value = '';
+          pwError.classList.add('hidden');
+          pwSubmit.disabled = false;
+          pwSubmit.textContent = 'Unlock';
+          setTimeout(function () { pwInput.focus(); }, 100);
+        }
+      });
+    });
+
+    // Close modal on backdrop click
+    pwModal.addEventListener('click', function (e) {
+      if (e.target === pwModal) {
+        pwModal.classList.add('hidden');
+        pendingHref = null;
+      }
+    });
+
+    function tryUnlock() {
+      var password = pwInput.value;
+      if (!password) return;
+      pwSubmit.disabled = true;
+      pwSubmit.textContent = '...';
+
+      // Verify by fetching and decrypting the target page
+      var testUrl = pendingHref || 'projects/character-system.html';
+      fetch(testUrl).then(function (r) { return r.text(); }).then(function (html) {
+        var match = html.match(/<script id="encrypted-data"[^>]*>([\s\S]*?)<\/script>/);
+        if (!match) throw new Error('no data');
+        return Auth.decrypt(match[1], password);
+      }).then(function () {
+        // Password correct
+        Auth.setAuthed(password);
+        unlockCards();
+        pwModal.classList.add('hidden');
+        if (pendingHref) window.location.href = pendingHref;
+      }).catch(function () {
+        pwError.classList.remove('hidden');
+        pwSubmit.disabled = false;
+        pwSubmit.textContent = 'Unlock';
+        pwInput.value = '';
+        pwInput.focus();
+      });
+    }
+
+    pwSubmit.addEventListener('click', tryUnlock);
+    pwInput.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') tryUnlock();
     });
   }
 

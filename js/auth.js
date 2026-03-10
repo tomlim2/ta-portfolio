@@ -138,6 +138,7 @@ var Auth = (function () {
     encrypt: encrypt,
     decrypt: decrypt,
     isAuthed: isAuthed,
+    setAuthed: setAuthed,
     initProtectedPage: initProtectedPage
   };
 })();
