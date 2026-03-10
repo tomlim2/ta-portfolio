@@ -74,6 +74,17 @@
   var pendingHref = null;
 
   if (pwModal) {
+    // Auto-open modal if redirected from a locked subpage
+    var urlParams = new URLSearchParams(window.location.search);
+    var unlockTarget = urlParams.get('unlock');
+    if (unlockTarget) {
+      pendingHref = unlockTarget;
+      pwModal.classList.remove('hidden');
+      setTimeout(function () { pwInput.focus(); }, 100);
+      // Clean up URL
+      history.replaceState(null, '', window.location.pathname + window.location.hash);
+    }
+
     // Intercept clicks on locked card placeholders
     document.querySelectorAll('.card-locked .card-placeholder').forEach(function (placeholder) {
       var link = placeholder.closest('a');

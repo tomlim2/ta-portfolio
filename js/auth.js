@@ -106,8 +106,12 @@ var Auth = (function () {
       return;
     }
 
-    // Show password gate
-    if (gateEl) gateEl.classList.remove('hidden');
+    // Not authed — redirect to index with unlock param
+    var currentPage = window.location.pathname;
+    // Build relative URL to index
+    var indexUrl = currentPage.replace(/\/projects\/.*$/, '/index.html');
+    window.location.href = indexUrl + '?unlock=' + encodeURIComponent(currentPage);
+    return;
 
     function tryDecrypt() {
       var password = passwordInput.value;
