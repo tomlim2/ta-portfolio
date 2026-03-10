@@ -204,6 +204,34 @@
     });
   });
 
+  // --- Avatar hover → tilt + scramble job title & name ---
+
+  var heroAvatar = document.getElementById('hero-avatar');
+  var avatarTargets = document.querySelectorAll('.avatar-scramble');
+
+  if (heroAvatar && avatarTargets.length) {
+    heroAvatar.addEventListener('mouseenter', function () {
+      heroAvatar.style.transform = 'rotate(20deg)';
+      avatarTargets.forEach(function (line) {
+        var en = line.getAttribute('data-en');
+        if (en) scrambleTo(line, en, 500);
+        if (line.classList.contains('md:-ml-[0.7rem]')) {
+          line.style.marginLeft = '0';
+        }
+      });
+    });
+    heroAvatar.addEventListener('mouseleave', function () {
+      heroAvatar.style.transform = 'rotate(0deg)';
+      avatarTargets.forEach(function (line) {
+        var ko = line.getAttribute('data-ko');
+        if (ko) scrambleTo(line, ko, 500);
+        if (line.classList.contains('md:-ml-[0.7rem]')) {
+          line.style.marginLeft = '';
+        }
+      });
+    });
+  }
+
   // --- Mobile hamburger menu toggle ---
 
   var hamburgerBtn = document.getElementById('hamburger-btn');
