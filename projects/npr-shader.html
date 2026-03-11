@@ -45,37 +45,311 @@
     </div>
   </nav>
 
-  <!-- Password Gate -->
-  <div id="auth-gate" class="hidden min-h-screen flex flex-col items-center justify-center px-6">
-    <div class="w-full max-w-sm">
-      <div class="flex items-center justify-center w-12 h-12 rounded-full bg-surface border border-border mb-6 mx-auto">
-        <svg class="w-5 h-5 text-muted" fill="currentColor" viewBox="0 -960 960 960">
-          <path d="M252.31-100q-29.92 0-51.12-21.19Q180-142.39 180-172.31v-375.38q0-29.92 21.19-51.12Q222.39-620 252.31-620H300v-80q0-74.92 52.54-127.46Q405.08-880 480-880q74.92 0 127.46 52.54Q660-774.92 660-700v80h47.69q29.92 0 51.12 21.19Q780-577.61 780-547.69v375.38q0 29.92-21.19 51.12Q737.61-100 707.69-100H252.31Zm0-60h455.38q5.39 0 8.85-3.46t3.46-8.85v-375.38q0-5.39-3.46-8.85t-8.85-3.46H252.31q-5.39 0-8.85 3.46t-3.46 8.85v375.38q0 5.39 3.46 8.85t8.85 3.46Zm277.27-150.42Q550-330.85 550-360t-20.42-49.58Q509.15-430 480-430t-49.58 20.42Q410-389.15 410-360t20.42 49.58Q450.85-290 480-290t49.58-20.42ZM360-620h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z"/>
-        </svg>
-      </div>
-      <p class="text-center text-muted text-sm mb-6">This project is under NDA.<br>Enter the password to view.</p>
-      <div class="flex gap-2">
-        <input id="auth-password" type="password" placeholder="Password" autocomplete="off"
-          class="flex-1 bg-surface border border-border rounded-lg px-4 py-2.5 text-sm text-white placeholder-muted focus:outline-none focus:border-accent transition">
-        <button id="auth-submit"
-          class="px-5 py-2.5 bg-white text-black text-sm font-medium rounded-lg hover:bg-white/90 transition">Unlock</button>
-      </div>
-      <p id="auth-error" class="hidden text-red-400 text-xs mt-3 text-center">Incorrect password</p>
-      <a href="../index.html#projects" class="block text-center text-muted text-xs mt-6 hover:text-white transition">&larr; Back to Projects</a>
+  <main class="max-w-4xl mx-auto px-6 pt-28 pb-24">
+
+
+    <div class="aspect-video bg-surface rounded-lg border border-border mb-12 flex items-center justify-center text-muted text-sm">
+      📷 뷰포트 캡처: PBR 배경(맵) 위 인하우스 NPR 캐릭터 전신 — 셀셰이딩 + 아웃라인 보이는 앵글
     </div>
-  </div>
 
-  <!-- Encrypted payload -->
-  <script id="encrypted-data" type="application/json">{"salt":"NrQudQ5323WxBugt6auGYg==","iv":"ncF5P9EGCukAwYM/","data":"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"}</script>
+    <h1 class="text-4xl font-bold mb-3">NPR Shader System</h1>
 
-  <!-- Decrypted content renders here -->
-  <main id="protected-content" class="hidden max-w-4xl mx-auto px-6 pt-28 pb-24"></main>
+    <blockquote class="text-muted mb-6">
+      메타휴먼에서 애니메 스타일로 전환 — PBR 배경 위에 NPR 캐릭터를 분리 렌더링, 인하우스와 VRM 양쪽에 4종 룩 적용
+    </blockquote>
+
+    <div class="flex flex-wrap gap-x-8 gap-y-2 text-xs text-muted mb-8">
+      <span>Shader Development, Look Development, Material System</span>
+      <span>2023~2024</span>
+      <span>회사 프로젝트</span>
+    </div>
+    <div class="flex flex-wrap gap-2 text-xs text-muted mb-12">
+      <span class="px-2 py-1 rounded border border-border">Unreal Engine 5</span>
+      <span class="px-2 py-1 rounded border border-border">Material Editor</span>
+      <span class="px-2 py-1 rounded border border-border">Post Process</span>
+      <span class="px-2 py-1 rounded border border-border">Stencil Buffer</span>
+      <span class="px-2 py-1 rounded border border-border">Custom Depth</span>
+      <span class="px-2 py-1 rounded border border-border">SDF</span>
+      <span class="px-2 py-1 rounded border border-border">Matcap</span>
+    </div>
+
+    <!-- Problem -->
+    <section class="mb-16">
+      <h2 class="text-xl font-bold mb-4">문제</h2>
+      <p class="text-muted leading-relaxed">프로젝트 초기 메타휴먼 기반 실사 렌더링에서 애니메 스타일로 전환이 결정됐다. PBR 배경은 유지하면서 캐릭터만 NPR로 렌더링해야 했고, 인하우스 캐릭터와 외부 VRM은 머티리얼 구조가 달라서 같은 방식으로는 양쪽 룩을 맞출 수 없었다.</p>
+    </section>
+
+    <!-- Solution -->
+    <section class="mb-16">
+      <h2 class="text-xl font-bold mb-4">해결</h2>
+      <p class="text-muted leading-relaxed mb-4">기존 플러그인과 셰이딩 기법을 조사해서 Cel Shading 기반 NPR 프로토타입을 만들었다. 이후 셰이더 전문 인력이 합류해 시스템을 확장했고, 해당 인력 퇴사 후 현재까지 기능 개발과 유지보수를 담당하고 있다.</p>
+      <p class="text-muted leading-relaxed mb-6">아트팀이 <strong class="text-white">Toon Ramp 텍스처만 교체하면 셰이딩 스타일이 바뀌는 구조</strong>로, 인하우스는 Custom Depth + Post Process, VRM은 Emissive + Inverted Hull로 나눠 4종 NPR 룩을 만들었다. 프로토타입에서 살아남은 핵심 노드는 SDF 얼굴 그림자와 Dot Product 기반 투톤 셰이딩이다.</p>
+    </section>
+
+    <!-- Result -->
+    <section class="mb-16">
+      <h2 class="text-xl font-bold mb-4">결과</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b border-border text-left">
+              <th class="py-3 pr-4 text-muted font-medium">항목</th>
+              <th class="py-3 text-muted font-medium">결과</th>
+            </tr>
+          </thead>
+          <tbody class="text-muted">
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">렌더링 전환</td><td class="py-3">메타휴먼 → 애니메 스타일 완전 전환</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">NPR 룩</td><td class="py-3">4종 — 아트팀이 Toon Ramp 교체로 스타일 변경 가능</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">머티리얼 규모</td><td class="py-3">698개 MI, 1,371개 텍스처</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">머티리얼 분리</td><td class="py-3">인하우스(툰 전용) + VRM(MToon 재구현) 각각 구축</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">배경 공존</td><td class="py-3">PBR 배경 + NPR 캐릭터 자연스럽게 공존</td></tr>
+            <tr><td class="py-3 pr-4 text-white font-medium">아트팀 협업</td><td class="py-3">시스템 구축 후 아트팀과 룩덱 작업</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <div class="aspect-video bg-surface rounded-lg border border-border mb-12 flex items-center justify-center text-muted text-sm">
+      📷 같은 캐릭터/같은 앵글 비교: 좌=메타휴먼 실사 / 우=NPR 애니메 스타일 (나란히 배치)
+    </div>
+
+    <hr class="border-border mb-12">
+
+    <!-- ===================== SHADER SHOWCASE ===================== -->
+
+    <!-- SDF Face Shadow -->
+    <section class="mb-16">
+      <h2 class="text-xl font-bold mb-4">SDF 얼굴 그림자</h2>
+      <p class="text-muted text-sm leading-relaxed mb-6">일반 NdotL로는 코, 눈두덩이 주변에 비직관적인 그림자가 생겨 얼굴이 깨진다. SDF(Signed Distance Field) 텍스처에 미리 구운 거리 정보로 그림자 경계를 제어하여, 어느 라이팅 각도에서든 얼굴 그림자가 자연스럽게 떨어지도록 만들었다.</p>
+
+      <div class="grid md:grid-cols-2 gap-4 mb-6">
+        <div class="aspect-video bg-surface rounded-lg border border-border flex items-center justify-center text-muted text-xs">
+          📷 SDF 텍스처 원본: 얼굴 거리 맵 (흑백 그라데이션, 텍스처 에디터에서 캡처)
+        </div>
+        <div class="aspect-video bg-surface rounded-lg border border-border flex items-center justify-center text-muted text-xs">
+          📷 얼굴 클로즈업 비교: 좌=NdotL 그림자(코/눈두덩이 깨짐) / 우=SDF 그림자(자연스러운 경계)
+        </div>
+      </div>
+
+      <div class="bg-surface rounded-lg border border-border overflow-hidden">
+        <div class="px-5 py-3 border-b border-border">
+          <span class="text-xs text-muted uppercase tracking-widest">Material Node Graph</span>
+        </div>
+        <div class="aspect-[21/9] flex items-center justify-center text-muted text-xs">
+          📷 머티리얼 에디터: SDF 텍스처 샘플 → Light Direction dot → 그림자 마스크 출력 노드 전체
+        </div>
+      </div>
+    </section>
+
+    <!-- Toon Shadow → Color Tone -->
+    <section class="mb-16">
+      <h2 class="text-xl font-bold mb-4">툰 그림자 → 컬러 톤 전환</h2>
+      <p class="text-muted text-sm leading-relaxed mb-4">프로젝트 특성상 AI가 3D 모델과 카메라를 자동 제어하는 환경이라, 라이팅 방향이나 카메라 구도가 기술적으로는 맞아도 연출적으로 안 예쁜 경우가 자주 생겼다.</p>
+
+      <div class="bg-surface rounded-lg border border-border p-5 mb-6">
+        <p class="text-muted text-sm leading-relaxed mb-3"><strong class="text-white">문제</strong> — 밝고 행복한 씬에서 빛이 캐릭터 뒤에서 비추면, 투톤 그림자가 캐릭터를 "사악하고 음모를 꾸미는 듯한" 느낌으로 만들어버림. AI는 어디가 예쁘고 어디가 안 예쁜지 판단 불가.</p>
+        <p class="text-muted text-sm leading-relaxed"><strong class="text-white">해결</strong> — 투톤 그림자를 끄고, 날씨/환경에 맞는 컬러 톤 변형 방식으로 전환. 라이팅 방향에 관계없이 캐릭터가 깨지지 않는 구조.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-4 mb-6">
+        <div class="aspect-video bg-surface rounded-lg border border-border flex items-center justify-center text-muted text-xs">
+          📷 뷰포트: 역광 씬에서 투톤 그림자 ON — 얼굴에 강한 명암 분리, 분위기 안 맞는 예시
+        </div>
+        <div class="aspect-video bg-surface rounded-lg border border-border flex items-center justify-center text-muted text-xs">
+          📷 뷰포트: 동일 역광 씬에서 컬러 톤 방식 — 그림자 없이 안정적인 컬러 톤
+        </div>
+      </div>
+    </section>
+
+    <!-- Toon Ramp System -->
+    <section class="mb-16">
+      <h2 class="text-xl font-bold mb-4">Toon Ramp 시스템</h2>
+      <p class="text-muted text-sm leading-relaxed mb-6">NdotL 값을 1D 텍스처(그라데이션 맵)의 UV로 사용. 텍스처를 바꾸면 셰이딩 스타일이 바뀜 — 아티스트가 코드 수정 없이 룩을 조정할 수 있는 핵심 구조.</p>
+
+      <div class="bg-surface rounded-lg border border-border overflow-hidden mb-6">
+        <div class="px-5 py-3 border-b border-border">
+          <span class="text-xs text-muted uppercase tracking-widest">Material Node Graph</span>
+        </div>
+        <div class="aspect-[21/9] flex items-center justify-center text-muted text-xs">
+          📷 머티리얼 에디터: NdotL 계산 → 1D Toon Ramp 텍스처 샘플 → Base Color 출력 노드 전체
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-4 gap-3">
+        <div class="aspect-square bg-surface rounded-lg border border-border flex items-center justify-center text-muted text-xs text-center px-2">📷 Ramp A 적용 캐릭터</div>
+        <div class="aspect-square bg-surface rounded-lg border border-border flex items-center justify-center text-muted text-xs text-center px-2">📷 Ramp B 적용 캐릭터</div>
+        <div class="aspect-square bg-surface rounded-lg border border-border flex items-center justify-center text-muted text-xs text-center px-2">📷 Ramp C 적용 캐릭터</div>
+        <div class="aspect-square bg-surface rounded-lg border border-border flex items-center justify-center text-muted text-xs text-center px-2">📷 Ramp D 적용 캐릭터</div>
+      </div>
+    </section>
+
+    <hr class="border-border mb-12">
+
+    <!-- ===================== BASE MATERIAL 3종 ===================== -->
+
+    <section class="mb-16">
+      <h2 class="text-xl font-bold mb-4">베이스 머티리얼 3종</h2>
+      <p class="text-muted text-sm leading-relaxed mb-8">인하우스와 VRM은 머티리얼 구조가 근본적으로 다르고, VRM 안에서도 실사/비실사 파트가 혼재한다. 이를 해결하기 위해 세 종류의 베이스 머티리얼을 각각 구축했다.</p>
+
+      <!-- 1. In-house Toon -->
+      <div class="mb-12">
+        <h3 class="text-lg font-bold mb-3">1. 인하우스 툰</h3>
+        <p class="text-muted text-sm leading-relaxed mb-4">규약 없이 자유롭게 설계한 툰 전용 머티리얼. Custom Depth 버퍼로 캐릭터를 분리하고, Post Process에서 NPR 스타일로 다시 그린다. Inverted Hull로는 불가능한 내부 아웃라인(머리카락 갈래, 옷 주름 경계)까지 표현 가능.</p>
+
+        <div class="grid md:grid-cols-2 gap-4 mb-4">
+          <div class="aspect-video bg-surface rounded-lg border border-border flex items-center justify-center text-muted text-xs">
+            📷 뷰포트: 인하우스 캐릭터 툰 렌더링 — 셀셰이딩 + 아웃라인 전신
+          </div>
+          <div class="aspect-video bg-surface rounded-lg border border-border flex items-center justify-center text-muted text-xs">
+            📷 뷰포트: Custom Depth 버퍼 시각화 or 내부 아웃라인 클로즈업(머리카락 갈래, 옷 주름)
+          </div>
+        </div>
+
+        <div class="bg-surface rounded-lg border border-border overflow-hidden">
+          <div class="px-5 py-3 border-b border-border">
+            <span class="text-xs text-muted uppercase tracking-widest">Material Node Graph — 인하우스 Post Process NPR</span>
+          </div>
+          <div class="aspect-[21/9] flex items-center justify-center text-muted text-xs">
+            📷 머티리얼 에디터: Post Process Material — Custom Depth 마스킹 → SceneTexture Base Color → NPR 리라이팅 노드 전체
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. VRM Toon -->
+      <div class="mb-12">
+        <h3 class="text-lg font-bold mb-3">2. VRM 툰</h3>
+        <p class="text-muted text-sm leading-relaxed mb-4">MToon 규약에 정해진 플래그, 파라미터, 텍스처를 기반으로 — 베이스컬러, 색 파라미터, ToD, 엔진 색보정 노드만 남기고 새로 정리하여 구현. 비실사 파트를 Emissive 노드로 NPR 표현하고, 아웃라인은 Inverted Hull로 처리.</p>
+
+        <div class="grid md:grid-cols-2 gap-4 mb-4">
+          <div class="aspect-video bg-surface rounded-lg border border-border flex items-center justify-center text-muted text-xs">
+            📷 뷰포트: VRM 캐릭터 툰 렌더링 결과 — Emissive NPR + Inverted Hull 아웃라인
+          </div>
+          <div class="aspect-video bg-surface rounded-lg border border-border flex items-center justify-center text-muted text-xs">
+            📷 비교: 좌=VRM4U MToon 기본 렌더링 / 우=재구현 MToon(ToD, 색보정 적용)
+          </div>
+        </div>
+
+        <div class="bg-surface rounded-lg border border-border overflow-hidden">
+          <div class="px-5 py-3 border-b border-border">
+            <span class="text-xs text-muted uppercase tracking-widest">Material Node Graph — VRM Emissive NPR</span>
+          </div>
+          <div class="aspect-[21/9] flex items-center justify-center text-muted text-xs">
+            📷 머티리얼 에디터: VRM 툰 머티리얼 — MToon 파라미터 → Emissive 채널 NPR 출력 노드 전체
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. VRM PBR -->
+      <div>
+        <h3 class="text-lg font-bold mb-3">3. VRM PBR</h3>
+        <p class="text-muted text-sm leading-relaxed mb-4">VRM 캐릭터의 실사 파트(피부, 눈동자, 액세서리 등)에 사용하는 PBR 전용 머티리얼. BaseColor·Normal·Roughness 등 표준 PBR 텍스처를 사용하여, 하나의 VRM 캐릭터 안에서 툰 파트와 실사 파트가 자연스럽게 공존한다.</p>
+
+        <div class="grid md:grid-cols-3 gap-4 mb-4">
+          <div class="aspect-video bg-surface rounded-lg border border-border flex items-center justify-center text-muted text-xs text-center px-2">📷 VRM 캐릭터: 툰 파트만 렌더링 (비실사 부분)</div>
+          <div class="aspect-video bg-surface rounded-lg border border-border flex items-center justify-center text-muted text-xs text-center px-2">📷 VRM 캐릭터: PBR 파트만 렌더링 (실사 부분)</div>
+          <div class="aspect-video bg-surface rounded-lg border border-border flex items-center justify-center text-muted text-xs text-center px-2">📷 VRM 캐릭터: 툰+PBR 합성 최종 결과</div>
+        </div>
+
+        <div class="bg-surface rounded-lg border border-border overflow-hidden">
+          <div class="px-5 py-3 border-b border-border">
+            <span class="text-xs text-muted uppercase tracking-widest">Material Node Graph — VRM PBR</span>
+          </div>
+          <div class="aspect-[21/9] flex items-center justify-center text-muted text-xs">
+            📷 머티리얼 에디터: VRM PBR 머티리얼 — BaseColor/Normal/Roughness 텍스처 연결 노드 전체
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="border-border mb-12">
+
+    <!-- ===================== ADDITIONAL TECHNIQUES ===================== -->
+
+    <!-- Matcap Reflection -->
+    <section class="mb-16">
+      <h2 class="text-xl font-bold mb-4">Matcap 리플렉션</h2>
+      <p class="text-muted text-sm leading-relaxed mb-6">NPR 환경에서는 PBR 리플렉션이 어울리지 않는다. Matcap 텍스처로 뷰 기반 반사를 구현하여, 머리카락 하이라이트나 피부 광택 등 NPR 스타일에 맞는 리플렉션을 적용했다.</p>
+
+      <div class="grid md:grid-cols-2 gap-4 mb-6">
+        <div class="aspect-video bg-surface rounded-lg border border-border flex items-center justify-center text-muted text-xs">
+          📷 뷰포트: Matcap OFF — 머리카락/피부에 하이라이트 없음
+        </div>
+        <div class="aspect-video bg-surface rounded-lg border border-border flex items-center justify-center text-muted text-xs">
+          📷 뷰포트: Matcap ON — 머리카락 하이라이트, 피부 광택 반사 보이는 동일 앵글
+        </div>
+      </div>
+
+      <div class="bg-surface rounded-lg border border-border overflow-hidden">
+        <div class="px-5 py-3 border-b border-border">
+          <span class="text-xs text-muted uppercase tracking-widest">Material Node Graph</span>
+        </div>
+        <div class="aspect-[21/9] flex items-center justify-center text-muted text-xs">
+          📷 머티리얼 에디터: ViewDirection → Transform → Matcap 텍스처 UV 변환 → 리플렉션 출력 노드 전체
+        </div>
+      </div>
+    </section>
+
+    <!-- Mask Tattoo -->
+    <section class="mb-16">
+      <h2 class="text-xl font-bold mb-4">마스크 기반 타투</h2>
+      <p class="text-muted text-sm leading-relaxed mb-6">아티스트가 마스크 텍스처를 그리면 캐릭터 피부 위에 타투가 렌더링되는 시스템. 마스크 채널별로 독립 타투를 제어할 수 있어 조합의 자유도가 높다.</p>
+
+      <div class="grid md:grid-cols-3 gap-4 mb-6">
+        <div class="aspect-video bg-surface rounded-lg border border-border flex items-center justify-center text-muted text-xs text-center px-2">
+          📷 텍스처 에디터: 마스크 텍스처 (R/G/B 채널별 타투 영역)
+        </div>
+        <div class="aspect-video bg-surface rounded-lg border border-border flex items-center justify-center text-muted text-xs text-center px-2">
+          📷 텍스처 에디터: 타투 텍스처 원본
+        </div>
+        <div class="aspect-video bg-surface rounded-lg border border-border flex items-center justify-center text-muted text-xs text-center px-2">
+          📷 뷰포트: 캐릭터 피부에 타투 적용된 결과
+        </div>
+      </div>
+
+      <div class="bg-surface rounded-lg border border-border overflow-hidden">
+        <div class="px-5 py-3 border-b border-border">
+          <span class="text-xs text-muted uppercase tracking-widest">Material Node Graph</span>
+        </div>
+        <div class="aspect-[21/9] flex items-center justify-center text-muted text-xs">
+          📷 머티리얼 에디터: 마스크 텍스처 ComponentMask → 타투 텍스처 Lerp 블렌딩 노드 전체
+        </div>
+      </div>
+    </section>
+
+    <hr class="border-border mb-12">
+
+    <!-- Technical Details (accordion) -->
+    <section class="mb-16">
+      <h2 class="text-xl font-bold mb-6">기술 상세</h2>
+
+      <div class="space-y-3">
+        <details class="bg-surface rounded-lg border border-border">
+          <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">NdotL (Normal dot Light)</summary>
+          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">표면 노멀 벡터와 라이트 방향의 내적. 값이 1이면 정면 조명, 0이면 경계, -1이면 뒷면. Cel Shading은 이 연속값을 단계별로 끊어서 2~3단계 밴드로 만든다.</div>
+        </details>
+        <details class="bg-surface rounded-lg border border-border">
+          <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">Inverted Hull Outline</summary>
+          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">메시를 복제 → 노멀 방향으로 확장 → 뒷면만 렌더링 → 외곽선처럼 보임. 3D 공간에서 동작하여 카메라 거리에 따라 자연스러운 두께 변화.</div>
+        </details>
+        <details class="bg-surface rounded-lg border border-border">
+          <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">Unreal Insights 프로파일링</summary>
+          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">Post Process 패스 비용 측정 및 최적화. GPU Visualizer로 NPR 패스가 전체 프레임 예산에서 차지하는 비중 확인.</div>
+        </details>
+      </div>
+    </section>
+
+    <!-- Prev/Next -->
+    <div class="flex justify-between items-center mt-16 pt-8 border-t border-border">
+      <a href="character-system.html" class="text-muted hover:text-white transition text-sm">&larr; Character System</a>
+      <a href="pmx-to-vrm.html" class="text-muted hover:text-white transition text-sm">PMX to VRM Pipeline &rarr;</a>
+    </div>
+
+  </main>
 
   <footer class="border-t border-border py-8 text-center text-muted text-xs">
     <p>&copy; 2026 Younsoo Lim. All rights reserved.</p>
   </footer>
 
-  <script src="../js/auth.js"></script>
   <script src="../js/main.js"></script>
 </body>
 </html>
