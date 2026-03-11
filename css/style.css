@@ -2,6 +2,10 @@ html {
   scroll-behavior: smooth;
 }
 
+#projects {
+  padding-top: 3rem;
+}
+
 nav {
   transition: transform 0.3s ease;
 }
