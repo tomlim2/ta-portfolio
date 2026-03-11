@@ -4,7 +4,7 @@ TA 포트폴리오 사이트. GitHub Pages + 커스텀 도메인 (ta.tommlimm.ne
 
 ## NDA 암호화 워크플로우
 
-회사 프로젝트 4개는 AES-256-GCM으로 암호화하여 배포. 비밀번호: `tools/PASSWORD.txt` 참조.
+NDA 프로젝트 3개는 AES-256-GCM으로 암호화하여 배포. 비밀번호: `cinev2026`
 
 ### 개발 중 (로컬)
 
@@ -31,12 +31,13 @@ git add -A && git commit
 
 CSS나 스타일 클래스를 수정할 때 **6개 서브페이지 모두** 적용할 것. 4개는 originals, 2개는 직접 수정.
 
-| 암호화 (originals) | 공개 (직접 수정) |
-|---------------------|-----------------|
-| `projects/originals/character-system.html` | `projects/matcap-painter.html` |
-| `projects/originals/megamelange.html` | `projects/mmd-player.html` |
-| `projects/originals/npr-shader.html` | |
-| `projects/originals/pmx-to-vrm.html` | |
+| 암호화 (originals → reencrypt) | 공개 (직접 수정) |
+|-------------------------------|-----------------|
+| `projects/originals/character-system.html` | `projects/npr-shader.html` |
+| `projects/originals/megamelange.html` | `projects/matcap-painter.html` |
+| `projects/originals/pmx-to-vrm.html` | `projects/mmd-player.html` |
+
+**주의:** `projects/originals/` 수정 후 커밋 전 반드시 `node tools/reencrypt.mjs cinev2026` 실행. NPR Shader는 NDA가 아니므로 originals 수정 시 `projects/npr-shader.html`에 직접 반영해야 한다.
 
 ### 파일 구조
 
