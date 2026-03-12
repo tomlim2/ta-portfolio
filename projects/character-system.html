@@ -86,13 +86,12 @@
 
 <div class="encrypted-block">
   <div class="encrypted-placeholder">🔒 비밀번호를 입력하면 볼 수 있습니다</div>
-  <script type="application/json" class="encrypted-payload">{"salt":"yJvD7N+GcSjkzrbUzujywQ==","iv":"OO+t23E+ZCJHHyzl","data":"zS0kvU8QY0WRXIZ1HAEspOTOIIJFiZh0MkpDPyM9WXmgLfE3oZum7xtlOGiZToxNerh2TiEjoM154XXzPQeHiwKWlB0Fp5fPrMkdYSFI683aFzwxGPmtwNEDhZQ/+SlUwT9VpWa//JEEHUpCP7p1Pcb7MMS4pwMbZN+yHHB0IyHXaZcVYWQ88N/yKD8X22KUUEAsVzP/bCMN+Th3o57yyigzK7TJbFvGnGSBG56CGHdBJ2BHej5jcJZswfS4bEpLsFuSsHfA36pL3G8dntU5ZucUa8EYwy/9exsgb5IUqF+jzdVyFidGCbSD63M79sHLeKSE+c7XCrWu8wr2fTfbxrXFVIWwQYrboxdkS60BhdUlK/5E4oXquIBvIv4Cq1gtFUyd5PIrtC6D8Ky18Vzi3QBcgFa6iDNB50+usvF18fLKjIzymwKTK7c0LIaOC4sXbw3f1nVY2rYy5uFi/iNkVtpM7duSAtLkcjob/pLfqAE+kBp80xoGzA3cbHPY0ybIe2M="}</script>
+  <script type="application/json" class="encrypted-payload">{"salt":"ZiF7uO90UtjKpZtvy9btMQ==","iv":"1A3W3mXunspm6xi2","data":"Qg1Dq3pedEvhV1/6G8XjLXSo7jvjSmTmvNxtPSwqe8h02V9xSlFwpJBBDwJWUFolnHUz73V41twktY47MXClqyxb8DMOI6uCRBUUmargHKYNps44zPYq257LMsvsHctNCJYElUzf1GeDXUl4W7WvFp0Xybj4eKSEIDyBRXwfEfLU7D5SNpexLrELm5aMFM+YVaILERmuyWku/Rrq3dtdrQH1RC5MoqrcuUeEsdLt4adtpidNrl18eByeQRnv1grAypvepehiGWXqabm3viHFXgZ98XKcfXtE579NQzvh2Fhir8S+IILHNllAINLZSxI4Qj0f9xk/6JCg2HlTyoRa2O9MgGHCclbyifTGq48FipojNPl3me36MVhPlvIqAf3YP76Boub7nt2cLGW4GQ6MK3BmD3+ZYvW+BoWirDa3/vZUf4Hrbt1JSES9rNbTOcmOG6LhYHkUDl2r9gCbaq/6fWSd/P46kGq3U48i3C2JlrYFjtRoo1R4C2rx25YOvqVosNk="}</script>
 </div>
 
-<div class="encrypted-block">
-  <div class="encrypted-placeholder">🔒 비밀번호를 입력하면 볼 수 있습니다</div>
-  <script type="application/json" class="encrypted-payload">{"salt":"YBZmn8cnFcZm+DAOhOgsQg==","iv":"c1cCC1hIfc/NJgGC","data":"t2tt9AO0qa5sHGxwcQslKn+LwGqb9WKnOBy4kyfCArDtmwZkDA6Sf4JoNwwCH1u5MDgjo1nvLbHg0tls3862X5B2RxMiQPMEGUGG0mBr0jxJkduQVUYGMzF4kzgkly4Ejtzq1kOXsOVXfgBVd/f7jsuE/3DNiPdkWaiVauE3WfXZYuDT7GnkQHNDmRi4Ff3CUVNU4qdvIoYTtpsu86L+f2V3FIwcKFKIlybtwMNwqtyklsf380VYRcEOB7FwfIU0hPTZWuDxd0g1MSlHJv4ch2xvYImzdw194rnoXCxDzE/EVQMSeUAEKVD9qQ=="}</script>
-</div>
+      <div class="mb-6 overflow-hidden">
+        <img src="../assets/images/character-system/editor-preview.png" alt="에디터 프리뷰 — 배경 위 NPR 캐릭터 배치 확인" class="w-full h-auto">
+      </div>
       <p class="text-muted text-sm leading-relaxed">BP_Basemodel_TF 하나에 세이브와 로드가 같이 들어 있었는데, 세이브 쪽이 물고 있는 레퍼런스 때문에 에디터를 열 때마다 30초씩 걸렸다. 세이브를 BP_Character_EnvCheck로 빼고 Basemodel_TF는 로드만 남겨서 <strong class="text-white">30초→6초</strong>로 줄였다. EnvCheck는 에디터 Tick Interface도 붙여서 게임 실행 없이 배경 위에서 바로 프리뷰할 수 있다. 외부 VRM은 Reference Points가 4단 폴백으로 얼굴을 찾아서 카메라 타겟과 썸네일까지 자동 처리.</p>
     </section>
 
@@ -170,7 +169,7 @@
           <p class="text-muted text-sm leading-relaxed mb-4">아티스트가 에디터에서 머리·헤어·바디 파츠를 조합하고 프리셋으로 저장. 에디터 Tick Interface로 게임을 실행하지 않아도 배경 위에서 캐릭터와 애니메이션을 바로 확인할 수 있다. 이 과정에서 생산된 Data Asset이 런타임의 입력이 된다.</p>
 <div class="encrypted-block">
   <div class="encrypted-placeholder">🔒 비밀번호를 입력하면 볼 수 있습니다</div>
-  <script type="application/json" class="encrypted-payload">{"salt":"VIF0fiMtcYZtYG1RvudPCw==","iv":"9UVWHy8WA5/kqecu","data":"Y9PFBF6762kWKMEYDmBRzdVsQp/WsrC0uzDj0vb87yWZQkkFVl9M8TluyG8fFmnRgERVJnpxtB3ehOCVSzColr6K0LdhMLdWNaCM1jlwA5JXHdbOHPuKnIswkyQCK/iVh36c+J89mQt6VpZtCDMYp4g72xCbp2XF2plB4SemnuFlvGQvus52YU+kDf03yWmQWv7pj4pdSmyKkq5Q7u35knDfULCfBDUATzIJKWnoixogP0zj3a+c4A4XWZbXRg=="}</script>
+  <script type="application/json" class="encrypted-payload">{"salt":"7jXSXF5WO/xa6UOaxUkr5A==","iv":"7YIENh+bq8frApuV","data":"ZxQKo4Y1zQhvWUzvCZJ9bUAhSG/XoYuwcIYnFV0pTkID7j1l+WHaTXYL7ra3m2u72GIsZG6CzTtz6D5JiTmsXZMqJto6mr+x62HmoZ5lc2ndxWoBiFvRum3sHk5+wKzFAPBxsPP1JdE9Maq6RLzn+VCSNe5SYkxwd2Djw7pfDFAY0eo/Ex7TxmYUDj8z3oYc7DZK8WeWrx8T0cADMmLKEgq42mc5njRZ8bRvXR5EjqZlE0zNSR7lcZF27yjInw=="}</script>
 </div>
         </div>
         <div class="bg-surface rounded-lg border border-border p-5">
@@ -178,7 +177,7 @@
           <p class="text-muted text-sm leading-relaxed mb-4">EnvCheck와는 별도 코드베이스로, CinevCharacter를 상속받는 런타임 캐릭터 BP. 자체 캐릭터는 EnvCheck가 생산한 Data Asset에서 파츠별로 비동기 로드(Head/Hair/Body 분리), 외부 VRM은 로더를 통해 통째로 로드. 같은 BP에서 처리하되 로드 경로만 분기하여 300개+ 자체 프리셋과 커뮤니티 캐릭터를 하나의 시스템으로 관리한다.</p>
 <div class="encrypted-block">
   <div class="encrypted-placeholder">🔒 비밀번호를 입력하면 볼 수 있습니다</div>
-  <script type="application/json" class="encrypted-payload">{"salt":"7lL9oRnxIiHU5nD79nv3vQ==","iv":"iT7UcC03vYgKOJto","data":"JzE4XoWEnMJxlxRwGIj6ysu/4hpwQVcT/cX9TeFDQUtoW+/UaWfj5muvGTmemwjNrygQarQgQQA/c3nxr4nApiPKL1DdaPdlDN+AHdC1GJhympCF8HWqnbYQCkOfHM6CIeuvSpiHkgTTAkrbQ/tVny3mfSOFtmnrPnsVMkaN30Usf6xx46k2sT8xOSrtTHfa0AAZD8DEcwLbzOWZmoq7mPgXfs46EVtEjmyQg1p2uqSnaCuQw9z83fQzQaVwtIZ7uROBFT9F4zVvLfgBlv5k"}</script>
+  <script type="application/json" class="encrypted-payload">{"salt":"rnMtA1EF4sp1nK34bRZZEg==","iv":"SqupQgsmHl5iopLY","data":"AssDUkTY0BD5lpP50YXdoST2Qt4j16/dDEMJW3lV1WHgH8gZUmn1hP+OJvJps1E5HEOXEDEb5AzHK780FzMAr8IUqprbZmOW6JmZgcqCGFUmgfEQR/YAd0A+c2bh+wrHUHuYUkQdKMA+yXlVXi4Gee841fQbLT1El1nWDheaR7O/A4ePKqICkrxD0X9fHXAaKqCAEafGHvhzwINTnE+af3IkaRqFZbmfB+Sc7B6IMtt7x90RtbZ8qUBE8wejjAruVBYEmjA4vCuxniKP1MAe"}</script>
 </div>
         </div>
         <div class="bg-surface rounded-lg border border-border p-5">
@@ -186,14 +185,14 @@
           <p class="text-muted text-sm leading-relaxed mb-4">VRM4U 플러그인에 작성한 C++ 모듈로, BP_Basemodel_TF의 VRM 정보 노드를 업데이트하는 역할. 외부 유저가 가져온 어떤 VRM/PMX든 4단 폴백으로 얼굴 위치를 자동 탐지하고, 그 결과를 카메라 타겟으로 사용하여 얼굴 클로즈업·상반신·전신 3앵글 썸네일을 자동 촬영한다. 커맨드렛 환경을 셋팅하여 에디터 없이 배치로 전체 캐릭터 썸네일을 일괄 생성할 수 있다. A포즈/T포즈도 자동 판별.</p>
 <div class="encrypted-block">
   <div class="encrypted-placeholder">🔒 비밀번호를 입력하면 볼 수 있습니다</div>
-  <script type="application/json" class="encrypted-payload">{"salt":"69fbKQTOw1mASc0m4Aws6g==","iv":"NH1sN65oJ1ih+D1+","data":"vMzluO73nPVQ7I0AziVmsHR8pCbALFyV4QoTQYkPRlqsWDa9pLCkMwnwGLEErfDcoX5UWRWH0DkwxDv+UI7aFL+i0Em7mfJq/yHxbREMcV+2uiUy+rJX4WHZw+NxB4xpNk5TMmG0FrxDu0HW3ufvIYwkvi9hpRVEdgrnO7TugVtErWE3b2EFMLWWATVGX8D6Aa2vxolZlKojlHNr8idQNrTquSd2Vh1sXIZH4NG8I+wNmdEZ31Dgr2aPUUycaqadlefO8IDysnoePPyYANIxHbw8GAinGEknT65wXXcd6VK4f/81z+jbf4/RigUr30mmcnVa5Jjf0N1YyImX3vLgz2QxAM7Qs0zTItq4YJccuBex+SkWb4IcEyzMIWpCRSqj6xXy6OcHiVK31jR+QoiGtcYMbgevmOUBUN93Xp+kog0FK7dlT0F+KTfkIAOb9+udr9ffcJfv0tTblAjve6ZHpwnnQhkasOE6l7HLcR0cUPWFtLmuwgo3jjdSD50KJt93puHol+hLGdvqo0eTq8k4eow3R/BuFVRgxEj3V4IqSHbK91g1DbwQ1ae8th4SN0GbM+dwRMNpBVQZ3clwWKtTWzJGxtmOpR7LIlnPP2p5lwrhSzGXnmngzj32YZSaM0CDSw=="}</script>
+  <script type="application/json" class="encrypted-payload">{"salt":"kKD2nlHWkS+DBBGPd4sH1g==","iv":"d2qlMQjXbHB9K4Dm","data":"aVAw/eTBPrMETg/5t5HnTEG872SPJo6xAzj4AhEaEBmzk8lWzufzamKN6MUIHD6MkXI6N0xrUoIoWqK/Sp0DENSPtZhlOBdOEs9zKueQALRmkFucWynOL68D0Qq7T62JLfiZPjcNGij6reA6NsicepOZoVN1iGnKkXrKxpriZwMF8kqWWqI4Bmt3rMZALMm/I3/CwqoTDsIKn6xvmsXVkrXM4htSf7x7QVUSEaZQS+h/K1N2GRWeV0vYvCLT/2uGW7G5aw4OqGllgvfnYEfictsXWXIPez+jzBKKa6Uo9QDzEJOVl8BQuuNt35pRIC1gUNl6TdynvV0juE3Ig/gu5hg8/59dgO6+oHB5Ydcgef+E/whAG5PCPmTM8nqlpUoxciJ+WSIavcWbBAIDXV/yVtNymFAWcSpgqs4ZIlorhHWjmH+8S328srNSUj3Zmc1RzMU/v0shGBgEeySjeC1Hz9g5EhU+R7m+aDJoKgofEXmJ9DtDNJNrCAtZCIRNtla/1SC/fsX/BCclBqu6H/e9FqbVaSThdPBhOjezMSL+kgkiBTtoG2Tt9PgoFdiVUbo+DXCNGkpm0r8OTpe/yFwGKa94ehzmX22ZL/LBel/RtdmkGFc1jKqexL6Gi4ItobyMqw=="}</script>
 </div>
         </div>
       </div>
 
 <div class="encrypted-block">
   <div class="encrypted-placeholder">🔒 비밀번호를 입력하면 볼 수 있습니다</div>
-  <script type="application/json" class="encrypted-payload">{"salt":"39yrZPf6QMfjsvQYO6h1GA==","iv":"Wc3O7JhDrzf7zPcZ","data":"j/2PFJrauzaxwCr3e7P402ahttdNUMt4il1Zv1W+qu5hxGI3Glaz2k9Rj9dOJBHlzMtSzZCqMKkozG+gSMJILb5BNrS8x7qh6ol4lhPpKvCFR8yBWOdReG0uf0+Edi6gwQ6NRqLbPANmbRrZv0NTD2JM4GYFUcvwig8n9rHsBmYprgTm5kO0ZiHz3WQMXAu+/RhuIooZjWe4BGux03B5RgF9lm3TM5OA3RPA23Xhr9PmuAgGgeNvFZXnOIwm787hzQ9wtUF1wZDsBrYM8/ILeue1opqAx0o="}</script>
+  <script type="application/json" class="encrypted-payload">{"salt":"AP2sHcoxkhPtEhsomGY6pQ==","iv":"J441rtlWZB0AzHrc","data":"nJPiOr1lPt3CA8tELEr+J2GsnMHXX585Oh0VsrM0EUAR+JIWHiFU8Sji9oy2fP6iyUcuOhu02u27ziYzR9fJztIrcTuueHDAk0xNVCdkjJGa0XUWHCsc/4STQqBjGKnWQ2S3hV3UzPe9/f6ZEEr5d8nHod4nF3G/Kygh+1oV9TuuT27F0gsq/2OWlRAQLAxNp1PyMCqAD4i7Ey1Bm5DtgBEKLxdi8hQ8G9aJtTyMteVlyZN0txBOb3q4f5PQ7OIq8bmtnwNMZwTEqeQy9CyK3pAAusYnatA="}</script>
 </div>
     </section>
 
@@ -227,7 +226,7 @@
           <div class="px-5 pb-4 text-muted text-sm leading-relaxed">분리형(자체 캐릭터)은 Data Asset에서 Head/Hair/Body 파츠를 따로따로 로드하고, 일체형(VRM/PMX)은 VRM4U 로더로 모델 통째로 올린다. 같은 BP에서 로드 경로만 갈라지고, 로드되면 스켈레탈 메시 컴포넌트를 전부 리셋해서 다시 붙인다.
 <div class="encrypted-block">
   <div class="encrypted-placeholder">🔒 비밀번호를 입력하면 볼 수 있습니다</div>
-  <script type="application/json" class="encrypted-payload">{"salt":"9MpZgF5xjGk4eEJL5+c4wA==","iv":"4txf5pZfieBz9qf2","data":"g/EUPb+itC6pDMEgs6Cxib6WF7Ry41rhmXOPln6lJHUtUf48Ayh7+Gx2NhHxTNvnSbIB925AbnmYZay1uT5/fpPIpOUgq77YiOjmmwmkzM1cQdq+ePPPmIiEqCya9Hw4QXwspnDCikTfACuChUjMp2aEz4U0Hz5hvCgBGICeGlU7Y5od/ikieL4YZI5qKRVOjy0uAMObmjTQGRHzrzH5P3mAzzop8pKrKXGclTqc5r3uKXOCcBFmn+n/Sm6Mhp8mpkJEk7A7TNsh/Y8wRAFQ6VBDQQdbAxAZqxFVoA=="}</script>
+  <script type="application/json" class="encrypted-payload">{"salt":"WSCi/W/++7bLhh+k6m/QOQ==","iv":"QUbOOuk1iNaVVn5x","data":"dE8dluxmaTtumlhMmHUYh1Zibt3migzvvWemzvRqeOeNwjP0LG26N3i2F5TQs+W6ObulFOzwD5t3aHoHRTrjW5XFN2BFnjngbjemUAERIzPDHGkLPhcml+P58oNkQrXvbB0/BwL+ZMROrZ8Ud9Wn+3VmD8E9FRO2eJmZJ4qhY7KpK5ssKraFZLi9yqr8qjicbSOrsO7Zk/GiKw6KvfwOT3oFwTeWP0vrwyZOR6ip1G3Of9IziidNFxO8mAZksNgVkKQixRaditwPrUIwTurzM1Qm00BNJjIUkLkqRA=="}</script>
 </div>
           </div>
         </details>
@@ -236,7 +235,7 @@
           <div class="px-5 pb-4 text-muted text-sm leading-relaxed">BP_Character_EnvCheck에 에디터 Tick Blueprint Interface를 구현하여 에디터 환경에서도 애니메이션 재생 가능. 아트 디렉터가 런타임 실행 없이 색감, 크기감, 애니메이션을 바로 확인 가능하여 피드백 루프 단축.
 <div class="encrypted-block">
   <div class="encrypted-placeholder">🔒 비밀번호를 입력하면 볼 수 있습니다</div>
-  <script type="application/json" class="encrypted-payload">{"salt":"Bp29TSxYGD1H3JkAu1yJng==","iv":"HVgmA2LcTZkn6QJi","data":"dA1xrt68vqFBBUCZTMxJ67fO/Ukvox1NJntQpEnUUOVrSDtxQeTnXk2gQNKHOaGeCmH8GWNwC5QHtSmWwtoTcR9danLXeeng+TmnbO+7/XXBQ3/m72nNFmqaMOwb22VfBDJf684Acn7fZJorFRZ5OwA0262LTYybzKXkmT+QYinXOK13RuiH329MBwwo0j1sQ42hXsmh341j8tRPybl2o7z+/eru9mDPdO1CQyMoHikJCJOTILaKHO21KUgjooRs+Mf/idgoPYpz+g=="}</script>
+  <script type="application/json" class="encrypted-payload">{"salt":"Etk8iItAMyarVdxVXoQuFQ==","iv":"isgOTOaTfLTuMxBP","data":"LiY53GpuMy10rZsezxx7Ybavgk95MY6rnc7FhxA96zqcDkG3glfEOSvPzIxCmUVbM+Z77VFLzqG7krCSYJoLWV73nwv2VdtiEyhVbDbnBgh9NRT0Vd+FdwRMecpJ3Ve6z98oU4TqYQZP6A5zeTYfMKWSOvVGg4+7WYNJ1OSY6ThnfsbjHsay5vvtvkdfRk4pnjoi1O8kvKJi+17jMFLjuxCrUQhXfh0A02FojWSsN4NTSAWEnWFE6kdsgxDJkGZ4eoJMaaCz92nJsA=="}</script>
 </div>
           </div>
         </details>
