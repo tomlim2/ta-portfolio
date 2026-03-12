@@ -86,7 +86,7 @@
 
 <div class="encrypted-block">
   <div class="encrypted-placeholder"><svg viewBox="0 -960 960 960"><path d="M252.31-100q-29.92 0-51.12-21.19Q180-142.39 180-172.31v-375.38q0-29.92 21.19-51.12Q222.39-620 252.31-620H300v-80q0-74.92 52.54-127.46Q405.08-880 480-880q74.92 0 127.46 52.54Q660-774.92 660-700v80h47.69q29.92 0 51.12 21.19Q780-577.61 780-547.69v375.38q0 29.92-21.19 51.12Q737.61-100 707.69-100H252.31Zm0-60h455.38q5.39 0 8.85-3.46t3.46-8.85v-375.38q0-5.39-3.46-8.85t-8.85-3.46H252.31q-5.39 0-8.85 3.46t-3.46 8.85v375.38q0 5.39 3.46 8.85t8.85 3.46Zm277.27-150.42Q550-330.85 550-360t-20.42-49.58Q509.15-430 480-430t-49.58 20.42Q410-389.15 410-360t20.42 49.58Q450.85-290 480-290t49.58-20.42ZM360-620h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z"/></svg></div>
-  <script type="application/json" class="encrypted-payload">{"salt":"ytmsI7jf/8C3Xb4cK0bUiQ==","iv":"2VDUUu6j8+o+Jvip","data":"/s/DHNsF+K0WSCX+tLY6x/fZi8PU4AvZJS95Vp0sOiOoo4yy2A3DHVTz4IRvEoqpFWc73LjJq58HHHPEMrXD01COcGfcr5rniXzclUxnX3SlI2PGOUHz4oVgICr780s1qQ3Yj5HJwaShjK7yyD2uLvw/PLgN6Ct9CHl1HpIV32SAOKxVSw7UI2cnb4N74touRDjjNx9BeKSv6VkfBA8FxiNSNFa6Tc0aaKBmrDIFDs+TxkVAXM6zad7w+QGMVD594JrFsgTrTI+sh6+uPQeX2mwuaP6ogSDxvEUIYjnELuJiSk8EPxsQXiPO/WJ9i/nEy7JOZGfCJ03URaqZZsQR98SRC/GuUR40xRKcHiamVtNotlxXwxxVbqqNufBA80wdR8nqB5JDwSqHOi1F+p/0iKwp8PP+fiBM1GCaZkZvqdby7mHC3JqHUb7tzQuuYuHqaoKSoMj+nWYe6QnK7sxa5LojcbqvXj6mmdnKAVZXDK5uyAHbC6HfMAOjCPjtQK7FXfc="}</script>
+  <script type="application/json" class="encrypted-payload">{"salt":"15HeHUpdw9U8OOwYTIIb/g==","iv":"ulo1zEWY6PLRlsMC","data":"g5hoII+Aw4ys0+fOSEEAIMq6BjpWZkKRZ+gm6ldDJZw/vNO4wATIjJDFbmxi4/pCi+LKn4xxgAA77q+HJ4UkHvc/HWXx002wA/eIz1PQiMSsbQ1xHkKIJWqom0Rn6Cb4ii1JmjaDX4CQLXRL5O3bI4cwbkfhNimi5SGfxMU3RWkVySkT3y3xRxUHm/ibotHt+Bf5gmw6XpTNyeoj0Wti+38WM/X24Ufh87M/AL56L43rTlSNcU3wCwlen7XISwDVZzbT/CHKevLNRUvwDyCKIraUKWrk4RVkVI8p0/QBUD1nINsQCDsz+VPwKY0zMnmhUUafVPsJ19cbM9AURS23VRnk+p1CtCMRjDlrViqvV2d0CIo3odq4Q/vZp6eiRE5tyPhBLx7SKF+7LB0CWbjsP1eeAqHGzyz+X0/08JPzpyMLk/bwaDWym1/tPUqCYDJvV8QrmmHfR4Ub8WPXDKp2m7V/wXlAfVrlLpT8bzk7+vHTYieAeohtIcBGruK5aPQ0+K4="}</script>
 </div>
 
       <div class="mb-6 overflow-hidden">
@@ -141,26 +141,10 @@
       <p class="text-muted text-sm leading-relaxed mb-6">세 독립 코드베이스가 Data Asset과 VRM 정보 노드로 연결되는 구조. 에디터(EnvCheck)가 Data Asset을 생산하면 런타임(Basemodel_TF)이 비동기로 로드하고, VRM Reference Points가 외부 모델의 정보를 런타임에 업데이트한다.</p>
 
 
-      <!-- System diagram -->
-      <div class="bg-surface rounded-lg border border-border p-5 mb-8">
-        <pre class="text-xs text-green-400 overflow-x-auto" tabindex="0" role="region" aria-label="시스템 구조 다이어그램"><code>[1] NPR Character Manager (C++ Plugin)
-    └─ BP_Character_EnvCheck ─── 에디터 (아티스트용)
-        ├─ 파츠 조합 (Head/Hair/Body)
-        ├─ 프리셋 저장 → Data Asset 생산
-        └─ 에디터 Tick → PIE 없이 프리뷰
-
-                    Data Asset ─────┐
-                                    ▼
-[2] BP_Basemodel_TF ─────────── 런타임 (CinevCharacter 상속)
-    ├─ 자체: Data Asset → 파츠별 비동기 로드
-    └─ 외부: VRM 로더 → 통째로 로드
-                    ▲
-                    │ VRM 정보 노드 업데이트
-                    │
-[3] VRM Reference Points ──── VRM4U 플러그인 (C++)
-    ├─ 4단 폴백 얼굴 탐지 (crown/eyes/mouth/nose)
-    └─ 카메라 타겟 + 썸네일 자동 촬영</code></pre>
-      </div>
+<div class="encrypted-block">
+  <div class="encrypted-placeholder"><svg viewBox="0 -960 960 960"><path d="M252.31-100q-29.92 0-51.12-21.19Q180-142.39 180-172.31v-375.38q0-29.92 21.19-51.12Q222.39-620 252.31-620H300v-80q0-74.92 52.54-127.46Q405.08-880 480-880q74.92 0 127.46 52.54Q660-774.92 660-700v80h47.69q29.92 0 51.12 21.19Q780-577.61 780-547.69v375.38q0 29.92-21.19 51.12Q737.61-100 707.69-100H252.31Zm0-60h455.38q5.39 0 8.85-3.46t3.46-8.85v-375.38q0-5.39-3.46-8.85t-8.85-3.46H252.31q-5.39 0-8.85 3.46t-3.46 8.85v375.38q0 5.39 3.46 8.85t8.85 3.46Zm277.27-150.42Q550-330.85 550-360t-20.42-49.58Q509.15-430 480-430t-49.58 20.42Q410-389.15 410-360t20.42 49.58Q450.85-290 480-290t49.58-20.42ZM360-620h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z"/></svg></div>
+  <script type="application/json" class="encrypted-payload">{"salt":"FhN+iE4TcLQ1J8jx3OhXVw==","iv":"Q3drfI8ONBzza+aO","data":"/ZCxMUGD5+7dfYflpGd9l2rSOHUwTxlK/dOHXp3sYAaPlaMehZGJBBwlRPKFfvpcLjDOvm8RpfRX8p4fdn91CxRIgZL6MUyjhPe6QJgHbYgQPwGlpMRBT8gO60wc+mKNtW5rTHw+zS832eh1KAmL4HG+l8tmP0ODwBZXrBzdyV4EcnadgpoGb/OjZFPo9+5Gght5zeGoRP2gNywTreYjT4pK4SMEV9+9NeQwvDAL4i1HMfR2aM+w04jwEACnbigwqqOx1hhMV5JUTkwjO2kbM9QsSZOLAeOu5onOBAAE36Y4VpMsBh7o22r0PmX5mdNCSXv+yg4aWEyJIQ/W+RVR0VQnlnv1QwcbsynVYjYcFAFJ1bRjhjuKnZXyq/9re7aZhaGT5XhM2MuP1CBUUY6VzC9XsKhujQDjpnKva7DOl3kx/oo3m2EOVhF+2s/UZ238eD28AiKNbHCWz+niFctj5qMfwGbe6ujcYe/IHxI+BbtiqBFrDFzDf+YitZUM2Ok3U0+0PuoYhL3u2vEStyflVHIXiBYvUyO8HbCjdLtFtfg5ICNI/UTWSiPoPBI760d5Yq4rxzMXZqu1SR+T5jfb/GP/WE4zT75CaO/dQPj9qG6/ITZ9VqscYzM03NIs1wrYMleQl7jubOYk8iINXdqKr2fsZlVqf5PgC5+tOfPkVsSEN7tB19PsCTXD9oz6oNky+bLP4SEuGWpQWJgECXpOIZJevGKqnUAvdXuvB/6AFxtDg9qAH0GSbqA7skchClXR3vKC+sB1RRq5z8jT62VM0G+74STiprZsqqNcfrnbDYN2/AgPFrDtBBVJC4ho0jMofInwkv61jFEAoQ/bQjyH8mHVJw49nsJCjy/Qh6eW/BvSK5nF5VTBGwIRh6qPM1gfLQbtjm57dn3LpQDWF7oALYq0WFjiQ3Vjw+QMZGYDcN3cbf9a1OrG6hiZzy/SBmyoiZLI6xGU29ypvFaT8Kpm4lPmjznifZgWupMFS43HdGA3Ir2zu+G80fWyNabXHda3g5CZDoKSSS+AZsPB8ruXbFP71Imis5to6DxtH+SIhuc6KMFZFTiGdbW/BVH2Y1r03O5hPUStbSonZwPtfoM2OLUZlx4W1oXept1AhJLe44zg5WsLCGKops7uJs9XGB/in1DGEY6LM1rOp1glbJ2ZevBsXl0ZXmg7dwt8flx0Z/XpkEdLavwMkoG8kvp8iC7EcrCbS39WErXE/d4Qf01sQQTqEBV1w8zpzwmTKktxh/ipBDsgBt/9JkJYYXA2R+NfGezLK/00qJT7vt5DO15UKmJF0Enya0YWdEyBxj/6HZQdafpptVthHa75VO89Rxhc3/LigbZhf+r8HH0e36kk+eFLNmLPkTf559Dt0s07yOcUS1hFgZSEbuPv1bwuzffHynTHIlIRlcflLS60maeiWfBYa2Ew0x+u2MaTko0Uof4ZW14Q+mLWurjI+tzOHmFVdtcSxv8OBjtnA7a7UfHrE+Q="}</script>
+</div>
 
       <!-- Three components -->
       <div class="space-y-4 mb-6">
@@ -169,7 +153,7 @@
           <p class="text-muted text-sm leading-relaxed mb-4">아티스트가 에디터에서 머리·헤어·바디 파츠를 조합하고 프리셋으로 저장. 에디터 Tick Interface로 게임을 실행하지 않아도 배경 위에서 캐릭터와 애니메이션을 바로 확인할 수 있다. 이 과정에서 생산된 Data Asset이 런타임의 입력이 된다.</p>
 <div class="encrypted-block">
   <div class="encrypted-placeholder"><svg viewBox="0 -960 960 960"><path d="M252.31-100q-29.92 0-51.12-21.19Q180-142.39 180-172.31v-375.38q0-29.92 21.19-51.12Q222.39-620 252.31-620H300v-80q0-74.92 52.54-127.46Q405.08-880 480-880q74.92 0 127.46 52.54Q660-774.92 660-700v80h47.69q29.92 0 51.12 21.19Q780-577.61 780-547.69v375.38q0 29.92-21.19 51.12Q737.61-100 707.69-100H252.31Zm0-60h455.38q5.39 0 8.85-3.46t3.46-8.85v-375.38q0-5.39-3.46-8.85t-8.85-3.46H252.31q-5.39 0-8.85 3.46t-3.46 8.85v375.38q0 5.39 3.46 8.85t8.85 3.46Zm277.27-150.42Q550-330.85 550-360t-20.42-49.58Q509.15-430 480-430t-49.58 20.42Q410-389.15 410-360t20.42 49.58Q450.85-290 480-290t49.58-20.42ZM360-620h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z"/></svg></div>
-  <script type="application/json" class="encrypted-payload">{"salt":"cI5pZUiuhtgKDgJ83OZGaw==","iv":"wDME32JkBJCqcFEt","data":"Ib2VPyUwxWPq5dJoHp9pkTQZTrC8rHuxf7U5jA+pG4c/i8C9rV+MMWa2QiXPOXMEUeRQbRAcYp68/mYvMLbnvrf3vk1FCgoHlC79tUeU4bO1Kz0JE+7R81bNuoXI+fmnoOOuJ3OK0DRPQuLXdap6B+24P8uMnrebEu10KUOHVSZKtyGO3G6t22tzUk9aqT9TLyWvmCHe/Z+ROWkwMWpRTKfXMjD1rAblIOMaEizx49Rx4qQs1Oi2bKKNCUJ+Ew=="}</script>
+  <script type="application/json" class="encrypted-payload">{"salt":"WTi7uWe2wiZh+4qf5RXz3A==","iv":"hugNuBGK++UsJ8EN","data":"Z9M9HsRiKR39SDgt+JgjMQbHQdNl5Rx8ASmztAiic1NzhqT1SCJr3/C5kAlrVlC6TxVSFX+jiaKuP6wufEQ9s6I08ewtAx0F3XTRq9TvCwM1wLsBn//4tQBpqSCEV86EqL6i3IKAr2j8bR4jLhm/iZYqeAq4KelZbMxjLogTtzI0VJBOhw6SZwItEevOJQXBuuapPT4OptsBPFukOLQIpTTQdGEUHFI7I9II9yqprcFZRMKySS1FttI/h2LV0g=="}</script>
 </div>
         </div>
         <div class="bg-surface rounded-lg border border-border p-5">
@@ -177,7 +161,7 @@
           <p class="text-muted text-sm leading-relaxed mb-4">EnvCheck와는 별도 코드베이스로, CinevCharacter를 상속받는 런타임 캐릭터 BP. 자체 캐릭터는 EnvCheck가 생산한 Data Asset에서 파츠별로 비동기 로드(Head/Hair/Body 분리), 외부 VRM은 로더를 통해 통째로 로드. 같은 BP에서 처리하되 로드 경로만 분기하여 300개+ 자체 프리셋과 커뮤니티 캐릭터를 하나의 시스템으로 관리한다.</p>
 <div class="encrypted-block">
   <div class="encrypted-placeholder"><svg viewBox="0 -960 960 960"><path d="M252.31-100q-29.92 0-51.12-21.19Q180-142.39 180-172.31v-375.38q0-29.92 21.19-51.12Q222.39-620 252.31-620H300v-80q0-74.92 52.54-127.46Q405.08-880 480-880q74.92 0 127.46 52.54Q660-774.92 660-700v80h47.69q29.92 0 51.12 21.19Q780-577.61 780-547.69v375.38q0 29.92-21.19 51.12Q737.61-100 707.69-100H252.31Zm0-60h455.38q5.39 0 8.85-3.46t3.46-8.85v-375.38q0-5.39-3.46-8.85t-8.85-3.46H252.31q-5.39 0-8.85 3.46t-3.46 8.85v375.38q0 5.39 3.46 8.85t8.85 3.46Zm277.27-150.42Q550-330.85 550-360t-20.42-49.58Q509.15-430 480-430t-49.58 20.42Q410-389.15 410-360t20.42 49.58Q450.85-290 480-290t49.58-20.42ZM360-620h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z"/></svg></div>
-  <script type="application/json" class="encrypted-payload">{"salt":"3HNyBjOvpEQ3bRg/HaTOqw==","iv":"XrR6pcU/pC21+d6N","data":"nt9juo7jjBL6cbw3OEzq057XBWmAdvf+GqS45paXTwls4IZh1zwdYKWTKERfzWk7r3Nl30ty1wvVMhmOpZlGZ5RFURRp6hCxSXLDwlcKldOH9k9aMDcW+uwjZynmXB6UJTWPkwdlY2sAzZ1gvurxmhg6eRvCEOI75ce7jcmNmQocc3GAv1g/x/PFcpC4mRGqWeM4VcgS7HzYfcrA29B0w/EoOhzBTsXBzVukLM/eaeUIQj7l6QPtUfoB//qAJNO31sJlqlD2VGoRh6iRC7s4"}</script>
+  <script type="application/json" class="encrypted-payload">{"salt":"zone3en69pcXrBIKLiu0Jg==","iv":"e6DB53fEZwTf8N6x","data":"6l01c8dnZobV4rNlRjQVtzOWQ4gzukD32+nC5o8S+4XPzaDZVrDKYMqBm8WbDHmOjlFg2+0JHP8d4YYHNScjTjTrm5FAjJNt6tNnZEm2waxUGCOPrl9EitUPtjLaUQSvJzd3UDATXI7lBNqu4w2FJ0/gAbEHcNoRyMD35zQOjjE8HmeGRAMcFWnKc36ixBUpGrKPHMNeF48FP/6rneVUeOko5YjSSiZmTVVqZB1/1M4A8DxaOMGVXCuIvlKxSr1cE9YjV/bUYNSqlIZkK4WJ"}</script>
 </div>
         </div>
         <div class="bg-surface rounded-lg border border-border p-5">
@@ -185,7 +169,7 @@
           <p class="text-muted text-sm leading-relaxed mb-4">VRM4U 플러그인에 작성한 C++ 모듈로, BP_Basemodel_TF의 VRM 정보 노드를 업데이트하는 역할. 외부 유저가 가져온 어떤 VRM/PMX든 4단 폴백으로 얼굴 위치를 자동 탐지하고, 그 결과를 카메라 타겟으로 사용하여 얼굴 클로즈업·상반신·전신 3앵글 썸네일을 자동 촬영한다. 커맨드렛 환경을 셋팅하여 에디터 없이 배치로 전체 캐릭터 썸네일을 일괄 생성할 수 있다. A포즈/T포즈도 자동 판별.</p>
 <div class="encrypted-block">
   <div class="encrypted-placeholder"><svg viewBox="0 -960 960 960"><path d="M252.31-100q-29.92 0-51.12-21.19Q180-142.39 180-172.31v-375.38q0-29.92 21.19-51.12Q222.39-620 252.31-620H300v-80q0-74.92 52.54-127.46Q405.08-880 480-880q74.92 0 127.46 52.54Q660-774.92 660-700v80h47.69q29.92 0 51.12 21.19Q780-577.61 780-547.69v375.38q0 29.92-21.19 51.12Q737.61-100 707.69-100H252.31Zm0-60h455.38q5.39 0 8.85-3.46t3.46-8.85v-375.38q0-5.39-3.46-8.85t-8.85-3.46H252.31q-5.39 0-8.85 3.46t-3.46 8.85v375.38q0 5.39 3.46 8.85t8.85 3.46Zm277.27-150.42Q550-330.85 550-360t-20.42-49.58Q509.15-430 480-430t-49.58 20.42Q410-389.15 410-360t20.42 49.58Q450.85-290 480-290t49.58-20.42ZM360-620h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z"/></svg></div>
-  <script type="application/json" class="encrypted-payload">{"salt":"eZNrphetrs9b43mhIDcS3Q==","iv":"YwbSEgFeBk89qK6f","data":"nN2Otwz0m+Pd9rTW38YY4sX+hRCFC3xajWKd2Vsaths2lDeNOM7a6pOhUrJ9qQaK9NGIGvsqCzgZ1w5jcvNtrgGiDUNaPzXse9a6PzdVz+rmJAWQTlBQNQnYpt9SvtqiW/liOrUd+Hao6Wsnp8LuP+V3Q1O+uZ9Fo+5LTKnHP3S1sZndiL2qnEv/9s6vPUvAcpKWVu/Ckz70CY0XhGUjOzk0Y88sKDAItZFl860ItcalQ4VOy1uDua82TT5QANTB7vdooz/sdyTI0Ml4rDOYokmUghSdvFG7RN3wR7fB"}</script>
+  <script type="application/json" class="encrypted-payload">{"salt":"RydRLLz78M29uUPBhTu6bg==","iv":"a9tC1GLT4Tyu21ti","data":"SrXkWpTlh7+RyAhR5OcpC0bc6qSE+MwX0wqoJq5xNR8tuEt2MY18T53t6hbedFpez4kugmW9SuDwVw+HKGf9CwO89E3m3raNMxgYWIoO5zWNrRAVlEoUcHePVynRKkdcBIY3MqDQNkMfB1iA+imEHOFepf/+qrlBTNLeN3lpmKs8jVbRG50LwdL5Wgb7NGUcPxq7J8j/96SVQpE7G2f4y4If7b1qzEifCUwrsssZ53ZWBS6oio1TF6E5PxL8loPfVICFhbwadiRtC22ztYq1x6WPvv0vqqtyVgjckVZb"}</script>
 </div>
           <div class="overflow-hidden">
             <img src="../assets/images/character-system/auto-thumbnail.png" alt="VRM Reference Points 자동 썸네일 — 얼굴·상반신·전신 3앵글 자동 촬영 결과" class="w-full h-auto">
@@ -228,7 +212,7 @@
           <div class="px-5 pb-4 text-muted text-sm leading-relaxed">분리형(자체 캐릭터)은 Data Asset에서 Head/Hair/Body 파츠를 따로따로 로드하고, 일체형(VRM/PMX)은 VRM4U 로더로 모델 통째로 올린다. 같은 BP에서 로드 경로만 갈라지고, 로드되면 스켈레탈 메시 컴포넌트를 전부 리셋해서 다시 붙인다.
 <div class="encrypted-block">
   <div class="encrypted-placeholder"><svg viewBox="0 -960 960 960"><path d="M252.31-100q-29.92 0-51.12-21.19Q180-142.39 180-172.31v-375.38q0-29.92 21.19-51.12Q222.39-620 252.31-620H300v-80q0-74.92 52.54-127.46Q405.08-880 480-880q74.92 0 127.46 52.54Q660-774.92 660-700v80h47.69q29.92 0 51.12 21.19Q780-577.61 780-547.69v375.38q0 29.92-21.19 51.12Q737.61-100 707.69-100H252.31Zm0-60h455.38q5.39 0 8.85-3.46t3.46-8.85v-375.38q0-5.39-3.46-8.85t-8.85-3.46H252.31q-5.39 0-8.85 3.46t-3.46 8.85v375.38q0 5.39 3.46 8.85t8.85 3.46Zm277.27-150.42Q550-330.85 550-360t-20.42-49.58Q509.15-430 480-430t-49.58 20.42Q410-389.15 410-360t20.42 49.58Q450.85-290 480-290t49.58-20.42ZM360-620h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z"/></svg></div>
-  <script type="application/json" class="encrypted-payload">{"salt":"V/zuR3iWIKmiWD5wJABCGQ==","iv":"04uhAy4/WQwJ3AjP","data":"Ow5PjYzScFDCtnmRZ1JSX5gJsouIVX1LfvSIfA7Rq1UJKV8S/X32afD3VfMm6ZU+Up2LB7rNUHmB2po2Sf03kn6xhe+68Os/sR6PNunAGJx7zm2TYnwr6dJuzxe+cRjtItwdyg42IJ+i8p1mZmmW8MbYqa+6nH85Q2E536z+PKcx6Vjme85RNHhnUEuOLO1bSHvBATrypTbPLk6DJ+geh8SwvN8SqUM+rZofAEQaiavPKGf6rjqF1pQWTJEPFqARQ4diBI6eiovO7A3AfmxsCuo0R39bbqTFkloZvg=="}</script>
+  <script type="application/json" class="encrypted-payload">{"salt":"8IXL3VNBD3rDmj6l2xxVXA==","iv":"vsVUG6nRA5LftXt8","data":"jO0gtbUjhCSpNDd5yAlV8WiTMiBT6izqv7CVRj7WBMmtGNbChs/n+lsCK4g1aDvRHy8caNGYeNotMLzrYiTzt+M19NgCljj2G7mQiIweVfeN7Qke5h43hh7vnAckfEn3vklXi+9ZXgE+UepsEwovio9ncDCDZEocn/K69D7KpLpMSTR5fA8fxvC8SaWXPtgyrrpagt/qhUEGcQCdhMFPNYMbLlMTIPb5lEV9j0XOT3mj9KK4BHveqXjK5YF55MLw1LOu428Rzovkpk8AnFiUBOWtDVT1xC4k37QkZg=="}</script>
 </div>
           </div>
         </details>
@@ -237,7 +221,7 @@
           <div class="px-5 pb-4 text-muted text-sm leading-relaxed">BP_Character_EnvCheck에 에디터 Tick Blueprint Interface를 구현하여 에디터 환경에서도 애니메이션 재생 가능. 아트 디렉터가 런타임 실행 없이 색감, 크기감, 애니메이션을 바로 확인 가능하여 피드백 루프 단축.
 <div class="encrypted-block">
   <div class="encrypted-placeholder"><svg viewBox="0 -960 960 960"><path d="M252.31-100q-29.92 0-51.12-21.19Q180-142.39 180-172.31v-375.38q0-29.92 21.19-51.12Q222.39-620 252.31-620H300v-80q0-74.92 52.54-127.46Q405.08-880 480-880q74.92 0 127.46 52.54Q660-774.92 660-700v80h47.69q29.92 0 51.12 21.19Q780-577.61 780-547.69v375.38q0 29.92-21.19 51.12Q737.61-100 707.69-100H252.31Zm0-60h455.38q5.39 0 8.85-3.46t3.46-8.85v-375.38q0-5.39-3.46-8.85t-8.85-3.46H252.31q-5.39 0-8.85 3.46t-3.46 8.85v375.38q0 5.39 3.46 8.85t8.85 3.46Zm277.27-150.42Q550-330.85 550-360t-20.42-49.58Q509.15-430 480-430t-49.58 20.42Q410-389.15 410-360t20.42 49.58Q450.85-290 480-290t49.58-20.42ZM360-620h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z"/></svg></div>
-  <script type="application/json" class="encrypted-payload">{"salt":"2/GgPXHOG+vxht5XrDCcqQ==","iv":"oIVCxTxu1iH7239J","data":"9Iw90DqkS6O9DWy6mSXPX37PvC8jcCqcblZ87ek54tujcXuWmlQGuHo75epRhp8pRKdj21QQZEpeQEkeiRtZqIRv8QD9s0AMF38+rkJHqrhLUMoC6tu5My2+yqHQlrvIma8KTQVtR/PIhnqtpzZylgIsdI9ozyL4h4OU9lAQrrOkxBtDvaoJU1A1K/fYD5YyFBxRLeoKGCQ0ZwG8kBjuXeORvvGxLmGFNJU9W7f+sBUFUVLtjsPspqJENoHDvdofFoCxaR4pkc9b8w=="}</script>
+  <script type="application/json" class="encrypted-payload">{"salt":"eBBpkX3wAYHFuAAIfc7qng==","iv":"YTkVvgUKktVtQrgz","data":"LT56Ajkk3EDBMYvmw5kpxu1yfNy8HX+6z1TvOZwoJzUk+y5J1GQruVKkvihMmNVsz35oNRJl12jnscoodWZHhugAWaTbOI6BhDcDh3E/Y+weNDovV7LVbWh/SW50f7gSx6aF9QtgxCe0HHpWyWEFsCS35XSo3PIVcnC/Qyl+ym921YNr2YN1Yv9I+Uk+u1XPxnG1794vqIdwk/2g4nyUrVzJ2L40F70P2CcdniqtwEcBw8g6qM6TsSm6gAABEJOBpOnlqALPMZCV/w=="}</script>
 </div>
           </div>
         </details>
