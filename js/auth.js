@@ -94,14 +94,25 @@ var Auth = (function () {
 
   function decryptAllBlocks(password) {
     var blocks = document.querySelectorAll('.encrypted-block');
-    blocks.forEach(function (block) {
-      var payload = block.querySelector('.encrypted-payload');
-      if (!payload) return;
-      decrypt(payload.textContent.trim(), password).then(function (html) {
-        block.outerHTML = html;
-      }).catch(function (err) {
-        console.error('[Auth] block decrypt failed:', err);
+    var firstPayload = blocks.length ? blocks[0].querySelector('.encrypted-payload') : null;
+    if (!firstPayload) return Promise.resolve(false);
+
+    // Test first block, then decrypt all
+    return decrypt(firstPayload.textContent.trim(), password).then(function () {
+      blocks.forEach(function (block) {
+        var payload = block.querySelector('.encrypted-payload');
+        if (!payload) return;
+        decrypt(payload.textContent.trim(), password).then(function (html) {
+          block.outerHTML = html;
+        }).catch(function (err) {
+          console.error('[Auth] block decrypt failed:', err);
+        });
       });
+      return true;
+    }).catch(function (err) {
+      console.error('[Auth] auto-decrypt failed, clearing session:', err);
+      clearAuth();
+      return false;
     });
   }
 
@@ -115,13 +126,18 @@ var Auth = (function () {
     var blocks = document.querySelectorAll('.encrypted-block');
     if (!blocks.length) return;
 
-    // If already authed, auto-decrypt all blocks
+    // If already authed, try auto-decrypt; if it fails, fall through to click handlers
     if (isAuthed()) {
-      decryptAllBlocks(getStoredPassword());
+      decryptAllBlocks(getStoredPassword()).then(function (ok) {
+        if (!ok) setupClickHandlers();
+      });
       return;
     }
 
-    // Not authed — clicking placeholder opens modal
+    setupClickHandlers();
+  }
+
+  function setupClickHandlers() {
     var modal = document.getElementById('section-pw-modal');
     var pwInput = document.getElementById('section-pw-input');
     var pwSubmit = document.getElementById('section-pw-submit');
@@ -129,6 +145,7 @@ var Auth = (function () {
 
     if (!modal) return;
 
+    var blocks = document.querySelectorAll('.encrypted-block');
     blocks.forEach(function (block) {
       var placeholder = block.querySelector('.encrypted-placeholder');
       if (placeholder) {
@@ -170,13 +187,11 @@ var Auth = (function () {
       pwSubmit.textContent = '...';
 
       try {
-        // Verify password against first encrypted block
         var firstPayload = document.querySelector('.encrypted-block .encrypted-payload');
         if (!firstPayload) { showError('No encrypted block found'); return; }
 
         var payloadText = firstPayload.textContent.trim();
         decrypt(payloadText, password).then(function () {
-          // Password correct — store and decrypt all
           setAuthed(password);
           modal.classList.add('hidden');
           decryptAllBlocks(password);
