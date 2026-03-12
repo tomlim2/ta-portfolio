@@ -97,7 +97,7 @@ var Auth = (function () {
     blocks.forEach(function (block) {
       var payload = block.querySelector('.encrypted-payload');
       if (!payload) return;
-      decrypt(payload.textContent, password).then(function (html) {
+      decrypt(payload.textContent.trim(), password).then(function (html) {
         block.outerHTML = html;
       }).catch(function (err) {
         console.error('[Auth] block decrypt failed:', err);
@@ -154,30 +154,40 @@ var Auth = (function () {
       });
     }
 
+    function showError(msg) {
+      pwError.textContent = msg;
+      pwError.classList.remove('hidden');
+      pwSubmit.disabled = false;
+      pwSubmit.textContent = 'Unlock';
+      pwInput.value = '';
+      pwInput.focus();
+    }
+
     function tryUnlock() {
       var password = pwInput.value;
       if (!password) return;
       pwSubmit.disabled = true;
       pwSubmit.textContent = '...';
 
-      // Verify password against first encrypted block
-      var firstPayload = document.querySelector('.encrypted-block .encrypted-payload');
-      if (!firstPayload) return;
+      try {
+        // Verify password against first encrypted block
+        var firstPayload = document.querySelector('.encrypted-block .encrypted-payload');
+        if (!firstPayload) { showError('No encrypted block found'); return; }
 
-      decrypt(firstPayload.textContent, password).then(function () {
-        // Password correct — store and decrypt all
-        setAuthed(password);
-        modal.classList.add('hidden');
-        decryptAllBlocks(password);
-      }).catch(function (err) {
-        console.error('[Auth] decrypt failed:', err);
-        pwError.textContent = err.message || '비밀번호가 틀렸습니다';
-        pwError.classList.remove('hidden');
-        pwSubmit.disabled = false;
-        pwSubmit.textContent = 'Unlock';
-        pwInput.value = '';
-        pwInput.focus();
-      });
+        var payloadText = firstPayload.textContent.trim();
+        decrypt(payloadText, password).then(function () {
+          // Password correct — store and decrypt all
+          setAuthed(password);
+          modal.classList.add('hidden');
+          decryptAllBlocks(password);
+        }).catch(function (err) {
+          console.error('[Auth] decrypt failed:', err);
+          showError(String(err));
+        });
+      } catch (e) {
+        console.error('[Auth] tryUnlock error:', e);
+        showError(String(e));
+      }
     }
 
     pwSubmit.addEventListener('click', tryUnlock);
