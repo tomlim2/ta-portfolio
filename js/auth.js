@@ -6,7 +6,12 @@ var Auth = (function () {
   var TTL = 60 * 60 * 1000; // 1 hour
 
   function bufToBase64(buf) {
-    return btoa(String.fromCharCode.apply(null, new Uint8Array(buf)));
+    var bytes = new Uint8Array(buf);
+    var str = '';
+    for (var i = 0; i < bytes.length; i++) {
+      str += String.fromCharCode(bytes[i]);
+    }
+    return btoa(str);
   }
 
   function base64ToBuf(b64) {
