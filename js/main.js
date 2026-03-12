@@ -86,8 +86,8 @@
     }
 
     // Intercept clicks on locked card placeholders
-    document.querySelectorAll('.card-locked .card-placeholder').forEach(function (placeholder) {
-      var link = placeholder.closest('a');
+    document.querySelectorAll('.card-locked .card-placeholder, .card-locked .card-thumb').forEach(function (el) {
+      var link = el.closest('a');
       if (!link) return;
       link.addEventListener('click', function (e) {
         if (link.closest('.card-locked')) {
