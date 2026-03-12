@@ -7,11 +7,15 @@ var Auth = (function () {
 
   function bufToBase64(buf) {
     var bytes = new Uint8Array(buf);
-    var str = '';
-    for (var i = 0; i < bytes.length; i++) {
-      str += String.fromCharCode(bytes[i]);
+    var binary = '';
+    var chunkSize = 8192;
+    for (var i = 0; i < bytes.length; i += chunkSize) {
+      var chunk = bytes.subarray(i, Math.min(i + chunkSize, bytes.length));
+      for (var j = 0; j < chunk.length; j++) {
+        binary += String.fromCharCode(chunk[j]);
+      }
     }
-    return btoa(str);
+    return btoa(binary);
   }
 
   function base64ToBuf(b64) {
@@ -21,25 +25,28 @@ var Auth = (function () {
     return buf;
   }
 
-  function deriveKey(password, salt) {
+  function getKey(password, salt, usage) {
     var enc = new TextEncoder();
-    return crypto.subtle.importKey('raw', enc.encode(password), { name: 'PBKDF2' }, false, ['deriveKey'])
-      .then(function (keyMaterial) {
-        return crypto.subtle.deriveKey(
-          { name: 'PBKDF2', salt: salt, iterations: 100000, hash: { name: 'SHA-256' } },
-          keyMaterial,
-          { name: 'AES-GCM', length: 256 },
-          false,
-          ['encrypt', 'decrypt']
-        );
-      });
+    return crypto.subtle.importKey(
+      'raw', enc.encode(password), 'PBKDF2', false, ['deriveBits']
+    ).then(function (keyMaterial) {
+      return crypto.subtle.deriveBits(
+        { name: 'PBKDF2', salt: salt, iterations: 100000, hash: 'SHA-256' },
+        keyMaterial,
+        256
+      );
+    }).then(function (bits) {
+      return crypto.subtle.importKey(
+        'raw', bits, { name: 'AES-GCM' }, false, usage
+      );
+    });
   }
 
   function encrypt(plaintext, password) {
     var enc = new TextEncoder();
     var salt = crypto.getRandomValues(new Uint8Array(16));
     var iv = crypto.getRandomValues(new Uint8Array(12));
-    return deriveKey(password, salt).then(function (key) {
+    return getKey(password, salt, ['encrypt']).then(function (key) {
       return crypto.subtle.encrypt({ name: 'AES-GCM', iv: iv }, key, enc.encode(plaintext));
     }).then(function (ciphertext) {
       return JSON.stringify({
@@ -55,7 +62,7 @@ var Auth = (function () {
     var salt = base64ToBuf(parsed.salt);
     var iv = base64ToBuf(parsed.iv);
     var data = base64ToBuf(parsed.data);
-    return deriveKey(password, salt).then(function (key) {
+    return getKey(password, salt, ['decrypt']).then(function (key) {
       return crypto.subtle.decrypt({ name: 'AES-GCM', iv: iv }, key, data);
     }).then(function (decrypted) {
       return new TextDecoder().decode(decrypted);
@@ -92,14 +99,19 @@ var Auth = (function () {
       if (!payload) return;
       decrypt(payload.textContent, password).then(function (html) {
         block.outerHTML = html;
-      }).catch(function () {
-        // leave placeholder on failure
+      }).catch(function (err) {
+        console.error('[Auth] block decrypt failed:', err);
       });
     });
   }
 
   // Section-level decryption for subpages
   function initSectionDecrypt() {
+    if (!window.crypto || !window.crypto.subtle) {
+      console.error('[Auth] Web Crypto API not available (HTTPS required)');
+      return;
+    }
+
     var blocks = document.querySelectorAll('.encrypted-block');
     if (!blocks.length) return;
 
@@ -157,7 +169,9 @@ var Auth = (function () {
         setAuthed(password);
         modal.classList.add('hidden');
         decryptAllBlocks(password);
-      }).catch(function () {
+      }).catch(function (err) {
+        console.error('[Auth] decrypt failed:', err);
+        pwError.textContent = err.message || '비밀번호가 틀렸습니다';
         pwError.classList.remove('hidden');
         pwSubmit.disabled = false;
         pwSubmit.textContent = 'Unlock';
