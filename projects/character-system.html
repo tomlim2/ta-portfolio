@@ -45,31 +45,240 @@
     </div>
   </nav>
 
-  <!-- Password Gate -->
-  <div id="auth-gate" class="hidden min-h-screen flex flex-col items-center justify-center px-6">
-    <div class="w-full max-w-sm">
-      <div class="flex items-center justify-center w-12 h-12 rounded-full bg-surface border border-border mb-6 mx-auto">
+  <main class="max-w-4xl mx-auto px-6 pt-28 pb-24">
+
+
+
+    <div class="aspect-video mb-12 overflow-hidden">
+      <img src="../assets/images/character-system/hero.png" alt="에디터에서 NPR 캐릭터를 배경 위에 배치하고 프리뷰" class="w-full h-full object-cover">
+    </div>
+
+    <h1 class="text-4xl font-bold mb-3">Character System</h1>
+
+    <blockquote class="text-muted mb-6">
+      300개+ 캐릭터를 툴 로딩 6초로 — 파츠 조합부터 프리뷰, 외부 VRM까지
+    </blockquote>
+
+    <div class="flex flex-wrap gap-x-8 gap-y-2 text-xs text-muted mb-8">
+      <span>Tool Design, C++ Plugin, UE Integration</span>
+      <span>2024~2026</span>
+      <span>회사 프로젝트</span>
+    </div>
+    <div class="flex flex-wrap gap-2 text-xs text-muted mb-12">
+      <span class="px-2 py-1 rounded border border-border">Unreal Engine 5</span>
+      <span class="px-2 py-1 rounded border border-border">C++</span>
+      <span class="px-2 py-1 rounded border border-border">Blueprint</span>
+      <span class="px-2 py-1 rounded border border-border">Data Asset</span>
+      <span class="px-2 py-1 rounded border border-border">VRM4U</span>
+      <span class="px-2 py-1 rounded border border-border">Unreal Insights</span>
+    </div>
+
+    <!-- Problem -->
+    <section class="mb-16">
+      <h2 class="text-xl font-bold mb-4">문제</h2>
+      <p class="text-muted text-sm leading-relaxed">캐릭터가 300개 가까이 늘면서 파츠 조합부터 등록, 프리뷰, 로딩까지 체계적으로 관리할 파이프라인이 필요했다. 에디터를 열면 전체 에셋이 하드 레퍼런스로 올라와 <strong class="text-white">30초를 기다려야</strong> 했고, 색감이나 애니메이션을 확인하려면 매번 게임을 실행해야 했다. 외부 VRM까지 지원하게 되면서 모델마다 카메라와 썸네일을 따로 잡아주는 수작업도 생겼다.</p>
+    </section>
+
+    <!-- Solution -->
+    <section class="mb-16">
+      <h2 class="text-xl font-bold mb-4">해결</h2>
+      <p class="text-muted text-sm leading-relaxed mb-4">에디터(EnvCheck), 런타임(Basemodel_TF), VRM Reference Points — 세 독립 시스템이 툴의 데이터 에셋 및 외부 모델 로드를 자사 셰이더 시스템과 애니메이션을 함께 확인할 수 있게 설계했다. 아티스트가 에디터에서 파츠를 조합하고 프리셋을 등록하면 Data Asset이 생산되고, 런타임이 그걸 비동기로 로드하는 흐름이다.</p>
+
+<div class="encrypted-block">
+  <div class="encrypted-placeholder">🔒 비밀번호를 입력하면 볼 수 있습니다</div>
+  <script type="application/json" class="encrypted-payload">{"salt":"yJvD7N+GcSjkzrbUzujywQ==","iv":"OO+t23E+ZCJHHyzl","data":"zS0kvU8QY0WRXIZ1HAEspOTOIIJFiZh0MkpDPyM9WXmgLfE3oZum7xtlOGiZToxNerh2TiEjoM154XXzPQeHiwKWlB0Fp5fPrMkdYSFI683aFzwxGPmtwNEDhZQ/+SlUwT9VpWa//JEEHUpCP7p1Pcb7MMS4pwMbZN+yHHB0IyHXaZcVYWQ88N/yKD8X22KUUEAsVzP/bCMN+Th3o57yyigzK7TJbFvGnGSBG56CGHdBJ2BHej5jcJZswfS4bEpLsFuSsHfA36pL3G8dntU5ZucUa8EYwy/9exsgb5IUqF+jzdVyFidGCbSD63M79sHLeKSE+c7XCrWu8wr2fTfbxrXFVIWwQYrboxdkS60BhdUlK/5E4oXquIBvIv4Cq1gtFUyd5PIrtC6D8Ky18Vzi3QBcgFa6iDNB50+usvF18fLKjIzymwKTK7c0LIaOC4sXbw3f1nVY2rYy5uFi/iNkVtpM7duSAtLkcjob/pLfqAE+kBp80xoGzA3cbHPY0ybIe2M="}</script>
+</div>
+
+<div class="encrypted-block">
+  <div class="encrypted-placeholder">🔒 비밀번호를 입력하면 볼 수 있습니다</div>
+  <script type="application/json" class="encrypted-payload">{"salt":"YBZmn8cnFcZm+DAOhOgsQg==","iv":"c1cCC1hIfc/NJgGC","data":"t2tt9AO0qa5sHGxwcQslKn+LwGqb9WKnOBy4kyfCArDtmwZkDA6Sf4JoNwwCH1u5MDgjo1nvLbHg0tls3862X5B2RxMiQPMEGUGG0mBr0jxJkduQVUYGMzF4kzgkly4Ejtzq1kOXsOVXfgBVd/f7jsuE/3DNiPdkWaiVauE3WfXZYuDT7GnkQHNDmRi4Ff3CUVNU4qdvIoYTtpsu86L+f2V3FIwcKFKIlybtwMNwqtyklsf380VYRcEOB7FwfIU0hPTZWuDxd0g1MSlHJv4ch2xvYImzdw194rnoXCxDzE/EVQMSeUAEKVD9qQ=="}</script>
+</div>
+      <p class="text-muted text-sm leading-relaxed">BP_Basemodel_TF 하나에 세이브와 로드가 같이 들어 있었는데, 세이브 쪽이 물고 있는 레퍼런스 때문에 에디터를 열 때마다 30초씩 걸렸다. 세이브를 BP_Character_EnvCheck로 빼고 Basemodel_TF는 로드만 남겨서 <strong class="text-white">30초→6초</strong>로 줄였다. EnvCheck는 에디터 Tick Interface도 붙여서 게임 실행 없이 배경 위에서 바로 프리뷰할 수 있다. 외부 VRM은 Reference Points가 4단 폴백으로 얼굴을 찾아서 카메라 타겟과 썸네일까지 자동 처리.</p>
+    </section>
+
+    <!-- Result -->
+    <section class="mb-16">
+      <h2 class="text-xl font-bold mb-4">결과</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b border-border text-left">
+              <th scope="col" class="py-3 pr-4 text-muted font-medium">항목</th>
+              <th scope="col" class="py-3 pr-4 text-muted font-medium">Before</th>
+              <th scope="col" class="py-3 pr-4 text-muted font-medium">After</th>
+              <th scope="col" class="py-3 text-muted font-medium">개선</th>
+            </tr>
+          </thead>
+          <tbody class="text-muted">
+            <tr class="border-b border-border/50">
+              <td class="py-3 pr-4 text-white font-medium">에디터 로드</td>
+              <td class="py-3 pr-4">30초</td>
+              <td class="py-3 pr-4">6초</td>
+              <td class="py-3 text-blue-400 font-medium">80%↓</td>
+            </tr>
+            <tr class="border-b border-border/50">
+              <td class="py-3 pr-4 text-white font-medium">패키징 로드</td>
+              <td class="py-3 pr-4">수 초 대기</td>
+              <td class="py-3 pr-4">체감 0초</td>
+              <td class="py-3 text-blue-400 font-medium">제거</td>
+            </tr>
+            <tr>
+              <td class="py-3 pr-4 text-white font-medium">캐릭터 프리셋</td>
+              <td class="py-3 pr-4">-</td>
+              <td class="py-3 pr-4">300개+</td>
+              <td class="py-3 text-blue-400 font-medium">통합 관리</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <hr class="border-border mb-12">
+
+    <!-- System Structure -->
+    <section class="mb-16">
+      <h2 class="text-xl font-bold mb-6">시스템 구조</h2>
+
+      <p class="text-muted text-sm leading-relaxed mb-6">세 독립 코드베이스가 Data Asset과 VRM 정보 노드로 연결되는 구조. 에디터(EnvCheck)가 Data Asset을 생산하면 런타임(Basemodel_TF)이 비동기로 로드하고, VRM Reference Points가 외부 모델의 정보를 런타임에 업데이트한다.</p>
+
+
+      <!-- System diagram -->
+      <div class="bg-surface rounded-lg border border-border p-5 mb-8">
+        <pre class="text-xs text-green-400 overflow-x-auto" tabindex="0" role="region" aria-label="시스템 구조 다이어그램"><code>[1] NPR Character Manager (C++ Plugin)
+    └─ BP_Character_EnvCheck ─── 에디터 (아티스트용)
+        ├─ 파츠 조합 (Head/Hair/Body)
+        ├─ 프리셋 저장 → Data Asset 생산
+        └─ 에디터 Tick → PIE 없이 프리뷰
+
+                    Data Asset ─────┐
+                                    ▼
+[2] BP_Basemodel_TF ─────────── 런타임 (CinevCharacter 상속)
+    ├─ 자체: Data Asset → 파츠별 비동기 로드
+    └─ 외부: VRM 로더 → 통째로 로드
+                    ▲
+                    │ VRM 정보 노드 업데이트
+                    │
+[3] VRM Reference Points ──── VRM4U 플러그인 (C++)
+    ├─ 4단 폴백 얼굴 탐지 (crown/eyes/mouth/nose)
+    └─ 카메라 타겟 + 썸네일 자동 촬영</code></pre>
+      </div>
+
+      <!-- Three components -->
+      <div class="space-y-4 mb-6">
+        <div class="bg-surface rounded-lg border border-border p-5">
+          <h3 class="font-medium mb-3">에디터 — BP_Character_EnvCheck</h3>
+          <p class="text-muted text-sm leading-relaxed mb-4">아티스트가 에디터에서 머리·헤어·바디 파츠를 조합하고 프리셋으로 저장. 에디터 Tick Interface로 게임을 실행하지 않아도 배경 위에서 캐릭터와 애니메이션을 바로 확인할 수 있다. 이 과정에서 생산된 Data Asset이 런타임의 입력이 된다.</p>
+<div class="encrypted-block">
+  <div class="encrypted-placeholder">🔒 비밀번호를 입력하면 볼 수 있습니다</div>
+  <script type="application/json" class="encrypted-payload">{"salt":"VIF0fiMtcYZtYG1RvudPCw==","iv":"9UVWHy8WA5/kqecu","data":"Y9PFBF6762kWKMEYDmBRzdVsQp/WsrC0uzDj0vb87yWZQkkFVl9M8TluyG8fFmnRgERVJnpxtB3ehOCVSzColr6K0LdhMLdWNaCM1jlwA5JXHdbOHPuKnIswkyQCK/iVh36c+J89mQt6VpZtCDMYp4g72xCbp2XF2plB4SemnuFlvGQvus52YU+kDf03yWmQWv7pj4pdSmyKkq5Q7u35knDfULCfBDUATzIJKWnoixogP0zj3a+c4A4XWZbXRg=="}</script>
+</div>
+        </div>
+        <div class="bg-surface rounded-lg border border-border p-5">
+          <h3 class="font-medium mb-3">런타임 — BP_Basemodel_TF</h3>
+          <p class="text-muted text-sm leading-relaxed mb-4">EnvCheck와는 별도 코드베이스로, CinevCharacter를 상속받는 런타임 캐릭터 BP. 자체 캐릭터는 EnvCheck가 생산한 Data Asset에서 파츠별로 비동기 로드(Head/Hair/Body 분리), 외부 VRM은 로더를 통해 통째로 로드. 같은 BP에서 처리하되 로드 경로만 분기하여 300개+ 자체 프리셋과 커뮤니티 캐릭터를 하나의 시스템으로 관리한다.</p>
+<div class="encrypted-block">
+  <div class="encrypted-placeholder">🔒 비밀번호를 입력하면 볼 수 있습니다</div>
+  <script type="application/json" class="encrypted-payload">{"salt":"7lL9oRnxIiHU5nD79nv3vQ==","iv":"iT7UcC03vYgKOJto","data":"JzE4XoWEnMJxlxRwGIj6ysu/4hpwQVcT/cX9TeFDQUtoW+/UaWfj5muvGTmemwjNrygQarQgQQA/c3nxr4nApiPKL1DdaPdlDN+AHdC1GJhympCF8HWqnbYQCkOfHM6CIeuvSpiHkgTTAkrbQ/tVny3mfSOFtmnrPnsVMkaN30Usf6xx46k2sT8xOSrtTHfa0AAZD8DEcwLbzOWZmoq7mPgXfs46EVtEjmyQg1p2uqSnaCuQw9z83fQzQaVwtIZ7uROBFT9F4zVvLfgBlv5k"}</script>
+</div>
+        </div>
+        <div class="bg-surface rounded-lg border border-border p-5">
+          <h3 class="font-medium mb-3">외부 모델 지원 — VRM Reference Points</h3>
+          <p class="text-muted text-sm leading-relaxed mb-4">VRM4U 플러그인에 작성한 C++ 모듈로, BP_Basemodel_TF의 VRM 정보 노드를 업데이트하는 역할. 외부 유저가 가져온 어떤 VRM/PMX든 4단 폴백으로 얼굴 위치를 자동 탐지하고, 그 결과를 카메라 타겟으로 사용하여 얼굴 클로즈업·상반신·전신 3앵글 썸네일을 자동 촬영한다. 커맨드렛 환경을 셋팅하여 에디터 없이 배치로 전체 캐릭터 썸네일을 일괄 생성할 수 있다. A포즈/T포즈도 자동 판별.</p>
+<div class="encrypted-block">
+  <div class="encrypted-placeholder">🔒 비밀번호를 입력하면 볼 수 있습니다</div>
+  <script type="application/json" class="encrypted-payload">{"salt":"69fbKQTOw1mASc0m4Aws6g==","iv":"NH1sN65oJ1ih+D1+","data":"vMzluO73nPVQ7I0AziVmsHR8pCbALFyV4QoTQYkPRlqsWDa9pLCkMwnwGLEErfDcoX5UWRWH0DkwxDv+UI7aFL+i0Em7mfJq/yHxbREMcV+2uiUy+rJX4WHZw+NxB4xpNk5TMmG0FrxDu0HW3ufvIYwkvi9hpRVEdgrnO7TugVtErWE3b2EFMLWWATVGX8D6Aa2vxolZlKojlHNr8idQNrTquSd2Vh1sXIZH4NG8I+wNmdEZ31Dgr2aPUUycaqadlefO8IDysnoePPyYANIxHbw8GAinGEknT65wXXcd6VK4f/81z+jbf4/RigUr30mmcnVa5Jjf0N1YyImX3vLgz2QxAM7Qs0zTItq4YJccuBex+SkWb4IcEyzMIWpCRSqj6xXy6OcHiVK31jR+QoiGtcYMbgevmOUBUN93Xp+kog0FK7dlT0F+KTfkIAOb9+udr9ffcJfv0tTblAjve6ZHpwnnQhkasOE6l7HLcR0cUPWFtLmuwgo3jjdSD50KJt93puHol+hLGdvqo0eTq8k4eow3R/BuFVRgxEj3V4IqSHbK91g1DbwQ1ae8th4SN0GbM+dwRMNpBVQZ3clwWKtTWzJGxtmOpR7LIlnPP2p5lwrhSzGXnmngzj32YZSaM0CDSw=="}</script>
+</div>
+        </div>
+      </div>
+
+<div class="encrypted-block">
+  <div class="encrypted-placeholder">🔒 비밀번호를 입력하면 볼 수 있습니다</div>
+  <script type="application/json" class="encrypted-payload">{"salt":"39yrZPf6QMfjsvQYO6h1GA==","iv":"Wc3O7JhDrzf7zPcZ","data":"j/2PFJrauzaxwCr3e7P402ahttdNUMt4il1Zv1W+qu5hxGI3Glaz2k9Rj9dOJBHlzMtSzZCqMKkozG+gSMJILb5BNrS8x7qh6ol4lhPpKvCFR8yBWOdReG0uf0+Edi6gwQ6NRqLbPANmbRrZv0NTD2JM4GYFUcvwig8n9rHsBmYprgTm5kO0ZiHz3WQMXAu+/RhuIooZjWe4BGux03B5RgF9lm3TM5OA3RPA23Xhr9PmuAgGgeNvFZXnOIwm787hzQ9wtUF1wZDsBrYM8/ILeue1opqAx0o="}</script>
+</div>
+    </section>
+
+    <hr class="border-border mb-12">
+
+    <!-- Technical Details -->
+    <section class="mb-16">
+      <h2 class="text-xl font-bold mb-6">기술 상세</h2>
+
+      <h3 class="text-sm text-muted uppercase tracking-widest mb-4">로딩 30초→6초</h3>
+      <div class="space-y-3 mb-8">
+        <details class="bg-surface rounded-lg border border-border">
+          <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">Soft Object Reference + Async Loading</summary>
+          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">30초의 원인은 두 가지. 세이브용 파츠별 Hard Reference가 에디터 로드 시 전부 올라온 것, 그리고 80개 넘는 미사용 블렌드쉐이프(얼굴 형태)도 같이 딸려온 것. 세이브를 EnvCheck로 분리해서 Reference들을 전부 덜어냈고, 블렌드쉐이프도 미리 안 올리게 바꿨다. 로드할 때만 필요한 Data Asset을 StreamableManager.RequestAsyncLoad로 비동기 처리.
+          </div>
+        </details>
+        <details class="bg-surface rounded-lg border border-border">
+          <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">Data Asset Only 전환</summary>
+          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">메타휴먼 프리셋 구조에서 힌트를 얻었다. DataTable은 소프트 레퍼런스를 써도 첫 로드 시 전체 행을 다 읽어야 해서 근본적으로 느리다. Data Asset은 필요한 것만 소프트 레퍼런스로 들고 있으면 되니까 구조 자체가 가볍다.</div>
+        </details>
+        <details class="bg-surface rounded-lg border border-border">
+          <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">Unreal Insights 프로파일링</summary>
+          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">CPU Timing 탭과 Loading 탭에서 LoadObject 콜스택을 추적해서 어떤 에셋이 시간을 먹고 있는지 찍어봤다. 이 데이터가 Hard Reference를 걷어내는 판단 근거.</div>
+        </details>
+      </div>
+
+      <h3 class="text-sm text-muted uppercase tracking-widest mb-4">캐릭터 액터 BP 구조</h3>
+      <div class="space-y-3 mb-8">
+        <details class="bg-surface rounded-lg border border-border">
+          <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">일체형 / 분리형 스켈레탈 메시 로드 구조</summary>
+          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">분리형(자체 캐릭터)은 Data Asset에서 Head/Hair/Body 파츠를 따로따로 로드하고, 일체형(VRM/PMX)은 VRM4U 로더로 모델 통째로 올린다. 같은 BP에서 로드 경로만 갈라지고, 로드되면 스켈레탈 메시 컴포넌트를 전부 리셋해서 다시 붙인다.
+<div class="encrypted-block">
+  <div class="encrypted-placeholder">🔒 비밀번호를 입력하면 볼 수 있습니다</div>
+  <script type="application/json" class="encrypted-payload">{"salt":"9MpZgF5xjGk4eEJL5+c4wA==","iv":"4txf5pZfieBz9qf2","data":"g/EUPb+itC6pDMEgs6Cxib6WF7Ry41rhmXOPln6lJHUtUf48Ayh7+Gx2NhHxTNvnSbIB925AbnmYZay1uT5/fpPIpOUgq77YiOjmmwmkzM1cQdq+ePPPmIiEqCya9Hw4QXwspnDCikTfACuChUjMp2aEz4U0Hz5hvCgBGICeGlU7Y5od/ikieL4YZI5qKRVOjy0uAMObmjTQGRHzrzH5P3mAzzop8pKrKXGclTqc5r3uKXOCcBFmn+n/Sm6Mhp8mpkJEk7A7TNsh/Y8wRAFQ6VBDQQdbAxAZqxFVoA=="}</script>
+</div>
+          </div>
+        </details>
+        <details class="bg-surface rounded-lg border border-border">
+          <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">에디터 Tick Interface — PIE 없이 에디터 프리뷰 (BP_Character_EnvCheck)</summary>
+          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">BP_Character_EnvCheck에 에디터 Tick Blueprint Interface를 구현하여 에디터 환경에서도 애니메이션 재생 가능. 아트 디렉터가 런타임 실행 없이 색감, 크기감, 애니메이션을 바로 확인 가능하여 피드백 루프 단축.
+<div class="encrypted-block">
+  <div class="encrypted-placeholder">🔒 비밀번호를 입력하면 볼 수 있습니다</div>
+  <script type="application/json" class="encrypted-payload">{"salt":"Bp29TSxYGD1H3JkAu1yJng==","iv":"HVgmA2LcTZkn6QJi","data":"dA1xrt68vqFBBUCZTMxJ67fO/Ukvox1NJntQpEnUUOVrSDtxQeTnXk2gQNKHOaGeCmH8GWNwC5QHtSmWwtoTcR9danLXeeng+TmnbO+7/XXBQ3/m72nNFmqaMOwb22VfBDJf684Acn7fZJorFRZ5OwA0262LTYybzKXkmT+QYinXOK13RuiH329MBwwo0j1sQ42hXsmh341j8tRPybl2o7z+/eru9mDPdO1CQyMoHikJCJOTILaKHO21KUgjooRs+Mf/idgoPYpz+g=="}</script>
+</div>
+          </div>
+        </details>
+      </div>
+
+      <h3 class="text-sm text-muted uppercase tracking-widest mb-4">얼굴 자동 탐지</h3>
+      <div class="space-y-3">
+        <details class="bg-surface rounded-lg border border-border">
+          <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">VRM Reference Points 4단계 폴백</summary>
+          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">외부 VRM/PMX 캐릭터의 얼굴 랜드마크를 자동 탐지. 1차: Bone lookup (humanoidBoneTable). 2차: Material vertices + raycast (Moller-Trumbore). 3차: Position interpolation. 4차: Fallback estimation. 탐지 결과를 카메라 타겟과 썸네일 자동 촬영에 활용.</div>
+        </details>
+      </div>
+    </section>
+
+    <!-- Prev/Next -->
+    <div class="flex justify-between items-center mt-16 pt-8 border-t border-border">
+      <a href="matcap-painter.html" class="text-muted hover:text-white transition text-sm">&larr; Matcap Painter</a>
+      <a href="npr-shader.html" class="text-muted hover:text-white transition text-sm">NPR Shader System &rarr;</a>
+    </div>
+
+  
+  
+  </main>
+
+  <!-- Section decrypt modal -->
+  <div id="section-pw-modal" class="hidden fixed inset-0 z-[60] flex items-center justify-center bg-black/60 backdrop-blur-sm">
+    <div class="w-full max-w-sm mx-6 bg-surface border border-border rounded-lg p-6">
+      <div class="flex items-center justify-center w-12 h-12 rounded-full bg-bg border border-border mb-6 mx-auto">
         <svg class="w-5 h-5 text-muted" fill="currentColor" viewBox="0 -960 960 960">
           <path d="M252.31-100q-29.92 0-51.12-21.19Q180-142.39 180-172.31v-375.38q0-29.92 21.19-51.12Q222.39-620 252.31-620H300v-80q0-74.92 52.54-127.46Q405.08-880 480-880q74.92 0 127.46 52.54Q660-774.92 660-700v80h47.69q29.92 0 51.12 21.19Q780-577.61 780-547.69v375.38q0 29.92-21.19 51.12Q737.61-100 707.69-100H252.31Zm0-60h455.38q5.39 0 8.85-3.46t3.46-8.85v-375.38q0-5.39-3.46-8.85t-8.85-3.46H252.31q-5.39 0-8.85 3.46t-3.46 8.85v375.38q0 5.39 3.46 8.85t8.85 3.46Zm277.27-150.42Q550-330.85 550-360t-20.42-49.58Q509.15-430 480-430t-49.58 20.42Q410-389.15 410-360t20.42 49.58Q450.85-290 480-290t49.58-20.42ZM360-620h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z"/>
         </svg>
       </div>
-      <p class="text-center text-muted text-sm mb-6">This project is under NDA.<br>Enter the password to view.</p>
+      <p class="text-center text-muted text-sm mb-6">NDA 프로젝트입니다.<br>비밀번호를 입력하면 잠긴 콘텐츠를 볼 수 있습니다.</p>
       <div class="flex gap-2">
-        <input id="auth-password" type="password" placeholder="Password" autocomplete="off"
-          class="flex-1 bg-surface border border-border rounded-lg px-4 py-2.5 text-sm text-white placeholder-muted focus:outline-none focus:border-accent transition">
-        <button id="auth-submit"
-          class="px-5 py-2.5 bg-white text-black text-sm font-medium rounded-lg hover:bg-white/90 transition">Unlock</button>
+        <input id="section-pw-input" type="password" placeholder="Password" autocomplete="off"
+          class="min-w-0 flex-1 bg-bg border border-border rounded-lg px-4 py-2.5 text-sm text-white placeholder-muted focus:outline-none focus:border-accent transition">
+        <button id="section-pw-submit"
+          class="shrink-0 px-5 py-2.5 bg-white text-black text-sm font-medium rounded-lg hover:bg-white/90 transition">Unlock</button>
       </div>
-      <p id="auth-error" class="hidden text-red-400 text-xs mt-3 text-center">Incorrect password</p>
-      <a href="../index.html#projects" class="block text-center text-muted text-xs mt-6 hover:text-white transition">&larr; Back to Projects</a>
+      <p id="section-pw-error" class="hidden text-red-400 text-xs mt-3 text-center">비밀번호가 틀렸습니다</p>
     </div>
   </div>
-
-  <!-- Encrypted payload -->
-  <script id="encrypted-data" type="application/json">{"salt":"JhOzVeHNnP6rg1s5stbsYA==","iv":"igAl5NxOI3GzpC6z","data":"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"}</script>
-
-  <!-- Decrypted content renders here -->
-  <main id="protected-content" class="hidden max-w-4xl mx-auto px-6 pt-28 pb-24"></main>
 
   <footer class="border-t border-border py-8 text-center text-muted text-xs">
     <p>&copy; 2026 Younsoo Lim. All rights reserved.</p>

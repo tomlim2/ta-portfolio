@@ -45,31 +45,152 @@
     </div>
   </nav>
 
-  <!-- Password Gate -->
-  <div id="auth-gate" class="hidden min-h-screen flex flex-col items-center justify-center px-6">
-    <div class="w-full max-w-sm">
-      <div class="flex items-center justify-center w-12 h-12 rounded-full bg-surface border border-border mb-6 mx-auto">
+  <main class="max-w-4xl mx-auto px-6 pt-28 pb-24">
+
+
+
+    <img src="../assets/images/pmx-to-vrm/hero-converted-characters.png" alt="PMX→VRM 변환된 캐릭터들" class="w-full rounded-lg border border-border mb-12">
+
+    <h1 class="text-4xl font-bold mb-3">PMX to VRM Pipeline</h1>
+
+    <blockquote class="text-muted mb-6">
+      커뮤니티 PMX 캐릭터를 UE에서 바로 쓸 수 있도록 — 물리, 본, 머티리얼을 보존하는 자동 변환 파이프라인
+    </blockquote>
+
+    <div class="flex flex-wrap gap-x-8 gap-y-2 text-xs text-muted mb-8">
+      <span>Pipeline Architecture, Tool Development</span>
+      <span>2026년 2월~ (35 커밋)</span>
+      <span>회사 프로젝트</span>
+    </div>
+    <div class="flex flex-wrap gap-2 text-xs text-muted mb-12">
+      <span class="px-2 py-1 rounded border border-border">Python</span>
+      <span class="px-2 py-1 rounded border border-border">TypeScript</span>
+      <span class="px-2 py-1 rounded border border-border">glTF 2.0</span>
+      <span class="px-2 py-1 rounded border border-border">VRM 0.x</span>
+      <span class="px-2 py-1 rounded border border-border">Next.js</span>
+      <span class="px-2 py-1 rounded border border-border">Web Worker</span>
+    </div>
+
+    <!-- Problem -->
+    <section class="mb-16">
+      <h2 class="text-xl font-bold mb-4">문제</h2>
+      <p class="text-muted text-sm leading-relaxed">Booth/커뮤니티에서 배포되는 PMX 캐릭터를 프로젝트에 투입해야 했지만, PMX를 UE에서 쓸 수 있는 VRM으로 변환할 방법이 없었다. 수동으로 옮기면 본 매핑이 깨지고, 머리카락/스커트 등 물리가 날아가며, 텍스처가 깨져서 룩이 완전히 달라졌다.</p>
+    </section>
+
+    <!-- Solution -->
+    <section class="mb-16">
+      <h2 class="text-xl font-bold mb-4">해결</h2>
+      <p class="text-muted text-sm leading-relaxed mb-6">PMX → glTF → VRM 자동 변환 파이프라인. <strong class="text-white">ZIP을 넣으면 UE에서 바로 쓸 수 있는 VRM이 나온다.</strong> 물리(머리카락, 스커트, 리본)와 머티리얼 룩이 깨지지 않는 게 핵심이었다.</p>
+
+      <div class="bg-surface rounded-lg border border-border p-5 mb-6">
+        <h3 class="font-medium mb-3">파이프라인 흐름</h3>
+        <code class="text-sm text-green-400">ZIP → scan .pmx → humanoid check (16 bones) → readPmx() → buildGltf() → buildVrm() → writeGlb() → renameVrm() → validate()</code>
+      </div>
+
+      <!-- Workflow table -->
+      <div class="overflow-x-auto mb-6">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b border-border text-left">
+              <th class="py-3 pr-4 text-muted font-medium">도구</th>
+              <th class="py-3 pr-4 text-muted font-medium">사용자</th>
+              <th class="py-3 text-muted font-medium">방식</th>
+            </tr>
+          </thead>
+          <tbody class="text-muted">
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">Python CLI</td><td class="py-3 pr-4">TA / 배치 작업</td><td class="py-3">여러 모델을 한 번에 변환</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">Next.js 웹앱</td><td class="py-3 pr-4">팀 내부 누구나</td><td class="py-3">브라우저에서 ZIP 업로드 → VRM 다운로드</td></tr>
+            <tr><td class="py-3 pr-4 text-white font-medium">Browser SPA</td><td class="py-3 pr-4">외부 / 서버 없이</td><td class="py-3">클라이언트 단독 변환</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+<div class="encrypted-block">
+  <div class="encrypted-placeholder">🔒 비밀번호를 입력하면 볼 수 있습니다</div>
+  <script type="application/json" class="encrypted-payload">{"salt":"dZ6gUG5uqyT+6x/crGh3lw==","iv":"Z7N7rYONn5yR6PmC","data":"jDnFxlPxRfTF4BisE7WnWg1r/6BzimSBEfRZDpE80J6aE26ibTWwg5Xl6UIOBdJzjx/F92wyRv+mxiCAZ3GYvrIaWVWELdNsqIJYsVetbN9FeKFqCTsdqTyzKhgEZKO35RDJw7/TGGSTjDR0mphFXTCge4eG8pjnQNTrUZDdlfe1B2VMi02ebZ/lDCrRq/jNkkbauUCMG5hX/IfEV946E/Iowus5Vmh+u0me3fnNSi3MSD2YZFBtXij1qkjCMiPFUgJ+5tYYqGCyAbLX"}</script>
+</div>
+    </section>
+
+    <!-- Result -->
+    <section class="mb-16">
+      <h2 class="text-xl font-bold mb-4">결과</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b border-border text-left">
+              <th class="py-3 pr-4 text-muted font-medium">항목</th>
+              <th class="py-3 text-muted font-medium">결과</th>
+            </tr>
+          </thead>
+          <tbody class="text-muted">
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">변환율</td><td class="py-3">주요 게임사 PMX 90% 성공 (호요버스, 이터널리턴, 사이퍼즈 등)</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">모델 지원</td><td class="py-3">일본 + 중국 양쪽 PMX 커버</td></tr>
+            <tr><td class="py-3 pr-4 text-white font-medium">변환 속도</td><td class="py-3">393ms (Saber.pmx, 28K vertices)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <div class="mb-12">
+      <img src="../assets/images/pmx-to-vrm/before-after-comparison.png" alt="Before(스타레일 PMX) / After(VRM 변환 결과)" class="w-full rounded-lg border border-border">
+      <p class="text-xs text-muted mt-2 text-center">왼쪽: 원본 게임 스크린샷 — 오른쪽: PMX → VRM 변환 후 뷰어 렌더링</p>
+    </div>
+
+    <hr class="border-border mb-12">
+
+    <!-- Technical Details -->
+    <section class="mb-16">
+      <h2 class="text-xl font-bold mb-6">기술 상세</h2>
+
+      <h3 class="text-sm text-muted uppercase tracking-widest mb-4">물리 변환</h3>
+      <div class="space-y-3 mb-8">
+        <details class="bg-surface rounded-lg border border-border">
+          <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">스프링본 변환 (리지드바디+조인트 → VRM SpringBone)</summary>
+          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">PMX의 Bullet Physics 기반 리지드바디+조인트를 VRM의 스프링본으로 변환. 짧은 체인(리본, 액세서리)은 거의 고정, 회전 제한이 완전 잠긴 체인은 스킵, 중국 PMX의 과도한 dragForce 캡핑 등 모델별 예외 처리.</div>
+        </details>
+      </div>
+
+      <h3 class="text-sm text-muted uppercase tracking-widest mb-4">검증</h3>
+      <div class="space-y-3 mb-8">
+        <details class="bg-surface rounded-lg border border-border">
+          <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">6-Layer VRM 밸리데이터</summary>
+          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">GLB 컨테이너 → glTF 스펙 준수 → VRM 확장 구조 → 휴머노이드 본 완성도 → 스프링본 애니메이션 → 머티리얼 호환성. 각 레이어를 독립 검증해서 변환 안 되는 모델은 어디서 막혔는지 바로 알려준다.</div>
+        </details>
+        <details class="bg-surface rounded-lg border border-border">
+          <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">CJK 인코딩 라운드트립</summary>
+          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">PMX 파일의 텍스처 경로, 본 이름 등이 Shift-JIS, GBK, EUC-KR, Big5 중 어떤 인코딩인지 자동 판별. Fallback 체인으로 모지바케 없이 디코딩해서 텍스처가 빠지는 걸 막는다.</div>
+        </details>
+      </div>
+    </section>
+
+    <!-- Prev/Next -->
+    <div class="flex justify-between items-center mt-16 pt-8 border-t border-border">
+      <a href="npr-shader.html" class="text-muted hover:text-white transition text-sm">&larr; NPR Shader System</a>
+      <a href="megamelange.html" class="text-muted hover:text-white transition text-sm">MegaMelange MCP &rarr;</a>
+    </div>
+
+  
+  
+  </main>
+
+  <!-- Section decrypt modal -->
+  <div id="section-pw-modal" class="hidden fixed inset-0 z-[60] flex items-center justify-center bg-black/60 backdrop-blur-sm">
+    <div class="w-full max-w-sm mx-6 bg-surface border border-border rounded-lg p-6">
+      <div class="flex items-center justify-center w-12 h-12 rounded-full bg-bg border border-border mb-6 mx-auto">
         <svg class="w-5 h-5 text-muted" fill="currentColor" viewBox="0 -960 960 960">
           <path d="M252.31-100q-29.92 0-51.12-21.19Q180-142.39 180-172.31v-375.38q0-29.92 21.19-51.12Q222.39-620 252.31-620H300v-80q0-74.92 52.54-127.46Q405.08-880 480-880q74.92 0 127.46 52.54Q660-774.92 660-700v80h47.69q29.92 0 51.12 21.19Q780-577.61 780-547.69v375.38q0 29.92-21.19 51.12Q737.61-100 707.69-100H252.31Zm0-60h455.38q5.39 0 8.85-3.46t3.46-8.85v-375.38q0-5.39-3.46-8.85t-8.85-3.46H252.31q-5.39 0-8.85 3.46t-3.46 8.85v375.38q0 5.39 3.46 8.85t8.85 3.46Zm277.27-150.42Q550-330.85 550-360t-20.42-49.58Q509.15-430 480-430t-49.58 20.42Q410-389.15 410-360t20.42 49.58Q450.85-290 480-290t49.58-20.42ZM360-620h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z"/>
         </svg>
       </div>
-      <p class="text-center text-muted text-sm mb-6">This project is under NDA.<br>Enter the password to view.</p>
+      <p class="text-center text-muted text-sm mb-6">NDA 프로젝트입니다.<br>비밀번호를 입력하면 잠긴 콘텐츠를 볼 수 있습니다.</p>
       <div class="flex gap-2">
-        <input id="auth-password" type="password" placeholder="Password" autocomplete="off"
-          class="flex-1 bg-surface border border-border rounded-lg px-4 py-2.5 text-sm text-white placeholder-muted focus:outline-none focus:border-accent transition">
-        <button id="auth-submit"
-          class="px-5 py-2.5 bg-white text-black text-sm font-medium rounded-lg hover:bg-white/90 transition">Unlock</button>
+        <input id="section-pw-input" type="password" placeholder="Password" autocomplete="off"
+          class="min-w-0 flex-1 bg-bg border border-border rounded-lg px-4 py-2.5 text-sm text-white placeholder-muted focus:outline-none focus:border-accent transition">
+        <button id="section-pw-submit"
+          class="shrink-0 px-5 py-2.5 bg-white text-black text-sm font-medium rounded-lg hover:bg-white/90 transition">Unlock</button>
       </div>
-      <p id="auth-error" class="hidden text-red-400 text-xs mt-3 text-center">Incorrect password</p>
-      <a href="../index.html#projects" class="block text-center text-muted text-xs mt-6 hover:text-white transition">&larr; Back to Projects</a>
+      <p id="section-pw-error" class="hidden text-red-400 text-xs mt-3 text-center">비밀번호가 틀렸습니다</p>
     </div>
   </div>
-
-  <!-- Encrypted payload -->
-  <script id="encrypted-data" type="application/json">{"salt":"a/FmZKjBgHvTR0FBqOMEhw==","iv":"01CA9CW4fBD0UjSf","data":"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"}</script>
-
-  <!-- Decrypted content renders here -->
-  <main id="protected-content" class="hidden max-w-4xl mx-auto px-6 pt-28 pb-24"></main>
 
   <footer class="border-t border-border py-8 text-center text-muted text-xs">
     <p>&copy; 2026 Younsoo Lim. All rights reserved.</p>

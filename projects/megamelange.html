@@ -45,31 +45,168 @@
     </div>
   </nav>
 
-  <!-- Password Gate -->
-  <div id="auth-gate" class="hidden min-h-screen flex flex-col items-center justify-center px-6">
-    <div class="w-full max-w-sm">
-      <div class="flex items-center justify-center w-12 h-12 rounded-full bg-surface border border-border mb-6 mx-auto">
+  <main class="max-w-4xl mx-auto px-6 pt-28 pb-24">
+
+
+
+
+    <div class="aspect-video mb-12 overflow-hidden">
+      <img src="../assets/images/megamelange/hero.png" alt="MegaMelange 워크플로우 — UE 에디터 + Web UI + AI 생성 결과" class="w-full h-full object-cover">
+    </div>
+
+    <h1 class="text-4xl font-bold mb-3">MegaMelange MCP</h1>
+
+    <blockquote class="text-muted mb-6">
+      자연어로 야외 배경을 세팅하고, AI 이미지 생성으로 원하는 분위기를 뽑아내는 씬 구성 파이프라인
+    </blockquote>
+
+    <div class="flex flex-wrap gap-x-8 gap-y-2 text-xs text-muted mb-8">
+      <span>System Architecture, C++ Plugin, UE Integration</span>
+      <span>2025.8 ~ 2026.2 (6.5개월, 234 커밋)</span>
+      <span>회사 프로젝트 (POC)</span>
+    </div>
+    <div class="flex flex-wrap gap-2 text-xs text-muted mb-12">
+      <span class="px-2 py-1 rounded border border-border">Next.js 15.4</span>
+      <span class="px-2 py-1 rounded border border-border">FastAPI</span>
+      <span class="px-2 py-1 rounded border border-border">C++ (UE Plugin)</span>
+      <span class="px-2 py-1 rounded border border-border">Anthropic SDK</span>
+      <span class="px-2 py-1 rounded border border-border">Google GenAI</span>
+      <span class="px-2 py-1 rounded border border-border">TCP Socket</span>
+    </div>
+
+    <!-- Problem -->
+    <section class="mb-16">
+      <h2 class="text-xl font-bold mb-4">문제</h2>
+      <p class="text-muted text-sm leading-relaxed">야외 씬을 구성하려면 지형(Cesium) 위치 세팅, 날씨/시간대(UDS/UDW) 조정, 라이팅, 카메라 배치를 모두 수동으로 해야 하는데, 이 과정을 비개발 직군도 빠르게 이터레이션할 수 있어야 했다.</p>
+    </section>
+
+    <!-- Solution -->
+    <section class="mb-16">
+      <h2 class="text-xl font-bold mb-4">해결</h2>
+      <p class="text-muted text-sm leading-relaxed mb-6">자연어 → AI 해석 → UE 엔진 제어, 3단계로 나눈 브릿지 구조. C++ 플러그인이 UE 에디터를 실시간으로 조작하고, AI가 자연어를 엔진 명령으로 바꿔준다.</p>
+
+      <!-- NL examples -->
+      <div class="bg-surface rounded-lg border border-border p-5 mb-6">
+        <h3 class="font-medium mb-3">실제 사용 예시</h3>
+        <div class="space-y-2 text-sm">
+          <p class="text-green-400 italic">"도쿄 도심을 보여줘요"</p>
+          <p class="text-green-400 italic">"샌프란시스코로 가주세요"</p>
+          <p class="text-green-400 italic">"18시로 맞춰주세요"</p>
+          <p class="text-green-400 italic">"따뜻한 색을 내주세요"</p>
+          <p class="text-green-400 italic">"차가운 12시를 세팅해주세요"</p>
+        </div>
+      </div>
+
+      <!-- Architecture -->
+      <div class="bg-surface rounded-lg border border-border p-5 mb-6">
+        <h3 class="font-medium mb-3">3-레이어 아키텍처</h3>
+        <pre class="text-xs text-green-400 overflow-x-auto"><code>Web UI / CLI → HTTP:34115 → FastAPI + NLP (Claude/Gemini)
+                                    ↓
+              ┌──────────────┬──────────────┬──────────────┐
+              │ UE C++ Plugin│ Nano Banana  │ Veo-3        │
+              │ TCP:55557    │ Image Gen    │ Video Gen    │
+              └──────────────┴──────────────┴──────────────┘</code></pre>
+      </div>
+
+      <h3 class="font-medium mb-3">핵심 — Cesium + UDS 연동</h3>
+      <p class="text-muted text-sm leading-relaxed mb-4">가장 공들인 부분. Cesium 지형 데이터에 Ultra Dynamic Sky를 붙여서, 자연어 한 줄로 <strong class="text-white">위치 + 시간대 + 날씨 + 분위기</strong>가 세팅된 야외 배경을 만든다. 여기에 Nano Banana(i2i)를 걸면 원하는 컨셉이나 느낌으로 바꿀 수 있어서, 씬 구성부터 컨셉 아트까지 한 번에 뽑는다.</p>
+
+<div class="encrypted-block">
+  <div class="encrypted-placeholder">🔒 비밀번호를 입력하면 볼 수 있습니다</div>
+  <script type="application/json" class="encrypted-payload">{"salt":"kthSQiOdJtLarFlEBaUUnA==","iv":"qEmHXOWxm7Yr09iM","data":"D031TA61ADXE7rT1qMq/q/mjMt3H3S2oQM+VXWgMCUjke5vsm1TCMZeRycWCqubwcqv2thIGplcAWK0KBWSq7ZIDpGUP0UIGkHPMmF8k4rHzarx2Mp95ql+cpxh/vOXkKpx1bf41x/J4W/rfEfN0n0BQ5sReNCGGZcf3aOYdSLRcDAEEtSIeSLK+2bpjQeabYSL4QCK+TFoVVWQlORkbsYrsRVBnTsqUhC3EaNt3hPZgcJXUDeCN4TeOGn42uUyN8Q1dII4IECDPH4r4J5+SCF7wUgydRc/XjjU3lmudO5oRrIY/Xg2+et+qi0ia5D093/7eng6LnBpdk1m8s/pxlOOH0kYdffq95fgx/58yBoMwQIHiwSp2gmFom6WiV9iY2aAQScqq6aRJjcItmGQ3zw16WddMCu57MgX+8BHQ9we8EnNpaR68u2NkX09Whg6BHZeZt6JNdWhc7gBYIWSh4yYESh8vmFWO5Z7+HHF1THtyrsRYLu5pqYj3CukhlFV5ekB1CP0wwubZVTuhFNDETZqh8M1RFy5caovSgOn92DvTwk0zmTC+nSnu7HT7QsP+ArxmpPmfbAA4Q7rCr7ykkwf7grPq50tH4QBA2RNaX1wEYbFtKB1md/2001O/Sgo0XeThjVE/IgXPZ3tBNcqXH1jSZefRChymChDp"}</script>
+</div>
+
+      <h3 class="font-medium mb-3">Roblox 연동 — 비즈니스 데모</h3>
+      <p class="text-muted text-sm leading-relaxed mb-4">Roblox API로 FBX를 받아 UE에 임포트 → 생성된 배경에 캐릭터 배치 → Nano Banana/Veo-3로 이미지/비디오 생성. CEO, 기획자, 팀장 대상 시연 콘텐츠.</p>
+
+<div class="encrypted-block">
+  <div class="encrypted-placeholder">🔒 비밀번호를 입력하면 볼 수 있습니다</div>
+  <script type="application/json" class="encrypted-payload">{"salt":"ifCMhohzUyS7X4HL9xJtTg==","iv":"jogr26/BrmUXprow","data":"5R7sqUOMzv5rwG+SrJu2lydzHCW1nU+Oqys6eFL8RjE/seqkkpCThuGtd1IbnthkeqnHBxoWx9U93dl9OP3mnO1EBpBIoLcUGE2D+GfEEeRP7Byo87bwxxpu1LKgwX4L6YYm0rxhBhKS1sdsfoYQG7Q8XGTOd+k1lFJBde2h6usp2JY8tP3Z0wSlun2NB2bO6PBHg7m/fxSM2EQEvIMQ5VD4WLl//aUl7jhf2rSs0le67RDCFGvBfZ+3pE3suZWzzDndozWRHO+vaia4yY+9amT1Bpl/DjUbKJ5qXUico2sAM/CNq/nvWC/zuOiuG/X1DQy9Jp8gkVQrx6w="}</script>
+</div>
+    </section>
+
+    <!-- Result -->
+    <section class="mb-16">
+      <h2 class="text-xl font-bold mb-4">결과</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b border-border text-left">
+              <th class="py-3 pr-4 text-muted font-medium">항목</th>
+              <th class="py-3 text-muted font-medium">결과</th>
+            </tr>
+          </thead>
+          <tbody class="text-muted">
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">야외 씬 세팅</td><td class="py-3">자연어로 위치 + 시간 + 날씨 + 분위기 원스텝 구성</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">i2i 파이프라인</td><td class="py-3">씬 → Nano Banana로 컨셉/분위기 변환</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">서비스 통합</td><td class="py-3">4종 (UE, Nano Banana, Veo-3, Roblox)</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">사용자</td><td class="py-3">CEO, 기획자, 팀장 대상 시연 — POC</td></tr>
+            <tr><td class="py-3 pr-4 text-white font-medium">결과</td><td class="py-3">제품팀 인수인계 완료 (배경 자동화 개발 코스트로 후속 보류)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+<div class="encrypted-block">
+  <div class="encrypted-placeholder">🔒 비밀번호를 입력하면 볼 수 있습니다</div>
+  <script type="application/json" class="encrypted-payload">{"salt":"7Na7Zv3/SBACBwJNp1u7GA==","iv":"r8ciWSM4HhgumxZI","data":"7nmDdbUV5FhIgL6GO+JXgsF4D5WrHvXJJYYG119Nsu9qA9cMWtobuvs0qHeutE2i+m9BFjEDbkBJy5vwKUnCr79f/TkI47mFbsx0d+y2E02xk01eDwaFeiJygMk8hjK1xhvMHL2uohnLmwbKgT+zxB30aGvB4cJn0dPPjDV8mb449DbFR0SJu8EJPkczrrOvsZ+lpCSR4eZFI75xLR9j4dG69nScCHRMm5LkUhI1Wxyem8BsdVKeSr2i2E0C7bcnEDQbl8UKvyEf3QCjgz8VE/VgKmFwjL8CCbkaRqqJwHw+S+TvCxy9/CKzznWuZXjyvl1lw4JSGLjD3Bg7bB0S1EfgQcsF+eBBxMutG8kZ9dYwxz24sByVhXH/ceaOPhnJkqFekU8qdzl6MQhM3DLF+naYIe+jOYXsQkTOmpXLFcHplxJzWh/Vf171o7rIG2ZdSm8SwD0lTnBQ80zhCnTXCoJklNoU6PatFzpBR4RO4vvxbiYisRWFige91sfrHg=="}</script>
+</div>
+
+    <hr class="border-border mb-12">
+
+    <!-- Technical Details -->
+    <section class="mb-16">
+      <h2 class="text-xl font-bold mb-6">기술 상세</h2>
+
+      <h3 class="text-sm text-muted uppercase tracking-widest mb-4">UE C++ Plugin</h3>
+      <div class="space-y-3 mb-8">
+        <details class="bg-surface rounded-lg border border-border">
+          <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">8종 커맨드 핸들러 (6,300 LOC)</summary>
+          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">Actor, Blueprint, Lighting, Rendering, Camera, Cesium, UDS, UDW — 도메인별 핸들러가 TCP로 받은 JSON 명령을 UE API 호출로 바꿔서 실행.</div>
+        </details>
+        <details class="bg-surface rounded-lg border border-border">
+          <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">TCP 소켓 프로토콜</summary>
+          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">JSON 기반 실시간 양방향 통신. TCP_NODELAY, keepalive, 65KB 버퍼, 청크 응답 지원. Python 백엔드 → UE 에디터 간 명령 전달 및 결과 수신.</div>
+        </details>
+      </div>
+
+      <h3 class="text-sm text-muted uppercase tracking-widest mb-4">AI 통합</h3>
+      <div class="space-y-3">
+        <details class="bg-surface rounded-lg border border-border">
+          <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">LLM Provider 추상화 + 토큰 최적화</summary>
+          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">BaseModelProvider로 Claude/Gemini 통합하고 폴백도 넣었다. 8종 도메인별 컨텍스트를 쪼개서 필요한 것만 AI에 넘기니까 토큰이 절반으로 줄었다 (2000+ → 800~1150).</div>
+        </details>
+      </div>
+    </section>
+
+    <!-- Prev/Next -->
+    <div class="flex justify-between items-center mt-16 pt-8 border-t border-border">
+      <a href="pmx-to-vrm.html" class="text-muted hover:text-white transition text-sm">&larr; PMX to VRM Pipeline</a>
+      <a href="mmd-player.html" class="text-muted hover:text-white transition text-sm">MMD Player &rarr;</a>
+    </div>
+
+  
+  
+  </main>
+
+  <!-- Section decrypt modal -->
+  <div id="section-pw-modal" class="hidden fixed inset-0 z-[60] flex items-center justify-center bg-black/60 backdrop-blur-sm">
+    <div class="w-full max-w-sm mx-6 bg-surface border border-border rounded-lg p-6">
+      <div class="flex items-center justify-center w-12 h-12 rounded-full bg-bg border border-border mb-6 mx-auto">
         <svg class="w-5 h-5 text-muted" fill="currentColor" viewBox="0 -960 960 960">
           <path d="M252.31-100q-29.92 0-51.12-21.19Q180-142.39 180-172.31v-375.38q0-29.92 21.19-51.12Q222.39-620 252.31-620H300v-80q0-74.92 52.54-127.46Q405.08-880 480-880q74.92 0 127.46 52.54Q660-774.92 660-700v80h47.69q29.92 0 51.12 21.19Q780-577.61 780-547.69v375.38q0 29.92-21.19 51.12Q737.61-100 707.69-100H252.31Zm0-60h455.38q5.39 0 8.85-3.46t3.46-8.85v-375.38q0-5.39-3.46-8.85t-8.85-3.46H252.31q-5.39 0-8.85 3.46t-3.46 8.85v375.38q0 5.39 3.46 8.85t8.85 3.46Zm277.27-150.42Q550-330.85 550-360t-20.42-49.58Q509.15-430 480-430t-49.58 20.42Q410-389.15 410-360t20.42 49.58Q450.85-290 480-290t49.58-20.42ZM360-620h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z"/>
         </svg>
       </div>
-      <p class="text-center text-muted text-sm mb-6">This project is under NDA.<br>Enter the password to view.</p>
+      <p class="text-center text-muted text-sm mb-6">NDA 프로젝트입니다.<br>비밀번호를 입력하면 잠긴 콘텐츠를 볼 수 있습니다.</p>
       <div class="flex gap-2">
-        <input id="auth-password" type="password" placeholder="Password" autocomplete="off"
-          class="flex-1 bg-surface border border-border rounded-lg px-4 py-2.5 text-sm text-white placeholder-muted focus:outline-none focus:border-accent transition">
-        <button id="auth-submit"
-          class="px-5 py-2.5 bg-white text-black text-sm font-medium rounded-lg hover:bg-white/90 transition">Unlock</button>
+        <input id="section-pw-input" type="password" placeholder="Password" autocomplete="off"
+          class="min-w-0 flex-1 bg-bg border border-border rounded-lg px-4 py-2.5 text-sm text-white placeholder-muted focus:outline-none focus:border-accent transition">
+        <button id="section-pw-submit"
+          class="shrink-0 px-5 py-2.5 bg-white text-black text-sm font-medium rounded-lg hover:bg-white/90 transition">Unlock</button>
       </div>
-      <p id="auth-error" class="hidden text-red-400 text-xs mt-3 text-center">Incorrect password</p>
-      <a href="../index.html#projects" class="block text-center text-muted text-xs mt-6 hover:text-white transition">&larr; Back to Projects</a>
+      <p id="section-pw-error" class="hidden text-red-400 text-xs mt-3 text-center">비밀번호가 틀렸습니다</p>
     </div>
   </div>
-
-  <!-- Encrypted payload -->
-  <script id="encrypted-data" type="application/json">{"salt":"yIImzBtPInbLVknOogKs3Q==","iv":"SzxoEc5yDw/vTlav","data":"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"}</script>
-
-  <!-- Decrypted content renders here -->
-  <main id="protected-content" class="hidden max-w-4xl mx-auto px-6 pt-28 pb-24"></main>
 
   <footer class="border-t border-border py-8 text-center text-muted text-xs">
     <p>&copy; 2026 Younsoo Lim. All rights reserved.</p>

@@ -85,21 +85,22 @@
       history.replaceState(null, '', window.location.pathname + window.location.hash);
     }
 
-    // Intercept clicks on locked card placeholders
-    document.querySelectorAll('.card-locked .card-placeholder, .card-locked .card-thumb').forEach(function (el) {
-      var link = el.closest('a');
-      if (!link) return;
-      link.addEventListener('click', function (e) {
-        if (link.closest('.card-locked')) {
-          e.preventDefault();
-          pendingHref = link.getAttribute('href');
-          pwModal.classList.remove('hidden');
-          pwInput.value = '';
-          pwError.classList.add('hidden');
-          pwSubmit.disabled = false;
-          pwSubmit.textContent = 'Unlock';
-          setTimeout(function () { pwInput.focus(); }, 100);
-        }
+    // Lock badge click → open pw-modal for optional pre-authentication
+    document.querySelectorAll('.card-locked .lock-icon').forEach(function (icon) {
+      var badge = icon.closest('span');
+      var card = icon.closest('.card');
+      var link = card ? card.querySelector('a') : null;
+      if (!badge || !link) return;
+      badge.style.cursor = 'pointer';
+      badge.addEventListener('click', function (e) {
+        e.stopPropagation();
+        pendingHref = link.getAttribute('href');
+        pwModal.classList.remove('hidden');
+        pwInput.value = '';
+        pwError.classList.add('hidden');
+        pwSubmit.disabled = false;
+        pwSubmit.textContent = 'Unlock';
+        setTimeout(function () { pwInput.focus(); }, 100);
       });
     });
 
@@ -120,7 +121,7 @@
       // Verify by fetching and decrypting the target page
       var testUrl = pendingHref || 'projects/character-system.html';
       fetch(testUrl).then(function (r) { return r.text(); }).then(function (html) {
-        var match = html.match(/<script id="encrypted-data"[^>]*>([\s\S]*?)<\/script>/);
+        var match = html.match(/<script[^>]*class="encrypted-payload"[^>]*>([\s\S]*?)<\/script>/);
         if (!match) throw new Error('no data');
         return Auth.decrypt(match[1], password);
       }).then(function () {

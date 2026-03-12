@@ -1,4 +1,4 @@
-// AES-GCM encryption/decryption for NDA project pages
+// AES-GCM encryption/decryption for NDA project pages (section-level)
 
 var Auth = (function () {
   var SESSION_KEY = 'ta-portfolio-auth';
@@ -85,61 +85,83 @@ var Auth = (function () {
     localStorage.removeItem(TIMESTAMP_KEY);
   }
 
-  // Try to decrypt and render the page content
-  function initProtectedPage() {
-    var encEl = document.getElementById('encrypted-data');
-    var contentEl = document.getElementById('protected-content');
-    var gateEl = document.getElementById('auth-gate');
-    var passwordInput = document.getElementById('auth-password');
-    var submitBtn = document.getElementById('auth-submit');
-    var errorEl = document.getElementById('auth-error');
-
-    if (!encEl || !contentEl) return;
-
-    var encryptedJson = encEl.textContent;
-
-    // If already authed this session, try auto-decrypt
-    if (isAuthed()) {
-      decrypt(encryptedJson, getStoredPassword()).then(function (html) {
-        contentEl.innerHTML = html;
-        contentEl.classList.remove('hidden');
-        if (gateEl) gateEl.classList.add('hidden');
+  function decryptAllBlocks(password) {
+    var blocks = document.querySelectorAll('.encrypted-block');
+    blocks.forEach(function (block) {
+      var payload = block.querySelector('.encrypted-payload');
+      if (!payload) return;
+      decrypt(payload.textContent, password).then(function (html) {
+        block.outerHTML = html;
       }).catch(function () {
-        clearAuth();
-        if (gateEl) gateEl.classList.remove('hidden');
+        // leave placeholder on failure
       });
+    });
+  }
+
+  // Section-level decryption for subpages
+  function initSectionDecrypt() {
+    var blocks = document.querySelectorAll('.encrypted-block');
+    if (!blocks.length) return;
+
+    // If already authed, auto-decrypt all blocks
+    if (isAuthed()) {
+      decryptAllBlocks(getStoredPassword());
       return;
     }
 
-    // Not authed — redirect to index with unlock param
-    var currentPage = window.location.pathname;
-    // Build relative URL to index
-    var indexUrl = currentPage.replace(/\/projects\/.*$/, '/index.html');
-    window.location.href = indexUrl + '?unlock=' + encodeURIComponent(currentPage);
-    return;
+    // Not authed — clicking placeholder opens modal
+    var modal = document.getElementById('section-pw-modal');
+    var pwInput = document.getElementById('section-pw-input');
+    var pwSubmit = document.getElementById('section-pw-submit');
+    var pwError = document.getElementById('section-pw-error');
 
-    function tryDecrypt() {
-      var password = passwordInput.value;
+    if (!modal) return;
+
+    blocks.forEach(function (block) {
+      var placeholder = block.querySelector('.encrypted-placeholder');
+      if (placeholder) {
+        placeholder.addEventListener('click', function () {
+          modal.classList.remove('hidden');
+          pwInput.value = '';
+          pwError.classList.add('hidden');
+          pwSubmit.disabled = false;
+          pwSubmit.textContent = 'Unlock';
+          setTimeout(function () { pwInput.focus(); }, 100);
+        });
+      }
+    });
+
+    modal.addEventListener('click', function (e) {
+      if (e.target === modal) modal.classList.add('hidden');
+    });
+
+    function tryUnlock() {
+      var password = pwInput.value;
       if (!password) return;
-      submitBtn.disabled = true;
-      submitBtn.textContent = '...';
-      decrypt(encryptedJson, password).then(function (html) {
+      pwSubmit.disabled = true;
+      pwSubmit.textContent = '...';
+
+      // Verify password against first encrypted block
+      var firstPayload = document.querySelector('.encrypted-block .encrypted-payload');
+      if (!firstPayload) return;
+
+      decrypt(firstPayload.textContent, password).then(function () {
+        // Password correct — store and decrypt all
         setAuthed(password);
-        contentEl.innerHTML = html;
-        contentEl.classList.remove('hidden');
-        gateEl.classList.add('hidden');
+        modal.classList.add('hidden');
+        decryptAllBlocks(password);
       }).catch(function () {
-        errorEl.classList.remove('hidden');
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Unlock';
-        passwordInput.value = '';
-        passwordInput.focus();
+        pwError.classList.remove('hidden');
+        pwSubmit.disabled = false;
+        pwSubmit.textContent = 'Unlock';
+        pwInput.value = '';
+        pwInput.focus();
       });
     }
 
-    submitBtn.addEventListener('click', tryDecrypt);
-    passwordInput.addEventListener('keydown', function (e) {
-      if (e.key === 'Enter') tryDecrypt();
+    pwSubmit.addEventListener('click', tryUnlock);
+    pwInput.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') tryUnlock();
     });
   }
 
@@ -148,12 +170,10 @@ var Auth = (function () {
     decrypt: decrypt,
     isAuthed: isAuthed,
     setAuthed: setAuthed,
-    initProtectedPage: initProtectedPage
+    initSectionDecrypt: initSectionDecrypt
   };
 })();
 
 document.addEventListener('DOMContentLoaded', function () {
-  if (document.getElementById('encrypted-data')) {
-    Auth.initProtectedPage();
-  }
+  Auth.initSectionDecrypt();
 });
