@@ -61,28 +61,18 @@ blockquote {
   align-items: center;
   justify-content: center;
   padding: 2.5rem 1rem;
-  border: 1px dashed transparent;
+  border: 1px solid #2a2b2f;
   border-radius: 0.5rem;
+  background: #111113;
+  color: #a8adb6;
+  font-size: 0.875rem;
   cursor: pointer;
   transition: border-color 0.2s;
   margin: 1rem 0;
 }
 
-.encrypted-placeholder svg {
-  opacity: 0;
-  transition: opacity 0.2s;
-  width: 1.25rem;
-  height: 1.25rem;
-  color: #a8adb6;
-  fill: currentColor;
-}
-
 .encrypted-placeholder:hover {
-  border-color: #2a2b2f;
-}
-
-.encrypted-placeholder:hover svg {
-  opacity: 1;
+  border-color: #7c8aff;
 }
 
 .encrypted-payload {
