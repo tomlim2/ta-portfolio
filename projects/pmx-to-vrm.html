@@ -107,7 +107,7 @@
 
 <div class="encrypted-block">
   <div class="encrypted-placeholder"><svg viewBox="0 -960 960 960"><path d="M252.31-100q-29.92 0-51.12-21.19Q180-142.39 180-172.31v-375.38q0-29.92 21.19-51.12Q222.39-620 252.31-620H300v-80q0-74.92 52.54-127.46Q405.08-880 480-880q74.92 0 127.46 52.54Q660-774.92 660-700v80h47.69q29.92 0 51.12 21.19Q780-577.61 780-547.69v375.38q0 29.92-21.19 51.12Q737.61-100 707.69-100H252.31Zm0-60h455.38q5.39 0 8.85-3.46t3.46-8.85v-375.38q0-5.39-3.46-8.85t-8.85-3.46H252.31q-5.39 0-8.85 3.46t-3.46 8.85v375.38q0 5.39 3.46 8.85t8.85 3.46Zm277.27-150.42Q550-330.85 550-360t-20.42-49.58Q509.15-430 480-430t-49.58 20.42Q410-389.15 410-360t20.42 49.58Q450.85-290 480-290t49.58-20.42ZM360-620h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z"/></svg></div>
-  <script type="application/json" class="encrypted-payload">{"salt":"XoT2JHlaGV4S9u6XZqk0Og==","iv":"tDa91UMBm2SbYBLQ","data":"1/b78MOMaAMhtOnrVnoft5qod+7kZBV6yqnio2i7nhuSRZAYZgyN+YYzt6i481BG2fmPUrahI/kr8fOe427UsUp+AteWiiv+8+uQD7hjiae4FH2Yglqfmcn66P5X/yzq6rgG7RoSiyipbM/eSIrPv1FHFwZ8v+Oas50dWJ5YQ0eRiBnt9Dkr+xzjsg4xUmZPnWIq0ea1zVwBTukn8iE3u65Q4GHX/Pxn+TeBHIBWwyeERJI2EXNmSlL/3MCUZj+cc6nYmuvWgAFdQWKb"}</script>
+  <script type="application/json" class="encrypted-payload">{"salt":"uR63E6CArmD1cZOCLItZ/w==","iv":"YxpoDcYhI4l7PIFG","data":"Nm2/N6D3MQvbfk0KWcl3tdDPSq0n9oJYqQIChsa0pQifYIzioywedcfh0318Yg2k+pV/L2MxgjXsORraNok2iKTnQXVzU0RYE6756ZCZqqiL6bYEYc7s9MMmTIeV9KFIWJv0Eu9PFjqWxAyh3Vi0hrI8wwsdYyMKIwnXueGm0PfPjuYOah5JaSFl3yK3MDrTABuYOer2bg3vuphnzD9JSyXKoDQuC7ieH1nQYPKZekINFMiHsFZDPPBC0Dwm3cjdUb1Q465SvYzGCozb"}</script>
 </div>
     </section>
 
@@ -182,14 +182,12 @@
         </svg>
       </div>
       <p class="text-center text-muted text-sm mb-6">NDA 프로젝트입니다.<br>비밀번호를 입력하면 잠긴 콘텐츠를 볼 수 있습니다.</p>
-      <div class="flex gap-2">
-        <input id="section-pw-input" type="password" placeholder="Password" autocomplete="off"
-          class="min-w-0 flex-1 bg-bg border border-border rounded-lg px-4 py-2.5 text-sm text-white placeholder-muted focus:outline-none focus:border-accent transition">
-        <button id="section-pw-submit"
-          class="shrink-0 px-5 py-2.5 bg-white text-black text-sm font-medium rounded-lg hover:bg-white/90 transition">Unlock</button>
-      </div>
-      <p id="section-pw-error" class="hidden text-red-400 text-xs mt-3 text-center">비밀번호가 틀렸습니다</p>
-      <button id="section-pw-close" class="block w-full mt-4 text-muted text-sm hover:text-white transition">닫기</button>
+      <input id="section-pw-input" type="password" placeholder="Password" autocomplete="off"
+        class="w-full bg-bg border border-border rounded-lg px-4 py-2.5 text-sm text-white placeholder-muted focus:outline-none focus:border-accent transition mb-3">
+      <p id="section-pw-error" class="hidden text-red-400 text-xs mb-3 text-center">비밀번호가 틀렸습니다</p>
+      <button id="section-pw-submit"
+        class="w-full px-5 py-2.5 bg-white text-black text-sm font-medium rounded-lg hover:bg-white/90 transition">Unlock</button>
+      <button id="section-pw-close" class="block w-full mt-3 text-muted text-sm hover:text-white transition">닫기</button>
     </div>
   </div>
 
