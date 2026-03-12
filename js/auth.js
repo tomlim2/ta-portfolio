@@ -23,10 +23,10 @@ var Auth = (function () {
 
   function deriveKey(password, salt) {
     var enc = new TextEncoder();
-    return crypto.subtle.importKey('raw', enc.encode(password), 'PBKDF2', false, ['deriveKey'])
+    return crypto.subtle.importKey('raw', enc.encode(password), { name: 'PBKDF2' }, false, ['deriveKey'])
       .then(function (keyMaterial) {
         return crypto.subtle.deriveKey(
-          { name: 'PBKDF2', salt: salt, iterations: 100000, hash: 'SHA-256' },
+          { name: 'PBKDF2', salt: salt, iterations: 100000, hash: { name: 'SHA-256' } },
           keyMaterial,
           { name: 'AES-GCM', length: 256 },
           false,
@@ -134,6 +134,13 @@ var Auth = (function () {
     modal.addEventListener('click', function (e) {
       if (e.target === modal) modal.classList.add('hidden');
     });
+
+    var closeBtn = document.getElementById('section-pw-close');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', function () {
+        modal.classList.add('hidden');
+      });
+    }
 
     function tryUnlock() {
       var password = pwInput.value;
