@@ -37,7 +37,7 @@
 
   <nav class="fixed top-0 w-full z-50 bg-bg/80 backdrop-blur-md">
     <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-      <a href="../index.html" class="flex items-center" style="gap:0.45rem"><img src="../assets/images/avatar.png" alt="" class="w-14 h-14 rounded-full object-cover border border-border transition-all duration-150"><span style="font-family:'Gothic A1',sans-serif; font-size:1.5rem; font-weight:600; letter-spacing:0.6px; margin-top:4px; line-height:1">임연수</span></a>
+      <a href="../index.html" class="flex items-center" style="gap:0.45rem"><img src="../assets/images/avatar.png" alt="" class="w-14 h-14 rounded-full object-cover border border-border transition-all duration-150"><span style="font-family:'Gothic A1',sans-serif; font-size:1.5rem; font-weight:600; letter-spacing:0.6px; margin-top:4px; line-height:1">Younsoo Lim</span></a>
       <div class="hidden md:flex gap-8 text-sm text-sub">
         <a href="../index.html#projects" class="hover:text-white transition">Projects</a>
         <a href="../index.html#about" class="hover:text-white transition">About</a>
@@ -45,12 +45,14 @@
     </div>
   </nav>
 
-  <main class="max-w-4xl mx-auto px-6 pt-28 pb-24">
+  <main class="max-w-4xl mx-auto px-6 pt-20 pb-24">
 
 
 
-    <div class="aspect-video mb-12 overflow-hidden">
-      <img src="../assets/images/character-system/hero.png" alt="Placing and previewing NPR characters on a background in the editor" class="w-full h-full object-cover">
+    <div class="relative left-1/2 -translate-x-1/2 w-screen max-w-6xl px-6 mb-12 max-h-[70vh] overflow-hidden">
+      <div class="aspect-video overflow-hidden">
+        <img src="../assets/images/character-system/hero.png" alt="Placing and previewing NPR characters on a background in the editor" class="w-full h-full object-cover">
+      </div>
     </div>
 
     <h1 class="text-4xl font-bold mb-3">Character System</h1>
@@ -65,12 +67,12 @@
       <span>Company Project</span>
     </div>
     <div class="flex flex-wrap gap-2 text-xs text-muted mb-12">
-      <span class="px-2 py-1 rounded border border-border">Unreal Engine 5</span>
-      <span class="px-2 py-1 rounded border border-border">C++</span>
-      <span class="px-2 py-1 rounded border border-border">Blueprint</span>
-      <span class="px-2 py-1 rounded border border-border">Data Asset</span>
-      <span class="px-2 py-1 rounded border border-border">VRM4U</span>
-      <span class="px-2 py-1 rounded border border-border">Unreal Insights</span>
+      <span class="px-2 py-1 rounded border border-white/20 text-white/70">Unreal Engine 5</span>
+      <span class="px-2 py-1 rounded border border-white/20 text-white/70">C++</span>
+      <span class="px-2 py-1 rounded border border-white/20 text-white/70">Blueprint</span>
+      <span class="px-2 py-1 rounded border border-white/20 text-white/70">Data Asset</span>
+      <span class="px-2 py-1 rounded border border-white/20 text-white/70">VRM4U</span>
+      <span class="px-2 py-1 rounded border border-white/20 text-white/70">Unreal Insights</span>
     </div>
 
     <!-- Problem -->
@@ -82,7 +84,7 @@
     <!-- Solution -->
     <section class="mb-16">
       <h2 class="text-xl font-bold mb-4">Solution</h2>
-      <p class="text-muted text-sm leading-relaxed mb-4">Three independent systems -- Editor (EnvCheck), Runtime (Basemodel_TF), and VRM Reference Points -- were designed to load tool Data Assets and external models while verifying them with the in-house shader system and animations. Artists assemble parts and register presets in the editor, producing Data Assets that the runtime loads asynchronously.</p>
+      <p class="text-muted text-sm leading-relaxed mb-4">Three independent systems -- an Editor tool, a Runtime character Blueprint, and VRM Reference Points -- were designed to load Data Assets and external models while verifying them with the in-house shader system and animations. Artists assemble parts and register presets in the editor, producing Data Assets that the runtime loads asynchronously.</p>
 
 <div class="encrypted-block">
   <div class="encrypted-placeholder"><svg viewBox="0 -960 960 960"><path d="M252.31-100q-29.92 0-51.12-21.19Q180-142.39 180-172.31v-375.38q0-29.92 21.19-51.12Q222.39-620 252.31-620H300v-80q0-74.92 52.54-127.46Q405.08-880 480-880q74.92 0 127.46 52.54Q660-774.92 660-700v80h47.69q29.92 0 51.12 21.19Q780-577.61 780-547.69v375.38q0 29.92-21.19 51.12Q737.61-100 707.69-100H252.31Zm0-60h455.38q5.39 0 8.85-3.46t3.46-8.85v-375.38q0-5.39-3.46-8.85t-8.85-3.46H252.31q-5.39 0-8.85 3.46t-3.46 8.85v375.38q0 5.39 3.46 8.85t8.85 3.46Zm277.27-150.42Q550-330.85 550-360t-20.42-49.58Q509.15-430 480-430t-49.58 20.42Q410-389.15 410-360t20.42 49.58Q450.85-290 480-290t49.58-20.42ZM360-620h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z"/></svg></div>
@@ -92,7 +94,7 @@
       <div class="mb-6 overflow-hidden">
         <img src="../assets/images/character-system/editor-preview.png" alt="Editor preview — verifying NPR character placement on a background" class="w-full h-auto">
       </div>
-      <p class="text-muted text-sm leading-relaxed">BP_Basemodel_TF originally had both save and load in a single actor, but the references held by the save side caused a 30-second wait every time the editor opened. By extracting save into BP_Character_EnvCheck and leaving only load in Basemodel_TF, load time dropped from <strong class="text-white">30s to 6s</strong>. EnvCheck also implements the Editor Tick Interface, enabling preview directly on a background without launching the game. For external VRM, Reference Points auto-detects the face via a 4-level fallback and handles camera targeting and thumbnail generation automatically.</p>
+      <p class="text-muted text-sm leading-relaxed">The original character Blueprint had both save and load in a single actor, but the references held by the save side caused a 30-second wait every time the editor opened. By extracting save into a dedicated editor tool and leaving only load in the runtime Blueprint, load time dropped from <strong class="text-white">30s to 6s</strong>. The editor tool also implements the Editor Tick Interface, enabling preview directly on a background without launching the game. For external VRM, Reference Points auto-detects the face via a 4-level fallback and handles camera targeting and thumbnail generation automatically.</p>
     </section>
 
     <!-- Result -->
@@ -138,7 +140,7 @@
     <section class="mb-16">
       <h2 class="text-xl font-bold mb-6">System Structure</h2>
 
-      <p class="text-muted text-sm leading-relaxed mb-6">Three independent codebases connected via Data Assets and VRM info nodes. The editor (EnvCheck) produces Data Assets, the runtime (Basemodel_TF) loads them asynchronously, and VRM Reference Points updates external model info at runtime.</p>
+      <p class="text-muted text-sm leading-relaxed mb-6">Three independent codebases connected via Data Assets and VRM info nodes. The editor tool produces Data Assets, the runtime character Blueprint loads them asynchronously, and VRM Reference Points updates external model info at runtime.</p>
 
 
 <div class="encrypted-block">
@@ -149,7 +151,7 @@
       <!-- Three components -->
       <div class="space-y-4 mb-6">
         <div class="bg-surface rounded-lg border border-border p-5">
-          <h3 class="font-medium mb-3">Editor — BP_Character_EnvCheck</h3>
+          <h3 class="font-medium mb-3">Editor — Character Environment Checker</h3>
           <p class="text-muted text-sm leading-relaxed mb-4">Artists assemble head, hair, and body parts in the editor and save them as presets. The Editor Tick Interface allows verifying characters and animations on a background without launching the game. The Data Assets produced here become the runtime's input.</p>
 <div class="encrypted-block">
   <div class="encrypted-placeholder"><svg viewBox="0 -960 960 960"><path d="M252.31-100q-29.92 0-51.12-21.19Q180-142.39 180-172.31v-375.38q0-29.92 21.19-51.12Q222.39-620 252.31-620H300v-80q0-74.92 52.54-127.46Q405.08-880 480-880q74.92 0 127.46 52.54Q660-774.92 660-700v80h47.69q29.92 0 51.12 21.19Q780-577.61 780-547.69v375.38q0 29.92-21.19 51.12Q737.61-100 707.69-100H252.31Zm0-60h455.38q5.39 0 8.85-3.46t3.46-8.85v-375.38q0-5.39-3.46-8.85t-8.85-3.46H252.31q-5.39 0-8.85 3.46t-3.46 8.85v375.38q0 5.39 3.46 8.85t8.85 3.46Zm277.27-150.42Q550-330.85 550-360t-20.42-49.58Q509.15-430 480-430t-49.58 20.42Q410-389.15 410-360t20.42 49.58Q450.85-290 480-290t49.58-20.42ZM360-620h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z"/></svg></div>
@@ -157,8 +159,8 @@
 </div>
         </div>
         <div class="bg-surface rounded-lg border border-border p-5">
-          <h3 class="font-medium mb-3">Runtime — BP_Basemodel_TF</h3>
-          <p class="text-muted text-sm leading-relaxed mb-4">A separate codebase from EnvCheck -- a runtime character BP inheriting CinevCharacter. Internal characters load parts asynchronously from EnvCheck-produced Data Assets (Head/Hair/Body split), while external VRM loads the entire model through a loader. The same BP handles both, branching only at the load path, managing 300+ internal presets and community characters in a single system.</p>
+          <h3 class="font-medium mb-3">Runtime — Character Blueprint</h3>
+          <p class="text-muted text-sm leading-relaxed mb-4">A separate codebase from the editor tool -- a runtime character Blueprint inheriting the base character class. Internal characters load parts asynchronously from editor-produced Data Assets (Head/Hair/Body split), while external VRM loads the entire model through a loader. The same Blueprint handles both, branching only at the load path, managing 300+ internal presets and community characters in a single system.</p>
 <div class="encrypted-block">
   <div class="encrypted-placeholder"><svg viewBox="0 -960 960 960"><path d="M252.31-100q-29.92 0-51.12-21.19Q180-142.39 180-172.31v-375.38q0-29.92 21.19-51.12Q222.39-620 252.31-620H300v-80q0-74.92 52.54-127.46Q405.08-880 480-880q74.92 0 127.46 52.54Q660-774.92 660-700v80h47.69q29.92 0 51.12 21.19Q780-577.61 780-547.69v375.38q0 29.92-21.19 51.12Q737.61-100 707.69-100H252.31Zm0-60h455.38q5.39 0 8.85-3.46t3.46-8.85v-375.38q0-5.39-3.46-8.85t-8.85-3.46H252.31q-5.39 0-8.85 3.46t-3.46 8.85v375.38q0 5.39 3.46 8.85t8.85 3.46Zm277.27-150.42Q550-330.85 550-360t-20.42-49.58Q509.15-430 480-430t-49.58 20.42Q410-389.15 410-360t20.42 49.58Q450.85-290 480-290t49.58-20.42ZM360-620h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z"/></svg></div>
   <script type="application/json" class="encrypted-payload">{"salt":"rY6g7g3Cwk5/Odhik+3ecQ==","iv":"QnN0y7/kcOgZSC2R","data":"wWXJHlPPYyePoc2M9Z1dEK7fibX9mb66LCP8c3vVWTYLSQUAx8Yr1aQPAahBZ2Huulw5H9uUq4Cd7sj91NFoc8MnxLSevVDumvpyrQObzm0v0jPWCRKNs6eyAnTqvQiyrubg06jySYrDhmpE7VjnBvqsG0rLjFmH2JyTKzGiMH3rNTysXtgdk2vCH4Io1TkdTi4zmv5BOZHe+slen2sXyKcJQHti7/Er7anI15beOJfx99X6mdNY0tRW0jAHvx9Czgab2zpS75ExqkArSQgG"}</script>
@@ -166,7 +168,7 @@
         </div>
         <div class="bg-surface rounded-lg border border-border p-5">
           <h3 class="font-medium mb-3">External Model Support — VRM Reference Points</h3>
-          <p class="text-muted text-sm leading-relaxed mb-4">A C++ module written for the VRM4U plugin that updates VRM info nodes in BP_Basemodel_TF. It auto-detects the face position of any external VRM/PMX via a 4-level fallback, then uses the result as a camera target to automatically capture 3-angle thumbnails (face close-up, upper body, full body). A commandlet environment enables batch thumbnail generation for all characters without opening the editor. A-pose/T-pose detection is also automatic.</p>
+          <p class="text-muted text-sm leading-relaxed mb-4">A C++ module written for the VRM4U plugin that updates VRM info nodes in the runtime character Blueprint. It auto-detects the face position of any external VRM/PMX via a 4-level fallback, then uses the result as a camera target to automatically capture 3-angle thumbnails (face close-up, upper body, full body). A commandlet environment enables batch thumbnail generation for all characters without opening the editor. A-pose/T-pose detection is also automatic.</p>
 <div class="encrypted-block">
   <div class="encrypted-placeholder"><svg viewBox="0 -960 960 960"><path d="M252.31-100q-29.92 0-51.12-21.19Q180-142.39 180-172.31v-375.38q0-29.92 21.19-51.12Q222.39-620 252.31-620H300v-80q0-74.92 52.54-127.46Q405.08-880 480-880q74.92 0 127.46 52.54Q660-774.92 660-700v80h47.69q29.92 0 51.12 21.19Q780-577.61 780-547.69v375.38q0 29.92-21.19 51.12Q737.61-100 707.69-100H252.31Zm0-60h455.38q5.39 0 8.85-3.46t3.46-8.85v-375.38q0-5.39-3.46-8.85t-8.85-3.46H252.31q-5.39 0-8.85 3.46t-3.46 8.85v375.38q0 5.39 3.46 8.85t8.85 3.46Zm277.27-150.42Q550-330.85 550-360t-20.42-49.58Q509.15-430 480-430t-49.58 20.42Q410-389.15 410-360t20.42 49.58Q450.85-290 480-290t49.58-20.42ZM360-620h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z"/></svg></div>
   <script type="application/json" class="encrypted-payload">{"salt":"yuGua9ghwx0B6U4WXZ+kVQ==","iv":"uvUn1xfTsIxOnHmQ","data":"cE5zksEXr6gsJs2lpzk8emDgfE41sK+Q4OCmZ53PXJ1o67VBgEe3wQgmqjYUMtD6gMFGbCwZuj+k+orjPBCNs8dImeSfPYafahlG3Ke5tcZlgdeDzH9pTyLReReIyFxu8Fu25z52W6xwX9bwjbkA8QKisIt/SQSD4MzwO3lcUHmBLOA7zZl9eJ7M/ncXXeiFDqet1iaDAhQ4J935RiHPBine2xVnkSkYz2nyAWp8Jf0rXZnUJxzvW3mS3CzsKRrT0nqc8i+sPLtIfpJwA9KTdfzrb9nr2JdQl86s30zC"}</script>
@@ -192,7 +194,7 @@
       <div class="space-y-3 mb-8">
         <details class="bg-surface rounded-lg border border-border">
           <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">Soft Object Reference + Async Loading</summary>
-          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">Two root causes behind the 30-second load: per-part Hard References for save were all pulled in at editor load, and 80+ unused blend shapes (face morphs) came along too. Extracting save into EnvCheck removed all those references, and blend shapes were changed to not preload. Data Assets needed only at load time are processed asynchronously via StreamableManager.RequestAsyncLoad.
+          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">Two root causes behind the 30-second load: per-part Hard References for save were all pulled in at editor load, and 80+ unused blend shapes (face morphs) came along too. Extracting save into the editor tool removed all those references, and blend shapes were changed to not preload. Data Assets needed only at load time are processed asynchronously via StreamableManager.RequestAsyncLoad.
           </div>
         </details>
         <details class="bg-surface rounded-lg border border-border">
@@ -209,7 +211,7 @@
       <div class="space-y-3 mb-8">
         <details class="bg-surface rounded-lg border border-border">
           <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">Unified / Split Skeletal Mesh Loading</summary>
-          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">Split mode (internal characters) loads Head/Hair/Body parts separately from Data Assets, while unified mode (VRM/PMX) loads the entire model through the VRM4U loader. The same BP handles both with only the load path branching; once loaded, all skeletal mesh components are reset and reattached.
+          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">Split mode (internal characters) loads Head/Hair/Body parts separately from Data Assets, while unified mode (VRM/PMX) loads the entire model through the VRM4U loader. The same Blueprint handles both with only the load path branching; once loaded, all skeletal mesh components are reset and reattached.
 <div class="encrypted-block">
   <div class="encrypted-placeholder"><svg viewBox="0 -960 960 960"><path d="M252.31-100q-29.92 0-51.12-21.19Q180-142.39 180-172.31v-375.38q0-29.92 21.19-51.12Q222.39-620 252.31-620H300v-80q0-74.92 52.54-127.46Q405.08-880 480-880q74.92 0 127.46 52.54Q660-774.92 660-700v80h47.69q29.92 0 51.12 21.19Q780-577.61 780-547.69v375.38q0 29.92-21.19 51.12Q737.61-100 707.69-100H252.31Zm0-60h455.38q5.39 0 8.85-3.46t3.46-8.85v-375.38q0-5.39-3.46-8.85t-8.85-3.46H252.31q-5.39 0-8.85 3.46t-3.46 8.85v375.38q0 5.39 3.46 8.85t8.85 3.46Zm277.27-150.42Q550-330.85 550-360t-20.42-49.58Q509.15-430 480-430t-49.58 20.42Q410-389.15 410-360t20.42 49.58Q450.85-290 480-290t49.58-20.42ZM360-620h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z"/></svg></div>
   <script type="application/json" class="encrypted-payload">{"salt":"ce557bv9WcLHq4VvTU73Yg==","iv":"lOMX+cTesv+vs8ci","data":"HiClNUOn9jvlyVMeOCJuHQ7rYDczdr2uIMbakCNLUX3cWGflvjYwoWnd8tUpo6JJoI7kRjL5DDRwQmSpxNKYldJOtFRjc+5BNLZ7INfJK5S6XMf30HtNuluQhbl6rsbBbr7RCdHxn2P2E5zoGRLcbdoUBFj5gT6sfffJMe2FRv/TrtCvRtb1kHhbO2YwUTYCk7J1tnpiLNURNZSMDjzowkwhM+sDqregKAVk6aCx+36AzL3wTl7qW+4y1m951esVYkhilqJr4eFJPVIlEnf0gHRted5UyJ93pyriCw=="}</script>
@@ -217,8 +219,8 @@
           </div>
         </details>
         <details class="bg-surface rounded-lg border border-border">
-          <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">Editor Tick Interface — Editor Preview Without PIE (BP_Character_EnvCheck)</summary>
-          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">Implemented the Editor Tick Blueprint Interface in BP_Character_EnvCheck, enabling animation playback in the editor environment. Art directors can verify colors, scale, and animations without launching the runtime, shortening the feedback loop.
+          <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">Editor Tick Interface — Editor Preview Without PIE</summary>
+          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">Implemented the Editor Tick Blueprint Interface in the editor tool, enabling animation playback in the editor environment. Art directors can verify colors, scale, and animations without launching the runtime, shortening the feedback loop.
 <div class="encrypted-block">
   <div class="encrypted-placeholder"><svg viewBox="0 -960 960 960"><path d="M252.31-100q-29.92 0-51.12-21.19Q180-142.39 180-172.31v-375.38q0-29.92 21.19-51.12Q222.39-620 252.31-620H300v-80q0-74.92 52.54-127.46Q405.08-880 480-880q74.92 0 127.46 52.54Q660-774.92 660-700v80h47.69q29.92 0 51.12 21.19Q780-577.61 780-547.69v375.38q0 29.92-21.19 51.12Q737.61-100 707.69-100H252.31Zm0-60h455.38q5.39 0 8.85-3.46t3.46-8.85v-375.38q0-5.39-3.46-8.85t-8.85-3.46H252.31q-5.39 0-8.85 3.46t-3.46 8.85v375.38q0 5.39 3.46 8.85t8.85 3.46Zm277.27-150.42Q550-330.85 550-360t-20.42-49.58Q509.15-430 480-430t-49.58 20.42Q410-389.15 410-360t20.42 49.58Q450.85-290 480-290t49.58-20.42ZM360-620h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z"/></svg></div>
   <script type="application/json" class="encrypted-payload">{"salt":"557oEytaACD9lql6ZBfB4Q==","iv":"SKk+azZKq01ZeT6E","data":"4HiLvDM7k6LepuFOvTs4v0m8b+BTiZFVF1RQsEcnDE5q9WgxIgVeNEzCbJOilvm0SNUyAALAhTplGwDsBjO5rF9ycbR4YWIQctVlDVDOJRemqS+5b8+v642Fr2GWuxnpNHAH9QI/1+N8TJAxOXlOck5eh6mV6V020BKEvnGv/5NVdnchlR8kz1xIOlCjTpiZlJ35VLWm/lbi0R5kHSKwcsjtkppNq0RBbjyDPX/r2pYkuF418pl3ZpEiTx4oB7Aq5PbWwk6DaIdTTg=="}</script>

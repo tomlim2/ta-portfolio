@@ -37,7 +37,7 @@
 
   <nav class="fixed top-0 w-full z-50 bg-bg/80 backdrop-blur-md">
     <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-      <a href="../index.html" class="flex items-center" style="gap:0.45rem"><img src="../assets/images/avatar.png" alt="" class="w-14 h-14 rounded-full object-cover border border-border transition-all duration-150"><span style="font-family:'Gothic A1',sans-serif; font-size:1.5rem; font-weight:600; letter-spacing:0.6px; margin-top:4px; line-height:1">임연수</span></a>
+      <a href="../index.html" class="flex items-center" style="gap:0.45rem"><img src="../assets/images/avatar.png" alt="" class="w-14 h-14 rounded-full object-cover border border-border transition-all duration-150"><span style="font-family:'Gothic A1',sans-serif; font-size:1.5rem; font-weight:600; letter-spacing:0.6px; margin-top:4px; line-height:1">Younsoo Lim</span></a>
       <div class="hidden md:flex gap-8 text-sm text-sub">
         <a href="../index.html#projects" class="hover:text-white transition">Projects</a>
         <a href="../index.html#about" class="hover:text-white transition">About</a>
@@ -45,12 +45,14 @@
     </div>
   </nav>
 
-  <main class="max-w-4xl mx-auto px-6 pt-28 pb-24">
+  <main class="max-w-4xl mx-auto px-6 pt-20 pb-24">
 
 
 
 
-    <img src="../assets/images/npr-shader/hero-cel-shading-outline.png" alt="NPR character over PBR background — cel shading + outline" class="w-full rounded-lg border border-border mb-12">
+    <div class="relative left-1/2 -translate-x-1/2 w-screen max-w-6xl px-6 mb-12 max-h-[70vh] overflow-hidden">
+      <img src="../assets/images/npr-shader/hero-cel-shading-outline.png" alt="NPR character over PBR background — cel shading + outline" class="w-full">
+    </div>
 
     <h1 class="text-4xl font-bold mb-3">NPR Shader System</h1>
 
@@ -64,13 +66,13 @@
       <span>Company Project</span>
     </div>
     <div class="flex flex-wrap gap-2 text-xs text-muted mb-12">
-      <span class="px-2 py-1 rounded border border-border">Unreal Engine 5</span>
-      <span class="px-2 py-1 rounded border border-border">Material Editor</span>
-      <span class="px-2 py-1 rounded border border-border">Post Process</span>
-      <span class="px-2 py-1 rounded border border-border">Stencil Buffer</span>
-      <span class="px-2 py-1 rounded border border-border">Custom Depth</span>
-      <span class="px-2 py-1 rounded border border-border">SDF</span>
-      <span class="px-2 py-1 rounded border border-border">Matcap</span>
+      <span class="px-2 py-1 rounded border border-white/20 text-white/70">Unreal Engine 5</span>
+      <span class="px-2 py-1 rounded border border-white/20 text-white/70">Material Editor</span>
+      <span class="px-2 py-1 rounded border border-white/20 text-white/70">Post Process</span>
+      <span class="px-2 py-1 rounded border border-white/20 text-white/70">Stencil Buffer</span>
+      <span class="px-2 py-1 rounded border border-white/20 text-white/70">Custom Depth</span>
+      <span class="px-2 py-1 rounded border border-white/20 text-white/70">SDF</span>
+      <span class="px-2 py-1 rounded border border-white/20 text-white/70">Matcap</span>
     </div>
 
     <!-- Problem -->
@@ -109,7 +111,7 @@
       </div>
     </section>
 
-    <img src="../assets/images/npr-shader/pbr-npr-coexist-scene.png" alt="PBR background + NPR character coexistence scene" class="w-full rounded-lg border border-border mb-12">
+    <img src="../assets/images/npr-shader/pbr-npr-coexist-scene.png" alt="PBR background + NPR character coexistence scene" class="w-full mb-12">
 
     <hr class="border-border mb-12">
 
@@ -121,7 +123,7 @@
       <h2 class="text-xl font-bold mb-4">4 Base Materials</h2>
       <p class="text-muted text-sm leading-relaxed mb-6">In-house and VRM have different material structures, and even within VRM, realistic and non-realistic parts are mixed. So four separate base materials were created.</p>
 
-      <img src="../assets/images/npr-shader/material-4types.png" alt="4 Base Materials — VRM Toon, VRM Zo Std, VRM Zo Toon, M Cell" class="w-full rounded-lg border border-border mb-8">
+      <img src="../assets/images/npr-shader/material-4types.png" alt="4 Base Materials — VRM Toon, VRM Zo Std, VRM Zo Toon, M Cell" class="w-full mb-8">
 
       <!-- 1. In-house Toon -->
       <div class="mb-12">
@@ -129,7 +131,7 @@
         <p class="text-muted text-sm leading-relaxed mb-4">Dedicated toon material for in-house characters. On top of a structure that separates characters via Custom Depth buffer and renders them in NPR style through Post Process, I developed and maintained features such as SDF face shadow and Matcap reflection.</p>
 
         <div class="mb-4">
-          <video src="../assets/images/npr-shader/shadow-off-on.mp4" autoplay loop muted playsinline class="w-full rounded-lg border border-border"></video>
+          <video src="../assets/images/npr-shader/shadow-off-on.mp4" autoplay loop muted playsinline class="w-full"></video>
           <p class="text-xs text-muted mt-2 text-center">Global Shadow OFF / ON toggle demo</p>
         </div>
 
@@ -138,11 +140,11 @@
         <p class="text-muted text-sm leading-relaxed mb-4">Standard NdotL produces unintuitive shadows around the nose and eye sockets. By controlling shadow boundaries with pre-baked distance information in SDF textures, face shadows fall naturally even as the lighting angle changes.</p>
         <div class="grid md:grid-cols-2 gap-4 mb-4">
           <div>
-            <video src="../assets/images/npr-shader/sdf-face-shadow.mp4" autoplay loop muted playsinline class="w-full rounded-lg border border-border"></video>
+            <video src="../assets/images/npr-shader/sdf-face-shadow.mp4" autoplay loop muted playsinline class="w-full"></video>
             <p class="text-xs text-muted mt-2 text-center">SDF face shadow lighting demo</p>
           </div>
           <div>
-            <img src="../assets/images/npr-shader/sdf-shadow-mask.png" alt="SDF Shadow Mask texture" class="w-full rounded-lg border border-border">
+            <img src="../assets/images/npr-shader/sdf-shadow-mask.png" alt="SDF Shadow Mask texture" class="w-full">
             <p class="text-xs text-muted mt-2 text-center">SDF Shadow Mask texture</p>
           </div>
         </div>
@@ -155,7 +157,7 @@
         <h4 class="text-sm font-bold mt-6 mb-3">Matcap Reflection</h4>
         <p class="text-muted text-sm leading-relaxed mb-4">PBR reflections don't suit NPR environments. Implemented view-based reflections using Matcap textures, applying NPR-appropriate reflections for hair highlights, skin sheen, and more. After implementation, I discovered it could also produce fake rim lighting, and built <a href="matcap-painter.html" class="text-accent hover:underline">Matcap Painter</a> to explore that potential.</p>
         <div class="mb-4">
-          <video src="../assets/images/npr-shader/matcap-demo.mp4" autoplay loop muted playsinline class="w-full rounded-lg border border-border"></video>
+          <video src="../assets/images/npr-shader/matcap-demo.mp4" autoplay loop muted playsinline class="w-full"></video>
           <p class="text-xs text-muted mt-2 text-center">Matcap reflection demo</p>
         </div>
 <div class="encrypted-block">
@@ -205,14 +207,14 @@
 </div>
 
         <div class="mb-4">
-          <video src="../assets/images/npr-shader/toon-pbr-coexist.mp4" autoplay loop muted playsinline class="w-full rounded-lg border border-border"></video>
+          <video src="../assets/images/npr-shader/toon-pbr-coexist.mp4" autoplay loop muted playsinline class="w-full"></video>
           <p class="text-xs text-muted mt-2 text-center">Zo Toon + PBR non-realistic/realistic combination showcase</p>
         </div>
 
-        <img src="../assets/images/npr-shader/mixed-pbr-toon.png" alt="PBR + Toon mixed rendering" class="w-full rounded-lg border border-border mb-1">
+        <img src="../assets/images/npr-shader/mixed-pbr-toon.png" alt="PBR + Toon mixed rendering" class="w-full mb-1">
         <p class="text-xs text-muted mb-6">PBR realistic part + Toon non-realistic part mixed result</p>
 
-        <img src="../assets/images/npr-shader/inverted-hull-vs-pp.png" alt="Zo Toon(Inverted Hull) vs VRM Toon(Post Process) outline comparison" class="w-full rounded-lg border border-border mb-1">
+        <img src="../assets/images/npr-shader/inverted-hull-vs-pp.png" alt="Zo Toon(Inverted Hull) vs VRM Toon(Post Process) outline comparison" class="w-full mb-1">
         <p class="text-xs text-muted">Zo Toon(Inverted Hull) vs VRM Toon(Post Process) outline comparison</p>
       </div>
 
@@ -221,7 +223,7 @@
         <h3 class="text-lg font-bold mb-3">4. VRM PBR</h3>
         <p class="text-muted text-sm leading-relaxed mb-4">Lightweight version of the VRM4U plugin's PBR material. Renders realistic parts such as skin, irises, and accessories based on a default SSS Profile. Like Zo Toon, the focus was on matching the tone with existing in-house characters.</p>
 
-        <img src="../assets/images/npr-shader/vrm-pbr-scene.png" alt="VRM PBR character rendering" class="w-full rounded-lg border border-border">
+        <img src="../assets/images/npr-shader/vrm-pbr-scene.png" alt="VRM PBR character rendering" class="w-full">
       </div>
     </section>
 
@@ -247,7 +249,7 @@
     <section class="mb-16">
       <h2 class="text-xl font-bold mb-4">UDS / ToD 통합 테스트</h2>
       <p class="text-muted text-sm leading-relaxed mb-6">A 9-frame grid verifying that all shaders behave consistently across various lighting and Time of Day conditions.</p>
-      <img src="../assets/images/npr-shader/dual-npr-comparison.png" alt="UDS / ToD integration test — 9-frame shader results across lighting conditions" class="w-full rounded-lg border border-border">
+      <img src="../assets/images/npr-shader/dual-npr-comparison.png" alt="UDS / ToD integration test — 9-frame shader results across lighting conditions" class="w-full">
     </section>
 
     <!-- Prev/Next -->

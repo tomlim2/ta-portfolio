@@ -219,7 +219,7 @@
     });
     navLogoLink.addEventListener('mouseleave', function () {
       navAvatar.style.transform = 'rotate(0deg)';
-      scrambleTo(navScrambleEl, '임연수', 500);
+      scrambleTo(navScrambleEl, 'Younsoo Lim', 500);
     });
   }
 
