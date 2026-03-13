@@ -60,9 +60,7 @@
 
 
     <div class="relative left-1/2 -translate-x-1/2 w-screen max-w-6xl px-6 mb-12">
-      <div class="h-[70vh] bg-surface flex items-center justify-center text-muted text-sm">
-        VMD Playback + Effects Demo — Motion playback with 6 effect types in action
-      </div>
+      <iframe src="https://tomlim2.github.io/mmd-anju/" class="w-full h-[70vh] border-0" allow="autoplay" loading="lazy"></iframe>
     </div>
 
     <div class="flex items-center gap-4 mb-3">
@@ -73,7 +71,7 @@
     </div>
 
     <blockquote class="text-muted mb-6">
-      A WebGPU MMD preview tool that verifies motion compatibility with characters and automatically corrects body proportion differences
+      WebGPU MMD viewer with motion-synced effects and body proportion correction. Actively in development
     </blockquote>
 
     <div class="flex flex-wrap gap-x-8 gap-y-2 text-xs text-muted mb-8">
@@ -151,7 +149,8 @@
             <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">Motion Verification</td><td class="py-3">Supports 6 model families, automatic bone match rate/IK conflict detection</td></tr>
             <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">Body Correction</td><td class="py-3">Body proportion estimation from VMD alone + IK scaling without source model</td></tr>
             <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">Effect Precompute</td><td class="py-3">6 types — POC for convincing planning/client teams</td></tr>
-            <tr><td class="py-3 pr-4 text-white font-medium">Tech Validation</td><td class="py-3">WebGPU + TSL shaders (Three.js next-gen rendering)</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">Tech Validation</td><td class="py-3">WebGPU + TSL shaders in a real project</td></tr>
+            <tr><td class="py-3 pr-4 text-white font-medium">Status</td><td class="py-3">WIP — next up: physics simulation (rigid body + joint), post-process effects, water splash on ground contact</td></tr>
           </tbody>
         </table>
       </div>
