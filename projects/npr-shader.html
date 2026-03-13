@@ -57,7 +57,7 @@
     <h1 class="text-4xl font-bold mb-3">NPR Shader System</h1>
 
     <blockquote class="text-muted mb-6">
-      Transitioning from MetaHuman to anime style — rendering NPR characters separately over PBR backgrounds, applying 4 looks across both in-house and VRM pipelines
+      MetaHuman to anime conversion. NPR characters rendered separately over PBR backgrounds, with 4 material looks covering both in-house and VRM characters
     </blockquote>
 
     <div class="flex flex-wrap gap-x-8 gap-y-2 text-xs text-muted mb-8">
@@ -104,7 +104,7 @@
             <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">NPR Looks</td><td class="py-3">4 looks — art team can change styles by swapping Toon Ramps</td></tr>
             <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">Material Scale</td><td class="py-3">698 MIs, 1,371 textures</td></tr>
             <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">Material Separation</td><td class="py-3">In-house (dedicated toon) + VRM (MToon reimplementation) built separately</td></tr>
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">Background Coexistence</td><td class="py-3">PBR backgrounds + NPR characters coexisting seamlessly</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">Background Coexistence</td><td class="py-3">PBR backgrounds + NPR characters in the same scene</td></tr>
             <tr><td class="py-3 pr-4 text-white font-medium">Look Dev</td><td class="py-3">Finalized per-character looks with art team — style changes possible via Toon Ramp swap</td></tr>
           </tbody>
         </table>
@@ -155,7 +155,7 @@
 
         <!-- Matcap -->
         <h4 class="text-sm font-bold mt-6 mb-3">Matcap Reflection</h4>
-        <p class="text-muted text-sm leading-relaxed mb-4">PBR reflections don't suit NPR environments. Implemented view-based reflections using Matcap textures, applying NPR-appropriate reflections for hair highlights, skin sheen, and more. After implementation, I discovered it could also produce fake rim lighting, and built <a href="matcap-painter.html" class="text-accent hover:underline">Matcap Painter</a> to explore that potential.</p>
+        <p class="text-muted text-sm leading-relaxed mb-4">PBR reflections don't suit NPR environments. I used Matcap textures for view-based reflections on hair highlights, skin sheen, etc. Turned out it could fake rim lighting too, so I built <a href="matcap-painter.html" class="text-accent hover:underline">Matcap Painter</a> to make those textures faster.</p>
         <div class="mb-4">
           <video src="../assets/images/npr-shader/matcap-demo.mp4" autoplay loop muted playsinline class="w-full"></video>
           <p class="text-xs text-muted mt-2 text-center">Matcap reflection demo</p>

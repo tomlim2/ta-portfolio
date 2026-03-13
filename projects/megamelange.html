@@ -59,7 +59,7 @@
     <h1 class="text-4xl font-bold mb-3">Live UE Scene Bridge</h1>
 
     <blockquote class="text-muted mb-6">
-      A scene composition pipeline that sets up outdoor backgrounds with natural language and produces the desired mood via AI image generation
+      Sets up outdoor backgrounds from natural language, then runs AI image generation to match a target style or concept
     </blockquote>
 
     <div class="flex flex-wrap gap-x-8 gap-y-2 text-xs text-muted mb-8">
@@ -85,7 +85,7 @@
     <!-- Solution -->
     <section class="mb-16">
       <h2 class="text-xl font-bold mb-4">Solution</h2>
-      <p class="text-muted text-sm leading-relaxed mb-6">A 3-stage bridge: natural language to AI interpretation to UE engine control. A C++ plugin manipulates the UE editor in real time, while AI translates natural language into engine commands.</p>
+      <p class="text-muted text-sm leading-relaxed mb-6">Natural language goes through an AI layer (Claude/Gemini), which converts it to commands that a C++ plugin executes in the UE editor in real time.</p>
 
       <!-- NL examples -->
       <div class="bg-surface rounded-lg border border-border p-5 mb-6">
@@ -111,7 +111,7 @@
       </div>
 
       <h3 class="font-medium mb-3">Core — Cesium + UDS Integration</h3>
-      <p class="text-muted text-sm leading-relaxed mb-4">The most invested part. By combining Cesium terrain data with Ultra Dynamic Sky, a single natural language line sets up an outdoor background with <strong class="text-white">location + time of day + weather + mood</strong>. Adding Nano Banana (i2i) on top transforms it into the desired concept or feel, producing scene composition to concept art in one go.</p>
+      <p class="text-muted text-sm leading-relaxed mb-4">The most invested part. By combining Cesium terrain data with Ultra Dynamic Sky, a single natural language line sets up an outdoor background with <strong class="text-white">location + time of day + weather + mood</strong>. Adding Nano Banana (i2i) on top transforms it into the desired concept or feel, so you go from a text prompt to a styled concept image without leaving the tool.</p>
 
 <div class="encrypted-block">
   <div class="encrypted-placeholder"><svg viewBox="0 -960 960 960"><path d="M252.31-100q-29.92 0-51.12-21.19Q180-142.39 180-172.31v-375.38q0-29.92 21.19-51.12Q222.39-620 252.31-620H300v-80q0-74.92 52.54-127.46Q405.08-880 480-880q74.92 0 127.46 52.54Q660-774.92 660-700v80h47.69q29.92 0 51.12 21.19Q780-577.61 780-547.69v375.38q0 29.92-21.19 51.12Q737.61-100 707.69-100H252.31Zm0-60h455.38q5.39 0 8.85-3.46t3.46-8.85v-375.38q0-5.39-3.46-8.85t-8.85-3.46H252.31q-5.39 0-8.85 3.46t-3.46 8.85v375.38q0 5.39 3.46 8.85t8.85 3.46Zm277.27-150.42Q550-330.85 550-360t-20.42-49.58Q509.15-430 480-430t-49.58 20.42Q410-389.15 410-360t20.42 49.58Q450.85-290 480-290t49.58-20.42ZM360-620h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z"/></svg></div>

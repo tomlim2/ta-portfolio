@@ -84,7 +84,7 @@
     <!-- Solution -->
     <section class="mb-16">
       <h2 class="text-xl font-bold mb-4">Solution</h2>
-      <p class="text-muted text-sm leading-relaxed mb-4">Three independent systems -- an Editor tool, a Runtime character Blueprint, and VRM Reference Points -- were designed to load Data Assets and external models while verifying them with the in-house shader system and animations. Artists assemble parts and register presets in the editor, producing Data Assets that the runtime loads asynchronously.</p>
+      <p class="text-muted text-sm leading-relaxed mb-4">I split the work into three systems: an Editor tool, a Runtime character Blueprint, and VRM Reference Points. Each loads Data Assets or external models and lets you verify them against the in-house shader and animations. Artists assemble parts and register presets in the editor, producing Data Assets that the runtime loads asynchronously.</p>
 
 <div class="encrypted-block">
   <div class="encrypted-placeholder"><svg viewBox="0 -960 960 960"><path d="M252.31-100q-29.92 0-51.12-21.19Q180-142.39 180-172.31v-375.38q0-29.92 21.19-51.12Q222.39-620 252.31-620H300v-80q0-74.92 52.54-127.46Q405.08-880 480-880q74.92 0 127.46 52.54Q660-774.92 660-700v80h47.69q29.92 0 51.12 21.19Q780-577.61 780-547.69v375.38q0 29.92-21.19 51.12Q737.61-100 707.69-100H252.31Zm0-60h455.38q5.39 0 8.85-3.46t3.46-8.85v-375.38q0-5.39-3.46-8.85t-8.85-3.46H252.31q-5.39 0-8.85 3.46t-3.46 8.85v375.38q0 5.39 3.46 8.85t8.85 3.46Zm277.27-150.42Q550-330.85 550-360t-20.42-49.58Q509.15-430 480-430t-49.58 20.42Q410-389.15 410-360t20.42 49.58Q450.85-290 480-290t49.58-20.42ZM360-620h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z"/></svg></div>
@@ -140,7 +140,7 @@
     <section class="mb-16">
       <h2 class="text-xl font-bold mb-6">System Structure</h2>
 
-      <p class="text-muted text-sm leading-relaxed mb-6">Three independent codebases connected via Data Assets and VRM info nodes. The editor tool produces Data Assets, the runtime character Blueprint loads them asynchronously, and VRM Reference Points updates external model info at runtime.</p>
+      <p class="text-muted text-sm leading-relaxed mb-6">Three separate codebases, connected through Data Assets and VRM info nodes. The editor tool produces Data Assets. The runtime Blueprint loads them async. VRM Reference Points handles external model info.</p>
 
 
 <div class="encrypted-block">
@@ -152,7 +152,7 @@
       <div class="space-y-4 mb-6">
         <div class="bg-surface rounded-lg border border-border p-5">
           <h3 class="font-medium mb-3">Editor — Character Environment Checker</h3>
-          <p class="text-muted text-sm leading-relaxed mb-4">Artists assemble head, hair, and body parts in the editor and save them as presets. The Editor Tick Interface allows verifying characters and animations on a background without launching the game. The Data Assets produced here become the runtime's input.</p>
+          <p class="text-muted text-sm leading-relaxed mb-4">Artists assemble head, hair, and body parts in the editor and save them as presets. The Editor Tick Interface allows verifying characters and animations on a background without launching the game. The runtime reads these Data Assets directly.</p>
 <div class="encrypted-block">
   <div class="encrypted-placeholder"><svg viewBox="0 -960 960 960"><path d="M252.31-100q-29.92 0-51.12-21.19Q180-142.39 180-172.31v-375.38q0-29.92 21.19-51.12Q222.39-620 252.31-620H300v-80q0-74.92 52.54-127.46Q405.08-880 480-880q74.92 0 127.46 52.54Q660-774.92 660-700v80h47.69q29.92 0 51.12 21.19Q780-577.61 780-547.69v375.38q0 29.92-21.19 51.12Q737.61-100 707.69-100H252.31Zm0-60h455.38q5.39 0 8.85-3.46t3.46-8.85v-375.38q0-5.39-3.46-8.85t-8.85-3.46H252.31q-5.39 0-8.85 3.46t-3.46 8.85v375.38q0 5.39 3.46 8.85t8.85 3.46Zm277.27-150.42Q550-330.85 550-360t-20.42-49.58Q509.15-430 480-430t-49.58 20.42Q410-389.15 410-360t20.42 49.58Q450.85-290 480-290t49.58-20.42ZM360-620h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z"/></svg></div>
   <script type="application/json" class="encrypted-payload">{"salt":"4Jf1pbJrAFrNKLTQG4Y4cQ==","iv":"r4eTj2htmbQKOiNU","data":"e4vH1ydubPavW9RA0ICWhNx+gAyEOuDZiD5cSlFnARNP3A2uvkwbHtTcZJtS53vKgMMhqi31z8z+c3BFaKnazgfflXegFoq0EnJngktbG8hGLxyNUJ99Ktc7Rrv3s/UW3kDQgLpYlAp5R1rWpTJQ7fDnzgWCM8TKvXLrimc8grIY+OiKBxfKNAT6mzKd/szJSlVgCalSM5lGHfvc8TfkAKlZxXL7sprp5xkTagPPe4YHcrjh9/JsPJrHrznLtg=="}</script>
@@ -160,7 +160,7 @@
         </div>
         <div class="bg-surface rounded-lg border border-border p-5">
           <h3 class="font-medium mb-3">Runtime — Character Blueprint</h3>
-          <p class="text-muted text-sm leading-relaxed mb-4">A separate codebase from the editor tool -- a runtime character Blueprint inheriting the base character class. Internal characters load parts asynchronously from editor-produced Data Assets (Head/Hair/Body split), while external VRM loads the entire model through a loader. The same Blueprint handles both, branching only at the load path, managing 300+ internal presets and community characters in a single system.</p>
+          <p class="text-muted text-sm leading-relaxed mb-4">A separate codebase from the editor tool -- a runtime character Blueprint inheriting the base character class. Internal characters load parts asynchronously from editor-produced Data Assets (Head/Hair/Body split), while external VRM loads the entire model through a loader. The same Blueprint handles both, branching only at the load path.</p>
 <div class="encrypted-block">
   <div class="encrypted-placeholder"><svg viewBox="0 -960 960 960"><path d="M252.31-100q-29.92 0-51.12-21.19Q180-142.39 180-172.31v-375.38q0-29.92 21.19-51.12Q222.39-620 252.31-620H300v-80q0-74.92 52.54-127.46Q405.08-880 480-880q74.92 0 127.46 52.54Q660-774.92 660-700v80h47.69q29.92 0 51.12 21.19Q780-577.61 780-547.69v375.38q0 29.92-21.19 51.12Q737.61-100 707.69-100H252.31Zm0-60h455.38q5.39 0 8.85-3.46t3.46-8.85v-375.38q0-5.39-3.46-8.85t-8.85-3.46H252.31q-5.39 0-8.85 3.46t-3.46 8.85v375.38q0 5.39 3.46 8.85t8.85 3.46Zm277.27-150.42Q550-330.85 550-360t-20.42-49.58Q509.15-430 480-430t-49.58 20.42Q410-389.15 410-360t20.42 49.58Q450.85-290 480-290t49.58-20.42ZM360-620h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z"/></svg></div>
   <script type="application/json" class="encrypted-payload">{"salt":"rY6g7g3Cwk5/Odhik+3ecQ==","iv":"QnN0y7/kcOgZSC2R","data":"wWXJHlPPYyePoc2M9Z1dEK7fibX9mb66LCP8c3vVWTYLSQUAx8Yr1aQPAahBZ2Huulw5H9uUq4Cd7sj91NFoc8MnxLSevVDumvpyrQObzm0v0jPWCRKNs6eyAnTqvQiyrubg06jySYrDhmpE7VjnBvqsG0rLjFmH2JyTKzGiMH3rNTysXtgdk2vCH4Io1TkdTi4zmv5BOZHe+slen2sXyKcJQHti7/Er7anI15beOJfx99X6mdNY0tRW0jAHvx9Czgab2zpS75ExqkArSQgG"}</script>
@@ -220,7 +220,7 @@
         </details>
         <details class="bg-surface rounded-lg border border-border">
           <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">Editor Tick Interface — Editor Preview Without PIE</summary>
-          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">Implemented the Editor Tick Blueprint Interface in the editor tool, enabling animation playback in the editor environment. Art directors can verify colors, scale, and animations without launching the runtime, shortening the feedback loop.
+          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">Implemented the Editor Tick Blueprint Interface in the editor tool, enabling animation playback in the editor environment. Art directors can verify colors, scale, and animations without launching the runtime, so iteration is faster.
 <div class="encrypted-block">
   <div class="encrypted-placeholder"><svg viewBox="0 -960 960 960"><path d="M252.31-100q-29.92 0-51.12-21.19Q180-142.39 180-172.31v-375.38q0-29.92 21.19-51.12Q222.39-620 252.31-620H300v-80q0-74.92 52.54-127.46Q405.08-880 480-880q74.92 0 127.46 52.54Q660-774.92 660-700v80h47.69q29.92 0 51.12 21.19Q780-577.61 780-547.69v375.38q0 29.92-21.19 51.12Q737.61-100 707.69-100H252.31Zm0-60h455.38q5.39 0 8.85-3.46t3.46-8.85v-375.38q0-5.39-3.46-8.85t-8.85-3.46H252.31q-5.39 0-8.85 3.46t-3.46 8.85v375.38q0 5.39 3.46 8.85t8.85 3.46Zm277.27-150.42Q550-330.85 550-360t-20.42-49.58Q509.15-430 480-430t-49.58 20.42Q410-389.15 410-360t20.42 49.58Q450.85-290 480-290t49.58-20.42ZM360-620h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z"/></svg></div>
   <script type="application/json" class="encrypted-payload">{"salt":"557oEytaACD9lql6ZBfB4Q==","iv":"SKk+azZKq01ZeT6E","data":"4HiLvDM7k6LepuFOvTs4v0m8b+BTiZFVF1RQsEcnDE5q9WgxIgVeNEzCbJOilvm0SNUyAALAhTplGwDsBjO5rF9ycbR4YWIQctVlDVDOJRemqS+5b8+v642Fr2GWuxnpNHAH9QI/1+N8TJAxOXlOck5eh6mV6V020BKEvnGv/5NVdnchlR8kz1xIOlCjTpiZlJ35VLWm/lbi0R5kHSKwcsjtkppNq0RBbjyDPX/r2pYkuF418pl3ZpEiTx4oB7Aq5PbWwk6DaIdTTg=="}</script>
