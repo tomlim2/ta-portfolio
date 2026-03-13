@@ -126,15 +126,12 @@ var Auth = (function () {
     var blocks = document.querySelectorAll('.encrypted-block');
     if (!blocks.length) return;
 
-    // If already authed, try auto-decrypt; if it fails, fall through to click handlers
-    if (isAuthed()) {
-      decryptAllBlocks(getStoredPassword()).then(function (ok) {
-        if (!ok) setupClickHandlers();
-      });
-      return;
-    }
-
+    // Always set up click handlers first, then try auto-decrypt if authed
     setupClickHandlers();
+
+    if (isAuthed()) {
+      decryptAllBlocks(getStoredPassword());
+    }
   }
 
   function setupClickHandlers() {
