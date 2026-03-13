@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Matcap Painter — 임연수</title>
+  <title>Matcap Painter — Younsoo Lim</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@700;900&family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -61,7 +61,7 @@
 
     <div class="mb-12">
       <video src="../assets/images/matcap-painter/shader-mode-demo.mp4" autoplay loop muted playsinline class="w-full rounded-lg border border-border"></video>
-      <p class="text-xs text-muted mt-2 text-center">Shader Mode — Color Ramp 조절 → 실시간 3D 프리뷰</p>
+      <p class="text-xs text-muted mt-2 text-center">Shader Mode — Adjust Color Ramp → Real-time 3D preview</p>
     </div>
 
     <div class="flex items-center gap-4 mb-3">
@@ -73,13 +73,13 @@
     </div>
 
     <blockquote class="text-muted mb-6">
-      포토샵 왕복 없이 NPR 캐릭터용 Matcap 텍스처를 실시간으로 만들고, 3D 모델에서 바로 확인하는 도구
+      A tool for creating Matcap textures for NPR characters in real time and previewing them directly on 3D models — no Photoshop round-trips
     </blockquote>
 
     <div class="flex flex-wrap gap-x-8 gap-y-2 text-xs text-muted mb-8">
       <span>Tool Design, Shader Development</span>
-      <span>2026년 2월 (4일)</span>
-      <span>개인 프로젝트</span>
+      <span>Feb 2026 (4 days)</span>
+      <span>Personal Project</span>
     </div>
     <div class="flex flex-wrap gap-2 text-xs text-muted mb-12">
       <span class="px-2 py-1 rounded border border-border">Three.js WebGPU (r172)</span>
@@ -89,74 +89,74 @@
 
     <!-- Motivation -->
     <section class="mb-16">
-      <h2 class="text-xl font-bold mb-4">동기</h2>
-      <p class="text-muted text-sm leading-relaxed">회사 NPR 캐릭터에 <strong class="text-white">금속 질감과 머리카락 광택</strong>을 내기 위한 페이크 리플렉션 마스크용 Matcap 텍스처가 필요했다. 기존 워크플로우는 포토샵에서 수작업 → 엔진 임포트 → 확인 → 안 맞으면 다시 포토샵 반복. 결과를 보면서 실시간으로 조정할 수 없어 이터레이션이 느렸다.</p>
+      <h2 class="text-xl font-bold mb-4">Motivation</h2>
+      <p class="text-muted text-sm leading-relaxed">I needed Matcap textures for fake reflection masks to achieve <strong class="text-white">metallic surfaces and hair specular highlights</strong> on our NPR characters. The existing workflow was manual editing in Photoshop → engine import → check → back to Photoshop if it didn't look right. Without real-time feedback, iteration was slow.</p>
     </section>
 
     <!-- Solution -->
     <section class="mb-16">
-      <h2 class="text-xl font-bold mb-4">해결</h2>
+      <h2 class="text-xl font-bold mb-4">Solution</h2>
 
       <div class="grid md:grid-cols-2 gap-6 mb-6">
         <div class="bg-surface rounded-lg border border-border p-5">
-          <h3 class="font-medium mb-3">Shader Mode — 처음부터 만들 때</h3>
-          <p class="text-muted text-sm leading-relaxed">Blender Color Ramp 스타일 UI로 Toon Ramp, Specular 하이라이트, Outline을 실시간 조절. 밴드 수와 경계를 드래그하면 3D 프리뷰에 즉시 반영.</p>
+          <h3 class="font-medium mb-3">Shader Mode — Create from scratch</h3>
+          <p class="text-muted text-sm leading-relaxed">A Blender Color Ramp-style UI for real-time control of Toon Ramp, Specular highlights, and Outline. Drag band count and boundaries to see instant updates in the 3D preview.</p>
         </div>
         <div class="bg-surface rounded-lg border border-border p-5">
-          <h3 class="font-medium mb-3">Paint Mode — 기존 것을 편집할 때</h3>
-          <p class="text-muted text-sm leading-relaxed">오픈소스 라이브러리(nidorx/matcaps)에서 큐레이션한 229개 프리셋을 기반으로, 8레이어 포토샵 스타일로 비파괴 편집. HSV, 콘트라스트, Lift를 조정하면서 실시간 결과 확인.</p>
+          <h3 class="font-medium mb-3">Paint Mode — Edit existing textures</h3>
+          <p class="text-muted text-sm leading-relaxed">Non-destructive editing with 8 Photoshop-style layers, based on 229 curated presets from an open-source library (nidorx/matcaps). Adjust HSV, Contrast, and Lift while previewing results in real time.</p>
         </div>
       </div>
 
       <div class="mb-6">
         <video src="../assets/images/matcap-painter/paint-mode-demo.mp4" autoplay loop muted playsinline class="w-full rounded-lg border border-border"></video>
-        <p class="text-xs text-muted mt-2 text-center">Paint Mode — 프리셋 라이브러리 + 레이어 편집</p>
+        <p class="text-xs text-muted mt-2 text-center">Paint Mode — Preset library + layer editing</p>
       </div>
 
-      <p class="text-muted text-sm leading-relaxed">편집 중인 Matcap 텍스처가 Sphere, Torus, 또는 GLB 모델에 실시간 적용. 포토샵↔엔진 왕복 없이 최종 결과를 바로 확인할 수 있다.</p>
+      <p class="text-muted text-sm leading-relaxed">The Matcap texture being edited is applied in real time to a Sphere, Torus, or GLB model. The final result can be checked immediately without any Photoshop-to-engine round-trips.</p>
     </section>
 
     <!-- Result -->
     <section class="mb-16">
-      <h2 class="text-xl font-bold mb-4">결과</h2>
+      <h2 class="text-xl font-bold mb-4">Result</h2>
       <div class="overflow-x-auto">
         <table class="w-full text-sm">
           <thead>
             <tr class="border-b border-border text-left">
-              <th class="py-3 pr-4 text-muted font-medium">항목</th>
-              <th class="py-3 text-muted font-medium">결과</th>
+              <th class="py-3 pr-4 text-muted font-medium">Category</th>
+              <th class="py-3 text-muted font-medium">Result</th>
             </tr>
           </thead>
           <tbody class="text-muted">
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">워크플로우</td><td class="py-3">포토샵 왕복 제거 — 실시간 편집 + 3D 프리뷰</td></tr>
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">Shader Mode</td><td class="py-3">Toon Ramp / Specular / Outline 실시간 생성</td></tr>
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">Paint Mode</td><td class="py-3">229개 프리셋 + 8레이어 비파괴 편집</td></tr>
-            <tr><td class="py-3 pr-4 text-white font-medium">개발 기간</td><td class="py-3">4일</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">Workflow</td><td class="py-3">Eliminated Photoshop round-trips — real-time editing + 3D preview</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">Shader Mode</td><td class="py-3">Real-time Toon Ramp / Specular / Outline generation</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">Paint Mode</td><td class="py-3">229 presets + 8-layer non-destructive editing</td></tr>
+            <tr><td class="py-3 pr-4 text-white font-medium">Dev Time</td><td class="py-3">4 days</td></tr>
           </tbody>
         </table>
       </div>
     </section>
 
-    <img src="../assets/images/matcap-painter/hero-matcap-grid.png" alt="Matcap Painter로 생성한 텍스처 모음" class="w-full rounded-lg border border-border mb-12">
+    <img src="../assets/images/matcap-painter/hero-matcap-grid.png" alt="Collection of textures created with Matcap Painter" class="w-full rounded-lg border border-border mb-12">
 
     <hr class="border-border mb-12">
 
     <!-- Technical Details -->
     <section class="mb-16">
-      <h2 class="text-xl font-bold mb-6">기술 상세</h2>
+      <h2 class="text-xl font-bold mb-6">Technical Details</h2>
 
       <div class="space-y-3">
         <details class="bg-surface rounded-lg border border-border">
-          <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">Per-pixel 노멀맵 렌더링</summary>
-          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">Canvas 2D에서 ray-sphere intersection으로 픽셀별 노멀을 계산하고, NdotL 라이팅을 적용. GPU 없이 CPU에서 실시간 Matcap 텍스처 생성.</div>
+          <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">Per-pixel normal map rendering</summary>
+          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">Computes per-pixel normals via ray-sphere intersection in Canvas 2D and applies NdotL lighting. Generates Matcap textures in real time on the CPU without a GPU.</div>
         </details>
         <details class="bg-surface rounded-lg border border-border">
-          <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">Blender Color Ramp 재구현</summary>
-          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">Step(하드 밴드) / Linear(LERP) 모드. 밴드 수와 경계를 드래그로 조절하면 Toon Ramp 셰이딩 스타일이 즉시 변경. Blender 아티스트에게 익숙한 UI.</div>
+          <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">Blender Color Ramp reimplementation</summary>
+          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">Step (hard band) / Linear (LERP) modes. Drag to adjust band count and boundaries for instant Toon Ramp shading style changes. A UI familiar to Blender artists.</div>
         </details>
         <details class="bg-surface rounded-lg border border-border">
-          <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">8레이어 컴포지팅</summary>
-          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">RGB → HSV per-pixel 변환, 더티 플래그 기반 캐싱으로 성능 확보. 레이어별 HSV/Contrast/Lift 비파괴 조정. Canvas → Three.js WebGPU CanvasTexture 실시간 파이프라인.</div>
+          <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">8-layer compositing</summary>
+          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">RGB to HSV per-pixel conversion with dirty-flag-based caching for performance. Non-destructive per-layer HSV/Contrast/Lift adjustments. Real-time pipeline from Canvas to Three.js WebGPU CanvasTexture.</div>
         </details>
       </div>
     </section>

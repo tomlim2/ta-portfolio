@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NPR Shader System — 임연수</title>
+  <title>NPR Shader System — Younsoo Lim</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@700;900&family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -50,18 +50,18 @@
 
 
 
-    <img src="../assets/images/npr-shader/hero-cel-shading-outline.png" alt="PBR 배경 위 NPR 캐릭터 — 셀셰이딩 + 아웃라인" class="w-full rounded-lg border border-border mb-12">
+    <img src="../assets/images/npr-shader/hero-cel-shading-outline.png" alt="NPR character over PBR background — cel shading + outline" class="w-full rounded-lg border border-border mb-12">
 
     <h1 class="text-4xl font-bold mb-3">NPR Shader System</h1>
 
     <blockquote class="text-muted mb-6">
-      메타휴먼에서 애니메 스타일로 전환 — PBR 배경 위에 NPR 캐릭터를 분리 렌더링, 인하우스와 VRM 양쪽에 4종 룩 적용
+      Transitioning from MetaHuman to anime style — rendering NPR characters separately over PBR backgrounds, applying 4 looks across both in-house and VRM pipelines
     </blockquote>
 
     <div class="flex flex-wrap gap-x-8 gap-y-2 text-xs text-muted mb-8">
       <span>Shader Development, Look Development, Material System</span>
       <span>2023~2024</span>
-      <span>회사 프로젝트</span>
+      <span>Company Project</span>
     </div>
     <div class="flex flex-wrap gap-2 text-xs text-muted mb-12">
       <span class="px-2 py-1 rounded border border-border">Unreal Engine 5</span>
@@ -75,75 +75,75 @@
 
     <!-- Problem -->
     <section class="mb-16">
-      <h2 class="text-xl font-bold mb-4">문제</h2>
-      <p class="text-muted text-sm leading-relaxed">프로젝트 초기 메타휴먼 기반 실사 렌더링에서 애니메 스타일로 전환이 결정됐다. PBR 배경은 유지하면서 캐릭터만 NPR로 렌더링해야 했고, 인하우스 캐릭터와 외부 VRM은 머티리얼 구조가 달라서 같은 방식으로는 양쪽 룩을 맞출 수 없었다.</p>
+      <h2 class="text-xl font-bold mb-4">Problem</h2>
+      <p class="text-muted text-sm leading-relaxed">Early in the project, a decision was made to switch from MetaHuman-based realistic rendering to an anime style. Characters needed to be rendered in NPR while keeping PBR backgrounds, and the in-house characters and external VRM models had different material structures, making it impossible to achieve a consistent look with a single approach.</p>
     </section>
 
     <!-- Solution -->
     <section class="mb-16">
-      <h2 class="text-xl font-bold mb-4">해결</h2>
-      <p class="text-muted text-sm leading-relaxed mb-4">Cel Shading 기반 NPR 프로토타입을 만든 뒤, 시스템 확장과 유지보수를 주도했다.</p>
-      <p class="text-muted text-sm leading-relaxed mb-6">인하우스는 Custom Depth + Post Process, VRM은 Emissive + Inverted Hull로 나눠 <strong class="text-white">4종 NPR 룩</strong>을 만들었다. 프로토타입부터 유지된 핵심 노드는 SDF 얼굴 그림자와 Dot Product 기반 투톤 셰이딩이다.</p>
+      <h2 class="text-xl font-bold mb-4">Solution</h2>
+      <p class="text-muted text-sm leading-relaxed mb-4">Built a Cel Shading-based NPR prototype, then led system expansion and maintenance.</p>
+      <p class="text-muted text-sm leading-relaxed mb-6">Split the approach into Custom Depth + Post Process for in-house and Emissive + Inverted Hull for VRM, creating <strong class="text-white">4 NPR looks</strong>. The core nodes carried over from the prototype are SDF face shadow and Dot Product-based two-tone shading.</p>
     </section>
 
     <!-- Result -->
     <section class="mb-16">
-      <h2 class="text-xl font-bold mb-4">결과</h2>
+      <h2 class="text-xl font-bold mb-4">Result</h2>
       <div class="overflow-x-auto">
         <table class="w-full text-sm">
           <thead>
             <tr class="border-b border-border text-left">
-              <th class="py-3 pr-4 text-muted font-medium">항목</th>
-              <th class="py-3 text-muted font-medium">결과</th>
+              <th class="py-3 pr-4 text-muted font-medium">Category</th>
+              <th class="py-3 text-muted font-medium">Result</th>
             </tr>
           </thead>
           <tbody class="text-muted">
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">렌더링 전환</td><td class="py-3">메타휴먼 → 애니메 스타일 완전 전환</td></tr>
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">NPR 룩</td><td class="py-3">4종 — 아트팀이 Toon Ramp 교체로 스타일 변경 가능</td></tr>
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">머티리얼 규모</td><td class="py-3">698개 MI, 1,371개 텍스처</td></tr>
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">머티리얼 분리</td><td class="py-3">인하우스(툰 전용) + VRM(MToon 재구현) 각각 구축</td></tr>
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">배경 공존</td><td class="py-3">PBR 배경 + NPR 캐릭터 자연스럽게 공존</td></tr>
-            <tr><td class="py-3 pr-4 text-white font-medium">룩뎁</td><td class="py-3">아트팀과 캐릭터별 룩 확정 — Toon Ramp 교체로 스타일 변경 가능</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">Rendering Transition</td><td class="py-3">Full transition from MetaHuman to anime style</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">NPR Looks</td><td class="py-3">4 looks — art team can change styles by swapping Toon Ramps</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">Material Scale</td><td class="py-3">698 MIs, 1,371 textures</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">Material Separation</td><td class="py-3">In-house (dedicated toon) + VRM (MToon reimplementation) built separately</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">Background Coexistence</td><td class="py-3">PBR backgrounds + NPR characters coexisting seamlessly</td></tr>
+            <tr><td class="py-3 pr-4 text-white font-medium">Look Dev</td><td class="py-3">Finalized per-character looks with art team — style changes possible via Toon Ramp swap</td></tr>
           </tbody>
         </table>
       </div>
     </section>
 
-    <img src="../assets/images/npr-shader/pbr-npr-coexist-scene.png" alt="PBR 배경 + NPR 캐릭터 공존 씬" class="w-full rounded-lg border border-border mb-12">
+    <img src="../assets/images/npr-shader/pbr-npr-coexist-scene.png" alt="PBR background + NPR character coexistence scene" class="w-full rounded-lg border border-border mb-12">
 
     <hr class="border-border mb-12">
 
     <!-- ===================== SHADER SHOWCASE ===================== -->
 
-    <!-- ===================== BASE MATERIAL 4종 ===================== -->
+    <!-- ===================== 4 BASE MATERIALS ===================== -->
 
     <section class="mb-16">
-      <h2 class="text-xl font-bold mb-4">베이스 머티리얼 4종</h2>
-      <p class="text-muted text-sm leading-relaxed mb-6">인하우스와 VRM은 머티리얼 구조가 다르고, VRM 안에서도 실사/비실사 파트가 섞여 있다. 그래서 네 종류의 베이스 머티리얼을 따로 만들었다.</p>
+      <h2 class="text-xl font-bold mb-4">4 Base Materials</h2>
+      <p class="text-muted text-sm leading-relaxed mb-6">In-house and VRM have different material structures, and even within VRM, realistic and non-realistic parts are mixed. So four separate base materials were created.</p>
 
-      <img src="../assets/images/npr-shader/material-4types.png" alt="베이스 머티리얼 4종 — VRM Toon, VRM Zo Std, VRM Zo Toon, M Cell" class="w-full rounded-lg border border-border mb-8">
+      <img src="../assets/images/npr-shader/material-4types.png" alt="4 Base Materials — VRM Toon, VRM Zo Std, VRM Zo Toon, M Cell" class="w-full rounded-lg border border-border mb-8">
 
       <!-- 1. In-house Toon -->
       <div class="mb-12">
-        <h3 class="text-lg font-bold mb-3">1. 인하우스 툰</h3>
-        <p class="text-muted text-sm leading-relaxed mb-4">인하우스 캐릭터 전용 툰 머티리얼. Custom Depth 버퍼로 캐릭터를 분리하고, Post Process에서 NPR 스타일로 렌더링하는 구조 위에서 SDF 얼굴 그림자, Matcap 리플렉션 등 기능을 개발하고 유지보수를 담당했다.</p>
+        <h3 class="text-lg font-bold mb-3">1. In-house Toon</h3>
+        <p class="text-muted text-sm leading-relaxed mb-4">Dedicated toon material for in-house characters. On top of a structure that separates characters via Custom Depth buffer and renders them in NPR style through Post Process, I developed and maintained features such as SDF face shadow and Matcap reflection.</p>
 
         <div class="mb-4">
           <video src="../assets/images/npr-shader/shadow-off-on.mp4" autoplay loop muted playsinline class="w-full rounded-lg border border-border"></video>
-          <p class="text-xs text-muted mt-2 text-center">Global Shadow OFF / ON 토글 데모</p>
+          <p class="text-xs text-muted mt-2 text-center">Global Shadow OFF / ON toggle demo</p>
         </div>
 
         <!-- SDF Face Shadow -->
-        <h4 class="text-sm font-bold mt-6 mb-3">SDF 얼굴 그림자</h4>
-        <p class="text-muted text-sm leading-relaxed mb-4">일반 NdotL로는 코, 눈두덩이 주변에 비직관적인 그림자가 생긴다. SDF 텍스처에 미리 구운 거리 정보로 그림자 경계를 제어해서, 라이팅 각도가 바뀌어도 얼굴 그림자가 자연스럽게 떨어진다.</p>
+        <h4 class="text-sm font-bold mt-6 mb-3">SDF Face Shadow</h4>
+        <p class="text-muted text-sm leading-relaxed mb-4">Standard NdotL produces unintuitive shadows around the nose and eye sockets. By controlling shadow boundaries with pre-baked distance information in SDF textures, face shadows fall naturally even as the lighting angle changes.</p>
         <div class="grid md:grid-cols-2 gap-4 mb-4">
           <div>
             <video src="../assets/images/npr-shader/sdf-face-shadow.mp4" autoplay loop muted playsinline class="w-full rounded-lg border border-border"></video>
-            <p class="text-xs text-muted mt-2 text-center">SDF 얼굴 그림자 라이팅 데모</p>
+            <p class="text-xs text-muted mt-2 text-center">SDF face shadow lighting demo</p>
           </div>
           <div>
-            <img src="../assets/images/npr-shader/sdf-shadow-mask.png" alt="SDF Shadow Mask 텍스처" class="w-full rounded-lg border border-border">
-            <p class="text-xs text-muted mt-2 text-center">SDF Shadow Mask 텍스처</p>
+            <img src="../assets/images/npr-shader/sdf-shadow-mask.png" alt="SDF Shadow Mask texture" class="w-full rounded-lg border border-border">
+            <p class="text-xs text-muted mt-2 text-center">SDF Shadow Mask texture</p>
           </div>
         </div>
 <div class="encrypted-block">
@@ -152,11 +152,11 @@
 </div>
 
         <!-- Matcap -->
-        <h4 class="text-sm font-bold mt-6 mb-3">Matcap 리플렉션</h4>
-        <p class="text-muted text-sm leading-relaxed mb-4">NPR 환경에서는 PBR 리플렉션이 어울리지 않는다. Matcap 텍스처로 뷰 기반 반사를 구현하여, 머리카락 하이라이트나 피부 광택 등 NPR 스타일에 맞는 리플렉션을 적용. 구현 후 페이크 림라이트 표현도 가능하다는 걸 발견해, 그 가능성을 탐구하기 위해 <a href="matcap-painter.html" class="text-accent hover:underline">Matcap Painter</a>를 만들었다.</p>
+        <h4 class="text-sm font-bold mt-6 mb-3">Matcap Reflection</h4>
+        <p class="text-muted text-sm leading-relaxed mb-4">PBR reflections don't suit NPR environments. Implemented view-based reflections using Matcap textures, applying NPR-appropriate reflections for hair highlights, skin sheen, and more. After implementation, I discovered it could also produce fake rim lighting, and built <a href="matcap-painter.html" class="text-accent hover:underline">Matcap Painter</a> to explore that potential.</p>
         <div class="mb-4">
           <video src="../assets/images/npr-shader/matcap-demo.mp4" autoplay loop muted playsinline class="w-full rounded-lg border border-border"></video>
-          <p class="text-xs text-muted mt-2 text-center">Matcap 리플렉션 데모</p>
+          <p class="text-xs text-muted mt-2 text-center">Matcap reflection demo</p>
         </div>
 <div class="encrypted-block">
   <div class="encrypted-placeholder"><svg viewBox="0 -960 960 960"><path d="M252.31-100q-29.92 0-51.12-21.19Q180-142.39 180-172.31v-375.38q0-29.92 21.19-51.12Q222.39-620 252.31-620H300v-80q0-74.92 52.54-127.46Q405.08-880 480-880q74.92 0 127.46 52.54Q660-774.92 660-700v80h47.69q29.92 0 51.12 21.19Q780-577.61 780-547.69v375.38q0 29.92-21.19 51.12Q737.61-100 707.69-100H252.31Zm0-60h455.38q5.39 0 8.85-3.46t3.46-8.85v-375.38q0-5.39-3.46-8.85t-8.85-3.46H252.31q-5.39 0-8.85 3.46t-3.46 8.85v375.38q0 5.39 3.46 8.85t8.85 3.46Zm277.27-150.42Q550-330.85 550-360t-20.42-49.58Q509.15-430 480-430t-49.58 20.42Q410-389.15 410-360t20.42 49.58Q450.85-290 480-290t49.58-20.42ZM360-620h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z"/></svg></div>
@@ -166,8 +166,8 @@
 
       <!-- 2. VRM Toon -->
       <div class="mb-12">
-        <h3 class="text-lg font-bold mb-3">2. VRM 툰</h3>
-        <p class="text-muted text-sm leading-relaxed mb-4">인하우스 툰 머티리얼을 기반으로 파라미터 인풋 이름을 MToon 규약에 맞춰 재구성. VRM 임포트 시 MToon 텍스처와 플래그가 자동으로 연결되도록 했다. 아웃라인은 인하우스와 동일하게 Post Process 기반.</p>
+        <h3 class="text-lg font-bold mb-3">2. VRM Toon</h3>
+        <p class="text-muted text-sm leading-relaxed mb-4">Restructured parameter input names based on the in-house toon material to conform to MToon conventions. Ensured MToon textures and flags are automatically connected upon VRM import. Outline uses the same Post Process approach as the in-house material.</p>
 
 <div class="encrypted-block">
   <div class="encrypted-placeholder"><svg viewBox="0 -960 960 960"><path d="M252.31-100q-29.92 0-51.12-21.19Q180-142.39 180-172.31v-375.38q0-29.92 21.19-51.12Q222.39-620 252.31-620H300v-80q0-74.92 52.54-127.46Q405.08-880 480-880q74.92 0 127.46 52.54Q660-774.92 660-700v80h47.69q29.92 0 51.12 21.19Q780-577.61 780-547.69v375.38q0 29.92-21.19 51.12Q737.61-100 707.69-100H252.31Zm0-60h455.38q5.39 0 8.85-3.46t3.46-8.85v-375.38q0-5.39-3.46-8.85t-8.85-3.46H252.31q-5.39 0-8.85 3.46t-3.46 8.85v375.38q0 5.39 3.46 8.85t8.85 3.46Zm277.27-150.42Q550-330.85 550-360t-20.42-49.58Q509.15-430 480-430t-49.58 20.42Q410-389.15 410-360t20.42 49.58Q450.85-290 480-290t49.58-20.42ZM360-620h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z"/></svg></div>
@@ -179,24 +179,24 @@
       <!-- 3. VRM Zo Toon -->
       <div class="mb-12">
         <h3 class="text-lg font-bold mb-3">3. VRM Zo Toon</h3>
-        <p class="text-muted text-sm leading-relaxed mb-4">기존 인하우스 머티리얼이 Custom Depth 버퍼에서 색을 잡는 방식이라 실사/비실사 혼합이 불가능했다. 이를 해결하기 위해 Emissive 채널에서 동작하는 툰 셰이딩을 새로 제작. 아웃라인은 Inverted Hull 방식. 기존 인하우스 캐릭터들과 톤을 맞추는 게 중요했다.</p>
+        <p class="text-muted text-sm leading-relaxed mb-4">The existing in-house material grabbed color from the Custom Depth buffer, making realistic/non-realistic mixing impossible. To solve this, I created a new toon shading system that operates in the Emissive channel. Outline uses the Inverted Hull method. Matching the tone with existing in-house characters was critical.</p>
 
         <div class="overflow-x-auto mb-6">
           <table class="w-full text-sm">
             <thead>
               <tr class="border-b border-border text-left">
-                <th class="py-2 pr-4 text-muted font-medium">머티리얼</th>
+                <th class="py-2 pr-4 text-muted font-medium">Material</th>
                 <th class="py-2 pr-4 text-muted font-medium">Base Pass</th>
                 <th class="py-2 text-muted font-medium">Samplers</th>
               </tr>
             </thead>
             <tbody class="text-muted">
-              <tr class="border-b border-border/50"><td class="py-2 pr-4">인하우스 툰</td><td class="py-2 pr-4">433 inst</td><td class="py-2">7 / 16</td></tr>
-              <tr class="border-b border-border/50"><td class="py-2 pr-4">VRM 툰</td><td class="py-2 pr-4">369 inst</td><td class="py-2">4 / 16</td></tr>
+              <tr class="border-b border-border/50"><td class="py-2 pr-4">In-house Toon</td><td class="py-2 pr-4">433 inst</td><td class="py-2">7 / 16</td></tr>
+              <tr class="border-b border-border/50"><td class="py-2 pr-4">VRM Toon</td><td class="py-2 pr-4">369 inst</td><td class="py-2">4 / 16</td></tr>
               <tr><td class="py-2 pr-4 text-white font-medium">Zo Toon</td><td class="py-2 pr-4 text-white font-medium">226 inst</td><td class="py-2 text-white font-medium">3 / 16</td></tr>
             </tbody>
           </table>
-          <p class="text-xs text-muted mt-2">실사/비실사 혼합을 가능하게 하면서 셰이더 비용 48% 감소 (인하우스 대비)</p>
+          <p class="text-xs text-muted mt-2">Enabled realistic/non-realistic mixing while reducing shader cost by 48% (vs in-house)</p>
         </div>
 
 <div class="encrypted-block">
@@ -206,22 +206,22 @@
 
         <div class="mb-4">
           <video src="../assets/images/npr-shader/toon-pbr-coexist.mp4" autoplay loop muted playsinline class="w-full rounded-lg border border-border"></video>
-          <p class="text-xs text-muted mt-2 text-center">Zo Toon + PBR 비실사 실사 조합 쇼케이스</p>
+          <p class="text-xs text-muted mt-2 text-center">Zo Toon + PBR non-realistic/realistic combination showcase</p>
         </div>
 
-        <img src="../assets/images/npr-shader/mixed-pbr-toon.png" alt="PBR + Toon 혼합 렌더링" class="w-full rounded-lg border border-border mb-1">
-        <p class="text-xs text-muted mb-6">PBR 실사 파트 + Toon 비실사 파트 혼합 결과</p>
+        <img src="../assets/images/npr-shader/mixed-pbr-toon.png" alt="PBR + Toon mixed rendering" class="w-full rounded-lg border border-border mb-1">
+        <p class="text-xs text-muted mb-6">PBR realistic part + Toon non-realistic part mixed result</p>
 
-        <img src="../assets/images/npr-shader/inverted-hull-vs-pp.png" alt="Zo Toon(Inverted Hull) vs VRM Toon(Post Process) 아웃라인 비교" class="w-full rounded-lg border border-border mb-1">
-        <p class="text-xs text-muted">Zo Toon(Inverted Hull) vs VRM Toon(Post Process) 아웃라인 비교</p>
+        <img src="../assets/images/npr-shader/inverted-hull-vs-pp.png" alt="Zo Toon(Inverted Hull) vs VRM Toon(Post Process) outline comparison" class="w-full rounded-lg border border-border mb-1">
+        <p class="text-xs text-muted">Zo Toon(Inverted Hull) vs VRM Toon(Post Process) outline comparison</p>
       </div>
 
       <!-- 4. VRM PBR -->
       <div>
         <h3 class="text-lg font-bold mb-3">4. VRM PBR</h3>
-        <p class="text-muted text-sm leading-relaxed mb-4">VRM4U 플러그인의 PBR 머티리얼을 경량화하여 사용. 기본 SSS Profile 기준으로 피부, 눈동자, 액세서리 등 실사 파트를 렌더링. Zo Toon과 마찬가지로 기존 인하우스 캐릭터들과 톤을 맞추는 쪽으로 잡았다.</p>
+        <p class="text-muted text-sm leading-relaxed mb-4">Lightweight version of the VRM4U plugin's PBR material. Renders realistic parts such as skin, irises, and accessories based on a default SSS Profile. Like Zo Toon, the focus was on matching the tone with existing in-house characters.</p>
 
-        <img src="../assets/images/npr-shader/vrm-pbr-scene.png" alt="VRM PBR 캐릭터 렌더링" class="w-full rounded-lg border border-border">
+        <img src="../assets/images/npr-shader/vrm-pbr-scene.png" alt="VRM PBR character rendering" class="w-full rounded-lg border border-border">
       </div>
     </section>
 
@@ -229,16 +229,16 @@
 
     <!-- Technical Details (accordion) -->
     <section class="mb-16">
-      <h2 class="text-xl font-bold mb-6">기술 상세</h2>
+      <h2 class="text-xl font-bold mb-6">Technical Details</h2>
 
       <div class="space-y-3">
         <details class="bg-surface rounded-lg border border-border">
           <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">NdotL (Normal dot Light)</summary>
-          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">표면 노멀 벡터와 라이트 방향의 내적. 값이 1이면 정면 조명, 0이면 경계, -1이면 뒷면. Cel Shading은 이 연속값을 단계별로 끊어서 2~3단계 밴드로 만든다.</div>
+          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">Dot product of the surface normal vector and light direction. A value of 1 means front-lit, 0 is the boundary, and -1 is the back face. Cel Shading discretizes this continuous value into 2-3 step bands.</div>
         </details>
         <details class="bg-surface rounded-lg border border-border">
           <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">Inverted Hull Outline</summary>
-          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">메시를 복제 → 노멀 방향으로 확장 → 뒷면만 렌더링 → 외곽선처럼 보임. 3D 공간에서 동작하여 카메라 거리에 따라 자연스러운 두께 변화.</div>
+          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">Duplicate mesh, expand along normals, render back faces only — appears as an outline. Operates in 3D space, providing natural thickness variation based on camera distance.</div>
         </details>
       </div>
     </section>
@@ -246,8 +246,8 @@
     <!-- UDS / ToD Test -->
     <section class="mb-16">
       <h2 class="text-xl font-bold mb-4">UDS / ToD 통합 테스트</h2>
-      <p class="text-muted text-sm leading-relaxed mb-6">모든 셰이더가 다양한 조명·시간대(Time of Day) 조건에서 일관되게 동작하는지 검증한 9컷 그리드.</p>
-      <img src="../assets/images/npr-shader/dual-npr-comparison.png" alt="UDS / ToD 통합 테스트 — 9컷 조명 조건별 셰이더 결과" class="w-full rounded-lg border border-border">
+      <p class="text-muted text-sm leading-relaxed mb-6">A 9-frame grid verifying that all shaders behave consistently across various lighting and Time of Day conditions.</p>
+      <img src="../assets/images/npr-shader/dual-npr-comparison.png" alt="UDS / ToD integration test — 9-frame shader results across lighting conditions" class="w-full rounded-lg border border-border">
     </section>
 
     <!-- Prev/Next -->
@@ -268,13 +268,13 @@
           <path d="M252.31-100q-29.92 0-51.12-21.19Q180-142.39 180-172.31v-375.38q0-29.92 21.19-51.12Q222.39-620 252.31-620H300v-80q0-74.92 52.54-127.46Q405.08-880 480-880q74.92 0 127.46 52.54Q660-774.92 660-700v80h47.69q29.92 0 51.12 21.19Q780-577.61 780-547.69v375.38q0 29.92-21.19 51.12Q737.61-100 707.69-100H252.31Zm0-60h455.38q5.39 0 8.85-3.46t3.46-8.85v-375.38q0-5.39-3.46-8.85t-8.85-3.46H252.31q-5.39 0-8.85 3.46t-3.46 8.85v375.38q0 5.39 3.46 8.85t8.85 3.46Zm277.27-150.42Q550-330.85 550-360t-20.42-49.58Q509.15-430 480-430t-49.58 20.42Q410-389.15 410-360t20.42 49.58Q450.85-290 480-290t49.58-20.42ZM360-620h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z"/>
         </svg>
       </div>
-      <p class="text-center text-muted text-sm mb-6">NDA 프로젝트입니다.<br>비밀번호를 입력하면 잠긴 콘텐츠를 볼 수 있습니다.</p>
+      <p class="text-center text-muted text-sm mb-6">NDA project.<br>Enter password to unlock content.</p>
       <input id="section-pw-input" type="password" placeholder="Password" autocomplete="off"
         class="w-full bg-bg border border-border rounded-lg px-4 py-2.5 text-sm text-white placeholder-muted focus:outline-none focus:border-accent transition mb-3">
-      <p id="section-pw-error" class="hidden text-red-400 text-xs mb-3 text-center">비밀번호가 틀렸습니다</p>
+      <p id="section-pw-error" class="hidden text-red-400 text-xs mb-3 text-center">Incorrect password</p>
       <button id="section-pw-submit"
         class="w-full px-5 py-2.5 bg-white text-black text-sm font-medium rounded-lg hover:bg-white/90 transition">Unlock</button>
-      <button id="section-pw-close" class="block w-full mt-3 text-muted text-sm hover:text-white transition">닫기</button>
+      <button id="section-pw-close" class="block w-full mt-3 text-muted text-sm hover:text-white transition">Close</button>
     </div>
   </div>
 

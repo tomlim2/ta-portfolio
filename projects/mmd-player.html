@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MMD Player — 임연수</title>
+  <title>MMD Player — Younsoo Lim</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@700;900&family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -60,7 +60,7 @@
 
 
     <div class="aspect-video bg-surface rounded-lg border border-border mb-12 flex items-center justify-center text-muted text-sm">
-      VMD 재생 + 이펙트 데모 영상 — 6종 이펙트가 동작하는 모션 재생 화면
+      VMD Playback + Effects Demo — Motion playback with 6 effect types in action
     </div>
 
     <div class="flex items-center gap-4 mb-3">
@@ -71,13 +71,13 @@
     </div>
 
     <blockquote class="text-muted mb-6">
-      모션이 캐릭터에 맞는지 미리 확인하고, 체형 차이를 자동 보정하는 WebGPU MMD 프리뷰 도구
+      A WebGPU MMD preview tool that verifies motion compatibility with characters and automatically corrects body proportion differences
     </blockquote>
 
     <div class="flex flex-wrap gap-x-8 gap-y-2 text-xs text-muted mb-8">
       <span>Tool Design, Shader Development, Motion Analysis</span>
-      <span>2026년 2~3월</span>
-      <span>개인 프로젝트</span>
+      <span>Feb–Mar 2026</span>
+      <span>Personal Project</span>
     </div>
     <div class="flex flex-wrap gap-2 text-xs text-muted mb-12">
       <span class="px-2 py-1 rounded border border-border">Three.js WebGPU (r172)</span>
@@ -87,69 +87,69 @@
 
     <!-- Motivation -->
     <section class="mb-16">
-      <h2 class="text-xl font-bold mb-4">동기</h2>
-      <p class="text-muted text-sm leading-relaxed mb-4">PMX→VRM 변환 파이프라인을 만들면서, 변환 전에 원본 모델과 모션이 제대로 동작하는지 확인할 도구가 필요했다. 임포트가 안 될 때 <strong class="text-white">PMX 원본 탓인지 VRM 컨버터 탓인지</strong> 가려내는 게 핵심 — PMX 자체에 텍스처 누락이나 본 결여가 있다면 컨버터 문제가 아니다.</p>
-      <p class="text-muted text-sm leading-relaxed">사용자: 기획자, QA — TA뿐 아니라 비개발 직군이 직접 열어서 확인.</p>
+      <h2 class="text-xl font-bold mb-4">Motivation</h2>
+      <p class="text-muted text-sm leading-relaxed mb-4">While building a PMX-to-VRM conversion pipeline, I needed a tool to verify that the original model and motion work correctly before conversion. The key challenge was distinguishing whether import failures were caused by <strong class="text-white">the original PMX or the VRM converter</strong> — if the PMX itself has missing textures or absent bones, it is not a converter issue.</p>
+      <p class="text-muted text-sm leading-relaxed">Target users: planners and QA — not just TAs, but non-developer roles who can open and verify directly.</p>
     </section>
 
     <!-- Solution -->
     <section class="mb-16">
-      <h2 class="text-xl font-bold mb-4">해결</h2>
+      <h2 class="text-xl font-bold mb-4">Solution</h2>
 
       <!-- Model families -->
-      <h3 class="font-medium mb-3">모션 호환성 자동 분석</h3>
-      <p class="text-muted text-sm leading-relaxed mb-4">VMD 모션 파일을 분석하여 PMX 모델과 본 매칭률을 계산하고, IK 충돌과 소스 모델 계열을 자동 감지. 게임사 PMX도 이 계열을 따르는데 — 예: 스타레일은 DIVA 계열, 원신은 ミリシタ 계열.</p>
+      <h3 class="font-medium mb-3">Automatic Motion Compatibility Analysis</h3>
+      <p class="text-muted text-sm leading-relaxed mb-4">Analyzes VMD motion files to calculate bone match rates against PMX models, and automatically detects IK conflicts and source model families. Game studio PMX models also follow these families — e.g., Honkai: Star Rail uses the DIVA family, Genshin Impact uses the ミリシタ family.</p>
 
       <div class="overflow-x-auto mb-8">
         <table class="w-full text-sm">
           <thead>
             <tr class="border-b border-border text-left">
-              <th class="py-3 pr-4 text-muted font-medium">계열</th>
-              <th class="py-3 text-muted font-medium">특징</th>
+              <th class="py-3 pr-4 text-muted font-medium">Family</th>
+              <th class="py-3 text-muted font-medium">Characteristics</th>
             </tr>
           </thead>
           <tbody class="text-muted">
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white">あにまさ式 (Animasa)</td><td class="py-3">MMD 기본 모델, 최소 본셋 (~30)</td></tr>
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white">TDA式</td><td class="py-3">세미스탠다드 본 포함 (上半身2, 腕捩 등)</td></tr>
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white">YYB式</td><td class="py-3">TDA 기반 + 보조 본 확장</td></tr>
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white">にがもん式</td><td class="py-3">간결한 본셋, 비보컬로이드 캐릭터</td></tr>
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white">つみだんご式</td><td class="py-3">고밀도 커스텀 본 (325개), 50 표정</td></tr>
-            <tr><td class="py-3 pr-4 text-white">ミリシタ</td><td class="py-3">영문 로마자 본, 표준 VMD와 비호환</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white">あにまさ式 (Animasa)</td><td class="py-3">Default MMD model, minimal bone set (~30)</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white">TDA式</td><td class="py-3">Includes semi-standard bones (上半身2, 腕捩, etc.)</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white">YYB式</td><td class="py-3">TDA-based + extended auxiliary bones</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white">にがもん式</td><td class="py-3">Compact bone set, non-Vocaloid characters</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white">つみだんご式</td><td class="py-3">High-density custom bones (325), 50 expressions</td></tr>
+            <tr><td class="py-3 pr-4 text-white">ミリシタ</td><td class="py-3">Romanized bone names, incompatible with standard VMD</td></tr>
           </tbody>
         </table>
       </div>
 
       <!-- IK Sizing -->
-      <h3 class="font-medium mb-3">체형 자동 보정 (IK 사이징)</h3>
-      <p class="text-muted text-sm leading-relaxed mb-4">모델 간 힙 높이 비율로 IK 포지션을 자동 스케일링. 소스 모델이 없어도 VMD 애니메이션에서 바닥 접촉 프레임의 중앙값으로 원본 체형을 추정한다.</p>
+      <h3 class="font-medium mb-3">Automatic Body Proportion Correction (IK Sizing)</h3>
+      <p class="text-muted text-sm leading-relaxed mb-4">Automatically scales IK positions based on the hip height ratio between models. Even without a source model, the original body proportions are estimated from the median of ground-contact frames in the VMD animation.</p>
 
       <div class="aspect-video bg-surface rounded-lg border border-border mb-8 flex items-center justify-center text-muted text-sm">
-        체형 보정 Before/After — IK 사이징 적용 전후 비교 (발 부유 → 바닥 접촉)
+        Body Proportion Correction Before/After — Comparison before and after IK sizing (floating feet to ground contact)
       </div>
 
       <!-- Precompute Effects -->
-      <h3 class="font-medium mb-3">모션 연동 이펙트 — Precompute 실험</h3>
-      <p class="text-muted text-sm leading-relaxed mb-4">VMD 모션 데이터에서 벡터 필드 등 CPU 기반 효과를 사전 계산하면 어떨지 실험. 결과가 매우 좋았다 — 가볍고, 모션 트랙만 있으면 이펙트 타이밍이 자동으로 잡힌다. 기획팀과 클라이언트팀에게 <strong class="text-white">"잘 움직인다"</strong>는 것을 보여주기 위한 POC.</p>
-      <p class="text-muted text-sm leading-relaxed">6종: Foot Ripple, Spark Burst, Ground Reflect, Falling/Rising Light, Velocity Effect</p>
+      <h3 class="font-medium mb-3">Motion-synced Effects — Precompute Experiment</h3>
+      <p class="text-muted text-sm leading-relaxed mb-4">An experiment in precomputing CPU-based effects such as vector fields from VMD motion data. Results were excellent — lightweight, and effect timing is automatically derived from motion tracks alone. A POC to demonstrate to planning and client teams that <strong class="text-white">"it moves well."</strong></p>
+      <p class="text-muted text-sm leading-relaxed">6 types: Foot Ripple, Spark Burst, Ground Reflect, Falling/Rising Light, Velocity Effect</p>
     </section>
 
     <!-- Result -->
     <section class="mb-16">
-      <h2 class="text-xl font-bold mb-4">결과</h2>
+      <h2 class="text-xl font-bold mb-4">Result</h2>
       <div class="overflow-x-auto">
         <table class="w-full text-sm">
           <thead>
             <tr class="border-b border-border text-left">
-              <th class="py-3 pr-4 text-muted font-medium">항목</th>
-              <th class="py-3 text-muted font-medium">결과</th>
+              <th class="py-3 pr-4 text-muted font-medium">Category</th>
+              <th class="py-3 text-muted font-medium">Result</th>
             </tr>
           </thead>
           <tbody class="text-muted">
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">원본 검증</td><td class="py-3">PMX 탓 vs 컨버터 탓 판별 — 기획자/QA가 직접 사용</td></tr>
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">모션 검증</td><td class="py-3">6종 모델 계열 지원, 본 매칭률/IK 충돌 자동 감지</td></tr>
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">체형 보정</td><td class="py-3">소스 모델 없이 VMD만으로 체형 추정 + IK 스케일링</td></tr>
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">이펙트 Precompute</td><td class="py-3">6종 — 기획/클라이언트팀 설득용 POC</td></tr>
-            <tr><td class="py-3 pr-4 text-white font-medium">기술 검증</td><td class="py-3">WebGPU + TSL 셰이더 (Three.js 차세대 렌더링)</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">Source Verification</td><td class="py-3">Distinguishes PMX issues vs converter issues — directly used by planners/QA</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">Motion Verification</td><td class="py-3">Supports 6 model families, automatic bone match rate/IK conflict detection</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">Body Correction</td><td class="py-3">Body proportion estimation from VMD alone + IK scaling without source model</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">Effect Precompute</td><td class="py-3">6 types — POC for convincing planning/client teams</td></tr>
+            <tr><td class="py-3 pr-4 text-white font-medium">Tech Validation</td><td class="py-3">WebGPU + TSL shaders (Three.js next-gen rendering)</td></tr>
           </tbody>
         </table>
       </div>
@@ -159,24 +159,24 @@
 
     <!-- Technical Details -->
     <section class="mb-16">
-      <h2 class="text-xl font-bold mb-6">기술 상세</h2>
+      <h2 class="text-xl font-bold mb-6">Technical Details</h2>
 
       <div class="space-y-3">
         <details class="bg-surface rounded-lg border border-border">
-          <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">VMD Precompute — 이펙트 사전 계산</summary>
-          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">모션 데이터에서 블룸 이벤트, 발 착지 타이밍, 각속도 피크를 사전 계산. 실시간 분석 대신 precompute 방식으로 프레임 드롭 없이 이펙트를 동기화.</div>
+          <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">VMD Precompute — Effect Pre-calculation</summary>
+          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">Pre-calculates bloom events, foot landing timings, and angular velocity peaks from motion data. Synchronizes effects without frame drops by using precompute instead of real-time analysis.</div>
         </details>
         <details class="bg-surface rounded-lg border border-border">
-          <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">IK 사이징 — 소스 모델 없이 체형 추정</summary>
-          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">타겟 모델의 rest pose에서 IK Y 위치를 기준으로 ground contact 프레임을 감지. 해당 프레임의 센터 Y 중앙값으로 소스 모델의 힙 높이를 추정하고, targetHipY / sourceHipY 비율로 IK/센터/グルーブ의 Y 포지션을 스케일링.</div>
+          <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">IK Sizing — Body Estimation Without Source Model</summary>
+          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">Detects ground contact frames based on IK Y position from the target model's rest pose. Estimates the source model's hip height from the median center Y of those frames, then scales IK/center/groove Y positions by the targetHipY / sourceHipY ratio.</div>
         </details>
         <details class="bg-surface rounded-lg border border-border">
-          <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">TSL 셰이더 — WebGPU 커스텀 머티리얼</summary>
-          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">Three.js TSL(Three Shading Language) 기반 커스텀 머티리얼. Ground Mirror Reflection, 이펙트 파티클 등을 TSL 노드로 구현. WebGPU의 차세대 렌더링 파이프라인을 직접 검증.</div>
+          <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">TSL Shaders — WebGPU Custom Materials</summary>
+          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">Custom materials based on Three.js TSL (Three Shading Language). Ground Mirror Reflection, effect particles, and more implemented as TSL nodes. Hands-on validation of WebGPU's next-gen rendering pipeline.</div>
         </details>
         <details class="bg-surface rounded-lg border border-border">
-          <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">VMD 바이너리 파서 + 호환성 분석</summary>
-          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">VMD 파일에서 본 키프레임, 모프 키프레임, IK 키프레임을 파싱. PMX 모델의 본 트리와 대조하여 매칭률, 누락 본, IK 충돌을 자동 리포트.</div>
+          <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">VMD Binary Parser + Compatibility Analysis</summary>
+          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">Parses bone keyframes, morph keyframes, and IK keyframes from VMD files. Compares against the PMX model's bone tree to automatically report match rates, missing bones, and IK conflicts.</div>
         </details>
       </div>
     </section>

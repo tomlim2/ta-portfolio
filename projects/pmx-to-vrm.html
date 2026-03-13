@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PMX to VRM Pipeline — 임연수</title>
+  <title>PMX to VRM Pipeline — Younsoo Lim</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@700;900&family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -49,18 +49,18 @@
 
 
 
-    <img src="../assets/images/pmx-to-vrm/hero-converted-characters.png" alt="PMX→VRM 변환된 캐릭터들" class="w-full rounded-lg border border-border mb-12">
+    <img src="../assets/images/pmx-to-vrm/hero-converted-characters.png" alt="Characters converted from PMX to VRM" class="w-full rounded-lg border border-border mb-12">
 
     <h1 class="text-4xl font-bold mb-3">PMX to VRM Pipeline</h1>
 
     <blockquote class="text-muted mb-6">
-      커뮤니티 PMX 캐릭터를 UE에서 바로 쓸 수 있도록 — 물리, 본, 머티리얼을 보존하는 자동 변환 파이프라인
+      Making community PMX characters directly usable in UE — an automated conversion pipeline preserving physics, bones, and materials
     </blockquote>
 
     <div class="flex flex-wrap gap-x-8 gap-y-2 text-xs text-muted mb-8">
       <span>Pipeline Architecture, Tool Development</span>
-      <span>2026년 2월~ (35 커밋)</span>
-      <span>회사 프로젝트</span>
+      <span>Feb 2026~ (35 commits)</span>
+      <span>Company Project</span>
     </div>
     <div class="flex flex-wrap gap-2 text-xs text-muted mb-12">
       <span class="px-2 py-1 rounded border border-border">Python</span>
@@ -73,17 +73,17 @@
 
     <!-- Problem -->
     <section class="mb-16">
-      <h2 class="text-xl font-bold mb-4">문제</h2>
-      <p class="text-muted text-sm leading-relaxed">Booth/커뮤니티에서 배포되는 PMX 캐릭터를 프로젝트에 투입해야 했지만, PMX를 UE에서 쓸 수 있는 VRM으로 변환할 방법이 없었다. 수동으로 옮기면 본 매핑이 깨지고, 머리카락/스커트 등 물리가 날아가며, 텍스처가 깨져서 룩이 완전히 달라졌다.</p>
+      <h2 class="text-xl font-bold mb-4">Problem</h2>
+      <p class="text-muted text-sm leading-relaxed">We needed to bring PMX characters from Booth/community into the project, but there was no way to convert PMX to UE-compatible VRM. Manual conversion broke bone mappings, lost physics on hair/skirts, and corrupted textures, completely changing the look.</p>
     </section>
 
     <!-- Solution -->
     <section class="mb-16">
-      <h2 class="text-xl font-bold mb-4">해결</h2>
-      <p class="text-muted text-sm leading-relaxed mb-6">PMX → glTF → VRM 자동 변환 파이프라인. <strong class="text-white">ZIP을 넣으면 UE에서 바로 쓸 수 있는 VRM이 나온다.</strong> 물리(머리카락, 스커트, 리본)와 머티리얼 룩이 깨지지 않는 게 핵심이었다.</p>
+      <h2 class="text-xl font-bold mb-4">Solution</h2>
+      <p class="text-muted text-sm leading-relaxed mb-6">An automated PMX to glTF to VRM conversion pipeline. <strong class="text-white">Drop in a ZIP, get a UE-ready VRM out.</strong> The key requirement was preserving physics (hair, skirt, ribbon) and material look without breaking them.</p>
 
       <div class="bg-surface rounded-lg border border-border p-5 mb-6">
-        <h3 class="font-medium mb-3">파이프라인 흐름</h3>
+        <h3 class="font-medium mb-3">Pipeline Flow</h3>
         <code class="text-sm text-green-400">ZIP → scan .pmx → humanoid check (16 bones) → readPmx() → buildGltf() → buildVrm() → writeGlb() → renameVrm() → validate()</code>
       </div>
 
@@ -92,15 +92,15 @@
         <table class="w-full text-sm">
           <thead>
             <tr class="border-b border-border text-left">
-              <th class="py-3 pr-4 text-muted font-medium">도구</th>
-              <th class="py-3 pr-4 text-muted font-medium">사용자</th>
-              <th class="py-3 text-muted font-medium">방식</th>
+              <th class="py-3 pr-4 text-muted font-medium">Tool</th>
+              <th class="py-3 pr-4 text-muted font-medium">User</th>
+              <th class="py-3 text-muted font-medium">Method</th>
             </tr>
           </thead>
           <tbody class="text-muted">
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">Python CLI</td><td class="py-3 pr-4">TA / 배치 작업</td><td class="py-3">여러 모델을 한 번에 변환</td></tr>
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">Next.js 웹앱</td><td class="py-3 pr-4">팀 내부 누구나</td><td class="py-3">브라우저에서 ZIP 업로드 → VRM 다운로드</td></tr>
-            <tr><td class="py-3 pr-4 text-white font-medium">Browser SPA</td><td class="py-3 pr-4">외부 / 서버 없이</td><td class="py-3">클라이언트 단독 변환</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">Python CLI</td><td class="py-3 pr-4">TA / Batch jobs</td><td class="py-3">Batch-convert multiple models at once</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">Next.js Web App</td><td class="py-3 pr-4">Anyone on the team</td><td class="py-3">Upload ZIP in browser, download VRM</td></tr>
+            <tr><td class="py-3 pr-4 text-white font-medium">Browser SPA</td><td class="py-3 pr-4">External / No server</td><td class="py-3">Client-only conversion</td></tr>
           </tbody>
         </table>
       </div>
@@ -113,52 +113,52 @@
 
     <!-- Result -->
     <section class="mb-16">
-      <h2 class="text-xl font-bold mb-4">결과</h2>
+      <h2 class="text-xl font-bold mb-4">Result</h2>
       <div class="overflow-x-auto">
         <table class="w-full text-sm">
           <thead>
             <tr class="border-b border-border text-left">
-              <th class="py-3 pr-4 text-muted font-medium">항목</th>
-              <th class="py-3 text-muted font-medium">결과</th>
+              <th class="py-3 pr-4 text-muted font-medium">Category</th>
+              <th class="py-3 text-muted font-medium">Result</th>
             </tr>
           </thead>
           <tbody class="text-muted">
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">변환율</td><td class="py-3">주요 게임사 PMX 90% 성공 (호요버스, 이터널리턴, 사이퍼즈 등)</td></tr>
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">모델 지원</td><td class="py-3">일본 + 중국 양쪽 PMX 커버</td></tr>
-            <tr><td class="py-3 pr-4 text-white font-medium">변환 속도</td><td class="py-3">393ms (Saber.pmx, 28K vertices)</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">Conversion Rate</td><td class="py-3">90% success on major game PMX (HoYoverse, Eternal Return, Cyphers, etc.)</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">Model Coverage</td><td class="py-3">Both Japanese and Chinese PMX supported</td></tr>
+            <tr><td class="py-3 pr-4 text-white font-medium">Conversion Speed</td><td class="py-3">393ms (Saber.pmx, 28K vertices)</td></tr>
           </tbody>
         </table>
       </div>
     </section>
 
     <div class="mb-12">
-      <img src="../assets/images/pmx-to-vrm/before-after-comparison.png" alt="Before(스타레일 PMX) / After(VRM 변환 결과)" class="w-full rounded-lg border border-border">
-      <p class="text-xs text-muted mt-2 text-center">왼쪽: 원본 게임 스크린샷 — 오른쪽: PMX → VRM 변환 후 뷰어 렌더링</p>
+      <img src="../assets/images/pmx-to-vrm/before-after-comparison.png" alt="Before (Star Rail PMX) / After (VRM conversion result)" class="w-full rounded-lg border border-border">
+      <p class="text-xs text-muted mt-2 text-center">Left: Original game screenshot — Right: Viewer rendering after PMX to VRM conversion</p>
     </div>
 
     <hr class="border-border mb-12">
 
     <!-- Technical Details -->
     <section class="mb-16">
-      <h2 class="text-xl font-bold mb-6">기술 상세</h2>
+      <h2 class="text-xl font-bold mb-6">Technical Details</h2>
 
-      <h3 class="text-sm text-muted uppercase tracking-widest mb-4">물리 변환</h3>
+      <h3 class="text-sm text-muted uppercase tracking-widest mb-4">Physics Conversion</h3>
       <div class="space-y-3 mb-8">
         <details class="bg-surface rounded-lg border border-border">
-          <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">스프링본 변환 (리지드바디+조인트 → VRM SpringBone)</summary>
-          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">PMX의 Bullet Physics 기반 리지드바디+조인트를 VRM의 스프링본으로 변환. 짧은 체인(리본, 액세서리)은 거의 고정, 회전 제한이 완전 잠긴 체인은 스킵, 중국 PMX의 과도한 dragForce 캡핑 등 모델별 예외 처리.</div>
+          <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">SpringBone Conversion (RigidBody+Joint to VRM SpringBone)</summary>
+          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">Converts PMX Bullet Physics-based rigid bodies and joints into VRM SpringBones. Short chains (ribbons, accessories) are nearly fixed, fully rotation-locked chains are skipped, and excessive dragForce in Chinese PMX models is capped -- per-model exception handling.</div>
         </details>
       </div>
 
-      <h3 class="text-sm text-muted uppercase tracking-widest mb-4">검증</h3>
+      <h3 class="text-sm text-muted uppercase tracking-widest mb-4">Validation</h3>
       <div class="space-y-3 mb-8">
         <details class="bg-surface rounded-lg border border-border">
-          <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">6-Layer VRM 밸리데이터</summary>
-          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">GLB 컨테이너 → glTF 스펙 준수 → VRM 확장 구조 → 휴머노이드 본 완성도 → 스프링본 애니메이션 → 머티리얼 호환성. 각 레이어를 독립 검증해서 변환 안 되는 모델은 어디서 막혔는지 바로 알려준다.</div>
+          <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">6-Layer VRM Validator</summary>
+          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">GLB container, glTF spec compliance, VRM extension structure, humanoid bone completeness, SpringBone animation, material compatibility -- each layer is validated independently, so failed conversions immediately show where they got stuck.</div>
         </details>
         <details class="bg-surface rounded-lg border border-border">
-          <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">CJK 인코딩 라운드트립</summary>
-          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">PMX 파일의 텍스처 경로, 본 이름 등이 Shift-JIS, GBK, EUC-KR, Big5 중 어떤 인코딩인지 자동 판별. Fallback 체인으로 모지바케 없이 디코딩해서 텍스처가 빠지는 걸 막는다.</div>
+          <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">CJK Encoding Round-Trip</summary>
+          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">Auto-detects whether texture paths, bone names, etc. in PMX files are encoded in Shift-JIS, GBK, EUC-KR, or Big5. A fallback chain decodes without mojibake, preventing missing textures.</div>
         </details>
       </div>
     </section>
@@ -181,13 +181,13 @@
           <path d="M252.31-100q-29.92 0-51.12-21.19Q180-142.39 180-172.31v-375.38q0-29.92 21.19-51.12Q222.39-620 252.31-620H300v-80q0-74.92 52.54-127.46Q405.08-880 480-880q74.92 0 127.46 52.54Q660-774.92 660-700v80h47.69q29.92 0 51.12 21.19Q780-577.61 780-547.69v375.38q0 29.92-21.19 51.12Q737.61-100 707.69-100H252.31Zm0-60h455.38q5.39 0 8.85-3.46t3.46-8.85v-375.38q0-5.39-3.46-8.85t-8.85-3.46H252.31q-5.39 0-8.85 3.46t-3.46 8.85v375.38q0 5.39 3.46 8.85t8.85 3.46Zm277.27-150.42Q550-330.85 550-360t-20.42-49.58Q509.15-430 480-430t-49.58 20.42Q410-389.15 410-360t20.42 49.58Q450.85-290 480-290t49.58-20.42ZM360-620h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z"/>
         </svg>
       </div>
-      <p class="text-center text-muted text-sm mb-6">NDA 프로젝트입니다.<br>비밀번호를 입력하면 잠긴 콘텐츠를 볼 수 있습니다.</p>
+      <p class="text-center text-muted text-sm mb-6">NDA project.<br>Enter password to unlock content.</p>
       <input id="section-pw-input" type="password" placeholder="Password" autocomplete="off"
         class="w-full bg-bg border border-border rounded-lg px-4 py-2.5 text-sm text-white placeholder-muted focus:outline-none focus:border-accent transition mb-3">
-      <p id="section-pw-error" class="hidden text-red-400 text-xs mb-3 text-center">비밀번호가 틀렸습니다</p>
+      <p id="section-pw-error" class="hidden text-red-400 text-xs mb-3 text-center">Incorrect password</p>
       <button id="section-pw-submit"
         class="w-full px-5 py-2.5 bg-white text-black text-sm font-medium rounded-lg hover:bg-white/90 transition">Unlock</button>
-      <button id="section-pw-close" class="block w-full mt-3 text-muted text-sm hover:text-white transition">닫기</button>
+      <button id="section-pw-close" class="block w-full mt-3 text-muted text-sm hover:text-white transition">Close</button>
     </div>
   </div>
 

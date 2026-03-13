@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Character System — 임연수</title>
+  <title>Character System — Younsoo Lim</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@700;900&family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -50,19 +50,19 @@
 
 
     <div class="aspect-video mb-12 overflow-hidden">
-      <img src="../assets/images/character-system/hero.png" alt="에디터에서 NPR 캐릭터를 배경 위에 배치하고 프리뷰" class="w-full h-full object-cover">
+      <img src="../assets/images/character-system/hero.png" alt="Placing and previewing NPR characters on a background in the editor" class="w-full h-full object-cover">
     </div>
 
     <h1 class="text-4xl font-bold mb-3">Character System</h1>
 
     <blockquote class="text-muted mb-6">
-      300개+ 캐릭터를 툴 로딩 6초로 — 파츠 조합부터 프리뷰, 외부 VRM까지
+      300+ characters with 6-second tool loading — from parts assembly to preview and external VRM support
     </blockquote>
 
     <div class="flex flex-wrap gap-x-8 gap-y-2 text-xs text-muted mb-8">
       <span>Tool Design, C++ Plugin, UE Integration</span>
       <span>2024~2026</span>
-      <span>회사 프로젝트</span>
+      <span>Company Project</span>
     </div>
     <div class="flex flex-wrap gap-2 text-xs text-muted mb-12">
       <span class="px-2 py-1 rounded border border-border">Unreal Engine 5</span>
@@ -75,14 +75,14 @@
 
     <!-- Problem -->
     <section class="mb-16">
-      <h2 class="text-xl font-bold mb-4">문제</h2>
-      <p class="text-muted text-sm leading-relaxed">캐릭터가 300개 가까이 늘면서 파츠 조합부터 등록, 프리뷰, 로딩까지 체계적으로 관리할 파이프라인이 필요했다. 에디터를 열면 전체 에셋이 하드 레퍼런스로 올라와 <strong class="text-white">30초를 기다려야</strong> 했고, 색감이나 애니메이션을 확인하려면 매번 게임을 실행해야 했다. 외부 VRM까지 지원하게 되면서 모델마다 카메라와 썸네일을 따로 잡아주는 수작업도 생겼다.</p>
+      <h2 class="text-xl font-bold mb-4">Problem</h2>
+      <p class="text-muted text-sm leading-relaxed">As the character count approached 300, we needed a pipeline to systematically manage parts assembly, registration, preview, and loading. Opening the editor pulled in all assets via hard references, requiring a <strong class="text-white">30-second wait</strong>. Checking colors or animations meant launching the game every time. With external VRM support added, manually setting up cameras and thumbnails per model became yet another burden.</p>
     </section>
 
     <!-- Solution -->
     <section class="mb-16">
-      <h2 class="text-xl font-bold mb-4">해결</h2>
-      <p class="text-muted text-sm leading-relaxed mb-4">에디터(EnvCheck), 런타임(Basemodel_TF), VRM Reference Points — 세 독립 시스템이 툴의 데이터 에셋 및 외부 모델 로드를 자사 셰이더 시스템과 애니메이션을 함께 확인할 수 있게 설계했다. 아티스트가 에디터에서 파츠를 조합하고 프리셋을 등록하면 Data Asset이 생산되고, 런타임이 그걸 비동기로 로드하는 흐름이다.</p>
+      <h2 class="text-xl font-bold mb-4">Solution</h2>
+      <p class="text-muted text-sm leading-relaxed mb-4">Three independent systems -- Editor (EnvCheck), Runtime (Basemodel_TF), and VRM Reference Points -- were designed to load tool Data Assets and external models while verifying them with the in-house shader system and animations. Artists assemble parts and register presets in the editor, producing Data Assets that the runtime loads asynchronously.</p>
 
 <div class="encrypted-block">
   <div class="encrypted-placeholder"><svg viewBox="0 -960 960 960"><path d="M252.31-100q-29.92 0-51.12-21.19Q180-142.39 180-172.31v-375.38q0-29.92 21.19-51.12Q222.39-620 252.31-620H300v-80q0-74.92 52.54-127.46Q405.08-880 480-880q74.92 0 127.46 52.54Q660-774.92 660-700v80h47.69q29.92 0 51.12 21.19Q780-577.61 780-547.69v375.38q0 29.92-21.19 51.12Q737.61-100 707.69-100H252.31Zm0-60h455.38q5.39 0 8.85-3.46t3.46-8.85v-375.38q0-5.39-3.46-8.85t-8.85-3.46H252.31q-5.39 0-8.85 3.46t-3.46 8.85v375.38q0 5.39 3.46 8.85t8.85 3.46Zm277.27-150.42Q550-330.85 550-360t-20.42-49.58Q509.15-430 480-430t-49.58 20.42Q410-389.15 410-360t20.42 49.58Q450.85-290 480-290t49.58-20.42ZM360-620h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z"/></svg></div>
@@ -90,42 +90,42 @@
 </div>
 
       <div class="mb-6 overflow-hidden">
-        <img src="../assets/images/character-system/editor-preview.png" alt="에디터 프리뷰 — 배경 위 NPR 캐릭터 배치 확인" class="w-full h-auto">
+        <img src="../assets/images/character-system/editor-preview.png" alt="Editor preview — verifying NPR character placement on a background" class="w-full h-auto">
       </div>
-      <p class="text-muted text-sm leading-relaxed">BP_Basemodel_TF 하나에 세이브와 로드가 같이 들어 있었는데, 세이브 쪽이 물고 있는 레퍼런스 때문에 에디터를 열 때마다 30초씩 걸렸다. 세이브를 BP_Character_EnvCheck로 빼고 Basemodel_TF는 로드만 남겨서 <strong class="text-white">30초→6초</strong>로 줄였다. EnvCheck는 에디터 Tick Interface도 붙여서 게임 실행 없이 배경 위에서 바로 프리뷰할 수 있다. 외부 VRM은 Reference Points가 4단 폴백으로 얼굴을 찾아서 카메라 타겟과 썸네일까지 자동 처리.</p>
+      <p class="text-muted text-sm leading-relaxed">BP_Basemodel_TF originally had both save and load in a single actor, but the references held by the save side caused a 30-second wait every time the editor opened. By extracting save into BP_Character_EnvCheck and leaving only load in Basemodel_TF, load time dropped from <strong class="text-white">30s to 6s</strong>. EnvCheck also implements the Editor Tick Interface, enabling preview directly on a background without launching the game. For external VRM, Reference Points auto-detects the face via a 4-level fallback and handles camera targeting and thumbnail generation automatically.</p>
     </section>
 
     <!-- Result -->
     <section class="mb-16">
-      <h2 class="text-xl font-bold mb-4">결과</h2>
+      <h2 class="text-xl font-bold mb-4">Result</h2>
       <div class="overflow-x-auto">
         <table class="w-full text-sm">
           <thead>
             <tr class="border-b border-border text-left">
-              <th scope="col" class="py-3 pr-4 text-muted font-medium">항목</th>
+              <th scope="col" class="py-3 pr-4 text-muted font-medium">Category</th>
               <th scope="col" class="py-3 pr-4 text-muted font-medium">Before</th>
               <th scope="col" class="py-3 pr-4 text-muted font-medium">After</th>
-              <th scope="col" class="py-3 text-muted font-medium">개선</th>
+              <th scope="col" class="py-3 text-muted font-medium">Improvement</th>
             </tr>
           </thead>
           <tbody class="text-muted">
             <tr class="border-b border-border/50">
-              <td class="py-3 pr-4 text-white font-medium">에디터 로드</td>
-              <td class="py-3 pr-4">30초</td>
-              <td class="py-3 pr-4">6초</td>
+              <td class="py-3 pr-4 text-white font-medium">Editor Load</td>
+              <td class="py-3 pr-4">30s</td>
+              <td class="py-3 pr-4">6s</td>
               <td class="py-3 text-blue-400 font-medium">80%↓</td>
             </tr>
             <tr class="border-b border-border/50">
-              <td class="py-3 pr-4 text-white font-medium">패키징 로드</td>
-              <td class="py-3 pr-4">수 초 대기</td>
-              <td class="py-3 pr-4">체감 0초</td>
-              <td class="py-3 text-blue-400 font-medium">제거</td>
+              <td class="py-3 pr-4 text-white font-medium">Packaged Load</td>
+              <td class="py-3 pr-4">Several seconds</td>
+              <td class="py-3 pr-4">Perceived 0s</td>
+              <td class="py-3 text-blue-400 font-medium">Eliminated</td>
             </tr>
             <tr>
-              <td class="py-3 pr-4 text-white font-medium">캐릭터 프리셋</td>
+              <td class="py-3 pr-4 text-white font-medium">Character Presets</td>
               <td class="py-3 pr-4">-</td>
-              <td class="py-3 pr-4">300개+</td>
-              <td class="py-3 text-blue-400 font-medium">통합 관리</td>
+              <td class="py-3 pr-4">300+</td>
+              <td class="py-3 text-blue-400 font-medium">Unified</td>
             </tr>
           </tbody>
         </table>
@@ -136,9 +136,9 @@
 
     <!-- System Structure -->
     <section class="mb-16">
-      <h2 class="text-xl font-bold mb-6">시스템 구조</h2>
+      <h2 class="text-xl font-bold mb-6">System Structure</h2>
 
-      <p class="text-muted text-sm leading-relaxed mb-6">세 독립 코드베이스가 Data Asset과 VRM 정보 노드로 연결되는 구조. 에디터(EnvCheck)가 Data Asset을 생산하면 런타임(Basemodel_TF)이 비동기로 로드하고, VRM Reference Points가 외부 모델의 정보를 런타임에 업데이트한다.</p>
+      <p class="text-muted text-sm leading-relaxed mb-6">Three independent codebases connected via Data Assets and VRM info nodes. The editor (EnvCheck) produces Data Assets, the runtime (Basemodel_TF) loads them asynchronously, and VRM Reference Points updates external model info at runtime.</p>
 
 
 <div class="encrypted-block">
@@ -149,36 +149,36 @@
       <!-- Three components -->
       <div class="space-y-4 mb-6">
         <div class="bg-surface rounded-lg border border-border p-5">
-          <h3 class="font-medium mb-3">에디터 — BP_Character_EnvCheck</h3>
-          <p class="text-muted text-sm leading-relaxed mb-4">아티스트가 에디터에서 머리·헤어·바디 파츠를 조합하고 프리셋으로 저장. 에디터 Tick Interface로 게임을 실행하지 않아도 배경 위에서 캐릭터와 애니메이션을 바로 확인할 수 있다. 이 과정에서 생산된 Data Asset이 런타임의 입력이 된다.</p>
+          <h3 class="font-medium mb-3">Editor — BP_Character_EnvCheck</h3>
+          <p class="text-muted text-sm leading-relaxed mb-4">Artists assemble head, hair, and body parts in the editor and save them as presets. The Editor Tick Interface allows verifying characters and animations on a background without launching the game. The Data Assets produced here become the runtime's input.</p>
 <div class="encrypted-block">
   <div class="encrypted-placeholder"><svg viewBox="0 -960 960 960"><path d="M252.31-100q-29.92 0-51.12-21.19Q180-142.39 180-172.31v-375.38q0-29.92 21.19-51.12Q222.39-620 252.31-620H300v-80q0-74.92 52.54-127.46Q405.08-880 480-880q74.92 0 127.46 52.54Q660-774.92 660-700v80h47.69q29.92 0 51.12 21.19Q780-577.61 780-547.69v375.38q0 29.92-21.19 51.12Q737.61-100 707.69-100H252.31Zm0-60h455.38q5.39 0 8.85-3.46t3.46-8.85v-375.38q0-5.39-3.46-8.85t-8.85-3.46H252.31q-5.39 0-8.85 3.46t-3.46 8.85v375.38q0 5.39 3.46 8.85t8.85 3.46Zm277.27-150.42Q550-330.85 550-360t-20.42-49.58Q509.15-430 480-430t-49.58 20.42Q410-389.15 410-360t20.42 49.58Q450.85-290 480-290t49.58-20.42ZM360-620h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z"/></svg></div>
   <script type="application/json" class="encrypted-payload">{"salt":"4Jf1pbJrAFrNKLTQG4Y4cQ==","iv":"r4eTj2htmbQKOiNU","data":"e4vH1ydubPavW9RA0ICWhNx+gAyEOuDZiD5cSlFnARNP3A2uvkwbHtTcZJtS53vKgMMhqi31z8z+c3BFaKnazgfflXegFoq0EnJngktbG8hGLxyNUJ99Ktc7Rrv3s/UW3kDQgLpYlAp5R1rWpTJQ7fDnzgWCM8TKvXLrimc8grIY+OiKBxfKNAT6mzKd/szJSlVgCalSM5lGHfvc8TfkAKlZxXL7sprp5xkTagPPe4YHcrjh9/JsPJrHrznLtg=="}</script>
 </div>
         </div>
         <div class="bg-surface rounded-lg border border-border p-5">
-          <h3 class="font-medium mb-3">런타임 — BP_Basemodel_TF</h3>
-          <p class="text-muted text-sm leading-relaxed mb-4">EnvCheck와는 별도 코드베이스로, CinevCharacter를 상속받는 런타임 캐릭터 BP. 자체 캐릭터는 EnvCheck가 생산한 Data Asset에서 파츠별로 비동기 로드(Head/Hair/Body 분리), 외부 VRM은 로더를 통해 통째로 로드. 같은 BP에서 처리하되 로드 경로만 분기하여 300개+ 자체 프리셋과 커뮤니티 캐릭터를 하나의 시스템으로 관리한다.</p>
+          <h3 class="font-medium mb-3">Runtime — BP_Basemodel_TF</h3>
+          <p class="text-muted text-sm leading-relaxed mb-4">A separate codebase from EnvCheck -- a runtime character BP inheriting CinevCharacter. Internal characters load parts asynchronously from EnvCheck-produced Data Assets (Head/Hair/Body split), while external VRM loads the entire model through a loader. The same BP handles both, branching only at the load path, managing 300+ internal presets and community characters in a single system.</p>
 <div class="encrypted-block">
   <div class="encrypted-placeholder"><svg viewBox="0 -960 960 960"><path d="M252.31-100q-29.92 0-51.12-21.19Q180-142.39 180-172.31v-375.38q0-29.92 21.19-51.12Q222.39-620 252.31-620H300v-80q0-74.92 52.54-127.46Q405.08-880 480-880q74.92 0 127.46 52.54Q660-774.92 660-700v80h47.69q29.92 0 51.12 21.19Q780-577.61 780-547.69v375.38q0 29.92-21.19 51.12Q737.61-100 707.69-100H252.31Zm0-60h455.38q5.39 0 8.85-3.46t3.46-8.85v-375.38q0-5.39-3.46-8.85t-8.85-3.46H252.31q-5.39 0-8.85 3.46t-3.46 8.85v375.38q0 5.39 3.46 8.85t8.85 3.46Zm277.27-150.42Q550-330.85 550-360t-20.42-49.58Q509.15-430 480-430t-49.58 20.42Q410-389.15 410-360t20.42 49.58Q450.85-290 480-290t49.58-20.42ZM360-620h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z"/></svg></div>
   <script type="application/json" class="encrypted-payload">{"salt":"rY6g7g3Cwk5/Odhik+3ecQ==","iv":"QnN0y7/kcOgZSC2R","data":"wWXJHlPPYyePoc2M9Z1dEK7fibX9mb66LCP8c3vVWTYLSQUAx8Yr1aQPAahBZ2Huulw5H9uUq4Cd7sj91NFoc8MnxLSevVDumvpyrQObzm0v0jPWCRKNs6eyAnTqvQiyrubg06jySYrDhmpE7VjnBvqsG0rLjFmH2JyTKzGiMH3rNTysXtgdk2vCH4Io1TkdTi4zmv5BOZHe+slen2sXyKcJQHti7/Er7anI15beOJfx99X6mdNY0tRW0jAHvx9Czgab2zpS75ExqkArSQgG"}</script>
 </div>
         </div>
         <div class="bg-surface rounded-lg border border-border p-5">
-          <h3 class="font-medium mb-3">외부 모델 지원 — VRM Reference Points</h3>
-          <p class="text-muted text-sm leading-relaxed mb-4">VRM4U 플러그인에 작성한 C++ 모듈로, BP_Basemodel_TF의 VRM 정보 노드를 업데이트하는 역할. 외부 유저가 가져온 어떤 VRM/PMX든 4단 폴백으로 얼굴 위치를 자동 탐지하고, 그 결과를 카메라 타겟으로 사용하여 얼굴 클로즈업·상반신·전신 3앵글 썸네일을 자동 촬영한다. 커맨드렛 환경을 셋팅하여 에디터 없이 배치로 전체 캐릭터 썸네일을 일괄 생성할 수 있다. A포즈/T포즈도 자동 판별.</p>
+          <h3 class="font-medium mb-3">External Model Support — VRM Reference Points</h3>
+          <p class="text-muted text-sm leading-relaxed mb-4">A C++ module written for the VRM4U plugin that updates VRM info nodes in BP_Basemodel_TF. It auto-detects the face position of any external VRM/PMX via a 4-level fallback, then uses the result as a camera target to automatically capture 3-angle thumbnails (face close-up, upper body, full body). A commandlet environment enables batch thumbnail generation for all characters without opening the editor. A-pose/T-pose detection is also automatic.</p>
 <div class="encrypted-block">
   <div class="encrypted-placeholder"><svg viewBox="0 -960 960 960"><path d="M252.31-100q-29.92 0-51.12-21.19Q180-142.39 180-172.31v-375.38q0-29.92 21.19-51.12Q222.39-620 252.31-620H300v-80q0-74.92 52.54-127.46Q405.08-880 480-880q74.92 0 127.46 52.54Q660-774.92 660-700v80h47.69q29.92 0 51.12 21.19Q780-577.61 780-547.69v375.38q0 29.92-21.19 51.12Q737.61-100 707.69-100H252.31Zm0-60h455.38q5.39 0 8.85-3.46t3.46-8.85v-375.38q0-5.39-3.46-8.85t-8.85-3.46H252.31q-5.39 0-8.85 3.46t-3.46 8.85v375.38q0 5.39 3.46 8.85t8.85 3.46Zm277.27-150.42Q550-330.85 550-360t-20.42-49.58Q509.15-430 480-430t-49.58 20.42Q410-389.15 410-360t20.42 49.58Q450.85-290 480-290t49.58-20.42ZM360-620h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z"/></svg></div>
   <script type="application/json" class="encrypted-payload">{"salt":"yuGua9ghwx0B6U4WXZ+kVQ==","iv":"uvUn1xfTsIxOnHmQ","data":"cE5zksEXr6gsJs2lpzk8emDgfE41sK+Q4OCmZ53PXJ1o67VBgEe3wQgmqjYUMtD6gMFGbCwZuj+k+orjPBCNs8dImeSfPYafahlG3Ke5tcZlgdeDzH9pTyLReReIyFxu8Fu25z52W6xwX9bwjbkA8QKisIt/SQSD4MzwO3lcUHmBLOA7zZl9eJ7M/ncXXeiFDqet1iaDAhQ4J935RiHPBine2xVnkSkYz2nyAWp8Jf0rXZnUJxzvW3mS3CzsKRrT0nqc8i+sPLtIfpJwA9KTdfzrb9nr2JdQl86s30zC"}</script>
 </div>
           <div class="overflow-hidden">
-            <img src="../assets/images/character-system/auto-thumbnail.png" alt="VRM Reference Points 자동 썸네일 — 얼굴·상반신·전신 3앵글 자동 촬영 결과" class="w-full h-auto">
+            <img src="../assets/images/character-system/auto-thumbnail.png" alt="VRM Reference Points auto-thumbnail — face, upper body, and full body 3-angle auto-capture results" class="w-full h-auto">
           </div>
         </div>
       </div>
 
       <div class="mb-6 overflow-hidden">
-        <img src="../assets/images/character-system/lineup.png" alt="자체 캐릭터와 외부 VRM 캐릭터 라인업" class="w-full h-auto">
+        <img src="../assets/images/character-system/lineup.png" alt="Internal and external VRM character lineup" class="w-full h-auto">
       </div>
     </section>
 
@@ -186,30 +186,30 @@
 
     <!-- Technical Details -->
     <section class="mb-16">
-      <h2 class="text-xl font-bold mb-6">기술 상세</h2>
+      <h2 class="text-xl font-bold mb-6">Technical Details</h2>
 
-      <h3 class="text-sm text-muted uppercase tracking-widest mb-4">로딩 30초→6초</h3>
+      <h3 class="text-sm text-muted uppercase tracking-widest mb-4">Loading 30s to 6s</h3>
       <div class="space-y-3 mb-8">
         <details class="bg-surface rounded-lg border border-border">
           <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">Soft Object Reference + Async Loading</summary>
-          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">30초의 원인은 두 가지. 세이브용 파츠별 Hard Reference가 에디터 로드 시 전부 올라온 것, 그리고 80개 넘는 미사용 블렌드쉐이프(얼굴 형태)도 같이 딸려온 것. 세이브를 EnvCheck로 분리해서 Reference들을 전부 덜어냈고, 블렌드쉐이프도 미리 안 올리게 바꿨다. 로드할 때만 필요한 Data Asset을 StreamableManager.RequestAsyncLoad로 비동기 처리.
+          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">Two root causes behind the 30-second load: per-part Hard References for save were all pulled in at editor load, and 80+ unused blend shapes (face morphs) came along too. Extracting save into EnvCheck removed all those references, and blend shapes were changed to not preload. Data Assets needed only at load time are processed asynchronously via StreamableManager.RequestAsyncLoad.
           </div>
         </details>
         <details class="bg-surface rounded-lg border border-border">
-          <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">Data Asset Only 전환</summary>
-          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">메타휴먼 프리셋 구조에서 힌트를 얻었다. DataTable은 소프트 레퍼런스를 써도 첫 로드 시 전체 행을 다 읽어야 해서 근본적으로 느리다. Data Asset은 필요한 것만 소프트 레퍼런스로 들고 있으면 되니까 구조 자체가 가볍다.</div>
+          <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">Data Asset Only Migration</summary>
+          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">Inspired by the MetaHuman preset structure. Even with soft references, DataTables must read all rows on first load, making them fundamentally slow. Data Assets only hold what's needed via soft references, so the structure itself is lightweight.</div>
         </details>
         <details class="bg-surface rounded-lg border border-border">
-          <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">Unreal Insights 프로파일링</summary>
-          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">CPU Timing 탭과 Loading 탭에서 LoadObject 콜스택을 추적해서 어떤 에셋이 시간을 먹고 있는지 찍어봤다. 이 데이터가 Hard Reference를 걷어내는 판단 근거.</div>
+          <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">Unreal Insights Profiling</summary>
+          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">Traced LoadObject call stacks in the CPU Timing and Loading tabs to identify which assets were consuming time. This data provided the evidence needed to strip out Hard References.</div>
         </details>
       </div>
 
-      <h3 class="text-sm text-muted uppercase tracking-widest mb-4">캐릭터 액터 BP 구조</h3>
+      <h3 class="text-sm text-muted uppercase tracking-widest mb-4">Character Actor BP Structure</h3>
       <div class="space-y-3 mb-8">
         <details class="bg-surface rounded-lg border border-border">
-          <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">일체형 / 분리형 스켈레탈 메시 로드 구조</summary>
-          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">분리형(자체 캐릭터)은 Data Asset에서 Head/Hair/Body 파츠를 따로따로 로드하고, 일체형(VRM/PMX)은 VRM4U 로더로 모델 통째로 올린다. 같은 BP에서 로드 경로만 갈라지고, 로드되면 스켈레탈 메시 컴포넌트를 전부 리셋해서 다시 붙인다.
+          <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">Unified / Split Skeletal Mesh Loading</summary>
+          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">Split mode (internal characters) loads Head/Hair/Body parts separately from Data Assets, while unified mode (VRM/PMX) loads the entire model through the VRM4U loader. The same BP handles both with only the load path branching; once loaded, all skeletal mesh components are reset and reattached.
 <div class="encrypted-block">
   <div class="encrypted-placeholder"><svg viewBox="0 -960 960 960"><path d="M252.31-100q-29.92 0-51.12-21.19Q180-142.39 180-172.31v-375.38q0-29.92 21.19-51.12Q222.39-620 252.31-620H300v-80q0-74.92 52.54-127.46Q405.08-880 480-880q74.92 0 127.46 52.54Q660-774.92 660-700v80h47.69q29.92 0 51.12 21.19Q780-577.61 780-547.69v375.38q0 29.92-21.19 51.12Q737.61-100 707.69-100H252.31Zm0-60h455.38q5.39 0 8.85-3.46t3.46-8.85v-375.38q0-5.39-3.46-8.85t-8.85-3.46H252.31q-5.39 0-8.85 3.46t-3.46 8.85v375.38q0 5.39 3.46 8.85t8.85 3.46Zm277.27-150.42Q550-330.85 550-360t-20.42-49.58Q509.15-430 480-430t-49.58 20.42Q410-389.15 410-360t20.42 49.58Q450.85-290 480-290t49.58-20.42ZM360-620h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z"/></svg></div>
   <script type="application/json" class="encrypted-payload">{"salt":"ce557bv9WcLHq4VvTU73Yg==","iv":"lOMX+cTesv+vs8ci","data":"HiClNUOn9jvlyVMeOCJuHQ7rYDczdr2uIMbakCNLUX3cWGflvjYwoWnd8tUpo6JJoI7kRjL5DDRwQmSpxNKYldJOtFRjc+5BNLZ7INfJK5S6XMf30HtNuluQhbl6rsbBbr7RCdHxn2P2E5zoGRLcbdoUBFj5gT6sfffJMe2FRv/TrtCvRtb1kHhbO2YwUTYCk7J1tnpiLNURNZSMDjzowkwhM+sDqregKAVk6aCx+36AzL3wTl7qW+4y1m951esVYkhilqJr4eFJPVIlEnf0gHRted5UyJ93pyriCw=="}</script>
@@ -217,8 +217,8 @@
           </div>
         </details>
         <details class="bg-surface rounded-lg border border-border">
-          <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">에디터 Tick Interface — PIE 없이 에디터 프리뷰 (BP_Character_EnvCheck)</summary>
-          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">BP_Character_EnvCheck에 에디터 Tick Blueprint Interface를 구현하여 에디터 환경에서도 애니메이션 재생 가능. 아트 디렉터가 런타임 실행 없이 색감, 크기감, 애니메이션을 바로 확인 가능하여 피드백 루프 단축.
+          <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">Editor Tick Interface — Editor Preview Without PIE (BP_Character_EnvCheck)</summary>
+          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">Implemented the Editor Tick Blueprint Interface in BP_Character_EnvCheck, enabling animation playback in the editor environment. Art directors can verify colors, scale, and animations without launching the runtime, shortening the feedback loop.
 <div class="encrypted-block">
   <div class="encrypted-placeholder"><svg viewBox="0 -960 960 960"><path d="M252.31-100q-29.92 0-51.12-21.19Q180-142.39 180-172.31v-375.38q0-29.92 21.19-51.12Q222.39-620 252.31-620H300v-80q0-74.92 52.54-127.46Q405.08-880 480-880q74.92 0 127.46 52.54Q660-774.92 660-700v80h47.69q29.92 0 51.12 21.19Q780-577.61 780-547.69v375.38q0 29.92-21.19 51.12Q737.61-100 707.69-100H252.31Zm0-60h455.38q5.39 0 8.85-3.46t3.46-8.85v-375.38q0-5.39-3.46-8.85t-8.85-3.46H252.31q-5.39 0-8.85 3.46t-3.46 8.85v375.38q0 5.39 3.46 8.85t8.85 3.46Zm277.27-150.42Q550-330.85 550-360t-20.42-49.58Q509.15-430 480-430t-49.58 20.42Q410-389.15 410-360t20.42 49.58Q450.85-290 480-290t49.58-20.42ZM360-620h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z"/></svg></div>
   <script type="application/json" class="encrypted-payload">{"salt":"557oEytaACD9lql6ZBfB4Q==","iv":"SKk+azZKq01ZeT6E","data":"4HiLvDM7k6LepuFOvTs4v0m8b+BTiZFVF1RQsEcnDE5q9WgxIgVeNEzCbJOilvm0SNUyAALAhTplGwDsBjO5rF9ycbR4YWIQctVlDVDOJRemqS+5b8+v642Fr2GWuxnpNHAH9QI/1+N8TJAxOXlOck5eh6mV6V020BKEvnGv/5NVdnchlR8kz1xIOlCjTpiZlJ35VLWm/lbi0R5kHSKwcsjtkppNq0RBbjyDPX/r2pYkuF418pl3ZpEiTx4oB7Aq5PbWwk6DaIdTTg=="}</script>
@@ -227,11 +227,11 @@
         </details>
       </div>
 
-      <h3 class="text-sm text-muted uppercase tracking-widest mb-4">얼굴 자동 탐지</h3>
+      <h3 class="text-sm text-muted uppercase tracking-widest mb-4">Auto Face Detection</h3>
       <div class="space-y-3">
         <details class="bg-surface rounded-lg border border-border">
-          <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">VRM Reference Points 4단계 폴백</summary>
-          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">외부 VRM/PMX 캐릭터의 얼굴 랜드마크를 자동 탐지. 1차: Bone lookup (humanoidBoneTable). 2차: Material vertices + raycast (Moller-Trumbore). 3차: Position interpolation. 4차: Fallback estimation. 탐지 결과를 카메라 타겟과 썸네일 자동 촬영에 활용.</div>
+          <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">VRM Reference Points 4-Level Fallback</summary>
+          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">Auto-detects face landmarks for external VRM/PMX characters. Level 1: Bone lookup (humanoidBoneTable). Level 2: Material vertices + raycast (Moller-Trumbore). Level 3: Position interpolation. Level 4: Fallback estimation. Detection results are used for camera targeting and automatic thumbnail capture.</div>
         </details>
       </div>
     </section>
@@ -254,13 +254,13 @@
           <path d="M252.31-100q-29.92 0-51.12-21.19Q180-142.39 180-172.31v-375.38q0-29.92 21.19-51.12Q222.39-620 252.31-620H300v-80q0-74.92 52.54-127.46Q405.08-880 480-880q74.92 0 127.46 52.54Q660-774.92 660-700v80h47.69q29.92 0 51.12 21.19Q780-577.61 780-547.69v375.38q0 29.92-21.19 51.12Q737.61-100 707.69-100H252.31Zm0-60h455.38q5.39 0 8.85-3.46t3.46-8.85v-375.38q0-5.39-3.46-8.85t-8.85-3.46H252.31q-5.39 0-8.85 3.46t-3.46 8.85v375.38q0 5.39 3.46 8.85t8.85 3.46Zm277.27-150.42Q550-330.85 550-360t-20.42-49.58Q509.15-430 480-430t-49.58 20.42Q410-389.15 410-360t20.42 49.58Q450.85-290 480-290t49.58-20.42ZM360-620h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z"/>
         </svg>
       </div>
-      <p class="text-center text-muted text-sm mb-6">NDA 프로젝트입니다.<br>비밀번호를 입력하면 잠긴 콘텐츠를 볼 수 있습니다.</p>
+      <p class="text-center text-muted text-sm mb-6">NDA project.<br>Enter password to unlock content.</p>
       <input id="section-pw-input" type="password" placeholder="Password" autocomplete="off"
         class="w-full bg-bg border border-border rounded-lg px-4 py-2.5 text-sm text-white placeholder-muted focus:outline-none focus:border-accent transition mb-3">
-      <p id="section-pw-error" class="hidden text-red-400 text-xs mb-3 text-center">비밀번호가 틀렸습니다</p>
+      <p id="section-pw-error" class="hidden text-red-400 text-xs mb-3 text-center">Incorrect password</p>
       <button id="section-pw-submit"
         class="w-full px-5 py-2.5 bg-white text-black text-sm font-medium rounded-lg hover:bg-white/90 transition">Unlock</button>
-      <button id="section-pw-close" class="block w-full mt-3 text-muted text-sm hover:text-white transition">닫기</button>
+      <button id="section-pw-close" class="block w-full mt-3 text-muted text-sm hover:text-white transition">Close</button>
     </div>
   </div>
 

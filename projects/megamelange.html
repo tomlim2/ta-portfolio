@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MegaMelange MCP — 임연수</title>
+  <title>MegaMelange MCP — Younsoo Lim</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@700;900&family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -51,19 +51,19 @@
 
 
     <div class="aspect-video mb-12 overflow-hidden">
-      <img src="../assets/images/megamelange/hero.png" alt="MegaMelange 워크플로우 — UE 에디터 + Web UI + AI 생성 결과" class="w-full h-full object-cover">
+      <img src="../assets/images/megamelange/hero.png" alt="MegaMelange workflow — UE Editor + Web UI + AI generation results" class="w-full h-full object-cover">
     </div>
 
     <h1 class="text-4xl font-bold mb-3">MegaMelange MCP</h1>
 
     <blockquote class="text-muted mb-6">
-      자연어로 야외 배경을 세팅하고, AI 이미지 생성으로 원하는 분위기를 뽑아내는 씬 구성 파이프라인
+      A scene composition pipeline that sets up outdoor backgrounds with natural language and produces the desired mood via AI image generation
     </blockquote>
 
     <div class="flex flex-wrap gap-x-8 gap-y-2 text-xs text-muted mb-8">
       <span>System Architecture, C++ Plugin, UE Integration</span>
-      <span>2025.8 ~ 2026.2 (6.5개월, 234 커밋)</span>
-      <span>회사 프로젝트 (POC)</span>
+      <span>Aug 2025 ~ Feb 2026 (6.5 months, 234 commits)</span>
+      <span>Company Project (POC)</span>
     </div>
     <div class="flex flex-wrap gap-2 text-xs text-muted mb-12">
       <span class="px-2 py-1 rounded border border-border">Next.js 15.4</span>
@@ -76,30 +76,30 @@
 
     <!-- Problem -->
     <section class="mb-16">
-      <h2 class="text-xl font-bold mb-4">문제</h2>
-      <p class="text-muted text-sm leading-relaxed">야외 씬을 구성하려면 지형(Cesium) 위치 세팅, 날씨/시간대(UDS/UDW) 조정, 라이팅, 카메라 배치를 모두 수동으로 해야 하는데, 이 과정을 비개발 직군도 빠르게 이터레이션할 수 있어야 했다.</p>
+      <h2 class="text-xl font-bold mb-4">Problem</h2>
+      <p class="text-muted text-sm leading-relaxed">Setting up outdoor scenes required manually configuring terrain (Cesium) location, weather/time-of-day (UDS/UDW), lighting, and camera placement -- and non-developer roles needed to iterate on this quickly.</p>
     </section>
 
     <!-- Solution -->
     <section class="mb-16">
-      <h2 class="text-xl font-bold mb-4">해결</h2>
-      <p class="text-muted text-sm leading-relaxed mb-6">자연어 → AI 해석 → UE 엔진 제어, 3단계로 나눈 브릿지 구조. C++ 플러그인이 UE 에디터를 실시간으로 조작하고, AI가 자연어를 엔진 명령으로 바꿔준다.</p>
+      <h2 class="text-xl font-bold mb-4">Solution</h2>
+      <p class="text-muted text-sm leading-relaxed mb-6">A 3-stage bridge: natural language to AI interpretation to UE engine control. A C++ plugin manipulates the UE editor in real time, while AI translates natural language into engine commands.</p>
 
       <!-- NL examples -->
       <div class="bg-surface rounded-lg border border-border p-5 mb-6">
-        <h3 class="font-medium mb-3">실제 사용 예시</h3>
+        <h3 class="font-medium mb-3">Usage Examples</h3>
         <div class="space-y-2 text-sm">
-          <p class="text-green-400 italic">"도쿄 도심을 보여줘요"</p>
-          <p class="text-green-400 italic">"샌프란시스코로 가주세요"</p>
-          <p class="text-green-400 italic">"18시로 맞춰주세요"</p>
-          <p class="text-green-400 italic">"따뜻한 색을 내주세요"</p>
-          <p class="text-green-400 italic">"차가운 12시를 세팅해주세요"</p>
+          <p class="text-green-400 italic">"Show me downtown Tokyo"</p>
+          <p class="text-green-400 italic">"Go to San Francisco"</p>
+          <p class="text-green-400 italic">"Set the time to 6 PM"</p>
+          <p class="text-green-400 italic">"Give me warm tones"</p>
+          <p class="text-green-400 italic">"Set up a cold noon scene"</p>
         </div>
       </div>
 
       <!-- Architecture -->
       <div class="bg-surface rounded-lg border border-border p-5 mb-6">
-        <h3 class="font-medium mb-3">3-레이어 아키텍처</h3>
+        <h3 class="font-medium mb-3">3-Layer Architecture</h3>
         <pre class="text-xs text-green-400 overflow-x-auto"><code>Web UI / CLI → HTTP:34115 → FastAPI + NLP (Claude/Gemini)
                                     ↓
               ┌──────────────┬──────────────┬──────────────┐
@@ -108,16 +108,16 @@
               └──────────────┴──────────────┴──────────────┘</code></pre>
       </div>
 
-      <h3 class="font-medium mb-3">핵심 — Cesium + UDS 연동</h3>
-      <p class="text-muted text-sm leading-relaxed mb-4">가장 공들인 부분. Cesium 지형 데이터에 Ultra Dynamic Sky를 붙여서, 자연어 한 줄로 <strong class="text-white">위치 + 시간대 + 날씨 + 분위기</strong>가 세팅된 야외 배경을 만든다. 여기에 Nano Banana(i2i)를 걸면 원하는 컨셉이나 느낌으로 바꿀 수 있어서, 씬 구성부터 컨셉 아트까지 한 번에 뽑는다.</p>
+      <h3 class="font-medium mb-3">Core — Cesium + UDS Integration</h3>
+      <p class="text-muted text-sm leading-relaxed mb-4">The most invested part. By combining Cesium terrain data with Ultra Dynamic Sky, a single natural language line sets up an outdoor background with <strong class="text-white">location + time of day + weather + mood</strong>. Adding Nano Banana (i2i) on top transforms it into the desired concept or feel, producing scene composition to concept art in one go.</p>
 
 <div class="encrypted-block">
   <div class="encrypted-placeholder"><svg viewBox="0 -960 960 960"><path d="M252.31-100q-29.92 0-51.12-21.19Q180-142.39 180-172.31v-375.38q0-29.92 21.19-51.12Q222.39-620 252.31-620H300v-80q0-74.92 52.54-127.46Q405.08-880 480-880q74.92 0 127.46 52.54Q660-774.92 660-700v80h47.69q29.92 0 51.12 21.19Q780-577.61 780-547.69v375.38q0 29.92-21.19 51.12Q737.61-100 707.69-100H252.31Zm0-60h455.38q5.39 0 8.85-3.46t3.46-8.85v-375.38q0-5.39-3.46-8.85t-8.85-3.46H252.31q-5.39 0-8.85 3.46t-3.46 8.85v375.38q0 5.39 3.46 8.85t8.85 3.46Zm277.27-150.42Q550-330.85 550-360t-20.42-49.58Q509.15-430 480-430t-49.58 20.42Q410-389.15 410-360t20.42 49.58Q450.85-290 480-290t49.58-20.42ZM360-620h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z"/></svg></div>
   <script type="application/json" class="encrypted-payload">{"salt":"KNkprPHyvQ+j72Lj1BzAoQ==","iv":"hI9aqH8OjrI5VNBg","data":"lvszrcbI9uKtTeZ/HmLxBxdrIYnrm+XclGAclpz/KCxLJCKXkLowIU7Tv+ZW6nTTaF10Uw5yjovBS3DuPHZwHFqjjfao11wzAvds0djFJITDEormwCMjsUrWydhp9t9MEODt7vURbGSSjQw9S4aSXqnRyaRHP1X1oCMhUsmVFdaWdY+55ofMnffJYsblg/f0vqytA5WRwhSN5kZ6zrU64B7YfZwZiSXivXG7QXQZ7cVdm152Lgr5VdlP5Mrxkh+1k36ONOw7ehFN3h1klIxI1FkNDQ3NSm7pIDkj6nYCw/EMDA0EenlVmPRMF5HQR0XxNYzGXRMcfH17+hK98p+c9O8jspyLIqGppqz3uoYNpI81eiQ0hxpsnb8J+jAogJF5BFF2RTeins1jdS3oWc0jiSiISOpbKpDqHH/AYjiU+nL2iiiMzBYBf1PojTmCTDgJooCpuTtcMsoGRtW5qGEIKnqy0bKS10cMoQb+qQG5b0+oyF5OHc3Xjj1r07YIISFsihcZF/c4QaymDZlCHoi/jFa1cFpgC3gbrNoriqnJut2rMQrw1EsImVhioifcCRBAS4ss+/2z3jcqFOTrfCMyr3mR0DpHvLejqEVdEkyYaGjF1h1XjFfEr5cOEp97Wc79XPCzX9w6Dujxk2IUnKMAMTjRQjj+4RzCFxjc"}</script>
 </div>
 
-      <h3 class="font-medium mb-3">Roblox 연동 — 비즈니스 데모</h3>
-      <p class="text-muted text-sm leading-relaxed mb-4">Roblox API로 FBX를 받아 UE에 임포트 → 생성된 배경에 캐릭터 배치 → Nano Banana/Veo-3로 이미지/비디오 생성. CEO, 기획자, 팀장 대상 시연 콘텐츠.</p>
+      <h3 class="font-medium mb-3">Roblox Integration — Business Demo</h3>
+      <p class="text-muted text-sm leading-relaxed mb-4">Fetched FBX via Roblox API, imported into UE, placed characters on generated backgrounds, then produced images/videos with Nano Banana/Veo-3. Demo content targeting CEO, planners, and team leads.</p>
 
 <div class="encrypted-block">
   <div class="encrypted-placeholder"><svg viewBox="0 -960 960 960"><path d="M252.31-100q-29.92 0-51.12-21.19Q180-142.39 180-172.31v-375.38q0-29.92 21.19-51.12Q222.39-620 252.31-620H300v-80q0-74.92 52.54-127.46Q405.08-880 480-880q74.92 0 127.46 52.54Q660-774.92 660-700v80h47.69q29.92 0 51.12 21.19Q780-577.61 780-547.69v375.38q0 29.92-21.19 51.12Q737.61-100 707.69-100H252.31Zm0-60h455.38q5.39 0 8.85-3.46t3.46-8.85v-375.38q0-5.39-3.46-8.85t-8.85-3.46H252.31q-5.39 0-8.85 3.46t-3.46 8.85v375.38q0 5.39 3.46 8.85t8.85 3.46Zm277.27-150.42Q550-330.85 550-360t-20.42-49.58Q509.15-430 480-430t-49.58 20.42Q410-389.15 410-360t20.42 49.58Q450.85-290 480-290t49.58-20.42ZM360-620h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z"/></svg></div>
@@ -127,21 +127,21 @@
 
     <!-- Result -->
     <section class="mb-16">
-      <h2 class="text-xl font-bold mb-4">결과</h2>
+      <h2 class="text-xl font-bold mb-4">Result</h2>
       <div class="overflow-x-auto">
         <table class="w-full text-sm">
           <thead>
             <tr class="border-b border-border text-left">
-              <th class="py-3 pr-4 text-muted font-medium">항목</th>
-              <th class="py-3 text-muted font-medium">결과</th>
+              <th class="py-3 pr-4 text-muted font-medium">Category</th>
+              <th class="py-3 text-muted font-medium">Result</th>
             </tr>
           </thead>
           <tbody class="text-muted">
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">야외 씬 세팅</td><td class="py-3">자연어로 위치 + 시간 + 날씨 + 분위기 원스텝 구성</td></tr>
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">i2i 파이프라인</td><td class="py-3">씬 → Nano Banana로 컨셉/분위기 변환</td></tr>
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">서비스 통합</td><td class="py-3">4종 (UE, Nano Banana, Veo-3, Roblox)</td></tr>
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">사용자</td><td class="py-3">CEO, 기획자, 팀장 대상 시연 — POC</td></tr>
-            <tr><td class="py-3 pr-4 text-white font-medium">결과</td><td class="py-3">제품팀 인수인계 완료 (배경 자동화 개발 코스트로 후속 보류)</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">Outdoor Scene Setup</td><td class="py-3">One-step composition of location + time + weather + mood via natural language</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">i2i Pipeline</td><td class="py-3">Scene to concept/mood transformation via Nano Banana</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">Service Integration</td><td class="py-3">4 services (UE, Nano Banana, Veo-3, Roblox)</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">Audience</td><td class="py-3">Demo for CEO, planners, team leads — POC</td></tr>
+            <tr><td class="py-3 pr-4 text-white font-medium">Outcome</td><td class="py-3">Handed off to product team (follow-up paused due to background automation dev cost)</td></tr>
           </tbody>
         </table>
       </div>
@@ -156,25 +156,25 @@
 
     <!-- Technical Details -->
     <section class="mb-16">
-      <h2 class="text-xl font-bold mb-6">기술 상세</h2>
+      <h2 class="text-xl font-bold mb-6">Technical Details</h2>
 
       <h3 class="text-sm text-muted uppercase tracking-widest mb-4">UE C++ Plugin</h3>
       <div class="space-y-3 mb-8">
         <details class="bg-surface rounded-lg border border-border">
-          <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">8종 커맨드 핸들러 (6,300 LOC)</summary>
-          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">Actor, Blueprint, Lighting, Rendering, Camera, Cesium, UDS, UDW — 도메인별 핸들러가 TCP로 받은 JSON 명령을 UE API 호출로 바꿔서 실행.</div>
+          <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">8 Command Handlers (6,300 LOC)</summary>
+          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">Actor, Blueprint, Lighting, Rendering, Camera, Cesium, UDS, UDW -- per-domain handlers convert JSON commands received over TCP into UE API calls for execution.</div>
         </details>
         <details class="bg-surface rounded-lg border border-border">
-          <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">TCP 소켓 프로토콜</summary>
-          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">JSON 기반 실시간 양방향 통신. TCP_NODELAY, keepalive, 65KB 버퍼, 청크 응답 지원. Python 백엔드 → UE 에디터 간 명령 전달 및 결과 수신.</div>
+          <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">TCP Socket Protocol</summary>
+          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">JSON-based real-time bidirectional communication. TCP_NODELAY, keepalive, 65KB buffer, chunked response support. Command delivery and result reception between Python backend and UE editor.</div>
         </details>
       </div>
 
-      <h3 class="text-sm text-muted uppercase tracking-widest mb-4">AI 통합</h3>
+      <h3 class="text-sm text-muted uppercase tracking-widest mb-4">AI Integration</h3>
       <div class="space-y-3">
         <details class="bg-surface rounded-lg border border-border">
-          <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">LLM Provider 추상화 + 토큰 최적화</summary>
-          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">BaseModelProvider로 Claude/Gemini 통합하고 폴백도 넣었다. 8종 도메인별 컨텍스트를 쪼개서 필요한 것만 AI에 넘기니까 토큰이 절반으로 줄었다 (2000+ → 800~1150).</div>
+          <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">LLM Provider Abstraction + Token Optimization</summary>
+          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">Unified Claude/Gemini under a BaseModelProvider with fallback support. Splitting context into 8 domain-specific chunks and passing only what's needed halved token usage (2000+ down to 800~1150).</div>
         </details>
       </div>
     </section>
@@ -197,13 +197,13 @@
           <path d="M252.31-100q-29.92 0-51.12-21.19Q180-142.39 180-172.31v-375.38q0-29.92 21.19-51.12Q222.39-620 252.31-620H300v-80q0-74.92 52.54-127.46Q405.08-880 480-880q74.92 0 127.46 52.54Q660-774.92 660-700v80h47.69q29.92 0 51.12 21.19Q780-577.61 780-547.69v375.38q0 29.92-21.19 51.12Q737.61-100 707.69-100H252.31Zm0-60h455.38q5.39 0 8.85-3.46t3.46-8.85v-375.38q0-5.39-3.46-8.85t-8.85-3.46H252.31q-5.39 0-8.85 3.46t-3.46 8.85v375.38q0 5.39 3.46 8.85t8.85 3.46Zm277.27-150.42Q550-330.85 550-360t-20.42-49.58Q509.15-430 480-430t-49.58 20.42Q410-389.15 410-360t20.42 49.58Q450.85-290 480-290t49.58-20.42ZM360-620h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z"/>
         </svg>
       </div>
-      <p class="text-center text-muted text-sm mb-6">NDA 프로젝트입니다.<br>비밀번호를 입력하면 잠긴 콘텐츠를 볼 수 있습니다.</p>
+      <p class="text-center text-muted text-sm mb-6">NDA project.<br>Enter password to unlock content.</p>
       <input id="section-pw-input" type="password" placeholder="Password" autocomplete="off"
         class="w-full bg-bg border border-border rounded-lg px-4 py-2.5 text-sm text-white placeholder-muted focus:outline-none focus:border-accent transition mb-3">
-      <p id="section-pw-error" class="hidden text-red-400 text-xs mb-3 text-center">비밀번호가 틀렸습니다</p>
+      <p id="section-pw-error" class="hidden text-red-400 text-xs mb-3 text-center">Incorrect password</p>
       <button id="section-pw-submit"
         class="w-full px-5 py-2.5 bg-white text-black text-sm font-medium rounded-lg hover:bg-white/90 transition">Unlock</button>
-      <button id="section-pw-close" class="block w-full mt-3 text-muted text-sm hover:text-white transition">닫기</button>
+      <button id="section-pw-close" class="block w-full mt-3 text-muted text-sm hover:text-white transition">Close</button>
     </div>
   </div>
 
