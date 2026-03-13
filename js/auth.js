@@ -116,15 +116,42 @@ var Auth = (function () {
     });
   }
 
+  function isMobileFirefox() {
+    var ua = navigator.userAgent;
+    return /Firefox/i.test(ua) && /Android|Mobile/i.test(ua);
+  }
+
+  function showUnsupportedModal() {
+    var key = 'ta-portfolio-ff-notice';
+    if (sessionStorage.getItem(key)) return;
+    sessionStorage.setItem(key, '1');
+
+    var overlay = document.createElement('div');
+    overlay.className = 'fixed inset-0 z-[60] flex items-center justify-center bg-black/60 backdrop-blur-sm';
+    overlay.innerHTML =
+      '<div class="w-full max-w-sm mx-6 bg-surface border border-border rounded-lg p-6 text-center">' +
+        '<p class="text-muted text-sm mb-4">이 브라우저에서는 NDA 콘텐츠 잠금 해제가<br>지원되지 않습니다.</p>' +
+        '<p class="text-muted text-xs mb-6">Chrome 또는 Safari에서 열어주세요.</p>' +
+        '<button class="w-full px-5 py-2.5 bg-white text-black text-sm font-medium rounded-lg hover:bg-white/90 transition">확인</button>' +
+      '</div>';
+    document.body.appendChild(overlay);
+    overlay.querySelector('button').addEventListener('click', function () {
+      overlay.remove();
+    });
+    overlay.addEventListener('click', function (e) {
+      if (e.target === overlay) overlay.remove();
+    });
+  }
+
   // Section-level decryption for subpages
   function initSectionDecrypt() {
-    if (!window.crypto || !window.crypto.subtle) {
-      console.error('[Auth] Web Crypto API not available (HTTPS required)');
-      return;
-    }
-
     var blocks = document.querySelectorAll('.encrypted-block');
     if (!blocks.length) return;
+
+    if (!window.crypto || !window.crypto.subtle || isMobileFirefox()) {
+      showUnsupportedModal();
+      return;
+    }
 
     // Always set up click handlers first, then try auto-decrypt if authed
     setupClickHandlers();
