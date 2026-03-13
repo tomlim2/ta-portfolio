@@ -150,7 +150,7 @@
   var glyphs = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%&*';
 
   function scrambleTo(el, target, duration) {
-    var textEl = el.querySelector('p, h1');
+    var textEl = el.querySelector('p, h1, span');
     if (!textEl) return;
     if (el._scrambleAnim) cancelAnimationFrame(el._scrambleAnim);
     var start = performance.now();
@@ -205,31 +205,21 @@
     });
   });
 
-  // --- Avatar hover → tilt + scramble job title & name ---
 
-  var heroAvatar = document.getElementById('hero-avatar');
-  var avatarTargets = document.querySelectorAll('.avatar-scramble');
+  // --- Nav avatar hover → tilt ---
 
-  if (heroAvatar && avatarTargets.length) {
-    heroAvatar.addEventListener('mouseenter', function () {
-      heroAvatar.style.transform = 'rotate(20deg)';
-      avatarTargets.forEach(function (line) {
-        var en = line.getAttribute('data-en');
-        if (en) scrambleTo(line, en, 500);
-        if (line.classList.contains('md:-ml-[0.7rem]')) {
-          line.style.marginLeft = '0';
-        }
-      });
+  var navAvatar = document.getElementById('nav-avatar');
+  var navName = document.getElementById('nav-name');
+  if (navAvatar && navName) {
+    var navLogoLink = navAvatar.closest('a');
+    var navScrambleEl = { querySelector: function () { return navName; }, _scrambleAnim: null };
+    navLogoLink.addEventListener('mouseenter', function () {
+      navAvatar.style.transform = 'rotate(20deg)';
+      scrambleTo(navScrambleEl, 'Tom Lim as TA', 500);
     });
-    heroAvatar.addEventListener('mouseleave', function () {
-      heroAvatar.style.transform = 'rotate(0deg)';
-      avatarTargets.forEach(function (line) {
-        var ko = line.getAttribute('data-ko');
-        if (ko) scrambleTo(line, ko, 500);
-        if (line.classList.contains('md:-ml-[0.7rem]')) {
-          line.style.marginLeft = '';
-        }
-      });
+    navLogoLink.addEventListener('mouseleave', function () {
+      navAvatar.style.transform = 'rotate(0deg)';
+      scrambleTo(navScrambleEl, '임연수', 500);
     });
   }
 

@@ -39,8 +39,11 @@
 
   <!-- Navigation -->
   <nav class="fixed top-0 w-full z-50 bg-bg/80 backdrop-blur-md">
-    <div class="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
-      <a href="#" onclick="window.scrollTo({top:0});return false" class="flex items-center"><img src="logo-invert.svg" alt="TOMLIM" class="h-[2rem]"></a>
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="#" onclick="window.scrollTo({top:0});return false" class="flex items-center group" style="gap:0.45rem">
+        <img id="nav-avatar" src="assets/images/avatar.png" alt="" class="w-14 h-14 rounded-full object-cover border border-border transition-all duration-150">
+        <span id="nav-name" style="font-family:'Gothic A1',sans-serif; font-size:1.5rem; font-weight:600; letter-spacing:0.6px; margin-top:4px; line-height:1">임연수</span>
+      </a>
       <div class="hidden md:flex gap-8 text-sm text-sub" id="desktop-nav">
         <a href="#projects" class="nav-link hover:text-white transition">Projects</a>
         <a href="#about" class="nav-link hover:text-white transition">About</a>
@@ -62,16 +65,10 @@
   <main>
 
   <!-- Hero -->
-  <section class="min-h-[50vh] flex flex-col justify-center px-6 pt-40 pb-12 max-w-6xl mx-auto">
-    <div class="flex items-start gap-6 md:gap-8">
-      <img id="hero-avatar" src="assets/images/avatar.png" alt="" class="w-24 h-24 md:w-28 md:h-28 rounded-full object-cover flex-shrink-0 mt-1 border border-border transition-transform duration-150" style="cursor:url('assets/cursor-wave.svg') 16 16, pointer">
-      <div>
-        <div class="avatar-scramble h-[1.25rem] mb-4" data-ko="테크니컬 아티스트" data-en="Technical Artist"><p class="text-muted text-xs tracking-[0.15em] uppercase" style="font-family:'Gothic A1',sans-serif">테크니컬 아티스트</p></div>
-        <div class="avatar-scramble h-[3.5rem] md:h-[5rem] mb-2 -ml-[0.3rem] md:-ml-[0.7rem]" data-ko="임연수" data-en="Younsoo Lim"><h1 class="text-5xl md:text-7xl font-black tracking-tight leading-[1.15]" style="font-family:'Gothic A1',sans-serif">임연수</h1></div>
-        <div class="min-h-[1.75rem] max-w-xl"><p class="text-sub text-lg leading-relaxed">실시간 캐릭터 시스템 · NPR 룩뎁 · 아티스트 툴 & 파이프라인</p></div>
-        <div class="min-h-[1.75rem] max-w-xl"><p class="text-muted text-lg leading-relaxed">시나몬 3년+ · 언리얼 엔진 5</p></div>
-      </div>
-    </div>
+  <section class="min-h-[40vh] flex flex-col justify-center px-6 pt-36 pb-12 max-w-6xl mx-auto">
+    <div class="mb-3 max-w-2xl"><p class="text-sub text-3xl leading-relaxed" style="font-family:'Gothic A1',sans-serif; letter-spacing:0.02em">내가 갖고 싶어질 때까지 깎는 테크니컬 아티스트</p></div>
+    <div class="max-w-2xl"><p class="text-muted text-sm leading-relaxed">실시간 캐릭터 시스템 · NPR 룩뎁 · 아티스트 툴 & 파이프라인</p></div>
+    <div class="max-w-2xl"><p class="text-muted text-sm leading-relaxed">시나몬 3년+ · 언리얼 엔진 5</p></div>
   </section>
 
   <!-- Projects -->
