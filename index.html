@@ -41,7 +41,7 @@
   <nav class="fixed top-0 w-full z-50 bg-bg/80 backdrop-blur-md">
     <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
       <a href="#" onclick="window.scrollTo({top:0});return false" class="flex items-center group" style="gap:0.45rem">
-        <img id="nav-avatar" src="assets/images/avatar.png" alt="" class="w-14 h-14 rounded-full object-cover border border-border transition-all duration-150">
+        <img id="nav-avatar" src="assets/images/avatar.png" alt="" class="w-14 h-14 rounded-full object-cover border border-border transition-all duration-150" style="cursor: url('assets/cursor-wave.svg') 16 16, pointer;">
         <span id="nav-name" style="font-family:'Gothic A1',sans-serif; font-size:1.5rem; font-weight:600; letter-spacing:0.6px; margin-top:4px; line-height:1">Younsoo Lim</span>
       </a>
       <div class="hidden md:flex gap-8 text-sm text-sub" id="desktop-nav">
@@ -93,7 +93,23 @@
         </div>
       </div>
 
-      <!-- Card 2: Character System -->
+      <!-- Card 2: MMD Player -->
+      <div class="card group block overflow-hidden transition">
+        <a href="projects/mmd-player.html" class="block relative overflow-hidden aspect-video">
+          <img src="assets/images/mmd-player/thumb.png" alt="MMD Player — WebGPU MMD Preview" class="card-thumb w-full h-full object-cover object-center scale-125">
+        </a>
+        <div class="py-5">
+          <div class="flex items-center gap-2 mb-2">
+            <h3 class="text-lg font-medium">MMD Player</h3>          </div>
+          <p class="text-sub text-sm mb-3">WebGPU MMD viewer — motion sync effects, body proportion correction. WIP</p>
+          <div class="flex gap-2">
+            <span class="tag px-2 py-0.5 rounded bg-white/5 text-white/70 uppercase">Three.js</span>
+            <span class="tag px-2 py-0.5 rounded bg-white/5 text-white/70 uppercase">WebGPU</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: Character System -->
       <div class="card group block overflow-hidden transition">
         <a href="projects/character-system.html" class="block relative overflow-hidden aspect-video">
           <img src="assets/images/character-system/hero.png" alt="Character System — various character previews" class="card-thumb w-full h-full object-cover">
@@ -126,23 +142,23 @@
         </div>
       </div>
 
-      <!-- Card 3: PMX to VRM Pipeline -->
+      <!-- Card 5: PMX to VRM Pipeline -->
       <div class="card group block overflow-hidden transition">
-        <a href="projects/mmd-player.html" class="block relative overflow-hidden aspect-video">
-          <img src="assets/images/mmd-player/thumb.png" alt="MMD Player — WebGPU MMD Preview" class="card-thumb w-full h-full object-cover object-center scale-125">
+        <a href="projects/pmx-to-vrm.html" class="block relative overflow-hidden aspect-video">
+          <img src="assets/images/pmx-to-vrm/hero-converted-characters.png" alt="PMX to VRM converted characters" class="card-thumb w-full h-full object-cover">
         </a>
         <div class="py-5">
           <div class="flex items-center gap-2 mb-2">
-            <h3 class="text-lg font-medium">MMD Player</h3>          </div>
-          <p class="text-sub text-sm mb-3">WebGPU MMD viewer — motion sync effects, body proportion correction. WIP</p>
+            <h3 class="text-lg font-medium">PMX to VRM Pipeline</h3>          </div>
+          <p class="text-sub text-sm mb-3">Community PMX to UE VRM auto-conversion — physics/look preserved, 90% major publisher coverage</p>
           <div class="flex gap-2">
-            <span class="tag px-2 py-0.5 rounded bg-white/5 text-white/70 uppercase">Three.js</span>
-            <span class="tag px-2 py-0.5 rounded bg-white/5 text-white/70 uppercase">WebGPU</span>
+            <span class="tag px-2 py-0.5 rounded bg-white/5 text-white/70 uppercase">Python</span>
+            <span class="tag px-2 py-0.5 rounded bg-white/5 text-white/70 uppercase">TypeScript</span>
           </div>
         </div>
       </div>
 
-      <!-- Card 4: Live UE Scene Bridge -->
+      <!-- Card 6: Live UE Scene Bridge -->
       <div class="card group block overflow-hidden transition">
         <a href="projects/megamelange.html" class="block relative overflow-hidden aspect-video">
           <img src="assets/images/megamelange/thumb.png" alt="Live UE Scene Bridge — Web UI + UE Viewport" class="card-placeholder w-full h-full object-cover hover:scale-105 transition duration-300">
@@ -159,21 +175,6 @@
         </div>
       </div>
 
-      <!-- Card 5: PMX to VRM Pipeline -->
-      <div class="card group block overflow-hidden transition">
-        <a href="projects/pmx-to-vrm.html" class="block relative overflow-hidden aspect-video">
-          <img src="assets/images/pmx-to-vrm/hero-converted-characters.png" alt="PMX to VRM converted characters" class="card-thumb w-full h-full object-cover">
-        </a>
-        <div class="py-5">
-          <div class="flex items-center gap-2 mb-2">
-            <h3 class="text-lg font-medium">PMX to VRM Pipeline</h3>          </div>
-          <p class="text-sub text-sm mb-3">Community PMX to UE VRM auto-conversion — physics/look preserved, 90% major publisher coverage</p>
-          <div class="flex gap-2">
-            <span class="tag px-2 py-0.5 rounded bg-white/5 text-white/70 uppercase">Python</span>
-            <span class="tag px-2 py-0.5 rounded bg-white/5 text-white/70 uppercase">TypeScript</span>
-          </div>
-        </div>
-      </div>
 
     </div>
   </section>
