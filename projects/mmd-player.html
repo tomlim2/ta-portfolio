@@ -30,14 +30,14 @@
       },
     }
   </script>
-  <link rel="icon" href="../favicon.gif" type="image/gif">
+  <link rel="icon" href="../favicon.png" type="image/png">
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body class="bg-bg text-[#dcdfe3]">
 
   <nav class="fixed top-0 w-full z-50 bg-bg/80 backdrop-blur-md">
     <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-      <a href="../index.html" class="flex items-center" style="gap:0.45rem"><img src="../assets/images/avatar.png" alt="" class="w-14 h-14 rounded-full object-cover border border-border transition-all duration-150"><span style="font-family:'Gothic A1',sans-serif; font-size:1.5rem; font-weight:600; letter-spacing:0.6px; margin-top:4px; line-height:1">Younsoo Lim</span></a>
+      <div class="flex items-center" style="gap:0.45rem"><a href="../index.html" style="cursor: url('../assets/cursor-wave.png') 12 12, pointer;"><img src="../assets/images/avatar.png" alt="" class="w-11 h-11 rounded-full object-cover border border-border transition-all duration-150"></a><span style="font-family:'Gothic A1',sans-serif; font-size:1.5rem; font-weight:600; letter-spacing:0.6px; margin-top:4px; line-height:1">Younsoo Lim</span></div>
       <div class="hidden md:flex gap-8 text-sm text-sub">
         <a href="../index.html#projects" class="hover:text-white transition">Projects</a>
         <a href="../index.html#about" class="hover:text-white transition">About</a>
@@ -66,8 +66,7 @@
     <div class="flex items-center gap-4 mb-3">
       <h1 class="text-4xl font-bold">MMD Player</h1>
       <div class="flex gap-3 mt-2">
-        <a href="https://tomlim2.github.io/mmd-anju/" target="_blank" rel="noopener" class="text-muted hover:text-white transition" title="Live Demo" aria-label="Live Demo"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg></a>
-        <a href="https://github.com/tomlim2/mmd-anju" target="_blank" rel="noopener" class="text-muted hover:text-white transition" title="GitHub" aria-label="GitHub"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg></a>
+        <a href="https://tomlim2.github.io/mmd-anju/" target="_blank" rel="noopener" class="text-muted hover:text-white transition" aria-label="Live Demo" data-tip="Live Demo"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg></a>
       </div>
     </div>
 
@@ -101,7 +100,7 @@
       <h3 class="font-medium mb-3">Automatic Motion Compatibility Analysis</h3>
       <p class="text-muted text-sm leading-relaxed mb-4">Analyzes VMD motion files to calculate bone match rates against PMX models, and automatically detects IK conflicts and source model families. Game studio PMX models also follow these families — e.g., Honkai: Star Rail uses the DIVA family, Genshin Impact uses the ミリシタ family.</p>
 
-      <div class="bg-surface rounded-lg border border-border mb-8 overflow-hidden max-w-lg mx-auto">
+      <div class="mb-8 overflow-hidden max-w-lg mx-auto">
         <img src="../assets/images/mmd-player/debug.png" alt="Bone Compatibility Analysis — match rates, IK conflicts, source model detection" class="w-full">
       </div>
 
@@ -129,7 +128,7 @@
       <p class="text-muted text-sm leading-relaxed mb-4">Precompute experiment: derive vector fields and effect timing from VMD motion data on the CPU. Lightweight, no real-time analysis needed. Built as a POC to show planning and client teams that <strong class="text-white">"it moves well."</strong></p>
       <p class="text-muted text-sm leading-relaxed mb-4">6 types: Foot Ripple, Spark Burst, Ground Reflect, Falling/Rising Light, Velocity Effect</p>
 
-      <div class="bg-surface rounded-lg border border-border mb-8 overflow-hidden max-w-xl mx-auto">
+      <div class="mb-8 overflow-hidden max-w-xl mx-auto">
         <video src="../assets/images/mmd-player/effect-demo.mp4" autoplay loop muted playsinline aria-label="Motion-synced VFX demo" class="w-full"></video>
       </div>
 
@@ -138,12 +137,12 @@
       <p class="text-muted text-sm leading-relaxed mb-4">Post-process stack on TSL nodes: bloom, ACES tone mapping, saturation, contrast, color temperature, film grain, vignette. Each effect has its own uniform so they can be toggled independently at runtime.</p>
       <p class="text-muted text-sm leading-relaxed mb-4">The pipeline builds two output chains that share the same uniforms but split at bloom. Turning bloom off swaps the output node — the GPU never runs the downsample+blur passes, not just at strength 0 but actually gone from the graph. When the whole PP is off, it falls back to the renderer's tone mapping directly.</p>
 
-      <div class="grid grid-cols-2 gap-3 mb-8 max-w-lg mx-auto">
-        <div class="bg-surface rounded-lg border border-border overflow-hidden">
+      <div class="grid grid-cols-2 gap-3 mb-8 max-w-3xl mx-auto">
+        <div class="overflow-hidden">
           <img src="../assets/images/mmd-player/pp-off.png" alt="Before Post-Process" class="w-full">
           <p class="text-xs text-muted text-center py-2">Before — Raw render</p>
         </div>
-        <div class="bg-surface rounded-lg border border-border overflow-hidden">
+        <div class="overflow-hidden">
           <img src="../assets/images/mmd-player/pp-on.png" alt="After Post-Process" class="w-full">
           <p class="text-xs text-muted text-center py-2">After — ACES, CA, contrast, grain</p>
         </div>
@@ -174,7 +173,7 @@
     </section>
 
     <div class="mb-12 max-w-2xl mx-auto">
-      <img src="../assets/images/mmd-player/fx-panels.png" alt="FX control panels — VFX, Post-Process, and PMX tabs" class="w-full rounded-lg border border-border">
+      <img src="../assets/images/mmd-player/fx-panels.png" alt="FX control panels — VFX, Post-Process, and PMX tabs" class="w-full">
       <p class="text-xs text-muted mt-2 text-center">Real-time FX controls — VFX (particles, mirror), Post-Process (bloom, ACES, CA, grain), PMX (outline, FOV)</p>
     </div>
 
