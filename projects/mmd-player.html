@@ -66,12 +66,13 @@
     <div class="flex items-center gap-4 mb-3">
       <h1 class="text-4xl font-bold">MMD Player</h1>
       <div class="flex gap-3 mt-2">
-        <a href="https://github.com/tomlim2/mmd-anju" target="_blank" rel="noopener" class="text-muted hover:text-white transition"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg></a>
+        <a href="https://tomlim2.github.io/mmd-anju/" target="_blank" rel="noopener" class="text-muted hover:text-white transition" title="Live Demo"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg></a>
+        <a href="https://github.com/tomlim2/mmd-anju" target="_blank" rel="noopener" class="text-muted hover:text-white transition" title="GitHub"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg></a>
       </div>
     </div>
 
     <blockquote class="text-muted mb-6">
-      WebGPU MMD viewer with motion-synced effects and body proportion correction. Actively in development
+      WebGPU MMD viewer with motion-synced effects. Actively in development
     </blockquote>
 
     <div class="flex flex-wrap gap-x-8 gap-y-2 text-xs text-muted mb-8">
@@ -100,6 +101,10 @@
       <h3 class="font-medium mb-3">Automatic Motion Compatibility Analysis</h3>
       <p class="text-muted text-sm leading-relaxed mb-4">Analyzes VMD motion files to calculate bone match rates against PMX models, and automatically detects IK conflicts and source model families. Game studio PMX models also follow these families — e.g., Honkai: Star Rail uses the DIVA family, Genshin Impact uses the ミリシタ family.</p>
 
+      <div class="bg-surface rounded-lg border border-border mb-8 overflow-hidden max-w-md mx-auto">
+        <img src="../assets/images/mmd-player/debug.png" alt="Bone Compatibility Analysis — match rates, IK conflicts, source model detection" class="w-full">
+      </div>
+
       <div class="overflow-x-auto mb-8">
         <table class="w-full text-sm">
           <thead>
@@ -119,18 +124,23 @@
         </table>
       </div>
 
-      <!-- IK Sizing -->
-      <h3 class="font-medium mb-3">Automatic Body Proportion Correction (IK Sizing)</h3>
-      <p class="text-muted text-sm leading-relaxed mb-4">Automatically scales IK positions based on the hip height ratio between models. Even without a source model, the original body proportions are estimated from the median of ground-contact frames in the VMD animation.</p>
-
-      <div class="aspect-video bg-surface rounded-lg border border-border mb-8 flex items-center justify-center text-muted text-sm">
-        Body Proportion Correction Before/After — Comparison before and after IK sizing (floating feet to ground contact)
-      </div>
-
       <!-- Precompute Effects -->
       <h3 class="font-medium mb-3">Motion-synced Effects — Precompute Experiment</h3>
       <p class="text-muted text-sm leading-relaxed mb-4">Precompute experiment: derive vector fields and effect timing from VMD motion data on the CPU. Lightweight, no real-time analysis needed. Built as a POC to show planning and client teams that <strong class="text-white">"it moves well."</strong></p>
-      <p class="text-muted text-sm leading-relaxed">6 types: Foot Ripple, Spark Burst, Ground Reflect, Falling/Rising Light, Velocity Effect</p>
+      <p class="text-muted text-sm leading-relaxed mb-4">6 types: Foot Ripple, Spark Burst, Ground Reflect, Falling/Rising Light, Velocity Effect</p>
+
+      <div class="aspect-video bg-surface rounded-lg border border-border mb-8 overflow-hidden">
+        <video src="../assets/images/mmd-player/effects.mp4" autoplay loop muted playsinline class="w-full h-full object-cover"></video>
+      </div>
+
+      <!-- Post-Process Pipeline -->
+      <h3 class="font-medium mb-3">Post-Process Pipeline — TSL Node Graph</h3>
+      <p class="text-muted text-sm leading-relaxed mb-4">Post-process stack on TSL nodes: bloom, ACES tone mapping, saturation, contrast, color temperature, film grain, vignette. Each effect has its own uniform so they can be toggled independently at runtime.</p>
+      <p class="text-muted text-sm leading-relaxed mb-4">The pipeline builds two output chains that share the same uniforms but split at bloom. Turning bloom off swaps the output node — the GPU never runs the downsample+blur passes, not just at strength 0 but actually gone from the graph. When the whole PP is off, it falls back to the renderer's tone mapping directly.</p>
+
+      <div class="aspect-video bg-surface rounded-lg border border-border mb-8 flex items-center justify-center text-muted text-sm">
+        Post-Process ON/OFF — tone mapping, bloom, color grading comparison
+      </div>
     </section>
 
     <!-- Result -->
@@ -147,10 +157,10 @@
           <tbody class="text-muted">
             <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">Source Verification</td><td class="py-3">Distinguishes PMX issues vs converter issues — directly used by planners/QA</td></tr>
             <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">Motion Verification</td><td class="py-3">Supports 6 model families, automatic bone match rate/IK conflict detection</td></tr>
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">Body Correction</td><td class="py-3">Body proportion estimation from VMD alone + IK scaling without source model</td></tr>
             <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">Effect Precompute</td><td class="py-3">6 types — POC for convincing planning/client teams</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">Post-Process</td><td class="py-3">Dual chain bloom skip, lazy init, renderer bypass — laptop doesn't cook anymore</td></tr>
             <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">Tech Validation</td><td class="py-3">WebGPU + TSL shaders in a real project</td></tr>
-            <tr><td class="py-3 pr-4 text-white font-medium">Status</td><td class="py-3">WIP — next up: physics simulation (rigid body + joint), post-process effects, water splash on ground contact</td></tr>
+            <tr><td class="py-3 pr-4 text-white font-medium">Status</td><td class="py-3">WIP — next up: physics simulation (rigid body + joint), water splash on ground contact</td></tr>
           </tbody>
         </table>
       </div>
@@ -168,8 +178,8 @@
           <div class="px-5 pb-4 text-muted text-sm leading-relaxed">Pre-calculates bloom events, foot landing timings, and angular velocity peaks from motion data. Synchronizes effects without frame drops by using precompute instead of real-time analysis.</div>
         </details>
         <details class="bg-surface rounded-lg border border-border">
-          <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">IK Sizing — Body Estimation Without Source Model</summary>
-          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">Detects ground contact frames based on IK Y position from the target model's rest pose. Estimates the source model's hip height from the median center Y of those frames, then scales IK/center/groove Y positions by the targetHipY / sourceHipY ratio.</div>
+          <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">Post-Process — Dual Chain Bloom Skip</summary>
+          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">Two output chains, same uniforms, split at bloom. Swapping <code class="text-white/80">outputNode</code> cuts bloom's downsample+blur passes from the GPU graph. PP off → renderer tone mapping (ACES, AgX, Neutral, etc.) takes over, costs almost nothing. The PostProcess module itself is lazy-loaded via dynamic import — GPU resources don't get allocated until you actually turn it on.</div>
         </details>
         <details class="bg-surface rounded-lg border border-border">
           <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">TSL Shaders — WebGPU Custom Materials</summary>
