@@ -60,14 +60,14 @@
 
 
     <div class="relative left-1/2 -translate-x-1/2 w-screen max-w-6xl px-6 mb-12">
-      <iframe src="https://tomlim2.github.io/mmd-anju/" class="w-full h-[70vh] border-0" allow="autoplay" loading="lazy"></iframe>
+      <iframe src="https://tomlim2.github.io/mmd-anju/" title="MMD Player live demo" class="w-full h-[70vh] sm:h-[70vh] h-[50vh] border-0" allow="autoplay" loading="lazy"></iframe>
     </div>
 
     <div class="flex items-center gap-4 mb-3">
       <h1 class="text-4xl font-bold">MMD Player</h1>
       <div class="flex gap-3 mt-2">
-        <a href="https://tomlim2.github.io/mmd-anju/" target="_blank" rel="noopener" class="text-muted hover:text-white transition" title="Live Demo"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg></a>
-        <a href="https://github.com/tomlim2/mmd-anju" target="_blank" rel="noopener" class="text-muted hover:text-white transition" title="GitHub"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg></a>
+        <a href="https://tomlim2.github.io/mmd-anju/" target="_blank" rel="noopener" class="text-muted hover:text-white transition" title="Live Demo" aria-label="Live Demo"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg></a>
+        <a href="https://github.com/tomlim2/mmd-anju" target="_blank" rel="noopener" class="text-muted hover:text-white transition" title="GitHub" aria-label="GitHub"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg></a>
       </div>
     </div>
 
@@ -89,7 +89,7 @@
     <!-- Motivation -->
     <section class="mb-16">
       <h2 class="text-xl font-bold mb-4">Motivation</h2>
-      <p class="text-muted text-sm leading-relaxed mb-4">While building a PMX-to-VRM conversion pipeline, I needed a tool to verify that the original model and motion work correctly before conversion. The key challenge was distinguishing whether import failures were caused by <strong class="text-white">the original PMX or the VRM converter</strong> — if the PMX itself has missing textures or absent bones, it is not a converter issue.</p>
+      <p class="text-muted text-sm leading-relaxed mb-4">Started as a source verifier for the <a href="pmx-to-vrm.html" class="text-accent hover:underline">PMX-to-VRM conversion pipeline</a>. I needed a tool to verify that the original model and motion work correctly before conversion. The key challenge was distinguishing whether import failures were caused by <strong class="text-white">the original PMX or the VRM converter</strong> — if the PMX itself has missing textures or absent bones, it is not a converter issue.</p>
       <p class="text-muted text-sm leading-relaxed">Target users: planners and QA — not just TAs, but non-developer roles who can open and verify directly.</p>
     </section>
 
@@ -101,7 +101,7 @@
       <h3 class="font-medium mb-3">Automatic Motion Compatibility Analysis</h3>
       <p class="text-muted text-sm leading-relaxed mb-4">Analyzes VMD motion files to calculate bone match rates against PMX models, and automatically detects IK conflicts and source model families. Game studio PMX models also follow these families — e.g., Honkai: Star Rail uses the DIVA family, Genshin Impact uses the ミリシタ family.</p>
 
-      <div class="bg-surface rounded-lg border border-border mb-8 overflow-hidden max-w-md mx-auto">
+      <div class="bg-surface rounded-lg border border-border mb-8 overflow-hidden max-w-lg mx-auto">
         <img src="../assets/images/mmd-player/debug.png" alt="Bone Compatibility Analysis — match rates, IK conflicts, source model detection" class="w-full">
       </div>
 
@@ -129,8 +129,8 @@
       <p class="text-muted text-sm leading-relaxed mb-4">Precompute experiment: derive vector fields and effect timing from VMD motion data on the CPU. Lightweight, no real-time analysis needed. Built as a POC to show planning and client teams that <strong class="text-white">"it moves well."</strong></p>
       <p class="text-muted text-sm leading-relaxed mb-4">6 types: Foot Ripple, Spark Burst, Ground Reflect, Falling/Rising Light, Velocity Effect</p>
 
-      <div class="aspect-video bg-surface rounded-lg border border-border mb-8 overflow-hidden">
-        <video src="../assets/images/mmd-player/effects.mp4" autoplay loop muted playsinline class="w-full h-full object-cover"></video>
+      <div class="bg-surface rounded-lg border border-border mb-8 overflow-hidden max-w-xl mx-auto">
+        <video src="../assets/images/mmd-player/effect-demo.mp4" autoplay loop muted playsinline aria-label="Motion-synced VFX demo" class="w-full"></video>
       </div>
 
       <!-- Post-Process Pipeline -->
@@ -138,8 +138,15 @@
       <p class="text-muted text-sm leading-relaxed mb-4">Post-process stack on TSL nodes: bloom, ACES tone mapping, saturation, contrast, color temperature, film grain, vignette. Each effect has its own uniform so they can be toggled independently at runtime.</p>
       <p class="text-muted text-sm leading-relaxed mb-4">The pipeline builds two output chains that share the same uniforms but split at bloom. Turning bloom off swaps the output node — the GPU never runs the downsample+blur passes, not just at strength 0 but actually gone from the graph. When the whole PP is off, it falls back to the renderer's tone mapping directly.</p>
 
-      <div class="aspect-video bg-surface rounded-lg border border-border mb-8 flex items-center justify-center text-muted text-sm">
-        Post-Process ON/OFF — tone mapping, bloom, color grading comparison
+      <div class="grid grid-cols-2 gap-3 mb-8 max-w-lg mx-auto">
+        <div class="bg-surface rounded-lg border border-border overflow-hidden">
+          <img src="../assets/images/mmd-player/pp-off.png" alt="Before Post-Process" class="w-full">
+          <p class="text-xs text-muted text-center py-2">Before — Raw render</p>
+        </div>
+        <div class="bg-surface rounded-lg border border-border overflow-hidden">
+          <img src="../assets/images/mmd-player/pp-on.png" alt="After Post-Process" class="w-full">
+          <p class="text-xs text-muted text-center py-2">After — ACES, CA, contrast, grain</p>
+        </div>
       </div>
     </section>
 
@@ -160,17 +167,22 @@
             <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">Effect Precompute</td><td class="py-3">6 types — POC for convincing planning/client teams</td></tr>
             <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">Post-Process</td><td class="py-3">Dual chain bloom skip, lazy init, renderer bypass — laptop doesn't cook anymore</td></tr>
             <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">Tech Validation</td><td class="py-3">WebGPU + TSL shaders in a real project</td></tr>
-            <tr><td class="py-3 pr-4 text-white font-medium">Status</td><td class="py-3">WIP — next up: physics simulation (rigid body + joint), water splash on ground contact</td></tr>
+            <tr><td class="py-3 pr-4 text-white font-medium">Status</td><td class="py-3">WIP — next up: physics bone simulation (rigid body + joint), gaussian splatting background</td></tr>
           </tbody>
         </table>
       </div>
     </section>
 
+    <div class="mb-12 max-w-2xl mx-auto">
+      <img src="../assets/images/mmd-player/fx-panels.png" alt="FX control panels — VFX, Post-Process, and PMX tabs" class="w-full rounded-lg border border-border">
+      <p class="text-xs text-muted mt-2 text-center">Real-time FX controls — VFX (particles, mirror), Post-Process (bloom, ACES, CA, grain), PMX (outline, FOV)</p>
+    </div>
+
     <hr class="border-border mb-12">
 
     <!-- Technical Details -->
     <section class="mb-16">
-      <h2 class="text-xl font-bold mb-6">Technical Details</h2>
+      <h2 class="text-xl font-bold mb-4">Technical Details</h2>
 
       <div class="space-y-3">
         <details class="bg-surface rounded-lg border border-border">
