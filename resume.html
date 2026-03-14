@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>임연수 — Technical Artist Resume</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    @page {
+      size: A4;
+      margin: 0;
+    }
+
+    body {
+      font-family: 'Noto Sans KR', system-ui, sans-serif;
+      font-size: 10px;
+      line-height: 1.5;
+      color: #1a1a1a;
+      background: #fff;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .page {
+      width: 210mm;
+      height: 297mm;
+      margin: 0 auto;
+      padding: 18mm 20mm;
+      display: grid;
+      grid-template-columns: 210px 1fr;
+      gap: 0 30px;
+      overflow: hidden;
+      outline: 1px solid #ccc;
+    }
+
+    @media print {
+      .page { padding: 18mm 20mm; }
+    }
+
+    .left { padding-top: 2px; }
+    .right { padding-top: 2px; }
+
+    /* Name header */
+    .name-block { margin-bottom: 14px; }
+
+    .name-block h1 {
+      font-size: 30px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 2px;
+    }
+
+    .name-block .title {
+      font-size: 11px;
+      color: #666;
+      font-weight: 400;
+      font-style: italic;
+    }
+
+    .summary {
+      font-size: 10px;
+      color: #555;
+      line-height: 1.6;
+      margin-bottom: 14px;
+    }
+
+    /* Contact */
+    .contact {
+      font-size: 10px;
+      line-height: 1.9;
+      margin-bottom: 22px;
+      color: #333;
+    }
+
+    .contact a { color: #333; text-decoration: none; }
+    .contact strong { font-weight: 600; color: #1a1a1a; }
+    .contact-links {
+      margin-top: 14px;
+    }
+
+    .contact .label {
+      display: inline-block;
+      width: 42px;
+      color: #999;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Section titles */
+    h2 {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 7px;
+      padding-bottom: 4px;
+      border-bottom: 0.8px solid #1a1a1a;
+      color: #1a1a1a;
+    }
+
+    .left h2 { margin-top: 0; margin-bottom: 7px; }
+    .right h2 { margin-top: 18px; margin-bottom: 8px; }
+    .right h2:first-child { margin-top: 0; }
+
+    /* Left column sections */
+    .left-section { margin-bottom: 20px; }
+
+    .edu-entry { margin-bottom: 7px; }
+    .edu-entry .school { font-weight: 600; font-size: 10px; }
+    .edu-entry .detail { font-size: 10px; color: #666; line-height: 1.5; }
+
+    /* Skills list */
+    .skills-list { font-size: 10px; color: #333; line-height: 1.55; }
+    .skills-list .category {
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-top: 5px;
+      font-size: 10px;
+    }
+    .skills-list .category:first-child { margin-top: 0; }
+    .skills-list .items {
+      color: #666;
+      padding-left: 10px;
+      font-size: 10px;
+    }
+
+    /* Recognition */
+    .recog-entry { margin-bottom: 4px; }
+    .recog-entry .when { font-size: 10px; color: #999; }
+    .recog-entry .what { font-size: 10px; font-weight: 600; }
+
+    /* Right column — experience */
+    .exp-entry { margin-bottom: 28px; }
+    .exp-meta { font-size: 10px; color: #999; margin-bottom: 1px; }
+    .exp-title { font-size: 10.5px; font-weight: 700; margin-bottom: 1px; }
+    .exp-company { font-size: 10px; color: #666; margin-bottom: 3px; }
+
+    .exp-sub {
+      font-size: 10px;
+      font-weight: 600;
+      color: #333;
+      margin-top: 4px;
+      margin-bottom: 1px;
+    }
+
+    ul.exp-list {
+      padding-left: 10px;
+      margin-bottom: 12px;
+      list-style: none;
+    }
+
+    li {
+      margin-bottom: 0.5px;
+      font-size: 10px;
+      color: #333;
+    }
+
+    li::before {
+      display: none;
+    }
+
+    .metric { font-weight: 600; }
+  </style>
+</head>
+<body>
+
+<div class="page">
+
+  <div class="left">
+    <!-- Photo + Name -->
+    <div class="name-block">
+      <img src="assets/images/profile.jpg" alt="임연수" style="width:100px; height:100px; border-radius:50%; object-fit:cover; margin-bottom:4px;">
+      <h1>임연수</h1>
+      <div class="title">Technical Artist</div>
+    </div>
+
+    <!-- Summary -->
+    <div class="summary">
+      UE5 NPR 렌더링 및 캐릭터 시스템 3년+.<br>C++ 플러그인 개발부터 최대 20인 아트팀<br>Git 워크플로우 관리까지, 기술과 아트 사이의<br>문제를 해결합니다.
+    </div>
+
+    <!-- Contact -->
+    <div class="contact">
+      <strong><a href="https://ta.tommlimm.net">ta.tommlimm.net</a></strong><br>
+      <a href="mailto:tomandlim@gmail.com">tomandlim@gmail.com</a><br>
+      010-6334-1747<br>
+      서울 강남구
+      <div class="contact-links">
+        <a href="https://github.com/tomlim2">github.com/tomlim2</a><br>
+        <a href="https://linkedin.com/in/tommlimm">linkedin.com/in/tommlimm</a>
+      </div>
+    </div>
+
+    <!-- Education -->
+    <div class="left-section">
+      <h2>Education</h2>
+      <div class="edu-entry">
+        <div class="school">California College of the Arts</div>
+        <div class="detail">BFA, Graphic Design<br>with High Distinction<br>2016 — 2019</div>
+      </div>
+      <div class="edu-entry">
+        <div class="school">우송대학교</div>
+        <div class="detail">컴퓨터디자인학<br>부전공: 광고마케팅<br>2008 — 2014</div>
+      </div>
+    </div>
+
+    <!-- Technical Skills -->
+    <div class="left-section">
+      <h2>Technical Skills</h2>
+      <div class="skills-list">
+        <div class="category">Engine</div>
+        <div class="items">Unreal Engine 5<br>C++, Blueprint, Python<br>Material Editor, Unreal Insights</div>
+
+        <div class="category">Rendering</div>
+        <div class="items">NPR / Cel Shading<br>SDF Face Shadow<br>Post Process Material<br>Inverted Hull Outline<br>HLSL, Matcap</div>
+
+        <div class="category">Programming</div>
+        <div class="items">C++ (UE Plugin)<br>Python (Pipeline)<br>TypeScript, GLSL / HLSL<br>Three.js TSL</div>
+
+        <div class="category">Pipeline</div>
+        <div class="items">Git (20인 팀 관리)<br>GitLab CI/CD<br>NAS 배포 자동화</div>
+
+        <div class="category">DCC</div>
+        <div class="items">Blender</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="right">
+    <!-- Experience -->
+    <h2>Experience</h2>
+
+    <!-- Cinamon -->
+    <div class="exp-entry">
+      <div class="exp-meta">2023.02 — Present / 서울 강남구</div>
+      <div class="exp-title">Technical Artist at Cinamon</div>
+      <div class="exp-company">AI 비디오 크리에이션 플랫폼. UE5 기반 캐릭터 시스템, NPR 렌더링, 파이프라인 자동화 담당.</div>
+
+      <div class="exp-sub">핵심 성과</div>
+      <ul class="exp-list">
+        <li>프로젝트 <span class="metric">700GB → 400GB</span> 최적화 — 22,848개 텍스처 일괄 처리</li>
+        <li>캐릭터 프리셋 첫 로드 <span class="metric">30초 → 6초</span> — Soft Reference + Data Asset Only 전환</li>
+        <li>도시 배경 GPU <span class="metric">34.18ms → 18.44ms</span> (46%) — Nanite/Cull Distance/Light Channel</li>
+        <li>MetaHuman 텍스처 <span class="metric">942.9MB → 5.2MB</span> (99.4% 절감)</li>
+        <li>200개+ 캐릭터 프리셋 및 60개+ 배경 썸네일 촬영 플로우 설계</li>
+        <li>최대 20명 아트팀 Git 워크플로우 설계 및 관리</li>
+      </ul>
+
+      <div class="exp-sub">NPR 렌더링 시스템</div>
+      <ul class="exp-list">
+        <li>Cel Shading 톤 셰이더 — SDF 얼굴 그림자, 커스텀 아웃라인, MPC 환경 제어</li>
+        <li>Custom Depth 버퍼 캐릭터 분리 + Post Process NPR 재렌더링 (내부 아웃라인)</li>
+        <li>VRM 출처별 셰이더 5종 분기 — VRoid, 제페토 3종, 화장 전용</li>
+        <li>머티리얼 인스턴스 690개+, 텍스처 1,370개+ 관리</li>
+      </ul>
+
+      <div class="exp-sub">C++ 플러그인 / 파이프라인</div>
+      <ul class="exp-list">
+        <li>VRM/PMX 프리셋 등록 시스템 골자 설계 — 1년에 걸쳐 제품 핵심 기능으로 실구현</li>
+        <li>Cinev NPR Character Manager (C++) — 200개+ 캐릭터 데이터에셋 관리</li>
+        <li>VRM/PMX 얼굴 랜드마크 자동 감지 (C++ 1,700줄+) — 4단계 폴백</li>
+        <li>PMX→VRM 변환 설계 — vrm4u 로더 재활용, 런타임 로더 없이 PMX 지원</li>
+        <li>외부 작업자용 70GB+ 패키지 자동 배포 (NAS + Slack Bot)</li>
+        <li>UE 5.3 → 5.7 마이그레이션 — 6,000+ 에셋 워닝/에러 처리</li>
+      </ul>
+
+      <div class="exp-sub">AI 통합 (Live UE Scene Bridge)</div>
+      <ul class="exp-list">
+        <li>자연어로 UE 제어하는 풀스택 시스템 (Python + C++ + React)</li>
+        <li>AI 기반 개발자 도구 65개+ 제작 — 실무 활용 중</li>
+      </ul>
+    </div>
+
+    <!-- FLFI -->
+    <div class="exp-entry">
+      <div class="exp-meta">2022.02 — 2023.01 / 서울 강남구</div>
+      <div class="exp-title">Frontend Developer at FLFI</div>
+      <div class="exp-company">블록체인 스타트업. NFT 터미널, 커뮤니티 플랫폼 개발.</div>
+      <ul class="exp-list">
+        <li>Vue.js + Three.js 인터랙티브 3D 페이지, NFT 모델 리깅 및 애니메이션</li>
+        <li>Web3.js MetaMask 연동 로그인, 위젯 시스템, 어드민 CRUD</li>
+      </ul>
+    </div>
+
+    <!-- Varo -->
+    <div class="exp-entry">
+      <div class="exp-meta">2019.10 — 2020.07 / San Francisco, CA</div>
+      <div class="exp-title">UX Engineer at Varo Bank</div>
+      <div class="exp-company">핀테크 스타트업. UX 엔지니어링 및 모션 디자인.</div>
+      <ul class="exp-list">
+        <li>Lottie 애니메이션 워크플로우 도입 — First User Journey 개선</li>
+        <li>광고 크리에이티브 제작 — 사내 CTR 2위, 이달의 디자이너 선정</li>
+      </ul>
+    </div>
+
+    <!-- CCA TA -->
+    <div class="exp-entry">
+      <div class="exp-meta">2018.06 — 2019.12 / San Francisco, CA</div>
+      <div class="exp-title">Teaching Assistant at CCA</div>
+      <ul class="exp-list">
+        <li>Unreal Engine 기반 VR/AR 수업 기술 지원 — 학생 프로젝트 트러블슈팅</li>
+        <li>Google Blocks (VR) · Epic Games 교육자 프로그램 참가</li>
+      </ul>
+    </div>
+
+    <!-- Freelance -->
+    <div class="exp-entry">
+      <div class="exp-meta">2014.02 — 2023.01 / 서울 · Remote</div>
+      <div class="exp-title">Technical Designer & Tutor (자영업)</div>
+      <div class="exp-company">모션 그래픽, 인터랙션 디자인, AI 활용 교육. 누적 20명+ 멘토링, 9개+ 디자인/리브랜딩 프로젝트.</div>
+    </div>
+
+    <!-- PhiloMine -->
+    <div class="exp-entry">
+      <div class="exp-meta">2012.12 — 2013.11 / 서울 강남구</div>
+      <div class="exp-title">UX Strategy Researcher at PhiloMine</div>
+      <div class="exp-company">삼성, KT, LG 등 대기업 대상 UX 리서치 및 와이어프레임 UI 설계.</div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
