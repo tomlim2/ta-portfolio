@@ -44,7 +44,7 @@
         <a href="#" onclick="window.scrollTo({top:0});return false" style="cursor: url('assets/cursor-wave.png') 12 12, pointer;">
           <img id="nav-avatar" src="assets/images/avatar.png" alt="" class="w-11 h-11 rounded-full object-cover border border-border transition-all duration-150">
         </a>
-        <span id="nav-name" style="font-family:'Gothic A1',sans-serif; font-size:1.5rem; font-weight:600; letter-spacing:0.6px; margin-top:4px; line-height:1">Younsoo Lim</span>
+        <a href="#" onclick="window.scrollTo({top:0});return false" id="nav-name" style="font-family:'Gothic A1',sans-serif; font-size:1.5rem; font-weight:600; letter-spacing:0.6px; margin-top:4px; line-height:1; text-decoration:none; color:inherit; cursor:pointer;">Younsoo Lim</a>
       </div>
       <div class="hidden md:flex gap-8 text-sm text-sub" id="desktop-nav">
         <a href="#projects" class="nav-link hover:text-white transition">Projects</a>
@@ -112,20 +112,7 @@
         </div>
       </div>
 
-      <!-- Card 2: MMD Player -->
-      <div class="card group block overflow-hidden transition">
-        <a href="projects/mmd-player.html" class="block relative overflow-hidden aspect-video">
-          <img src="assets/images/mmd-player/thumb.png" alt="MMD Player — WebGPU MMD Preview" class="card-thumb card-thumb-zoomed w-full h-full object-cover object-center">
-        </a>
-        <div class="py-5">
-          <div class="flex items-center gap-2 mb-2">
-            <h3 class="text-lg font-medium">MMD Player</h3>          </div>
-          <p class="text-sub text-sm mb-3">WebGPU MMD viewer — motion sync effects, body proportion correction. WIP</p>
-          <p class="text-xs text-white/50 uppercase tracking-wide">Three.js · WebGPU</p>
-        </div>
-      </div>
-
-      <!-- Card 3: Character System -->
+      <!-- Card 2: Character System -->
       <div class="card group block overflow-hidden transition">
         <a href="projects/character-system.html" class="block relative overflow-hidden aspect-video">
           <img src="assets/images/character-system/hero.png" alt="Character System — various character previews" class="card-thumb w-full h-full object-cover">
@@ -148,6 +135,19 @@
             <h3 class="text-lg font-medium">NPR Shader System</h3>          </div>
           <p class="text-sub text-sm mb-3">MetaHuman to anime full conversion — 4 NPR looks, PBR+NPR coexistence</p>
           <p class="text-xs text-white/50 uppercase tracking-wide">UE5 · Shader</p>
+        </div>
+      </div>
+
+      <!-- Card 4: MMD Player -->
+      <div class="card group block overflow-hidden transition">
+        <a href="projects/mmd-player.html" class="block relative overflow-hidden aspect-video">
+          <img src="assets/images/mmd-player/thumb.png" alt="MMD Player — WebGPU MMD Preview" class="card-thumb card-thumb-zoomed w-full h-full object-cover object-center">
+        </a>
+        <div class="py-5">
+          <div class="flex items-center gap-2 mb-2">
+            <h3 class="text-lg font-medium">MMD Player</h3>          </div>
+          <p class="text-sub text-sm mb-3">WebGPU MMD viewer — motion sync effects, body proportion correction. WIP</p>
+          <p class="text-xs text-white/50 uppercase tracking-wide">Three.js · WebGPU</p>
         </div>
       </div>
 

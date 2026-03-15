@@ -82,7 +82,7 @@ blockquote {
   align-items: center;
   justify-content: center;
   padding: 2rem 1rem;
-  border: none;
+  border: 1px dashed #333;
   border-radius: 0;
   background-color: #151518;
   cursor: pointer;
