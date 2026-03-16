@@ -132,6 +132,15 @@
         <video src="../assets/images/mmd-player/effect-demo.mp4" autoplay loop muted playsinline aria-label="Motion-synced VFX demo" class="w-full"></video>
       </div>
 
+      <!-- TSL Toon Shading -->
+      <h3 class="font-medium mb-3">TSL Toon Shading — PMX Material Conversion</h3>
+      <p class="text-muted text-sm leading-relaxed mb-4">PMX matcap + additive overlay + alpha converted to TSL <code class="text-white/80">MeshBasicNodeMaterial</code>. On this model, <code class="text-white/80">textureSample()</code> was called 2–3 times per fragment for the same texture — cached the node once and reused it. Also pulled opacity out of <code class="text-white/80">Fn()</code> to fix a bug where materials went invisible in the reflector pass.</p>
+
+      <div class="mb-8 overflow-hidden max-w-3xl mx-auto">
+        <img src="../assets/images/mmd-player/toon-shader-before-after.png" alt="Before and after TSL toon shader fix — white regions resolved to transparent overlay" class="w-full">
+        <p class="text-xs text-muted text-center py-2">Before — alpha ignored, white fill / After — additive overlay + transparency</p>
+      </div>
+
       <!-- Post-Process Pipeline -->
       <h3 class="font-medium mb-3">Post-Process Pipeline — TSL Node Graph</h3>
       <p class="text-muted text-sm leading-relaxed mb-4">Post-process stack on TSL nodes: bloom, ACES tone mapping, saturation, contrast, color temperature, film grain, vignette. Each effect has its own uniform so they can be toggled independently at runtime.</p>
@@ -194,7 +203,7 @@
         </details>
         <details class="bg-surface rounded-lg border border-border">
           <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">TSL Shaders — WebGPU Custom Materials</summary>
-          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">Custom materials built with Three.js TSL (Three Shading Language). Ground Mirror Reflection, effect particles, and more as TSL nodes. First time using WebGPU's rendering pipeline in a real project.</div>
+          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">Custom materials in Three.js TSL. PMX toon materials (matcap + additive overlay + alpha) converted to TSL node graphs with deduplicated texture sampling. Ground Mirror Reflection, effect particles also built as TSL nodes.</div>
         </details>
         <details class="bg-surface rounded-lg border border-border">
           <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">VMD Binary Parser + Compatibility Analysis</summary>
