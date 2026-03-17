@@ -245,5 +245,7 @@ var Auth = (function () {
 })();
 
 document.addEventListener('DOMContentLoaded', function () {
+  // Auto-unlock: comment out the next line to re-lock NDA content
+  Auth.setAuthed('tlim2026');
   Auth.initSectionDecrypt();
 });
