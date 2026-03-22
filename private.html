@@ -13,19 +13,29 @@
       theme: {
         extend: {
           colors: {
-            bg: '#080808',
-            surface: '#121212',
-            border: '#222222',
-            muted: '#a8adb6',
-            accent: '#3b82f6',
+            bg: 'rgb(var(--c-bg) / <alpha-value>)',
+            surface: 'rgb(var(--c-surface) / <alpha-value>)',
+            border: 'rgb(var(--c-border) / <alpha-value>)',
+            muted: 'rgb(var(--c-muted) / <alpha-value>)',
+            sub: 'rgb(var(--c-sub) / <alpha-value>)',
+            accent: 'rgb(var(--c-accent) / <alpha-value>)',
+            heading: 'rgb(var(--c-heading) / <alpha-value>)',
+            body: 'rgb(var(--c-body) / <alpha-value>)',
+            tag: 'rgb(var(--c-tag) / <alpha-value>)',
+            caption: 'rgb(var(--c-caption) / <alpha-value>)',
+            faint: 'rgb(var(--c-faint) / <alpha-value>)',
+          },
+          fontSize: {
+            sm: '1.05rem',
           },
           fontFamily: {
-            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+            sans: ['Noto Sans KR', 'system-ui', 'sans-serif'],
           },
         },
       },
     }
   </script>
+  <script>(function(){var t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t)})()</script>
   <link rel="stylesheet" href="css/style.css">
   <script src="js/crypto.js"></script>
   <style>
@@ -39,27 +49,28 @@
     }
   </style>
 </head>
-<body class="bg-bg text-white">
+<body class="bg-bg text-heading">
 
   <!-- Navigation -->
   <nav class="fixed top-0 w-full z-50 bg-bg/80 backdrop-blur-md">
-    <div class="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
+    <div class="max-w-[1400px] mx-auto px-6 h-14 flex items-center justify-between">
       <a href="index.html" class="text-sm font-medium tracking-wide">YOUNSOO LIM</a>
       <!-- Desktop nav links (hidden on mobile) -->
-      <div class="hidden md:flex gap-8 text-sm text-muted" id="desktop-nav">
-        <a href="index.html#projects" class="hover:text-white transition">Projects</a>
-        <a href="index.html#about" class="hover:text-white transition">About</a>
-        <a href="index.html#contact" class="hover:text-white transition">Contact</a>
-        <a href="private.html" class="text-white transition flex items-center gap-1.5">
+      <div class="hidden md:flex gap-8 text-sm text-muted ml-auto" id="desktop-nav">
+        <a href="index.html#projects" class="hover:text-heading transition">Projects</a>
+        <a href="index.html#about" class="hover:text-heading transition">About</a>
+        <a href="index.html#contact" class="hover:text-heading transition">Contact</a>
+        <a href="private.html" class="text-heading transition flex items-center gap-1.5">
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
           </svg>
           Private
         </a>
       </div>
+      <button id="theme-toggle" class="text-muted hover:text-heading transition" aria-label="Toggle theme"><svg class="w-5 h-5 theme-icon-sun hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg><svg class="w-5 h-5 theme-icon-moon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></button>
 
       <!-- Hamburger button (visible on mobile only) -->
-      <button id="hamburger-btn" class="md:hidden text-muted hover:text-white transition" aria-label="Toggle menu">
+      <button id="hamburger-btn" class="md:hidden text-muted hover:text-heading transition" aria-label="Toggle menu">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
         </svg>
@@ -69,10 +80,10 @@
     <!-- Mobile menu (hidden by default, slides down) -->
     <div id="mobile-menu" class="md:hidden hidden border-t border-border bg-bg/95 backdrop-blur-md">
       <div class="flex flex-col px-6 py-4 gap-4 text-sm text-muted">
-        <a href="index.html#projects" class="hover:text-white transition">Projects</a>
-        <a href="index.html#about" class="hover:text-white transition">About</a>
-        <a href="index.html#contact" class="hover:text-white transition">Contact</a>
-        <a href="private.html" class="text-white transition flex items-center gap-1.5">
+        <a href="index.html#projects" class="hover:text-heading transition">Projects</a>
+        <a href="index.html#about" class="hover:text-heading transition">About</a>
+        <a href="index.html#contact" class="hover:text-heading transition">Contact</a>
+        <a href="private.html" class="text-heading transition flex items-center gap-1.5">
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
           </svg>
@@ -83,7 +94,7 @@
   </nav>
 
   <!-- Content -->
-  <section class="max-w-6xl mx-auto px-6 pt-32 pb-24">
+  <section class="max-w-[1400px] mx-auto px-6 pt-32 pb-24">
     <h2 class="text-2xl font-bold mb-4">Private Projects</h2>
     <p class="text-muted mb-8">This section contains NDA-protected work. Enter the password to view.</p>
 
@@ -96,11 +107,11 @@
             id="password-input"
             placeholder="Password"
             autocomplete="off"
-            class="flex-1 bg-transparent border border-border rounded-lg px-4 py-2 text-sm text-white placeholder-muted focus:outline-none focus:border-muted transition"
+            class="flex-1 bg-transparent border border-border rounded-lg px-4 py-2 text-sm text-heading placeholder-muted focus:outline-none focus:border-muted transition"
           >
           <button
             type="submit"
-            class="bg-white text-black px-5 py-2 rounded-lg text-sm font-medium hover:bg-white/90 transition"
+            class="bg-heading text-bg px-5 py-2 rounded-lg text-sm font-medium hover:bg-heading/90 transition"
           >Enter</button>
         </form>
         <p id="error-message" class="hidden text-red-500 text-sm mt-3">Incorrect password.</p>
@@ -138,6 +149,24 @@
           });
         });
       }
+    })();
+
+    // --- Theme toggle ---
+    (function () {
+      var toggle = document.getElementById('theme-toggle');
+      if (!toggle) return;
+      var theme = document.documentElement.getAttribute('data-theme') || 'light';
+      var sun = toggle.querySelector('.theme-icon-sun');
+      var moon = toggle.querySelector('.theme-icon-moon');
+      if (sun) sun.classList.toggle('hidden', theme !== 'dark');
+      if (moon) moon.classList.toggle('hidden', theme === 'dark');
+      toggle.addEventListener('click', function () {
+        theme = theme === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+        if (sun) sun.classList.toggle('hidden', theme !== 'dark');
+        if (moon) moon.classList.toggle('hidden', theme === 'dark');
+      });
     })();
 
     // --- Decrypt logic ---

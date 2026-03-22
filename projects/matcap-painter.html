@@ -13,12 +13,17 @@
       theme: {
         extend: {
           colors: {
-            bg: '#080808',
-            surface: '#111113',
-            border: '#2a2b2f',
-            muted: '#a8adb6',
-            sub: '#b0b4ba',
-            accent: '#7c8aff',
+            bg: 'rgb(var(--c-bg) / <alpha-value>)',
+            surface: 'rgb(var(--c-surface) / <alpha-value>)',
+            border: 'rgb(var(--c-border) / <alpha-value>)',
+            muted: 'rgb(var(--c-muted) / <alpha-value>)',
+            sub: 'rgb(var(--c-sub) / <alpha-value>)',
+            accent: 'rgb(var(--c-accent) / <alpha-value>)',
+            heading: 'rgb(var(--c-heading) / <alpha-value>)',
+            body: 'rgb(var(--c-body) / <alpha-value>)',
+            tag: 'rgb(var(--c-tag) / <alpha-value>)',
+            caption: 'rgb(var(--c-caption) / <alpha-value>)',
+            faint: 'rgb(var(--c-faint) / <alpha-value>)',
           },
           fontSize: {
             sm: '1.05rem',
@@ -30,36 +35,40 @@
       },
     }
   </script>
+  <script>(function(){var t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t)})()</script>
   <link rel="icon" href="../favicon.png" type="image/png">
   <link rel="stylesheet" href="../css/style.css">
 </head>
-<body class="bg-bg text-[#dcdfe3]">
+<body class="bg-bg text-body">
 
   <nav class="fixed top-0 w-full z-50 bg-bg/80 backdrop-blur-md">
-    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+    <div class="max-w-[1400px] mx-auto px-6 h-16 flex items-center justify-between">
       <div class="flex items-center" style="gap:0.45rem"><a href="../index.html" style="cursor: url('../assets/cursor-wave.png') 12 12, pointer;"><img src="../assets/images/avatar.png" alt="" class="w-11 h-11 rounded-full object-cover border border-border transition-all duration-150"></a><a href="../index.html" style="font-family:'Gothic A1',sans-serif; font-size:1.5rem; font-weight:600; letter-spacing:0.6px; margin-top:4px; line-height:1; text-decoration:none; color:inherit; cursor:pointer;">Younsoo Lim</a></div>
-      <div class="hidden md:flex gap-8 text-sm text-sub">
-        <a href="../index.html#projects" class="hover:text-white transition">Projects</a>
-        <a href="../index.html#about" class="hover:text-white transition">About</a>
+      <div class="hidden md:flex gap-8 text-sm text-sub ml-auto">
+        <a href="../index.html#projects" class="hover:text-heading transition">Projects</a>
+        <a href="../index.html#about" class="hover:text-heading transition">About</a>
       </div>
-      <button id="hamburger-btn" class="md:hidden text-sub hover:text-white transition" aria-label="Toggle menu">
+      <div class="flex items-center gap-3">
+        <button id="theme-toggle" class="text-muted hover:text-heading transition" aria-label="Toggle theme"><svg class="w-5 h-5 theme-icon-sun hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg><svg class="w-5 h-5 theme-icon-moon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></button>
+        <button id="hamburger-btn" class="md:hidden text-sub hover:text-heading transition" aria-label="Toggle menu">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
         </svg>
       </button>
+      </div>
     </div>
     <div id="mobile-menu" class="md:hidden hidden border-t border-border bg-bg/95 backdrop-blur-md">
       <div class="flex flex-col px-6 py-4 gap-4 text-sm text-sub">
-        <a href="../index.html#projects" class="hover:text-white transition">Projects</a>
-        <a href="../index.html#about" class="hover:text-white transition">About</a>
+        <a href="../index.html#projects" class="hover:text-heading transition">Projects</a>
+        <a href="../index.html#about" class="hover:text-heading transition">About</a>
       </div>
     </div>
   </nav>
 
-  <main class="max-w-4xl mx-auto px-6 pt-20 pb-24">
+  <main class="max-w-4xl mx-auto px-6 pt-16 pb-24">
 
 
-    <div class="relative left-1/2 -translate-x-1/2 w-screen max-w-6xl px-6 mb-12">
+    <div class="relative left-1/2 -translate-x-1/2 w-screen max-w-[1400px] px-6 mb-12">
       <video src="../assets/images/matcap-painter/shader-mode-demo.mp4" autoplay loop muted playsinline class="w-full"></video>
       <p class="text-xs text-muted mt-2 text-center">Shader Mode — Adjust Color Ramp → Real-time 3D preview</p>
     </div>
@@ -67,7 +76,7 @@
     <div class="flex items-center gap-4 mb-3">
       <h1 class="text-4xl font-bold">Matcap Painter</h1>
       <div class="flex gap-3 mt-2">
-        <a href="https://tomlim2.github.io/matcap-painter/" target="_blank" rel="noopener" class="text-muted hover:text-white transition" data-tip="Live Demo"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a>
+        <a href="https://tomlim2.github.io/matcap-painter/" target="_blank" rel="noopener" class="text-muted hover:text-heading transition" data-tip="Live Demo"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a>
       </div>
     </div>
 
@@ -81,15 +90,15 @@
       <span>Personal Project</span>
     </div>
     <div class="flex flex-wrap gap-2 text-xs text-muted mb-12">
-      <span class="px-2 py-1 rounded border border-white/20 text-white/70">Three.js WebGPU (r172)</span>
-      <span class="px-2 py-1 rounded border border-white/20 text-white/70">Vanilla JavaScript</span>
-      <span class="px-2 py-1 rounded border border-white/20 text-white/70">Canvas 2D API</span>
+      <span class="px-2 py-1 rounded border border-faint text-tag">Three.js WebGPU (r172)</span>
+      <span class="px-2 py-1 rounded border border-faint text-tag">Vanilla JavaScript</span>
+      <span class="px-2 py-1 rounded border border-faint text-tag">Canvas 2D API</span>
     </div>
 
     <!-- Motivation -->
     <section class="mb-16">
       <h2 class="text-xl font-bold mb-4">Motivation</h2>
-      <p class="text-muted text-sm leading-relaxed">I needed Matcap textures for fake reflection masks in our <a href="npr-shader.html" class="text-accent hover:underline">NPR Shader System</a> to achieve <strong class="text-white">metallic surfaces and hair specular highlights</strong> on our NPR characters. The existing workflow was manual editing in Photoshop → engine import → check → back to Photoshop if it didn't look right. Without real-time feedback, iteration was slow.</p>
+      <p class="text-muted text-sm leading-relaxed">I needed Matcap textures for fake reflection masks in our <a href="npr-shader.html" class="text-accent hover:underline">NPR Shader System</a> to achieve <strong class="text-heading">metallic surfaces and hair specular highlights</strong> on our NPR characters. The existing workflow was manual editing in Photoshop → engine import → check → back to Photoshop if it didn't look right. Without real-time feedback, iteration was slow.</p>
     </section>
 
     <!-- Solution -->
@@ -127,10 +136,10 @@
             </tr>
           </thead>
           <tbody class="text-muted">
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">Workflow</td><td class="py-3">Eliminated Photoshop round-trips — real-time editing + 3D preview</td></tr>
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">Shader Mode</td><td class="py-3">Real-time Toon Ramp / Specular / Outline generation</td></tr>
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">Paint Mode</td><td class="py-3">229 presets + 8-layer non-destructive editing</td></tr>
-            <tr><td class="py-3 pr-4 text-white font-medium">Dev Time</td><td class="py-3">4 days</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading font-medium">Workflow</td><td class="py-3">Eliminated Photoshop round-trips — real-time editing + 3D preview</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading font-medium">Shader Mode</td><td class="py-3">Real-time Toon Ramp / Specular / Outline generation</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading font-medium">Paint Mode</td><td class="py-3">229 presets + 8-layer non-destructive editing</td></tr>
+            <tr><td class="py-3 pr-4 text-heading font-medium">Dev Time</td><td class="py-3">4 days</td></tr>
           </tbody>
         </table>
       </div>
@@ -162,8 +171,8 @@
 
     <!-- Prev/Next -->
     <div class="flex justify-between items-center mt-16 pt-8 border-t border-border">
-      <a href="megamelange.html" class="text-muted hover:text-white transition text-sm">&larr; Live UE Scene Bridge</a>
-      <a href="character-system.html" class="text-muted hover:text-white transition text-sm">Character System &rarr;</a>
+      <a href="megamelange.html" class="text-muted hover:text-heading transition text-sm">&larr; Live UE Scene Bridge</a>
+      <a href="character-system.html" class="text-muted hover:text-heading transition text-sm">Character System &rarr;</a>
     </div>
 
   </main>

@@ -13,12 +13,17 @@
       theme: {
         extend: {
           colors: {
-            bg: '#080808',
-            surface: '#111113',
-            border: '#2a2b2f',
-            muted: '#a8adb6',
-            sub: '#b0b4ba',
-            accent: '#7c8aff',
+            bg: 'rgb(var(--c-bg) / <alpha-value>)',
+            surface: 'rgb(var(--c-surface) / <alpha-value>)',
+            border: 'rgb(var(--c-border) / <alpha-value>)',
+            muted: 'rgb(var(--c-muted) / <alpha-value>)',
+            sub: 'rgb(var(--c-sub) / <alpha-value>)',
+            accent: 'rgb(var(--c-accent) / <alpha-value>)',
+            heading: 'rgb(var(--c-heading) / <alpha-value>)',
+            body: 'rgb(var(--c-body) / <alpha-value>)',
+            tag: 'rgb(var(--c-tag) / <alpha-value>)',
+            caption: 'rgb(var(--c-caption) / <alpha-value>)',
+            faint: 'rgb(var(--c-faint) / <alpha-value>)',
           },
           fontSize: {
             sm: '1.05rem',
@@ -30,26 +35,28 @@
       },
     }
   </script>
+  <script>(function(){var t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t)})()</script>
   <link rel="icon" href="../favicon.png" type="image/png">
   <link rel="stylesheet" href="../css/style.css">
 </head>
-<body class="bg-bg text-[#dcdfe3]">
+<body class="bg-bg text-body">
 
   <nav class="fixed top-0 w-full z-50 bg-bg/80 backdrop-blur-md">
-    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+    <div class="max-w-[1400px] mx-auto px-6 h-16 flex items-center justify-between">
       <div class="flex items-center" style="gap:0.45rem"><a href="../index.html" style="cursor: url('../assets/cursor-wave.png') 12 12, pointer;"><img src="../assets/images/avatar.png" alt="" class="w-11 h-11 rounded-full object-cover border border-border transition-all duration-150"></a><a href="../index.html" style="font-family:'Gothic A1',sans-serif; font-size:1.5rem; font-weight:600; letter-spacing:0.6px; margin-top:4px; line-height:1; text-decoration:none; color:inherit; cursor:pointer;">Younsoo Lim</a></div>
-      <div class="hidden md:flex gap-8 text-sm text-sub">
-        <a href="../index.html#projects" class="hover:text-white transition">Projects</a>
-        <a href="../index.html#about" class="hover:text-white transition">About</a>
+      <div class="hidden md:flex gap-8 text-sm text-sub ml-auto">
+        <a href="../index.html#projects" class="hover:text-heading transition">Projects</a>
+        <a href="../index.html#about" class="hover:text-heading transition">About</a>
       </div>
+      <button id="theme-toggle" class="text-muted hover:text-heading transition" aria-label="Toggle theme"><svg class="w-5 h-5 theme-icon-sun hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg><svg class="w-5 h-5 theme-icon-moon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></button>
     </div>
   </nav>
 
-  <main class="max-w-4xl mx-auto px-6 pt-20 pb-24">
+  <main class="max-w-4xl mx-auto px-6 pt-16 pb-24">
 
 
 
-    <div class="relative left-1/2 -translate-x-1/2 w-screen max-w-6xl px-6 mb-12">
+    <div class="relative left-1/2 -translate-x-1/2 w-screen max-w-[1400px] px-6 mb-12">
       <img src="../assets/images/character-system/hero.png" alt="Placing and previewing NPR characters on a background in the editor" class="w-full h-[70vh] object-cover object-center">
     </div>
 
@@ -65,18 +72,18 @@
       <span>Company Project</span>
     </div>
     <div class="flex flex-wrap gap-2 text-xs text-muted mb-12">
-      <span class="px-2 py-1 rounded border border-white/20 text-white/70">Unreal Engine 5</span>
-      <span class="px-2 py-1 rounded border border-white/20 text-white/70">C++</span>
-      <span class="px-2 py-1 rounded border border-white/20 text-white/70">Blueprint</span>
-      <span class="px-2 py-1 rounded border border-white/20 text-white/70">Data Asset</span>
-      <span class="px-2 py-1 rounded border border-white/20 text-white/70">VRM4U</span>
-      <span class="px-2 py-1 rounded border border-white/20 text-white/70">Unreal Insights</span>
+      <span class="px-2 py-1 rounded border border-faint text-tag">Unreal Engine 5</span>
+      <span class="px-2 py-1 rounded border border-faint text-tag">C++</span>
+      <span class="px-2 py-1 rounded border border-faint text-tag">Blueprint</span>
+      <span class="px-2 py-1 rounded border border-faint text-tag">Data Asset</span>
+      <span class="px-2 py-1 rounded border border-faint text-tag">VRM4U</span>
+      <span class="px-2 py-1 rounded border border-faint text-tag">Unreal Insights</span>
     </div>
 
     <!-- Problem -->
     <section class="mb-16">
       <h2 class="text-xl font-bold mb-4">Problem</h2>
-      <p class="text-muted text-sm leading-relaxed">As the character count approached 300, we needed a pipeline to systematically manage parts assembly, registration, preview, and loading. Opening the editor pulled in all assets via hard references, requiring a <strong class="text-white">30-second wait</strong>. Checking colors or animations meant launching the game every time. With external VRM support added, manually setting up cameras and thumbnails per model became yet another burden.</p>
+      <p class="text-muted text-sm leading-relaxed">As the character count approached 300, we needed a pipeline to systematically manage parts assembly, registration, preview, and loading. Opening the editor pulled in all assets via hard references, requiring a <strong class="text-heading">30-second wait</strong>. Checking colors or animations meant launching the game every time. With external VRM support added, manually setting up cameras and thumbnails per model became yet another burden.</p>
     </section>
 
     <!-- Solution -->
@@ -92,7 +99,7 @@
       <div class="mb-6 overflow-hidden">
         <img src="../assets/images/character-system/editor-preview.png" alt="Editor preview — verifying NPR character placement on a background" class="w-full h-auto">
       </div>
-      <p class="text-muted text-sm leading-relaxed">The original character Blueprint had both save and load in a single actor, but the references held by the save side caused a 30-second wait every time the editor opened. By extracting save into a dedicated editor tool and leaving only load in the runtime Blueprint, load time dropped from <strong class="text-white">30s to 6s</strong>. The editor tool also implements the Editor Tick Interface, enabling preview directly on a background without launching the game. For external VRM, Reference Points auto-detects the face via a 4-level fallback and handles camera targeting and thumbnail generation automatically.</p>
+      <p class="text-muted text-sm leading-relaxed">The original character Blueprint had both save and load in a single actor, but the references held by the save side caused a 30-second wait every time the editor opened. By extracting save into a dedicated editor tool and leaving only load in the runtime Blueprint, load time dropped from <strong class="text-heading">30s to 6s</strong>. The editor tool also implements the Editor Tick Interface, enabling preview directly on a background without launching the game. For external VRM, Reference Points auto-detects the face via a 4-level fallback and handles camera targeting and thumbnail generation automatically.</p>
     </section>
 
     <!-- Result -->
@@ -110,19 +117,19 @@
           </thead>
           <tbody class="text-muted">
             <tr class="border-b border-border/50">
-              <td class="py-3 pr-4 text-white font-medium">Editor Load</td>
+              <td class="py-3 pr-4 text-heading font-medium">Editor Load</td>
               <td class="py-3 pr-4">30s</td>
               <td class="py-3 pr-4">6s</td>
               <td class="py-3 text-blue-400 font-medium">80%↓</td>
             </tr>
             <tr class="border-b border-border/50">
-              <td class="py-3 pr-4 text-white font-medium">Packaged Load</td>
+              <td class="py-3 pr-4 text-heading font-medium">Packaged Load</td>
               <td class="py-3 pr-4">Several seconds</td>
               <td class="py-3 pr-4">Perceived 0s</td>
               <td class="py-3 text-blue-400 font-medium">Eliminated</td>
             </tr>
             <tr>
-              <td class="py-3 pr-4 text-white font-medium">Character Presets</td>
+              <td class="py-3 pr-4 text-heading font-medium">Character Presets</td>
               <td class="py-3 pr-4">-</td>
               <td class="py-3 pr-4">300+</td>
               <td class="py-3 text-blue-400 font-medium">Unified</td>
@@ -238,8 +245,8 @@
 
     <!-- Prev/Next -->
     <div class="flex justify-between items-center mt-16 pt-8 border-t border-border">
-      <a href="matcap-painter.html" class="text-muted hover:text-white transition text-sm">&larr; Matcap Painter</a>
-      <a href="npr-shader.html" class="text-muted hover:text-white transition text-sm">NPR Shader System &rarr;</a>
+      <a href="matcap-painter.html" class="text-muted hover:text-heading transition text-sm">&larr; Matcap Painter</a>
+      <a href="npr-shader.html" class="text-muted hover:text-heading transition text-sm">NPR Shader System &rarr;</a>
     </div>
 
   
@@ -256,11 +263,11 @@
       </div>
       <p class="text-center text-muted text-sm mb-6">NDA project.<br>Enter password to unlock content.</p>
       <input id="section-pw-input" type="password" placeholder="Password" autocomplete="off"
-        class="w-full bg-bg border border-border rounded-lg px-4 py-2.5 text-sm text-white placeholder-muted focus:outline-none focus:border-accent transition mb-3">
+        class="w-full bg-bg border border-border rounded-lg px-4 py-2.5 text-sm text-heading placeholder-muted focus:outline-none focus:border-accent transition mb-3">
       <p id="section-pw-error" class="hidden text-red-400 text-xs mb-3 text-center">Incorrect password</p>
       <button id="section-pw-submit"
-        class="w-full px-5 py-2.5 bg-white text-black text-sm font-medium rounded-lg hover:bg-white/90 transition">Unlock</button>
-      <button id="section-pw-close" class="block w-full mt-3 text-muted text-sm hover:text-white transition">Close</button>
+        class="w-full px-5 py-2.5 bg-heading text-bg text-sm font-medium rounded-lg hover:bg-heading/90 transition">Unlock</button>
+      <button id="section-pw-close" class="block w-full mt-3 text-muted text-sm hover:text-heading transition">Close</button>
     </div>
   </div>
 

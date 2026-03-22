@@ -13,12 +13,17 @@
       theme: {
         extend: {
           colors: {
-            bg: '#080808',
-            surface: '#111113',
-            border: '#2a2b2f',
-            muted: '#a8adb6',
-            sub: '#b0b4ba',
-            accent: '#7c8aff',
+            bg: 'rgb(var(--c-bg) / <alpha-value>)',
+            surface: 'rgb(var(--c-surface) / <alpha-value>)',
+            border: 'rgb(var(--c-border) / <alpha-value>)',
+            muted: 'rgb(var(--c-muted) / <alpha-value>)',
+            sub: 'rgb(var(--c-sub) / <alpha-value>)',
+            accent: 'rgb(var(--c-accent) / <alpha-value>)',
+            heading: 'rgb(var(--c-heading) / <alpha-value>)',
+            body: 'rgb(var(--c-body) / <alpha-value>)',
+            tag: 'rgb(var(--c-tag) / <alpha-value>)',
+            caption: 'rgb(var(--c-caption) / <alpha-value>)',
+            faint: 'rgb(var(--c-faint) / <alpha-value>)',
           },
           fontSize: {
             sm: '1.05rem',
@@ -30,27 +35,29 @@
       },
     }
   </script>
+  <script>(function(){var t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t)})()</script>
   <link rel="icon" href="../favicon.png" type="image/png">
   <link rel="stylesheet" href="../css/style.css">
 </head>
-<body class="bg-bg text-[#dcdfe3]">
+<body class="bg-bg text-body">
 
   <nav class="fixed top-0 w-full z-50 bg-bg/80 backdrop-blur-md">
-    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+    <div class="max-w-[1400px] mx-auto px-6 h-16 flex items-center justify-between">
       <div class="flex items-center" style="gap:0.45rem"><a href="../index.html" style="cursor: url('../assets/cursor-wave.png') 12 12, pointer;"><img src="../assets/images/avatar.png" alt="" class="w-11 h-11 rounded-full object-cover border border-border transition-all duration-150"></a><a href="../index.html" style="font-family:'Gothic A1',sans-serif; font-size:1.5rem; font-weight:600; letter-spacing:0.6px; margin-top:4px; line-height:1; text-decoration:none; color:inherit; cursor:pointer;">Younsoo Lim</a></div>
-      <div class="hidden md:flex gap-8 text-sm text-sub">
-        <a href="../index.html#projects" class="hover:text-white transition">Projects</a>
-        <a href="../index.html#about" class="hover:text-white transition">About</a>
+      <div class="hidden md:flex gap-8 text-sm text-sub ml-auto">
+        <a href="../index.html#projects" class="hover:text-heading transition">Projects</a>
+        <a href="../index.html#about" class="hover:text-heading transition">About</a>
       </div>
+      <button id="theme-toggle" class="text-muted hover:text-heading transition" aria-label="Toggle theme"><svg class="w-5 h-5 theme-icon-sun hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg><svg class="w-5 h-5 theme-icon-moon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></button>
     </div>
   </nav>
 
-  <main class="max-w-4xl mx-auto px-6 pt-20 pb-24">
+  <main class="max-w-4xl mx-auto px-6 pt-16 pb-24">
 
 
 
 
-    <div class="relative left-1/2 -translate-x-1/2 w-screen max-w-6xl px-6 mb-12">
+    <div class="relative left-1/2 -translate-x-1/2 w-screen max-w-[1400px] px-6 mb-12">
       <img src="../assets/images/npr-shader/hero-cel-shading-outline.png" alt="NPR character over PBR background — cel shading + outline" class="w-full h-[70vh] object-cover object-bottom">
     </div>
 
@@ -66,13 +73,13 @@
       <span>Company Project</span>
     </div>
     <div class="flex flex-wrap gap-2 text-xs text-muted mb-12">
-      <span class="px-2 py-1 rounded border border-white/20 text-white/70">Unreal Engine 5</span>
-      <span class="px-2 py-1 rounded border border-white/20 text-white/70">Material Editor</span>
-      <span class="px-2 py-1 rounded border border-white/20 text-white/70">Post Process</span>
-      <span class="px-2 py-1 rounded border border-white/20 text-white/70">Stencil Buffer</span>
-      <span class="px-2 py-1 rounded border border-white/20 text-white/70">Custom Depth</span>
-      <span class="px-2 py-1 rounded border border-white/20 text-white/70">SDF</span>
-      <span class="px-2 py-1 rounded border border-white/20 text-white/70">Matcap</span>
+      <span class="px-2 py-1 rounded border border-faint text-tag">Unreal Engine 5</span>
+      <span class="px-2 py-1 rounded border border-faint text-tag">Material Editor</span>
+      <span class="px-2 py-1 rounded border border-faint text-tag">Post Process</span>
+      <span class="px-2 py-1 rounded border border-faint text-tag">Stencil Buffer</span>
+      <span class="px-2 py-1 rounded border border-faint text-tag">Custom Depth</span>
+      <span class="px-2 py-1 rounded border border-faint text-tag">SDF</span>
+      <span class="px-2 py-1 rounded border border-faint text-tag">Matcap</span>
     </div>
 
     <!-- Problem -->
@@ -85,7 +92,7 @@
     <section class="mb-16">
       <h2 class="text-xl font-bold mb-4">Solution</h2>
       <p class="text-muted text-sm leading-relaxed mb-4">Built a Cel Shading-based NPR prototype, then led system expansion and maintenance.</p>
-      <p class="text-muted text-sm leading-relaxed mb-6">Split the approach into Custom Depth + Post Process for in-house and Emissive + Inverted Hull for VRM, creating <strong class="text-white">4 NPR looks</strong>. The core nodes carried over from the prototype are SDF face shadow and Dot Product-based two-tone shading.</p>
+      <p class="text-muted text-sm leading-relaxed mb-6">Split the approach into Custom Depth + Post Process for in-house and Emissive + Inverted Hull for VRM, creating <strong class="text-heading">4 NPR looks</strong>. The core nodes carried over from the prototype are SDF face shadow and Dot Product-based two-tone shading.</p>
     </section>
 
     <!-- Result -->
@@ -100,12 +107,12 @@
             </tr>
           </thead>
           <tbody class="text-muted">
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">Rendering Transition</td><td class="py-3">Full transition from MetaHuman to anime style</td></tr>
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">NPR Looks</td><td class="py-3">4 looks — art team can change styles by swapping Toon Ramps</td></tr>
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">Material Scale</td><td class="py-3">698 MIs, 1,371 textures</td></tr>
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">Material Separation</td><td class="py-3">In-house (dedicated toon) + VRM (MToon reimplementation) built separately</td></tr>
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">Background Coexistence</td><td class="py-3">PBR backgrounds + NPR characters in the same scene</td></tr>
-            <tr><td class="py-3 pr-4 text-white font-medium">Look Dev</td><td class="py-3">Finalized per-character looks with art team — style changes possible via Toon Ramp swap</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading font-medium">Rendering Transition</td><td class="py-3">Full transition from MetaHuman to anime style</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading font-medium">NPR Looks</td><td class="py-3">4 looks — art team can change styles by swapping Toon Ramps</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading font-medium">Material Scale</td><td class="py-3">698 MIs, 1,371 textures</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading font-medium">Material Separation</td><td class="py-3">In-house (dedicated toon) + VRM (MToon reimplementation) built separately</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading font-medium">Background Coexistence</td><td class="py-3">PBR backgrounds + NPR characters in the same scene</td></tr>
+            <tr><td class="py-3 pr-4 text-heading font-medium">Look Dev</td><td class="py-3">Finalized per-character looks with art team — style changes possible via Toon Ramp swap</td></tr>
           </tbody>
         </table>
       </div>
@@ -195,7 +202,7 @@
             <tbody class="text-muted">
               <tr class="border-b border-border/50"><td class="py-2 pr-4">In-house Toon</td><td class="py-2 pr-4">433 inst</td><td class="py-2">7 / 16</td></tr>
               <tr class="border-b border-border/50"><td class="py-2 pr-4">VRM Toon</td><td class="py-2 pr-4">369 inst</td><td class="py-2">4 / 16</td></tr>
-              <tr><td class="py-2 pr-4 text-white font-medium">Zo Toon</td><td class="py-2 pr-4 text-white font-medium">226 inst</td><td class="py-2 text-white font-medium">3 / 16</td></tr>
+              <tr><td class="py-2 pr-4 text-heading font-medium">Zo Toon</td><td class="py-2 pr-4 text-heading font-medium">226 inst</td><td class="py-2 text-heading font-medium">3 / 16</td></tr>
             </tbody>
           </table>
           <p class="text-xs text-muted mt-2">Enabled realistic/non-realistic mixing while reducing shader cost by 48% (vs in-house)</p>
@@ -254,8 +261,8 @@
 
     <!-- Prev/Next -->
     <div class="flex justify-between items-center mt-16 pt-8 border-t border-border">
-      <a href="character-system.html" class="text-muted hover:text-white transition text-sm">&larr; Character System</a>
-      <a href="mmd-player.html" class="text-muted hover:text-white transition text-sm">MMD Player &rarr;</a>
+      <a href="character-system.html" class="text-muted hover:text-heading transition text-sm">&larr; Character System</a>
+      <a href="mmd-player.html" class="text-muted hover:text-heading transition text-sm">MMD Player &rarr;</a>
     </div>
 
   
@@ -272,11 +279,11 @@
       </div>
       <p class="text-center text-muted text-sm mb-6">NDA project.<br>Enter password to unlock content.</p>
       <input id="section-pw-input" type="password" placeholder="Password" autocomplete="off"
-        class="w-full bg-bg border border-border rounded-lg px-4 py-2.5 text-sm text-white placeholder-muted focus:outline-none focus:border-accent transition mb-3">
+        class="w-full bg-bg border border-border rounded-lg px-4 py-2.5 text-sm text-heading placeholder-muted focus:outline-none focus:border-accent transition mb-3">
       <p id="section-pw-error" class="hidden text-red-400 text-xs mb-3 text-center">Incorrect password</p>
       <button id="section-pw-submit"
-        class="w-full px-5 py-2.5 bg-white text-black text-sm font-medium rounded-lg hover:bg-white/90 transition">Unlock</button>
-      <button id="section-pw-close" class="block w-full mt-3 text-muted text-sm hover:text-white transition">Close</button>
+        class="w-full px-5 py-2.5 bg-heading text-bg text-sm font-medium rounded-lg hover:bg-heading/90 transition">Unlock</button>
+      <button id="section-pw-close" class="block w-full mt-3 text-muted text-sm hover:text-heading transition">Close</button>
     </div>
   </div>
 

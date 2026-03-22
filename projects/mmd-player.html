@@ -13,12 +13,17 @@
       theme: {
         extend: {
           colors: {
-            bg: '#080808',
-            surface: '#111113',
-            border: '#2a2b2f',
-            muted: '#a8adb6',
-            sub: '#b0b4ba',
-            accent: '#7c8aff',
+            bg: 'rgb(var(--c-bg) / <alpha-value>)',
+            surface: 'rgb(var(--c-surface) / <alpha-value>)',
+            border: 'rgb(var(--c-border) / <alpha-value>)',
+            muted: 'rgb(var(--c-muted) / <alpha-value>)',
+            sub: 'rgb(var(--c-sub) / <alpha-value>)',
+            accent: 'rgb(var(--c-accent) / <alpha-value>)',
+            heading: 'rgb(var(--c-heading) / <alpha-value>)',
+            body: 'rgb(var(--c-body) / <alpha-value>)',
+            tag: 'rgb(var(--c-tag) / <alpha-value>)',
+            caption: 'rgb(var(--c-caption) / <alpha-value>)',
+            faint: 'rgb(var(--c-faint) / <alpha-value>)',
           },
           fontSize: {
             sm: '1.05rem',
@@ -30,43 +35,47 @@
       },
     }
   </script>
+  <script>(function(){var t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t)})()</script>
   <link rel="icon" href="../favicon.png" type="image/png">
   <link rel="stylesheet" href="../css/style.css">
 </head>
-<body class="bg-bg text-[#dcdfe3]">
+<body class="bg-bg text-body">
 
   <nav class="fixed top-0 w-full z-50 bg-bg/80 backdrop-blur-md">
-    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+    <div class="max-w-[1400px] mx-auto px-6 h-16 flex items-center justify-between">
       <div class="flex items-center" style="gap:0.45rem"><a href="../index.html" style="cursor: url('../assets/cursor-wave.png') 12 12, pointer;"><img src="../assets/images/avatar.png" alt="" class="w-11 h-11 rounded-full object-cover border border-border transition-all duration-150"></a><a href="../index.html" style="font-family:'Gothic A1',sans-serif; font-size:1.5rem; font-weight:600; letter-spacing:0.6px; margin-top:4px; line-height:1; text-decoration:none; color:inherit; cursor:pointer;">Younsoo Lim</a></div>
-      <div class="hidden md:flex gap-8 text-sm text-sub">
-        <a href="../index.html#projects" class="hover:text-white transition">Projects</a>
-        <a href="../index.html#about" class="hover:text-white transition">About</a>
+      <div class="hidden md:flex gap-8 text-sm text-sub ml-auto">
+        <a href="../index.html#projects" class="hover:text-heading transition">Projects</a>
+        <a href="../index.html#about" class="hover:text-heading transition">About</a>
       </div>
-      <button id="hamburger-btn" class="md:hidden text-sub hover:text-white transition" aria-label="Toggle menu">
+      <div class="flex items-center gap-3">
+        <button id="theme-toggle" class="text-muted hover:text-heading transition" aria-label="Toggle theme"><svg class="w-5 h-5 theme-icon-sun hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg><svg class="w-5 h-5 theme-icon-moon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></button>
+        <button id="hamburger-btn" class="md:hidden text-sub hover:text-heading transition" aria-label="Toggle menu">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
         </svg>
       </button>
+      </div>
     </div>
     <div id="mobile-menu" class="md:hidden hidden border-t border-border bg-bg/95 backdrop-blur-md">
       <div class="flex flex-col px-6 py-4 gap-4 text-sm text-sub">
-        <a href="../index.html#projects" class="hover:text-white transition">Projects</a>
-        <a href="../index.html#about" class="hover:text-white transition">About</a>
+        <a href="../index.html#projects" class="hover:text-heading transition">Projects</a>
+        <a href="../index.html#about" class="hover:text-heading transition">About</a>
       </div>
     </div>
   </nav>
 
-  <main class="max-w-4xl mx-auto px-6 pt-20 pb-24">
+  <main class="max-w-4xl mx-auto px-6 pt-16 pb-24">
 
 
-    <div class="relative left-1/2 -translate-x-1/2 w-screen max-w-6xl px-6 mb-12">
+    <div class="relative left-1/2 -translate-x-1/2 w-screen max-w-[1400px] px-6 mb-12">
       <iframe src="https://tomlim2.github.io/mmd-anju/" title="MMD Player live demo" class="w-full h-[70vh] sm:h-[70vh] h-[50vh] border-0" allow="autoplay" loading="lazy"></iframe>
     </div>
 
     <div class="flex items-center gap-4 mb-3">
       <h1 class="text-4xl font-bold">MMD Player</h1>
       <div class="flex gap-3 mt-2">
-        <a href="https://tomlim2.github.io/mmd-anju/" target="_blank" rel="noopener" class="text-muted hover:text-white transition" aria-label="Live Demo" data-tip="Live Demo"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg></a>
+        <a href="https://tomlim2.github.io/mmd-anju/" target="_blank" rel="noopener" class="text-muted hover:text-heading transition" aria-label="Live Demo" data-tip="Live Demo"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg></a>
       </div>
     </div>
 
@@ -80,15 +89,15 @@
       <span>Personal Project</span>
     </div>
     <div class="flex flex-wrap gap-2 text-xs text-muted mb-12">
-      <span class="px-2 py-1 rounded border border-white/20 text-white/70">Three.js WebGPU (r172)</span>
-      <span class="px-2 py-1 rounded border border-white/20 text-white/70">TSL Shader</span>
-      <span class="px-2 py-1 rounded border border-white/20 text-white/70">Vanilla JavaScript</span>
+      <span class="px-2 py-1 rounded border border-faint text-tag">Three.js WebGPU (r172)</span>
+      <span class="px-2 py-1 rounded border border-faint text-tag">TSL Shader</span>
+      <span class="px-2 py-1 rounded border border-faint text-tag">Vanilla JavaScript</span>
     </div>
 
     <!-- Motivation -->
     <section class="mb-16">
       <h2 class="text-xl font-bold mb-4">Motivation</h2>
-      <p class="text-muted text-sm leading-relaxed mb-4">Started as a source verifier for the <a href="pmx-to-vrm.html" class="text-accent hover:underline">PMX-to-VRM conversion pipeline</a>. I needed a tool to verify that the original model and motion work correctly before conversion. The key challenge was distinguishing whether import failures were caused by <strong class="text-white">the original PMX or the VRM converter</strong> — if the PMX itself has missing textures or absent bones, it is not a converter issue.</p>
+      <p class="text-muted text-sm leading-relaxed mb-4">Started as a source verifier for the <a href="pmx-to-vrm.html" class="text-accent hover:underline">PMX-to-VRM conversion pipeline</a>. I needed a tool to verify that the original model and motion work correctly before conversion. The key challenge was distinguishing whether import failures were caused by <strong class="text-heading">the original PMX or the VRM converter</strong> — if the PMX itself has missing textures or absent bones, it is not a converter issue.</p>
       <p class="text-muted text-sm leading-relaxed">Target users: planners and QA — not just TAs, but non-developer roles who can open and verify directly.</p>
     </section>
 
@@ -113,19 +122,19 @@
             </tr>
           </thead>
           <tbody class="text-muted">
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white">あにまさ式 (Animasa)</td><td class="py-3">Default MMD model, minimal bone set (~30)</td></tr>
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white">TDA式</td><td class="py-3">Includes semi-standard bones (上半身2, 腕捩, etc.)</td></tr>
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white">YYB式</td><td class="py-3">TDA-based + extended auxiliary bones</td></tr>
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white">にがもん式</td><td class="py-3">Compact bone set, non-Vocaloid characters</td></tr>
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white">つみだんご式</td><td class="py-3">High-density custom bones (325), 50 expressions</td></tr>
-            <tr><td class="py-3 pr-4 text-white">ミリシタ</td><td class="py-3">Romanized bone names, incompatible with standard VMD</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading">あにまさ式 (Animasa)</td><td class="py-3">Default MMD model, minimal bone set (~30)</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading">TDA式</td><td class="py-3">Includes semi-standard bones (上半身2, 腕捩, etc.)</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading">YYB式</td><td class="py-3">TDA-based + extended auxiliary bones</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading">にがもん式</td><td class="py-3">Compact bone set, non-Vocaloid characters</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading">つみだんご式</td><td class="py-3">High-density custom bones (325), 50 expressions</td></tr>
+            <tr><td class="py-3 pr-4 text-heading">ミリシタ</td><td class="py-3">Romanized bone names, incompatible with standard VMD</td></tr>
           </tbody>
         </table>
       </div>
 
       <!-- Precompute Effects -->
       <h3 class="font-medium mb-3">Motion-synced Effects — Precompute Experiment</h3>
-      <p class="text-muted text-sm leading-relaxed mb-4">Precompute experiment: derive vector fields and effect timing from VMD motion data on the CPU. Lightweight, no real-time analysis needed. Built as a POC to show planning and client teams that <strong class="text-white">"it moves well."</strong></p>
+      <p class="text-muted text-sm leading-relaxed mb-4">Precompute experiment: derive vector fields and effect timing from VMD motion data on the CPU. Lightweight, no real-time analysis needed. Built as a POC to show planning and client teams that <strong class="text-heading">"it moves well."</strong></p>
       <p class="text-muted text-sm leading-relaxed mb-4">6 types: Foot Ripple, Spark Burst, Ground Reflect, Falling/Rising Light, Velocity Effect</p>
 
       <div class="mb-8 overflow-hidden max-w-xl mx-auto">
@@ -134,7 +143,7 @@
 
       <!-- TSL Toon Shading -->
       <h3 class="font-medium mb-3">TSL Toon Shading — PMX Material Conversion</h3>
-      <p class="text-muted text-sm leading-relaxed mb-4">PMX matcap + additive overlay + alpha converted to TSL <code class="text-white/80">MeshBasicNodeMaterial</code>. On this model, <code class="text-white/80">textureSample()</code> was called 2–3 times per fragment for the same texture — cached the node once and reused it. Also pulled opacity out of <code class="text-white/80">Fn()</code> to fix a bug where materials went invisible in the reflector pass.</p>
+      <p class="text-muted text-sm leading-relaxed mb-4">PMX matcap + additive overlay + alpha converted to TSL <code class="text-heading/80">MeshBasicNodeMaterial</code>. On this model, <code class="text-heading/80">textureSample()</code> was called 2–3 times per fragment for the same texture — cached the node once and reused it. Also pulled opacity out of <code class="text-heading/80">Fn()</code> to fix a bug where materials went invisible in the reflector pass.</p>
 
       <div class="mb-8 overflow-hidden max-w-3xl mx-auto">
         <img src="../assets/images/mmd-player/toon-shader-before-after.png" alt="Before and after TSL toon shader fix — white regions resolved to transparent overlay" class="w-full">
@@ -170,12 +179,12 @@
             </tr>
           </thead>
           <tbody class="text-muted">
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">Source Verification</td><td class="py-3">Distinguishes PMX issues vs converter issues — directly used by planners/QA</td></tr>
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">Motion Verification</td><td class="py-3">Supports 6 model families, automatic bone match rate/IK conflict detection</td></tr>
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">Effect Precompute</td><td class="py-3">6 types — POC for convincing planning/client teams</td></tr>
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">Post-Process</td><td class="py-3">Dual chain bloom skip, lazy init, renderer bypass — laptop doesn't cook anymore</td></tr>
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">Tech Validation</td><td class="py-3">WebGPU + TSL shaders in a real project</td></tr>
-            <tr><td class="py-3 pr-4 text-white font-medium">Status</td><td class="py-3">WIP — next up: physics bone simulation (rigid body + joint), gaussian splatting background</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading font-medium">Source Verification</td><td class="py-3">Distinguishes PMX issues vs converter issues — directly used by planners/QA</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading font-medium">Motion Verification</td><td class="py-3">Supports 6 model families, automatic bone match rate/IK conflict detection</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading font-medium">Effect Precompute</td><td class="py-3">6 types — POC for convincing planning/client teams</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading font-medium">Post-Process</td><td class="py-3">Dual chain bloom skip, lazy init, renderer bypass — laptop doesn't cook anymore</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading font-medium">Tech Validation</td><td class="py-3">WebGPU + TSL shaders in a real project</td></tr>
+            <tr><td class="py-3 pr-4 text-heading font-medium">Status</td><td class="py-3">WIP — next up: physics bone simulation (rigid body + joint), gaussian splatting background</td></tr>
           </tbody>
         </table>
       </div>
@@ -199,7 +208,7 @@
         </details>
         <details class="bg-surface rounded-lg border border-border">
           <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">Post-Process — Dual Chain Bloom Skip</summary>
-          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">Two output chains, same uniforms, split at bloom. Swapping <code class="text-white/80">outputNode</code> cuts bloom's downsample+blur passes from the GPU graph. PP off → renderer tone mapping (ACES, AgX, Neutral, etc.) takes over, costs almost nothing. The PostProcess module itself is lazy-loaded via dynamic import — GPU resources don't get allocated until you actually turn it on.</div>
+          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">Two output chains, same uniforms, split at bloom. Swapping <code class="text-heading/80">outputNode</code> cuts bloom's downsample+blur passes from the GPU graph. PP off → renderer tone mapping (ACES, AgX, Neutral, etc.) takes over, costs almost nothing. The PostProcess module itself is lazy-loaded via dynamic import — GPU resources don't get allocated until you actually turn it on.</div>
         </details>
         <details class="bg-surface rounded-lg border border-border">
           <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">TSL Shaders — WebGPU Custom Materials</summary>
@@ -214,8 +223,8 @@
 
     <!-- Prev/Next -->
     <div class="flex justify-between items-center mt-16 pt-8 border-t border-border">
-      <a href="npr-shader.html" class="text-muted hover:text-white transition text-sm">&larr; NPR Shader System</a>
-      <a href="pmx-to-vrm.html" class="text-muted hover:text-white transition text-sm">PMX to VRM Pipeline &rarr;</a>
+      <a href="npr-shader.html" class="text-muted hover:text-heading transition text-sm">&larr; NPR Shader System</a>
+      <a href="pmx-to-vrm.html" class="text-muted hover:text-heading transition text-sm">PMX to VRM Pipeline &rarr;</a>
     </div>
 
   </main>

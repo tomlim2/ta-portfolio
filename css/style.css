@@ -1,3 +1,35 @@
+/* ── Theme Variables ── */
+
+:root {
+  --c-bg: 248 249 250;
+  --c-surface: 255 255 255;
+  --c-border: 218 220 224;
+  --c-muted: 108 117 125;
+  --c-sub: 73 80 87;
+  --c-accent: 91 106 240;
+  --c-body: 33 37 41;
+  --c-heading: 17 20 24;
+  --c-tag: 55 65 80;
+  --c-caption: 100 110 125;
+  --c-faint: 195 200 210;
+}
+
+[data-theme="dark"] {
+  --c-bg: 8 8 8;
+  --c-surface: 17 17 19;
+  --c-border: 42 43 47;
+  --c-muted: 168 173 182;
+  --c-sub: 176 180 186;
+  --c-accent: 124 138 255;
+  --c-body: 220 223 227;
+  --c-heading: 255 255 255;
+  --c-tag: 200 205 215;
+  --c-caption: 145 150 158;
+  --c-faint: 55 58 65;
+}
+
+/* ── Base ── */
+
 html {
   scroll-behavior: smooth;
 }
@@ -66,7 +98,7 @@ details summary::before {
   margin-right: 0.5rem;
   font-size: 0.6rem;
   transition: transform 0.2s;
-  color: #666;
+  color: rgb(var(--c-muted));
 }
 
 details[open] summary::before {
@@ -82,9 +114,9 @@ blockquote {
   align-items: center;
   justify-content: center;
   padding: 2rem 1rem;
-  border: 1px dashed #333;
+  border: 1px dashed rgb(var(--c-border));
   border-radius: 0;
-  background-color: #151518;
+  background-color: rgb(var(--c-surface));
   cursor: pointer;
   margin: 1rem 0;
 }
@@ -92,7 +124,7 @@ blockquote {
 .encrypted-placeholder svg {
   width: 1.25rem;
   height: 1.25rem;
-  fill: #888;
+  fill: rgb(var(--c-muted));
 }
 
 .encrypted-placeholder:hover {
@@ -120,8 +152,8 @@ table {
   margin-top: 6px;
   padding: 3px 8px;
   font-size: 0.7rem;
-  color: #dcdfe3;
-  background: #1a1a1e;
+  color: rgb(var(--c-body));
+  background: rgb(var(--c-surface));
   border-radius: 4px;
   white-space: nowrap;
   pointer-events: none;
@@ -131,6 +163,12 @@ table {
 
 [data-tip]:hover::after {
   opacity: 1;
+}
+
+/* ── Theme Toggle ── */
+
+#theme-toggle {
+  display: none;
 }
 
 @media (prefers-reduced-motion: reduce) {

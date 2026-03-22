@@ -13,12 +13,17 @@
       theme: {
         extend: {
           colors: {
-            bg: '#080808',
-            surface: '#111113',
-            border: '#2a2b2f',
-            muted: '#a8adb6',
-            sub: '#b0b4ba',
-            accent: '#7c8aff',
+            bg: 'rgb(var(--c-bg) / <alpha-value>)',
+            surface: 'rgb(var(--c-surface) / <alpha-value>)',
+            border: 'rgb(var(--c-border) / <alpha-value>)',
+            muted: 'rgb(var(--c-muted) / <alpha-value>)',
+            sub: 'rgb(var(--c-sub) / <alpha-value>)',
+            accent: 'rgb(var(--c-accent) / <alpha-value>)',
+            heading: 'rgb(var(--c-heading) / <alpha-value>)',
+            body: 'rgb(var(--c-body) / <alpha-value>)',
+            tag: 'rgb(var(--c-tag) / <alpha-value>)',
+            caption: 'rgb(var(--c-caption) / <alpha-value>)',
+            faint: 'rgb(var(--c-faint) / <alpha-value>)',
           },
           fontSize: {
             sm: '1.05rem',
@@ -30,36 +35,40 @@
       },
     }
   </script>
+  <script>(function(){var t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t)})()</script>
   <meta name="description" content="Younsoo Lim — Technical Artist. UE5 Character Systems, NPR Shader, Pipeline Tools.">
   <link rel="icon" href="favicon.png" type="image/png">
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="bg-bg text-[#dcdfe3]">
-  <a href="#projects" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:bg-white focus:text-black focus:px-4 focus:py-2 focus:rounded focus:z-[60]">Skip to content</a>
+<body class="bg-bg text-body">
+  <a href="#projects" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:bg-heading focus:text-bg focus:px-4 focus:py-2 focus:rounded focus:z-[60]">Skip to content</a>
 
   <!-- Navigation -->
   <nav class="fixed top-0 w-full z-50 bg-bg/80 backdrop-blur-md">
-    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+    <div class="max-w-[1400px] mx-auto px-6 h-16 flex items-center justify-between">
       <div class="flex items-center" style="gap:0.45rem">
         <a href="#" onclick="window.scrollTo({top:0});return false" style="cursor: url('assets/cursor-wave.png') 12 12, pointer;">
           <img id="nav-avatar" src="assets/images/avatar.png" alt="" class="w-11 h-11 rounded-full object-cover border border-border transition-all duration-150">
         </a>
         <a href="#" onclick="window.scrollTo({top:0});return false" id="nav-name" style="font-family:'Gothic A1',sans-serif; font-size:1.5rem; font-weight:600; letter-spacing:0.6px; margin-top:4px; line-height:1; text-decoration:none; color:inherit; cursor:pointer;">Younsoo Lim</a>
       </div>
-      <div class="hidden md:flex gap-8 text-sm text-sub" id="desktop-nav">
-        <a href="#projects" class="nav-link hover:text-white transition">Projects</a>
-        <a href="#about" class="nav-link hover:text-white transition">About</a>
+      <div class="hidden md:flex gap-8 text-sm text-sub ml-auto" id="desktop-nav">
+        <a href="#projects" class="nav-link hover:text-heading transition">Projects</a>
+        <a href="#about" class="nav-link hover:text-heading transition">About</a>
       </div>
-      <button id="hamburger-btn" class="md:hidden text-muted hover:text-white transition" aria-label="Toggle menu">
+      <div class="flex items-center gap-3">
+        <button id="theme-toggle" class="text-muted hover:text-heading transition" aria-label="Toggle theme"><svg class="w-5 h-5 theme-icon-sun hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg><svg class="w-5 h-5 theme-icon-moon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></button>
+        <button id="hamburger-btn" class="md:hidden text-muted hover:text-heading transition" aria-label="Toggle menu">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
         </svg>
       </button>
+      </div>
     </div>
     <div id="mobile-menu" class="md:hidden hidden border-t border-border bg-bg/95 backdrop-blur-md">
       <div class="flex flex-col px-6 py-4 gap-4 text-sm text-sub">
-        <a href="#projects" class="nav-link hover:text-white transition">Projects</a>
-        <a href="#about" class="nav-link hover:text-white transition">About</a>
+        <a href="#projects" class="nav-link hover:text-heading transition">Projects</a>
+        <a href="#about" class="nav-link hover:text-heading transition">About</a>
       </div>
     </div>
   </nav>
@@ -67,34 +76,34 @@
   <main>
 
   <!-- Hero -->
-  <section class="min-h-[40vh] flex flex-col justify-center px-6 pt-36 pb-12 max-w-6xl mx-auto">
+  <section class="min-h-[40vh] flex flex-col justify-center px-6 pt-36 pb-12 max-w-[1400px] mx-auto">
     <div class="mb-3 max-w-2xl"><p class="text-sub text-3xl leading-relaxed" style="font-family:'Gothic A1',sans-serif; letter-spacing:0.02em">Technical Artist who keeps<br>carving until I want it myself</p></div>
     <div class="max-w-2xl"><p class="text-muted text-sm leading-relaxed">Real-time Character Systems · NPR Look Dev · Artist Tools & Pipeline</p></div>
     <div class="max-w-2xl"><p class="text-muted text-sm leading-relaxed">Cinamon 3+ Years · Unreal Engine 5</p></div>
     <div class="flex gap-4 mt-4">
-            <a href="assets/resume.pdf" target="_blank" rel="noopener" class="text-sub hover:text-white transition" aria-label="Resume" data-tip="Resume">
+            <a href="assets/resume.pdf" target="_blank" rel="noopener" class="text-sub hover:text-heading transition" aria-label="Resume" data-tip="Resume">
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 -960 960 960"><path d="M320-240h320v-80H320v80Zm0-160h320v-80H320v80ZM240-80q-33 0-56.5-23.5T160-160v-640q0-33 23.5-56.5T240-880h320l240 240v480q0 33-23.5 56.5T720-80H240Zm280-520v-200H240v640h480v-440H520ZM240-800v200-200 640-640Z"/></svg>
             </a>
-            <a href="https://github.com/tomlim2" target="_blank" rel="noopener" class="text-sub hover:text-white transition" aria-label="GitHub" data-tip="GitHub">
+            <a href="https://github.com/tomlim2" target="_blank" rel="noopener" class="text-sub hover:text-heading transition" aria-label="GitHub" data-tip="GitHub">
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
             </a>
-            <a href="https://www.linkedin.com/in/tommlimm/" target="_blank" rel="noopener" class="text-sub hover:text-white transition" aria-label="LinkedIn" data-tip="LinkedIn">
+            <a href="https://www.linkedin.com/in/tommlimm/" target="_blank" rel="noopener" class="text-sub hover:text-heading transition" aria-label="LinkedIn" data-tip="LinkedIn">
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
             </a>
-            <a href="https://www.instagram.com/tommlimm/" target="_blank" rel="noopener" class="text-sub hover:text-white transition" aria-label="Instagram" data-tip="Instagram">
+            <a href="https://www.instagram.com/tommlimm/" target="_blank" rel="noopener" class="text-sub hover:text-heading transition" aria-label="Instagram" data-tip="Instagram">
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C16.67.014 16.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
             </a>
-            <a href="https://x.com/yslim159" target="_blank" rel="noopener" class="text-sub hover:text-white transition" aria-label="X (Twitter)" data-tip="X">
+            <a href="https://x.com/yslim159" target="_blank" rel="noopener" class="text-sub hover:text-heading transition" aria-label="X (Twitter)" data-tip="X">
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
             </a>
-            <a href="mailto:tomandlim@gmail.com" class="text-sub hover:text-white transition" aria-label="Email" data-tip="Email">
+            <a href="mailto:tomandlim@gmail.com" class="text-sub hover:text-heading transition" aria-label="Email" data-tip="Email">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
             </a>
     </div>
   </section>
 
   <!-- Projects -->
-  <section id="projects" class="max-w-6xl mx-auto px-6 py-24">
+  <section id="projects" class="max-w-[1400px] mx-auto px-6 py-24">
     <h2 class="sr-only">Projects</h2>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -108,7 +117,7 @@
           <div class="flex items-center gap-2 mb-2">
             <h3 class="text-lg font-medium">Matcap Painter</h3>          </div>
           <p class="text-sub text-sm mb-3">NPR Matcap real-time production tool — eliminates Photoshop round-trips, 229 presets</p>
-          <p class="text-xs text-white/50 uppercase tracking-wide">Three.js · WebGPU</p>
+          <p class="text-xs text-caption uppercase tracking-wide">Three.js · WebGPU</p>
         </div>
       </div>
 
@@ -121,7 +130,7 @@
           <div class="flex items-center gap-2 mb-2">
             <h3 class="text-lg font-medium">Character System</h3>          </div>
           <p class="text-sub text-sm mb-3">300+ characters, tool loading 30s to 6s — part assembly to external VRM import</p>
-          <p class="text-xs text-white/50 uppercase tracking-wide">UE5 · C++ · Blueprint</p>
+          <p class="text-xs text-caption uppercase tracking-wide">UE5 · C++ · Blueprint</p>
         </div>
       </div>
 
@@ -134,7 +143,7 @@
           <div class="flex items-center gap-2 mb-2">
             <h3 class="text-lg font-medium">NPR Shader System</h3>          </div>
           <p class="text-sub text-sm mb-3">MetaHuman to anime full conversion — 4 NPR looks, PBR+NPR coexistence</p>
-          <p class="text-xs text-white/50 uppercase tracking-wide">UE5 · Shader</p>
+          <p class="text-xs text-caption uppercase tracking-wide">UE5 · Shader</p>
         </div>
       </div>
 
@@ -147,7 +156,7 @@
           <div class="flex items-center gap-2 mb-2">
             <h3 class="text-lg font-medium">MMD Player</h3>          </div>
           <p class="text-sub text-sm mb-3">WebGPU MMD viewer — motion sync effects, body proportion correction. WIP</p>
-          <p class="text-xs text-white/50 uppercase tracking-wide">Three.js · WebGPU</p>
+          <p class="text-xs text-caption uppercase tracking-wide">Three.js · WebGPU</p>
         </div>
       </div>
 
@@ -160,7 +169,7 @@
           <div class="flex items-center gap-2 mb-2">
             <h3 class="text-lg font-medium">PMX to VRM Pipeline</h3>          </div>
           <p class="text-sub text-sm mb-3">Community PMX to UE VRM auto-conversion — physics/look preserved, 90% major publisher coverage</p>
-          <p class="text-xs text-white/50 uppercase tracking-wide">Python · TypeScript</p>
+          <p class="text-xs text-caption uppercase tracking-wide">Python · TypeScript</p>
         </div>
       </div>
 
@@ -173,7 +182,7 @@
           <div class="flex items-center gap-2 mb-2">
             <h3 class="text-lg font-medium">Live UE Scene Bridge</h3>          </div>
           <p class="text-sub text-sm mb-3">Natural language outdoor scene setup — Cesium+UDS integration, AI i2i concept extraction</p>
-          <p class="text-xs text-white/50 uppercase tracking-wide">UE5 · C++ · Python</p>
+          <p class="text-xs text-caption uppercase tracking-wide">UE5 · C++ · Python</p>
         </div>
       </div>
 
@@ -182,7 +191,7 @@
   </section>
 
   <!-- About -->
-  <section id="about" class="max-w-6xl mx-auto px-6 py-24 border-t border-border">
+  <section id="about" class="max-w-[1400px] mx-auto px-6 py-24 border-t border-border">
     <h2 class="text-2xl font-semibold mb-12">About</h2>
     <div class="grid md:grid-cols-2 gap-16">
       <div>
@@ -276,9 +285,9 @@
       <p class="text-center text-muted text-sm mb-6">NDA project.<br>Enter password to view.</p>
       <div class="flex gap-2">
         <input id="pw-input" type="password" placeholder="Password" autocomplete="off"
-          class="min-w-0 flex-1 bg-bg border border-border rounded-lg px-4 py-2.5 text-sm text-white placeholder-muted focus:outline-none focus:border-accent transition">
+          class="min-w-0 flex-1 bg-bg border border-border rounded-lg px-4 py-2.5 text-sm text-heading placeholder-muted focus:outline-none focus:border-accent transition">
         <button id="pw-submit"
-          class="shrink-0 px-5 py-2.5 bg-white text-black text-sm font-medium rounded-lg hover:bg-white/90 transition">Unlock</button>
+          class="shrink-0 px-5 py-2.5 bg-heading text-bg text-sm font-medium rounded-lg hover:bg-heading/90 transition">Unlock</button>
       </div>
       <p id="pw-error" class="hidden text-red-400 text-xs mt-3 text-center">Incorrect password</p>
     </div>

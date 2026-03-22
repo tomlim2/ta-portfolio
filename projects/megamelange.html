@@ -13,12 +13,17 @@
       theme: {
         extend: {
           colors: {
-            bg: '#080808',
-            surface: '#111113',
-            border: '#2a2b2f',
-            muted: '#a8adb6',
-            sub: '#b0b4ba',
-            accent: '#7c8aff',
+            bg: 'rgb(var(--c-bg) / <alpha-value>)',
+            surface: 'rgb(var(--c-surface) / <alpha-value>)',
+            border: 'rgb(var(--c-border) / <alpha-value>)',
+            muted: 'rgb(var(--c-muted) / <alpha-value>)',
+            sub: 'rgb(var(--c-sub) / <alpha-value>)',
+            accent: 'rgb(var(--c-accent) / <alpha-value>)',
+            heading: 'rgb(var(--c-heading) / <alpha-value>)',
+            body: 'rgb(var(--c-body) / <alpha-value>)',
+            tag: 'rgb(var(--c-tag) / <alpha-value>)',
+            caption: 'rgb(var(--c-caption) / <alpha-value>)',
+            faint: 'rgb(var(--c-faint) / <alpha-value>)',
           },
           fontSize: {
             sm: '1.05rem',
@@ -30,27 +35,29 @@
       },
     }
   </script>
+  <script>(function(){var t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t)})()</script>
   <link rel="icon" href="../favicon.png" type="image/png">
   <link rel="stylesheet" href="../css/style.css">
 </head>
-<body class="bg-bg text-[#dcdfe3]">
+<body class="bg-bg text-body">
 
   <nav class="fixed top-0 w-full z-50 bg-bg/80 backdrop-blur-md">
-    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+    <div class="max-w-[1400px] mx-auto px-6 h-16 flex items-center justify-between">
       <div class="flex items-center" style="gap:0.45rem"><a href="../index.html" style="cursor: url('../assets/cursor-wave.png') 12 12, pointer;"><img src="../assets/images/avatar.png" alt="" class="w-11 h-11 rounded-full object-cover border border-border transition-all duration-150"></a><a href="../index.html" style="font-family:'Gothic A1',sans-serif; font-size:1.5rem; font-weight:600; letter-spacing:0.6px; margin-top:4px; line-height:1; text-decoration:none; color:inherit; cursor:pointer;">Younsoo Lim</a></div>
-      <div class="hidden md:flex gap-8 text-sm text-sub">
-        <a href="../index.html#projects" class="hover:text-white transition">Projects</a>
-        <a href="../index.html#about" class="hover:text-white transition">About</a>
+      <div class="hidden md:flex gap-8 text-sm text-sub ml-auto">
+        <a href="../index.html#projects" class="hover:text-heading transition">Projects</a>
+        <a href="../index.html#about" class="hover:text-heading transition">About</a>
       </div>
+      <button id="theme-toggle" class="text-muted hover:text-heading transition" aria-label="Toggle theme"><svg class="w-5 h-5 theme-icon-sun hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg><svg class="w-5 h-5 theme-icon-moon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></button>
     </div>
   </nav>
 
-  <main class="max-w-4xl mx-auto px-6 pt-20 pb-24">
+  <main class="max-w-4xl mx-auto px-6 pt-16 pb-24">
 
 
 
 
-    <div class="relative left-1/2 -translate-x-1/2 w-screen max-w-6xl px-6 mb-12">
+    <div class="relative left-1/2 -translate-x-1/2 w-screen max-w-[1400px] px-6 mb-12">
       <img src="../assets/images/megamelange/hero.png" alt="Live UE Scene Bridge workflow — UE Editor + Web UI + AI generation results" class="w-full h-[70vh] object-cover object-center">
     </div>
 
@@ -66,12 +73,12 @@
       <span>Company Project (POC)</span>
     </div>
     <div class="flex flex-wrap gap-2 text-xs text-muted mb-12">
-      <span class="px-2 py-1 rounded border border-white/20 text-white/70">Next.js 15.4</span>
-      <span class="px-2 py-1 rounded border border-white/20 text-white/70">FastAPI</span>
-      <span class="px-2 py-1 rounded border border-white/20 text-white/70">C++ (UE Plugin)</span>
-      <span class="px-2 py-1 rounded border border-white/20 text-white/70">Anthropic SDK</span>
-      <span class="px-2 py-1 rounded border border-white/20 text-white/70">Google GenAI</span>
-      <span class="px-2 py-1 rounded border border-white/20 text-white/70">TCP Socket</span>
+      <span class="px-2 py-1 rounded border border-faint text-tag">Next.js 15.4</span>
+      <span class="px-2 py-1 rounded border border-faint text-tag">FastAPI</span>
+      <span class="px-2 py-1 rounded border border-faint text-tag">C++ (UE Plugin)</span>
+      <span class="px-2 py-1 rounded border border-faint text-tag">Anthropic SDK</span>
+      <span class="px-2 py-1 rounded border border-faint text-tag">Google GenAI</span>
+      <span class="px-2 py-1 rounded border border-faint text-tag">TCP Socket</span>
     </div>
 
     <!-- Problem -->
@@ -109,7 +116,7 @@
       </div>
 
       <h3 class="font-medium mb-3">Core — Cesium + UDS Integration</h3>
-      <p class="text-muted text-sm leading-relaxed mb-4">The most invested part. By combining Cesium terrain data with Ultra Dynamic Sky, a single natural language line sets up an outdoor background with <strong class="text-white">location + time of day + weather + mood</strong>. Adding Nano Banana (i2i) on top transforms it into the desired concept or feel, so you go from a text prompt to a styled concept image without leaving the tool.</p>
+      <p class="text-muted text-sm leading-relaxed mb-4">The most invested part. By combining Cesium terrain data with Ultra Dynamic Sky, a single natural language line sets up an outdoor background with <strong class="text-heading">location + time of day + weather + mood</strong>. Adding Nano Banana (i2i) on top transforms it into the desired concept or feel, so you go from a text prompt to a styled concept image without leaving the tool.</p>
 
 <div class="encrypted-block">
   <div class="encrypted-placeholder"><svg viewBox="0 -960 960 960"><path d="M252.31-100q-29.92 0-51.12-21.19Q180-142.39 180-172.31v-375.38q0-29.92 21.19-51.12Q222.39-620 252.31-620H300v-80q0-74.92 52.54-127.46Q405.08-880 480-880q74.92 0 127.46 52.54Q660-774.92 660-700v80h47.69q29.92 0 51.12 21.19Q780-577.61 780-547.69v375.38q0 29.92-21.19 51.12Q737.61-100 707.69-100H252.31Zm0-60h455.38q5.39 0 8.85-3.46t3.46-8.85v-375.38q0-5.39-3.46-8.85t-8.85-3.46H252.31q-5.39 0-8.85 3.46t-3.46 8.85v375.38q0 5.39 3.46 8.85t8.85 3.46Zm277.27-150.42Q550-330.85 550-360t-20.42-49.58Q509.15-430 480-430t-49.58 20.42Q410-389.15 410-360t20.42 49.58Q450.85-290 480-290t49.58-20.42ZM360-620h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z"/></svg></div>
@@ -137,11 +144,11 @@
             </tr>
           </thead>
           <tbody class="text-muted">
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">Outdoor Scene Setup</td><td class="py-3">One-step composition of location + time + weather + mood via natural language</td></tr>
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">i2i Pipeline</td><td class="py-3">Scene to concept/mood transformation via Nano Banana</td></tr>
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">Service Integration</td><td class="py-3">4 services (UE, Nano Banana, Veo-3, Roblox)</td></tr>
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-white font-medium">Audience</td><td class="py-3">Demo for CEO, planners, team leads — POC</td></tr>
-            <tr><td class="py-3 pr-4 text-white font-medium">Outcome</td><td class="py-3">Handed off to product team (follow-up paused due to background automation dev cost)</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading font-medium">Outdoor Scene Setup</td><td class="py-3">One-step composition of location + time + weather + mood via natural language</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading font-medium">i2i Pipeline</td><td class="py-3">Scene to concept/mood transformation via Nano Banana</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading font-medium">Service Integration</td><td class="py-3">4 services (UE, Nano Banana, Veo-3, Roblox)</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading font-medium">Audience</td><td class="py-3">Demo for CEO, planners, team leads — POC</td></tr>
+            <tr><td class="py-3 pr-4 text-heading font-medium">Outcome</td><td class="py-3">Handed off to product team (follow-up paused due to background automation dev cost)</td></tr>
           </tbody>
         </table>
       </div>
@@ -181,8 +188,8 @@
 
     <!-- Prev/Next -->
     <div class="flex justify-between items-center mt-16 pt-8 border-t border-border">
-      <a href="pmx-to-vrm.html" class="text-muted hover:text-white transition text-sm">&larr; PMX to VRM Pipeline</a>
-      <a href="matcap-painter.html" class="text-muted hover:text-white transition text-sm">Matcap Painter &rarr;</a>
+      <a href="pmx-to-vrm.html" class="text-muted hover:text-heading transition text-sm">&larr; PMX to VRM Pipeline</a>
+      <a href="matcap-painter.html" class="text-muted hover:text-heading transition text-sm">Matcap Painter &rarr;</a>
     </div>
 
   
@@ -199,11 +206,11 @@
       </div>
       <p class="text-center text-muted text-sm mb-6">NDA project.<br>Enter password to unlock content.</p>
       <input id="section-pw-input" type="password" placeholder="Password" autocomplete="off"
-        class="w-full bg-bg border border-border rounded-lg px-4 py-2.5 text-sm text-white placeholder-muted focus:outline-none focus:border-accent transition mb-3">
+        class="w-full bg-bg border border-border rounded-lg px-4 py-2.5 text-sm text-heading placeholder-muted focus:outline-none focus:border-accent transition mb-3">
       <p id="section-pw-error" class="hidden text-red-400 text-xs mb-3 text-center">Incorrect password</p>
       <button id="section-pw-submit"
-        class="w-full px-5 py-2.5 bg-white text-black text-sm font-medium rounded-lg hover:bg-white/90 transition">Unlock</button>
-      <button id="section-pw-close" class="block w-full mt-3 text-muted text-sm hover:text-white transition">Close</button>
+        class="w-full px-5 py-2.5 bg-heading text-bg text-sm font-medium rounded-lg hover:bg-heading/90 transition">Unlock</button>
+      <button id="section-pw-close" class="block w-full mt-3 text-muted text-sm hover:text-heading transition">Close</button>
     </div>
   </div>
 
