@@ -2,7 +2,7 @@
 
 :root {
   --c-bg: 248 249 250;
-  --c-surface: 255 255 255;
+  --c-surface: 238 240 243;
   --c-border: 218 220 224;
   --c-muted: 108 117 125;
   --c-sub: 73 80 87;
@@ -16,26 +16,44 @@
 
 /* ── Code Blocks (always dark) ── */
 
-pre, code {
-  background-color: #111113;
-  color: #dcdfe3;
-}
-
 pre {
+  background-color: #1e1e2e;
+  color: #a6e3a1;
   padding: 1.25rem;
   border-radius: 0.5rem;
   overflow-x: auto;
 }
 
 code {
-  padding: 0.15em 0.4em;
-  border-radius: 0.25rem;
+  background: none;
+  color: rgb(var(--c-heading));
+  font-weight: 600;
   font-size: 0.875em;
 }
 
 pre code {
   padding: 0;
   background: none;
+  color: inherit;
+  font-weight: inherit;
+}
+
+/* ── Card Panels ── */
+
+.bg-surface > h3 {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: rgb(var(--c-heading));
+  padding-bottom: 0.75rem;
+  margin-bottom: 0.75rem;
+  border-bottom: 1px solid rgb(var(--c-heading));
+}
+
+.bg-surface p,
+.bg-surface div {
+  font-size: 0.925rem;
+  color: rgb(var(--c-muted));
+  line-height: 1.7;
 }
 
 /* ── Base ── */

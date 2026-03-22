@@ -42,7 +42,7 @@
 
   <nav class="fixed top-0 w-full z-50 bg-bg/80 backdrop-blur-md">
     <div class="max-w-[1400px] mx-auto px-6 h-16 flex items-center justify-between">
-      <div class="flex items-center" style="gap:0.45rem"><a href="../index.html" style="cursor: url('../assets/cursor-wave.png') 12 12, pointer;"><img src="../assets/images/avatar.png" alt="" class="w-11 h-11 rounded-full object-cover border border-border transition-all duration-150"></a><a href="../index.html" style="font-family:'Gothic A1',sans-serif; font-size:1.5rem; font-weight:600; letter-spacing:0.6px; margin-top:4px; line-height:1; text-decoration:none; color:inherit; cursor:pointer;">Younsoo Lim</a></div>
+      <a href="../index.html" style="font-family:'Gothic A1',sans-serif; font-size:1.5rem; font-weight:600; letter-spacing:0.6px; line-height:1; text-decoration:none; color:inherit; cursor:pointer;">Younsoo Lim</a>
       <div class="hidden md:flex gap-8 text-sm text-sub ml-auto">
         <a href="../index.html#projects" class="hover:text-heading transition">Projects</a>
         <a href="../index.html#about" class="hover:text-heading transition">About</a>
@@ -66,32 +66,16 @@
   <main class="max-w-4xl mx-auto px-6 pt-16 pb-24">
 
 
-    <div class="relative left-1/2 -translate-x-1/2 w-screen max-w-[1400px] px-6 mb-12">
+    <div class="mb-12">
       <video src="../assets/images/matcap-painter/shader-mode-demo.mp4" autoplay loop muted playsinline class="w-full"></video>
       <p class="text-xs text-muted mt-2 text-center">Shader Mode — Adjust Color Ramp → Real-time 3D preview</p>
     </div>
 
-    <div class="flex items-center gap-4 mb-3">
-      <h1 class="text-4xl font-bold">Matcap Painter</h1>
-      <div class="flex gap-3 mt-2">
-        <a href="https://tomlim2.github.io/matcap-painter/" target="_blank" rel="noopener" class="text-muted hover:text-heading transition" data-tip="Live Demo"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a>
-      </div>
-    </div>
+    <h1 class="text-4xl font-bold" style="font-family:'Noto Rashi Hebrew',serif;margin-bottom:0.6rem">Matcap Painter</h1>
 
-    <blockquote class="text-muted mb-6">
-      A tool for creating Matcap textures for NPR characters in real time and previewing them directly on 3D models — no Photoshop round-trips
-    </blockquote>
+    <p class="text-sub mb-6" style="font-size:1.05rem">Real-time Matcap texture creation + 3D preview</p>
 
-    <div class="flex flex-wrap gap-x-8 gap-y-2 text-xs text-muted mb-8">
-      <span>Tool Design, Shader Development</span>
-      <span>Feb 2026 (4 days)</span>
-      <span>Personal Project</span>
-    </div>
-    <div class="flex flex-wrap gap-2 text-xs text-muted mb-12">
-      <span class="px-2 py-1 text-tag">Three.js WebGPU (r172)</span>
-      <span class="px-2 py-1 text-tag">Vanilla JavaScript</span>
-      <span class="px-2 py-1 text-tag">Canvas 2D API</span>
-    </div>
+    <p class="text-xs text-muted mb-12">Three.js WebGPU · JavaScript · Canvas 2D — Personal, 2026 · <a href="https://tomlim2.github.io/matcap-painter/" target="_blank" rel="noopener" class="text-accent hover:underline">tomlim2.github.io/matcap-painter</a></p>
 
     <!-- Motivation -->
     <section class="mb-16">
@@ -104,11 +88,11 @@
       <h2 class="text-xl font-bold mb-4">Solution</h2>
 
       <div class="grid md:grid-cols-2 gap-6 mb-6">
-        <div class="bg-surface p-5">
+        <div class="bg-surface p-5 rounded-lg">
           <h3 class="font-medium mb-3">Shader Mode — Create from scratch</h3>
           <p class="text-muted text-sm leading-relaxed">A Blender Color Ramp-style UI for real-time control of Toon Ramp, Specular highlights, and Outline. Drag band count and boundaries to see instant updates in the 3D preview.</p>
         </div>
-        <div class="bg-surface p-5">
+        <div class="bg-surface p-5 rounded-lg">
           <h3 class="font-medium mb-3">Paint Mode — Edit existing textures</h3>
           <p class="text-muted text-sm leading-relaxed">Non-destructive editing with 8 Photoshop-style layers, based on 229 curated presets from an open-source library (nidorx/matcaps). Adjust HSV, Contrast, and Lift while previewing results in real time.</p>
         </div>

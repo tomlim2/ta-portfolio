@@ -42,7 +42,7 @@
 
   <nav class="fixed top-0 w-full z-50 bg-bg/80 backdrop-blur-md">
     <div class="max-w-[1400px] mx-auto px-6 h-16 flex items-center justify-between">
-      <div class="flex items-center" style="gap:0.45rem"><a href="../index.html" style="cursor: url('../assets/cursor-wave.png') 12 12, pointer;"><img src="../assets/images/avatar.png" alt="" class="w-11 h-11 rounded-full object-cover border border-border transition-all duration-150"></a><a href="../index.html" style="font-family:'Gothic A1',sans-serif; font-size:1.5rem; font-weight:600; letter-spacing:0.6px; margin-top:4px; line-height:1; text-decoration:none; color:inherit; cursor:pointer;">Younsoo Lim</a></div>
+      <a href="../index.html" style="font-family:'Gothic A1',sans-serif; font-size:1.5rem; font-weight:600; letter-spacing:0.6px; line-height:1; text-decoration:none; color:inherit; cursor:pointer;">Younsoo Lim</a>
       <div class="hidden md:flex gap-8 text-sm text-sub ml-auto">
         <a href="../index.html#projects" class="hover:text-heading transition">Projects</a>
         <a href="../index.html#about" class="hover:text-heading transition">About</a>
@@ -56,29 +56,15 @@
 
 
 
-    <div class="relative left-1/2 -translate-x-1/2 w-screen max-w-[1400px] px-6 mb-12">
+    <div class="mb-12">
       <img src="../assets/images/megamelange/hero.png" alt="Live UE Scene Bridge workflow — UE Editor + Web UI + AI generation results" class="w-full h-[70vh] object-cover object-center">
     </div>
 
-    <h1 class="text-4xl font-bold mb-3">Live UE Scene Bridge</h1>
+    <h1 class="text-4xl font-bold" style="font-family:'Noto Rashi Hebrew',serif;margin-bottom:0.6rem">Live UE Scene Bridge</h1>
 
-    <blockquote class="text-muted mb-6">
-      Sets up outdoor backgrounds from natural language, then runs AI image generation to match a target style or concept
-    </blockquote>
+    <p class="text-sub mb-6" style="font-size:1.05rem">Natural language to UE outdoor scene + AI concept</p>
 
-    <div class="flex flex-wrap gap-x-8 gap-y-2 text-xs text-muted mb-8">
-      <span>System Architecture, C++ Plugin, UE Integration</span>
-      <span>Aug 2025 ~ Feb 2026 (6.5 months, 234 commits)</span>
-      <span>Company Project (POC)</span>
-    </div>
-    <div class="flex flex-wrap gap-2 text-xs text-muted mb-12">
-      <span class="px-2 py-1 text-tag">Next.js 15.4</span>
-      <span class="px-2 py-1 text-tag">FastAPI</span>
-      <span class="px-2 py-1 text-tag">C++ (UE Plugin)</span>
-      <span class="px-2 py-1 text-tag">Anthropic SDK</span>
-      <span class="px-2 py-1 text-tag">Google GenAI</span>
-      <span class="px-2 py-1 text-tag">TCP Socket</span>
-    </div>
+    <p class="text-xs text-muted mb-12">C++ · FastAPI · Next.js — Company (POC), 2025–2026</p>
 
     <!-- Problem -->
     <section class="mb-16">
@@ -92,7 +78,7 @@
       <p class="text-muted text-sm leading-relaxed mb-6">Natural language goes through an AI layer (Claude/Gemini), which converts it to commands that a C++ plugin executes in the UE editor in real time.</p>
 
       <!-- NL examples -->
-      <div class="bg-surface p-5 mb-6">
+      <div class="bg-surface p-5 rounded-lg mb-6">
         <h3 class="font-medium mb-3">Usage Examples</h3>
         <div class="space-y-2 text-sm">
           <p class="text-green-400 italic">"Show me downtown Tokyo"</p>
@@ -104,15 +90,13 @@
       </div>
 
       <!-- Architecture -->
-      <div class="bg-surface p-5 mb-6">
-        <h3 class="font-medium mb-3">3-Layer Architecture</h3>
-        <pre class="text-xs text-green-400 overflow-x-auto"><code>Web UI / CLI → HTTP:34115 → FastAPI + NLP (Claude/Gemini)
+      <h3 class="font-medium mb-3">3-Layer Architecture</h3>
+      <pre class="text-xs mb-6"><code>Web UI / CLI → HTTP:34115 → FastAPI + NLP (Claude/Gemini)
                                     ↓
               ┌──────────────┬──────────────┬──────────────┐
               │ UE C++ Plugin│ Nano Banana  │ Veo-3        │
               │ TCP:55557    │ Image Gen    │ Video Gen    │
               └──────────────┴──────────────┴──────────────┘</code></pre>
-      </div>
 
       <h3 class="font-medium mb-3">Core — Cesium + UDS Integration</h3>
       <p class="text-muted text-sm leading-relaxed mb-4">The most invested part. By combining Cesium terrain data with Ultra Dynamic Sky, a single natural language line sets up an outdoor background with <strong class="text-heading">location + time of day + weather + mood</strong>. Adding Nano Banana (i2i) on top transforms it into the desired concept or feel, so you go from a text prompt to a styled concept image without leaving the tool.</p>

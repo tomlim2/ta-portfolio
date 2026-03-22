@@ -42,7 +42,7 @@
 
   <nav class="fixed top-0 w-full z-50 bg-bg/80 backdrop-blur-md">
     <div class="max-w-[1400px] mx-auto px-6 h-16 flex items-center justify-between">
-      <div class="flex items-center" style="gap:0.45rem"><a href="../index.html" style="cursor: url('../assets/cursor-wave.png') 12 12, pointer;"><img src="../assets/images/avatar.png" alt="" class="w-11 h-11 rounded-full object-cover border border-border transition-all duration-150"></a><a href="../index.html" style="font-family:'Gothic A1',sans-serif; font-size:1.5rem; font-weight:600; letter-spacing:0.6px; margin-top:4px; line-height:1; text-decoration:none; color:inherit; cursor:pointer;">Younsoo Lim</a></div>
+      <a href="../index.html" style="font-family:'Gothic A1',sans-serif; font-size:1.5rem; font-weight:600; letter-spacing:0.6px; line-height:1; text-decoration:none; color:inherit; cursor:pointer;">Younsoo Lim</a>
       <div class="hidden md:flex gap-8 text-sm text-sub ml-auto">
         <a href="../index.html#projects" class="hover:text-heading transition">Projects</a>
         <a href="../index.html#about" class="hover:text-heading transition">About</a>
@@ -55,29 +55,15 @@
 
 
 
-    <div class="relative left-1/2 -translate-x-1/2 w-screen max-w-[1400px] px-6 mb-12">
+    <div class="mb-12">
       <img src="../assets/images/pmx-to-vrm/hero-converted-characters.png" alt="Characters converted from PMX to VRM" class="w-full h-[70vh] object-cover object-center">
     </div>
 
-    <h1 class="text-4xl font-bold mb-3">PMX to VRM Pipeline</h1>
+    <h1 class="text-4xl font-bold" style="font-family:'Noto Rashi Hebrew',serif;margin-bottom:0.6rem">PMX to VRM Pipeline</h1>
 
-    <blockquote class="text-muted mb-6">
-      Built on top of the vrm4u character system to bring PMX into UE — automated conversion that keeps physics, bones, and materials intact
-    </blockquote>
+    <p class="text-sub mb-6" style="font-size:1.05rem">Drop a ZIP, get a UE-ready VRM</p>
 
-    <div class="flex flex-wrap gap-x-8 gap-y-2 text-xs text-muted mb-8">
-      <span>Pipeline Architecture, Tool Development</span>
-      <span>Feb 2026~ (35 commits)</span>
-      <span>Company Project</span>
-    </div>
-    <div class="flex flex-wrap gap-2 text-xs text-muted mb-12">
-      <span class="px-2 py-1 text-tag">Python</span>
-      <span class="px-2 py-1 text-tag">TypeScript</span>
-      <span class="px-2 py-1 text-tag">glTF 2.0</span>
-      <span class="px-2 py-1 text-tag">VRM 0.x</span>
-      <span class="px-2 py-1 text-tag">Next.js</span>
-      <span class="px-2 py-1 text-tag">Web Worker</span>
-    </div>
+    <p class="text-xs text-muted mb-12">Python · TypeScript · glTF 2.0 — Company, 2026</p>
 
     <!-- Problem -->
     <section class="mb-16">
@@ -90,10 +76,8 @@
       <h2 class="text-xl font-bold mb-4">Solution</h2>
       <p class="text-muted text-sm leading-relaxed mb-6">An automated PMX to glTF to VRM conversion pipeline. <strong class="text-heading">Drop in a ZIP, get a UE-ready VRM out.</strong> The key requirement was preserving physics (hair, skirt, ribbon) and material look without breaking them.</p>
 
-      <div class="bg-surface p-5 mb-6">
-        <h3 class="font-medium mb-3">Pipeline Flow</h3>
-        <code class="text-sm text-green-400">ZIP → scan .pmx → humanoid check (16 bones) → readPmx() → buildGltf() → buildVrm() → writeGlb() → renameVrm() → validate()</code>
-      </div>
+      <h3 class="font-medium mb-3">Pipeline Flow</h3>
+      <pre class="text-xs mb-6"><code>ZIP → PMX Parse → glTF Build → VRM Output</code></pre>
 
       <!-- Workflow table -->
       <div class="overflow-x-auto mb-6">
