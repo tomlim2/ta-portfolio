@@ -90,7 +90,7 @@ nav {
 
 .card-placeholder:hover,
 .card-thumb:hover {
-  transform: scale(1.1);
+  transform: scale(1.03);
   transition: transform 0.4s ease;
 }
 
@@ -100,11 +100,11 @@ nav {
 }
 
 .card-thumb-zoomed {
-  transform: scale(1.25);
+  transform: scale(1.1);
 }
 
 .card-thumb-zoomed:hover {
-  transform: scale(1.35);
+  transform: scale(1.13);
 }
 
 .tag {
