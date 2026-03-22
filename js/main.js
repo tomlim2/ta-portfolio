@@ -241,32 +241,4 @@
       });
     });
   }
-  // --- Theme toggle ---
-
-  function initThemeToggle(toggleEl) {
-    if (!toggleEl) return;
-    var theme = document.documentElement.getAttribute('data-theme') || 'light';
-    updateIcon(toggleEl, theme);
-
-    toggleEl.addEventListener('click', function () {
-      theme = theme === 'dark' ? 'light' : 'dark';
-      document.documentElement.setAttribute('data-theme', theme);
-      localStorage.setItem('theme', theme);
-      updateIcon(toggleEl, theme);
-      // Sync other toggle on the page (if both exist)
-      document.querySelectorAll('#theme-toggle, #theme-toggle-mobile').forEach(function (el) {
-        if (el !== toggleEl) updateIcon(el, theme);
-      });
-    });
-  }
-
-  function updateIcon(el, theme) {
-    var sun = el.querySelector('.theme-icon-sun');
-    var moon = el.querySelector('.theme-icon-moon');
-    if (sun) sun.classList.toggle('hidden', theme !== 'dark');
-    if (moon) moon.classList.toggle('hidden', theme === 'dark');
-  }
-
-  initThemeToggle(document.getElementById('theme-toggle'));
-  initThemeToggle(document.getElementById('theme-toggle-mobile'));
 })();

@@ -35,7 +35,6 @@
       },
     }
   </script>
-  <script>(function(){var t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t)})()</script>
   <link rel="icon" href="../favicon.png" type="image/png">
   <link rel="stylesheet" href="../css/style.css">
 </head>
@@ -48,11 +47,11 @@
         <a href="../index.html#projects" class="hover:text-heading transition">Projects</a>
         <a href="../index.html#about" class="hover:text-heading transition">About</a>
       </div>
-      <button id="theme-toggle" class="text-muted hover:text-heading transition" aria-label="Toggle theme"><svg class="w-5 h-5 theme-icon-sun hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg><svg class="w-5 h-5 theme-icon-moon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></button>
     </div>
   </nav>
 
   <main class="max-w-4xl mx-auto px-6 pt-16 pb-24">
+
 
 
 
@@ -73,13 +72,13 @@
       <span>Company Project</span>
     </div>
     <div class="flex flex-wrap gap-2 text-xs text-muted mb-12">
-      <span class="px-2 py-1 rounded border border-faint text-tag">Unreal Engine 5</span>
-      <span class="px-2 py-1 rounded border border-faint text-tag">Material Editor</span>
-      <span class="px-2 py-1 rounded border border-faint text-tag">Post Process</span>
-      <span class="px-2 py-1 rounded border border-faint text-tag">Stencil Buffer</span>
-      <span class="px-2 py-1 rounded border border-faint text-tag">Custom Depth</span>
-      <span class="px-2 py-1 rounded border border-faint text-tag">SDF</span>
-      <span class="px-2 py-1 rounded border border-faint text-tag">Matcap</span>
+      <span class="px-2 py-1 text-tag">Unreal Engine 5</span>
+      <span class="px-2 py-1 text-tag">Material Editor</span>
+      <span class="px-2 py-1 text-tag">Post Process</span>
+      <span class="px-2 py-1 text-tag">Stencil Buffer</span>
+      <span class="px-2 py-1 text-tag">Custom Depth</span>
+      <span class="px-2 py-1 text-tag">SDF</span>
+      <span class="px-2 py-1 text-tag">Matcap</span>
     </div>
 
     <!-- Problem -->
@@ -155,10 +154,8 @@
             <p class="text-xs text-muted mt-2 text-center">SDF Shadow Mask texture</p>
           </div>
         </div>
-<div class="encrypted-block">
-  <div class="encrypted-placeholder"><svg viewBox="0 -960 960 960"><path d="M252.31-100q-29.92 0-51.12-21.19Q180-142.39 180-172.31v-375.38q0-29.92 21.19-51.12Q222.39-620 252.31-620H300v-80q0-74.92 52.54-127.46Q405.08-880 480-880q74.92 0 127.46 52.54Q660-774.92 660-700v80h47.69q29.92 0 51.12 21.19Q780-577.61 780-547.69v375.38q0 29.92-21.19 51.12Q737.61-100 707.69-100H252.31Zm0-60h455.38q5.39 0 8.85-3.46t3.46-8.85v-375.38q0-5.39-3.46-8.85t-8.85-3.46H252.31q-5.39 0-8.85 3.46t-3.46 8.85v375.38q0 5.39 3.46 8.85t8.85 3.46Zm277.27-150.42Q550-330.85 550-360t-20.42-49.58Q509.15-430 480-430t-49.58 20.42Q410-389.15 410-360t20.42 49.58Q450.85-290 480-290t49.58-20.42ZM360-620h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z"/></svg></div>
-  <script type="application/json" class="encrypted-payload">{"salt":"ktok+doNN4FSHfIRm4Un4g==","iv":"NDt6bcHvfTNOISDU","data":"PbmvmGZTXgXdN1AiO7G8TjwrCeV3oG0EOo3ziWQqx2JeFoEnBd6SZz/7OH8IHkEDVswtVAtF50H6LjwyhursQKFclQvGPoq2+RnVYy98pydcD+MUqUeYfPBfvTW5yPdAWozGGpOVH+r5mLm54i6u7Qu4rXwEvy+WEhijsy6hMbbFydrBJzfrfxFLq7aNZAC6sogpkc6sWFmoP/CyXDsVd2eww3YURw2Lg2toSVB5+Fb5C5NjYQWGhOA8rk6iyy642NUCg9H5/aO+YQUTnlUgJr4zdDxUpGHq9wyQn89ZylFI20bNQrMSQBKCc2deiGPQuBRfeWsNgE4/1BEi"}</script>
-</div>
+        <img src="../assets/images/npr-shader/sdf-material-graph.png" alt="SDF material node graph" class="w-full mb-1">
+        <p class="text-xs text-muted mb-4">SDF texture sample → Light Direction dot → shadow mask output</p>
 
         <!-- Matcap -->
         <h4 class="text-sm font-bold mt-6 mb-3">Matcap Reflection</h4>
@@ -167,10 +164,10 @@
           <video src="../assets/images/npr-shader/matcap-demo.mp4" autoplay loop muted playsinline class="w-full"></video>
           <p class="text-xs text-muted mt-2 text-center">Matcap reflection demo</p>
         </div>
-<div class="encrypted-block">
-  <div class="encrypted-placeholder"><svg viewBox="0 -960 960 960"><path d="M252.31-100q-29.92 0-51.12-21.19Q180-142.39 180-172.31v-375.38q0-29.92 21.19-51.12Q222.39-620 252.31-620H300v-80q0-74.92 52.54-127.46Q405.08-880 480-880q74.92 0 127.46 52.54Q660-774.92 660-700v80h47.69q29.92 0 51.12 21.19Q780-577.61 780-547.69v375.38q0 29.92-21.19 51.12Q737.61-100 707.69-100H252.31Zm0-60h455.38q5.39 0 8.85-3.46t3.46-8.85v-375.38q0-5.39-3.46-8.85t-8.85-3.46H252.31q-5.39 0-8.85 3.46t-3.46 8.85v375.38q0 5.39 3.46 8.85t8.85 3.46Zm277.27-150.42Q550-330.85 550-360t-20.42-49.58Q509.15-430 480-430t-49.58 20.42Q410-389.15 410-360t20.42 49.58Q450.85-290 480-290t49.58-20.42ZM360-620h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z"/></svg></div>
-  <script type="application/json" class="encrypted-payload">{"salt":"eb21Z7U4jIfsdjcUtwkPfw==","iv":"BLH0BH+zrfpb87QR","data":"7vBu8B0WneenI13jgHlmGVJwohZHZ2SzOQIKjMmja7Za+hA7L9U5TwisJc6oCVLlyCkwcvmG6K8AlnUDxqpKfSpd2Kq2+Cat9TCceqCwxmDZq3oyjV0bW1t6mf5ros5Q2kdnRMEnit+KqFpepyolkUvTMpGcb7VmBveuUjw1j0VDqZPbcUT3Jv8b7x4ZaUHNJBljdzAFAUI8rqzzJrtJPY/r7iz3lBS77wvSZr4qT1Lv3T1ZsrrLYPV7tYL4wD0FzxxDHRhuVz8No0rYhHNZrUcmdZA0Yjr+SQCQHMoX/ix9qI+MwJGWXmrtjWadkS1senA9RJfb6aCg4XHVgTK/asBnAaVl4LbeIizvXE/RoLoAkbQq/JibdyakxBduOJrS7r1Akqm8nzbJ8WSqoHmA9QlEMRNwnSmKMYKaaiK1ekcKDjfz7k/wOwXdVw=="}</script>
-</div>
+        <div class="grid md:grid-cols-2 gap-4 mb-4">
+          <img src="../assets/images/npr-shader/matcap-material-function.png" alt="Matcap Material Function node" class="w-full">
+          <img src="../assets/images/npr-shader/matcap-in-material.png" alt="MF_MatCAP call site" class="w-full">
+        </div>
       </div>
 
       <!-- 2. VRM Toon -->
@@ -178,10 +175,8 @@
         <h3 class="text-lg font-bold mb-3">2. VRM Toon</h3>
         <p class="text-muted text-sm leading-relaxed mb-4">Restructured parameter input names based on the in-house toon material to conform to MToon conventions. Ensured MToon textures and flags are automatically connected upon VRM import. Outline uses the same Post Process approach as the in-house material.</p>
 
-<div class="encrypted-block">
-  <div class="encrypted-placeholder"><svg viewBox="0 -960 960 960"><path d="M252.31-100q-29.92 0-51.12-21.19Q180-142.39 180-172.31v-375.38q0-29.92 21.19-51.12Q222.39-620 252.31-620H300v-80q0-74.92 52.54-127.46Q405.08-880 480-880q74.92 0 127.46 52.54Q660-774.92 660-700v80h47.69q29.92 0 51.12 21.19Q780-577.61 780-547.69v375.38q0 29.92-21.19 51.12Q737.61-100 707.69-100H252.31Zm0-60h455.38q5.39 0 8.85-3.46t3.46-8.85v-375.38q0-5.39-3.46-8.85t-8.85-3.46H252.31q-5.39 0-8.85 3.46t-3.46 8.85v375.38q0 5.39 3.46 8.85t8.85 3.46Zm277.27-150.42Q550-330.85 550-360t-20.42-49.58Q509.15-430 480-430t-49.58 20.42Q410-389.15 410-360t20.42 49.58Q450.85-290 480-290t49.58-20.42ZM360-620h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z"/></svg></div>
-  <script type="application/json" class="encrypted-payload">{"salt":"jjpR4JAJucgsWDXTWStlZg==","iv":"3pLYDxkuKAsU3P+6","data":"lN/9zQyjMbs8SQVPj7Hv7nKfxKC4qNGFcT/zxgZCs+okQieMa7mMExVFjnrHY2kCl1qLiPYdiDBjNZnylejmEHPwyyiuU3TRmOu9tKjV1IbA34uaNh2gr1RrlhvOOc+lQP5cFVpKW0kakNv0Wo0BHah+XqsoLb+5TDNfZAUYrHIpjT+3YmKfSuJKVxi2QC5kA14aIFkj227XnKjvnYZUbqvv1Kpu5zjoHNeSigwDu5t6+4afhiwcjShq0kbqovj2UqeB7nXHQRM+QP8sW/wflx17yjKG8A3GuERr6UJRPfZ8dathRVWLMWmLEDj3HbJgQbgLR4uwjrFNKRPgnr0yc4FLyxlfHfVbhDKyXUs6R6e4eS0PHBBnfK17WbB3lZ0jfRiEirOVP7aBBhuJ27a0gtYFLw=="}</script>
-</div>
+        <img src="../assets/images/npr-shader/pp-outline-mask.png" alt="PP outline mask — Before/After + Material/Blueprint" class="w-full mb-1">
+        <p class="text-xs text-muted mb-4">PP outline mask processing — unnecessary line removal + Material/Blueprint implementation</p>
 
       </div>
 
@@ -208,10 +203,8 @@
           <p class="text-xs text-muted mt-2">Enabled realistic/non-realistic mixing while reducing shader cost by 48% (vs in-house)</p>
         </div>
 
-<div class="encrypted-block">
-  <div class="encrypted-placeholder"><svg viewBox="0 -960 960 960"><path d="M252.31-100q-29.92 0-51.12-21.19Q180-142.39 180-172.31v-375.38q0-29.92 21.19-51.12Q222.39-620 252.31-620H300v-80q0-74.92 52.54-127.46Q405.08-880 480-880q74.92 0 127.46 52.54Q660-774.92 660-700v80h47.69q29.92 0 51.12 21.19Q780-577.61 780-547.69v375.38q0 29.92-21.19 51.12Q737.61-100 707.69-100H252.31Zm0-60h455.38q5.39 0 8.85-3.46t3.46-8.85v-375.38q0-5.39-3.46-8.85t-8.85-3.46H252.31q-5.39 0-8.85 3.46t-3.46 8.85v375.38q0 5.39 3.46 8.85t8.85 3.46Zm277.27-150.42Q550-330.85 550-360t-20.42-49.58Q509.15-430 480-430t-49.58 20.42Q410-389.15 410-360t20.42 49.58Q450.85-290 480-290t49.58-20.42ZM360-620h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z"/></svg></div>
-  <script type="application/json" class="encrypted-payload">{"salt":"47BWoyYoYT52DV8CXl3Oog==","iv":"FuAn7lghtKA/37BZ","data":"mbRgtzMRnePssyc9pZ5HXLH9/l4rUffW8uTt/+gIg9DlwNmjv+2viQ4ZICArjz8SZq2n/CVsm0hHGgOVjfbbyOnpuoKfrSR2cI0pmKL4+nMDv4CnWZ6IgKew0QBEuguaWRxYq20IcBLCR8Ltd5nZVnt/TMmJ2RyRaM4oXkqMd5k2TUK4jC1aPtG4Ib86370zykV4L93geB5cEoGQjtvO1jrYn62g8zphjR3C6C2nSWHr2uAON/Poj6+xXp88aICzZ2bZIOfA3b0uZYpVKtLgzI3KN3ZGrrciPxDAt6sdiz0PwrYsLoDYsVeq7UDVv1Pyr1f/DeKYa4kWtg=="}</script>
-</div>
+        <img src="../assets/images/npr-shader/zo-toon-node-graph.png" alt="Zo Toon material node graph" class="w-full mb-1">
+        <p class="text-xs text-muted mb-6">Zo Toon material node graph — Emissive-based toon shading</p>
 
         <div class="mb-4">
           <video src="../assets/images/npr-shader/toon-pbr-coexist.mp4" autoplay loop muted playsinline class="w-full"></video>
@@ -234,24 +227,6 @@
       </div>
     </section>
 
-    <hr class="border-border mb-12">
-
-    <!-- Technical Details (accordion) -->
-    <section class="mb-16">
-      <h2 class="text-xl font-bold mb-6">Technical Details</h2>
-
-      <div class="space-y-3">
-        <details class="bg-surface rounded-lg border border-border">
-          <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">NdotL (Normal dot Light)</summary>
-          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">Dot product of the surface normal vector and light direction. A value of 1 means front-lit, 0 is the boundary, and -1 is the back face. Cel Shading discretizes this continuous value into 2-3 step bands.</div>
-        </details>
-        <details class="bg-surface rounded-lg border border-border">
-          <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">Inverted Hull Outline</summary>
-          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">Duplicate mesh, expand along normals, render back faces only — appears as an outline. Operates in 3D space, providing natural thickness variation based on camera distance.</div>
-        </details>
-      </div>
-    </section>
-
     <!-- UDS / ToD Test -->
     <section class="mb-16">
       <h2 class="text-xl font-bold mb-4">UDS / ToD 통합 테스트</h2>
@@ -267,25 +242,8 @@
 
   
   
+  
   </main>
-
-  <!-- Section decrypt modal -->
-  <div id="section-pw-modal" class="hidden fixed inset-0 z-[60] flex items-center justify-center bg-black/60 backdrop-blur-sm">
-    <div class="w-full max-w-sm mx-6 bg-surface border border-border rounded-lg p-6">
-      <div class="flex items-center justify-center w-12 h-12 rounded-full bg-bg border border-border mb-6 mx-auto">
-        <svg class="w-5 h-5 text-muted" fill="currentColor" viewBox="0 -960 960 960">
-          <path d="M252.31-100q-29.92 0-51.12-21.19Q180-142.39 180-172.31v-375.38q0-29.92 21.19-51.12Q222.39-620 252.31-620H300v-80q0-74.92 52.54-127.46Q405.08-880 480-880q74.92 0 127.46 52.54Q660-774.92 660-700v80h47.69q29.92 0 51.12 21.19Q780-577.61 780-547.69v375.38q0 29.92-21.19 51.12Q737.61-100 707.69-100H252.31Zm0-60h455.38q5.39 0 8.85-3.46t3.46-8.85v-375.38q0-5.39-3.46-8.85t-8.85-3.46H252.31q-5.39 0-8.85 3.46t-3.46 8.85v375.38q0 5.39 3.46 8.85t8.85 3.46Zm277.27-150.42Q550-330.85 550-360t-20.42-49.58Q509.15-430 480-430t-49.58 20.42Q410-389.15 410-360t20.42 49.58Q450.85-290 480-290t49.58-20.42ZM360-620h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z"/>
-        </svg>
-      </div>
-      <p class="text-center text-muted text-sm mb-6">NDA project.<br>Enter password to unlock content.</p>
-      <input id="section-pw-input" type="password" placeholder="Password" autocomplete="off"
-        class="w-full bg-bg border border-border rounded-lg px-4 py-2.5 text-sm text-heading placeholder-muted focus:outline-none focus:border-accent transition mb-3">
-      <p id="section-pw-error" class="hidden text-red-400 text-xs mb-3 text-center">Incorrect password</p>
-      <button id="section-pw-submit"
-        class="w-full px-5 py-2.5 bg-heading text-bg text-sm font-medium rounded-lg hover:bg-heading/90 transition">Unlock</button>
-      <button id="section-pw-close" class="block w-full mt-3 text-muted text-sm hover:text-heading transition">Close</button>
-    </div>
-  </div>
 
   <footer class="border-t border-border py-8 text-center text-muted text-xs">
     <p>&copy; 2026 Younsoo Lim. All rights reserved.</p>

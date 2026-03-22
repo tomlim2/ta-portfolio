@@ -35,7 +35,6 @@
       },
     }
   </script>
-  <script>(function(){var t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t)})()</script>
   <link rel="icon" href="favicon.png" type="image/png">
   <link rel="stylesheet" href="css/style.css">
   <style>
@@ -314,11 +313,11 @@
           <p class="text-xs text-caption uppercase tracking-wide">Three.js · WebGPU · TSL Shader</p>
         </div>
         <div>
-          <p class="text-xs mb-2" style="color:#666">Subpage — rounded border pill, white/70</p>
+          <p class="text-xs mb-2" style="color:#666">Subpage — pill, text-tag</p>
           <div class="flex flex-wrap gap-2">
-            <span class="px-2 py-1 rounded border border-faint text-tag" style="font-size:0.75rem">Three.js WebGPU (r172)</span>
-            <span class="px-2 py-1 rounded border border-faint text-tag" style="font-size:0.75rem">TSL Shader</span>
-            <span class="px-2 py-1 rounded border border-faint text-tag" style="font-size:0.75rem">Vanilla JavaScript</span>
+            <span class="px-2 py-1 text-tag" style="font-size:0.75rem">Three.js WebGPU (r172)</span>
+            <span class="px-2 py-1 text-tag" style="font-size:0.75rem">TSL Shader</span>
+            <span class="px-2 py-1 text-tag" style="font-size:0.75rem">Vanilla JavaScript</span>
           </div>
         </div>
       </div>
@@ -330,8 +329,8 @@
     <section class="cl-section">
       <h2>Panels</h2>
 
-      <p class="cl-label">Surface Panel — bg-surface / border / rounded-lg</p>
-      <div class="bg-surface rounded-lg border border-border p-5 mb-8">
+      <p class="cl-label">Surface Panel — bg-surface</p>
+      <div class="bg-surface p-5 mb-8">
         <h3 class="font-medium mb-3">Pipeline Flow</h3>
         <code class="text-sm text-green-400">ZIP &rarr; scan .pmx &rarr; humanoid check &rarr; buildGltf() &rarr; writeGlb()</code>
       </div>
@@ -341,13 +340,13 @@
         <svg viewBox="0 -960 960 960"><path d="M252.31-100q-29.92 0-51.12-21.19Q180-142.39 180-172.31v-375.38q0-29.92 21.19-51.12Q222.39-620 252.31-620H300v-80q0-74.92 52.54-127.46Q405.08-880 480-880q74.92 0 127.46 52.54Q660-774.92 660-700v80h47.69q29.92 0 51.12 21.19Q780-577.61 780-547.69v375.38q0 29.92-21.19 51.12Q737.61-100 707.69-100H252.31Zm0-60h455.38q5.39 0 8.85-3.46t3.46-8.85v-375.38q0-5.39-3.46-8.85t-8.85-3.46H252.31q-5.39 0-8.85 3.46t-3.46 8.85v375.38q0 5.39 3.46 8.85t8.85 3.46Z"/></svg>
       </div>
 
-      <p class="cl-label mt-8">Accordion / Details — bg-surface / border / hover:text-accent</p>
+      <p class="cl-label mt-8">Accordion / Details — bg-surface / hover:text-accent</p>
       <div class="space-y-3">
-        <details class="bg-surface rounded-lg border border-border">
+        <details class="bg-surface">
           <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">VMD Precompute — Effect Pre-calculation</summary>
           <div class="px-5 pb-4 text-muted text-sm leading-relaxed">Pre-calculates bloom events, foot landing timings, and angular velocity peaks from motion data.</div>
         </details>
-        <details class="bg-surface rounded-lg border border-border">
+        <details class="bg-surface">
           <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">Post-Process — Dual Chain Bloom Skip</summary>
           <div class="px-5 pb-4 text-muted text-sm leading-relaxed">Two output chains, same uniforms, split at bloom.</div>
         </details>

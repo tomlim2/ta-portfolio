@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Live UE Scene Bridge — Younsoo Lim</title>
+  <title>MegaMelange MCP — Younsoo Lim</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@700;900&family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -35,7 +35,6 @@
       },
     }
   </script>
-  <script>(function(){var t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t)})()</script>
   <link rel="icon" href="../favicon.png" type="image/png">
   <link rel="stylesheet" href="../css/style.css">
 </head>
@@ -48,11 +47,11 @@
         <a href="../index.html#projects" class="hover:text-heading transition">Projects</a>
         <a href="../index.html#about" class="hover:text-heading transition">About</a>
       </div>
-      <button id="theme-toggle" class="text-muted hover:text-heading transition" aria-label="Toggle theme"><svg class="w-5 h-5 theme-icon-sun hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg><svg class="w-5 h-5 theme-icon-moon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></button>
     </div>
   </nav>
 
   <main class="max-w-4xl mx-auto px-6 pt-16 pb-24">
+
 
 
 
@@ -73,12 +72,12 @@
       <span>Company Project (POC)</span>
     </div>
     <div class="flex flex-wrap gap-2 text-xs text-muted mb-12">
-      <span class="px-2 py-1 rounded border border-faint text-tag">Next.js 15.4</span>
-      <span class="px-2 py-1 rounded border border-faint text-tag">FastAPI</span>
-      <span class="px-2 py-1 rounded border border-faint text-tag">C++ (UE Plugin)</span>
-      <span class="px-2 py-1 rounded border border-faint text-tag">Anthropic SDK</span>
-      <span class="px-2 py-1 rounded border border-faint text-tag">Google GenAI</span>
-      <span class="px-2 py-1 rounded border border-faint text-tag">TCP Socket</span>
+      <span class="px-2 py-1 text-tag">Next.js 15.4</span>
+      <span class="px-2 py-1 text-tag">FastAPI</span>
+      <span class="px-2 py-1 text-tag">C++ (UE Plugin)</span>
+      <span class="px-2 py-1 text-tag">Anthropic SDK</span>
+      <span class="px-2 py-1 text-tag">Google GenAI</span>
+      <span class="px-2 py-1 text-tag">TCP Socket</span>
     </div>
 
     <!-- Problem -->
@@ -93,7 +92,7 @@
       <p class="text-muted text-sm leading-relaxed mb-6">Natural language goes through an AI layer (Claude/Gemini), which converts it to commands that a C++ plugin executes in the UE editor in real time.</p>
 
       <!-- NL examples -->
-      <div class="bg-surface rounded-lg border border-border p-5 mb-6">
+      <div class="bg-surface p-5 mb-6">
         <h3 class="font-medium mb-3">Usage Examples</h3>
         <div class="space-y-2 text-sm">
           <p class="text-green-400 italic">"Show me downtown Tokyo"</p>
@@ -105,7 +104,7 @@
       </div>
 
       <!-- Architecture -->
-      <div class="bg-surface rounded-lg border border-border p-5 mb-6">
+      <div class="bg-surface p-5 mb-6">
         <h3 class="font-medium mb-3">3-Layer Architecture</h3>
         <pre class="text-xs text-green-400 overflow-x-auto"><code>Web UI / CLI → HTTP:34115 → FastAPI + NLP (Claude/Gemini)
                                     ↓
@@ -118,18 +117,23 @@
       <h3 class="font-medium mb-3">Core — Cesium + UDS Integration</h3>
       <p class="text-muted text-sm leading-relaxed mb-4">The most invested part. By combining Cesium terrain data with Ultra Dynamic Sky, a single natural language line sets up an outdoor background with <strong class="text-heading">location + time of day + weather + mood</strong>. Adding Nano Banana (i2i) on top transforms it into the desired concept or feel, so you go from a text prompt to a styled concept image without leaving the tool.</p>
 
-<div class="encrypted-block">
-  <div class="encrypted-placeholder"><svg viewBox="0 -960 960 960"><path d="M252.31-100q-29.92 0-51.12-21.19Q180-142.39 180-172.31v-375.38q0-29.92 21.19-51.12Q222.39-620 252.31-620H300v-80q0-74.92 52.54-127.46Q405.08-880 480-880q74.92 0 127.46 52.54Q660-774.92 660-700v80h47.69q29.92 0 51.12 21.19Q780-577.61 780-547.69v375.38q0 29.92-21.19 51.12Q737.61-100 707.69-100H252.31Zm0-60h455.38q5.39 0 8.85-3.46t3.46-8.85v-375.38q0-5.39-3.46-8.85t-8.85-3.46H252.31q-5.39 0-8.85 3.46t-3.46 8.85v375.38q0 5.39 3.46 8.85t8.85 3.46Zm277.27-150.42Q550-330.85 550-360t-20.42-49.58Q509.15-430 480-430t-49.58 20.42Q410-389.15 410-360t20.42 49.58Q450.85-290 480-290t49.58-20.42ZM360-620h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z"/></svg></div>
-  <script type="application/json" class="encrypted-payload">{"salt":"13hAM9eFN6bOVF1eLDeeKg==","iv":"EJHTIr6Vl4ZSmwZs","data":"g7DLXEBbReOpDSx5T9S5jAgQc2aqZSx8aOSPFUFIc7bZRjLRdYfnoNv0DI8dRU8t1ZjZ10X8ll5dO1hBp0joTZnydMBbT3q9DgGtVnXBbNIE/N347uz+E6PQKidjIihJCSVOBAqtSlNdi5NbABO8L/fDWGV3OaK5HOJR8BuqqDRL5D3ZIIhHIzEpkjOxXwx8ms3l7Ydx0297xDTqchJ+jNlS4a8oJlbGjMR1DSJPTrKuFHj9dFI2iGlIPAlkkyMsKdxIJSAy16ukp5o8fz4qonSxBpvsov9BK+cV7lp4cRGPFoAB+Jmq0ujIa1YWP3PKBVFp6zrQNL7rq157ARu3bnVv1JyCkiPPNaSSI0hDqqa3oF1G4LLkTuOrqbHxdqoBYDsYw6isQ51Fhl/6lsbk/WCwIYYgpURrgVphcL0b2M6K55jp/nDx1Z9jzR+hx5IJxI/g+oAtqeyupb1wdO/Z6kvDFsNWfuCy463i+8gx6jPIA85EwfwhoT4pRTAVjdzvGSqBz5HhsasVgf//jkR2YksymxPUIkCo65cxLQ7VRDsOi2d2CxMjLJOsy8DZjVPiBmdyDbr5ZGIzf7zUSEYQGxS5Wh4S6LpDJy5BWr6k39qJ5tfuuZA3OTl4wTq3iPNwiyg/ddcg"}</script>
-</div>
+      <!-- i2i result -->
+      <div class="mb-6 overflow-hidden">
+        <img src="../assets/images/megamelange/i2i-result.png" alt="AI style transformation result — post-apocalyptic" class="w-full h-auto">
+      </div>
+
+      <!-- i2i pipeline full -->
+      <div class="mb-8 overflow-hidden">
+        <img src="../assets/images/megamelange/i2i-pipeline.png" alt="Full i2i pipeline — style selection and transformation in Web UI" class="w-full h-auto">
+      </div>
 
       <h3 class="font-medium mb-3">Roblox Integration — Business Demo</h3>
       <p class="text-muted text-sm leading-relaxed mb-4">Fetched FBX via Roblox API, imported into UE, placed characters on generated backgrounds, then produced images/videos with Nano Banana/Veo-3. Demo content targeting CEO, planners, and team leads.</p>
 
-<div class="encrypted-block">
-  <div class="encrypted-placeholder"><svg viewBox="0 -960 960 960"><path d="M252.31-100q-29.92 0-51.12-21.19Q180-142.39 180-172.31v-375.38q0-29.92 21.19-51.12Q222.39-620 252.31-620H300v-80q0-74.92 52.54-127.46Q405.08-880 480-880q74.92 0 127.46 52.54Q660-774.92 660-700v80h47.69q29.92 0 51.12 21.19Q780-577.61 780-547.69v375.38q0 29.92-21.19 51.12Q737.61-100 707.69-100H252.31Zm0-60h455.38q5.39 0 8.85-3.46t3.46-8.85v-375.38q0-5.39-3.46-8.85t-8.85-3.46H252.31q-5.39 0-8.85 3.46t-3.46 8.85v375.38q0 5.39 3.46 8.85t8.85 3.46Zm277.27-150.42Q550-330.85 550-360t-20.42-49.58Q509.15-430 480-430t-49.58 20.42Q410-389.15 410-360t20.42 49.58Q450.85-290 480-290t49.58-20.42ZM360-620h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z"/></svg></div>
-  <script type="application/json" class="encrypted-payload">{"salt":"urD7t18xGWfsP3xOGMFqrw==","iv":"zcblVn2yNzEB1und","data":"eXeN0WfJ+jy/dZyqaXbw7+WPn+JREW4+gZp6u92RMGk6DgrnlRte8xqyy/1NN/vAXK49UGqN8KpWn8LQRtuE4qRu2B1LZkKIH6n8FV67d4dGd39F0aqx6ImVMjh5TnQaLU20U1oIWis1rs8F8DY34kiPuUXkAVzgV9Ktz5Pbr1n8au1t4TGLfqlKJ8tnvZLVLXm03fmq9RL1p4ktk2T6audAJt+lWOO9k1G/u2Pk3NIfL/Tc9pAWqMu9JRGO4YyY8Ea2/lOLWZkt+MJJns0QBJYRaNn9bZs9MGTgwb/ffLLXOax0CDBVUgOjZqq51/gq9txnsD+F8NUk++TKj85+axg="}</script>
-</div>
+      <!-- Roblox demo -->
+      <div class="mb-6 overflow-hidden">
+        <img src="../assets/images/megamelange/roblox-demo.png" alt="Roblox character import placed on background + AI transformation" class="w-full h-auto">
+      </div>
     </section>
 
     <!-- Result -->
@@ -154,37 +158,11 @@
       </div>
     </section>
 
-<div class="encrypted-block">
-  <div class="encrypted-placeholder"><svg viewBox="0 -960 960 960"><path d="M252.31-100q-29.92 0-51.12-21.19Q180-142.39 180-172.31v-375.38q0-29.92 21.19-51.12Q222.39-620 252.31-620H300v-80q0-74.92 52.54-127.46Q405.08-880 480-880q74.92 0 127.46 52.54Q660-774.92 660-700v80h47.69q29.92 0 51.12 21.19Q780-577.61 780-547.69v375.38q0 29.92-21.19 51.12Q737.61-100 707.69-100H252.31Zm0-60h455.38q5.39 0 8.85-3.46t3.46-8.85v-375.38q0-5.39-3.46-8.85t-8.85-3.46H252.31q-5.39 0-8.85 3.46t-3.46 8.85v375.38q0 5.39 3.46 8.85t8.85 3.46Zm277.27-150.42Q550-330.85 550-360t-20.42-49.58Q509.15-430 480-430t-49.58 20.42Q410-389.15 410-360t20.42 49.58Q450.85-290 480-290t49.58-20.42ZM360-620h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z"/></svg></div>
-  <script type="application/json" class="encrypted-payload">{"salt":"J4uNwH6keuRgq5jmZUscxw==","iv":"vg+i0J+/NMUB/66s","data":"evB9C4O4atncUNMNW+SqIk5Xf0md4CpkVv7VUhVjEPf32ixsXnXw67KGLZJt3wdli8EAQ0xJgOpRP5AR6CmDfqIcOzuHs0qXydzgO2EeYLfaQS+nWeRK91IsFxq/+x6Fx70nkx6cPtOSQqrCXxEjYK+xtIdN2v//iGhgQElA2GjU8MC2pcsin73evDMTDP+1zbVDeLZuub51vidaUVn4cC/zYfNymM968v1ciaYB0Sw+iHPaWLxIX7OSDTXZqpp3nV75H/wxZRjLtmbcaMjquaksnVr8ivNuvZ3veezjtDEliyJitzI4C+AvaWhSavY6hF00/jursNyfBGa1PeRkK18l0i/PcJuSLUzQzGp4mLtMQXgiHUMeZ8lzTIgqTnj1k5d6/pw3r8GzFq38xL1E8HkieCtVsDtrmSOoWoOFylVU5gcoDsQiiBQopTsjIoNr+lTivxp904JpkyM9pZqtVmYWiq8Eaao7FC1nA24="}</script>
-</div>
-
-    <hr class="border-border mb-12">
-
-    <!-- Technical Details -->
-    <section class="mb-16">
-      <h2 class="text-xl font-bold mb-6">Technical Details</h2>
-
-      <h3 class="text-sm text-muted uppercase tracking-widest mb-4">UE C++ Plugin</h3>
-      <div class="space-y-3 mb-8">
-        <details class="bg-surface rounded-lg border border-border">
-          <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">8 Command Handlers (6,300 LOC)</summary>
-          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">Actor, Blueprint, Lighting, Rendering, Camera, Cesium, UDS, UDW -- per-domain handlers convert JSON commands received over TCP into UE API calls for execution.</div>
-        </details>
-        <details class="bg-surface rounded-lg border border-border">
-          <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">TCP Socket Protocol</summary>
-          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">JSON-based real-time bidirectional communication. TCP_NODELAY, keepalive, 65KB buffer, chunked response support. Command delivery and result reception between Python backend and UE editor.</div>
-        </details>
-      </div>
-
-      <h3 class="text-sm text-muted uppercase tracking-widest mb-4">AI Integration</h3>
-      <div class="space-y-3">
-        <details class="bg-surface rounded-lg border border-border">
-          <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">LLM Provider Abstraction + Token Optimization</summary>
-          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">Unified Claude/Gemini under a BaseModelProvider with fallback support. Splitting context into 8 domain-specific chunks and passing only what's needed halved token usage (2000+ down to 800~1150).</div>
-        </details>
-      </div>
-    </section>
+    <!-- Prototype screenshot -->
+    <div class="mb-12 overflow-hidden">
+      <img src="../assets/images/megamelange/prototype.png" alt="Early prototype — MCP Frontend + UE viewport" class="w-full h-auto">
+    </div>
+    <p class="text-xs text-muted mb-12 text-center">Early prototype — real-time UE viewport control via natural language input</p>
 
     <!-- Prev/Next -->
     <div class="flex justify-between items-center mt-16 pt-8 border-t border-border">
@@ -194,25 +172,8 @@
 
   
   
+  
   </main>
-
-  <!-- Section decrypt modal -->
-  <div id="section-pw-modal" class="hidden fixed inset-0 z-[60] flex items-center justify-center bg-black/60 backdrop-blur-sm">
-    <div class="w-full max-w-sm mx-6 bg-surface border border-border rounded-lg p-6">
-      <div class="flex items-center justify-center w-12 h-12 rounded-full bg-bg border border-border mb-6 mx-auto">
-        <svg class="w-5 h-5 text-muted" fill="currentColor" viewBox="0 -960 960 960">
-          <path d="M252.31-100q-29.92 0-51.12-21.19Q180-142.39 180-172.31v-375.38q0-29.92 21.19-51.12Q222.39-620 252.31-620H300v-80q0-74.92 52.54-127.46Q405.08-880 480-880q74.92 0 127.46 52.54Q660-774.92 660-700v80h47.69q29.92 0 51.12 21.19Q780-577.61 780-547.69v375.38q0 29.92-21.19 51.12Q737.61-100 707.69-100H252.31Zm0-60h455.38q5.39 0 8.85-3.46t3.46-8.85v-375.38q0-5.39-3.46-8.85t-8.85-3.46H252.31q-5.39 0-8.85 3.46t-3.46 8.85v375.38q0 5.39 3.46 8.85t8.85 3.46Zm277.27-150.42Q550-330.85 550-360t-20.42-49.58Q509.15-430 480-430t-49.58 20.42Q410-389.15 410-360t20.42 49.58Q450.85-290 480-290t49.58-20.42ZM360-620h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z"/>
-        </svg>
-      </div>
-      <p class="text-center text-muted text-sm mb-6">NDA project.<br>Enter password to unlock content.</p>
-      <input id="section-pw-input" type="password" placeholder="Password" autocomplete="off"
-        class="w-full bg-bg border border-border rounded-lg px-4 py-2.5 text-sm text-heading placeholder-muted focus:outline-none focus:border-accent transition mb-3">
-      <p id="section-pw-error" class="hidden text-red-400 text-xs mb-3 text-center">Incorrect password</p>
-      <button id="section-pw-submit"
-        class="w-full px-5 py-2.5 bg-heading text-bg text-sm font-medium rounded-lg hover:bg-heading/90 transition">Unlock</button>
-      <button id="section-pw-close" class="block w-full mt-3 text-muted text-sm hover:text-heading transition">Close</button>
-    </div>
-  </div>
 
   <footer class="border-t border-border py-8 text-center text-muted text-xs">
     <p>&copy; 2026 Younsoo Lim. All rights reserved.</p>

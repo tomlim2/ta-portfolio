@@ -35,7 +35,6 @@
       },
     }
   </script>
-  <script>(function(){var t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t)})()</script>
   <link rel="icon" href="../favicon.png" type="image/png">
   <link rel="stylesheet" href="../css/style.css">
 </head>
@@ -48,11 +47,11 @@
         <a href="../index.html#projects" class="hover:text-heading transition">Projects</a>
         <a href="../index.html#about" class="hover:text-heading transition">About</a>
       </div>
-      <button id="theme-toggle" class="text-muted hover:text-heading transition" aria-label="Toggle theme"><svg class="w-5 h-5 theme-icon-sun hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg><svg class="w-5 h-5 theme-icon-moon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></button>
     </div>
   </nav>
 
   <main class="max-w-4xl mx-auto px-6 pt-16 pb-24">
+
 
 
 
@@ -72,12 +71,12 @@
       <span>Company Project</span>
     </div>
     <div class="flex flex-wrap gap-2 text-xs text-muted mb-12">
-      <span class="px-2 py-1 rounded border border-faint text-tag">Unreal Engine 5</span>
-      <span class="px-2 py-1 rounded border border-faint text-tag">C++</span>
-      <span class="px-2 py-1 rounded border border-faint text-tag">Blueprint</span>
-      <span class="px-2 py-1 rounded border border-faint text-tag">Data Asset</span>
-      <span class="px-2 py-1 rounded border border-faint text-tag">VRM4U</span>
-      <span class="px-2 py-1 rounded border border-faint text-tag">Unreal Insights</span>
+      <span class="px-2 py-1 text-tag">Unreal Engine 5</span>
+      <span class="px-2 py-1 text-tag">C++</span>
+      <span class="px-2 py-1 text-tag">Blueprint</span>
+      <span class="px-2 py-1 text-tag">Data Asset</span>
+      <span class="px-2 py-1 text-tag">VRM4U</span>
+      <span class="px-2 py-1 text-tag">Unreal Insights</span>
     </div>
 
     <!-- Problem -->
@@ -91,10 +90,8 @@
       <h2 class="text-xl font-bold mb-4">Solution</h2>
       <p class="text-muted text-sm leading-relaxed mb-4">I proposed a VRM save/load prototype using vrm4u early on, which was adopted and is now running in production. I split the work into three systems: an Editor tool, a Runtime character Blueprint, and VRM Reference Points. Each loads Data Assets or external models and lets you verify them against the in-house shader and animations. Artists assemble parts and register presets in the editor, producing Data Assets that the runtime loads asynchronously.</p>
 
-<div class="encrypted-block">
-  <div class="encrypted-placeholder"><svg viewBox="0 -960 960 960"><path d="M252.31-100q-29.92 0-51.12-21.19Q180-142.39 180-172.31v-375.38q0-29.92 21.19-51.12Q222.39-620 252.31-620H300v-80q0-74.92 52.54-127.46Q405.08-880 480-880q74.92 0 127.46 52.54Q660-774.92 660-700v80h47.69q29.92 0 51.12 21.19Q780-577.61 780-547.69v375.38q0 29.92-21.19 51.12Q737.61-100 707.69-100H252.31Zm0-60h455.38q5.39 0 8.85-3.46t3.46-8.85v-375.38q0-5.39-3.46-8.85t-8.85-3.46H252.31q-5.39 0-8.85 3.46t-3.46 8.85v375.38q0 5.39 3.46 8.85t8.85 3.46Zm277.27-150.42Q550-330.85 550-360t-20.42-49.58Q509.15-430 480-430t-49.58 20.42Q410-389.15 410-360t20.42 49.58Q450.85-290 480-290t49.58-20.42ZM360-620h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z"/></svg></div>
-  <script type="application/json" class="encrypted-payload">{"salt":"yA06IOC0Rkali7BtEy9Ujg==","iv":"IJNDObmuoG3Q35M4","data":"43mBCDG418F0WNN6n0lksAo2r9vbvPCx5ddCCZbMA5QdlcV2Iu8SPqghyr9oqHVaT5bJqu+RzT3sOoHb5Z+uewskOhm1fW2dYl8p51v4DGl3UmBneMh4WR6wT8wP23EzfSR0wyG6ZJMSaJ+wEsYHHx568FVyVUv95/nWaiW2uLkC/blztLeYcGARjR/GACMQkz775bgI0LGg3MHRiFrRDp4nwY0XYV+XCQHnJu9+0w/AOAVcXZoU+hIAcfgx93MluWAf1havjP3DbTkOKBnuKFpSwiiB7LDg5PdqitZkewePxf3/KHsWQYW7c0eJCOPPEeETBcyA8G2M/KPHkL4vkGxwCdk3bFvkpS7HMb2eGr6XN2nTLIJgsqjeNB5Hu/cQXF9WK3iXSgBeDKtIOplh4zYEdzlVRw+Z5+xFzdtCtTM9Abl/9n2wdOjVt+0wARu6LqiZWRgeyAaRACSt7m21+vG8o2/qPL7IZg=="}</script>
-</div>
+      <img src="../assets/images/character-system/data-asset-details.png" alt="NRC Data Asset — Info, Base, Parts, Outline, Chaos Cloth settings" class="mx-auto max-h-[500px] mb-2">
+      <p class="text-xs text-muted mb-6 text-center">NRC Data Asset — managing parts, materials, outline, and Chaos Cloth settings in one place</p>
 
       <div class="mb-6 overflow-hidden">
         <img src="../assets/images/character-system/editor-preview.png" alt="Editor preview — verifying NPR character placement on a background" class="w-full h-auto">
@@ -148,36 +145,45 @@
       <p class="text-muted text-sm leading-relaxed mb-6">Three separate codebases, connected through Data Assets and VRM info nodes. The editor tool produces Data Assets. The runtime Blueprint loads them async. VRM Reference Points handles external model info.</p>
 
 
-<div class="encrypted-block">
-  <div class="encrypted-placeholder"><svg viewBox="0 -960 960 960"><path d="M252.31-100q-29.92 0-51.12-21.19Q180-142.39 180-172.31v-375.38q0-29.92 21.19-51.12Q222.39-620 252.31-620H300v-80q0-74.92 52.54-127.46Q405.08-880 480-880q74.92 0 127.46 52.54Q660-774.92 660-700v80h47.69q29.92 0 51.12 21.19Q780-577.61 780-547.69v375.38q0 29.92-21.19 51.12Q737.61-100 707.69-100H252.31Zm0-60h455.38q5.39 0 8.85-3.46t3.46-8.85v-375.38q0-5.39-3.46-8.85t-8.85-3.46H252.31q-5.39 0-8.85 3.46t-3.46 8.85v375.38q0 5.39 3.46 8.85t8.85 3.46Zm277.27-150.42Q550-330.85 550-360t-20.42-49.58Q509.15-430 480-430t-49.58 20.42Q410-389.15 410-360t20.42 49.58Q450.85-290 480-290t49.58-20.42ZM360-620h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z"/></svg></div>
-  <script type="application/json" class="encrypted-payload">{"salt":"EWu1g3nQrAPCLYy4eFXk5g==","iv":"dBwRn2B4T2qG0l47","data":"XTccE0uQV/4AKE/b90RCfbjZvWf8sfluyeGokxB268BFjZxj4u9K2Mfbv/1qCUuIHihjFmzFVY0hnClcxvVwmvYXP4e2FcQE/ye5Vtn1vVlmvUYtyI/SBwnoTBmq5dLbWuUKv6Zg9Ke/drjUlf9FrgMVx6Ww2PmAROnfJ/R8Ppn2PrvX+1Fmjx+0w9Zo38GFbgrtr2U81lUsytthPCyuBzxhxw1wAhVQHMMF9Ngekq2FuvR3f2wGTCaXPSvpJI8cgLhqQ7Mb/GTvQ3RTnow9lYr5wwROeP0pMrQyZbvMypogXBGz0QIEzj3q353TmsaWnM+BscS3bgfzCqBuAtqBm1wVJTL2F2gWuVBweQ1OjqxGF5wWvCgfoFWOT60NGLP4fHiu2Mae42Yx7z+ivZgfONSTjY+EIxwDobD121GAs1NJ48C/x1FJpSvw+DSWfuiKj/r5uo1OI6Vv4DnVaeAMbmAaVMvNhKiEEOOEqGlPye46hHBKQgBjpNVTizhdvkPqQcuKcN49i4qDBdlyTnYdDCYkIFQTTbQ96BAkVQ6r/Eyybz5lsLrXEyBMuKG0Wx9HIgktkFi+QuvMqes9TCV5cWA6lL0Z2xe8apGvSUmeLSLBzoGD3NQuLSnu+KhEF0LhQJfFomfFokqoozb1JHJ31HeN4sg/wJlr4rE/DZlrn/xJ6EuvM0LdZsKLhL96auKQ1xRyaERbvm6QUC7SKcUdQhke8YFf0R47InBD6+3LNYE70ky+2vsOLZTygmVRxWnF9VTkwdfrVZC9iZgCd2nxbNlBxa5WhaLQIauGnbzMC9+jiLOj/bp7+CkCyxjJ9S0dr1mpLoHjVnRnIQ4OKg52MZXF0th8Vf+hB9o7HlU2KEq4uW9Kkh5MTwKynRLaSQfKS4GTNUoDsijUXhDEO5bvN5jQ6R1QOXOpZrO3B7QLMOQVWJOxLiDwFMex8lsmDUNKhh3bewT3lLaszZcTrbkpyWqCYutUEVLUZOriZqfIenaSQ5eDDZnUkFFN07+gxk9NPQ5t+M0lDiEjqwamELDGPYw9uXS+91oeimRLeY+AqRht30fDhdzHrQ6loMyNAc7FA4oholriAGyBqu2WQeCdNhQeRSyJ6thsGNkenwHmb1poDFOXwV+SNJOX5JOsPLW83s8Kk0vPiVccYlsZwY/KCcqCmUynvQURzOFADoeQZwlIJwWvmhbtHA44cFdBZVk/OJQYBhXxOjiOryqEsolkOW5rOG3JjO6uWSAn8XVcS8+FLIasqioitN60j3Gdf3WFxo8ZzCCAK3t7mM1Hm60nnkyVx/7etkyHXHKQSAdaSQkuzYOP08GVUfOb1f2WjrOUPUgyk2oraDtrqmxRDm4FDnq77p8JOcapN1zMlm5xqDTMgKz0dMrLOdB6ubfSvHxebpmb"}</script>
-</div>
+      <!-- System diagram -->
+      <div class="bg-surface p-5 mb-8">
+        <pre class="text-xs text-green-400 overflow-x-auto" tabindex="0" role="region" aria-label="System structure diagram"><code>[1] NPR Character Manager (C++ Plugin)
+    └─ BP_Character_EnvCheck ─── Editor (for artists)
+        ├─ Parts assembly (Head/Hair/Body)
+        ├─ Preset save → Data Asset production
+        └─ Editor Tick → Preview without PIE
+
+                    Data Asset ─────┐
+                                    ▼
+[2] BP_Basemodel_TF ─────────── Runtime (inherits CinevCharacter)
+    ├─ Internal: Data Asset → Per-part async load
+    └─ External: VRM loader → Whole-model load
+                    ▲
+                    │ VRM info node update
+                    │
+[3] VRM Reference Points ──── VRM4U Plugin (C++)
+    ├─ 4-level fallback face detection (crown/eyes/mouth/nose)
+    └─ Camera target + automatic thumbnail capture</code></pre>
+      </div>
 
       <!-- Three components -->
       <div class="space-y-4 mb-6">
-        <div class="bg-surface rounded-lg border border-border p-5">
+        <div class="bg-surface p-5">
           <h3 class="font-medium mb-3">Editor — Character Environment Checker</h3>
           <p class="text-muted text-sm leading-relaxed mb-4">Artists assemble head, hair, and body parts in the editor and save them as presets. The Editor Tick Interface allows verifying characters and animations on a background without launching the game. The runtime reads these Data Assets directly.</p>
-<div class="encrypted-block">
-  <div class="encrypted-placeholder"><svg viewBox="0 -960 960 960"><path d="M252.31-100q-29.92 0-51.12-21.19Q180-142.39 180-172.31v-375.38q0-29.92 21.19-51.12Q222.39-620 252.31-620H300v-80q0-74.92 52.54-127.46Q405.08-880 480-880q74.92 0 127.46 52.54Q660-774.92 660-700v80h47.69q29.92 0 51.12 21.19Q780-577.61 780-547.69v375.38q0 29.92-21.19 51.12Q737.61-100 707.69-100H252.31Zm0-60h455.38q5.39 0 8.85-3.46t3.46-8.85v-375.38q0-5.39-3.46-8.85t-8.85-3.46H252.31q-5.39 0-8.85 3.46t-3.46 8.85v375.38q0 5.39 3.46 8.85t8.85 3.46Zm277.27-150.42Q550-330.85 550-360t-20.42-49.58Q509.15-430 480-430t-49.58 20.42Q410-389.15 410-360t20.42 49.58Q450.85-290 480-290t49.58-20.42ZM360-620h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z"/></svg></div>
-  <script type="application/json" class="encrypted-payload">{"salt":"nRxQapSjtfTvRjyTMc+w6g==","iv":"gOYWFo7Uyl13+b7J","data":"/FjAh52pPjL+BkVap/pBqcSWfjGXnUQ1yGM6cMqrh0EWMIv8Tan+fZPPQQwFVG86sw7G5gIwxLh5tRpS+hB68ucksSgXDsx5Ps820V6JldXKNSOJmMk74j5IAuqmGvsjUlsWATZdyQA2RuCz2mNUJcRuBHyTXOSZLuXu/J0PcwkLpn69Pyc4JfULzdCJVIggidzukqsmjRFya7A="}</script>
-</div>
+          <img src="../assets/images/character-system/tool-register.png" alt="BP_Character_EnvCheck — Character registration UI" class="w-full">
         </div>
-        <div class="bg-surface rounded-lg border border-border p-5">
+        <div class="bg-surface p-5">
           <h3 class="font-medium mb-3">Runtime — Character Blueprint</h3>
           <p class="text-muted text-sm leading-relaxed mb-4">A separate codebase from the editor tool -- a runtime character Blueprint inheriting the base character class. Internal characters load parts asynchronously from editor-produced Data Assets (Head/Hair/Body split), while external VRM loads the entire model through a loader. The same Blueprint handles both, branching only at the load path.</p>
-<div class="encrypted-block">
-  <div class="encrypted-placeholder"><svg viewBox="0 -960 960 960"><path d="M252.31-100q-29.92 0-51.12-21.19Q180-142.39 180-172.31v-375.38q0-29.92 21.19-51.12Q222.39-620 252.31-620H300v-80q0-74.92 52.54-127.46Q405.08-880 480-880q74.92 0 127.46 52.54Q660-774.92 660-700v80h47.69q29.92 0 51.12 21.19Q780-577.61 780-547.69v375.38q0 29.92-21.19 51.12Q737.61-100 707.69-100H252.31Zm0-60h455.38q5.39 0 8.85-3.46t3.46-8.85v-375.38q0-5.39-3.46-8.85t-8.85-3.46H252.31q-5.39 0-8.85 3.46t-3.46 8.85v375.38q0 5.39 3.46 8.85t8.85 3.46Zm277.27-150.42Q550-330.85 550-360t-20.42-49.58Q509.15-430 480-430t-49.58 20.42Q410-389.15 410-360t20.42 49.58Q450.85-290 480-290t49.58-20.42ZM360-620h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z"/></svg></div>
-  <script type="application/json" class="encrypted-payload">{"salt":"q9mJnHVHT72N2rpuTCIdwQ==","iv":"H0MDW2v/rn+Rxt0R","data":"nFyQTXfeIAn1zJhTE68XL2Kobr3xKLSOX15Tz5nez3fis+F/zd3g3LtZ1pK5pDYtREGvZod6wdIjnA5fDy/mJZTb2xdCnUT6IYdc6It0V2FTFMcvYr8n7t8XDoxl7uKStUfNrs+Adoz0yFS+Mhfw9iPpOV8I3VZAShNcBMOai+I38s3w36Wo9A7jMRhoGTFYKY5XN0Sqv5DkKMj5Sx/f94Ijg7yCuY/+WqfmawRggagfEe4I7zHagSh0"}</script>
-</div>
+          <img src="../assets/images/character-system/data-asset-load-bp.png" alt="BP_Basemodel_TF — Loading NRC Data Asset from DataTable" class="w-full">
         </div>
-        <div class="bg-surface rounded-lg border border-border p-5">
+        <div class="bg-surface p-5">
           <h3 class="font-medium mb-3">External Model Support — VRM Reference Points</h3>
           <p class="text-muted text-sm leading-relaxed mb-4">A C++ module written for the VRM4U plugin that updates VRM info nodes in the runtime character Blueprint. It auto-detects the face position of any external VRM/PMX via a 4-level fallback, then uses the result as a camera target to automatically capture 3-angle thumbnails (face close-up, upper body, full body). A commandlet environment enables batch thumbnail generation for all characters without opening the editor. A-pose/T-pose detection is also automatic.</p>
-<div class="encrypted-block">
-  <div class="encrypted-placeholder"><svg viewBox="0 -960 960 960"><path d="M252.31-100q-29.92 0-51.12-21.19Q180-142.39 180-172.31v-375.38q0-29.92 21.19-51.12Q222.39-620 252.31-620H300v-80q0-74.92 52.54-127.46Q405.08-880 480-880q74.92 0 127.46 52.54Q660-774.92 660-700v80h47.69q29.92 0 51.12 21.19Q780-577.61 780-547.69v375.38q0 29.92-21.19 51.12Q737.61-100 707.69-100H252.31Zm0-60h455.38q5.39 0 8.85-3.46t3.46-8.85v-375.38q0-5.39-3.46-8.85t-8.85-3.46H252.31q-5.39 0-8.85 3.46t-3.46 8.85v375.38q0 5.39 3.46 8.85t8.85 3.46Zm277.27-150.42Q550-330.85 550-360t-20.42-49.58Q509.15-430 480-430t-49.58 20.42Q410-389.15 410-360t20.42 49.58Q450.85-290 480-290t49.58-20.42ZM360-620h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z"/></svg></div>
-  <script type="application/json" class="encrypted-payload">{"salt":"BnpY6P1cvfjfUtntfTClqQ==","iv":"VKcRJkj3QOrkxrqF","data":"ra/ncPjHUsyIv8J1Rr/kZa9VX9qj0E9ZU44TTtNKlngusE+hMxcgh9FTowUgJUD/IrR7YqgYG5PTCKmAoRDkl5+aJsyASx0FNJYtFSQobKUearK7MHy57HjiV76a73SRD8NW+XprYYBbcfQiDnyvqlCUL9NWdL42dCsy9gaQ+/OZodyf7dmFph1BH3HygTrZqxFPJWaPONiE7QlobillrgDvn7J9Uc9mVdOWAtMIzU9GzB4WE3M4R/tkTCqAo81jeGSqtxSLBzCUEQthn7Yy7RdNWLooL6pyQXilbkab"}</script>
-</div>
+          <div class="overflow-hidden mb-4">
+            <video src="../assets/images/character-system/reference-points.mp4" autoplay muted loop playsinline class="w-full h-auto"></video>
+          </div>
           <div class="overflow-hidden">
             <img src="../assets/images/character-system/auto-thumbnail.png" alt="VRM Reference Points auto-thumbnail — face, upper body, and full body 3-angle auto-capture results" class="w-full h-auto">
           </div>
@@ -189,59 +195,15 @@
       </div>
     </section>
 
-    <hr class="border-border mb-12">
+    <div class="mb-6 overflow-hidden">
+      <img src="../assets/images/character-system/part-branch-bp.png" alt="BP nodes — Unified/split skeletal mesh load branching" class="w-full h-auto">
+      <p class="text-xs text-muted mt-2 text-center">Unified / split skeletal mesh load branching</p>
+    </div>
 
-    <!-- Technical Details -->
-    <section class="mb-16">
-      <h2 class="text-xl font-bold mb-6">Technical Details</h2>
-
-      <h3 class="text-sm text-muted uppercase tracking-widest mb-4">Loading 30s to 6s</h3>
-      <div class="space-y-3 mb-8">
-        <details class="bg-surface rounded-lg border border-border">
-          <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">Soft Object Reference + Async Loading</summary>
-          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">Two root causes behind the 30-second load: per-part Hard References for save were all pulled in at editor load, and 80+ unused blend shapes (face morphs) came along too. Extracting save into the editor tool removed all those references, and blend shapes were changed to not preload. Data Assets needed only at load time are processed asynchronously via StreamableManager.RequestAsyncLoad.
-          </div>
-        </details>
-        <details class="bg-surface rounded-lg border border-border">
-          <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">Data Asset Only Migration</summary>
-          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">Inspired by the MetaHuman preset structure. Even with soft references, DataTables must read all rows on first load, making them fundamentally slow. Data Assets only hold what's needed via soft references, so the structure itself is lightweight.</div>
-        </details>
-        <details class="bg-surface rounded-lg border border-border">
-          <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">Unreal Insights Profiling</summary>
-          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">Traced LoadObject call stacks in the CPU Timing and Loading tabs to identify which assets were consuming time. This data provided the evidence needed to strip out Hard References.</div>
-        </details>
-      </div>
-
-      <h3 class="text-sm text-muted uppercase tracking-widest mb-4">Character Actor BP Structure</h3>
-      <div class="space-y-3 mb-8">
-        <details class="bg-surface rounded-lg border border-border">
-          <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">Unified / Split Skeletal Mesh Loading</summary>
-          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">Split mode (internal characters) loads Head/Hair/Body parts separately from Data Assets, while unified mode (VRM/PMX) loads the entire model through the VRM4U loader. The same Blueprint handles both with only the load path branching; once loaded, all skeletal mesh components are reset and reattached.
-<div class="encrypted-block">
-  <div class="encrypted-placeholder"><svg viewBox="0 -960 960 960"><path d="M252.31-100q-29.92 0-51.12-21.19Q180-142.39 180-172.31v-375.38q0-29.92 21.19-51.12Q222.39-620 252.31-620H300v-80q0-74.92 52.54-127.46Q405.08-880 480-880q74.92 0 127.46 52.54Q660-774.92 660-700v80h47.69q29.92 0 51.12 21.19Q780-577.61 780-547.69v375.38q0 29.92-21.19 51.12Q737.61-100 707.69-100H252.31Zm0-60h455.38q5.39 0 8.85-3.46t3.46-8.85v-375.38q0-5.39-3.46-8.85t-8.85-3.46H252.31q-5.39 0-8.85 3.46t-3.46 8.85v375.38q0 5.39 3.46 8.85t8.85 3.46Zm277.27-150.42Q550-330.85 550-360t-20.42-49.58Q509.15-430 480-430t-49.58 20.42Q410-389.15 410-360t20.42 49.58Q450.85-290 480-290t49.58-20.42ZM360-620h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z"/></svg></div>
-  <script type="application/json" class="encrypted-payload">{"salt":"tNYLhWF8ui/yv6VKX4spbQ==","iv":"AJy4CEGbc2cd9nO7","data":"nTVoyaCZGn+AjFY/kIUhD94avhSQCOeEj1KTlG3ahvmYeU60mJIfxx1l5K+sIHWRCcDYr3u1P/9iLZQ5YXXjv0unX0+2XFqn5EkSc4JUQ+btZFOF0QfaiW6bjXp9Ew7eviX3RhQyJBtGO7U6sd7N8HaQCvXdzldbFmC2YDylat3QfTxQsNpMj6UEChWapiXiw6M9PsvxGYSQ/a8SixLr3mT1s3jj93InSEK4mf7wWtTKDf2IVllL"}</script>
-</div>
-          </div>
-        </details>
-        <details class="bg-surface rounded-lg border border-border">
-          <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">Editor Tick Interface — Editor Preview Without PIE</summary>
-          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">Implemented the Editor Tick Blueprint Interface in the editor tool, enabling animation playback in the editor environment. Art directors can verify colors, scale, and animations without launching the runtime, so iteration is faster.
-<div class="encrypted-block">
-  <div class="encrypted-placeholder"><svg viewBox="0 -960 960 960"><path d="M252.31-100q-29.92 0-51.12-21.19Q180-142.39 180-172.31v-375.38q0-29.92 21.19-51.12Q222.39-620 252.31-620H300v-80q0-74.92 52.54-127.46Q405.08-880 480-880q74.92 0 127.46 52.54Q660-774.92 660-700v80h47.69q29.92 0 51.12 21.19Q780-577.61 780-547.69v375.38q0 29.92-21.19 51.12Q737.61-100 707.69-100H252.31Zm0-60h455.38q5.39 0 8.85-3.46t3.46-8.85v-375.38q0-5.39-3.46-8.85t-8.85-3.46H252.31q-5.39 0-8.85 3.46t-3.46 8.85v375.38q0 5.39 3.46 8.85t8.85 3.46Zm277.27-150.42Q550-330.85 550-360t-20.42-49.58Q509.15-430 480-430t-49.58 20.42Q410-389.15 410-360t20.42 49.58Q450.85-290 480-290t49.58-20.42ZM360-620h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z"/></svg></div>
-  <script type="application/json" class="encrypted-payload">{"salt":"v/46J9ez/AfYA9WWeFcT3Q==","iv":"3cHWuAUaGWYvtdqf","data":"IIl/JmdzOqXyqHB0/pSKC7s7aOwWuv4+Gp2083V4hJrh0OYYicxEFHS+BgCPdNCGzrgoK6ClAay0zePh/568rujQy3OSSHvSYkmzV/ODbHbgw6NB9UZ7bki21k7knepi/XM3oCiozadXAoV7bH/xfQkFQW9WjN6toXDwAO8bmDkpd1tK9lgxvHd3/w5zlFZzyTScpczTSdJJpg=="}</script>
-</div>
-          </div>
-        </details>
-      </div>
-
-      <h3 class="text-sm text-muted uppercase tracking-widest mb-4">Auto Face Detection</h3>
-      <div class="space-y-3">
-        <details class="bg-surface rounded-lg border border-border">
-          <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">VRM Reference Points 4-Level Fallback</summary>
-          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">Auto-detects face landmarks for external VRM/PMX characters. Level 1: Bone lookup (humanoidBoneTable). Level 2: Material vertices + raycast (Moller-Trumbore). Level 3: Position interpolation. Level 4: Fallback estimation. Detection results are used for camera targeting and automatic thumbnail capture.</div>
-        </details>
-      </div>
-    </section>
+    <div class="mb-6 overflow-hidden">
+      <img src="../assets/images/character-system/editor-tick-bp.png" alt="BP_EditorTicker + BPI_EditorTick node graph" class="w-full h-auto">
+      <p class="text-xs text-muted mt-2 text-center">Editor Tick — preview without PIE</p>
+    </div>
 
     <!-- Prev/Next -->
     <div class="flex justify-between items-center mt-16 pt-8 border-t border-border">
@@ -251,25 +213,8 @@
 
   
   
+  
   </main>
-
-  <!-- Section decrypt modal -->
-  <div id="section-pw-modal" class="hidden fixed inset-0 z-[60] flex items-center justify-center bg-black/60 backdrop-blur-sm">
-    <div class="w-full max-w-sm mx-6 bg-surface border border-border rounded-lg p-6">
-      <div class="flex items-center justify-center w-12 h-12 rounded-full bg-bg border border-border mb-6 mx-auto">
-        <svg class="w-5 h-5 text-muted" fill="currentColor" viewBox="0 -960 960 960">
-          <path d="M252.31-100q-29.92 0-51.12-21.19Q180-142.39 180-172.31v-375.38q0-29.92 21.19-51.12Q222.39-620 252.31-620H300v-80q0-74.92 52.54-127.46Q405.08-880 480-880q74.92 0 127.46 52.54Q660-774.92 660-700v80h47.69q29.92 0 51.12 21.19Q780-577.61 780-547.69v375.38q0 29.92-21.19 51.12Q737.61-100 707.69-100H252.31Zm0-60h455.38q5.39 0 8.85-3.46t3.46-8.85v-375.38q0-5.39-3.46-8.85t-8.85-3.46H252.31q-5.39 0-8.85 3.46t-3.46 8.85v375.38q0 5.39 3.46 8.85t8.85 3.46Zm277.27-150.42Q550-330.85 550-360t-20.42-49.58Q509.15-430 480-430t-49.58 20.42Q410-389.15 410-360t20.42 49.58Q450.85-290 480-290t49.58-20.42ZM360-620h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z"/>
-        </svg>
-      </div>
-      <p class="text-center text-muted text-sm mb-6">NDA project.<br>Enter password to unlock content.</p>
-      <input id="section-pw-input" type="password" placeholder="Password" autocomplete="off"
-        class="w-full bg-bg border border-border rounded-lg px-4 py-2.5 text-sm text-heading placeholder-muted focus:outline-none focus:border-accent transition mb-3">
-      <p id="section-pw-error" class="hidden text-red-400 text-xs mb-3 text-center">Incorrect password</p>
-      <button id="section-pw-submit"
-        class="w-full px-5 py-2.5 bg-heading text-bg text-sm font-medium rounded-lg hover:bg-heading/90 transition">Unlock</button>
-      <button id="section-pw-close" class="block w-full mt-3 text-muted text-sm hover:text-heading transition">Close</button>
-    </div>
-  </div>
 
   <footer class="border-t border-border py-8 text-center text-muted text-xs">
     <p>&copy; 2026 Younsoo Lim. All rights reserved.</p>

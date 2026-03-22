@@ -14,18 +14,28 @@
   --c-faint: 195 200 210;
 }
 
-[data-theme="dark"] {
-  --c-bg: 8 8 8;
-  --c-surface: 17 17 19;
-  --c-border: 42 43 47;
-  --c-muted: 168 173 182;
-  --c-sub: 176 180 186;
-  --c-accent: 124 138 255;
-  --c-body: 220 223 227;
-  --c-heading: 255 255 255;
-  --c-tag: 200 205 215;
-  --c-caption: 145 150 158;
-  --c-faint: 55 58 65;
+/* ── Code Blocks (always dark) ── */
+
+pre, code {
+  background-color: #111113;
+  color: #dcdfe3;
+}
+
+pre {
+  padding: 1.25rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+}
+
+code {
+  padding: 0.15em 0.4em;
+  border-radius: 0.25rem;
+  font-size: 0.875em;
+}
+
+pre code {
+  padding: 0;
+  background: none;
 }
 
 /* ── Base ── */
@@ -163,12 +173,6 @@ table {
 
 [data-tip]:hover::after {
   opacity: 1;
-}
-
-/* ── Theme Toggle ── */
-
-#theme-toggle {
-  display: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
