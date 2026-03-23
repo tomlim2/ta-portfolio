@@ -81,6 +81,7 @@
 
       <div class="mb-6 overflow-hidden">
         <img src="../assets/images/character-system/editor-preview.png" alt="Editor preview — verifying NPR character placement on a background" class="w-full h-auto">
+        <p class="text-xs text-muted text-center mt-2">Editor preview — checking NPR characters on background without launching the game</p>
       </div>
       <p class="text-muted text-sm leading-relaxed">The original character Blueprint had both save and load in a single actor, but the references held by the save side caused a 30-second wait every time the editor opened. By extracting save into a dedicated editor tool and leaving only load in the runtime Blueprint, load time dropped from <strong class="text-heading">30s to 6s</strong>. The editor tool also implements the Editor Tick Interface, enabling preview directly on a background without launching the game. For external VRM, Reference Points auto-detects the face via a 4-level fallback and handles camera targeting and thumbnail generation automatically.</p>
     </section>
@@ -167,15 +168,18 @@
           <p class="text-muted text-sm leading-relaxed mb-4">A C++ module written for the VRM4U plugin that updates VRM info nodes in the runtime character Blueprint. It auto-detects the face position of any external VRM/PMX via a 4-level fallback, then uses the result as a camera target to automatically capture 3-angle thumbnails (face close-up, upper body, full body). A commandlet environment enables batch thumbnail generation for all characters without opening the editor. A-pose/T-pose detection is also automatic.</p>
           <div class="overflow-hidden mb-4">
             <video src="../assets/images/character-system/reference-points.mp4" autoplay muted loop playsinline class="w-full h-auto"></video>
+            <p class="text-xs text-muted text-center mt-2">Auto face detection running on an external VRM</p>
           </div>
           <div class="overflow-hidden">
             <img src="../assets/images/character-system/auto-thumbnail.png" alt="VRM Reference Points auto-thumbnail — face, upper body, and full body 3-angle auto-capture results" class="w-full h-auto">
+            <p class="text-xs text-muted text-center mt-2">3-angle auto-captured thumbnails</p>
           </div>
         </div>
       </div>
 
       <div class="mb-6 overflow-hidden">
         <img src="../assets/images/character-system/lineup.png" alt="Internal and external VRM character lineup" class="w-full h-auto">
+        <p class="text-xs text-muted text-center mt-2">In-house + external VRM character lineup</p>
       </div>
     </section>
 
