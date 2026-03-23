@@ -55,64 +55,63 @@
       <img src="../assets/images/npr-shader/hero-cel-shading-outline.png" alt="Placing and previewing NPR characters on a background in the editor" class="w-full h-auto">
     </div>
 
-    <h1 class="page-title">Character System</h1>
+    <h1 class="page-title" data-ko="캐릭터 시스템">Character System</h1>
 
-    <p class="text-body mb-6 page-subtitle">300+ characters from a single Blueprint</p>
+    <p class="text-body mb-6 page-subtitle" data-ko="하나의 블루프린트에서 300+ 캐릭터">300+ characters from a single Blueprint</p>
 
     <p class="text-xs text-muted mb-12">UE5 · C++ · Blueprint — Company, 2024–2026</p>
 
     <!-- Problem -->
     <section class="mb-16">
-      <h2 class="text-xl font-bold mb-4">Problem</h2>
-      <p class="text-muted text-sm leading-relaxed">As the character count approached 300, we needed a pipeline to systematically manage parts assembly, registration, preview, and loading. Opening the editor pulled in all assets via hard references, requiring a <strong class="text-heading">30-second wait</strong>. Checking colors or animations meant launching the game every time. With external VRM support added, manually setting up cameras and thumbnails per model became yet another burden.</p>
+      <h2 class="text-xl font-bold mb-4" data-ko="문제">Problem</h2>
+      <p class="text-muted text-sm leading-relaxed" data-ko="시네브이는 메타휴먼부터 애니메 캐릭터까지 다양한 형식의 캐릭터들을 시도해야 했기에 파츠 조합, 등록, 프리뷰, 로딩을 유연하지만 체계적으로 관리할 파이프라인이 필요했습니다. 기존에는 하나의 캐릭터 블루프린트에서 모든 것을 해결하려 했기에 데이터 테이블, 하드 레퍼런스와 애님 블루프린트로 전체 에셋이 올라와 첫 캐릭터 로드에 30~40초를 기다려야 했습니다. 또한 배경 팀에서 PBR 배경에 NPR 캐릭터와의 룩을 맞추기 위해 이 무거운 캐릭터 액터를 에디터 틱으로 구현하여 사용하고 있었습니다. 프로젝트 완성 단계에서 추가된 외부 VRM 모델마다 카메라와 썸네일을 수작업으로 잡아야 했습니다.">As the character count approached 300, we needed a pipeline to systematically manage parts assembly, registration, preview, and loading. Opening the editor pulled in all assets via hard references, requiring a 30-second wait. Checking colors or animations meant launching the game every time. With external VRM support added, manually setting up cameras and thumbnails per model became yet another burden.</p>
     </section>
 
     <!-- Solution -->
     <section class="mb-16">
-      <h2 class="text-xl font-bold mb-4">Solution</h2>
-      <p class="text-muted text-sm leading-relaxed mb-4">I proposed a VRM save/load prototype using vrm4u early on, which was adopted and is now running in production. I split the work into three systems: an Editor tool, a Runtime character Blueprint, and VRM Reference Points. Each loads Data Assets or external models and lets you verify them against the in-house shader and animations. Artists assemble parts and register presets in the editor, producing Data Assets that the runtime loads asynchronously.</p>
+      <h2 class="text-xl font-bold mb-4" data-ko="해결">Solution</h2>
+      <p class="text-muted text-sm leading-relaxed mb-4" data-ko="일단 기존 무거운 캐릭터 블루프린트를 두 개로 나누었습니다. 크게 실제 서비스에 사용하기 위한 로드 용도의 캐릭터 블루프린트, 그리고 그 로드를 위해 필요한 데이터 에셋을 관리하기 위한 등록 용도의 캐릭터 블루프린트로 분리했습니다. 로드 용도 캐릭터 블루프린트는 데이터 에셋에 저장된 스켈레탈 메시, 머티리얼, 파라미터들을 불러오는 용도로만 사용했기에 로드 타임은 최대 6초 이내로 스폰되게 되었습니다. 등록 용도 캐릭터 블루프린트는 C++ 플러그인을 활용하여 데이터 에셋 및 썸네일을 생산하는 역할입니다. 이후 추가된 vrm4u 로더는 자연스럽게 로드 용도 캐릭터 블루프린트 안에 들어갔고, 카메라 시스템 및 썸네일 촬영에 필요한 눈·코·입·정수리 레퍼런스 포인트를 찾는 함수를 vrm4u 로더 플러그인 안에 확장 구현했습니다.">I proposed a VRM save/load prototype using vrm4u early on, which was adopted and is now running in production. I split the work into three systems: an Editor tool, a Runtime character Blueprint, and VRM Reference Points. Each loads Data Assets or external models and lets you verify them against the in-house shader and animations. Artists assemble parts and register presets in the editor, producing Data Assets that the runtime loads asynchronously.</p>
 
       <img src="../assets/images/character-system/data-asset-details.png" alt="NRC Data Asset — Info, Base, Parts, Outline, Chaos Cloth settings" class="mx-auto max-h-[500px] mb-2">
-      <p class="text-xs text-muted mb-6 text-center">NRC Data Asset — managing parts, materials, outline, and Chaos Cloth settings in one place</p>
+      <p class="text-xs text-muted mb-6 text-center" data-ko="NRC Data Asset — 파츠, 머티리얼, 아웃라인, Chaos Cloth 설정을 한 곳에서 관리">NRC Data Asset — managing parts, materials, outline, and Chaos Cloth settings in one place</p>
 
       <div class="mb-6 overflow-hidden">
         <img src="../assets/images/character-system/editor-preview.png" alt="Editor preview — verifying NPR character placement on a background" class="w-full h-auto">
-        <p class="text-xs text-muted text-center mt-2">Editor preview — checking NPR characters on background without launching the game</p>
+        <p class="text-xs text-muted text-center mt-2" data-ko="등록 용도 캐릭터 블루프린트로 배경 위에서 바로 프리뷰">Editor preview — checking NPR characters on background without launching the game</p>
       </div>
-      <p class="text-muted text-sm leading-relaxed">The original character Blueprint had both save and load in a single actor, but the references held by the save side caused a 30-second wait every time the editor opened. By extracting save into a dedicated editor tool and leaving only load in the runtime Blueprint, load time dropped from <strong class="text-heading">30s to 6s</strong>. The editor tool also implements the Editor Tick Interface, enabling preview directly on a background without launching the game. For external VRM, Reference Points auto-detects the face via a 4-level fallback and handles camera targeting and thumbnail generation automatically.</p>
     </section>
 
     <!-- Result -->
     <section class="mb-16">
-      <h2 class="text-xl font-bold mb-4">Result</h2>
+      <h2 class="text-xl font-bold mb-4" data-ko="결과">Result</h2>
       <div class="overflow-x-auto">
         <table class="w-full text-sm">
           <thead>
             <tr class="border-b border-border text-left">
-              <th scope="col" class="py-3 pr-4 text-muted font-medium">Category</th>
-              <th scope="col" class="py-3 pr-4 text-muted font-medium">Before</th>
-              <th scope="col" class="py-3 pr-4 text-muted font-medium">After</th>
-              <th scope="col" class="py-3 text-muted font-medium">Improvement</th>
+              <th scope="col" class="py-3 pr-4 text-muted font-medium" data-ko="항목">Category</th>
+              <th scope="col" class="py-3 pr-4 text-muted font-medium" data-ko="이전">Before</th>
+              <th scope="col" class="py-3 pr-4 text-muted font-medium" data-ko="이후">After</th>
+              <th scope="col" class="py-3 text-muted font-medium" data-ko="개선">Improvement</th>
             </tr>
           </thead>
           <tbody class="text-muted">
             <tr class="border-b border-border/50">
-              <td class="py-3 pr-4 text-heading font-medium">Editor Load</td>
+              <td class="py-3 pr-4 text-heading font-medium" data-ko="에디터 로드">Editor Load</td>
               <td class="py-3 pr-4">30s</td>
               <td class="py-3 pr-4">6s</td>
               <td class="py-3 text-accent font-medium">80%↓</td>
             </tr>
             <tr class="border-b border-border/50">
-              <td class="py-3 pr-4 text-heading font-medium">Packaged Load</td>
-              <td class="py-3 pr-4">Several seconds</td>
-              <td class="py-3 pr-4">Perceived 0s</td>
-              <td class="py-3 text-accent font-medium">Eliminated</td>
+              <td class="py-3 pr-4 text-heading font-medium" data-ko="패키징 로드">Packaged Load</td>
+              <td class="py-3 pr-4" data-ko="수 초 대기">Several seconds</td>
+              <td class="py-3 pr-4" data-ko="체감 0초">Perceived 0s</td>
+              <td class="py-3 text-accent font-medium" data-ko="제거">Eliminated</td>
             </tr>
             <tr>
-              <td class="py-3 pr-4 text-heading font-medium">Character Presets</td>
+              <td class="py-3 pr-4 text-heading font-medium" data-ko="캐릭터 프리셋">Character Presets</td>
               <td class="py-3 pr-4">-</td>
               <td class="py-3 pr-4">300+</td>
-              <td class="py-3 text-accent font-medium">Unified</td>
+              <td class="py-3 text-accent font-medium" data-ko="통합 관리">Unified</td>
             </tr>
           </tbody>
         </table>
@@ -123,9 +122,9 @@
 
     <!-- System Structure -->
     <section class="mb-16">
-      <h2 class="text-xl font-bold mb-6">System Structure</h2>
+      <h2 class="text-xl font-bold mb-6" data-ko="시스템 구조">System Structure</h2>
 
-      <p class="text-muted text-sm leading-relaxed mb-6">Three separate codebases, connected through Data Assets and VRM info nodes. The editor tool produces Data Assets. The runtime Blueprint loads them async. VRM Reference Points handles external model info.</p>
+      <p class="text-muted text-sm leading-relaxed mb-6" data-ko="세 독립된 코드베이스이지만 변화무쌍한 프로젝트에 맞춘 최선의 파이프라인입니다. 중심은 로더용 캐릭터 블루프린트이며 인하우스 실사/비실사 캐릭터 및 외부 VRM 캐릭터를 안정적으로 로드합니다.">Three separate codebases, connected through Data Assets and VRM info nodes. The editor tool produces Data Assets. The runtime Blueprint loads them async. VRM Reference Points handles external model info.</p>
 
 
       <!-- System diagram -->
@@ -150,43 +149,43 @@
       <!-- Three components -->
       <div class="space-y-4 mb-6">
         <div class="bg-surface p-5 rounded-lg">
-          <h3 class="font-medium mb-3">Editor — Character Environment Checker</h3>
-          <p class="text-muted text-sm leading-relaxed mb-4">Artists assemble head, hair, and body parts in the editor and save them as presets. The Editor Tick Interface allows verifying characters and animations on a background without launching the game. The runtime reads these Data Assets directly.</p>
+          <h3 class="font-medium mb-3" data-ko="에디터 — 캐릭터 환경 체커">Editor — Character Environment Checker</h3>
+          <p class="text-muted text-sm leading-relaxed mb-4" data-ko="아티스트가 머리·헤어·바디 파츠를 조합하고 프리셋으로 저장하면 Data Asset이 생산됩니다. 에디터 Tick으로 게임 실행 없이 배경 위에서 룩을 바로 확인할 수 있습니다.">Artists assemble head, hair, and body parts in the editor and save them as presets. The Editor Tick Interface allows verifying characters and animations on a background without launching the game. The runtime reads these Data Assets directly.</p>
           <img src="../assets/images/character-system/tool-register.png" alt="BP_Character_EnvCheck — Character registration UI" class="w-full">
         </div>
         <div class="bg-surface p-5 rounded-lg">
-          <h3 class="font-medium mb-3">Runtime — Character Blueprint</h3>
-          <p class="text-muted text-sm leading-relaxed mb-4">A separate codebase from the editor tool -- a runtime character Blueprint inheriting the base character class. Internal characters load parts asynchronously from editor-produced Data Assets (Head/Hair/Body split), while external VRM loads the entire model through a loader. The same Blueprint handles both, branching only at the load path.</p>
+          <h3 class="font-medium mb-3" data-ko="런타임 — 캐릭터 블루프린트">Runtime — Character Blueprint</h3>
+          <p class="text-muted text-sm leading-relaxed mb-4" data-ko="로드 전용 BP입니다. 자체 캐릭터는 Data Asset에서 파츠별 비동기 로드, 외부 VRM은 로더로 통째 로드합니다. 같은 BP 안에서 경로만 분기하여 300+ 프리셋과 커뮤니티 캐릭터를 하나로 관리합니다.">A separate codebase from the editor tool -- a runtime character Blueprint inheriting the base character class. Internal characters load parts asynchronously from editor-produced Data Assets (Head/Hair/Body split), while external VRM loads the entire model through a loader. The same Blueprint handles both, branching only at the load path.</p>
           <img src="../assets/images/character-system/data-asset-load-bp.png" alt="BP_Basemodel_TF — Loading NRC Data Asset from DataTable" class="w-full">
         </div>
         <div class="bg-surface p-5 rounded-lg">
-          <h3 class="font-medium mb-3">External Model Support — VRM Reference Points</h3>
-          <p class="text-muted text-sm leading-relaxed mb-4">A C++ module written for the VRM4U plugin that updates VRM info nodes in the runtime character Blueprint. It auto-detects the face position of any external VRM/PMX via a 4-level fallback, then uses the result as a camera target to automatically capture 3-angle thumbnails (face close-up, upper body, full body). A commandlet environment enables batch thumbnail generation for all characters without opening the editor. A-pose/T-pose detection is also automatic.</p>
+          <h3 class="font-medium mb-3" data-ko="외부 모델 지원 — VRM Reference Points">External Model Support — VRM Reference Points</h3>
+          <p class="text-muted text-sm leading-relaxed mb-4" data-ko="VRM4U 플러그인에 작성한 C++ 모듈입니다. 어떤 VRM/PMX든 4단 폴백으로 얼굴 위치를 자동 탐지하고, 카메라 타겟으로 3앵글 썸네일(얼굴·상반신·전신)을 자동 촬영합니다. 커맨드렛 환경으로 에디터 없이 배치 생성이 가능합니다. A포즈/T포즈도 자동 판별합니다.">A C++ module written for the VRM4U plugin that updates VRM info nodes in the runtime character Blueprint. It auto-detects the face position of any external VRM/PMX via a 4-level fallback, then uses the result as a camera target to automatically capture 3-angle thumbnails (face close-up, upper body, full body). A commandlet environment enables batch thumbnail generation for all characters without opening the editor. A-pose/T-pose detection is also automatic.</p>
           <div class="overflow-hidden mb-4">
             <video src="../assets/images/character-system/reference-points.mp4" autoplay muted loop playsinline class="w-full h-auto"></video>
-            <p class="text-xs text-muted text-center mt-2">Auto face detection running on an external VRM</p>
+            <p class="text-xs text-muted text-center mt-2" data-ko="외부 VRM에서 자동 얼굴 탐지 실행">Auto face detection running on an external VRM</p>
           </div>
           <div class="overflow-hidden">
             <img src="../assets/images/character-system/auto-thumbnail.png" alt="VRM Reference Points auto-thumbnail — face, upper body, and full body 3-angle auto-capture results" class="w-full h-auto">
-            <p class="text-xs text-muted text-center mt-2">3-angle auto-captured thumbnails</p>
+            <p class="text-xs text-muted text-center mt-2" data-ko="3앵글 자동 촬영 썸네일">3-angle auto-captured thumbnails</p>
           </div>
         </div>
       </div>
 
       <div class="mb-6 overflow-hidden">
         <img src="../assets/images/character-system/lineup.png" alt="Internal and external VRM character lineup" class="w-full h-auto">
-        <p class="text-xs text-muted text-center mt-2">In-house + external VRM character lineup</p>
+        <p class="text-xs text-muted text-center mt-2" data-ko="인하우스 + 외부 VRM 캐릭터 라인업">In-house + external VRM character lineup</p>
       </div>
     </section>
 
     <div class="mb-6 overflow-hidden">
       <img src="../assets/images/character-system/part-branch-bp.png" alt="BP nodes — Unified/split skeletal mesh load branching" class="w-full h-auto">
-      <p class="text-xs text-muted mt-2 text-center">Unified / split skeletal mesh load branching</p>
+      <p class="text-xs text-muted mt-2 text-center" data-ko="통합 / 분리 스켈레탈 메시 로드 분기">Unified / split skeletal mesh load branching</p>
     </div>
 
     <div class="mb-6 overflow-hidden">
       <img src="../assets/images/character-system/editor-tick-bp.png" alt="BP_EditorTicker + BPI_EditorTick node graph" class="w-full h-auto">
-      <p class="text-xs text-muted mt-2 text-center">Editor Tick — preview without PIE</p>
+      <p class="text-xs text-muted mt-2 text-center" data-ko="Editor Tick — PIE 없이 프리뷰">Editor Tick — preview without PIE</p>
     </div>
 
     <!-- Prev/Next -->
@@ -201,10 +200,11 @@
   </main>
 
   <footer class="border-t border-border py-8 text-center text-muted text-xs">
-    <p>&copy; 2026 Younsoo Lim. All rights reserved.</p>
+    <p>&copy; 2026 Younsoo Lim &middot; <button id="lang-toggle" aria-label="Toggle language"><span style="opacity:0.4">Ko</span> / En</button></p>
   </footer>
 
   <script src="../js/auth.js"></script>
+  <script src="../js/i18n.js"></script>
   <script src="../js/main.js"></script>
 </body>
 </html>

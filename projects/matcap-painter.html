@@ -64,67 +64,67 @@
 
     <div class="mb-8">
       <video src="../assets/images/matcap-painter/shader-mode-demo.mp4" autoplay loop muted playsinline class="w-full"></video>
-      <p class="text-xs text-muted mt-2 text-center">Shader Mode — Adjust Color Ramp → Real-time 3D preview</p>
+      <p class="text-xs text-muted mt-2 text-center" data-ko="Shader 모드 — Color Ramp 조절 → 실시간 3D 프리뷰">Shader Mode — Adjust Color Ramp → Real-time 3D preview</p>
     </div>
 
     <h1 class="page-title">Matcap Painter</h1>
 
-    <p class="text-body mb-6 page-subtitle">Real-time Matcap texture creation + 3D preview</p>
+    <p class="text-body mb-6 page-subtitle" data-ko="Matcap 텍스처 실시간 제작 + 3D 프리뷰">Real-time Matcap texture creation + 3D preview</p>
 
     <p class="text-xs text-muted mb-12">Three.js WebGPU · JavaScript · Canvas 2D — Personal, 2026 · <a href="https://tomlim2.github.io/matcap-painter/" target="_blank" rel="noopener" class="text-accent hover:underline">tomlim2.github.io/matcap-painter</a></p>
 
     <!-- Motivation -->
     <section class="mb-16">
-      <h2 class="text-xl font-bold mb-4">Motivation</h2>
-      <p class="text-muted text-sm leading-relaxed">I needed Matcap textures for fake reflection masks in our <a href="npr-shader.html" class="text-accent hover:underline">NPR Shader System</a> to achieve <strong class="text-heading">metallic surfaces and hair specular highlights</strong> on our NPR characters. The existing workflow was manual editing in Photoshop → engine import → check → back to Photoshop if it didn't look right. Without real-time feedback, iteration was slow.</p>
+      <h2 class="text-xl font-bold mb-4" data-ko="동기">Motivation</h2>
+      <p class="text-muted text-sm leading-relaxed" data-ko="인하우스 <a href=&quot;npr-shader.html&quot; class=&quot;text-accent hover:underline&quot;>NPR Shader System</a>에서 <strong class=&quot;text-heading&quot;>금속 표면과 헤어 스펙큘러 하이라이트</strong>에 쓸 가짜 반사 마스크용 Matcap 텍스처가 필요했습니다. 기존 워크플로우는 포토샵에서 수작업 → 엔진 임포트 → 확인 → 안 맞으면 다시 포토샵. 이런 결과물을 보는 긴 과정보다는 실시간 피드백을 통해 다양한 프리셋을 보면서 나은 결과물을 얻기 위한 방법이라고 생각하고 작업했습니다.">I needed Matcap textures for fake reflection masks in our <a href="npr-shader.html" class="text-accent hover:underline">NPR Shader System</a> to achieve <strong class="text-heading">metallic surfaces and hair specular highlights</strong> on our NPR characters. The existing workflow was manual editing in Photoshop → engine import → check → back to Photoshop if it didn't look right. Without real-time feedback, iteration was slow.</p>
     </section>
 
     <!-- Solution -->
     <section class="mb-16">
-      <h2 class="text-xl font-bold mb-4">Solution</h2>
+      <h2 class="text-xl font-bold mb-4" data-ko="해결">Solution</h2>
 
       <div class="grid md:grid-cols-2 gap-6 mb-6">
         <div class="bg-surface p-5 rounded-lg">
-          <h3 class="font-medium mb-3">Shader Mode — Create from scratch</h3>
-          <p class="text-muted text-sm leading-relaxed">A Blender Color Ramp-style UI for real-time control of Toon Ramp, Specular highlights, and Outline. Drag band count and boundaries to see instant updates in the 3D preview.</p>
+          <h3 class="font-medium mb-3" data-ko="Shader 모드 — Toon Ramp 기반으로 만들기">Shader Mode — Create from scratch</h3>
+          <p class="text-muted text-sm leading-relaxed" data-ko="Blender Color Ramp 스타일 UI로 Toon Ramp, Specular 하이라이트, Outline을 실시간 제어합니다. 밴드 수와 경계를 드래그하면 3D 프리뷰에 즉시 반영됩니다.">A Blender Color Ramp-style UI for real-time control of Toon Ramp, Specular highlights, and Outline. Drag band count and boundaries to see instant updates in the 3D preview.</p>
         </div>
         <div class="bg-surface p-5 rounded-lg">
-          <h3 class="font-medium mb-3">Paint Mode — Edit existing textures</h3>
-          <p class="text-muted text-sm leading-relaxed">Non-destructive editing with 8 Photoshop-style layers, based on 229 curated presets from an open-source library (nidorx/matcaps). Adjust HSV, Contrast, and Lift while previewing results in real time.</p>
+          <h3 class="font-medium mb-3" data-ko="Paint 모드 — 기존 텍스처 편집">Paint Mode — Edit existing textures</h3>
+          <p class="text-muted text-sm leading-relaxed" data-ko="오픈소스 라이브러리(nidorx/matcaps)에서 가져온 229개 프리셋 기반, 8개 포토샵 스타일 레이어 형식으로 편집합니다. HSV, Contrast, Lift를 조절하면서 결과를 실시간으로 확인할 수 있습니다.">Non-destructive editing with 8 Photoshop-style layers, based on 229 curated presets from an open-source library (nidorx/matcaps). Adjust HSV, Contrast, and Lift while previewing results in real time.</p>
         </div>
       </div>
 
       <div class="mb-6">
         <video src="../assets/images/matcap-painter/paint-mode-demo.mp4" autoplay loop muted playsinline class="w-full"></video>
-        <p class="text-xs text-muted mt-2 text-center">Paint Mode — Preset library + layer editing</p>
+        <p class="text-xs text-muted mt-2 text-center" data-ko="Paint 모드 — 프리셋 라이브러리 + 레이어 편집">Paint Mode — Preset library + layer editing</p>
       </div>
 
-      <p class="text-muted text-sm leading-relaxed">The Matcap texture being edited is applied in real time to a Sphere, Torus, or GLB model. The final result can be checked immediately without any Photoshop-to-engine round-trips.</p>
+      <p class="text-muted text-sm leading-relaxed" data-ko="편집 중인 Matcap 텍스처가 Sphere, Torus 또는 GLB 모델에 실시간 적용됩니다. 포토샵-엔진 왕복 없이 최종 결과를 즉시 확인할 수 있습니다.">The Matcap texture being edited is applied in real time to a Sphere, Torus, or GLB model. The final result can be checked immediately without any Photoshop-to-engine round-trips.</p>
     </section>
 
     <!-- Result -->
     <section class="mb-16">
-      <h2 class="text-xl font-bold mb-4">Result</h2>
+      <h2 class="text-xl font-bold mb-4" data-ko="결과">Result</h2>
       <div class="overflow-x-auto">
         <table class="w-full text-sm">
           <thead>
             <tr class="border-b border-border text-left">
-              <th class="py-3 pr-4 text-muted font-medium">Category</th>
-              <th class="py-3 text-muted font-medium">Result</th>
+              <th class="py-3 pr-4 text-muted font-medium" data-ko="항목">Category</th>
+              <th class="py-3 text-muted font-medium" data-ko="결과">Result</th>
             </tr>
           </thead>
           <tbody class="text-muted">
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading font-medium">Workflow</td><td class="py-3">Eliminated Photoshop round-trips — real-time editing + 3D preview</td></tr>
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading font-medium">Shader Mode</td><td class="py-3">Real-time Toon Ramp / Specular / Outline generation</td></tr>
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading font-medium">Paint Mode</td><td class="py-3">229 presets + 8-layer non-destructive editing</td></tr>
-            <tr><td class="py-3 pr-4 text-heading font-medium">Dev Time</td><td class="py-3">4 days</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading font-medium" data-ko="워크플로우">Workflow</td><td class="py-3" data-ko="포토샵 왕복 제거 — 실시간 편집 + 3D 프리뷰">Eliminated Photoshop round-trips — real-time editing + 3D preview</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading font-medium" data-ko="Shader 모드">Shader Mode</td><td class="py-3" data-ko="실시간 Toon Ramp / Specular / Outline 생성">Real-time Toon Ramp / Specular / Outline generation</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading font-medium" data-ko="Paint 모드">Paint Mode</td><td class="py-3" data-ko="229개 프리셋 + 8레이어 비파괴 편집">229 presets + 8-layer non-destructive editing</td></tr>
+            <tr><td class="py-3 pr-4 text-heading font-medium" data-ko="개발 기간">Dev Time</td><td class="py-3" data-ko="4일">4 days</td></tr>
           </tbody>
         </table>
       </div>
     </section>
 
     <img src="../assets/images/matcap-painter/matcap-thumbnails.jpg" alt="Collection of matcap textures created with Matcap Painter" class="w-full mb-2">
-    <p class="text-xs text-muted text-center mt-2 mb-12">229 presets from nidorx/matcaps</p>
+    <p class="text-xs text-muted text-center mt-2 mb-12" data-ko="nidorx/matcaps에서 가져온 229개 프리셋">229 presets from nidorx/matcaps</p>
 
     <!-- Prev/Next -->
     <div class="flex justify-between items-center mt-16 pt-8 border-t border-border">
@@ -135,9 +135,10 @@
   </main>
 
   <footer class="border-t border-border py-8 text-center text-muted text-xs">
-    <p>&copy; 2026 Younsoo Lim. All rights reserved.</p>
+    <p>&copy; 2026 Younsoo Lim &middot; <button id="lang-toggle" aria-label="Toggle language"><span style="opacity:0.4">Ko</span> / En</button></p>
   </footer>
 
+  <script src="../js/i18n.js"></script>
   <script src="../js/main.js"></script>
 </body>
 </html>

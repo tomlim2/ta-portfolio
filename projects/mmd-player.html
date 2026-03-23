@@ -68,103 +68,104 @@
 
     <h1 class="page-title">MMD Player</h1>
 
-    <p class="text-body mb-6 page-subtitle">WebGPU MMD viewer with motion-synced effects</p>
+    <p class="text-body mb-6 page-subtitle" data-ko="모션 연동 이펙트의 WebGPU MMD 뷰어">WebGPU MMD viewer with motion-synced effects</p>
 
     <p class="text-xs text-muted mb-12">Three.js WebGPU · TSL Shader · JavaScript — Personal, 2026 · <a href="https://tomlim2.github.io/mmd-anju/" target="_blank" rel="noopener" class="text-accent hover:underline">tomlim2.github.io/mmd-anju</a></p>
 
     <!-- Motivation -->
     <section class="mb-16">
-      <h2 class="text-xl font-bold mb-4">Motivation</h2>
-      <p class="text-muted text-sm leading-relaxed mb-4">Started as a source verifier for the <a href="pmx-to-vrm.html" class="text-accent hover:underline">PMX-to-VRM conversion pipeline</a>. I needed a tool to verify that the original model and motion work correctly before conversion. The key challenge was distinguishing whether import failures were caused by <strong class="text-heading">the original PMX or the VRM converter</strong> — if the PMX itself has missing textures or absent bones, it is not a converter issue.</p>
-      <p class="text-muted text-sm leading-relaxed">Target users: planners and QA — not just TAs, but non-developer roles who can open and verify directly.</p>
+      <h2 class="text-xl font-bold mb-4" data-ko="동기">Motivation</h2>
+      <p class="text-muted text-sm leading-relaxed mb-4" data-ko="<a href=&quot;pmx-to-vrm.html&quot; class=&quot;text-accent hover:underline&quot;>PMX→VRM 파이프라인</a>을 만들면서 변환 전에 원본이 제대로 된 건지 확인할 방법이 없었습니다. 텍스처가 빠졌는지, 본이 없는지 — 이게 원본 문제인지 컨버터 문제인지 구분이 안 됐습니다.">Started as a source verifier for the <a href="pmx-to-vrm.html" class="text-accent hover:underline">PMX-to-VRM conversion pipeline</a>. I needed a tool to verify that the original model and motion work correctly before conversion. The key challenge was distinguishing whether import failures were caused by <strong class="text-heading">the original PMX or the VRM converter</strong> — if the PMX itself has missing textures or absent bones, it is not a converter issue.</p>
+      <p class="text-muted text-sm leading-relaxed" data-ko="기획자와 QA가 직접 열어볼 수 있는 웹 뷰어가 필요했습니다.">Target users: planners and QA — not just TAs, but non-developer roles who can open and verify directly.</p>
     </section>
 
     <!-- Solution -->
     <section class="mb-16">
-      <h2 class="text-xl font-bold mb-4">Solution</h2>
+      <h2 class="text-xl font-bold mb-4" data-ko="해결">Solution</h2>
+      <p class="text-muted text-sm leading-relaxed mb-6" data-ko="MMD Player를 만들면서 세 가지를 해결해야 했습니다: 스키닝, 텍스처, 아웃라인 플래그 등 PMX 무결성 검사, 이 PMX가 어느 기반의 본 구조를 사용하는지 판별, 그리고 트랙이 히어로인 회사 프로젝트에서 다양하고 가벼운 프리컴퓨팅 기반 이펙트를 제안하기 위한 시각적 명확함.">Building the viewer required solving three things: automatically determining if a motion works on a given model, reproducing PMX materials on the web, and making it visually intuitive when sharing with planning teams.</p>
 
       <!-- Model families -->
-      <h3 class="font-medium mb-3">Automatic Motion Compatibility Analysis</h3>
-      <p class="text-muted text-sm leading-relaxed mb-4">Analyzes VMD motion files to calculate bone match rates against PMX models, and automatically detects IK conflicts and source model families. Game studio PMX models also follow these families — e.g., Honkai: Star Rail uses the DIVA family, Genshin Impact uses the ミリシタ family.</p>
+      <h3 class="font-medium mb-3" data-ko="자동 모션 호환성 분석">Automatic Motion Compatibility Analysis</h3>
+      <p class="text-muted text-sm leading-relaxed mb-4" data-ko="VMD 모션 파일을 로드하면 PMX 모델 대비 본 매치율을 자동 계산하고, IK 충돌과 소스 모델 패밀리를 감지합니다. PMX는 제작자마다 본 구조가 다르고, 게임 스튜디오 모델도 이 패밀리 규칙을 따릅니다.">Analyzes VMD motion files to calculate bone match rates against PMX models, and automatically detects IK conflicts and source model families. Game studio PMX models also follow these families — e.g., Honkai: Star Rail uses the DIVA family, Genshin Impact uses the ミリシタ family.</p>
 
       <div class="mb-8 overflow-hidden max-w-lg mx-auto">
         <img src="../assets/images/mmd-player/debug.png" alt="Bone Compatibility Analysis — match rates, IK conflicts, source model detection" class="w-full">
-        <p class="text-xs text-muted text-center mt-2">Bone compatibility analysis</p>
+        <p class="text-xs text-muted text-center mt-2" data-ko="본 호환성 분석">Bone compatibility analysis</p>
       </div>
 
       <div class="overflow-x-auto mb-8">
         <table class="w-full text-sm">
           <thead>
             <tr class="border-b border-border text-left">
-              <th class="py-3 pr-4 text-muted font-medium">Family</th>
-              <th class="py-3 text-muted font-medium">Characteristics</th>
+              <th class="py-3 pr-4 text-muted font-medium" data-ko="패밀리">Family</th>
+              <th class="py-3 text-muted font-medium" data-ko="특징">Characteristics</th>
             </tr>
           </thead>
           <tbody class="text-muted">
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading">あにまさ式 (Animasa)</td><td class="py-3">Default MMD model, minimal bone set (~30)</td></tr>
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading">TDA式</td><td class="py-3">Includes semi-standard bones (上半身2, 腕捩, etc.)</td></tr>
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading">YYB式</td><td class="py-3">TDA-based + extended auxiliary bones</td></tr>
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading">にがもん式</td><td class="py-3">Compact bone set, non-Vocaloid characters</td></tr>
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading">つみだんご式</td><td class="py-3">High-density custom bones (325), 50 expressions</td></tr>
-            <tr><td class="py-3 pr-4 text-heading">ミリシタ</td><td class="py-3">Romanized bone names, incompatible with standard VMD</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading">あにまさ式 (Animasa)</td><td class="py-3" data-ko="기본 MMD 모델, 최소 본 셋 (~30)">Default MMD model, minimal bone set (~30)</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading">TDA式</td><td class="py-3" data-ko="준표준 본 포함 (上半身2, 腕捩 등)">Includes semi-standard bones (上半身2, 腕捩, etc.)</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading">YYB式</td><td class="py-3" data-ko="TDA 기반 + 확장 보조 본">TDA-based + extended auxiliary bones</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading">にがもん式</td><td class="py-3" data-ko="컴팩트 본 셋, 비보컬로이드 캐릭터">Compact bone set, non-Vocaloid characters</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading">つみだんご式</td><td class="py-3" data-ko="고밀도 커스텀 본 (325), 표정 50개">High-density custom bones (325), 50 expressions</td></tr>
+            <tr><td class="py-3 pr-4 text-heading">ミリシタ</td><td class="py-3" data-ko="로마자 본 이름, 표준 VMD와 비호환">Romanized bone names, incompatible with standard VMD</td></tr>
           </tbody>
         </table>
       </div>
 
       <!-- Precompute Effects -->
-      <h3 class="font-medium mb-3">Motion-synced Effects — Precompute Experiment</h3>
-      <p class="text-muted text-sm leading-relaxed mb-4">Precompute experiment: derive vector fields and effect timing from VMD motion data on the CPU. Lightweight, no real-time analysis needed. Built as a POC to show planning and client teams that <strong class="text-heading">"it moves well."</strong></p>
-      <p class="text-muted text-sm leading-relaxed mb-4">6 types: Foot Ripple, Spark Burst, Ground Reflect, Falling/Rising Light, Velocity Effect</p>
+      <h3 class="font-medium mb-3" data-ko="모션 연동 이펙트 — 프리컴퓨트 실험">Motion-synced Effects — Precompute Experiment</h3>
+      <p class="text-muted text-sm leading-relaxed mb-4" data-ko="검증 목적의 뷰어지만, 트랙의 라이트 종류·위치·색 정보에 VMD 모션 데이터의 이펙트 타이밍을 CPU로 미리 계산해두면 가벼운 퍼포먼스에 모션에 맞춰 이펙트가 터지는 등 다양한 연출을 시각화하여 보여줬습니다. 개인 프로젝트이지만 회사에 R&amp;D할 방향을 시각적으로 제시할 수 있었습니다.">Precompute experiment: derive vector fields and effect timing from VMD motion data on the CPU. Lightweight, no real-time analysis needed. Built as a POC to show planning and client teams that <strong class="text-heading">"it moves well."</strong></p>
+      <p class="text-muted text-sm leading-relaxed mb-4" data-ko="이를 위해 Foot Ripple, Spark Burst, Ground Reflect, Falling/Rising Light, Velocity Effect 6종을 구현했습니다.">6 types: Foot Ripple, Spark Burst, Ground Reflect, Falling/Rising Light, Velocity Effect</p>
 
       <div class="mb-8 overflow-hidden max-w-xl mx-auto">
         <video src="../assets/images/mmd-player/effect-demo.mp4" autoplay loop muted playsinline aria-label="Motion-synced VFX demo" class="w-full"></video>
-        <p class="text-xs text-muted text-center mt-2">Motion-synced bloom and particles</p>
+        <p class="text-xs text-muted text-center mt-2" data-ko="모션 연동 블룸과 파티클">Motion-synced bloom and particles</p>
       </div>
 
       <!-- TSL Toon Shading -->
-      <h3 class="font-medium mb-3">TSL Toon Shading — PMX Material Conversion</h3>
-      <p class="text-muted text-sm leading-relaxed mb-4">PMX matcap + additive overlay + alpha converted to TSL <code class="text-heading/80">MeshBasicNodeMaterial</code>. On this model, <code class="text-heading/80">textureSample()</code> was called 2–3 times per fragment for the same texture — cached the node once and reused it. Also pulled opacity out of <code class="text-heading/80">Fn()</code> to fix a bug where materials went invisible in the reflector pass.</p>
+      <h3 class="font-medium mb-3" data-ko="TSL 툰 셰이딩 — PMX 머티리얼 변환">TSL Toon Shading — PMX Material Conversion</h3>
+      <p class="text-muted text-sm leading-relaxed mb-4" data-ko="PMX 머티리얼(matcap + additive overlay + alpha)을 TSL 노드로 옮겼습니다. 원본에서 투명 파트가 흰색으로 뭉개지는 문제를 additive overlay 방식으로 해결하고, 텍스처 샘플링 중복도 정리했습니다.">PMX matcap + additive overlay + alpha converted to TSL <code class="text-heading/80">MeshBasicNodeMaterial</code>. On this model, <code class="text-heading/80">textureSample()</code> was called 2–3 times per fragment for the same texture — cached the node once and reused it. Also pulled opacity out of <code class="text-heading/80">Fn()</code> to fix a bug where materials went invisible in the reflector pass.</p>
 
       <div class="mb-8 overflow-hidden max-w-3xl mx-auto">
         <img src="../assets/images/mmd-player/toon-shader-before-after.png" alt="Before and after TSL toon shader fix — white regions resolved to transparent overlay" class="w-full">
-        <p class="text-xs text-muted text-center py-2">Before — alpha ignored, white fill / After — additive overlay + transparency</p>
+        <p class="text-xs text-muted text-center py-2" data-ko="Before — 알파 무시, 흰색 채움 / After — additive overlay + 투명도">Before — alpha ignored, white fill / After — additive overlay + transparency</p>
       </div>
 
       <!-- Post-Process Pipeline -->
-      <h3 class="font-medium mb-3">Post-Process Pipeline — TSL Node Graph</h3>
-      <p class="text-muted text-sm leading-relaxed mb-4">Post-process stack on TSL nodes: bloom, ACES tone mapping, saturation, contrast, color temperature, film grain, vignette. Each effect has its own uniform so they can be toggled independently at runtime.</p>
-      <p class="text-muted text-sm leading-relaxed mb-4">The pipeline builds two output chains that share the same uniforms but split at bloom. Turning bloom off swaps the output node — the GPU never runs the downsample+blur passes, not just at strength 0 but actually gone from the graph. When the whole PP is off, it falls back to the renderer's tone mapping directly.</p>
+      <h3 class="font-medium mb-3" data-ko="포스트프로세스 파이프라인 — TSL 노드 그래프">Post-Process Pipeline — TSL Node Graph</h3>
+      <p class="text-muted text-sm leading-relaxed mb-4" data-ko="TSL 노드로 포스트프로세스 스택을 구성했습니다: bloom, ACES, 채도, 대비, 색온도, 필름 그레인, 비네트. 각각 독립 토글 가능합니다.">Post-process stack on TSL nodes: bloom, ACES tone mapping, saturation, contrast, color temperature, film grain, vignette. Each effect has its own uniform so they can be toggled independently at runtime.</p>
+      <p class="text-muted text-sm leading-relaxed mb-4" data-ko="bloom을 끄면 GPU 그래프에서 다운샘플+블러 패스를 아예 제거합니다 — strength 0이 아니라 노드 자체를 교체하는 방식입니다. PP 전체를 끄면 렌더러 톤 매핑으로 바로 폴백합니다.">The pipeline builds two output chains that share the same uniforms but split at bloom. Turning bloom off swaps the output node — the GPU never runs the downsample+blur passes, not just at strength 0 but actually gone from the graph. When the whole PP is off, it falls back to the renderer's tone mapping directly.</p>
 
       <div class="grid grid-cols-2 gap-3 mb-8 max-w-3xl mx-auto">
         <div class="overflow-hidden">
           <img src="../assets/images/mmd-player/pp-off.png" alt="Before Post-Process" class="w-full">
-          <p class="text-xs text-muted text-center py-2">Before — Raw render</p>
+          <p class="text-xs text-muted text-center py-2" data-ko="Before — Raw 렌더">Before — Raw render</p>
         </div>
         <div class="overflow-hidden">
           <img src="../assets/images/mmd-player/pp-on.png" alt="After Post-Process" class="w-full">
-          <p class="text-xs text-muted text-center py-2">After — ACES, CA, contrast, grain</p>
+          <p class="text-xs text-muted text-center py-2" data-ko="After — ACES, CA, 대비, 그레인">After — ACES, CA, contrast, grain</p>
         </div>
       </div>
     </section>
 
     <!-- Result -->
     <section class="mb-16">
-      <h2 class="text-xl font-bold mb-4">Result</h2>
+      <h2 class="text-xl font-bold mb-4" data-ko="결과">Result</h2>
       <div class="overflow-x-auto">
         <table class="w-full text-sm">
           <thead>
             <tr class="border-b border-border text-left">
-              <th class="py-3 pr-4 text-muted font-medium">Category</th>
-              <th class="py-3 text-muted font-medium">Result</th>
+              <th class="py-3 pr-4 text-muted font-medium" data-ko="항목">Category</th>
+              <th class="py-3 text-muted font-medium" data-ko="결과">Result</th>
             </tr>
           </thead>
           <tbody class="text-muted">
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading font-medium">Source Verification</td><td class="py-3">Distinguishes PMX issues vs converter issues — directly used by planners/QA</td></tr>
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading font-medium">Motion Verification</td><td class="py-3">Supports 6 model families, automatic bone match rate/IK conflict detection</td></tr>
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading font-medium">Effect Precompute</td><td class="py-3">6 types — POC for convincing planning/client teams</td></tr>
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading font-medium">Post-Process</td><td class="py-3">Dual chain bloom skip, lazy init, renderer bypass — laptop doesn't cook anymore</td></tr>
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading font-medium">Tech Validation</td><td class="py-3">WebGPU + TSL shaders in a real project</td></tr>
-            <tr><td class="py-3 pr-4 text-heading font-medium">Status</td><td class="py-3">WIP — next up: physics bone simulation (rigid body + joint), gaussian splatting background</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading font-medium" data-ko="소스 검증">Source Verification</td><td class="py-3" data-ko="원본 PMX 문제인지 컨버터 문제인지 구분 — 기획/QA가 직접 확인">Distinguishes PMX issues vs converter issues — directly used by planners/QA</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading font-medium" data-ko="모션 검증">Motion Verification</td><td class="py-3" data-ko="6개 패밀리 자동 판별, 본 매치율·IK 충돌 표시">Supports 6 model families, automatic bone match rate/IK conflict detection</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading font-medium" data-ko="이펙트 프리컴퓨트">Effect Precompute</td><td class="py-3" data-ko="6종 — 트랙 연출 제안용">6 types — POC for convincing planning/client teams</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading font-medium" data-ko="포스트프로세스">Post-Process</td><td class="py-3" data-ko="bloom 노드 교체 방식으로 GPU 패스 제거, PP off 시 렌더러 직접 폴백">Dual chain bloom skip, lazy init, renderer bypass — laptop doesn't cook anymore</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading font-medium" data-ko="기술 검증">Tech Validation</td><td class="py-3" data-ko="WebGPU + TSL 셰이더 실전 적용">WebGPU + TSL shaders in a real project</td></tr>
+            <tr><td class="py-3 pr-4 text-heading font-medium" data-ko="상태">Status</td><td class="py-3" data-ko="WIP — 다음: 물리 본 시뮬레이션, Gaussian Splatting 배경">WIP — next up: physics bone simulation (rigid body + joint), gaussian splatting background</td></tr>
           </tbody>
         </table>
       </div>
@@ -172,7 +173,7 @@
 
     <div class="mb-12 max-w-2xl mx-auto">
       <img src="../assets/images/mmd-player/fx-panels.png" alt="FX control panels — VFX, Post-Process, and PMX tabs" class="w-full">
-      <p class="text-xs text-muted mt-2 text-center">Real-time FX controls — VFX (particles, mirror), Post-Process (bloom, ACES, CA, grain), PMX (outline, FOV)</p>
+      <p class="text-xs text-muted mt-2 text-center" data-ko="실시간 FX 컨트롤 — VFX (파티클, 미러), Post-Process (bloom, ACES, CA, 그레인), PMX (아웃라인, FOV)">Real-time FX controls — VFX (particles, mirror), Post-Process (bloom, ACES, CA, grain), PMX (outline, FOV)</p>
     </div>
 
     <!-- Prev/Next -->
@@ -184,9 +185,10 @@
   </main>
 
   <footer class="border-t border-border py-8 text-center text-muted text-xs">
-    <p>&copy; 2026 Younsoo Lim. All rights reserved.</p>
+    <p>&copy; 2026 Younsoo Lim &middot; <button id="lang-toggle" aria-label="Toggle language"><span style="opacity:0.4">Ko</span> / En</button></p>
   </footer>
 
+  <script src="../js/i18n.js"></script>
   <script src="../js/main.js"></script>
 </body>
 </html>

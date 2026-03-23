@@ -55,24 +55,24 @@
       <img src="../assets/images/pmx-to-vrm/hero-converted-characters.png" alt="Characters converted from PMX to VRM" class="w-full h-auto">
     </div>
 
-    <h1 class="page-title">PMX to VRM Pipeline</h1>
+    <h1 class="page-title" data-ko="PMX→VRM 파이프라인">PMX to VRM Pipeline</h1>
 
-    <p class="text-body mb-6 page-subtitle">Drop a ZIP, get a UE-ready VRM</p>
+    <p class="text-body mb-6 page-subtitle" data-ko="ZIP 넣으면 UE용 VRM이 나옵니다">Drop a ZIP, get a UE-ready VRM</p>
 
     <p class="text-xs text-muted mb-12">Python · TypeScript · glTF 2.0 — Company, 2026</p>
 
     <!-- Problem -->
     <section class="mb-16">
-      <h2 class="text-xl font-bold mb-4">Problem</h2>
-      <p class="text-muted text-sm leading-relaxed">We needed to bring PMX characters from Booth/community into the project, but there was no way to convert PMX to UE-compatible VRM. Manual conversion broke bone mappings, lost physics on hair/skirts, and corrupted textures, completely changing the look. The <a href="mmd-player.html" class="text-accent hover:underline">MMD Player</a> was built as a source verifier for this pipeline.</p>
+      <h2 class="text-xl font-bold mb-4" data-ko="문제">Problem</h2>
+      <p class="text-muted text-sm leading-relaxed" data-ko="프로젝트에서 외부 VRM 캐릭터 지원이 추가되면서 Booth/커뮤니티의 PMX 모델도 실시간 로드를 해야 했습니다. vrm4u에서 제공하는 실시간 VRM 로더와 달리 별도의 PMX 로더가 없었고, PMX 캐릭터 파일도 자체적으로 무결성을 검증할 방법이 없었습니다.">We needed to bring PMX characters from Booth/community into the project, but there was no way to convert PMX to UE-compatible VRM. Manual conversion broke bone mappings, lost physics on hair/skirts, and corrupted textures, completely changing the look. The <a href="mmd-player.html" class="text-accent hover:underline">MMD Player</a> was built as a source verifier for this pipeline.</p>
     </section>
 
     <!-- Solution -->
     <section class="mb-16">
-      <h2 class="text-xl font-bold mb-4">Solution</h2>
-      <p class="text-muted text-sm leading-relaxed mb-6">An automated PMX to glTF to VRM conversion pipeline. <strong class="text-heading">Drop in a ZIP, get a UE-ready VRM out.</strong> The key requirement was preserving physics (hair, skirt, ribbon) and material look without breaking them.</p>
+      <h2 class="text-xl font-bold mb-4" data-ko="해결">Solution</h2>
+      <p class="text-muted text-sm leading-relaxed mb-6" data-ko="VRM 실시간 로더처럼 PMX 실시간 로더를 만드는 것이 아닌, PMX를 glTF를 거쳐 VRM으로 자동 변환하는 파이프라인을 만들어 PMX를 VRM으로 변환 뒤 프로젝트로 가져와 사용하도록 플로우를 제안했습니다. 핵심은 본 테이블을 VRM 본 테이블에 매핑시키면서 물리본(머리카락, 스커트, 리본) 그룹핑을 보존하는 것이었습니다. 또한 PMX에서 사용되는 아웃라인 비활성화 플래그들을 VRM 로더에 전달하기 위해 메타데이터를 추가해야 했습니다. 코드는 TA용 Python CLI, 팀원용 Next.js 웹앱, 서버 없이 돌아가는 브라우저 SPA 세 가지 형태로 제공합니다.">An automated PMX to glTF to VRM conversion pipeline. <strong class="text-heading">Drop in a ZIP, get a UE-ready VRM out.</strong> The key requirement was preserving physics (hair, skirt, ribbon) and material look without breaking them.</p>
 
-      <h3 class="font-medium mb-3">Pipeline Flow</h3>
+      <h3 class="font-medium mb-3" data-ko="파이프라인 플로우">Pipeline Flow</h3>
       <pre class="text-xs mb-6"><code>ZIP → PMX Parse → glTF Build → VRM Output</code></pre>
 
       <!-- Workflow table -->
@@ -80,38 +80,38 @@
         <table class="w-full text-sm">
           <thead>
             <tr class="border-b border-border text-left">
-              <th class="py-3 pr-4 text-muted font-medium">Tool</th>
-              <th class="py-3 pr-4 text-muted font-medium">User</th>
-              <th class="py-3 text-muted font-medium">Method</th>
+              <th class="py-3 pr-4 text-muted font-medium" data-ko="도구">Tool</th>
+              <th class="py-3 pr-4 text-muted font-medium" data-ko="사용자">User</th>
+              <th class="py-3 text-muted font-medium" data-ko="방식">Method</th>
             </tr>
           </thead>
           <tbody class="text-muted">
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading font-medium">Python CLI</td><td class="py-3 pr-4">TA / Batch jobs</td><td class="py-3">Batch-convert multiple models at once</td></tr>
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading font-medium">Next.js Web App</td><td class="py-3 pr-4">Anyone on the team</td><td class="py-3">Upload ZIP in browser, download VRM</td></tr>
-            <tr><td class="py-3 pr-4 text-heading font-medium">Browser SPA</td><td class="py-3 pr-4">External / No server</td><td class="py-3">Client-only conversion</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading font-medium">Python CLI</td><td class="py-3 pr-4" data-ko="TA / 배치 작업">TA / Batch jobs</td><td class="py-3" data-ko="여러 모델 일괄 변환">Batch-convert multiple models at once</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading font-medium">Next.js Web App</td><td class="py-3 pr-4" data-ko="팀 누구나">Anyone on the team</td><td class="py-3" data-ko="브라우저에서 ZIP 업로드, VRM 다운로드">Upload ZIP in browser, download VRM</td></tr>
+            <tr><td class="py-3 pr-4 text-heading font-medium">Browser SPA</td><td class="py-3 pr-4" data-ko="외부 / 서버 없음">External / No server</td><td class="py-3" data-ko="클라이언트 전용 변환">Client-only conversion</td></tr>
           </tbody>
         </table>
       </div>
 
       <img src="../assets/images/pmx-to-vrm/webapp-ui.png" alt="pmx2vrm Web App — ZIP Upload to VRM Conversion + 6-Layer Validation" class="w-full">
-      <p class="text-xs text-muted text-center mt-2">Web app — ZIP in, VRM out</p>
+      <p class="text-xs text-muted text-center mt-2" data-ko="웹 앱 — ZIP 넣으면 VRM이 나옵니다">Web app — ZIP in, VRM out</p>
     </section>
 
     <!-- Result -->
     <section class="mb-16">
-      <h2 class="text-xl font-bold mb-4">Result</h2>
+      <h2 class="text-xl font-bold mb-4" data-ko="결과">Result</h2>
       <div class="overflow-x-auto">
         <table class="w-full text-sm">
           <thead>
             <tr class="border-b border-border text-left">
-              <th class="py-3 pr-4 text-muted font-medium">Category</th>
-              <th class="py-3 text-muted font-medium">Result</th>
+              <th class="py-3 pr-4 text-muted font-medium" data-ko="항목">Category</th>
+              <th class="py-3 text-muted font-medium" data-ko="결과">Result</th>
             </tr>
           </thead>
           <tbody class="text-muted">
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading font-medium">Conversion Rate</td><td class="py-3">90% success on major game PMX (HoYoverse, Eternal Return, Cyphers, etc.)</td></tr>
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading font-medium">Model Coverage</td><td class="py-3">Both Japanese and Chinese PMX supported</td></tr>
-            <tr><td class="py-3 pr-4 text-heading font-medium">Conversion Speed</td><td class="py-3">393ms (Saber.pmx, 28K vertices)</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading font-medium" data-ko="변환 성공률">Conversion Rate</td><td class="py-3" data-ko="주요 게임사 PMX 90% 성공 (HoYoverse, Eternal Return, Cyphers 등)">90% success on major game PMX (HoYoverse, Eternal Return, Cyphers, etc.)</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading font-medium" data-ko="모델 커버리지">Model Coverage</td><td class="py-3" data-ko="일본·중국 PMX 모두 지원">Both Japanese and Chinese PMX supported</td></tr>
+            <tr><td class="py-3 pr-4 text-heading font-medium" data-ko="변환 속도">Conversion Speed</td><td class="py-3">393ms (Saber.pmx, 28K vertices)</td></tr>
           </tbody>
         </table>
       </div>
@@ -119,7 +119,7 @@
 
     <div class="mb-12">
       <img src="../assets/images/pmx-to-vrm/before-after-comparison.png" alt="Before (Star Rail PMX) / After (VRM conversion result)" class="w-full">
-      <p class="text-xs text-muted mt-2 text-center">Left: Original game screenshot — Right: Viewer rendering after PMX to VRM conversion</p>
+      <p class="text-xs text-muted mt-2 text-center" data-ko="왼쪽: 원본 게임 스크린샷 — 오른쪽: PMX→VRM 변환 후 뷰어 렌더링">Left: Original game screenshot — Right: Viewer rendering after PMX to VRM conversion</p>
     </div>
 
     <!-- Prev/Next -->
@@ -134,10 +134,11 @@
   </main>
 
   <footer class="border-t border-border py-8 text-center text-muted text-xs">
-    <p>&copy; 2026 Younsoo Lim. All rights reserved.</p>
+    <p>&copy; 2026 Younsoo Lim &middot; <button id="lang-toggle" aria-label="Toggle language"><span style="opacity:0.4">Ko</span> / En</button></p>
   </footer>
 
   <script src="../js/auth.js"></script>
+  <script src="../js/i18n.js"></script>
   <script src="../js/main.js"></script>
 </body>
 </html>

@@ -12,7 +12,7 @@
   /* Body — primary readable text (WCAG AAA: 14.5:1) */
   --c-body: 40 40 45;
   /* Heading — near-black for maximum weight (WCAG AAA: 19:1) */
-  --c-heading: 15 15 20;
+  --c-heading: 85 85 90;
   /* Accent — single brand color */
   --c-accent: 80 95 230;
 }
@@ -79,7 +79,7 @@ pre code {
 .card-title {
   font-family: 'Noto Rashi Hebrew', serif;
   font-size: 1.05rem;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .card-subtitle {
@@ -136,6 +136,11 @@ html {
   scroll-behavior: smooth;
 }
 
+p, h1, h2, h3, td, th, summary, blockquote {
+  text-wrap: balance;
+  word-break: keep-all;
+}
+
 a[target="_blank"],
 a[href^="http"]:not([href*="ta.tommlimm.net"]) {
   cursor: url('../assets/cursor-link.png') 12 12, pointer;
@@ -151,6 +156,23 @@ a[href^="mailto:"] {
 
 #projects {
   padding-top: 3rem;
+}
+
+/* ── Language Toggle ── */
+
+#lang-toggle {
+  font-size: inherit;
+  font-weight: inherit;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  padding: 0;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+#lang-toggle:hover {
+  color: rgb(var(--c-heading));
 }
 
 /* ── Nav ── */

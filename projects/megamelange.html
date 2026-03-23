@@ -56,26 +56,26 @@
       <img src="../assets/images/megamelange/hero.png" alt="Live UE Scene Bridge workflow — UE Editor + Web UI + AI generation results" class="w-full h-auto">
     </div>
 
-    <h1 class="page-title">Live UE Scene Bridge</h1>
+    <h1 class="page-title" data-ko="실시간 UE 씬 브릿지">Live UE Scene Bridge</h1>
 
-    <p class="text-body mb-6 page-subtitle">Natural language to UE outdoor scene + AI concept</p>
+    <p class="text-body mb-6 page-subtitle" data-ko="자연어로 UE 아웃도어 씬 + AI 컨셉">Natural language to UE outdoor scene + AI concept</p>
 
     <p class="text-xs text-muted mb-12">C++ · FastAPI · Next.js — Company (POC), 2025–2026</p>
 
     <!-- Problem -->
     <section class="mb-16">
-      <h2 class="text-xl font-bold mb-4">Problem</h2>
-      <p class="text-muted text-sm leading-relaxed">Setting up outdoor scenes required manually configuring terrain (Cesium) location, weather/time-of-day (UDS/UDW), lighting, and camera placement -- and non-developer roles needed to iterate on this quickly.</p>
+      <h2 class="text-xl font-bold mb-4" data-ko="문제">Problem</h2>
+      <p class="text-muted text-sm leading-relaxed" data-ko="회사 프로젝트에서 아웃도어 씬은 Cesium 지형 위치, UDS/UDW 날씨·시간대, 조명, 카메라를 전부 수작업으로 잡아야 했습니다. 아트 디렉터와 기획자가 '이 장소에서 이 느낌으로'라고 요청하면 TA가 하나하나 세팅하는 구조였고, 이터레이션이 느렸습니다.">Setting up outdoor scenes required manually configuring terrain (Cesium) location, weather/time-of-day (UDS/UDW), lighting, and camera placement -- and non-developer roles needed to iterate on this quickly.</p>
     </section>
 
     <!-- Solution -->
     <section class="mb-16">
-      <h2 class="text-xl font-bold mb-4">Solution</h2>
-      <p class="text-muted text-sm leading-relaxed mb-6">Natural language goes through an AI layer (Claude/Gemini), which converts it to commands that a C++ plugin executes in the UE editor in real time.</p>
+      <h2 class="text-xl font-bold mb-4" data-ko="해결">Solution</h2>
+      <p class="text-muted text-sm leading-relaxed mb-6" data-ko="자연어를 AI 레이어(Claude/Gemini)가 명령으로 바꾸고, UE C++ 플러그인이 에디터에서 실시간 실행하는 구조를 만들었습니다. '도쿄 도심 보여줘', '시간 오후 6시로' 같은 한 줄이면 배경이 셋업됩니다.">Natural language goes through an AI layer (Claude/Gemini), which converts it to commands that a C++ plugin executes in the UE editor in real time.</p>
 
       <!-- NL examples -->
       <div class="bg-surface p-5 rounded-lg mb-6">
-        <h3 class="font-medium mb-3">Usage Examples</h3>
+        <h3 class="font-medium mb-3" data-ko="사용 예시">Usage Examples</h3>
         <div class="space-y-2 text-sm">
           <p class="text-green-400 italic">"Show me downtown Tokyo"</p>
           <p class="text-green-400 italic">"Go to San Francisco"</p>
@@ -86,7 +86,7 @@
       </div>
 
       <!-- Architecture -->
-      <h3 class="font-medium mb-3">3-Layer Architecture</h3>
+      <h3 class="font-medium mb-3" data-ko="3계층 아키텍처">3-Layer Architecture</h3>
       <pre class="text-xs mb-6"><code>Web UI / CLI → HTTP:34115 → FastAPI + NLP (Claude/Gemini)
                                     ↓
               ┌──────────────┬──────────────┬──────────────┐
@@ -94,48 +94,48 @@
               │ TCP:55557    │ Image Gen    │ Video Gen    │
               └──────────────┴──────────────┴──────────────┘</code></pre>
 
-      <h3 class="font-medium mb-3">Core — Cesium + UDS Integration</h3>
-      <p class="text-muted text-sm leading-relaxed mb-4">The most invested part. By combining Cesium terrain data with Ultra Dynamic Sky, a single natural language line sets up an outdoor background with <strong class="text-heading">location + time of day + weather + mood</strong>. Adding Nano Banana (i2i) on top transforms it into the desired concept or feel, so you go from a text prompt to a styled concept image without leaving the tool.</p>
+      <h3 class="font-medium mb-3" data-ko="코어 — Cesium + UDS 통합">Core — Cesium + UDS Integration</h3>
+      <p class="text-muted text-sm leading-relaxed mb-4" data-ko="가장 공을 들인 부분입니다. Cesium 지형 + Ultra Dynamic Sky를 결합해 위치·시간대·날씨·무드를 한 번에 셋업하고, Nano Banana(i2i)를 얹으면 원하는 컨셉으로 변환됩니다. 텍스트 프롬프트에서 스타일링된 컨셉 이미지까지 툴 안에서 완결됩니다.">The most invested part. By combining Cesium terrain data with Ultra Dynamic Sky, a single natural language line sets up an outdoor background with <strong class="text-heading">location + time of day + weather + mood</strong>. Adding Nano Banana (i2i) on top transforms it into the desired concept or feel, so you go from a text prompt to a styled concept image without leaving the tool.</p>
 
       <!-- i2i result -->
       <div class="mb-6 overflow-hidden">
         <img src="../assets/images/megamelange/i2i-result.png" alt="AI style transformation result — post-apocalyptic" class="w-full h-auto">
-        <p class="text-xs text-muted text-center mt-2">Style transformation result</p>
+        <p class="text-xs text-muted text-center mt-2" data-ko="스타일 변환 결과">Style transformation result</p>
       </div>
 
       <!-- i2i pipeline full -->
       <div class="mb-8 overflow-hidden">
         <img src="../assets/images/megamelange/i2i-pipeline.png" alt="Full i2i pipeline — style selection and transformation in Web UI" class="w-full h-auto">
-        <p class="text-xs text-muted text-center mt-2">i2i pipeline in Web UI</p>
+        <p class="text-xs text-muted text-center mt-2" data-ko="Web UI의 i2i 파이프라인">i2i pipeline in Web UI</p>
       </div>
 
-      <h3 class="font-medium mb-3">Roblox Integration — Business Demo</h3>
-      <p class="text-muted text-sm leading-relaxed mb-4">Fetched FBX via Roblox API, imported into UE, placed characters on generated backgrounds, then produced images/videos with Nano Banana/Veo-3. Demo content targeting CEO, planners, and team leads.</p>
+      <h3 class="font-medium mb-3" data-ko="Roblox 연동 — 비즈니스 데모">Roblox Integration — Business Demo</h3>
+      <p class="text-muted text-sm leading-relaxed mb-4" data-ko="Roblox API로 FBX를 가져와 UE에 임포트하고, 생성된 배경 위에 캐릭터를 배치한 뒤 Nano Banana/Veo-3로 이미지·영상을 제작했습니다. CEO와 기획 팀에게 이 시스템으로 무엇이 가능한지 보여주기 위한 데모였습니다.">Fetched FBX via Roblox API, imported into UE, placed characters on generated backgrounds, then produced images/videos with Nano Banana/Veo-3. Demo content targeting CEO, planners, and team leads.</p>
 
       <!-- Roblox demo -->
       <div class="mb-6 overflow-hidden">
         <img src="../assets/images/megamelange/roblox-demo.png" alt="Roblox character import placed on background + AI transformation" class="w-full h-auto">
-        <p class="text-xs text-muted text-center mt-2">Roblox character placed on generated background</p>
+        <p class="text-xs text-muted text-center mt-2" data-ko="생성된 배경 위에 배치된 Roblox 캐릭터">Roblox character placed on generated background</p>
       </div>
     </section>
 
     <!-- Result -->
     <section class="mb-16">
-      <h2 class="text-xl font-bold mb-4">Result</h2>
+      <h2 class="text-xl font-bold mb-4" data-ko="결과">Result</h2>
       <div class="overflow-x-auto">
         <table class="w-full text-sm">
           <thead>
             <tr class="border-b border-border text-left">
-              <th class="py-3 pr-4 text-muted font-medium">Category</th>
-              <th class="py-3 text-muted font-medium">Result</th>
+              <th class="py-3 pr-4 text-muted font-medium" data-ko="항목">Category</th>
+              <th class="py-3 text-muted font-medium" data-ko="결과">Result</th>
             </tr>
           </thead>
           <tbody class="text-muted">
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading font-medium">Outdoor Scene Setup</td><td class="py-3">One-step composition of location + time + weather + mood via natural language</td></tr>
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading font-medium">i2i Pipeline</td><td class="py-3">Scene to concept/mood transformation via Nano Banana</td></tr>
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading font-medium">Service Integration</td><td class="py-3">4 services (UE, Nano Banana, Veo-3, Roblox)</td></tr>
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading font-medium">Audience</td><td class="py-3">Demo for CEO, planners, team leads — POC</td></tr>
-            <tr><td class="py-3 pr-4 text-heading font-medium">Outcome</td><td class="py-3">Handed off to product team (follow-up paused due to background automation dev cost)</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading font-medium" data-ko="아웃도어 씬 셋업">Outdoor Scene Setup</td><td class="py-3" data-ko="자연어 한 줄로 위치·시간·날씨·무드 셋업">One-step composition of location + time + weather + mood via natural language</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading font-medium">i2i Pipeline</td><td class="py-3" data-ko="Nano Banana로 씬→컨셉 이미지 변환">Scene to concept/mood transformation via Nano Banana</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading font-medium" data-ko="서비스 통합">Service Integration</td><td class="py-3" data-ko="4개 서비스 (UE, Nano Banana, Veo-3, Roblox)">4 services (UE, Nano Banana, Veo-3, Roblox)</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading font-medium" data-ko="대상">Audience</td><td class="py-3" data-ko="CEO·기획·팀 리드 대상 데모 (POC)">Demo for CEO, planners, team leads — POC</td></tr>
+            <tr><td class="py-3 pr-4 text-heading font-medium" data-ko="결과">Outcome</td><td class="py-3" data-ko="프로덕트 팀에 이관, 후속 R&amp;D는 배경 자동화 비용 이슈로 보류">Handed off to product team (follow-up paused due to background automation dev cost)</td></tr>
           </tbody>
         </table>
       </div>
@@ -145,7 +145,7 @@
     <div class="mb-12 overflow-hidden">
       <img src="../assets/images/megamelange/prototype.png" alt="Early prototype — MCP Frontend + UE viewport" class="w-full h-auto">
     </div>
-    <p class="text-xs text-muted mb-12 text-center">Early prototype — real-time UE viewport control via natural language input</p>
+    <p class="text-xs text-muted mb-12 text-center" data-ko="초기 프로토타입 — 자연어 입력으로 실시간 UE 뷰포트 제어">Early prototype — real-time UE viewport control via natural language input</p>
 
     <!-- Prev/Next -->
     <div class="flex justify-between items-center mt-16 pt-8 border-t border-border">
@@ -159,10 +159,11 @@
   </main>
 
   <footer class="border-t border-border py-8 text-center text-muted text-xs">
-    <p>&copy; 2026 Younsoo Lim. All rights reserved.</p>
+    <p>&copy; 2026 Younsoo Lim &middot; <button id="lang-toggle" aria-label="Toggle language"><span style="opacity:0.4">Ko</span> / En</button></p>
   </footer>
 
   <script src="../js/auth.js"></script>
+  <script src="../js/i18n.js"></script>
   <script src="../js/main.js"></script>
 </body>
 </html>
