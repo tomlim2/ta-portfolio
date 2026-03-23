@@ -1,10 +1,10 @@
 // Language toggle — swaps text between English (default) and Korean (data-ko)
 (function () {
-  var lang = localStorage.getItem('lang') || 'en';
+  var lang = localStorage.getItem('lang_v2') || 'ko';
 
   function applyLang(l) {
     lang = l;
-    localStorage.setItem('lang', l);
+    localStorage.setItem('lang_v2', l);
     document.documentElement.setAttribute('lang', l === 'ko' ? 'ko' : 'en');
 
     document.querySelectorAll('[data-ko]').forEach(function (el) {
