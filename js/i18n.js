@@ -1,10 +1,9 @@
 // Language toggle — swaps text between English (default) and Korean (data-ko)
 (function () {
-  var lang = localStorage.getItem('lang_v2') || 'ko';
+  var lang = 'ko';
 
   function applyLang(l) {
     lang = l;
-    localStorage.setItem('lang_v2', l);
     document.documentElement.setAttribute('lang', l === 'ko' ? 'ko' : 'en');
 
     document.querySelectorAll('[data-ko]').forEach(function (el) {
@@ -40,12 +39,10 @@
     });
   }
 
-  // Apply on load
-  if (lang === 'ko') {
-    document.addEventListener('DOMContentLoaded', function () {
-      applyLang('ko');
-    });
-  }
+  // Apply on load — always Korean
+  document.addEventListener('DOMContentLoaded', function () {
+    applyLang('ko');
+  });
 
   // Toggle handler
   document.addEventListener('click', function (e) {
