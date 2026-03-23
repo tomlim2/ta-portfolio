@@ -6,7 +6,7 @@
   <title>Component Library — ta-portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@700;900&family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Noto+Rashi+Hebrew:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -17,16 +17,12 @@
             surface: 'rgb(var(--c-surface) / <alpha-value>)',
             border: 'rgb(var(--c-border) / <alpha-value>)',
             muted: 'rgb(var(--c-muted) / <alpha-value>)',
-            sub: 'rgb(var(--c-sub) / <alpha-value>)',
             accent: 'rgb(var(--c-accent) / <alpha-value>)',
             heading: 'rgb(var(--c-heading) / <alpha-value>)',
             body: 'rgb(var(--c-body) / <alpha-value>)',
-            tag: 'rgb(var(--c-tag) / <alpha-value>)',
-            caption: 'rgb(var(--c-caption) / <alpha-value>)',
-            faint: 'rgb(var(--c-faint) / <alpha-value>)',
           },
           fontSize: {
-            sm: '1.05rem',
+            sm: '0.9375rem',
           },
           fontFamily: {
             sans: ['Noto Sans KR', 'system-ui', 'sans-serif'],
@@ -42,17 +38,17 @@
       width: 80px; height: 80px; border-radius: 12px;
       display: flex; align-items: flex-end; justify-content: center;
       padding-bottom: 0;
-      border: 1px solid rgba(255,255,255,0.06);
+      border: 1px solid rgb(var(--c-border));
     }
     .cl-label {
       font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase;
-      color: #666; margin-bottom: 1rem; font-weight: 600;
+      color: rgb(var(--c-muted)); margin-bottom: 1rem; font-weight: 600;
     }
     .cl-section { margin-bottom: 5rem; }
     .cl-section > h2 { font-size: 1.5rem; font-weight: 800; margin-bottom: 2.5rem; }
-    .cl-divider { border-top: 1px solid #2a2b2f; margin: 4rem 0; }
-    .cl-specimen { padding: 1.5rem; border: 1px solid #2a2b2f; border-radius: 12px; background: #0c0c0e; }
-    .cl-code { font-family: 'SF Mono', 'Fira Code', monospace; font-size: 0.75rem; color: #666; }
+    .cl-divider { border-top: 1px solid rgb(var(--c-border)); margin: 4rem 0; }
+    .cl-specimen { padding: 1.5rem; border: 1px solid rgb(var(--c-border)); border-radius: 12px; background: rgb(var(--c-surface)); }
+    .cl-code { font-family: 'SF Mono', 'Fira Code', monospace; font-size: 0.75rem; color: rgb(var(--c-muted)); }
   </style>
 </head>
 <body class="bg-bg text-body">
@@ -61,9 +57,9 @@
 
     <!-- Header -->
     <p class="cl-label" style="margin-bottom:0.5rem">INTERNAL</p>
-    <h1 style="font-family:'Gothic A1',sans-serif; font-size:3rem; font-weight:900; line-height:1.1; margin-bottom:0.75rem;">Component Library</h1>
+    <h1 class="page-title" style="margin-bottom:0.75rem;">Component Library</h1>
     <p class="text-muted text-sm mb-2">All UI parts used in ta-portfolio</p>
-    <p class="text-muted text-xs mb-0" style="color:#666">By listing them out like this, you can spot things like "elements with similar roles but different UIs" or "whether the color palette is functional." It's a hassle to give correction instructions one by one, but if you tweak the parts you use, the quality of the assembled website will naturally improve.</p>
+    <p class="text-muted text-xs mb-0">By listing them out like this, you can spot things like "elements with similar roles but different UIs" or "whether the color palette is functional." If you tweak the parts you use, the quality of the assembled website will naturally improve.</p>
 
     <div class="cl-divider"></div>
 
@@ -74,72 +70,61 @@
       <p class="cl-label">Background</p>
       <div class="flex flex-wrap gap-6 mb-10">
         <div class="text-center">
-          <div class="cl-swatch" style="background:#080808"></div>
-          <p class="text-xs mt-2" style="color:#666">#080808</p>
-          <p class="text-xs" style="color:#555">bg</p>
+          <div class="cl-swatch" style="background:#FFFFFF"></div>
+          <p class="text-xs mt-2" style="color:rgb(var(--c-muted))">#FFFFFF</p>
+          <p class="text-xs" style="color:rgb(var(--c-muted))">bg</p>
         </div>
         <div class="text-center">
-          <div class="cl-swatch" style="background:#111113"></div>
-          <p class="text-xs mt-2" style="color:#666">#111113</p>
-          <p class="text-xs" style="color:#555">surface</p>
-        </div>
-        <div class="text-center">
-          <div class="cl-swatch" style="background:#151518"></div>
-          <p class="text-xs mt-2" style="color:#666">#151518</p>
-          <p class="text-xs" style="color:#555">encrypted-bg</p>
-        </div>
-        <div class="text-center">
-          <div class="cl-swatch" style="background:#1a1a1e"></div>
-          <p class="text-xs mt-2" style="color:#666">#1a1a1e</p>
-          <p class="text-xs" style="color:#555">tooltip-bg</p>
+          <div class="cl-swatch" style="background:#F5F5F7"></div>
+          <p class="text-xs mt-2" style="color:rgb(var(--c-muted))">#F5F5F7</p>
+          <p class="text-xs" style="color:rgb(var(--c-muted))">surface</p>
         </div>
       </div>
 
       <p class="cl-label">Text</p>
       <div class="flex flex-wrap gap-6 mb-10">
         <div class="text-center">
-          <div class="cl-swatch" style="background:#dcdfe3"></div>
-          <p class="text-xs mt-2" style="color:#666">#dcdfe3</p>
-          <p class="text-xs" style="color:#555">body text</p>
+          <div class="cl-swatch" style="background:#55555A"></div>
+          <p class="text-xs mt-2" style="color:rgb(var(--c-muted))">#55555A</p>
+          <p class="text-xs" style="color:rgb(var(--c-muted))">heading</p>
         </div>
         <div class="text-center">
-          <div class="cl-swatch" style="background:#b0b4ba"></div>
-          <p class="text-xs mt-2" style="color:#666">#b0b4ba</p>
-          <p class="text-xs" style="color:#555">sub</p>
+          <div class="cl-swatch" style="background:#28282D"></div>
+          <p class="text-xs mt-2" style="color:rgb(var(--c-muted))">#28282D</p>
+          <p class="text-xs" style="color:rgb(var(--c-muted))">body</p>
         </div>
         <div class="text-center">
-          <div class="cl-swatch" style="background:#a8adb6"></div>
-          <p class="text-xs mt-2" style="color:#666">#a8adb6</p>
-          <p class="text-xs" style="color:#555">muted</p>
-        </div>
-        <div class="text-center">
-          <div class="cl-swatch" style="background:rgba(255,255,255,0.5)"></div>
-          <p class="text-xs mt-2" style="color:#666">white/50</p>
-          <p class="text-xs" style="color:#555">tag text</p>
+          <div class="cl-swatch" style="background:#6E6E73"></div>
+          <p class="text-xs mt-2" style="color:rgb(var(--c-muted))">#6E6E73</p>
+          <p class="text-xs" style="color:rgb(var(--c-muted))">muted</p>
         </div>
       </div>
 
       <p class="cl-label">Accent &amp; Border</p>
+      <div class="flex flex-wrap gap-6 mb-10">
+        <div class="text-center">
+          <div class="cl-swatch" style="background:#505FE6"></div>
+          <p class="text-xs mt-2" style="color:rgb(var(--c-muted))">#505FE6</p>
+          <p class="text-xs" style="color:rgb(var(--c-muted))">accent</p>
+        </div>
+        <div class="text-center">
+          <div class="cl-swatch" style="background:#E1E1E6"></div>
+          <p class="text-xs mt-2" style="color:rgb(var(--c-muted))">#E1E1E6</p>
+          <p class="text-xs" style="color:rgb(var(--c-muted))">border</p>
+        </div>
+      </div>
+
+      <p class="cl-label">Code Block</p>
       <div class="flex flex-wrap gap-6">
         <div class="text-center">
-          <div class="cl-swatch" style="background:#7c8aff"></div>
-          <p class="text-xs mt-2" style="color:#666">#7c8aff</p>
-          <p class="text-xs" style="color:#555">accent</p>
+          <div class="cl-swatch" style="background:#1a1a2e"></div>
+          <p class="text-xs mt-2" style="color:rgb(var(--c-muted))">#1a1a2e</p>
+          <p class="text-xs" style="color:rgb(var(--c-muted))">code bg</p>
         </div>
         <div class="text-center">
-          <div class="cl-swatch" style="background:#2a2b2f"></div>
-          <p class="text-xs mt-2" style="color:#666">#2a2b2f</p>
-          <p class="text-xs" style="color:#555">border</p>
-        </div>
-        <div class="text-center">
-          <div class="cl-swatch" style="background:rgba(255,255,255,0.2)"></div>
-          <p class="text-xs mt-2" style="color:#666">white/20</p>
-          <p class="text-xs" style="color:#555">tag border</p>
-        </div>
-        <div class="text-center">
-          <div class="cl-swatch" style="background:#333"></div>
-          <p class="text-xs mt-2" style="color:#666">#333</p>
-          <p class="text-xs" style="color:#555">dashed border</p>
+          <div class="cl-swatch" style="background:#b8d4a8"></div>
+          <p class="text-xs mt-2" style="color:rgb(var(--c-muted))">#b8d4a8</p>
+          <p class="text-xs" style="color:rgb(var(--c-muted))">code text</p>
         </div>
       </div>
     </section>
@@ -150,121 +135,53 @@
     <section class="cl-section">
       <h2>Typography</h2>
 
-      <p class="cl-label">Hero Title — Gothic A1 / 1.875rem (3xl) / 600</p>
+      <p class="cl-label">1. Hero Tagline — Noto Rashi Hebrew / 2.0rem / 400 / .hero-tagline</p>
       <div class="cl-specimen mb-8">
-        <p class="text-sub text-3xl leading-relaxed" style="font-family:'Gothic A1',sans-serif; letter-spacing:0.02em">Technical Artist who keeps<br>carving until I want it myself</p>
+        <p class="hero-tagline text-body">Technical Artist who keeps<br>carving until I want it myself</p>
       </div>
 
-      <p class="cl-label">Section Title — Noto Sans KR / 1.5rem (2xl) / 600</p>
+      <p class="cl-label">2. Page Title — Noto Rashi Hebrew / 2.0rem / 700 / .page-title</p>
       <div class="cl-specimen mb-8">
-        <h2 class="text-2xl font-semibold">About</h2>
+        <h1 class="page-title">MMD Player</h1>
       </div>
 
-      <p class="cl-label">Page Title — Noto Sans KR / 2.25rem (4xl) / 700</p>
+      <p class="cl-label">3. Section Title (H2) — Noto Sans KR / 1.25rem (text-xl) / 700</p>
       <div class="cl-specimen mb-8">
-        <h1 class="text-4xl font-bold">MMD Player</h1>
+        <h2 class="text-xl font-bold">About</h2>
       </div>
 
-      <p class="cl-label">Subsection Title — Noto Sans KR / 1.25rem (xl) / 700</p>
+      <p class="cl-label">4. Card Title — Noto Rashi Hebrew / 1.05rem / 500 / .card-title</p>
       <div class="cl-specimen mb-8">
-        <h2 class="text-xl font-bold">Solution</h2>
+        <h3 class="card-title">Matcap Painter</h3>
       </div>
 
-      <p class="cl-label">H3 — Noto Sans KR / 1rem / 500</p>
-      <div class="cl-specimen mb-8">
-        <h3 class="font-medium">Automatic Motion Compatibility Analysis</h3>
-      </div>
-
-      <p class="cl-label">Body — Noto Sans KR / 1.05rem (sm) / 400 / text-muted</p>
+      <p class="cl-label">5. Body — Noto Sans KR / 0.9375rem (text-sm) / 400</p>
       <div class="cl-specimen mb-8">
         <p class="text-muted text-sm leading-relaxed">Started as a source verifier for the PMX-to-VRM conversion pipeline. I needed a tool to verify that the original model and motion work correctly before conversion.</p>
       </div>
 
-      <p class="cl-label">Eyebrow — Noto Sans KR / 0.75rem (xs) / 400 / uppercase / tracking-[0.15em]</p>
+      <p class="cl-label">6. Small / Label — 0.8125rem / .card-subtitle, .about-detail</p>
       <div class="cl-specimen mb-8">
-        <p class="text-xs text-muted uppercase tracking-[0.15em]">Career</p>
+        <p class="card-subtitle text-muted">NPR Matcap real-time production tool</p>
+        <p class="about-detail text-muted mt-2">Cinamon · 2023–Present</p>
       </div>
 
-      <p class="cl-label">Blockquote — italic / text-muted</p>
+      <p class="cl-label">7. XS — 0.75rem / .section-label, captions</p>
       <div class="cl-specimen mb-8">
-        <blockquote class="text-muted">WebGPU MMD viewer with motion-synced effects. Actively in development</blockquote>
+        <p class="text-muted uppercase tracking-[0.15em] section-label">Career</p>
+        <p class="text-xs text-muted text-center mt-2">Left: Original — Right: Converted</p>
       </div>
 
-      <p class="cl-label">Name Logo — Gothic A1 / 1.5rem / 600 / tracking 0.6px</p>
+      <p class="cl-label">8. Nav Logo — Noto Sans KR / 1.25rem / 700 / .nav-logo</p>
+      <div class="cl-specimen mb-8">
+        <span class="nav-logo">Younsoo Lim</span>
+      </div>
+
+      <p class="cl-label">9. Nav Links — Noto Rashi Hebrew / 0.875rem</p>
       <div class="cl-specimen">
-        <span style="font-family:'Gothic A1',sans-serif; font-size:1.5rem; font-weight:600; letter-spacing:0.6px; line-height:1;">Younsoo Lim</span>
-      </div>
-    </section>
-
-    <div class="cl-divider"></div>
-
-    <!-- ==================== LINKS & CURSORS ==================== -->
-    <section class="cl-section">
-      <h2>Links &amp; Cursors</h2>
-
-      <p class="cl-label">Link Styles</p>
-      <div class="cl-specimen mb-8 space-y-4">
-        <div>
-          <p class="text-xs mb-1" style="color:#666">nav link — text-sub / hover:text-heading</p>
-          <a href="#" class="text-sm text-sub hover:text-heading transition">Projects</a>
-        </div>
-        <div>
-          <p class="text-xs mb-1" style="color:#666">inline link — text-accent / hover:underline</p>
-          <a href="#" class="text-accent hover:underline text-sm">MMD Player</a>
-        </div>
-        <div>
-          <p class="text-xs mb-1" style="color:#666">prev/next — text-muted / hover:text-heading</p>
-          <a href="#" class="text-muted hover:text-heading transition text-sm">&larr; NPR Shader System</a>
-        </div>
-        <div>
-          <p class="text-xs mb-1" style="color:#666">social icon — text-sub / hover:text-heading / w-5 h-5</p>
-          <div class="flex gap-4">
-            <a href="#" class="text-sub hover:text-heading transition">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-            </a>
-            <a href="#" class="text-sub hover:text-heading transition">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <p class="cl-label">Custom Cursors — 24x24 white circle PNG, hotspot 12 12</p>
-      <div class="flex flex-wrap gap-8">
-        <div class="text-center">
-          <div class="cl-swatch flex items-center justify-center" style="background:#1a1a1e; cursor: url('assets/cursor-wave.png') 12 12, pointer;">
-            <img src="assets/cursor-wave.png" alt="wave" class="w-6 h-6" style="image-rendering: auto;">
-          </div>
-          <p class="text-xs mt-2" style="color:#666">cursor-wave</p>
-          <p class="text-xs" style="color:#555">avatar hover</p>
-        </div>
-        <div class="text-center">
-          <div class="cl-swatch flex items-center justify-center" style="background:#1a1a1e; cursor: url('assets/cursor-link.png') 12 12, pointer;">
-            <img src="assets/cursor-link.png" alt="link" class="w-6 h-6" style="image-rendering: auto;">
-          </div>
-          <p class="text-xs mt-2" style="color:#666">cursor-link</p>
-          <p class="text-xs" style="color:#555">external links</p>
-        </div>
-        <div class="text-center">
-          <div class="cl-swatch flex items-center justify-center" style="background:#1a1a1e; cursor: url('assets/cursor-download.png') 12 12, pointer;">
-            <img src="assets/cursor-download.png" alt="download" class="w-6 h-6" style="image-rendering: auto;">
-          </div>
-          <p class="text-xs mt-2" style="color:#666">cursor-download</p>
-          <p class="text-xs" style="color:#555">resume PDF</p>
-        </div>
-        <div class="text-center">
-          <div class="cl-swatch flex items-center justify-center" style="background:#1a1a1e; cursor: url('assets/cursor-mail.png') 12 12, pointer;">
-            <img src="assets/cursor-mail.png" alt="mail" class="w-6 h-6" style="image-rendering: auto;">
-          </div>
-          <p class="text-xs mt-2" style="color:#666">cursor-mail</p>
-          <p class="text-xs" style="color:#555">mailto links</p>
-        </div>
-        <div class="text-center">
-          <div class="cl-swatch flex items-center justify-center" style="background:#1a1a1e">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#fff"/><svg x="2" y="2" width="20" height="20" viewBox="0 -960 960 960" fill="#222"><path d="M252.31-100q-29.92 0-51.12-21.19Q180-142.39 180-172.31v-375.38q0-29.92 21.19-51.12Q222.39-620 252.31-620H300v-80q0-74.92 52.54-127.46Q405.08-880 480-880q74.92 0 127.46 52.54Q660-774.92 660-700v80h47.69q29.92 0 51.12 21.19Q780-577.61 780-547.69v375.38q0 29.92-21.19 51.12Q737.61-100 707.69-100H252.31Z"/></svg></svg>
-          </div>
-          <p class="text-xs mt-2" style="color:#666">cursor-lock</p>
-          <p class="text-xs" style="color:#555">NDA / encrypted</p>
+        <div class="flex gap-8" style="font-family:'Noto Rashi Hebrew',serif; font-size:0.875rem;">
+          <span class="text-body">Projects</span>
+          <span class="text-body">About</span>
         </div>
       </div>
     </section>
@@ -275,49 +192,29 @@
     <section class="cl-section">
       <h2>Cards</h2>
 
-      <p class="cl-label">Project Card — Main Page</p>
+      <p class="cl-label">Project Card — center-aligned, card-title on h3, single-line subtitle</p>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
         <div class="card group block overflow-hidden transition">
           <div class="block relative overflow-hidden aspect-video bg-surface rounded">
             <div class="card-thumb w-full h-full bg-gradient-to-br from-surface to-border flex items-center justify-center text-muted text-xs">Thumbnail (aspect-video)</div>
           </div>
-          <div class="py-5">
-            <div class="flex items-center gap-2 mb-2">
-              <h3 class="text-lg font-medium">Project Title</h3>
+          <div class="py-5 text-center">
+            <div class="flex items-center justify-center gap-2 mb-0">
+              <h3 class="card-title">Project Title</h3>
             </div>
-            <p class="text-sub text-sm mb-3">One-line description — key outcome or metric</p>
-            <p class="text-xs text-caption uppercase tracking-wide">Tag A · Tag B</p>
+            <p class="text-body mb-3 font-extralight card-subtitle">One-line description — key outcome or metric</p>
           </div>
         </div>
 
         <div class="card group block overflow-hidden transition">
-          <div class="block relative overflow-hidden aspect-video" style="border:1px dashed #333; background:#151518;">
-            <div class="w-full h-full flex items-center justify-center">
-              <svg class="w-5 h-5" style="fill:#888" viewBox="0 -960 960 960"><path d="M252.31-100q-29.92 0-51.12-21.19Q180-142.39 180-172.31v-375.38q0-29.92 21.19-51.12Q222.39-620 252.31-620H300v-80q0-74.92 52.54-127.46Q405.08-880 480-880q74.92 0 127.46 52.54Q660-774.92 660-700v80h47.69q29.92 0 51.12 21.19Q780-577.61 780-547.69v375.38q0 29.92-21.19 51.12Q737.61-100 707.69-100H252.31Z"/></svg>
-            </div>
+          <div class="block relative overflow-hidden aspect-video bg-surface rounded">
+            <div class="card-thumb w-full h-full bg-gradient-to-br from-surface to-border flex items-center justify-center text-muted text-xs">Thumbnail (aspect-video)</div>
           </div>
-          <div class="py-5">
-            <div class="flex items-center gap-2 mb-2">
-              <h3 class="text-lg font-medium">NDA Project</h3>
+          <div class="py-5 text-center">
+            <div class="flex items-center justify-center gap-2 mb-0">
+              <h3 class="card-title">Another Project</h3>
             </div>
-            <p class="text-sub text-sm mb-3">Encrypted card — dashed border + lock icon</p>
-            <p class="text-xs text-caption uppercase tracking-wide">Tag · Tag</p>
-          </div>
-        </div>
-      </div>
-
-      <p class="cl-label">Tag Style — Main Page (dot separator) vs Subpage (border pill)</p>
-      <div class="cl-specimen flex flex-col gap-4">
-        <div>
-          <p class="text-xs mb-2" style="color:#666">Main page — dot separator, uppercase, white/50</p>
-          <p class="text-xs text-caption uppercase tracking-wide">Three.js · WebGPU · TSL Shader</p>
-        </div>
-        <div>
-          <p class="text-xs mb-2" style="color:#666">Subpage — pill, text-tag</p>
-          <div class="flex flex-wrap gap-2">
-            <span class="px-2 py-1 text-tag" style="font-size:0.75rem">Three.js WebGPU (r172)</span>
-            <span class="px-2 py-1 text-tag" style="font-size:0.75rem">TSL Shader</span>
-            <span class="px-2 py-1 text-tag" style="font-size:0.75rem">Vanilla JavaScript</span>
+            <p class="text-body mb-3 font-extralight card-subtitle">Single-line subtitle with font-extralight</p>
           </div>
         </div>
       </div>
@@ -329,28 +226,21 @@
     <section class="cl-section">
       <h2>Panels</h2>
 
-      <p class="cl-label">Surface Panel — bg-surface</p>
-      <div class="bg-surface p-5 mb-8">
-        <h3 class="font-medium mb-3">Pipeline Flow</h3>
-        <code class="text-sm text-green-400">ZIP &rarr; scan .pmx &rarr; humanoid check &rarr; buildGltf() &rarr; writeGlb()</code>
+      <p class="cl-label">Surface Panel — bg-surface / rounded-lg</p>
+      <div class="bg-surface rounded-lg p-5 mb-8">
+        <p class="text-sm text-muted leading-relaxed">A surface-colored panel with rounded-lg corners. Used for grouping related content.</p>
       </div>
 
-      <p class="cl-label">Encrypted Block — dashed border / #151518 bg / lock icon</p>
-      <div class="encrypted-placeholder" style="pointer-events:none;">
-        <svg viewBox="0 -960 960 960"><path d="M252.31-100q-29.92 0-51.12-21.19Q180-142.39 180-172.31v-375.38q0-29.92 21.19-51.12Q222.39-620 252.31-620H300v-80q0-74.92 52.54-127.46Q405.08-880 480-880q74.92 0 127.46 52.54Q660-774.92 660-700v80h47.69q29.92 0 51.12 21.19Q780-577.61 780-547.69v375.38q0 29.92-21.19 51.12Q737.61-100 707.69-100H252.31Zm0-60h455.38q5.39 0 8.85-3.46t3.46-8.85v-375.38q0-5.39-3.46-8.85t-8.85-3.46H252.31q-5.39 0-8.85 3.46t-3.46 8.85v375.38q0 5.39 3.46 8.85t8.85 3.46Z"/></svg>
+      <p class="cl-label">Card Panel — bg-surface / h3 separator (border-bottom: border color)</p>
+      <div class="bg-surface rounded-lg p-5 mb-8">
+        <h3>Pipeline Flow</h3>
+        <p>ZIP &rarr; scan .pmx &rarr; humanoid check &rarr; buildGltf() &rarr; writeGlb()</p>
       </div>
 
-      <p class="cl-label mt-8">Accordion / Details — bg-surface / hover:text-accent</p>
-      <div class="space-y-3">
-        <details class="bg-surface">
-          <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">VMD Precompute — Effect Pre-calculation</summary>
-          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">Pre-calculates bloom events, foot landing timings, and angular velocity peaks from motion data.</div>
-        </details>
-        <details class="bg-surface">
-          <summary class="px-5 py-3 cursor-pointer text-sm font-medium hover:text-accent transition">Post-Process — Dual Chain Bloom Skip</summary>
-          <div class="px-5 pb-4 text-muted text-sm leading-relaxed">Two output chains, same uniforms, split at bloom.</div>
-        </details>
-      </div>
+      <p class="cl-label">Code Block — pre / bg #1a1a2e / text #b8d4a8</p>
+      <pre><code>// Example code block
+const result = await convertPMX(input);
+console.log(`Converted ${result.count} models`);</code></pre>
     </section>
 
     <div class="cl-divider"></div>
@@ -369,11 +259,77 @@
             </tr>
           </thead>
           <tbody class="text-muted">
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading font-medium">Label A</td><td class="py-3">Description of the result</td></tr>
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading font-medium">Label B</td><td class="py-3">Another result row</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-accent font-medium">Highlighted</td><td class="py-3">Uses text-accent for emphasis</td></tr>
+            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading font-medium">Label B</td><td class="py-3">Standard heading-colored label</td></tr>
             <tr><td class="py-3 pr-4 text-heading font-medium">Label C</td><td class="py-3">Final row without bottom border</td></tr>
           </tbody>
         </table>
+      </div>
+    </section>
+
+    <div class="cl-divider"></div>
+
+    <!-- ==================== LINKS & CURSORS ==================== -->
+    <section class="cl-section">
+      <h2>Links &amp; Cursors</h2>
+
+      <p class="cl-label">Link Styles</p>
+      <div class="cl-specimen mb-8 space-y-4">
+        <div>
+          <p class="text-xs mb-1" style="color:rgb(var(--c-muted))">nav link — text-body / hover:text-heading</p>
+          <a href="#" class="text-sm text-body hover:text-heading transition">Projects</a>
+        </div>
+        <div>
+          <p class="text-xs mb-1" style="color:rgb(var(--c-muted))">inline link — text-accent / hover:underline</p>
+          <a href="#" class="text-accent hover:underline text-sm">MMD Player</a>
+        </div>
+        <div>
+          <p class="text-xs mb-1" style="color:rgb(var(--c-muted))">prev/next — text-muted / hover:text-heading</p>
+          <a href="#" class="text-muted hover:text-heading transition text-sm">&larr; NPR Shader System</a>
+        </div>
+        <div>
+          <p class="text-xs mb-1" style="color:rgb(var(--c-muted))">social icon — text-body / hover:text-heading / w-5 h-5</p>
+          <div class="flex gap-4">
+            <a href="#" class="text-body hover:text-heading transition">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            </a>
+            <a href="#" class="text-body hover:text-heading transition">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <p class="cl-label">Custom Cursors — 24x24 white circle PNG, hotspot 12 12</p>
+      <div class="flex flex-wrap gap-8">
+        <div class="text-center">
+          <div class="cl-swatch flex items-center justify-center" style="background:rgb(var(--c-surface)); cursor: url('assets/cursor-wave.png') 12 12, pointer;">
+            <img src="assets/cursor-wave.png" alt="wave" class="w-6 h-6" style="image-rendering: auto;">
+          </div>
+          <p class="text-xs mt-2" style="color:rgb(var(--c-muted))">cursor-wave</p>
+          <p class="text-xs" style="color:rgb(var(--c-muted))">avatar hover</p>
+        </div>
+        <div class="text-center">
+          <div class="cl-swatch flex items-center justify-center" style="background:rgb(var(--c-surface)); cursor: url('assets/cursor-link.png') 12 12, pointer;">
+            <img src="assets/cursor-link.png" alt="link" class="w-6 h-6" style="image-rendering: auto;">
+          </div>
+          <p class="text-xs mt-2" style="color:rgb(var(--c-muted))">cursor-link</p>
+          <p class="text-xs" style="color:rgb(var(--c-muted))">external links</p>
+        </div>
+        <div class="text-center">
+          <div class="cl-swatch flex items-center justify-center" style="background:rgb(var(--c-surface)); cursor: url('assets/cursor-download.png') 12 12, pointer;">
+            <img src="assets/cursor-download.png" alt="download" class="w-6 h-6" style="image-rendering: auto;">
+          </div>
+          <p class="text-xs mt-2" style="color:rgb(var(--c-muted))">cursor-download</p>
+          <p class="text-xs" style="color:rgb(var(--c-muted))">resume PDF</p>
+        </div>
+        <div class="text-center">
+          <div class="cl-swatch flex items-center justify-center" style="background:rgb(var(--c-surface)); cursor: url('assets/cursor-mail.png') 12 12, pointer;">
+            <img src="assets/cursor-mail.png" alt="mail" class="w-6 h-6" style="image-rendering: auto;">
+          </div>
+          <p class="text-xs mt-2" style="color:rgb(var(--c-muted))">cursor-mail</p>
+          <p class="text-xs" style="color:rgb(var(--c-muted))">mailto links</p>
+        </div>
       </div>
     </section>
 
@@ -386,22 +342,19 @@
       <p class="cl-label">Tooltip — data-tip / CSS ::after / opacity transition 0.1s</p>
       <div class="cl-specimen mb-8">
         <div class="flex gap-6">
-          <a href="#" class="text-sub hover:text-heading transition" data-tip="Resume">
+          <a href="#" class="text-body hover:text-heading transition" data-tip="Resume">
             <svg class="w-5 h-5" fill="currentColor" viewBox="0 -960 960 960"><path d="M320-240h320v-80H320v80Zm0-160h320v-80H320v80ZM240-80q-33 0-56.5-23.5T160-160v-640q0-33 23.5-56.5T240-880h320l240 240v480q0 33-23.5 56.5T720-80H240Z"/></svg>
           </a>
-          <a href="#" class="text-sub hover:text-heading transition" data-tip="GitHub">
+          <a href="#" class="text-body hover:text-heading transition" data-tip="GitHub">
             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
           </a>
-          <a href="#" class="text-sub hover:text-heading transition" data-tip="Live Demo">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
-          </a>
         </div>
-        <p class="text-xs mt-4" style="color:#555">Hover icons above to see tooltips</p>
+        <p class="text-xs mt-4" style="color:rgb(var(--c-muted))">Hover icons above to see tooltips</p>
       </div>
 
       <p class="cl-label">Image Caption — text-xs / text-muted / text-center / mt-2</p>
       <div class="cl-specimen mb-8">
-        <div class="bg-surface rounded h-20 w-full mb-2"></div>
+        <div class="bg-bg rounded h-20 w-full mb-2"></div>
         <p class="text-xs text-muted text-center">Left: Original game screenshot — Right: Viewer rendering after conversion</p>
       </div>
 
@@ -439,13 +392,10 @@
       <p class="cl-label">Top Nav — fixed / bg-bg/80 / backdrop-blur-md / h-16</p>
       <div class="cl-specimen mb-8">
         <div class="flex items-center justify-between">
-          <div class="flex items-center" style="gap:0.45rem">
-            <div class="w-11 h-11 rounded-full bg-surface border border-border"></div>
-            <span style="font-family:'Gothic A1',sans-serif; font-size:1.5rem; font-weight:600; letter-spacing:0.6px; line-height:1;">Younsoo Lim</span>
-          </div>
-          <div class="flex gap-8 text-sm text-sub">
-            <span class="hover:text-heading transition cursor-pointer">Projects</span>
-            <span class="hover:text-heading transition cursor-pointer">About</span>
+          <span class="nav-logo">Younsoo Lim</span>
+          <div class="nav-links flex gap-8 text-sm text-body">
+            <span class="hover:text-heading transition cursor-pointer" style="font-family:'Noto Rashi Hebrew',serif; font-size:0.875rem;">Projects</span>
+            <span class="hover:text-heading transition cursor-pointer" style="font-family:'Noto Rashi Hebrew',serif; font-size:0.875rem;">About</span>
           </div>
         </div>
       </div>
@@ -461,6 +411,61 @@
 
     <div class="cl-divider"></div>
 
+    <!-- ==================== LANGUAGE TOGGLE ==================== -->
+    <section class="cl-section">
+      <h2>Language Toggle</h2>
+
+      <p class="cl-label">Footer Language Toggle — Ko / En button</p>
+      <div class="cl-specimen">
+        <div class="text-center text-muted text-xs">
+          <p>&copy; 2026 Younsoo Lim &middot; <button style="font-size:inherit; font-weight:inherit; letter-spacing:0.05em; cursor:pointer; padding:0; border:none; background:none; color:inherit;"><span style="opacity:0.4">Ko</span> / En</button></p>
+        </div>
+        <p class="text-xs mt-4" style="color:rgb(var(--c-muted))">Active language is full opacity, inactive is 0.4. Clicking swaps data-ko/data-en content across the page via i18n.js.</p>
+      </div>
+    </section>
+
+    <div class="cl-divider"></div>
+
+    <!-- ==================== ABOUT LAYOUT ==================== -->
+    <section class="cl-section">
+      <h2>About Layout</h2>
+
+      <p class="cl-label">Role-first layout — role on top (.about-role), company/year below (.about-detail)</p>
+      <div class="cl-specimen mb-8">
+        <h3 class="text-muted uppercase tracking-[0.15em] mb-5 section-label">Career</h3>
+        <div class="space-y-5">
+          <div>
+            <p class="text-body about-role">Technical Artist</p>
+            <p class="text-muted about-detail">Cinamon · 2023–Present</p>
+          </div>
+          <div>
+            <p class="text-body about-role">Frontend Engineer</p>
+            <p class="text-muted about-detail">FLFI · 2022–2023</p>
+          </div>
+          <div>
+            <p class="text-body about-role">UX Engineer</p>
+            <p class="text-muted about-detail">Varo Bank · 2019–2020</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="cl-label">Skills layout — skill-label on top, detail below</p>
+      <div class="cl-specimen">
+        <div class="space-y-5">
+          <div>
+            <p class="text-body mb-1 skill-label">Engine</p>
+            <p class="text-muted about-detail">Unreal Engine 5 · Blueprint · Material Editor</p>
+          </div>
+          <div>
+            <p class="text-body mb-1 skill-label">Rendering</p>
+            <p class="text-muted about-detail">NPR / Toon Shading · Post Process · Stencil Buffer</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="cl-divider"></div>
+
     <!-- ==================== LAYOUT ==================== -->
     <section class="cl-section">
       <h2>Layout</h2>
@@ -468,31 +473,31 @@
       <p class="cl-label">Max Widths</p>
       <div class="space-y-6">
         <div>
-          <p class="text-xs mb-2" style="color:#666">MAX-W-6XL (1152PX) — nav, hero, projects, about</p>
+          <p class="text-xs mb-2" style="color:rgb(var(--c-muted))">MAX-W-[1400PX] — nav, hero, projects, about</p>
           <div class="bg-surface/50 rounded-lg p-3 border border-border/50">
-            <div class="bg-surface rounded h-8 flex items-center justify-center text-xs text-muted" style="max-width:1152px;">1152px</div>
+            <div class="bg-surface rounded h-8 flex items-center justify-center text-xs text-muted" style="max-width:1400px;">1400px</div>
           </div>
         </div>
         <div>
-          <p class="text-xs mb-2" style="color:#666">MAX-W-4XL (896PX) — subpage content</p>
+          <p class="text-xs mb-2" style="color:rgb(var(--c-muted))">MAX-W-4XL (896PX) — subpage content</p>
           <div class="bg-surface/50 rounded-lg p-3 border border-border/50">
             <div class="bg-surface rounded h-8 flex items-center justify-center text-xs text-muted" style="max-width:896px;">896px</div>
           </div>
         </div>
         <div>
-          <p class="text-xs mb-2" style="color:#666">MAX-W-3XL (768PX) — comparison images</p>
+          <p class="text-xs mb-2" style="color:rgb(var(--c-muted))">MAX-W-3XL (768PX) — comparison images</p>
           <div class="bg-surface/50 rounded-lg p-3 border border-border/50">
             <div class="bg-surface rounded h-8 flex items-center justify-center text-xs text-muted" style="max-width:768px;">768px</div>
           </div>
         </div>
         <div>
-          <p class="text-xs mb-2" style="color:#666">MAX-W-XL (576PX) — video, inline media</p>
+          <p class="text-xs mb-2" style="color:rgb(var(--c-muted))">MAX-W-XL (576PX) — video, inline media</p>
           <div class="bg-surface/50 rounded-lg p-3 border border-border/50">
             <div class="bg-surface rounded h-8 flex items-center justify-center text-xs text-muted" style="max-width:576px;">576px</div>
           </div>
         </div>
         <div>
-          <p class="text-xs mb-2" style="color:#666">MAX-W-LG (512PX) — debug images</p>
+          <p class="text-xs mb-2" style="color:rgb(var(--c-muted))">MAX-W-LG (512PX) — debug images</p>
           <div class="bg-surface/50 rounded-lg p-3 border border-border/50">
             <div class="bg-surface rounded h-8 flex items-center justify-center text-xs text-muted" style="max-width:512px;">512px</div>
           </div>
@@ -512,19 +517,19 @@
           <div class="space-y-4">
             <div class="flex items-center gap-4">
               <div class="w-16 h-16 bg-surface border border-border" style="border-radius:0"></div>
-              <div><p class="text-sm">0px</p><p class="text-xs" style="color:#555">encrypted blocks, editorial</p></div>
+              <div><p class="text-sm">0px</p><p class="text-xs" style="color:rgb(var(--c-muted))">editorial, sharp elements</p></div>
             </div>
             <div class="flex items-center gap-4">
               <div class="w-16 h-16 bg-surface border border-border" style="border-radius:4px"></div>
-              <div><p class="text-sm">4px</p><p class="text-xs" style="color:#555">tooltip</p></div>
+              <div><p class="text-sm">4px</p><p class="text-xs" style="color:rgb(var(--c-muted))">tooltip</p></div>
             </div>
             <div class="flex items-center gap-4">
               <div class="w-16 h-16 bg-surface border border-border" style="border-radius:8px"></div>
-              <div><p class="text-sm">8px — rounded-lg</p><p class="text-xs" style="color:#555">panels, accordion, modal, input</p></div>
+              <div><p class="text-sm">8px — rounded-lg</p><p class="text-xs" style="color:rgb(var(--c-muted))">panels, modal, input, code block</p></div>
             </div>
             <div class="flex items-center gap-4">
               <div class="w-16 h-16 bg-surface border border-border" style="border-radius:9999px"></div>
-              <div><p class="text-sm">9999px — rounded-full</p><p class="text-xs" style="color:#555">avatar, tag pill</p></div>
+              <div><p class="text-sm">9999px — rounded-full</p><p class="text-xs" style="color:rgb(var(--c-muted))">avatar</p></div>
             </div>
           </div>
         </div>
@@ -533,20 +538,12 @@
           <p class="cl-label">Border Style</p>
           <div class="space-y-4">
             <div class="flex items-center gap-4">
-              <div class="w-16 h-16 rounded-lg" style="border:1px solid #2a2b2f"></div>
-              <div><p class="text-sm">1px solid #2a2b2f</p><p class="text-xs" style="color:#555">panels, nav, footer, table</p></div>
+              <div class="w-16 h-16 rounded-lg border border-border"></div>
+              <div><p class="text-sm">1px solid border</p><p class="text-xs" style="color:rgb(var(--c-muted))">panels, nav, footer, table</p></div>
             </div>
             <div class="flex items-center gap-4">
-              <div class="w-16 h-16 rounded-lg" style="border:1px solid rgba(42,43,47,0.5)"></div>
-              <div><p class="text-sm">1px solid border/50</p><p class="text-xs" style="color:#555">table row separator</p></div>
-            </div>
-            <div class="flex items-center gap-4">
-              <div class="w-16 h-16 rounded-lg" style="border:1px solid rgba(255,255,255,0.2)"></div>
-              <div><p class="text-sm">1px solid white/20</p><p class="text-xs" style="color:#555">subpage tag pill</p></div>
-            </div>
-            <div class="flex items-center gap-4">
-              <div class="w-16 h-16" style="border:1px dashed #333"></div>
-              <div><p class="text-sm">1px dashed #333</p><p class="text-xs" style="color:#555">encrypted/NDA block</p></div>
+              <div class="w-16 h-16 rounded-lg border border-border/50"></div>
+              <div><p class="text-sm">1px solid border/50</p><p class="text-xs" style="color:rgb(var(--c-muted))">table row separator</p></div>
             </div>
           </div>
         </div>
@@ -559,10 +556,10 @@
     <section class="cl-section">
       <h2>Footer</h2>
 
-      <p class="cl-label">Site Footer — border-t / py-8 / text-center / text-muted / text-xs</p>
+      <p class="cl-label">Site Footer — border-t / py-8 / text-center / text-muted / text-xs / lang toggle</p>
       <div class="cl-specimen">
         <div class="border-t border-border py-6 text-center text-muted text-xs">
-          <p>&copy; 2026 Younsoo Lim. All rights reserved.</p>
+          <p>&copy; 2026 Younsoo Lim &middot; <button style="font-size:inherit; font-weight:inherit; letter-spacing:0.05em; cursor:pointer; padding:0; border:none; background:none; color:inherit;"><span style="opacity:0.4">Ko</span> / En</button></p>
         </div>
       </div>
     </section>

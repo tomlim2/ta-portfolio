@@ -57,7 +57,7 @@
 
     <h1 class="page-title" data-ko="캐릭터 시스템">Character System</h1>
 
-    <p class="text-body mb-6 page-subtitle" data-ko="하나의 블루프린트에서 300+ 캐릭터">300+ characters from a single Blueprint</p>
+    <p class="text-body mb-6 page-subtitle" data-ko="등록과 로드를 분리한 300+ 캐릭터 파이프라인">300+ characters from a single Blueprint</p>
 
     <p class="text-xs text-muted mb-12">UE5 · C++ · Blueprint — Company, 2024–2026</p>
 
@@ -149,13 +149,13 @@
       <!-- Three components -->
       <div class="space-y-4 mb-6">
         <div class="bg-surface p-5 rounded-lg">
-          <h3 class="font-medium mb-3" data-ko="에디터 — 캐릭터 환경 체커">Editor — Character Environment Checker</h3>
-          <p class="text-muted text-sm leading-relaxed mb-4" data-ko="아티스트가 머리·헤어·바디 파츠를 조합하고 프리셋으로 저장하면 Data Asset이 생산됩니다. 에디터 Tick으로 게임 실행 없이 배경 위에서 룩을 바로 확인할 수 있습니다.">Artists assemble head, hair, and body parts in the editor and save them as presets. The Editor Tick Interface allows verifying characters and animations on a background without launching the game. The runtime reads these Data Assets directly.</p>
+          <h3 class="font-medium mb-3" data-ko="등록용 캐릭터 블루프린트 — 에디터 틱">Editor — Character Environment Checker</h3>
+          <p class="text-muted text-sm leading-relaxed mb-4" data-ko="C++ 캐릭터 액터 오브젝트 기반 블루프린트입니다. 아티스트가 머리·헤어·바디 파츠를 조합하고 프리셋으로 저장하면 Data Asset이 생산(캐릭터 등록)됩니다. 또한 에디터 Tick으로 게임 실행 없이 배경 위에서 룩을 바로 확인할 수 있습니다.">Artists assemble head, hair, and body parts in the editor and save them as presets. The Editor Tick Interface allows verifying characters and animations on a background without launching the game. The runtime reads these Data Assets directly.</p>
           <img src="../assets/images/character-system/tool-register.png" alt="BP_Character_EnvCheck — Character registration UI" class="w-full">
         </div>
         <div class="bg-surface p-5 rounded-lg">
-          <h3 class="font-medium mb-3" data-ko="런타임 — 캐릭터 블루프린트">Runtime — Character Blueprint</h3>
-          <p class="text-muted text-sm leading-relaxed mb-4" data-ko="로드 전용 BP입니다. 자체 캐릭터는 Data Asset에서 파츠별 비동기 로드, 외부 VRM은 로더로 통째 로드합니다. 같은 BP 안에서 경로만 분기하여 300+ 프리셋과 커뮤니티 캐릭터를 하나로 관리합니다.">A separate codebase from the editor tool -- a runtime character Blueprint inheriting the base character class. Internal characters load parts asynchronously from editor-produced Data Assets (Head/Hair/Body split), while external VRM loads the entire model through a loader. The same Blueprint handles both, branching only at the load path.</p>
+          <h3 class="font-medium mb-3" data-ko="로드용 캐릭터 블루프린트 — 런타임">Runtime — Character Blueprint</h3>
+          <p class="text-muted text-sm leading-relaxed mb-4" data-ko="로드 전용 BP입니다. 인하우스 캐릭터는 Data Asset에서 파츠별 비동기 로드, 외부 VRM은 실시간 로더로 로드합니다. BP 안에는 Data Asset 경로만 들고 있어 300+ 프리셋과 커뮤니티 캐릭터를 하나의 BP로 통합 로드합니다.">A separate codebase from the editor tool -- a runtime character Blueprint inheriting the base character class. Internal characters load parts asynchronously from editor-produced Data Assets (Head/Hair/Body split), while external VRM loads the entire model through a loader. The same Blueprint handles both, branching only at the load path.</p>
           <img src="../assets/images/character-system/data-asset-load-bp.png" alt="BP_Basemodel_TF — Loading NRC Data Asset from DataTable" class="w-full">
         </div>
         <div class="bg-surface p-5 rounded-lg">
