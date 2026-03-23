@@ -1,27 +1,43 @@
-/* ── Theme Variables ── */
+/* ── Design System ── */
 
 :root {
-  --c-bg: 248 249 250;
-  --c-surface: 238 240 243;
-  --c-border: 218 220 224;
-  --c-muted: 108 117 125;
-  --c-sub: 73 80 87;
-  --c-accent: 91 106 240;
-  --c-body: 33 37 41;
-  --c-heading: 17 20 24;
-  --c-tag: 55 65 80;
-  --c-caption: 100 110 125;
-  --c-faint: 195 200 210;
+  /* Background — pure white for max contrast */
+  --c-bg: 255 255 255;
+  /* Surface — visible distinction from bg */
+  --c-surface: 245 245 247;
+  /* Border — clear but not heavy */
+  --c-border: 225 225 230;
+  /* Muted — secondary text (WCAG AA on white: 4.6:1) */
+  --c-muted: 110 110 115;
+  /* Body — primary readable text (WCAG AAA: 14.5:1) */
+  --c-body: 40 40 45;
+  /* Heading — near-black for maximum weight (WCAG AAA: 19:1) */
+  --c-heading: 15 15 20;
+  /* Accent — single brand color */
+  --c-accent: 80 95 230;
 }
+
+/*
+  Typography Scale (7 steps):
+  --t-display: 2.0rem    hero, page titles
+  --t-h2:      1.25rem   section headings
+  --t-h3:      1.05rem   card/panel headings, nav
+  --t-body:    0.9375rem body text (15px)
+  --t-small:   0.8125rem labels, meta, captions (13px)
+  --t-xs:      0.75rem   fine print, timestamps (12px)
+  --t-micro:   0.6875rem tooltip, decorative (11px)
+*/
 
 /* ── Code Blocks (always dark) ── */
 
 pre {
-  background-color: #1e1e2e;
-  color: #a6e3a1;
+  background-color: #1a1a2e;
+  color: #b8d4a8;
   padding: 1.25rem;
   border-radius: 0.5rem;
   overflow-x: auto;
+  font-size: 0.8125rem;
+  line-height: 1.6;
 }
 
 code {
@@ -36,22 +52,75 @@ pre code {
   background: none;
   color: inherit;
   font-weight: inherit;
+  font-size: inherit;
+}
+
+/* ── Typography Classes ── */
+
+.hero-tagline {
+  font-family: 'Noto Rashi Hebrew', serif;
+  font-size: 2.0rem;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+}
+
+.page-title {
+  font-family: 'Noto Rashi Hebrew', serif;
+  font-size: 2.0rem;
+  font-weight: 700;
+  margin-bottom: 0;
+  line-height: 1.3;
+}
+
+.page-subtitle {
+  font-size: 0.9375rem;
+}
+
+.card-title {
+  font-family: 'Noto Rashi Hebrew', serif;
+  font-size: 1.05rem;
+  font-weight: 400;
+}
+
+.card-subtitle {
+  font-size: 0.8125rem;
+}
+
+.about-role {
+  font-family: 'Noto Rashi Hebrew', serif;
+  font-size: 0.9375rem;
+  font-weight: 500;
+}
+
+.about-detail {
+  font-size: 0.8125rem;
+  font-weight: 400;
+}
+
+.section-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+}
+
+.skill-label {
+  font-size: 0.75rem;
+  font-weight: 500;
 }
 
 /* ── Card Panels ── */
 
 .bg-surface > h3 {
-  font-size: 0.95rem;
-  font-weight: 500;
+  font-size: 0.9375rem;
+  font-weight: 600;
   color: rgb(var(--c-heading));
-  padding-bottom: 0.75rem;
-  margin-bottom: 0.75rem;
-  border-bottom: 1px solid rgb(var(--c-heading));
+  padding-bottom: 0.625rem;
+  margin-bottom: 0.625rem;
+  border-bottom: 1px solid rgb(var(--c-border));
 }
 
 .bg-surface p,
 .bg-surface div {
-  font-size: 0.925rem;
+  font-size: 0.875rem;
   color: rgb(var(--c-muted));
   line-height: 1.7;
 }
@@ -88,9 +157,9 @@ a[href^="mailto:"] {
 
 nav .nav-logo {
   font-family: 'Noto Sans KR', sans-serif;
-  font-size: 1.35rem;
+  font-size: 1.25rem;
   font-weight: 700;
-  letter-spacing: 0.6px;
+  letter-spacing: 0.02em;
   line-height: 1;
   text-decoration: none;
   color: inherit;
@@ -99,6 +168,7 @@ nav .nav-logo {
 
 nav .nav-links a {
   font-family: 'Noto Rashi Hebrew', serif;
+  font-size: 0.875rem;
 }
 
 nav {
@@ -130,7 +200,7 @@ nav {
 }
 
 .tag {
-  font-size: 0.65rem;
+  font-size: 0.6875rem;
   letter-spacing: 0.05em;
 }
 
@@ -146,7 +216,7 @@ details summary::before {
   content: '▶';
   display: inline-block;
   margin-right: 0.5rem;
-  font-size: 0.6rem;
+  font-size: 0.6875rem;
   transition: transform 0.2s;
   color: rgb(var(--c-muted));
 }
@@ -201,7 +271,7 @@ table {
   transform: translateX(-50%);
   margin-top: 6px;
   padding: 3px 8px;
-  font-size: 0.7rem;
+  font-size: 0.6875rem;
   color: rgb(var(--c-body));
   background: rgb(var(--c-surface));
   border-radius: 4px;

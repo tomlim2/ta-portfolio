@@ -17,16 +17,12 @@
             surface: 'rgb(var(--c-surface) / <alpha-value>)',
             border: 'rgb(var(--c-border) / <alpha-value>)',
             muted: 'rgb(var(--c-muted) / <alpha-value>)',
-            sub: 'rgb(var(--c-sub) / <alpha-value>)',
             accent: 'rgb(var(--c-accent) / <alpha-value>)',
             heading: 'rgb(var(--c-heading) / <alpha-value>)',
             body: 'rgb(var(--c-body) / <alpha-value>)',
-            tag: 'rgb(var(--c-tag) / <alpha-value>)',
-            caption: 'rgb(var(--c-caption) / <alpha-value>)',
-            faint: 'rgb(var(--c-faint) / <alpha-value>)',
           },
           fontSize: {
-            sm: '1.05rem',
+            sm: '0.9375rem',
           },
           fontFamily: {
             sans: ['Noto Sans KR', 'system-ui', 'sans-serif'],
@@ -55,7 +51,7 @@
     <div class="max-w-[1400px] mx-auto px-6 h-16 flex items-center justify-between">
       <a href="index.html" class="nav-logo">Younsoo Lim</a>
       <!-- Desktop nav links (hidden on mobile) -->
-      <div class="nav-links hidden md:flex gap-8 text-sm text-sub ml-auto" id="desktop-nav">
+      <div class="nav-links hidden md:flex gap-8 text-sm text-body ml-auto" id="desktop-nav">
         <a href="index.html#projects" class="hover:text-heading transition">Projects</a>
         <a href="index.html#about" class="hover:text-heading transition">About</a>
         <a href="index.html#contact" class="hover:text-heading transition">Contact</a>

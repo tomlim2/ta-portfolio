@@ -6,7 +6,7 @@
   <title>Character System — Younsoo Lim</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@700;900&family=Noto+Sans+KR:wght@300;400;500;600;700&family=Noto+Rashi+Hebrew:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Noto+Rashi+Hebrew:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -17,16 +17,12 @@
             surface: 'rgb(var(--c-surface) / <alpha-value>)',
             border: 'rgb(var(--c-border) / <alpha-value>)',
             muted: 'rgb(var(--c-muted) / <alpha-value>)',
-            sub: 'rgb(var(--c-sub) / <alpha-value>)',
             accent: 'rgb(var(--c-accent) / <alpha-value>)',
             heading: 'rgb(var(--c-heading) / <alpha-value>)',
             body: 'rgb(var(--c-body) / <alpha-value>)',
-            tag: 'rgb(var(--c-tag) / <alpha-value>)',
-            caption: 'rgb(var(--c-caption) / <alpha-value>)',
-            faint: 'rgb(var(--c-faint) / <alpha-value>)',
           },
           fontSize: {
-            sm: '1.05rem',
+            sm: '0.9375rem',
           },
           fontFamily: {
             sans: ['Noto Sans KR', 'system-ui', 'sans-serif'],
@@ -43,7 +39,7 @@
   <nav class="fixed top-0 w-full z-50 bg-bg/80 backdrop-blur-md">
     <div class="max-w-[1400px] mx-auto px-6 h-16 flex items-center justify-between">
       <a href="../index.html" class="nav-logo">Younsoo Lim</a>
-      <div class="nav-links hidden md:flex gap-8 text-sm text-sub ml-auto">
+      <div class="nav-links hidden md:flex gap-8 text-sm text-body ml-auto">
         <a href="../index.html#projects" class="hover:text-heading transition">Projects</a>
         <a href="../index.html#about" class="hover:text-heading transition">About</a>
       </div>
@@ -59,9 +55,9 @@
       <img src="../assets/images/npr-shader/hero-cel-shading-outline.png" alt="Placing and previewing NPR characters on a background in the editor" class="w-full h-auto">
     </div>
 
-    <h1 class="font-bold" style="font-family:'Noto Rashi Hebrew',serif;font-size:2.15rem;margin-bottom:0">Character System</h1>
+    <h1 class="page-title">Character System</h1>
 
-    <p class="text-sub mb-6" style="font-size:1.05rem">300+ characters from a single Blueprint</p>
+    <p class="text-body mb-6 page-subtitle">300+ characters from a single Blueprint</p>
 
     <p class="text-xs text-muted mb-12">UE5 · C++ · Blueprint — Company, 2024–2026</p>
 
@@ -104,19 +100,19 @@
               <td class="py-3 pr-4 text-heading font-medium">Editor Load</td>
               <td class="py-3 pr-4">30s</td>
               <td class="py-3 pr-4">6s</td>
-              <td class="py-3 text-blue-400 font-medium">80%↓</td>
+              <td class="py-3 text-accent font-medium">80%↓</td>
             </tr>
             <tr class="border-b border-border/50">
               <td class="py-3 pr-4 text-heading font-medium">Packaged Load</td>
               <td class="py-3 pr-4">Several seconds</td>
               <td class="py-3 pr-4">Perceived 0s</td>
-              <td class="py-3 text-blue-400 font-medium">Eliminated</td>
+              <td class="py-3 text-accent font-medium">Eliminated</td>
             </tr>
             <tr>
               <td class="py-3 pr-4 text-heading font-medium">Character Presets</td>
               <td class="py-3 pr-4">-</td>
               <td class="py-3 pr-4">300+</td>
-              <td class="py-3 text-blue-400 font-medium">Unified</td>
+              <td class="py-3 text-accent font-medium">Unified</td>
             </tr>
           </tbody>
         </table>
