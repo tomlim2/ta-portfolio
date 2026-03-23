@@ -84,6 +84,23 @@ a[href^="mailto:"] {
   padding-top: 3rem;
 }
 
+/* ── Nav ── */
+
+nav .nav-logo {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  line-height: 1;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+nav .nav-links a {
+  font-family: 'Noto Rashi Hebrew', serif;
+}
+
 nav {
   transition: transform 0.3s ease;
 }
