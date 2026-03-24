@@ -257,12 +257,16 @@
     </div>
   </div>
 
-  <footer class="border-t border-border py-8 text-center text-muted text-xs">
-    <p>&copy; 2026 Younsoo Lim &middot; <button id="lang-toggle" aria-label="Toggle language"><span style="opacity:0.4">Ko</span> / En</button></p>
+  <footer class="py-8 text-muted text-xs">
+    <div class="flex justify-between items-center max-w-[1400px] mx-auto px-6">
+      <span>&copy; 2026 Younsoo Lim</span>
+      <span><button id="lang-toggle" aria-label="Toggle language"><span style="opacity:0.4">Ko</span> / En</button> &middot; <button id="theme-toggle" aria-label="Toggle theme"><span data-theme-label="light">Light</span> / <span data-theme-label="dark" style="opacity:0.4">Dark</span></button></span>
+    </div>
   </footer>
 
   <script src="js/auth.js"></script>
   <script src="js/main.js"></script>
   <script src="js/i18n.js"></script>
+  <script src="js/theme.js"></script>
 </body>
 </html>

@@ -32,9 +32,9 @@
     // Update toggle button text
     document.querySelectorAll('#lang-toggle').forEach(function (btn) {
       if (l === 'ko') {
-        btn.innerHTML = 'Ko / <span style="opacity:0.4">En</span>';
+        btn.innerHTML = '<span data-lang="ko">Ko</span> / <span data-lang="en" style="opacity:0.4">En</span>';
       } else {
-        btn.innerHTML = '<span style="opacity:0.4">Ko</span> / En';
+        btn.innerHTML = '<span data-lang="ko" style="opacity:0.4">Ko</span> / <span data-lang="en">En</span>';
       }
     });
   }
@@ -44,9 +44,14 @@
     applyLang('ko');
   });
 
-  // Toggle handler
+  // Toggle handler — click Ko or En directly
   document.addEventListener('click', function (e) {
-    if (e.target.id === 'lang-toggle') {
+    var target = e.target;
+    if (target.getAttribute('data-lang') === 'ko') {
+      applyLang('ko');
+    } else if (target.getAttribute('data-lang') === 'en') {
+      applyLang('en');
+    } else if (target.id === 'lang-toggle') {
       applyLang(lang === 'ko' ? 'en' : 'ko');
     }
   });
