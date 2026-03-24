@@ -114,6 +114,53 @@
         </div>
       </div>
 
+      <p class="cl-label">Dark Mode — Background</p>
+      <div class="flex flex-wrap gap-6 mb-10">
+        <div class="text-center">
+          <div class="cl-swatch" style="background:#16161A"></div>
+          <p class="text-xs mt-2" style="color:rgb(var(--c-muted))">#16161A</p>
+          <p class="text-xs" style="color:rgb(var(--c-muted))">bg</p>
+        </div>
+        <div class="text-center">
+          <div class="cl-swatch" style="background:#202026"></div>
+          <p class="text-xs mt-2" style="color:rgb(var(--c-muted))">#202026</p>
+          <p class="text-xs" style="color:rgb(var(--c-muted))">surface</p>
+        </div>
+      </div>
+
+      <p class="cl-label">Dark Mode — Text</p>
+      <div class="flex flex-wrap gap-6 mb-10">
+        <div class="text-center">
+          <div class="cl-swatch" style="background:#AFAFB4"></div>
+          <p class="text-xs mt-2" style="color:rgb(var(--c-muted))">#AFAFB4</p>
+          <p class="text-xs" style="color:rgb(var(--c-muted))">heading</p>
+        </div>
+        <div class="text-center">
+          <div class="cl-swatch" style="background:#D2D2D7"></div>
+          <p class="text-xs mt-2" style="color:rgb(var(--c-muted))">#D2D2D7</p>
+          <p class="text-xs" style="color:rgb(var(--c-muted))">body</p>
+        </div>
+        <div class="text-center">
+          <div class="cl-swatch" style="background:#96969B"></div>
+          <p class="text-xs mt-2" style="color:rgb(var(--c-muted))">#96969B</p>
+          <p class="text-xs" style="color:rgb(var(--c-muted))">muted</p>
+        </div>
+      </div>
+
+      <p class="cl-label">Dark Mode — Accent &amp; Border</p>
+      <div class="flex flex-wrap gap-6 mb-10">
+        <div class="text-center">
+          <div class="cl-swatch" style="background:#6478F0"></div>
+          <p class="text-xs mt-2" style="color:rgb(var(--c-muted))">#6478F0</p>
+          <p class="text-xs" style="color:rgb(var(--c-muted))">accent</p>
+        </div>
+        <div class="text-center">
+          <div class="cl-swatch" style="background:#32323A"></div>
+          <p class="text-xs mt-2" style="color:rgb(var(--c-muted))">#32323A</p>
+          <p class="text-xs" style="color:rgb(var(--c-muted))">border</p>
+        </div>
+      </div>
+
       <p class="cl-label">Code Block</p>
       <div class="flex flex-wrap gap-6">
         <div class="text-center">
@@ -415,12 +462,20 @@ console.log(`Converted ${result.count} models`);</code></pre>
     <section class="cl-section">
       <h2>Language Toggle</h2>
 
-      <p class="cl-label">Footer Language Toggle — Ko / En button</p>
-      <div class="cl-specimen">
-        <div class="text-center text-muted text-xs">
-          <p>&copy; 2026 Younsoo Lim &middot; <button style="font-size:inherit; font-weight:inherit; letter-spacing:0.05em; cursor:pointer; padding:0; border:none; background:none; color:inherit;"><span style="opacity:0.4">Ko</span> / En</button></p>
+      <p class="cl-label">Language Toggle — Ko / En button (click each label directly)</p>
+      <div class="cl-specimen mb-8">
+        <div class="text-muted text-xs">
+          <button style="font-size:inherit; font-weight:inherit; letter-spacing:0.05em; cursor:pointer; padding:0; border:none; background:none; color:inherit;"><span>Ko</span> / <span style="opacity:0.4">En</span></button>
         </div>
-        <p class="text-xs mt-4" style="color:rgb(var(--c-muted))">Active language is full opacity, inactive is 0.4. Clicking swaps data-ko/data-en content across the page via i18n.js.</p>
+        <p class="text-xs mt-4" style="color:rgb(var(--c-muted))">Active language is full opacity, inactive is 0.4. Click Ko or En directly to switch. i18n.js swaps data-ko/data-en content.</p>
+      </div>
+
+      <p class="cl-label">Theme Toggle — Light / Dark button (click each label directly)</p>
+      <div class="cl-specimen">
+        <div class="text-muted text-xs">
+          <button style="font-size:inherit; font-weight:inherit; letter-spacing:0.05em; cursor:pointer; padding:0; border:none; background:none; color:inherit;"><span>Light</span> / <span style="opacity:0.4">Dark</span></button>
+        </div>
+        <p class="text-xs mt-4" style="color:rgb(var(--c-muted))">Click Light or Dark directly. theme.js toggles data-theme attribute on html element.</p>
       </div>
     </section>
 
@@ -556,10 +611,13 @@ console.log(`Converted ${result.count} models`);</code></pre>
     <section class="cl-section">
       <h2>Footer</h2>
 
-      <p class="cl-label">Site Footer — border-t / py-8 / text-center / text-muted / text-xs / lang toggle</p>
+      <p class="cl-label">Site Footer — py-8 / flex justify-between / copyright left, toggles right</p>
       <div class="cl-specimen">
-        <div class="border-t border-border py-6 text-center text-muted text-xs">
-          <p>&copy; 2026 Younsoo Lim &middot; <button style="font-size:inherit; font-weight:inherit; letter-spacing:0.05em; cursor:pointer; padding:0; border:none; background:none; color:inherit;"><span style="opacity:0.4">Ko</span> / En</button></p>
+        <div class="py-6 text-muted text-xs">
+          <div class="flex justify-between items-center">
+            <span>&copy; 2026 Younsoo Lim</span>
+            <span><button style="font-size:inherit; font-weight:inherit; letter-spacing:0.05em; cursor:pointer; padding:0; border:none; background:none; color:inherit;"><span>Ko</span> / <span style="opacity:0.4">En</span></button> &middot; <button style="font-size:inherit; font-weight:inherit; letter-spacing:0.05em; cursor:pointer; padding:0; border:none; background:none; color:inherit;"><span>Light</span> / <span style="opacity:0.4">Dark</span></button></span>
+          </div>
         </div>
       </div>
     </section>

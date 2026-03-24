@@ -10,17 +10,22 @@
       document.documentElement.removeAttribute('data-theme');
     }
 
-    // Update toggle button labels
+    // Update toggle button text
     document.querySelectorAll('#theme-toggle').forEach(function (btn) {
       if (t === 'dark') {
-        btn.innerHTML = '<span data-theme-label="light" style="opacity:0.4">Light</span> / <span data-theme-label="dark">Dark</span>';
+        btn.innerHTML = '<span data-theme-label="light" style="opacity:0.4">Lt</span> / <span data-theme-label="dark">Dk</span>';
       } else {
-        btn.innerHTML = '<span data-theme-label="light">Light</span> / <span data-theme-label="dark" style="opacity:0.4">Dark</span>';
+        btn.innerHTML = '<span data-theme-label="light">Lt</span> / <span data-theme-label="dark" style="opacity:0.4">Dk</span>';
       }
     });
   }
 
-  // Click handler — click Light or Dark directly
+  // Apply on load
+  document.addEventListener('DOMContentLoaded', function () {
+    applyTheme('light');
+  });
+
+  // Click handler — click Lt or Dk directly
   document.addEventListener('click', function (e) {
     var target = e.target;
     if (target.getAttribute('data-theme-label') === 'dark') {
