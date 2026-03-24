@@ -65,13 +65,13 @@
     <!-- Problem -->
     <section class="mb-16">
       <h2 class="text-xl font-bold mb-4" data-ko="문제">Problem</h2>
-      <p class="text-muted text-sm leading-relaxed" data-ko="회사 프로젝트에서 아웃도어 씬은 Cesium 지형 위치, UDS/UDW 날씨·시간대, 조명, 카메라를 전부 수작업으로 잡아야 했습니다. 아트 디렉터와 기획자가 '이 장소에서 이 느낌으로'라고 요청하면 TA가 하나하나 세팅하는 구조였고, 이터레이션이 느렸습니다.">Setting up outdoor scenes required manually configuring terrain (Cesium) location, weather/time-of-day (UDS/UDW), lighting, and camera placement -- and non-developer roles needed to iterate on this quickly.</p>
+      <p class="text-muted text-sm leading-relaxed" data-ko="다양한 카메라, 액션 등 출시전 다양한 캐릭터들에 대한 클라이언트 쪽의 대비는 되어 있었지만 연출을 위한 라이트 스폰, 날씨, TOD 제어 등 환경에 대한 제어에 대한 대비가 미비하였습니다.">The client side was prepared with diverse cameras, actions, and characters for launch, but controls for directing environments — light spawning, weather, and time-of-day — were lacking.</p>
     </section>
 
     <!-- Solution -->
     <section class="mb-16">
       <h2 class="text-xl font-bold mb-4" data-ko="해결">Solution</h2>
-      <p class="text-muted text-sm leading-relaxed mb-6" data-ko="자연어를 AI 레이어(Claude/Gemini)가 명령으로 바꾸고, UE C++ 플러그인이 에디터에서 실시간 실행하는 구조를 만들었습니다. '도쿄 도심 보여줘', '시간 오후 6시로' 같은 한 줄이면 배경이 셋업됩니다.">Natural language goes through an AI layer (Claude/Gemini), which converts it to commands that a C++ plugin executes in the UE editor in real time.</p>
+      <p class="text-muted text-sm leading-relaxed mb-6" data-ko="자연어를 AI 레이어(Claude/Gemini)가 명령으로 바꾸고, UE C++ 플러그인이 에디터에서 실시간으로 TOD, 라이트 스폰, 날씨 제어 등을 실행하는 구조를 만들었습니다. 도시 이름이 아닌 좌표값을 입력해야하는 Cesium에 도시 등 컨텍스트를 좌표값으로 변환 적용시켜 '도쿄 도심 보여줘', '오후 6시 서울' 같은 한 줄이면 배경이 셋업됩니다. 또한 나노바나나, Veo-3 등 영상 최종 결과물을 빠르게 수정, 편집, 확장할 수 있는 형태로 만들었습니다.">An AI layer (Claude/Gemini) converts natural language into commands, and a UE C++ plugin executes TOD, light spawning, and weather control in the editor in real time. Cesium requires raw coordinates, so the system translates city names and context into coordinates — a single line like "Show me downtown Tokyo" or "6 PM Seoul" sets up the entire background. Nano Banana and Veo-3 are also integrated to quickly edit, refine, and extend final video output.</p>
 
       <!-- NL examples -->
       <div class="bg-surface p-5 rounded-lg mb-6">
@@ -87,12 +87,17 @@
 
       <!-- Architecture -->
       <h3 class="font-medium mb-3" data-ko="3계층 아키텍처">3-Layer Architecture</h3>
-      <pre class="text-xs mb-6"><code>Web UI / CLI → HTTP:34115 → FastAPI + NLP (Claude/Gemini)
+      <pre class="text-xs mb-4"><code>Web UI / CLI → HTTP:34115 → FastAPI + NLP (Claude/Gemini)
                                     ↓
               ┌──────────────┬──────────────┬──────────────┐
               │ UE C++ Plugin│ Nano Banana  │ Veo-3        │
               │ TCP:55557    │ Image Gen    │ Video Gen    │
               └──────────────┴──────────────┴──────────────┘</code></pre>
+      <div class="space-y-2 text-sm text-muted mb-6">
+        <p data-ko="① Web UI (Next.js) / CLI — 사용자가 자연어를 입력하는 프론트엔드">① Web UI (Next.js) / CLI — frontend where users input natural language</p>
+        <p data-ko="② FastAPI — 자연어를 JSON 명령으로 변환. 유저가 보유한 API 키에 따라 Claude 또는 Gemini를 선택">② FastAPI — converts natural language to JSON commands. Users choose Claude or Gemini based on their own API key</p>
+        <p data-ko="③ UE C++ Plugin — TCP 소켓(JSON)으로 명령을 수신해 에디터에서 실시간 실행. Nano Banana는 UE HighResShot을 i2i로 스타일 변환, Veo-3는 변환된 이미지에서 바로 영상 생성">③ UE C++ Plugin — receives JSON commands via TCP socket and executes in editor. Nano Banana transforms UE HighResShot via i2i, Veo-3 generates video directly from the result</p>
+      </div>
 
       <h3 class="font-medium mb-3" data-ko="코어 — Cesium + UDS 통합">Core — Cesium + UDS Integration</h3>
       <p class="text-muted text-sm leading-relaxed mb-4" data-ko="가장 공을 들인 부분입니다. Cesium 지형 + Ultra Dynamic Sky를 결합해 위치·시간대·날씨·무드를 한 번에 셋업하고, Nano Banana(i2i)를 얹으면 원하는 컨셉으로 변환됩니다. 텍스트 프롬프트에서 스타일링된 컨셉 이미지까지 툴 안에서 완결됩니다.">The most invested part. By combining Cesium terrain data with Ultra Dynamic Sky, a single natural language line sets up an outdoor background with <strong class="text-heading">location + time of day + weather + mood</strong>. Adding Nano Banana (i2i) on top transforms it into the desired concept or feel, so you go from a text prompt to a styled concept image without leaving the tool.</p>
@@ -100,7 +105,7 @@
       <!-- i2i result -->
       <div class="mb-6 overflow-hidden">
         <img src="../assets/images/megamelange/i2i-result.png" alt="AI style transformation result — post-apocalyptic" class="w-full h-auto">
-        <p class="text-xs text-muted text-center mt-2" data-ko="스타일 변환 결과">Style transformation result</p>
+        <p class="text-xs text-muted text-center mt-2" data-ko="스타일 변환 결과 — '포스트 아포칼립스 무드로 해줘'">Style transformation result — "Give me a post-apocalyptic mood"</p>
       </div>
 
       <!-- i2i pipeline full -->
