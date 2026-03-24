@@ -146,11 +146,16 @@
     ├─ 4-level fallback face detection (crown/eyes/mouth/nose)
     └─ Camera target + automatic thumbnail capture</code></pre>
 
+      <img src="../assets/images/character-system/cpp-plugin-structure.png" alt="CinevNPRCharacterManager C++ plugin headers" class="mx-auto max-h-[500px] mb-2">
+      <p class="text-xs text-muted text-center mb-6" data-ko="CinevNPRCharacterManager — C++ 플러그인 헤더 목록">CinevNPRCharacterManager — C++ plugin headers</p>
+
       <!-- Three components -->
       <div class="space-y-4 mb-6">
         <div class="bg-surface p-5 rounded-lg">
           <h3 class="font-medium mb-3" data-ko="등록용 캐릭터 블루프린트 — 에디터 틱">Editor — Character Environment Checker</h3>
-          <p class="text-muted text-sm leading-relaxed mb-4" data-ko="C++ 캐릭터 액터 오브젝트 기반 블루프린트입니다. 아티스트가 머리·헤어·바디 파츠를 조합하고 프리셋으로 저장하면 Data Asset이 생산(캐릭터 등록)됩니다. 또한 에디터 Tick으로 게임 실행 없이 배경 위에서 룩을 바로 확인할 수 있습니다.">Artists assemble head, hair, and body parts in the editor and save them as presets. The Editor Tick Interface allows verifying characters and animations on a background without launching the game. The runtime reads these Data Assets directly.</p>
+          <p class="text-muted text-sm leading-relaxed mb-4" data-ko="C++ 캐릭터 액터 오브젝트 기반 블루프린트입니다. 아티스트가 머리·헤어·바디 파츠를 조합하고 프리셋으로 저장하면 Data Asset이 생산(캐릭터 등록)됩니다. 또한 에디터 Tick으로 게임 실행 없이 에디터에서 애니메이션이 적용된채 배경 위 얹을 수 있어서 룩을 바로 확인할 수 있습니다.">Artists assemble head, hair, and body parts in the editor and save them as presets. The Editor Tick Interface allows verifying characters and animations on a background without launching the game. The runtime reads these Data Assets directly.</p>
+          <img src="../assets/images/character-system/cpp-header-envcheck.png" alt="C++ Header — NPRCharacterLookDev UPROPERTY declarations" class="w-full mb-2">
+          <p class="text-xs text-muted text-center mb-4" data-ko="C++ 캐릭터 액터 헤더 — DataTable 레퍼런스 선언부">C++ character actor header — DataTable reference declarations</p>
           <img src="../assets/images/character-system/tool-register.png" alt="BP_Character_EnvCheck — Character registration UI" class="w-full mb-4">
           <img src="../assets/images/character-system/editor-tick-bp.png" alt="BP_EditorTicker + BPI_EditorTick node graph" class="w-full">
           <p class="text-xs text-muted mt-2 text-center" data-ko="Editor Tick — PIE 없이 프리뷰">Editor Tick — preview without PIE</p>
@@ -165,14 +170,20 @@
         <div class="bg-surface p-5 rounded-lg">
           <h3 class="font-medium mb-3" data-ko="외부 모델 지원 — VRM Reference Points">External Model Support — VRM Reference Points</h3>
           <p class="text-muted text-sm leading-relaxed mb-4" data-ko="VRM4U 플러그인에 작성한 C++ 모듈입니다. 어떤 VRM/PMX든 4단 폴백으로 얼굴 위치를 자동 탐지하고, 카메라 타겟으로 3앵글 썸네일(얼굴·상반신·전신)을 자동 촬영합니다. 커맨드렛 환경으로 에디터 없이 배치 생성이 가능합니다. A포즈/T포즈도 자동 판별합니다.">A C++ module written for the VRM4U plugin that updates VRM info nodes in the runtime character Blueprint. It auto-detects the face position of any external VRM/PMX via a 4-level fallback, then uses the result as a camera target to automatically capture 3-angle thumbnails (face close-up, upper body, full body). A commandlet environment enables batch thumbnail generation for all characters without opening the editor. A-pose/T-pose detection is also automatic.</p>
+          <img src="../assets/images/character-system/cpp-header-face-detect.png" alt="C++ Header — Mouth and Nose Detection Priority 1-4 fallback" class="w-full mb-2">
+          <p class="text-xs text-muted text-center mb-4" data-ko="C++ 헤더 — Mouth/Nose 4단 폴백 탐지 선언부">C++ header — Mouth/Nose 4-level fallback detection</p>
           <div class="overflow-hidden mb-4">
             <video src="../assets/images/character-system/reference-points.mp4" autoplay muted loop playsinline class="w-full h-auto"></video>
             <p class="text-xs text-muted text-center mt-2" data-ko="외부 VRM에서 자동 얼굴 탐지 실행">Auto face detection running on an external VRM</p>
           </div>
-          <div class="overflow-hidden">
+          <div class="overflow-hidden mb-4">
             <img src="../assets/images/character-system/auto-thumbnail.png" alt="VRM Reference Points auto-thumbnail — face, upper body, and full body 3-angle auto-capture results" class="w-full h-auto">
             <p class="text-xs text-muted text-center mt-2" data-ko="3앵글 자동 촬영 썸네일">3-angle auto-captured thumbnails</p>
           </div>
+          <img src="../assets/images/character-system/cpp-camera-distance.png" alt="C++ — CalculateCameraDistanceForFace/UpperBody with margin and aspect ratio" class="w-full mb-2">
+          <p class="text-xs text-muted text-center mb-2" data-ko="C++ — 3앵글 카메라 거리 자동 계산">C++ — auto camera distance calculation for 3-angle thumbnails</p>
+          <img src="../assets/images/character-system/cpp-render-frame.png" alt="C++ — PerformRenderWarmup and RenderFrame for thumbnail capture" class="w-full mb-2">
+          <p class="text-xs text-muted text-center mb-4" data-ko="C++ — 커맨드렛 렌더 프레임 캡처 (Lumen GI, SSS 워밍업 포함)">C++ — commandlet render frame capture (Lumen GI, SSS warmup)</p>
         </div>
       </div>
 
