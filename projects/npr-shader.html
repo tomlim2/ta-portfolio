@@ -161,6 +161,20 @@
         <img src="../assets/images/npr-shader/pp-outline-mask.png" alt="PP outline mask — Before/After + Material/Blueprint" class="w-full mb-1">
         <p class="text-xs text-muted text-center mb-4" data-ko="PP 아웃라인 마스크 처리 — 불필요한 선 제거 + Material/Blueprint 구현">PP outline mask processing — unnecessary line removal + Material/Blueprint implementation</p>
 
+        <!-- Angel Ring Matcap -->
+        <h4 class="text-sm font-bold mt-6 mb-3" data-ko="엔젤링 Matcap">Angel Ring Matcap</h4>
+        <p class="text-muted text-sm leading-relaxed mb-4" data-ko="스펙큘러 맵에 Matcap을 적용하여 카메라 방향에 따라 자연스럽게 이동하는 광택 효과를 구현했습니다. 엔젤링(천사의 고리) 같은 헤어 하이라이트를 ShadowSoft Matcap 텍스처 하나로 표현하며, Matcap 관련 파라미터를 머티리얼 인스턴스에 노출시켜 아트팀이 캐릭터별 룩뎁을 쉽게 조정할 수 있도록 했습니다.">Applied Matcap to the specular map to create a natural sheen effect that shifts with camera direction. Hair highlights like angel rings are achieved with a single ShadowSoft Matcap texture, and Matcap parameters are exposed on the material instance so the art team can easily adjust per-character look dev.</p>
+        <div class="grid md:grid-cols-2 gap-4 mb-4">
+          <div>
+            <img src="../assets/images/npr-shader/matcap-angel-ring.png" alt="Angel Ring Matcap — Before/After comparison" class="w-full">
+            <p class="text-xs text-muted mt-2 text-center" data-ko="엔젤링 Matcap 적용 전/후">Angel Ring Matcap Before / After</p>
+          </div>
+          <div>
+            <img src="../assets/images/npr-shader/matcap-angel-ring-settings.png" alt="Matcap ShadowSoft settings" class="w-full">
+            <p class="text-xs text-muted mt-2 text-center" data-ko="Matcap_ShadowSoft 파라미터 설정">Matcap_ShadowSoft parameter settings</p>
+          </div>
+        </div>
+
       </div>
 
       <!-- 3. VRM PBR -->
