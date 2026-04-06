@@ -46,7 +46,7 @@
 
     <!-- Hero -->
     <div class="mb-8">
-      <img src="../assets/images/profiling/desert-oasis.png" alt="Desert oasis scene — optimized to 15-20ms target with GPU Visualizer overlay" class="w-full h-auto">
+      <img src="../assets/images/profiling/city-night-spot1.jpg" alt="City night before/after — 39ms to 19ms (50% GPU reduction)" class="w-full h-auto">
     </div>
 
     <h1 class="page-title" data-ko="UE5 GPU 프로파일링 & 최적화">UE5 Profiling & Optimization</h1>
@@ -72,7 +72,7 @@
           <li data-ko="초기 씬을 직접 프로파일링하고 최적화해서 방법론과 기준값을 잡았습니다">Personally profiled, diagnosed, and optimized initial scenes to establish methodology and baseline targets</li>
           <li data-ko="에픽 시티 샘플을 분석해서 나나이트 셋팅 기준을 뽑고 문서화했습니다">Analyzed Epic's City Sample, derived Nanite setting guidelines, and documented them so other TAs and environment/lighting artists could apply them independently</li>
           <li data-ko="5단계 방법론을 만들어 팀 표준으로 정착시켰습니다. 이후 최적화는 다른 아티스트들이 이걸 보고 직접 돌렸습니다">Created the 5-step methodology adopted as team standard — subsequent optimization passes were carried out by other artists using this framework</li>
-          <li data-ko="측정해서 효과 없으면 안 넣었습니다. 룩만 깎이고 수치가 안 줄면 적용 안 합니다">Rejected optimizations that showed no measurable gain — I don't ship changes that cost visual quality without proven benefit</li>
+
         </ul>
       </div>
     </section>
@@ -306,7 +306,7 @@
     <!-- Validation -->
     <section class="mb-16">
       <h2 class="text-xl font-bold mb-4" data-ko="검증">Validation</h2>
-      <p class="text-muted text-sm leading-relaxed mb-4" data-ko="사막 오아시스는 모든 카메라에서 15~20ms 타겟을 찍었습니다. RTX 3060과 3080 양쪽에서 테스트해서 하드웨어에 따라 결과가 뒤집히지 않는 걸 확인했습니다.">The desert oasis map hit the 15–20ms target across all camera positions. Cross-hardware benchmarks (RTX 3060 vs 3080) confirmed optimization gains held across the hardware spectrum.</p>
+      <p class="text-muted text-sm leading-relaxed mb-4" data-ko="사막 오아시스는 모든 카메라에서 15~20ms 타겟을 찍었습니다.">The desert oasis map hit the 15–20ms target across all camera positions.</p>
       <img src="../assets/images/profiling/desert-oasis.png" alt="Desert oasis — camel scene with GPU Visualizer, all cameras 15-20ms" class="w-full h-auto mb-2">
       <p class="text-xs text-muted text-center" data-ko="사막 오아시스 — 모든 카메라 포지션에서 15~20ms 타겟 달성">Desert oasis — 15–20ms target achieved across all camera positions</p>
     </section>
