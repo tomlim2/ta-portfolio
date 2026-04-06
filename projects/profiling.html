@@ -80,45 +80,59 @@
     <!-- Result Table -->
     <section class="mb-16">
       <h2 class="text-xl font-bold mb-4" data-ko="결과">Result</h2>
+      <style>
+        .result-table { width: 100%; font-size: 0.875rem; border-collapse: collapse; }
+        .result-table th { padding: 0.75rem 0; font-size: 0.75rem; font-weight: 500; color: rgb(var(--c-muted)); text-transform: uppercase; letter-spacing: 0.04em; border-bottom: 1px solid rgb(var(--c-border)); }
+        .result-table td { padding: 1rem 0; border-bottom: 1px solid rgb(var(--c-border) / 0.15); }
+        .result-table tr:last-child td { border-bottom: none; }
+        .result-table tbody tr { transition: background 0.15s; }
+        .result-table tbody tr:hover { background: rgb(var(--c-surface) / 0.5); }
+        .result-table th:nth-child(n+3), .result-table td:nth-child(n+3) { text-align: right; font-variant-numeric: tabular-nums; }
+        .result-table th:nth-child(1), .result-table th:nth-child(2) { text-align: left; }
+        .result-table .env { color: rgb(var(--c-heading)); font-weight: 500; padding-right: 1.5rem; }
+        .result-table .tech { color: rgb(var(--c-muted)); padding-right: 1.5rem; }
+        .result-table .ms { color: rgb(var(--c-muted)); padding-left: 1rem; }
+        .gain-pill { display: inline-block; padding: 2px 10px; border-radius: 4px; background: rgb(var(--c-accent) / 0.1); color: rgb(var(--c-accent)); font-weight: 500; font-variant-numeric: tabular-nums; }
+      </style>
       <div class="overflow-x-auto">
-        <table class="w-full text-sm">
+        <table class="result-table">
           <thead>
-            <tr class="border-b border-border text-left">
-              <th scope="col" class="py-3 pr-4 text-muted font-medium" data-ko="환경">Environment</th>
-              <th scope="col" class="py-3 pr-4 text-muted font-medium" data-ko="기법">Technique</th>
-              <th scope="col" class="py-3 pr-4 text-muted font-medium" data-ko="이전">Before</th>
-              <th scope="col" class="py-3 pr-4 text-muted font-medium" data-ko="이후">After</th>
-              <th scope="col" class="py-3 text-muted font-medium" data-ko="개선">Gain</th>
+            <tr>
+              <th data-ko="환경">Environment</th>
+              <th data-ko="기법">Technique</th>
+              <th data-ko="이전">Before</th>
+              <th data-ko="이후">After</th>
+              <th data-ko="개선">Gain</th>
             </tr>
           </thead>
-          <tbody class="text-muted">
-            <tr class="border-b border-border/50">
-              <td class="py-3 pr-4 text-heading font-medium" data-ko="시가지 야경 (4스팟)">City Night (4 spots)</td>
-              <td class="py-3 pr-4" data-ko="나나이트 + 글로벌 렌더링">Nanite + global render</td>
-              <td class="py-3 pr-4">29–40ms</td>
-              <td class="py-3 pr-4">16–19ms</td>
-              <td class="py-3 text-accent font-medium">35–52%↓</td>
-            </tr>
-            <tr class="border-b border-border/50">
-              <td class="py-3 pr-4 text-heading font-medium" data-ko="공업단지">Industrial Complex</td>
-              <td class="py-3 pr-4" data-ko="메시 분할 (나나이트)">Mesh split (Nanite)</td>
-              <td class="py-3 pr-4">56ms</td>
-              <td class="py-3 pr-4">18ms</td>
-              <td class="py-3 text-accent font-medium">68%↓</td>
-            </tr>
-            <tr class="border-b border-border/50">
-              <td class="py-3 pr-4 text-heading font-medium" data-ko="빈민가 (2차 패스)">Slum Area (2 passes)</td>
-              <td class="py-3 pr-4" data-ko="단계별 최적화">Step-by-step</td>
-              <td class="py-3 pr-4">36ms</td>
-              <td class="py-3 pr-4">19ms</td>
-              <td class="py-3 text-accent font-medium">47%↓</td>
+          <tbody>
+            <tr>
+              <td class="env" data-ko="시가지 야경 (4스팟)">City Night (4 spots)</td>
+              <td class="tech" data-ko="나나이트 + 글로벌 렌더링">Nanite + global render</td>
+              <td class="ms">29–40ms</td>
+              <td class="ms">16–19ms</td>
+              <td><span class="gain-pill">35–52%↓</span></td>
             </tr>
             <tr>
-              <td class="py-3 pr-4 text-heading font-medium" data-ko="벚꽃 식생">Cherry Blossom</td>
-              <td class="py-3 pr-4" data-ko="커스텀 머티리얼 교체">Custom material</td>
-              <td class="py-3 pr-4">12.23ms</td>
-              <td class="py-3 pr-4">8.09ms</td>
-              <td class="py-3 text-accent font-medium">34%↓</td>
+              <td class="env" data-ko="공업단지">Industrial Complex</td>
+              <td class="tech" data-ko="메시 분할 (나나이트)">Mesh split (Nanite)</td>
+              <td class="ms">56ms</td>
+              <td class="ms">18ms</td>
+              <td><span class="gain-pill">68%↓</span></td>
+            </tr>
+            <tr>
+              <td class="env" data-ko="빈민가 (2차 패스)">Slum Area (2 passes)</td>
+              <td class="tech" data-ko="단계별 최적화">Step-by-step</td>
+              <td class="ms">36ms</td>
+              <td class="ms">19ms</td>
+              <td><span class="gain-pill">47%↓</span></td>
+            </tr>
+            <tr>
+              <td class="env" data-ko="벚꽃 식생">Cherry Blossom</td>
+              <td class="tech" data-ko="커스텀 머티리얼 교체">Custom material</td>
+              <td class="ms">12.23ms</td>
+              <td class="ms">8.09ms</td>
+              <td><span class="gain-pill">34%↓</span></td>
             </tr>
           </tbody>
         </table>

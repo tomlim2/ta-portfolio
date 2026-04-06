@@ -312,6 +312,27 @@ console.log(`Converted ${result.count} models`);</code></pre>
           </tbody>
         </table>
       </div>
+      <p class="cl-label" style="margin-top:2rem;">Metrics Table — Apple/Stripe style</p>
+      <p class="text-xs mb-4" style="color:rgb(var(--c-muted))">Uppercase small headers, tabular-nums right-aligned numbers, gain-pill badges (10% accent bg), subtle row hover. No vertical borders.</p>
+      <style>
+        .cl-metrics th { padding: 0.75rem 0; font-size: 0.75rem; font-weight: 500; color: rgb(var(--c-muted)); text-transform: uppercase; letter-spacing: 0.04em; border-bottom: 1px solid rgb(var(--c-border)); }
+        .cl-metrics td { padding: 1rem 0; border-bottom: 1px solid rgb(var(--c-border) / 0.15); }
+        .cl-metrics tr:last-child td { border-bottom: none; }
+        .cl-metrics tbody tr { transition: background 0.15s; }
+        .cl-metrics tbody tr:hover { background: rgb(var(--c-surface) / 0.5); }
+        .cl-metrics th:nth-child(n+2), .cl-metrics td:nth-child(n+2) { text-align: right; font-variant-numeric: tabular-nums; }
+        .cl-gain { display: inline-block; padding: 2px 10px; border-radius: 4px; background: rgb(var(--c-accent) / 0.1); color: rgb(var(--c-accent)); font-weight: 500; }
+      </style>
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm cl-metrics">
+          <thead><tr><th class="text-left">Item</th><th>Before</th><th>After</th><th>Gain</th></tr></thead>
+          <tbody>
+            <tr><td class="text-heading font-medium pr-4">Example A</td><td class="text-muted">40ms</td><td class="text-muted">19ms</td><td><span class="cl-gain">52%↓</span></td></tr>
+            <tr><td class="text-heading font-medium pr-4">Example B</td><td class="text-muted">56ms</td><td class="text-muted">18ms</td><td><span class="cl-gain">68%↓</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
     </section>
 
     <div class="cl-divider"></div>
