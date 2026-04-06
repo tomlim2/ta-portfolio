@@ -122,6 +122,51 @@
       <p class="text-xs text-muted mt-2 text-center" data-ko="왼쪽: 원본 게임 스크린샷 — 오른쪽: PMX→VRM 변환 후 뷰어 렌더링">Left: Original game screenshot — Right: Viewer rendering after PMX to VRM conversion</p>
     </div>
 
+    <hr class="border-border mb-12">
+
+    <!-- Why This Was Hard -->
+    <section class="mb-16">
+      <h2 class="text-xl font-bold mb-6" data-ko="왜 어려웠나">Why This Was Hard</h2>
+
+      <!-- 1. CJK Mojibake -->
+      <div class="mb-10">
+        <h3 class="font-medium mb-2" data-ko="텍스처가 전부 흰색으로 나온다">Every texture comes out white</h3>
+        <p class="text-muted text-sm leading-relaxed mb-3"><strong class="text-heading" data-ko="문제:">Problem:</strong> <span data-ko="CJK 파일명이 포함된 모델을 변환하면 텍스처가 전부 1×1 흰색 fallback. 콘솔에 Failed to load texture가 수십 개.">Converting models with CJK filenames produced all-white 1×1 fallback textures. Console flooded with <code>Failed to load texture</code>.</span></p>
+        <p class="text-muted text-sm leading-relaxed mb-3"><strong class="text-heading" data-ko="원인:">Cause:</strong> <span data-ko="텍스처 경로의 출처가 두 개. ZIP 엔트리 이름은 OS 코드페이지(Shift-JIS, GBK 등)로 인코딩되고, PMX 바이너리 내부 경로는 UTF-16LE로 정확하게 저장된다. ZIP을 풀면 디스크에 모지바케 파일명이 생기는데, PMX는 정확한 이름을 찾으니 파일이 없다.">Texture paths had two sources. ZIP entry names are encoded in the OS codepage (Shift-JIS, GBK, etc.), while PMX binary stores paths precisely in UTF-16LE. Extracting the ZIP creates mojibake filenames on disk, but PMX looks for the correct name — file not found.</span></p>
+        <p class="text-muted text-sm leading-relaxed mb-4"><strong class="text-heading" data-ko="해결:">Fix:</strong> <span data-ko="텍스처 로드 시점에 파일이 없으면 6가지 인코딩 조합(GBK↔EUC-KR, GBK↔Shift-JIS 등)으로 파일명을 역변환하여 디스크의 모지바케 파일과 매칭. TS는 ZIP 추출 시점에 선제 디코딩, Python은 로드 시점에 역방향 매칭 — 런타임이 다르니 해법도 달랐다.">When a texture file is missing, try 6 encoding round-trips (GBK↔EUC-KR, GBK↔Shift-JIS, etc.) to reverse-map the filename to the mojibake version on disk. TS does proactive decoding at extraction time; Python does reverse matching at load time — different runtimes, different solutions.</span></p>
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="flex flex-col">
+            <div class="flex-1 flex items-center rounded border border-border overflow-hidden" style="background:#1a1a1a">
+              <img src="../assets/images/pmx-to-vrm/mojibake-broken-zip.png" alt="Mojibake — ZIP filenames completely garbled" class="w-full h-full object-contain">
+            </div>
+            <p class="text-xs text-muted mt-2 text-center" data-ko="ZIP을 풀면 파일명이 이렇게 깨진다">ZIP extraction produces garbled filenames like this</p>
+          </div>
+          <div class="flex flex-col">
+            <div class="flex-1 flex items-center rounded border border-border overflow-hidden" style="background:#1a1a1a">
+              <img src="../assets/images/pmx-to-vrm/mojibake-correct-cjk.png" alt="Correct CJK texture filenames inside PMX" class="w-full h-full object-contain">
+            </div>
+            <p class="text-xs text-muted mt-2 text-center" data-ko="PMX 내부에는 정확한 CJK 텍스처 파일명이 저장되어 있다">PMX binary stores the correct CJK texture filenames</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Chinese PMX spring freeze -->
+      <div class="mb-10">
+        <h3 class="font-medium mb-2" data-ko="중국 모델의 스프링본이 전부 얼어붙는다">Chinese models' spring bones are all frozen</h3>
+        <p class="text-muted text-sm leading-relaxed mb-3"><strong class="text-heading" data-ko="문제:">Problem:</strong> <span data-ko="일본 PMX(Miku, Archer)는 머리카락이 잘 흔들리는데, 중국 PMX(호요버스 등)는 스프링본이 전부 정지.">Japanese PMX (Miku, Archer) had natural hair movement, but Chinese PMX (HoYoverse, etc.) had completely frozen spring bones.</span></p>
+        <p class="text-muted text-sm leading-relaxed mb-3"><strong class="text-heading" data-ko="원인:">Cause:</strong> <span data-ko="일본과 중국 모델러의 물리 관례가 달랐다. 일본은 spring_constant로 복원력을 주고 damping 0.5~0.8. 중국은 spring_constant=0에 rotation limits로 제어하며 damping 0.99+. 컨버터가 rotation limits를 전달하지 않고 dragForce 상한도 없어서 중국 모델은 dragForce≈1.0 → 사실상 정지.">Japanese and Chinese modelers follow different physics conventions. Japanese models use spring_constant for restoring force with 0.5–0.8 damping. Chinese models set spring_constant=0, control motion via rotation limits, and use 0.99+ damping. The converter didn't pass rotation limits and had no dragForce cap, so Chinese models got dragForce≈1.0 — effectively frozen.</span></p>
+        <p class="text-muted text-sm leading-relaxed"><strong class="text-heading" data-ko="해결:">Fix:</strong> <span data-ko="rotation limits를 파라미터 소스로 복원, dragForce 상한을 0.8로 캡핑, rotation limits가 전부 0인 체인(장식 등)은 스프링본 생성 스킵하여 부모 본에 고정. spring bones 571→120개로 정리.">Restored rotation limits as a parameter source, capped dragForce at 0.8, and skipped spring bone generation for chains with all-zero rotation limits (accessories), fixing them to parent bones. Spring bones went from 571 to 120.</span></p>
+      </div>
+
+      <!-- 3. D-bone priority mapping -->
+      <div class="mb-10">
+        <h3 class="font-medium mb-2" data-ko="특정 모델에서 다리가 안 움직인다">Legs don't move on certain models</h3>
+        <p class="text-muted text-sm leading-relaxed mb-3"><strong class="text-heading" data-ko="문제:">Problem:</strong> <span data-ko="특정 모델의 다리가 완전히 안 움직임. Miku 등 다른 모델은 정상이라 발견이 늦었다.">Certain models had completely immobile legs. Models like Miku worked fine, so the bug went unnoticed for a while.</span></p>
+        <p class="text-muted text-sm leading-relaxed mb-3"><strong class="text-heading" data-ko="원인:">Cause:</strong> <span data-ko="PMX에는 D-bone(더블 본)이라는 구조가 있다. 左足(왼다리)과 左足D가 공존하는데, vertex weight는 左足D에만 할당되어 있다. 컨버터가 항상 일반 뼈(左足)를 선택해서 weight가 0인 빈 뼈에 매핑. D-bone이 없는 모델에서는 문제가 안 드러나서 원인 추적이 어려웠다.">PMX has a "D-bone" (double bone) structure. 左足 (left leg) and 左足D coexist, but vertex weights are assigned only to the D-bone. The converter always picked the regular bone (左足) — mapping to an empty bone with zero weights. Models without D-bones showed no symptoms, making the root cause hard to trace.</span></p>
+        <p class="text-muted text-sm leading-relaxed"><strong class="text-heading" data-ko="해결:">Fix:</strong> <span data-ko="skinnedBoneIndices(실제 vertex weight가 있는 본 목록)를 본 매핑 함수에 전달하여 D-bone이 존재하면 우선 선택하도록 수정. 이미 구현되어 있던 우선순위 로직이 호출부에서 파라미터를 넘기지 않아 작동하지 않던 것이었다.">Pass skinnedBoneIndices (list of bones with actual vertex weights) to the bone mapping function so D-bones are prioritized when they exist. The priority logic was already implemented — it just wasn't being called with the right parameter.</span></p>
+      </div>
+    </section>
+
     <!-- Prev/Next -->
     <div class="flex justify-between items-center mt-16 pt-8 border-t border-border">
       <a href="mmd-player.html" class="text-muted hover:text-heading transition text-sm">&larr; MMD Player</a>
