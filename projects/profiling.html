@@ -66,7 +66,7 @@
       <h2 class="text-xl font-bold mb-4" data-ko="해결">Solution</h2>
       <p class="text-muted text-sm leading-relaxed mb-4" data-ko="GPU 프로파일링 프로세스를 5단계로 정리해서 팀에 공유했습니다. 직접 프로덕션 맵을 돌면서 나나이트 메시 분할, 머티리얼 교체, 에픽 시티 샘플에서 뽑아낸 렌더링 셋팅을 적용했습니다. 프레임 타임 34~68% 절감. 룩은 유지했습니다.">I standardized a 5-step GPU profiling process and shared it with the team. Then I profiled and optimized multiple production maps myself — applying Nanite mesh splitting, material replacement, and project-specific rendering settings derived from analyzing Epic's City Sample. Frame times were reduced by 34–68% while maintaining visual parity.</p>
 
-      <div class="bg-surface p-4 rounded-lg">
+      <div>
         <p class="text-xs font-medium text-heading mb-2" data-ko="내 역할">My Role</p>
         <ul class="text-muted text-sm leading-relaxed space-y-1" style="list-style: disc !important; padding-left: 1.25rem;">
           <li data-ko="초기 씬을 직접 프로파일링하고 최적화해서 방법론과 기준값을 잡았습니다">Personally profiled, diagnosed, and optimized initial scenes to establish methodology and baseline targets</li>
@@ -80,59 +80,45 @@
     <!-- Result Table -->
     <section class="mb-16">
       <h2 class="text-xl font-bold mb-4" data-ko="결과">Result</h2>
-      <style>
-        .result-table { width: 100%; font-size: 0.875rem; border-collapse: collapse; }
-        .result-table th { padding: 0.75rem 0; font-size: 0.75rem; font-weight: 500; color: rgb(var(--c-muted)); text-transform: uppercase; letter-spacing: 0.04em; border-bottom: 1px solid rgb(var(--c-border)); }
-        .result-table td { padding: 1rem 0; border-bottom: 1px solid rgb(var(--c-border) / 0.15); }
-        .result-table tr:last-child td { border-bottom: none; }
-        .result-table tbody tr { transition: background 0.15s; }
-        .result-table tbody tr:hover { background: rgb(var(--c-surface) / 0.5); }
-        .result-table th:nth-child(n+3), .result-table td:nth-child(n+3) { text-align: right; font-variant-numeric: tabular-nums; }
-        .result-table th:nth-child(1), .result-table th:nth-child(2) { text-align: left; }
-        .result-table .env { color: rgb(var(--c-heading)); font-weight: 500; padding-right: 1.5rem; }
-        .result-table .tech { color: rgb(var(--c-muted)); padding-right: 1.5rem; }
-        .result-table .ms { color: rgb(var(--c-muted)); padding-left: 1rem; }
-        .gain-pill { display: inline-block; padding: 2px 10px; border-radius: 4px; background: rgb(var(--c-accent) / 0.1); color: rgb(var(--c-accent)); font-weight: 500; font-variant-numeric: tabular-nums; }
-      </style>
       <div class="overflow-x-auto">
-        <table class="result-table">
+        <table class="tbl">
           <thead>
             <tr>
               <th data-ko="환경">Environment</th>
               <th data-ko="기법">Technique</th>
-              <th data-ko="이전">Before</th>
-              <th data-ko="이후">After</th>
-              <th data-ko="개선">Gain</th>
+              <th class="val-r" data-ko="이전">Before</th>
+              <th class="val-r" data-ko="이후">After</th>
+              <th style="text-align:right" data-ko="개선">Gain</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td class="env" data-ko="시가지 야경 (4스팟)">City Night (4 spots)</td>
-              <td class="tech" data-ko="나나이트 + 글로벌 렌더링">Nanite + global render</td>
-              <td class="ms">29–40ms</td>
-              <td class="ms">16–19ms</td>
-              <td><span class="gain-pill">35–52%↓</span></td>
+              <td class="lbl" data-ko="시가지 야경 (4스팟)">City Night (4 spots)</td>
+              <td class="val" data-ko="나나이트 + 글로벌 렌더링">Nanite + global render</td>
+              <td class="val-r">29–40ms</td>
+              <td class="val-r">16–19ms</td>
+              <td style="text-align:right"><span class="gain">35–52%↓</span></td>
             </tr>
             <tr>
-              <td class="env" data-ko="공업단지">Industrial Complex</td>
-              <td class="tech" data-ko="메시 분할 (나나이트)">Mesh split (Nanite)</td>
-              <td class="ms">56ms</td>
-              <td class="ms">18ms</td>
-              <td><span class="gain-pill">68%↓</span></td>
+              <td class="lbl" data-ko="공업단지">Industrial Complex</td>
+              <td class="val" data-ko="메시 분할 (나나이트)">Mesh split (Nanite)</td>
+              <td class="val-r">56ms</td>
+              <td class="val-r">18ms</td>
+              <td style="text-align:right"><span class="gain">68%↓</span></td>
             </tr>
             <tr>
-              <td class="env" data-ko="빈민가 (2차 패스)">Slum Area (2 passes)</td>
-              <td class="tech" data-ko="단계별 최적화">Step-by-step</td>
-              <td class="ms">36ms</td>
-              <td class="ms">19ms</td>
-              <td><span class="gain-pill">47%↓</span></td>
+              <td class="lbl" data-ko="빈민가 (2차 패스)">Slum Area (2 passes)</td>
+              <td class="val" data-ko="단계별 최적화">Step-by-step</td>
+              <td class="val-r">36ms</td>
+              <td class="val-r">19ms</td>
+              <td style="text-align:right"><span class="gain">47%↓</span></td>
             </tr>
             <tr>
-              <td class="env" data-ko="벚꽃 식생">Cherry Blossom</td>
-              <td class="tech" data-ko="커스텀 머티리얼 교체">Custom material</td>
-              <td class="ms">12.23ms</td>
-              <td class="ms">8.09ms</td>
-              <td><span class="gain-pill">34%↓</span></td>
+              <td class="lbl" data-ko="벚꽃 식생">Cherry Blossom</td>
+              <td class="val" data-ko="커스텀 머티리얼 교체">Custom material</td>
+              <td class="val-r">12.23ms</td>
+              <td class="val-r">8.09ms</td>
+              <td style="text-align:right"><span class="gain">34%↓</span></td>
             </tr>
           </tbody>
         </table>
@@ -287,7 +273,7 @@
       <h2 class="text-xl font-bold mb-4" data-ko="프로파일링 방법론">How I Profile</h2>
       <p class="text-muted text-sm leading-relaxed mb-6" data-ko="이 프로세스를 정리해서 팀에 공유했고, 이후 모든 최적화 패스의 기본이 됐습니다.">I standardized this process and shared it with the team. It was adopted as the team standard for all subsequent optimization passes.</p>
 
-      <div class="bg-surface p-5 rounded-lg mb-6">
+      <div class="mb-6">
         <ol class="text-muted text-sm leading-relaxed space-y-2 list-decimal list-inside">
           <li data-ko="타겟 설정 + 고정 뷰포인트 캡처">Establish target criteria and capture fixed viewpoints</li>
           <li data-ko="stat gpu / GPU Visualizer로 주요 GPU 소비 항목 분리">Isolate major GPU contributors with stat gpu / GPU Visualizer</li>
@@ -297,28 +283,14 @@
         </ol>
       </div>
 
-      <div class="bg-surface p-5 rounded-lg mb-6">
+      <div class="mb-6">
         <h3 class="font-medium mb-3" data-ko="타겟 기준">Target Criteria</h3>
-        <table class="w-full text-sm">
-          <thead>
-            <tr class="border-b border-border text-left">
-              <th scope="col" class="py-3 pr-4 text-muted font-medium">Scene ms</th>
-              <th scope="col" class="py-3 text-muted font-medium" data-ko="판단">Assessment</th>
-            </tr>
-          </thead>
-          <tbody class="text-muted">
-            <tr class="border-b border-border/50">
-              <td class="py-3 pr-4 text-heading font-medium">&lt; 15ms</td>
-              <td class="py-3" data-ko="여유 — 콘텐츠 추가 가능">Headroom — can add more content</td>
-            </tr>
-            <tr class="border-b border-border/50">
-              <td class="py-3 pr-4 text-heading font-medium">15–18ms</td>
-              <td class="py-3" data-ko="이상적 범위">Ideal range</td>
-            </tr>
-            <tr>
-              <td class="py-3 pr-4 text-heading font-medium">&gt; 18ms</td>
-              <td class="py-3" data-ko="최적화 필요">Needs optimization</td>
-            </tr>
+        <table class="tbl">
+          <thead><tr><th>Scene ms</th><th data-ko="판단">Assessment</th></tr></thead>
+          <tbody>
+            <tr><td class="lbl">&lt; 15ms</td><td class="val" data-ko="여유 — 콘텐츠 추가 가능">Headroom — can add more content</td></tr>
+            <tr><td class="lbl">15–18ms</td><td class="val" data-ko="이상적 범위">Ideal range</td></tr>
+            <tr><td class="lbl">&gt; 18ms</td><td class="val" data-ko="최적화 필요">Needs optimization</td></tr>
           </tbody>
         </table>
       </div>

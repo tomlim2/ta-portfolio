@@ -79,20 +79,20 @@
     <section class="mb-16">
       <h2 class="text-xl font-bold mb-4" data-ko="결과">Result</h2>
       <div class="overflow-x-auto">
-        <table class="w-full text-sm">
+        <table class="tbl">
           <thead>
-            <tr class="border-b border-border text-left">
-              <th class="py-3 pr-4 text-muted font-medium" data-ko="항목">Category</th>
-              <th class="py-3 text-muted font-medium" data-ko="결과">Result</th>
+            <tr>
+              <th data-ko="항목">Category</th>
+              <th data-ko="결과">Result</th>
             </tr>
           </thead>
-          <tbody class="text-muted">
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading font-medium" data-ko="렌더링 전환">Rendering Transition</td><td class="py-3" data-ko="메타휴먼에서 애니메 스타일로 완전 전환">Full transition from MetaHuman to anime style</td></tr>
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading font-medium" data-ko="NPR 룩">NPR Looks</td><td class="py-3" data-ko="4가지 룩 — Toon Ramp 교체로 아트팀이 스타일 변경 가능">4 looks — art team can change styles by swapping Toon Ramps</td></tr>
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading font-medium" data-ko="머티리얼 규모">Material Scale</td><td class="py-3">698 MIs, 1,371 textures</td></tr>
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading font-medium" data-ko="머티리얼 분리">Material Separation</td><td class="py-3" data-ko="인하우스(전용 toon) + VRM(MToon 재구현) 별도 구축">In-house (dedicated toon) + VRM (MToon reimplementation) built separately</td></tr>
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading font-medium" data-ko="배경 공존">Background Coexistence</td><td class="py-3" data-ko="PBR 배경 + NPR 캐릭터 동일 씬 공존">PBR backgrounds + NPR characters in the same scene</td></tr>
-            <tr><td class="py-3 pr-4 text-heading font-medium" data-ko="룩 개발">Look Dev</td><td class="py-3" data-ko="아트팀과 캐릭터별 룩 확정 — Toon Ramp 교체로 스타일 변경 가능">Finalized per-character looks with art team — style changes possible via Toon Ramp swap</td></tr>
+          <tbody>
+            <tr><td class="lbl" data-ko="렌더링 전환">Rendering Transition</td><td class="val" data-ko="메타휴먼에서 애니메 스타일로 완전 전환">Full transition from MetaHuman to anime style</td></tr>
+            <tr><td class="lbl" data-ko="NPR 룩">NPR Looks</td><td class="val" data-ko="4가지 룩 — Toon Ramp 교체로 아트팀이 스타일 변경 가능">4 looks — art team can change styles by swapping Toon Ramps</td></tr>
+            <tr><td class="lbl" data-ko="머티리얼 규모">Material Scale</td><td class="val">698 MIs, 1,371 textures</td></tr>
+            <tr><td class="lbl" data-ko="머티리얼 분리">Material Separation</td><td class="val" data-ko="인하우스(전용 toon) + VRM(MToon 재구현) 별도 구축">In-house (dedicated toon) + VRM (MToon reimplementation) built separately</td></tr>
+            <tr><td class="lbl" data-ko="배경 공존">Background Coexistence</td><td class="val" data-ko="PBR 배경 + NPR 캐릭터 동일 씬 공존">PBR backgrounds + NPR characters in the same scene</td></tr>
+            <tr><td class="lbl" data-ko="룩 개발">Look Dev</td><td class="val" data-ko="아트팀과 캐릭터별 룩 확정 — Toon Ramp 교체로 스타일 변경 가능">Finalized per-character looks with art team — style changes possible via Toon Ramp swap</td></tr>
           </tbody>
         </table>
       </div>
@@ -205,18 +205,18 @@
         <p class="text-xs text-muted text-center mb-6" data-ko="PBR 리얼리스틱 파트 + Toon 비리얼리스틱 파트 혼합 결과">PBR realistic part + Toon non-realistic part mixed result</p>
 
         <div class="overflow-x-auto mb-6">
-          <table class="w-full text-sm">
+          <table class="tbl">
             <thead>
-              <tr class="border-b border-border text-left">
-                <th class="py-2 pr-4 text-muted font-medium">Material</th>
-                <th class="py-2 pr-4 text-muted font-medium">Base Pass</th>
-                <th class="py-2 text-muted font-medium">Samplers</th>
+              <tr>
+                <th>Material</th>
+                <th class="val-r">Base Pass</th>
+                <th class="val-r">Samplers</th>
               </tr>
             </thead>
-            <tbody class="text-muted">
-              <tr class="border-b border-border/50"><td class="py-2 pr-4">In-house Toon</td><td class="py-2 pr-4">433 inst</td><td class="py-2">7 / 16</td></tr>
-              <tr class="border-b border-border/50"><td class="py-2 pr-4">VRM Toon</td><td class="py-2 pr-4">369 inst</td><td class="py-2">4 / 16</td></tr>
-              <tr><td class="py-2 pr-4 text-heading font-medium">Zo Toon</td><td class="py-2 pr-4 text-heading font-medium">226 inst</td><td class="py-2 text-heading font-medium">3 / 16</td></tr>
+            <tbody>
+              <tr><td class="val">In-house Toon</td><td class="val-r">433 inst</td><td class="val-r">7 / 16</td></tr>
+              <tr><td class="val">VRM Toon</td><td class="val-r">369 inst</td><td class="val-r">4 / 16</td></tr>
+              <tr><td class="lbl">Zo Toon</td><td class="val-r" style="color:rgb(var(--c-heading));font-weight:500">226 inst</td><td class="val-r" style="color:rgb(var(--c-heading));font-weight:500">3 / 16</td></tr>
             </tbody>
           </table>
         </div>

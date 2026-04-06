@@ -77,18 +77,18 @@
 
       <!-- Workflow table -->
       <div class="overflow-x-auto mb-6">
-        <table class="w-full text-sm">
+        <table class="tbl">
           <thead>
-            <tr class="border-b border-border text-left">
-              <th class="py-3 pr-4 text-muted font-medium" data-ko="도구">Tool</th>
-              <th class="py-3 pr-4 text-muted font-medium" data-ko="사용자">User</th>
-              <th class="py-3 text-muted font-medium" data-ko="방식">Method</th>
+            <tr>
+              <th data-ko="도구">Tool</th>
+              <th data-ko="사용자">User</th>
+              <th data-ko="방식">Method</th>
             </tr>
           </thead>
-          <tbody class="text-muted">
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading font-medium">Python CLI</td><td class="py-3 pr-4" data-ko="TA / 배치 작업">TA / Batch jobs</td><td class="py-3" data-ko="여러 모델 일괄 변환">Batch-convert multiple models at once</td></tr>
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading font-medium">Next.js Web App</td><td class="py-3 pr-4" data-ko="팀 누구나">Anyone on the team</td><td class="py-3" data-ko="브라우저에서 ZIP 업로드, VRM 다운로드">Upload ZIP in browser, download VRM</td></tr>
-            <tr><td class="py-3 pr-4 text-heading font-medium">Browser SPA</td><td class="py-3 pr-4" data-ko="외부 / 서버 없음">External / No server</td><td class="py-3" data-ko="클라이언트 전용 변환">Client-only conversion</td></tr>
+          <tbody>
+            <tr ><td class="lbl">Python CLI</td><td class="val" data-ko="TA / 배치 작업">TA / Batch jobs</td><td class="val" data-ko="여러 모델 일괄 변환">Batch-convert multiple models at once</td></tr>
+            <tr ><td class="lbl">Next.js Web App</td><td class="val" data-ko="팀 누구나">Anyone on the team</td><td class="val" data-ko="브라우저에서 ZIP 업로드, VRM 다운로드">Upload ZIP in browser, download VRM</td></tr>
+            <tr><td class="lbl">Browser SPA</td><td class="val" data-ko="외부 / 서버 없음">External / No server</td><td class="val" data-ko="클라이언트 전용 변환">Client-only conversion</td></tr>
           </tbody>
         </table>
       </div>
@@ -101,17 +101,17 @@
     <section class="mb-16">
       <h2 class="text-xl font-bold mb-4" data-ko="결과">Result</h2>
       <div class="overflow-x-auto">
-        <table class="w-full text-sm">
+        <table class="tbl">
           <thead>
-            <tr class="border-b border-border text-left">
-              <th class="py-3 pr-4 text-muted font-medium" data-ko="항목">Category</th>
-              <th class="py-3 text-muted font-medium" data-ko="결과">Result</th>
+            <tr>
+              <th data-ko="항목">Category</th>
+              <th data-ko="결과">Result</th>
             </tr>
           </thead>
-          <tbody class="text-muted">
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading font-medium" data-ko="변환 성공률">Conversion Rate</td><td class="py-3" data-ko="주요 게임사 PMX 90% 성공 (HoYoverse, Eternal Return, Cyphers 등)">90% success on major game PMX (HoYoverse, Eternal Return, Cyphers, etc.)</td></tr>
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading font-medium" data-ko="모델 커버리지">Model Coverage</td><td class="py-3" data-ko="일본·중국 PMX 모두 지원">Both Japanese and Chinese PMX supported</td></tr>
-            <tr><td class="py-3 pr-4 text-heading font-medium" data-ko="변환 속도">Conversion Speed</td><td class="py-3">393ms (Saber.pmx, 28K vertices)</td></tr>
+          <tbody>
+            <tr ><td class="lbl" data-ko="변환 성공률">Conversion Rate</td><td class="val" data-ko="주요 게임사 PMX 90% 성공 (HoYoverse, Eternal Return, Cyphers 등)">90% success on major game PMX (HoYoverse, Eternal Return, Cyphers, etc.)</td></tr>
+            <tr ><td class="lbl" data-ko="모델 커버리지">Model Coverage</td><td class="val" data-ko="일본·중국 PMX 모두 지원">Both Japanese and Chinese PMX supported</td></tr>
+            <tr><td class="lbl" data-ko="변환 속도">Conversion Speed</td><td class="val">393ms (Saber.pmx, 28K vertices)</td></tr>
           </tbody>
         </table>
       </div>

@@ -94,20 +94,15 @@
       </div>
 
       <div class="overflow-x-auto mb-8">
-        <table class="w-full text-sm">
-          <thead>
-            <tr class="border-b border-border text-left">
-              <th class="py-3 pr-4 text-muted font-medium" data-ko="패밀리">Family</th>
-              <th class="py-3 text-muted font-medium" data-ko="특징">Characteristics</th>
-            </tr>
-          </thead>
-          <tbody class="text-muted">
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading">あにまさ式 (Animasa)</td><td class="py-3" data-ko="기본 MMD 모델, 최소 본 셋 (~30)">Default MMD model, minimal bone set (~30)</td></tr>
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading">TDA式</td><td class="py-3" data-ko="준표준 본 포함 (上半身2, 腕捩 등)">Includes semi-standard bones (上半身2, 腕捩, etc.)</td></tr>
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading">YYB式</td><td class="py-3" data-ko="TDA 기반 + 확장 보조 본">TDA-based + extended auxiliary bones</td></tr>
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading">にがもん式</td><td class="py-3" data-ko="컴팩트 본 셋, 비보컬로이드 캐릭터">Compact bone set, non-Vocaloid characters</td></tr>
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading">つみだんご式</td><td class="py-3" data-ko="고밀도 커스텀 본 (325), 표정 50개">High-density custom bones (325), 50 expressions</td></tr>
-            <tr><td class="py-3 pr-4 text-heading">ミリシタ</td><td class="py-3" data-ko="로마자 본 이름, 표준 VMD와 비호환">Romanized bone names, incompatible with standard VMD</td></tr>
+        <table class="tbl">
+          <thead><tr><th data-ko="패밀리">Family</th><th data-ko="특징">Characteristics</th></tr></thead>
+          <tbody>
+            <tr><td class="lbl">あにまさ式 (Animasa)</td><td class="val" data-ko="기본 MMD 모델, 최소 본 셋 (~30)">Default MMD model, minimal bone set (~30)</td></tr>
+            <tr><td class="lbl">TDA式</td><td class="val" data-ko="준표준 본 포함 (上半身2, 腕捩 등)">Includes semi-standard bones (上半身2, 腕捩, etc.)</td></tr>
+            <tr><td class="lbl">YYB式</td><td class="val" data-ko="TDA 기반 + 확장 보조 본">TDA-based + extended auxiliary bones</td></tr>
+            <tr><td class="lbl">にがもん式</td><td class="val" data-ko="컴팩트 본 셋, 비보컬로이드 캐릭터">Compact bone set, non-Vocaloid characters</td></tr>
+            <tr><td class="lbl">つみだんご式</td><td class="val" data-ko="고밀도 커스텀 본 (325), 표정 50개">High-density custom bones (325), 50 expressions</td></tr>
+            <tr><td class="lbl">ミリシ��</td><td class="val" data-ko="로마자 본 이름, 표준 VMD와 비호환">Romanized bone names, incompatible with standard VMD</td></tr>
           </tbody>
         </table>
       </div>
@@ -152,20 +147,15 @@
     <section class="mb-16">
       <h2 class="text-xl font-bold mb-4" data-ko="결과">Result</h2>
       <div class="overflow-x-auto">
-        <table class="w-full text-sm">
-          <thead>
-            <tr class="border-b border-border text-left">
-              <th class="py-3 pr-4 text-muted font-medium" data-ko="항목">Category</th>
-              <th class="py-3 text-muted font-medium" data-ko="결과">Result</th>
-            </tr>
-          </thead>
-          <tbody class="text-muted">
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading font-medium" data-ko="소스 검증">Source Verification</td><td class="py-3" data-ko="원본 PMX 문제인지 컨버터 문제인지 구분 — 기획/QA가 직접 확인">Distinguishes PMX issues vs converter issues — directly used by planners/QA</td></tr>
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading font-medium" data-ko="모션 검증">Motion Verification</td><td class="py-3" data-ko="6개 패밀리 자동 판별, 본 매치율·IK 충돌 표시">Supports 6 model families, automatic bone match rate/IK conflict detection</td></tr>
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading font-medium" data-ko="이펙트 프리컴퓨트">Effect Precompute</td><td class="py-3" data-ko="6종 — 트랙 연출 제안용">6 types — POC for convincing planning/client teams</td></tr>
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading font-medium" data-ko="포스트프로세스">Post-Process</td><td class="py-3" data-ko="bloom 노드 교체 방식으로 GPU 패스 제거, PP off 시 렌더러 직접 폴백">Dual chain bloom skip, lazy init, renderer bypass — laptop doesn't cook anymore</td></tr>
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading font-medium" data-ko="기술 검증">Tech Validation</td><td class="py-3" data-ko="WebGPU + TSL 셰이더 실전 적용">WebGPU + TSL shaders in a real project</td></tr>
-            <tr><td class="py-3 pr-4 text-heading font-medium" data-ko="상태">Status</td><td class="py-3" data-ko="개발 중 — 다음: 물리 본 시뮬레이션, Gaussian Splatting 배경">Active — next: physics bone simulation (rigid body + joint), gaussian splatting background</td></tr>
+        <table class="tbl">
+          <thead><tr><th data-ko="항목">Category</th><th data-ko="결과">Result</th></tr></thead>
+          <tbody>
+            <tr><td class="lbl" data-ko="소스 검증">Source Verification</td><td class="val" data-ko="원본 PMX 문제인지 컨버터 문제인지 구분 — 기획/QA가 ���접 확인">Distinguishes PMX issues vs converter issues — directly used by planners/QA</td></tr>
+            <tr><td class="lbl" data-ko="모션 검증">Motion Verification</td><td class="val" data-ko="6개 패밀리 자동 판별, 본 매치율·IK 충돌 표시">Supports 6 model families, automatic bone match rate/IK conflict detection</td></tr>
+            <tr><td class="lbl" data-ko="이펙트 프리컴퓨트">Effect Precompute</td><td class="val" data-ko="6종 — 트랙 연출 제안용">6 types — POC for convincing planning/client teams</td></tr>
+            <tr><td class="lbl" data-ko="포스트프로세스">Post-Process</td><td class="val" data-ko="bloom 노드 교체 방식으로 GPU 패스 제거, PP off 시 렌더러 직접 폴백">Dual chain bloom skip, lazy init, renderer bypass — laptop doesn't cook anymore</td></tr>
+            <tr><td class="lbl" data-ko="기술 검증">Tech Validation</td><td class="val" data-ko="WebGPU + TSL 셰이더 실전 적용">WebGPU + TSL shaders in a real project</td></tr>
+            <tr><td class="lbl" data-ko="상태">Status</td><td class="val" data-ko="개발 중 — 다음: 물리 본 시뮬레이션, Gaussian Splatting 배경">Active — next: physics bone simulation (rigid body + joint), gaussian splatting background</td></tr>
           </tbody>
         </table>
       </div>

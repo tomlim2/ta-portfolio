@@ -343,3 +343,15 @@ table {
     animation-duration: 0s !important;
   }
 }
+
+/* ── Metrics Table (Apple/Stripe style) ── */
+.tbl { width: 100%; font-size: 0.875rem; border-collapse: collapse; }
+.tbl th { padding: 0.75rem 0; font-size: 0.75rem; font-weight: 500; color: rgb(var(--c-muted)); text-transform: uppercase; letter-spacing: 0.04em; border-bottom: 1px solid rgb(var(--c-border)); text-align: left; }
+.tbl td { padding: 1rem 0; border-bottom: 1px solid rgb(var(--c-border) / 0.15); }
+.tbl tr:last-child td { border-bottom: none; }
+.tbl tbody tr { transition: background 0.15s; }
+.tbl tbody tr:hover { background: rgb(var(--c-surface) / 0.5); }
+.tbl .lbl { color: rgb(var(--c-heading)); font-weight: 500; padding-right: 1.5rem; }
+.tbl .val { color: rgb(var(--c-muted)); font-variant-numeric: tabular-nums; }
+.tbl .val-r { color: rgb(var(--c-muted)); font-variant-numeric: tabular-nums; text-align: right; }
+.gain { display: inline-block; padding: 2px 10px; border-radius: 4px; background: rgb(var(--c-accent) / 0.1); color: rgb(var(--c-accent)); font-weight: 500; font-variant-numeric: tabular-nums; }

@@ -74,7 +74,7 @@
       <p class="text-muted text-sm leading-relaxed mb-6" data-ko="자연어를 AI 레이어(Claude/Gemini)가 명령으로 바꾸고, UE C++ 플러그인이 에디터에서 실시간으로 TOD, 라이트 스폰, 날씨 제어 등을 실행하는 구조를 만들었습니다. 도시 이름이 아닌 좌표값을 입력해야하는 Cesium에 도시 등 컨텍스트를 좌표값으로 변환 적용시켜 '도쿄 도심 보여줘', '오후 6시 서울' 같은 한 줄이면 배경이 셋업됩니다. 또한 나노바나나, Veo-3 등 영상 최종 결과물을 빠르게 수정, 편집, 확장할 수 있는 형태로 만들었습니다.">An AI layer (Claude/Gemini) converts natural language into commands, and a UE C++ plugin executes TOD, light spawning, and weather control in the editor in real time. Cesium requires raw coordinates, so the system translates city names and context into coordinates — a single line like "Show me downtown Tokyo" or "6 PM Seoul" sets up the entire background. Nano Banana and Veo-3 are also integrated to quickly edit, refine, and extend final video output.</p>
 
       <!-- NL examples -->
-      <div class="bg-surface p-5 rounded-lg mb-6">
+      <div class="mb-6">
         <h3 class="font-medium mb-3" data-ko="사용 예시">Usage Examples</h3>
         <div class="space-y-2 text-sm">
           <p class="text-green-400 italic">"Show me downtown Tokyo"</p>
@@ -128,19 +128,19 @@
     <section class="mb-16">
       <h2 class="text-xl font-bold mb-4" data-ko="결과">Result</h2>
       <div class="overflow-x-auto">
-        <table class="w-full text-sm">
+        <table class="tbl">
           <thead>
-            <tr class="border-b border-border text-left">
-              <th class="py-3 pr-4 text-muted font-medium" data-ko="항목">Category</th>
-              <th class="py-3 text-muted font-medium" data-ko="결과">Result</th>
+            <tr>
+              <th data-ko="항목">Category</th>
+              <th data-ko="결과">Result</th>
             </tr>
           </thead>
-          <tbody class="text-muted">
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading font-medium" data-ko="아웃도어 씬 셋업">Outdoor Scene Setup</td><td class="py-3" data-ko="자연어 한 줄로 위치·시간·날씨·무드 셋업">One-step composition of location + time + weather + mood via natural language</td></tr>
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading font-medium">i2i Pipeline</td><td class="py-3" data-ko="Nano Banana로 씬→컨셉 이미지 변환">Scene to concept/mood transformation via Nano Banana</td></tr>
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading font-medium" data-ko="서비스 통합">Service Integration</td><td class="py-3" data-ko="4개 서비스 (UE, Nano Banana, Veo-3, Roblox)">4 services (UE, Nano Banana, Veo-3, Roblox)</td></tr>
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading font-medium" data-ko="대상">Audience</td><td class="py-3" data-ko="CEO·기획·팀 리드 대상 데모 (POC)">Demo for CEO, planners, team leads — POC</td></tr>
-            <tr><td class="py-3 pr-4 text-heading font-medium" data-ko="결과">Outcome</td><td class="py-3" data-ko="CEO·기획·팀장 시연 완료 → 제품팀 이관. 도메인별 컨텍스트 분리(토큰 50% 절감) 설계는 후속 AI 도구에 계승">CEO/planning/team lead demo completed → handed to product team. Domain context separation design (50% token reduction) carried into subsequent AI tools</td></tr>
+          <tbody>
+            <tr ><td class="lbl" data-ko="아웃도어 씬 셋업">Outdoor Scene Setup</td><td class="val" data-ko="자연어 한 줄로 위치·시간·날씨·무드 셋업">One-step composition of location + time + weather + mood via natural language</td></tr>
+            <tr ><td class="lbl">i2i Pipeline</td><td class="val" data-ko="Nano Banana로 씬→컨셉 이미지 변환">Scene to concept/mood transformation via Nano Banana</td></tr>
+            <tr ><td class="lbl" data-ko="서비스 통합">Service Integration</td><td class="val" data-ko="4개 서비스 (UE, Nano Banana, Veo-3, Roblox)">4 services (UE, Nano Banana, Veo-3, Roblox)</td></tr>
+            <tr ><td class="lbl" data-ko="대상">Audience</td><td class="val" data-ko="CEO·기획·팀 리드 대상 데모 (POC)">Demo for CEO, planners, team leads — POC</td></tr>
+            <tr><td class="lbl" data-ko="결과">Outcome</td><td class="val" data-ko="CEO·기획·팀장 시연 완료 → 제품팀 이관. 도메인별 컨텍스트 분리(토큰 50% 절감) 설계는 후속 AI 도구에 계승">CEO/planning/team lead demo completed → handed to product team. Domain context separation design (50% token reduction) carried into subsequent AI tools</td></tr>
           </tbody>
         </table>
       </div>

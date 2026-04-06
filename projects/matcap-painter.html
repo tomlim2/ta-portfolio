@@ -84,11 +84,11 @@
       <h2 class="text-xl font-bold mb-4" data-ko="해결">Solution</h2>
 
       <div class="grid md:grid-cols-2 gap-6 mb-6">
-        <div class="bg-surface p-5 rounded-lg">
+        <div>
           <h3 class="font-medium mb-3" data-ko="Shader 모드 — Toon Ramp 기반으로 만들기">Shader Mode — Create from scratch</h3>
           <p class="text-muted text-sm leading-relaxed" data-ko="Blender Color Ramp 스타일 UI로 Toon Ramp, Specular 하이라이트, Outline을 실시간 제어합니다. 밴드 수와 경계를 드래그하면 3D 프리뷰에 즉시 반영됩니다.">A Blender Color Ramp-style UI for real-time control of Toon Ramp, Specular highlights, and Outline. Drag band count and boundaries to see instant updates in the 3D preview.</p>
         </div>
-        <div class="bg-surface p-5 rounded-lg">
+        <div>
           <h3 class="font-medium mb-3" data-ko="Paint 모드 — 기존 텍스처 편집">Paint Mode — Edit existing textures</h3>
           <p class="text-muted text-sm leading-relaxed" data-ko="오픈소스 라이브러리(nidorx/matcaps)에서 가져온 229개 프리셋 기반, 8개 포토샵 스타일 레이어 형식으로 편집합니다. HSV, Contrast, Lift를 조절하면서 결과를 실시간으로 확인할 수 있습니다.">Non-destructive editing with 8 Photoshop-style layers, based on 229 curated presets from an open-source library (nidorx/matcaps). Adjust HSV, Contrast, and Lift while previewing results in real time.</p>
         </div>
@@ -106,18 +106,13 @@
     <section class="mb-16">
       <h2 class="text-xl font-bold mb-4" data-ko="결과">Result</h2>
       <div class="overflow-x-auto">
-        <table class="w-full text-sm">
-          <thead>
-            <tr class="border-b border-border text-left">
-              <th class="py-3 pr-4 text-muted font-medium" data-ko="항목">Category</th>
-              <th class="py-3 text-muted font-medium" data-ko="결과">Result</th>
-            </tr>
-          </thead>
-          <tbody class="text-muted">
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading font-medium" data-ko="워크플로우">Workflow</td><td class="py-3" data-ko="포토샵 왕복 제거 — 실시간 편집 + 3D 프리뷰">Eliminated Photoshop round-trips — real-time editing + 3D preview</td></tr>
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading font-medium" data-ko="Shader 모드">Shader Mode</td><td class="py-3" data-ko="실시간 Toon Ramp / Specular / Outline 생성">Real-time Toon Ramp / Specular / Outline generation</td></tr>
-            <tr class="border-b border-border/50"><td class="py-3 pr-4 text-heading font-medium" data-ko="Paint 모드">Paint Mode</td><td class="py-3" data-ko="229개 프리셋 + 8레이어 비파괴 편집">229 presets + 8-layer non-destructive editing</td></tr>
-            <tr><td class="py-3 pr-4 text-heading font-medium" data-ko="개발 기간">Dev Time</td><td class="py-3" data-ko="4일">4 days</td></tr>
+        <table class="tbl">
+          <thead><tr><th data-ko="항목">Category</th><th data-ko="결과">Result</th></tr></thead>
+          <tbody>
+            <tr><td class="lbl" data-ko="워크플로우">Workflow</td><td class="val" data-ko="포토샵 왕복 제거 — 실시간 편집 + 3D 프리뷰">Eliminated Photoshop round-trips — real-time editing + 3D preview</td></tr>
+            <tr><td class="lbl" data-ko="Shader 모드">Shader Mode</td><td class="val" data-ko="실시간 Toon Ramp / Specular / Outline 생성">Real-time Toon Ramp / Specular / Outline generation</td></tr>
+            <tr><td class="lbl" data-ko="Paint 모드">Paint Mode</td><td class="val" data-ko="229개 프리셋 + 8레이어 비파괴 편집">229 presets + 8-layer non-destructive editing</td></tr>
+            <tr><td class="lbl" data-ko="개발 기간">Dev Time</td><td class="val" data-ko="4일">4 days</td></tr>
           </tbody>
         </table>
       </div>

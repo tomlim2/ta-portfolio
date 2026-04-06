@@ -85,33 +85,33 @@
     <section class="mb-16">
       <h2 class="text-xl font-bold mb-4" data-ko="결과">Result</h2>
       <div class="overflow-x-auto">
-        <table class="w-full text-sm">
+        <table class="tbl">
           <thead>
-            <tr class="border-b border-border text-left">
-              <th scope="col" class="py-3 pr-4 text-muted font-medium" data-ko="항목">Category</th>
-              <th scope="col" class="py-3 pr-4 text-muted font-medium" data-ko="이전">Before</th>
-              <th scope="col" class="py-3 pr-4 text-muted font-medium" data-ko="이후">After</th>
-              <th scope="col" class="py-3 text-muted font-medium" data-ko="개선">Improvement</th>
+            <tr>
+              <th data-ko="항목">Category</th>
+              <th data-ko="이전">Before</th>
+              <th data-ko="이후">After</th>
+              <th style="text-align:right" data-ko="개선">Improvement</th>
             </tr>
           </thead>
-          <tbody class="text-muted">
-            <tr class="border-b border-border/50">
-              <td class="py-3 pr-4 text-heading font-medium" data-ko="에디터 로드">Editor Load</td>
-              <td class="py-3 pr-4">30s</td>
-              <td class="py-3 pr-4">6s</td>
-              <td class="py-3 text-accent font-medium">80%↓</td>
-            </tr>
-            <tr class="border-b border-border/50">
-              <td class="py-3 pr-4 text-heading font-medium" data-ko="패키징 로드">Packaged Load</td>
-              <td class="py-3 pr-4" data-ko="수 초 대기">Several seconds</td>
-              <td class="py-3 pr-4" data-ko="체감 0초">Perceived 0s</td>
-              <td class="py-3 text-accent font-medium" data-ko="제거">Eliminated</td>
+          <tbody>
+            <tr>
+              <td class="lbl" data-ko="에디터 로드">Editor Load</td>
+              <td class="val">30s</td>
+              <td class="val">6s</td>
+              <td style="text-align:right"><span class="gain">80%↓</span></td>
             </tr>
             <tr>
-              <td class="py-3 pr-4 text-heading font-medium" data-ko="캐릭터 프리셋">Character Presets</td>
-              <td class="py-3 pr-4">-</td>
-              <td class="py-3 pr-4">300+</td>
-              <td class="py-3 text-accent font-medium" data-ko="통합 관리">Unified</td>
+              <td class="lbl" data-ko="패키징 로드">Packaged Load</td>
+              <td class="val" data-ko="수 초 대기">Several seconds</td>
+              <td class="val" data-ko="체감 0초">Perceived 0s</td>
+              <td style="text-align:right"><span class="gain" data-ko="제거">Eliminated</span></td>
+            </tr>
+            <tr>
+              <td class="lbl" data-ko="캐릭터 프리셋">Character Presets</td>
+              <td class="val">-</td>
+              <td class="val">300+</td>
+              <td style="text-align:right"><span class="gain" data-ko="통합 관리">Unified</span></td>
             </tr>
           </tbody>
         </table>
@@ -151,7 +151,7 @@
 
       <!-- Three components -->
       <div class="space-y-4 mb-6">
-        <div class="bg-surface p-5 rounded-lg">
+        <div>
           <h3 class="font-medium mb-3" data-ko="등록용 캐릭터 블루프린트 — 에디터 틱">Editor — Character Environment Checker</h3>
           <p class="text-muted text-sm leading-relaxed mb-4" data-ko="C++ 캐릭터 액터 오브젝트 기반 블루프린트입니다. 아티스트가 머리·헤어·바디 파츠를 조합하고 프리셋으로 저장하면 Data Asset이 생산(캐릭터 등록)됩니다. 또한 에디터 Tick으로 게임 실행 없이 에디터에서 애니메이션이 적용된채 배경 위 얹을 수 있어서 룩을 바로 확인할 수 있습니다.">Artists assemble head, hair, and body parts in the editor and save them as presets. The Editor Tick Interface allows verifying characters and animations on a background without launching the game. The runtime reads these Data Assets directly.</p>
           <img src="../assets/images/character-system/cpp-header-envcheck.png" alt="C++ Header — NPRCharacterLookDev UPROPERTY declarations" class="w-full mb-2">
@@ -160,14 +160,14 @@
           <img src="../assets/images/character-system/editor-tick-bp.png" alt="BP_EditorTicker + BPI_EditorTick node graph" class="w-full">
           <p class="text-xs text-muted mt-2 text-center" data-ko="Editor Tick — PIE 없이 프리뷰">Editor Tick — preview without PIE</p>
         </div>
-        <div class="bg-surface p-5 rounded-lg">
+        <div>
           <h3 class="font-medium mb-3" data-ko="로드용 캐릭터 블루프린트 — 런타임">Runtime — Character Blueprint</h3>
           <p class="text-muted text-sm leading-relaxed mb-4" data-ko="로드 전용 BP입니다. 인하우스 캐릭터는 Data Asset에서 파츠별 비동기 로드, 외부 VRM은 실시간 로더로 로드합니다. BP 안에는 Data Asset 경로만 들고 있어 300+ 프리셋과 커뮤니티 캐릭터를 하나의 BP로 통합 로드합니다.">A separate codebase from the editor tool -- a runtime character Blueprint inheriting the base character class. Internal characters load parts asynchronously from editor-produced Data Assets (Head/Hair/Body split), while external VRM loads the entire model through a loader. The same Blueprint handles both, branching only at the load path.</p>
           <img src="../assets/images/character-system/data-asset-load-bp.png" alt="BP_Basemodel_TF — Loading NRC Data Asset from DataTable" class="w-full mb-4">
           <img src="../assets/images/character-system/part-branch-bp.png" alt="BP nodes — Unified/split skeletal mesh load branching" class="w-full">
           <p class="text-xs text-muted mt-2 text-center" data-ko="통합 / 분리 스켈레탈 메시 로드 분기">Unified / split skeletal mesh load branching</p>
         </div>
-        <div class="bg-surface p-5 rounded-lg">
+        <div>
           <h3 class="font-medium mb-3" data-ko="외부 모델 지원 — VRM Reference Points">External Model Support — VRM Reference Points</h3>
           <p class="text-muted text-sm leading-relaxed mb-4" data-ko="VRM4U 플러그인에 작성한 C++ 모듈입니다. 어떤 VRM/PMX든 4단 폴백으로 얼굴 위치를 자동 탐지하고, 카메라 타겟으로 3앵글 썸네일(얼굴·상반신·전신)을 자동 촬영합니다. 커맨드렛 환경으로 에디터 없이 배치 생성이 가능합니다. A포즈/T포즈도 자동 판별합니다.">A C++ module written for the VRM4U plugin that updates VRM info nodes in the runtime character Blueprint. It auto-detects the face position of any external VRM/PMX via a 4-level fallback, then uses the result as a camera target to automatically capture 3-angle thumbnails (face close-up, upper body, full body). A commandlet environment enables batch thumbnail generation for all characters without opening the editor. A-pose/T-pose detection is also automatic.</p>
           <img src="../assets/images/character-system/cpp-header-face-detect.png" alt="C++ Header — Mouth and Nose Detection Priority 1-4 fallback" class="w-full mb-2">
