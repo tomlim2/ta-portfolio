@@ -131,29 +131,36 @@
     <section class="mb-16">
       <h2 class="text-xl font-bold mb-6" data-ko="적용 사례">Case Studies</h2>
 
-      <div class="space-y-8">
+      <div class="space-y-16">
 
         <!-- Case 1: City Night -->
-        <div class="bg-surface p-5 rounded-lg">
-          <h3 class="font-medium mb-2" data-ko="시가지 야경 — 글로벌 렌더링 + 나나이트 셋팅 (2023-08)">City Night — Global Rendering + Nanite Settings</h3>
-          <p class="text-muted text-sm leading-relaxed mb-4" data-ko="배경 메시가 화면의 5%도 안 차지하면서 트라이앵글 예산을 다 쓰고 있었습니다. 나나이트 셋팅과 글로벌 렌더링 값을 조정해서 서브픽셀 지오메트리의 쓸데없는 연산을 잘라냈습니다. 4개 스팟에서 35~52% GPU 절감 확인.">Background meshes consumed full triangle budgets despite occupying less than 5% of screen space. I applied project-specific Nanite settings and global rendering values — derived from analyzing Epic's City Sample — to eliminate unnecessary computation on sub-pixel geometry. Verified consistent 35–52% GPU reduction across 4 measurement spots.</p>
+        <div>
+          <h3 class="font-medium mb-1 text-heading" data-ko="시가지 야경 — 글로벌 렌더링 + 나나이트 셋팅">City Night — Global Rendering + Nanite Settings</h3>
+          <p class="text-xs text-muted mb-4">35–52% reduction across 4 spots</p>
+          <p class="text-muted text-sm leading-relaxed mb-6" data-ko="배경 메시가 화면의 5%도 안 차지하면서 트라이앵글 예산을 다 쓰고 있었습니다. 나나이트 셋팅과 글로벌 렌더링 값을 조정해서 서브픽셀 지오메트리의 쓸데없는 연산을 잘라냈습니다. 4개 스팟에서 35~52% GPU 절감 확인.">Background meshes consumed full triangle budgets despite occupying less than 5% of screen space. I applied project-specific Nanite settings and global rendering values — derived from analyzing Epic's City Sample — to eliminate unnecessary computation on sub-pixel geometry. Verified consistent 35–52% GPU reduction across 4 measurement spots.</p>
           <img src="../assets/images/profiling/city-night-spot1.jpg" alt="City night Spot 1 — Original 39.26ms vs Optimized 19.54ms" class="w-full h-auto mb-2">
-          <p class="text-xs text-muted text-center mb-4" data-ko="스팟 1: 39.26ms → 19.54ms (50%↓) — 동일 카메라 앵글, stat gpu 오버레이">Spot 1: 39.26ms → 19.54ms (50%↓) — identical camera angle, stat gpu overlay</p>
+          <p class="text-xs text-muted text-center mb-6" data-ko="스팟 1: 39.26ms → 19.54ms (50%↓) — 동일 카메라 앵글, stat gpu 오버레이">Spot 1: 39.26ms → 19.54ms (50%↓) — identical camera angle, stat gpu overlay</p>
           <img src="../assets/images/profiling/city-night-spot3.jpg" alt="City night Spot 3 — Original 29.03ms vs Optimized 18.96ms, neon deer by stream" class="w-full h-auto mb-2">
           <p class="text-xs text-muted text-center" data-ko="스팟 3: 29.03ms → 18.96ms (35%↓) — 네온 사슴 조형물, 청계천 다리">Spot 3: 29.03ms → 18.96ms (35%↓) — neon deer sculpture by stream bridge</p>
         </div>
 
+        <hr class="border-border/30">
+
         <!-- Case 2: Industrial -->
-        <div class="bg-surface p-5 rounded-lg">
-          <h3 class="font-medium mb-2" data-ko="공업단지 — 나나이트 메시 분할 (2023-07)">Industrial Complex — Nanite Mesh Split</h3>
-          <p class="text-muted text-sm leading-relaxed mb-4" data-ko="하나의 거대한 메시가 나나이트 컬링과 LOD를 막고 있었습니다. 56ms. 오클루전 경계를 따라 쪼개서 나나이트가 가려진 부분을 개별로 컬링하게 했습니다.">A single monolithic mesh prevented Nanite from culling occluded sections, resulting in 56ms frame time. I split the model along natural occlusion boundaries, enabling per-piece culling and proper LOD transitions.</p>
+        <div>
+          <h3 class="font-medium mb-1 text-heading" data-ko="공업단지 — 나나이트 메시 분할">Industrial Complex — Nanite Mesh Split</h3>
+          <p class="text-xs text-muted mb-4">68% reduction</p>
+          <p class="text-muted text-sm leading-relaxed mb-6" data-ko="하나의 거대한 메시가 나나이트 컬링과 LOD를 막고 있었습니다. 56ms. 오클루전 경계를 따라 쪼개서 나나이트가 가려진 부분을 개별로 컬링하게 했습니다.">A single monolithic mesh prevented Nanite from culling occluded sections, resulting in 56ms frame time. I split the model along natural occlusion boundaries, enabling per-piece culling and proper LOD transitions.</p>
           <img src="../assets/images/profiling/industrial-mesh-split.png" alt="Industrial complex — 56ms to 18ms after Nanite mesh split" class="w-full h-auto mb-2">
           <p class="text-xs text-muted text-center" data-ko="56ms → 18ms (68%↓) — 메시 분할 후 나나이트 컬링 정상화">56ms → 18ms (68%↓) — Nanite culling restored after mesh split</p>
         </div>
 
+        <hr class="border-border/30">
+
         <!-- Case 3: Slum Optimization Process -->
-        <div class="bg-surface p-5 rounded-lg">
-          <h3 class="font-medium mb-2" data-ko="빈민가 — 2차 단계별 최적화 (2023-08)">Slum Area — Two-Pass Step-by-Step Optimization</h3>
+        <div>
+          <h3 class="font-medium mb-1 text-heading" data-ko="빈민가 — 2차 단계별 최적화">Slum Area — Two-Pass Step-by-Step Optimization</h3>
+          <p class="text-xs text-muted mb-4">47% reduction</p>
           <p class="text-muted text-sm leading-relaxed mb-4" data-ko="stat gpu에서 foliage가 9ms로 제일 비쌌습니다. 여기부터 잡았습니다. 2차에 걸쳐 하나씩 바꾸고 매번 측정했습니다. 1차(폴리지+라이팅)로 36→29ms. 2차(나나이트, 컬 디스턴스, 인테리어 라이트)로 27→19ms. 건물 보조용 세컨더리 디렉셔널 라이트를 비활성화하고 필요시 켜달라고 했습니다. 이 과정을 통째로 문서화해서 다른 아티스트들이 나머지 씬을 직접 최적화하는 레퍼런스로 썼습니다.">stat gpu identified foliage as the top bottleneck at 9ms. Starting from 36ms, I attacked the heaviest contributor first and ran two optimization passes end-to-end — measuring after each step, rejecting ineffective attempts, and only shipping changes with verified impact. Pass 1 (foliage + lighting) brought 36→29ms. Pass 2 (Nanite, cull distance, interior lights) brought 27→19ms. Disabling a secondary directional light used for building fill could have saved another 3.5ms, but I flagged the visual quality tradeoff to the team rather than blindly applying it. This documented process then served as the reference for other artists to optimize remaining scenes independently.</p>
 
           <style>
@@ -245,10 +252,13 @@
           </div>
         </div>
 
+        <hr class="border-border/30">
+
         <!-- Case 4: Vegetation -->
-        <div class="bg-surface p-5 rounded-lg">
-          <h3 class="font-medium mb-2" data-ko="벚꽃 식생 — 머티리얼 교체 (2023-06)">Cherry Blossom — Material Replacement</h3>
-          <p class="text-muted text-sm leading-relaxed mb-4" data-ko="외부 식생 머티리얼이 픽셀당 텍스처 샘플 14개에 안 쓰는 서브서피스 스캐터링까지 달고 있었습니다. 같은 룩을 6개 샘플로 만든 커스텀 머티리얼로 교체했습니다. 라이트를 끈 상태(6.84ms)에서 따로 측정해서 머티리얼 비용만 분리했습니다.">External vegetation material used 14 texture samples per pixel with unnecessary subsurface scattering. I replaced it with a custom material that achieved equivalent visual quality with 6 samples. Measured a lights-off baseline (6.84ms) to isolate material cost precisely.</p>
+        <div>
+          <h3 class="font-medium mb-1 text-heading" data-ko="벚꽃 식생 — 머티리얼 교체">Cherry Blossom — Material Replacement</h3>
+          <p class="text-xs text-muted mb-4">34% reduction</p>
+          <p class="text-muted text-sm leading-relaxed mb-6" data-ko="외부 식생 머티리얼이 픽셀당 텍스처 샘플 14개에 안 쓰는 서브서피스 스캐터링까지 달고 있었습니다. 같은 룩을 6개 샘플로 만든 커스텀 머티리얼로 교체했습니다. 라이트를 끈 상태(6.84ms)에서 따로 측정해서 머티리얼 비용만 분리했습니다.">External vegetation material used 14 texture samples per pixel with unnecessary subsurface scattering. I replaced it with a custom material that achieved equivalent visual quality with 6 samples. Measured a lights-off baseline (6.84ms) to isolate material cost precisely.</p>
           <img src="../assets/images/profiling/hillside-scene.png" alt="Cherry blossom trees with stat gpu — 8.09ms after custom material" class="w-full h-auto mb-2">
           <p class="text-xs text-muted text-center" data-ko="12.23ms → 8.09ms (34%↓) — 라이트 오프 기준선 6.84ms로 머티리얼 비용 분리">12.23ms → 8.09ms (34%↓) — lights-off baseline 6.84ms isolating material cost</p>
         </div>
