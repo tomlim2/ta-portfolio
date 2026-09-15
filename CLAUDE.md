@@ -1,66 +1,25 @@
 # ta-portfolio
 
-TA 포트폴리오 사이트. GitHub Pages + 커스텀 도메인 (ta.tommlimm.net).
+TA 포트폴리오 사이트. GitHub Pages + 커스텀 도메인 `ta.tommlimm.net`.
 
-## NDA 암호화 워크플로우
+## 콘텐츠 수정
 
-NDA 프로젝트 3개는 AES-256-GCM으로 암호화하여 배포. 비밀번호: ``tools/PASSWORD.txt` 참조`
+- 공개 페이지는 `index.html`, `resume.html`, `projects/*.html`에서 편집한다.
+- 한글 `data-ko`와 영문 본문을 함께 수정한다. 담당 범위, 프로젝트 상태와 수치의 측정 조건을 구분한다.
+- 이력서 HTML 수정 시 다운로드용 `assets/resume.pdf`도 재생성하고 확인한다.
+- 미공개 작업은 Git에서 제외된 `tools/drafts/`에 보관한다. 인터뷰·근거 기록은 `tools/career-notes/`에 보관한다.
+- 현재 Shotloom 상세 사례와 이미지는 공개 보류 상태다. 공개 요청 전에는 커밋하거나 배포 목록에 추가하지 않는다. 기존 홈·이력서 경력 설명은 유지한다.
 
-### 개발 중 (로컬)
+## 검증 및 배포
 
-평문 HTML로 작업. 수정은 `projects/originals/`에서 한다.
+- `python3 scripts/build_site.py`로 `site-public.json`에 명시한 공개 파일만 `_site/`에 빌드한다.
+- 링크·앵커·텍스트 검증을 통과한 뒤 데스크톱/모바일과 언어 전환을 확인한다.
+- `main` 푸시는 검증만 실행한다. `vMAJOR.MINOR.PATCH` 태그 푸시가 검증 → Pages 배포 → GitHub Release 생성을 실행한다.
+- 태그별 설명은 `releases/<tag>.md`에 작성할 수 있다. 변경 커밋과 배포 정보는 자동으로 추가된다.
+- 자세한 명령과 설정은 `README.md`를 참고한다.
 
-```bash
-# originals 수정 후 → 평문 full HTML 빌드
-node tools/build-dev.mjs
-```
+## 과거 암호화 도구
 
-### 커밋 전 (필수)
+이전 지침은 `projects/originals/`와 `tools/PASSWORD.txt`를 사용한 AES-GCM 빌드를 전제로 했다. 현재 체크아웃에는 두 입력이 없으며, 기존 Git의 프로젝트 페이지도 이미 평문 HTML이다. `js/auth.js`, `js/crypto.js`, `tools/reencrypt.mjs`는 과거 도구로 남아 있다.
 
-**반드시 암호화 후 커밋.** 평문 커밋 금지.
-
-```bash
-# 암호화
-node tools/reencrypt.mjs `tools/PASSWORD.txt` 참조
-
-# 그다음 커밋
-git add -A && git commit
-```
-
-### 서브페이지 6개 — CSS 수정 시 전부 반영
-
-CSS나 스타일 클래스를 수정할 때 **6개 서브페이지 모두** 적용할 것. 4개는 originals, 2개는 직접 수정.
-
-| 암호화 (originals → reencrypt) | 공개 (직접 수정) |
-|-------------------------------|-----------------|
-| `projects/originals/character-system.html` | `projects/npr-shader.html` |
-| `projects/originals/megamelange.html` | `projects/matcap-painter.html` |
-| `projects/originals/pmx-to-vrm.html` | `projects/mmd-player.html` |
-
-**주의:** `projects/originals/` 수정 후 커밋 전 반드시 `node tools/reencrypt.mjs `tools/PASSWORD.txt` 참조` 실행. NPR Shader는 NDA가 아니므로 originals 수정 시 `projects/npr-shader.html`에 직접 반영해야 한다.
-
-### reencrypt 전 필수 검증
-
-**`reencrypt.mjs`는 4개 페이지를 전부 재암호화한다.** 1개만 수정해도 나머지 3개 originals가 풀 콘텐츠여야 한다. originals가 축약/불완전하면 풀 콘텐츠가 날아간다.
-
-**reencrypt 실행 전 반드시:**
-1. `wc -l projects/originals/*.html`로 줄 수 확인
-2. 축약 의심 시 `node tools/decrypt-backup.mjs`로 encrypted에서 originals 복원
-3. 복원 확인 후 수정 → reencrypt
-
-### 파일 구조
-
-| 경로 | 용도 | gitignore |
-|------|------|-----------|
-| `projects/originals/` | 평문 원본 (편집 대상) | YES |
-| `projects/*.html` | 배포용 (암호화됨 or 공개) | NO |
-| `tools/` | 스크립트 + 비밀번호 | YES |
-
-### 스크립트
-
-| 스크립트 | 용도 |
-|----------|------|
-| `tools/build-dev.mjs` | originals → 평문 full HTML (로컬 개발용) |
-| `tools/reencrypt.mjs <pw>` | originals → 암호화 HTML (커밋용) |
-| `tools/decrypt-backup.mjs <pw>` | 암호화 HTML → originals 복원 |
-| `tools/encrypt-pages.mjs <pw>` | 원본 encrypt-in-place (레거시) |
+누락된 원본으로 `reencrypt.mjs`를 실행하면 다른 페이지를 잃을 수 있으므로 실행하지 않는다. 이 도구는 현재 배포 과정에서 사용하지 않는다. 미공개 여부는 클라이언트의 잠금 UI에 의존하지 않고 커밋과 공개 파일 목록에서 제외해 관리한다.

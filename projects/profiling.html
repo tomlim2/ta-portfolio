@@ -27,7 +27,7 @@
       },
     }
   </script>
-  <link rel="icon" href="../favicon.png" type="image/png">
+  <link rel="icon" href="../favicon.gif" type="image/gif">
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body class="bg-bg text-body">
@@ -64,7 +64,7 @@
     <!-- Solution -->
     <section class="mb-16">
       <h2 class="text-xl font-bold mb-4" data-ko="해결">Solution</h2>
-      <p class="text-muted text-sm leading-relaxed mb-4" data-ko="GPU 프로파일링 프로세스를 5단계로 정리해서 팀에 공유했습니다. 직접 프로덕션 맵을 돌면서 나나이트 메시 분할, 머티리얼 교체, 에픽 시티 샘플에서 뽑아낸 렌더링 셋팅을 적용했습니다. 프레임 타임 34~68% 절감. 룩은 유지했습니다.">I standardized a 5-step GPU profiling process and shared it with the team. Then I profiled and optimized multiple production maps myself — applying Nanite mesh splitting, material replacement, and project-specific rendering settings derived from analyzing Epic's City Sample. Frame times were reduced by 34–68% while maintaining visual parity.</p>
+      <p class="text-muted text-sm leading-relaxed mb-4" data-ko="GPU 프로파일링 과정을 5단계로 정리해 팀에 공유했습니다. 프로덕션 맵을 직접 확인하며 나나이트 메시 분할, 머티리얼 교체, 에픽 시티 샘플에서 참고한 렌더링 설정을 적용했습니다. 각 변경의 프레임 시간과 시각적 결과를 함께 비교했습니다.">I organized GPU profiling into five steps and shared the process with the team. I worked through production maps using Nanite mesh splitting, material replacement, and rendering settings informed by Epic’s City Sample, comparing frame time and visual results after each change.</p>
 
       <div>
         <p class="text-xs font-medium text-heading mb-2" data-ko="내 역할">My Role</p>
@@ -105,13 +105,6 @@
               <td class="val-r">56ms</td>
               <td class="val-r">18ms</td>
               <td style="text-align:right"><span class="gain">68%↓</span></td>
-            </tr>
-            <tr>
-              <td class="lbl" data-ko="빈민가 (2차 패스)">Slum Area (2 passes)</td>
-              <td class="val" data-ko="단계별 최적화">Step-by-step</td>
-              <td class="val-r">36ms</td>
-              <td class="val-r">19ms</td>
-              <td style="text-align:right"><span class="gain">47%↓</span></td>
             </tr>
             <tr>
               <td class="lbl" data-ko="벚꽃 식생">Cherry Blossom</td>
@@ -160,8 +153,8 @@
         <!-- Case 3: Slum Optimization Process -->
         <div>
           <h3 class="font-medium mb-1 text-heading" data-ko="빈민가 — 2차 단계별 최적화">Slum Area — Two-Pass Step-by-Step Optimization</h3>
-          <p class="text-xs text-muted mb-4">47% reduction</p>
-          <p class="text-muted text-sm leading-relaxed mb-4" data-ko="stat gpu에서 foliage가 9ms로 제일 비쌌습니다. 여기부터 잡았습니다. 2차에 걸쳐 하나씩 바꾸고 매번 측정했습니다. 1차(폴리지+라이팅)로 36→29ms. 2차(나나이트, 컬 디스턴스, 인테리어 라이트)로 27→19ms. 건물 보조용 세컨더리 디렉셔널 라이트를 비활성화하고 필요시 켜달라고 했습니다. 이 과정을 통째로 문서화해서 다른 아티스트들이 나머지 씬을 직접 최적화하는 레퍼런스로 썼습니다.">stat gpu identified foliage as the top bottleneck at 9ms. Starting from 36ms, I attacked the heaviest contributor first and ran two optimization passes end-to-end — measuring after each step, rejecting ineffective attempts, and only shipping changes with verified impact. Pass 1 (foliage + lighting) brought 36→29ms. Pass 2 (Nanite, cull distance, interior lights) brought 27→19ms. Disabling a secondary directional light used for building fill could have saved another 3.5ms, but I flagged the visual quality tradeoff to the team rather than blindly applying it. This documented process then served as the reference for other artists to optimize remaining scenes independently.</p>
+          <p class="text-xs text-muted mb-4" data-ko="1차·2차 작업 로그를 각각 기록">Separate logs for the first and second passes</p>
+          <p class="text-muted text-sm leading-relaxed mb-4" data-ko="stat gpu에서 foliage가 주요 병목으로 나타나 식생과 라이팅부터 조정했습니다. 변경마다 다시 측정하고, 나나이트·컬 디스턴스·라이트 설정을 단계별로 기록했습니다. 1차와 2차는 별도 작업 기록이며, 아래 캡처는 29.73ms를 표시하는 중간 결과입니다. 보조 라이트를 끄는 선택은 연출에 미치는 영향도 함께 검토했습니다.">stat gpu identified foliage as a major bottleneck, so I started with vegetation and lighting. I re-measured after changes and documented Nanite, cull-distance, and lighting adjustments. The two passes are separate work logs; the screenshot below shows an intermediate result of 29.73ms. I also considered the visual impact of disabling fill lighting.</p>
 
           <style>
             .opt-log { margin-bottom: 1.25rem; }
@@ -247,8 +240,8 @@
           <div class="mb-2">
             <img src="../assets/images/profiling/slum-before-36ms.png" alt="Slum area before — 36ms" class="w-full h-auto mb-2">
             <p class="text-xs text-muted text-center mb-4" data-ko="최적화 전: 36ms">Before: 36ms</p>
-            <img src="../assets/images/profiling/slum-after-29ms.png" alt="Slum area after — 19ms" class="w-full h-auto mb-2">
-            <p class="text-xs text-muted text-center" data-ko="2차 패스 후: 19ms (47%↓)">After pass 2: 19ms (47%↓)</p>
+            <img src="../assets/images/profiling/slum-after-29ms.png" alt="Slum area intermediate result — GPU average 29.73ms" class="w-full h-auto mb-2">
+            <p class="text-xs text-muted text-center" data-ko="중간 결과 캡처: GPU 평균 29.73ms">Intermediate capture: GPU average 29.73ms</p>
           </div>
         </div>
 

@@ -31,7 +31,7 @@
       },
     }
   </script>
-  <link rel="icon" href="../favicon.png" type="image/png">
+  <link rel="icon" href="../favicon.gif" type="image/gif">
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body class="bg-bg text-body">
@@ -58,7 +58,7 @@
 
     <h1 class="page-title" data-ko="NPR Shader System">NPR Shader System</h1>
 
-    <p class="text-body mb-6 page-subtitle" data-ko="메타휴먼에서 애니메, PBR 위에 4가지 NPR 룩">MetaHuman to anime, 4 NPR looks over PBR</p>
+    <p class="text-body mb-6 page-subtitle" data-ko="PBR 배경과 생성형 연출에 맞춘 NPR 룩 개발">NPR look development for PBR environments and AI-directed scenes</p>
 
     <p class="text-xs text-muted mb-12">Production · UE5 · Material · Post Process · <a href="https://cinev.com" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">cinev.com</a></p>
 
@@ -71,8 +71,13 @@
     <!-- Solution -->
     <section class="mb-16">
       <h2 class="text-xl font-bold mb-4" data-ko="해결">Solution</h2>
-      <p class="text-muted text-sm leading-relaxed mb-4" data-ko="Cel Shading 기반 NPR 프로토타입을 제작한 뒤, 시스템 확장과 유지보수를 하고 있습니다.">Built a Cel Shading-based NPR prototype, then led system expansion and maintenance.</p>
+      <p class="text-muted text-sm leading-relaxed mb-4" data-ko="참고 구현이 많지 않던 시기에 관련 제작자와 개발자의 사례를 지속적으로 찾아 직접 검증했습니다. SDF 얼굴 음영, 아웃라인, Matcap과 환경 제어를 결합하면서 NPR 프로토타입을 제품에서 사용하는 룩으로 고도화했습니다.">When reference implementations were limited, I followed practitioners and developers and tested their approaches. I combined SDF face shadows, outlines, Matcap, and environment controls to develop the NPR prototype into looks used in the product.</p>
       <p class="text-muted text-sm leading-relaxed mb-6" data-ko="인하우스용 캐릭터는 Custom Depth + Post Process 버퍼를 활용하여 Emissive 기반 NPR에 비해 빛번짐 없는 깨끗한 룩을 구현했고, PBR/NPR 혼용이 필요한 VRM용 모델은 Emissive + Inverted Hull로 접근하여 NPR 파트에만 아웃라인을 그리는 방식으로 4가지 캐릭터 셰이더 룩 시스템을 만들었습니다. 프로토타입에서 이어진 핵심 노드는 SDF 페이스 섀도와 Dot Product 기반 투톤 셰이딩입니다.">Split the approach into Custom Depth + Post Process for in-house and Emissive + Inverted Hull for VRM, creating <strong class="text-heading">4 NPR looks</strong>. The core nodes carried over from the prototype are SDF face shadow and Dot Product-based two-tone shading.</p>
+    </section>
+
+    <section class="mb-16">
+      <h2 class="text-xl font-bold mb-4" data-ko="판단: 조명 계산과 연출 의도가 어긋날 때">Decision: when shading conflicts with the intended mood</h2>
+      <p class="text-muted text-sm leading-relaxed" data-ko="AI가 카메라와 조명을 자동 제어하는 환경에서는 밝은 장면의 역광이 캐릭터를 의도보다 위협적으로 보이게 만들기도 했습니다. 투톤 그림자를 그대로 유지하기보다 해당 표현을 환경 기반 컬러 톤으로 전환했습니다. 기술을 적용한 결과가 실제 연출에 유용한지를 보고 표현 방식을 바꾼 사례입니다.">With AI controlling cameras and lighting, backlighting in a bright scene could make a character look more threatening than intended. I changed that treatment from two-tone shadows to environment-driven color tones. The decision came from evaluating how the rendered result served the scene’s intended mood.</p>
     </section>
 
     <!-- Result -->
@@ -87,7 +92,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr><td class="lbl" data-ko="렌더링 전환">Rendering Transition</td><td class="val" data-ko="메타휴먼에서 애니메 스타일로 완전 전환">Full transition from MetaHuman to anime style</td></tr>
+            <tr><td class="lbl" data-ko="렌더링 전환">Rendering Transition</td><td class="val" data-ko="기존 PBR 배경을 유지하면서 애니메 스타일 캐릭터 지원">Supported anime-style characters while retaining PBR environments</td></tr>
             <tr><td class="lbl" data-ko="NPR 룩">NPR Looks</td><td class="val" data-ko="4가지 룩 — Toon Ramp 교체로 아트팀이 스타일 변경 가능">4 looks — art team can change styles by swapping Toon Ramps</td></tr>
             <tr><td class="lbl" data-ko="머티리얼 규모">Material Scale</td><td class="val">698 MIs, 1,371 textures</td></tr>
             <tr><td class="lbl" data-ko="머티리얼 분리">Material Separation</td><td class="val" data-ko="인하우스(전용 toon) + VRM(MToon 재구현) 별도 구축">In-house (dedicated toon) + VRM (MToon reimplementation) built separately</td></tr>
@@ -117,7 +122,7 @@
       <!-- 1. In-house Toon -->
       <div class="mb-12">
         <h3 class="text-lg font-bold mb-3" data-ko="1. 인하우스 Toon">1. In-house Toon</h3>
-        <p class="text-muted text-sm leading-relaxed mb-4" data-ko="Custom Depth로 캐릭터를 분리한 뒤 Post Process에서 NPR 룩을 입히는 구조입니다. 이 위에 SDF 페이스 섀도, Matcap 반사 등을 얹어서 개발·유지보수하고 있습니다.">Dedicated toon material for in-house characters. On top of a structure that separates characters via Custom Depth buffer and renders them in NPR style through Post Process, I developed and maintained features such as SDF face shadow and Matcap reflection.</p>
+        <p class="text-muted text-sm leading-relaxed mb-4" data-ko="Custom Depth로 캐릭터를 분리한 뒤 Post Process에서 NPR 룩을 입히는 구조입니다. 이 위에 SDF 페이스 섀도, Matcap 반사 등을 얹어 개발·유지보수했습니다.">Dedicated toon material for in-house characters. On top of a structure that separates characters via Custom Depth buffer and renders them in NPR style through Post Process, I developed and maintained features such as SDF face shadow and Matcap reflection.</p>
 
         <div class="mb-4">
           <video src="../assets/images/npr-shader/shadow-off-on.mp4" autoplay loop muted playsinline class="w-full"></video>
@@ -220,14 +225,14 @@
             </tbody>
           </table>
         </div>
-        <p class="text-xs text-muted text-center" data-ko="PBR / NPR 혼용 가능하게 하면서 셰이더 비용 인하우스 Toon 대비 48% 절감">Enabled realistic/non-realistic mixing while reducing shader cost by 48% (vs in-house)</p>
+        <p class="text-xs text-muted text-center" data-ko="당시 머티리얼 통계의 Base Pass 명령 수 비교: 433 → 226. GPU 프레임 시간과는 다른 지표입니다.">Recorded Base Pass instruction counts: 433 → 226. This is a material statistic, not a GPU frame-time measurement.</p>
       </div>
     </section>
 
     <!-- UDS / ToD Integration Test -->
     <section class="mb-16">
       <h2 class="text-xl font-bold mb-4" data-ko="UDS / ToD 통합 테스트">UDS / ToD Integration Test</h2>
-      <p class="text-muted text-sm leading-relaxed mb-6" data-ko="다양한 라이팅과 Time of Day 조건에서 모든 셰이더가 일관되게 동작하는지 확인하는 9프레임 그리드.">A 9-frame grid verifying that all shaders behave consistently across various lighting and Time of Day conditions.</p>
+      <p class="text-muted text-sm leading-relaxed mb-6" data-ko="조명과 Time of Day를 바꿔가며 캐릭터와 배경의 룩을 비교한 9프레임 기록입니다. 단일 조명에서의 셰이더 결과에 더해 실제 장면 구성에서의 일관성을 확인했습니다.">A nine-frame record comparing character and environment looks across lighting and Time of Day settings. I checked the results in scene context as well as under individual lighting setups.</p>
       <img src="../assets/images/npr-shader/dual-npr-comparison.png" alt="UDS / ToD integration test — 9-frame shader results across lighting conditions" class="w-full">
     </section>
 

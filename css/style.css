@@ -74,6 +74,15 @@ pre code {
   letter-spacing: 0.01em;
 }
 
+.hero-summary {
+  max-width: 50rem;
+  margin-top: 1rem;
+  font-size: clamp(1.05rem, 2.1vw, 1.35rem);
+  line-height: 1.75;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
 .page-title {
   font-family: 'Noto Rashi Hebrew', serif;
   font-size: 2.0rem;

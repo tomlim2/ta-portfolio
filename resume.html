@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>임연수 - Technical Artist / 3D Product Engineer Resume</title>
+  <title>임연수 - Technical Artist Resume</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&amp;family=Source+Sans+3:ital@1&amp;display=swap" rel="stylesheet">
@@ -17,8 +17,8 @@
 
     body {
       font-family: 'Noto Sans KR', system-ui, sans-serif;
-      font-size: 10px;
-      line-height: 1.5;
+      font-size: 12.5px;
+      line-height: 1.55;
       color: #1a1a1a;
       background: #fff;
       word-break: keep-all;
@@ -29,18 +29,18 @@
 
     .page {
       width: 210mm;
-      height: 297mm;
+      min-height: 297mm;
       margin: 0 auto;
-      padding: 18mm 18mm;
+      padding: 15mm;
       display: grid;
-      grid-template-columns: 210px 1fr;
-      gap: 0 30px;
-      overflow: hidden;
+      grid-template-columns: 176px 1fr;
+      gap: 0 26px;
+      align-items: start;
       outline: 1px solid #ccc;
     }
 
     @media print {
-      .page { padding: 18mm 18mm; }
+      .page { outline: none; }
     }
 
     .left { padding-top: 2px; }
@@ -57,14 +57,14 @@
     }
 
     .name-block .title {
-      font-size: 11px;
+      font-size: 12px;
       color: #666;
       font-weight: 400;
       font-style: italic;
     }
 
     .summary {
-      font-size: 10px;
+      font-size: 12px;
       color: #555;
       line-height: 1.6;
       margin-bottom: 14px;
@@ -72,30 +72,30 @@
 
     /* 경력 위 리드 문단 — 사이드바가 아니라 본문 맨 위에서 포지셔닝을 먼저 읽게 한다 */
     .summary.lead {
-      font-size: 11.5px;
-      color: #444;
-      margin-bottom: 16px;
+      font-size: 13px;
+      color: #333;
+      margin-bottom: 18px;
     }
 
     /* Contact */
     .contact {
-      font-size: 10px;
+      font-size: 10.5px;
       line-height: 1.7;
-      margin-bottom: 22px;
+      margin-bottom: 24px;
       color: #333;
     }
 
     .contact a { color: #333; text-decoration: none; }
     .contact strong { font-weight: 600; color: #1a1a1a; }
     .contact-links {
-      margin-top: 14px;
+      margin-top: 9px;
     }
 
     .contact .label {
       display: inline-block;
       width: 42px;
       color: #999;
-      font-size: 10px;
+      font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
@@ -113,29 +113,29 @@
     }
 
     .left h2 { margin-top: 0; margin-bottom: 7px; }
-    .right h2 { margin-top: 18px; margin-bottom: 8px; }
+    .right h2 { margin-top: 0; margin-bottom: 12px; }
     .right h2:first-child { margin-top: 0; }
 
     /* Left column sections */
-    .left-section { margin-bottom: 20px; }
+    .left-section { margin-bottom: 24px; }
 
     .edu-entry { margin-bottom: 7px; }
-    .edu-entry .school { font-weight: 600; font-size: 10px; }
-    .edu-entry .detail { font-size: 10px; color: #666; line-height: 1.5; }
+    .edu-entry .school { font-weight: 600; font-size: 10.5px; }
+    .edu-entry .detail { font-size: 10.5px; color: #555; line-height: 1.6; }
 
     /* Skills list */
-    .skills-list { font-size: 10px; color: #333; line-height: 1.55; }
+    .skills-list { font-size: 10.5px; color: #333; line-height: 1.6; }
     .skills-list .category {
       font-weight: 600;
       color: #1a1a1a;
-      margin-top: 5px;
-      font-size: 10px;
+      margin-top: 10px;
+      font-size: 10.5px;
     }
     .skills-list .category:first-child { margin-top: 0; }
     .skills-list .items {
-      color: #666;
-      padding-left: 8px;
-      font-size: 10px;
+      color: #555;
+      padding-left: 0;
+      font-size: 10.5px;
     }
 
     /* Recognition */
@@ -144,29 +144,32 @@
     .recog-entry .what { font-size: 10px; font-weight: 600; }
 
     /* Right column - experience */
-    .exp-entry { margin-bottom: 28px; }
-    .exp-meta { font-size: 10px; color: #999; margin-bottom: 0px; font-family: 'Source Sans 3', sans-serif; font-style: italic; }
-    .exp-title { font-size: 10.5px; font-weight: 700; margin-bottom: 1px; }
-    .exp-company { font-size: 10px; color: #666; margin-bottom: 3px; }
+    .exp-entry { margin-bottom: 17px; }
+    .exp-entry:last-child { margin-bottom: 0; }
+    .exp-meta { font-size: 10.5px; color: #666; margin-bottom: 1px; font-family: 'Source Sans 3', sans-serif; font-style: italic; }
+    .exp-title { font-size: 13px; font-weight: 700; margin-bottom: 2px; }
+    .exp-company { font-size: 11px; color: #555; margin-bottom: 5px; }
 
     .exp-sub {
-      font-size: 10px;
+      font-size: 12px;
       font-weight: 600;
       color: #333;
-      margin-top: 4px;
-      margin-bottom: 1px;
-      margin-left: 8px;
+      margin-top: 10px;
+      margin-bottom: 4px;
+      margin-left: 0;
     }
 
+    .project-status { font-size: 10.5px; color: #666; margin-bottom: 5px; }
+
     ul.exp-list {
-      padding-left: 8px;
-      margin-bottom: 12px;
+      padding-left: 0;
+      margin-bottom: 0;
       list-style: none;
     }
 
     li {
-      margin-bottom: 0.5px;
-      font-size: 10px;
+      margin-bottom: 4px;
+      font-size: 12.5px;
       color: #333;
     }
 
@@ -195,9 +198,9 @@
   <div class="left">
     <!-- Photo + Name -->
     <div class="name-block">
-      <img src="assets/images/profile.jpg" alt="임연수" style="width:100px; height:100px; border-radius:50%; object-fit:cover; margin-bottom:4px;">
+      <img src="assets/images/profile.jpg" alt="임연수" style="width:84px; height:84px; border-radius:50%; object-fit:cover; margin-bottom:8px;">
       <h1>임연수</h1>
-      <div class="title">Technical Artist<br>3D Product Engineer</div>
+      <div class="title">Technical Artist</div>
     </div>
 
     <!-- Contact -->
@@ -209,6 +212,27 @@
       <div class="contact-links">
         <a href="https://github.com/tomlim2">github.com/tomlim2</a><br>
         <a href="https://linkedin.com/in/tommlimm">linkedin.com/in/tommlimm</a>
+      </div>
+    </div>
+
+    <!-- Technical Skills -->
+    <div class="left-section">
+      <h2>Technical Skills</h2>
+      <div class="skills-list">
+        <div class="category">Engine</div>
+        <div class="items">Unreal Engine 5<br>Bevy (Rust) · WebAssembly<br>C++ · Blueprint</div>
+
+        <div class="category">Rendering</div>
+        <div class="items">NPR · HLSL · SDF Face Shadow<br>Matcap · Post Process · WebGPU</div>
+
+        <div class="category">Character / Animation</div>
+        <div class="items">Motion Retargeting<br>VRM 1.0 · glTF 2.0 · PMX<br>Blender</div>
+
+        <div class="category">Editor / Frontend</div>
+        <div class="items">React · TypeScript<br>Three.js<br>Timeline · Editor UI</div>
+
+        <div class="category">Pipeline</div>
+        <div class="items">Python · Git · GitLab CI/CD<br>에셋 처리 · 제작 도구 · 작업 자동화</div>
       </div>
     </div>
 
@@ -225,34 +249,13 @@
       </div>
     </div>
 
-    <!-- Technical Skills -->
-    <div class="left-section">
-      <h2>Technical Skills</h2>
-      <div class="skills-list">
-        <div class="category">Engine</div>
-        <div class="items">Unreal Engine 5<br>Bevy (Rust) · WebAssembly<br>C++ · Blueprint</div>
-
-        <div class="category">Rendering</div>
-        <div class="items">NPR · Cel Shading<br>HLSL · SDF Face Shadow · Matcap<br>WebGPU · Post Process</div>
-
-        <div class="category">Character / Animation</div>
-        <div class="items">Motion Retargeting<br>VRM 1.0 · glTF 2.0 · PMX<br>Blender</div>
-
-        <div class="category">Product Frontend</div>
-        <div class="items">React · TypeScript<br>Three.js<br>Timeline · Editor UI</div>
-
-        <div class="category">Pipeline</div>
-        <div class="items">Python · Git · GitLab CI/CD<br>에셋 일괄 처리 · 배포 자동화</div>
-      </div>
-    </div>
-
   </div>
 
   <div class="right">
     <!-- Summary -->
     <div class="summary lead">
-      기술과 아트 사이의 문제를 해결하며, 실시간 3D 기술을 사용자가 쓰는 제품으로 연결합니다.
-      UE5 캐릭터·NPR 파이프라인부터 Rust/Bevy 리타게팅과 React/TypeScript 웹 에디터까지 설계·구현합니다.
+      제작 목표에 맞는 기술을 탐색·검증하고, 실제 제작 도구와 제품 기능으로 구현하는 Technical Artist입니다.
+      UE5 NPR 렌더링과 AI 영상 제작용 3D 에디터에서 시각적 품질, 사용 흐름, 구현 제약을 함께 고려해 기술 적용 방향을 정하고 개발했습니다.
     </div>
 
     <!-- Experience -->
@@ -261,66 +264,60 @@
     <!-- Cinamon -->
     <div class="exp-entry">
       <div class="exp-meta">2023.02 - 2026.08 / 서울 강남구</div>
-      <div class="exp-title">Technical Artist at Cinamon</div>
-      <div class="exp-company">AI 기반 실시간 3D 콘텐츠 제품. 캐릭터 애니메이션·렌더링, 웹 에디터, 제작 파이프라인 개발.</div>
+      <div class="exp-title">Technical Artist · 클라이언트 개발 | Cinamon</div>
+      <div class="exp-company">AI 기반 영상 제작 도구의 렌더링·캐릭터 파이프라인과 에디터 개발.</div>
 
       <div class="exp-sub">CineV Unreal - 시네마틱 에디터</div>
       <ul class="exp-list">
-        <li>300+ 캐릭터 프리셋의 구조 분리와 비동기 로딩 도입으로 첫 로드 <span class="metric">30초 → 6초</span></li>
-        <li>일본 애니메이션풍 NPR 셰이더 프로토타입을 프로덕션 수준으로 고도화하고, 기능 확장과 최적화를 통해 초기 프로토타입 대비 렌더링 비용 <span class="metric">48%</span> 절감</li>
-        <li>도시 배경 렌더링 최적화로 GPU <span class="metric">34.18ms → 18.44ms</span> (46%)</li>
-        <li>22,848개 텍스처 일괄 최적화로 프로젝트 용량 <span class="metric">700GB → 400GB</span></li>
-        <li>20명 아트팀 Git 워크플로우 및 외부 작업자 NAS·Slack Bot 배포 자동화</li>
+        <li>NPR 구현 사례를 검증하고 SDF 얼굴 음영·환경 제어를 결합해 제품 수준의 룩으로 고도화. 자동 조명에서 발생한 그림자 연출 문제에 환경 기반 컬러 톤 적용.</li>
+        <li>에디터 저장 도구와 런타임 로딩을 분리하고, 아트팀이 코드 수정 없이 프리셋을 등록·변경하고 룩을 확인하는 캐릭터 제작 도구 구현.</li>
+        <li>외부 캐릭터 저장·불러오기 프로토타입 제안에서 제품의 캐릭터 등록·관리 기능 구현까지 담당.</li>
+        <li>도시 배경 5개 지점 평균 GPU 프레임 시간 <span class="metric">34.18ms → 18.44ms</span> (약 46%) 개선.</li>
+        <li>아트팀 Git 브랜치 관리·병합 지원 및 Python 기반 에셋 일괄 처리 도구 개발.</li>
       </ul>
 
-      <div class="exp-sub">Shotloom - 웹 기반 3D 에디터</div>
+      <div class="exp-sub">Shotloom - AI 영상 제작용 웹 3D 에디터</div>
+      <div class="project-status">핵심 제작 흐름 구현·개발 서버 배포. 회사 사정으로 정식 출시 전 개발 중단.</div>
       <ul class="exp-list">
-        <li>프로젝트에 구성된 에이전트 가드레일과 검증 루프를 기반으로 구현에 필요한 시스템<br>계약·모듈 경계를 문서화하고, 여러 개발자가 맥락 손실 없이 이어서 개발할 수 있는 LLM 개발 하네스를 구축·운영</li>
-        <li>Rust/Bevy 기반 소스 모션과 대상 캐릭터의 골격을 정규화하는 캐릭터 애니메이션 리타게팅 파이프라인 설계·구현</li>
-        <li>사내 AI 영상 제작 파이프라인을 사용자가 직접 제어하는 React/TypeScript 기반 웹 3D 에디터 프론트엔드 구현 - 장면·캐릭터·카메라·타임라인 UI/UX 설계</li>
+        <li>자사 ARP·A포즈를 공통 기준으로 Rust/Bevy 리타게터 설계·구현. 캐릭터·모션 어댑터를 분리하고 VRM 레스트 회전을 보존해 다리·손목·발 뒤틀림 수정.</li>
+        <li>자사 장면·캐릭터·모션 생성과 영상 생성 서비스를 React/TypeScript 에디터에 통합. 3D에 익숙하지 않은 연출자를 위해 카메라 프리셋·스트립 중심 타임라인과 모션 배치·길이·사용 구간·속도 조절 구현.</li>
+        <li>IK 제어 코어와 책임 경계를 구현·문서화해 동료의 조작 UI 개발 지원. 작업·리뷰·검증 기록을 연결하는 AI 개발 워크플로를 구축해 구현 목적과 범위 공유.</li>
       </ul>
     </div>
 
     <!-- FLFI -->
     <div class="exp-entry">
       <div class="exp-meta">2022.02 - 2023.01 / 서울 강남구</div>
-      <div class="exp-title">Frontend Developer at FLFI</div>
-      <div class="exp-company">블록체인 스타트업. NFT 터미널, 커뮤니티 플랫폼 개발.</div>
+      <div class="exp-title">Frontend Developer | FLFI</div>
       <ul class="exp-list">
-        <li>Vue.js + Three.js 인터랙티브 3D 페이지, NFT 모델 리깅 및 애니메이션</li>
-        <li>Web3.js MetaMask 연동 로그인, 위젯 시스템, 어드민 CRUD</li>
+        <li>Vue.js·Three.js 인터랙티브 3D 페이지와 모델 리깅·애니메이션 구현. 커뮤니티 로그인·위젯·어드민 개발.</li>
       </ul>
     </div>
 
     <!-- Varo -->
     <div class="exp-entry">
       <div class="exp-meta">2019.10 - 2020.07 / San Francisco, CA</div>
-      <div class="exp-title">UX Engineer at Varo Bank</div>
-      <div class="exp-company">핀테크 스타트업. UX 엔지니어링 및 모션 디자인.</div>
+      <div class="exp-title">UX Engineer | Varo Money</div>
       <ul class="exp-list">
-        <li>Lottie 애니메이션 워크플로우 도입 - First User Journey 온보딩 경험 개선</li>
-        <li>광고 크리에이티브 제작 - 사내 CTR 2위, 이달의 디자이너 선정</li>
-        <li>After Effects → Lottie 파이프라인 구축 - 디자인팀 모션 자산 재활용 체계화</li>
+        <li>디자인·엔지니어링팀과 After Effects → Lottie 워크플로를 도입해 모션 자산을 앱 온보딩에 적용. 3D 광고 제작 및 이달의 디자이너 선정.</li>
       </ul>
     </div>
 
     <!-- CCA TA -->
     <div class="exp-entry">
       <div class="exp-meta">2018.06 - 2019.12 / San Francisco, CA</div>
-      <div class="exp-title">Teaching Assistant at CCA</div>
+      <div class="exp-title">Teaching Assistant | CCA</div>
       <ul class="exp-list">
-        <li>Unreal Engine 기반 VR/AR 수업 기술 지원 - 학생 프로젝트 트러블슈팅</li>
-        <li>Google Blocks (VR) · Epic Games 교육자 프로그램 참가</li>
+        <li>Unreal Engine 기반 VR/AR 수업의 커리큘럼 연구와 학생 프로젝트 기술 지원.</li>
       </ul>
     </div>
 
     <!-- Freelance -->
     <div class="exp-entry">
       <div class="exp-meta">2014.02 - Present / 서울 · Remote</div>
-      <div class="exp-title">Technical Tutor (자영업)</div>
-      <div class="exp-company">1:1 기술 멘토링 지속 운영(누적 20명+). 2014-2023년 모션 그래픽·인터랙션 디자인 및 리브랜딩 프로젝트 9개+ 수행.</div>
+      <div class="exp-title">Technical Designer &amp; Tutor | Freelance</div>
       <ul class="exp-list">
-        <li>성인 학습자의 장기 목표에 맞춘 1:1 기술 멘토링 - D학점에서 A학점 졸업, 취업, 컬럼비아대학교 대학원 합격까지 단계별 지원</li>
+        <li>누적 20명+ 대상 3D·모션·인터랙션 제작 기술 멘토링. 2014-2023년 디자인·리브랜딩 프로젝트 9개+ 수행.</li>
       </ul>
     </div>
 

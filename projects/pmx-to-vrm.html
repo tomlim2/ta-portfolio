@@ -31,7 +31,7 @@
       },
     }
   </script>
-  <link rel="icon" href="../favicon.png" type="image/png">
+  <link rel="icon" href="../favicon.gif" type="image/gif">
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body class="bg-bg text-body">
@@ -64,13 +64,13 @@
     <!-- Problem -->
     <section class="mb-16">
       <h2 class="text-xl font-bold mb-4" data-ko="문제">Problem</h2>
-      <p class="text-muted text-sm leading-relaxed" data-ko="프로젝트에서 외부 VRM 캐릭터 지원이 추가되면서 Booth/커뮤니티의 PMX 모델도 실시간 로드를 해야 했습니다. vrm4u에서 제공하는 실시간 VRM 로더와 달리 별도의 PMX 로더가 없었고, PMX 캐릭터 파일도 자체적으로 무결성을 검증할 방법이 없었습니다.">We needed to bring PMX characters from Booth/community into the project, but there was no way to convert PMX to UE-compatible VRM. Manual conversion broke bone mappings, lost physics on hair/skirts, and corrupted textures, completely changing the look. The <a href="mmd-player.html" class="text-accent hover:underline">MMD Player</a> was built as a source verifier for this pipeline.</p>
+      <p class="text-muted text-sm leading-relaxed" data-ko="외부 VRM 캐릭터 지원 이후 PMX 모델도 제품에 가져올 방법이 필요했습니다. 기존 VRM 로더를 활용할 수 있도록 PMX를 변환하는 경로를 새로 만들었고, 원본 모델의 문제와 변환기의 문제를 구분할 검증 도구도 함께 필요했습니다.">After adding external VRM support, the product needed an import path for PMX models. I built a conversion route that could reuse the existing VRM loader and needed a way to distinguish source-model issues from converter issues.</p>
     </section>
 
     <!-- Solution -->
     <section class="mb-16">
       <h2 class="text-xl font-bold mb-4" data-ko="해결">Solution</h2>
-      <p class="text-muted text-sm leading-relaxed mb-6" data-ko="VRM 실시간 로더처럼 PMX 실시간 로더를 만드는 것이 아닌, PMX를 glTF를 거쳐 VRM으로 자동 변환하는 파이프라인을 만들어 PMX를 VRM으로 변환 뒤 프로젝트로 가져와 사용하도록 플로우를 제안했습니다. 핵심은 본 테이블을 VRM 본 테이블에 매핑시키면서 물리본(머리카락, 스커트, 리본) 그룹핑을 보존하는 것이었습니다. 또한 PMX에서 사용되는 아웃라인 비활성화 플래그들을 VRM 로더에 전달하기 위해 메타데이터를 추가해야 했습니다. 코드는 TA용 Python CLI, 팀원용 Next.js 웹앱, 서버 없이 돌아가는 브라우저 SPA 세 가지 형태로 제공합니다.">An automated PMX to glTF to VRM conversion pipeline. <strong class="text-heading">Drop in a ZIP, get a UE-ready VRM out.</strong> The key requirement was preserving physics (hair, skirt, ribbon) and material look without breaking them.</p>
+      <p class="text-muted text-sm leading-relaxed mb-6" data-ko="별도의 PMX 런타임 로더를 추가하는 대신 PMX → glTF → VRM 변환을 제안했습니다. 본 매핑과 머리카락·스커트·리본의 물리본 그룹을 보존하고, 아웃라인 비활성화 정보를 로더에 전달하는 메타데이터를 추가했습니다. Python CLI, 웹 앱, 서버 없이 동작하는 브라우저 SPA로 구현했습니다.">I proposed a PMX → glTF → VRM conversion path to reuse the existing loader. I implemented bone mapping, preserved physics-bone groups for hair, skirts, and ribbons, and added metadata for outline-disable flags. The pipeline was implemented as a Python CLI, a web app, and a serverless browser SPA.</p>
 
       <h3 class="font-medium mb-3" data-ko="파이프라인 플로우">Pipeline Flow</h3>
       <pre class="text-xs mb-6"><code>ZIP → PMX Parse → glTF Build → VRM Output</code></pre>
@@ -109,8 +109,8 @@
             </tr>
           </thead>
           <tbody>
-            <tr ><td class="lbl" data-ko="변환 성공률">Conversion Rate</td><td class="val" data-ko="주요 게임사 PMX 90% 성공 (HoYoverse, Eternal Return, Cyphers 등)">90% success on major game PMX (HoYoverse, Eternal Return, Cyphers, etc.)</td></tr>
-            <tr ><td class="lbl" data-ko="모델 커버리지">Model Coverage</td><td class="val" data-ko="일본·중국 PMX 모두 지원">Both Japanese and Chinese PMX supported</td></tr>
+            <tr ><td class="lbl" data-ko="변환 흐름">Conversion workflow</td><td class="val" data-ko="ZIP 입력부터 PMX 파싱·VRM 출력·구조 검증까지 구현">Implemented ZIP input, PMX parsing, VRM output, and structural validation</td></tr>
+            <tr ><td class="lbl" data-ko="파일 경로 처리">File paths</td><td class="val" data-ko="일본어·중국어 파일 경로의 인코딩 문제 처리">Handled encoding issues in Japanese and Chinese file paths</td></tr>
             <tr><td class="lbl" data-ko="변환 속도">Conversion Speed</td><td class="val">393ms (Saber.pmx, 28K vertices)</td></tr>
           </tbody>
         </table>
