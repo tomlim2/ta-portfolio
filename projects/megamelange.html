@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MegaMelange MCP — Younsoo Lim</title>
+  <title>Live UE Scene Bridge — Younsoo Lim</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Noto+Rashi+Hebrew:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -65,13 +65,13 @@
     <!-- Problem -->
     <section class="mb-16">
       <h2 class="text-xl font-bold mb-4" data-ko="문제">Problem</h2>
-      <p class="text-muted text-sm leading-relaxed" data-ko="다양한 카메라, 액션 등 출시전 다양한 캐릭터들에 대한 클라이언트 쪽의 대비는 되어 있었지만 연출을 위한 라이트 스폰, 날씨, TOD 제어 등 환경에 대한 제어에 대한 대비가 미비하였습니다.">The client side was prepared with diverse cameras, actions, and characters for launch, but controls for directing environments — light spawning, weather, and time-of-day — were lacking.</p>
+      <p class="text-muted text-sm leading-relaxed" data-ko="Cinev Studio의 캐릭터·카메라 작업에 비해 라이트 생성, 에셋 위치, 날씨·시간대 등 환경 연출을 제어하는 기능은 부족했습니다. 이를 자연어로 조작하고, 현재 장면을 이미지·영상 생성 서비스로 연결하는 후속 기능을 PoC로 구현했습니다.">Cinev Studio had character and camera workflows, but controls for lighting, asset placement, weather, and time of day were still limited. I built a PoC for controlling these through natural language and passing the scene into image and video generation services.</p>
     </section>
 
     <!-- Solution -->
     <section class="mb-16">
       <h2 class="text-xl font-bold mb-4" data-ko="해결">Solution</h2>
-      <p class="text-muted text-sm leading-relaxed mb-6" data-ko="자연어를 AI 레이어(Claude/Gemini)가 명령으로 바꾸고, UE C++ 플러그인이 에디터에서 실시간으로 TOD, 라이트 스폰, 날씨 제어 등을 실행하는 구조를 만들었습니다. 도시 이름이 아닌 좌표값을 입력해야하는 Cesium에 도시 등 컨텍스트를 좌표값으로 변환 적용시켜 '도쿄 도심 보여줘', '오후 6시 서울' 같은 한 줄이면 배경이 셋업됩니다. 또한 나노바나나, Veo-3 등 영상 최종 결과물을 빠르게 수정, 편집, 확장할 수 있는 형태로 만들었습니다.">An AI layer (Claude/Gemini) converts natural language into commands, and a UE C++ plugin executes TOD, light spawning, and weather control in the editor in real time. Cesium requires raw coordinates, so the system translates city names and context into coordinates — a single line like "Show me downtown Tokyo" or "6 PM Seoul" sets up the entire background. Nano Banana and Veo-3 are also integrated to quickly edit, refine, and extend final video output.</p>
+      <p class="text-muted text-sm leading-relaxed mb-6" data-ko="기존 Python–C++ JSON 통신 브릿지를 기반으로 자연어 명령 처리와 UE 환경 제어, 외부 생성 서비스를 연결했습니다. Cesium에는 도시 이름을 좌표로 바꿔 전달하고, UDS로 시간대·날씨를 조정합니다. UE 화면 캡처를 Nano Banana로 스타일 변환하고 Veo-3 영상 생성으로 이어가는 흐름도 구성했습니다.">Using the existing Python–C++ JSON communication bridge, I connected natural-language command handling, UE environment controls, and external generation services. City names become coordinates for Cesium, while UDS controls time and weather. The workflow also passes UE captures through Nano Banana style transformation and Veo-3 video generation.</p>
 
       <!-- NL examples -->
       <div class="mb-6">
@@ -100,7 +100,7 @@
       </div>
 
       <h3 class="font-medium mb-3" data-ko="코어 — Cesium + UDS 통합">Core — Cesium + UDS Integration</h3>
-      <p class="text-muted text-sm leading-relaxed mb-4" data-ko="가장 공을 들인 부분입니다. Cesium 지형 + Ultra Dynamic Sky를 결합해 위치·시간대·날씨·무드를 한 번에 셋업하고, Nano Banana(i2i)를 얹으면 원하는 컨셉으로 변환됩니다. 텍스트 프롬프트에서 스타일링된 컨셉 이미지까지 툴 안에서 완결됩니다.">The most invested part. By combining Cesium terrain data with Ultra Dynamic Sky, a single natural language line sets up an outdoor background with <strong class="text-heading">location + time of day + weather + mood</strong>. Adding Nano Banana (i2i) on top transforms it into the desired concept or feel, so you go from a text prompt to a styled concept image without leaving the tool.</p>
+      <p class="text-muted text-sm leading-relaxed mb-4" data-ko="Cesium 지형과 Ultra Dynamic Sky를 결합해 위치·시간대·날씨·무드를 설정하고, Nano Banana로 장면을 원하는 컨셉 이미지로 변환합니다. 이 과정에서 사용자에게 각 처리 단계를 어떻게 보여줄지와 서비스 사이에서 주고받을 상태 정의에 집중했습니다.">Cesium and Ultra Dynamic Sky set the location, time, weather, and mood; Nano Banana turns the scene into a concept image. I focused on defining the status passed between services and showing users which step was currently running.</p>
 
       <!-- i2i result -->
       <div class="mb-6 overflow-hidden">
@@ -122,6 +122,21 @@
         <img src="../assets/images/megamelange/roblox-demo.png" alt="Roblox character import placed on background + AI transformation" class="w-full h-auto">
         <p class="text-xs text-muted text-center mt-2" data-ko="생성된 배경 위에 배치된 Roblox 캐릭터">Roblox character placed on generated background</p>
       </div>
+    </section>
+
+    <section id="status-feedback" class="mb-16">
+      <h2 class="text-xl font-bold mb-4" data-ko="사용자가 지금 무엇을 기다리는지">Making the current processing stage visible</h2>
+      <p class="text-muted text-sm leading-relaxed mb-4" data-ko="예를 들어 현재 Unreal 화면을 다른 시대의 분위기로 바꾸는 요청은 캡처, 전달, 생성 요청, 응답 대기를 거칩니다. C++의 상태를 Python과 TypeScript UI까지 전달할 값을 정의해, 사용자가 지금 무엇을 기다리는지 알 수 있도록 설계했습니다.">A request to give the current Unreal scene the atmosphere of another era passes through capture, transfer, generation, and waiting for a response. I defined status information across C++, Python, and the TypeScript UI so users could understand what they were waiting for.</p><div class="overflow-x-auto mb-6"><table class="tbl"><thead><tr><th data-ko="단계">Stage</th><th data-ko="처리 흐름">Workflow</th></tr></thead><tbody><tr><td class="lbl" data-ko="화면 캡처">Capture</td><td class="val" data-ko="C++에서 현재 Unreal 화면 촬영">C++ captures the Unreal viewport</td></tr><tr><td class="lbl" data-ko="이미지 전달">Transfer</td><td class="val" data-ko="캡처 결과를 Python으로 전달">Pass the capture to Python</td></tr><tr><td class="lbl" data-ko="생성 요청·대기">Generate / Wait</td><td class="val" data-ko="이미지 생성 API에 입력하고 응답 대기">Submit to the image generation API and wait</td></tr><tr><td class="lbl" data-ko="결과 피드백">Result</td><td class="val" data-ko="생성 결과를 사용자 화면에 표시">Present the generated result in the UI</td></tr></tbody></table></div>
+    </section>
+
+    <section id="prompt-design" class="mb-16">
+      <h2 class="text-xl font-bold mb-4" data-ko="입력 정보와 호출 비용 다듬기">Refining inputs and call cost</h2>
+      <p class="text-muted text-sm leading-relaxed mb-4" data-ko="구현 후에는 LLM 입력과 호출 구조를 정리했습니다. 프런트의 LLM 처리를 Python으로 모아 중복 호출을 줄이고, 프롬프트의 파라미터 검증·판단 분기·예시·주입 컨텍스트를 간소화했습니다. 이미지 변환 프롬프트는 길이와 명확성을 비교하면서 구도 유지·변환 강도처럼 결과 품질에 필요한 지시를 검토했습니다.">After the workflow was in place, I refined LLM inputs and call structure. I centralized LLM processing in Python to reduce duplicate calls and simplified parameter-validation instructions, decision branches, examples, and injected context. For image transformation, I compared prompt length with clarity while considering instructions needed to preserve composition and control transformation strength.</p><p class="text-muted text-sm leading-relaxed mb-4" data-ko="CJK 에셋명 번역에서는 배치 처리, 공통 이름의 중복 제거, 간결한 입출력 형식도 적용했습니다.">For CJK asset-name translation, I also applied batching, deduplication of shared names, and concise input/output formatting.</p>
+    </section>
+
+    <section id="adoption" class="mb-16">
+      <h2 class="text-xl font-bold mb-4" data-ko="후속 적용을 결정한 기준">Deciding what to adopt next</h2>
+      <p class="text-muted text-sm leading-relaxed mb-4" data-ko="라이트·에셋 위치 제어는 당시 기획에 빠져 있던 부분을 보완할 후속 기능으로 계획됐습니다. 캐릭터·환경 인터랙션도 후속 과제였습니다. 별도로 시도한 눈·물웅덩이 인터랙션은 반복할 때마다 결과가 달라, 남은 일정 안에 일관성을 확보하기 어렵다고 판단하고 적용을 미뤘습니다.">Lighting and asset-placement controls were planned as follow-up features to fill gaps in the product. Character–environment interaction was also a later task. In a separate snow and puddle interaction experiment, results varied between runs; I deferred adoption because consistent behavior could not be secured within the remaining schedule.</p>
     </section>
 
     <!-- Result -->

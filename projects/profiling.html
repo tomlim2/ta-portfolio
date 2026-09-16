@@ -51,9 +51,9 @@
 
     <h1 class="page-title" data-ko="UE5 GPU 프로파일링 & 최적화">UE5 Profiling & Optimization</h1>
 
-    <p class="text-body mb-6 page-subtitle" data-ko="복수 프로덕션 씬에서 GPU 프레임 타임 34~68% 절감">34–68% GPU frame time reduction across multiple production scenes through systematic diagnosis and iterative optimization</p>
+    <p class="text-body mb-6 page-subtitle" data-ko="UE 에디터에서 GPU 비용을 줄이고 제작팀의 자체 점검 흐름을 정리">Reducing GPU cost in the UE editor and helping artists profile their own work</p>
 
-    <p class="text-xs text-muted mb-12">Production · UE5 · Nanite · GPU Profiling · stat gpu</p>
+    <p class="text-xs text-muted mb-12">Cinev Studio · UE5 Editor · Nanite · GPU Profiling · stat gpu</p>
 
     <!-- Problem -->
     <section class="mb-16">
@@ -71,11 +71,13 @@
         <ul class="text-muted text-sm leading-relaxed space-y-1" style="list-style: disc !important; padding-left: 1.25rem;">
           <li data-ko="초기 씬을 직접 프로파일링하고 최적화해서 방법론과 기준값을 잡았습니다">Personally profiled, diagnosed, and optimized initial scenes to establish methodology and baseline targets</li>
           <li data-ko="에픽 시티 샘플을 분석해서 나나이트 셋팅 기준을 뽑고 문서화했습니다">Analyzed Epic's City Sample, derived Nanite setting guidelines, and documented them so other TAs and environment/lighting artists could apply them independently</li>
-          <li data-ko="5단계 방법론을 만들어 팀 표준으로 정착시켰습니다. 이후 최적화는 다른 아티스트들이 이걸 보고 직접 돌렸습니다">Created the 5-step methodology adopted as team standard — subsequent optimization passes were carried out by other artists using this framework</li>
+          <li data-ko="프로파일링 방법을 Notion에 정리해 배경·라이팅 팀에 공유하고, 자체 점검 후 TA팀 지원으로 이어지는 흐름을 마련했습니다">Documented profiling in Notion for the environment and lighting teams, establishing a flow from their own checks to TA support</li>
 
         </ul>
       </div>
     </section>
+
+    <p class="text-xs text-muted leading-relaxed mb-8" data-ko="아래 수치는 Unreal Engine 에디터에서 측정한 GPU 프레임 시간입니다. 각 변경은 같은 카메라 지점의 화면과 함께 비교했습니다.">The figures below are GPU frame times measured in the Unreal Engine editor. Each change was compared with the visual result at the same camera position.</p>
 
     <!-- Result Table -->
     <section class="mb-16">
@@ -264,7 +266,7 @@
     <!-- Methodology -->
     <section class="mb-16">
       <h2 class="text-xl font-bold mb-4" data-ko="프로파일링 방법론">How I Profile</h2>
-      <p class="text-muted text-sm leading-relaxed mb-6" data-ko="이 프로세스를 정리해서 팀에 공유했고, 이후 모든 최적화 패스의 기본이 됐습니다.">I standardized this process and shared it with the team. It was adopted as the team standard for all subsequent optimization passes.</p>
+      <p class="text-muted text-sm leading-relaxed mb-6" data-ko="처음에는 TA팀이 프로파일링을 담당했습니다. 이후 Notion으로 방법을 배경·라이팅 팀에 공유해, 비용이 높으면 라이트·머티리얼 종류, 텍스처 크기, 폴리곤 수를 먼저 확인하도록 했습니다. 원하는 룩을 위해 필요한 요소를 유지하면서 해결하기 어려운 경우에는 TA팀이 커스터마이징하거나 더 적은 비용의 표현을 찾았습니다.">Profiling initially sat with the TA team. I documented the process in Notion for the environment and lighting teams so they could first inspect light and material types, texture sizes, and polygon counts. When an essential part of the look could not meet the budget, the TA team helped customize it or find a less costly way to achieve the same effect.</p>
 
       <div class="mb-6">
         <ol class="text-muted text-sm leading-relaxed space-y-2 list-decimal list-inside">

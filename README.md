@@ -6,19 +6,19 @@ For project narratives, editing locations, and evidence-record navigation, start
 
 ## Shotloom case study
 
-The Shotloom homepage card, case study, and SceneGen flow illustration are included in the public portfolio. The case study covers core 3D workflows, company service integration, and accessible editing. It distinguishes Shotloom’s 3D editing and scene video output from CINEV’s image input and final video generation. The product reached development-server deployment; publication of this case study does not imply a product launch.
+The Shotloom homepage card, case study, and SceneGen flow illustration are included in the public portfolio. The case study covers core 3D workflows, company service integration, and accessible editing. SceneGen illustrates one of several Shotloom use cases: in this example, Shotloom’s 3D editing and scene video output connect CINEV’s image input with final video generation. The product reached development-server deployment; publication of this case study does not imply a product launch.
 
 ## Projects
 
 | Project | Scope | Description |
 |---------|------|-------------|
 | Shotloom | Company project; product reached dev deployment | Retargeting, editor UX/frontend, and engineering handoff |
-| NPR Shading & Look Development | CineV company project | Research, look development, and lighting decisions |
-| Character System | CineV company project | Artist authoring tools and runtime character loading |
-| UE5 Profiling | CineV company project | GPU profiling and documented optimization decisions |
-| PMX to VRM | Production pipeline | Conversion into the existing VRM import path |
-| Matcap Painter | Personal tool | Real-time texture editing and 3D preview |
-| MMD Player | Personal tool | Source-model verification and WebGPU motion experiments |
+| NPR Shading & Look Development | Cinev Studio company project | Research, look development, and lighting decisions |
+| Character System | Cinev Studio company project | Artist authoring tools and runtime character loading |
+| UE5 Profiling | Cinev Studio company project | GPU profiling and documented optimization decisions |
+| PMX to VRM | Internal R&D; not integrated into Studio | Conversion for the existing VRM import path; internally validated |
+| Matcap Painter | Personal tool shared with the character team | Real-time texture editing used for metal and plastic character details |
+| MMD Player | Personal tool; sole user | Source-model verification and WebGPU motion experiments |
 | Live UE Scene Bridge | Internal R&D PoC | Natural language UE scene control and AI generation integration |
 
 ## Tech Stack

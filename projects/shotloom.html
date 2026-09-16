@@ -62,18 +62,13 @@
 
   <main class="max-w-4xl mx-auto px-6 pt-16 pb-24">
 
-    <div class="mb-8">
-      <img src="../assets/images/shotloom/scenegen-flow-v2.png" alt="SceneGen flow: CINEV image input, Shotloom 3D scene and character, motion and camera editing in steps 2–4, then scene video output to CINEV for video generation" width="1672" height="941" class="w-full h-auto">
-      <p class="text-xs text-muted mt-2 text-center" data-ko="SceneGen 서비스 흐름도 · 02–04: Shotloom · 01·05: CINEV">SceneGen service flow · 02–04: Shotloom · 01 &amp; 05: CINEV</p>
-    </div>
-
     <h1 class="page-title">Shotloom</h1>
     <p class="text-body mb-6 page-subtitle" data-ko="AI 영상 제작 흐름을 연결하는 웹 3D 에디터">A web 3D editor connecting AI video production workflows</p>
     <p class="text-xs text-muted mb-12">Cinamon · 2026.04 - 2026.08 · React / TypeScript · Rust / Bevy</p>
 
     <section id="overview" class="mb-16">
       <h2 class="text-xl font-bold mb-4" data-ko="프로젝트 개요">Project overview</h2>
-      <p class="text-muted text-sm leading-relaxed mb-6" data-ko="Shotloom은 장면·캐릭터·모션·카메라를 다루는 기본 3D 작업 흐름에, CINEV의 모션·에셋 서비스를 연결하는 웹 3D 에디터입니다. 저는 캐릭터 모션 리타게터와 에디터 프런트엔드·UX/UI를 담당했습니다.">Shotloom is a web 3D editor that connects foundational workflows for scenes, characters, motion, and cameras with CINEV’s motion and asset services. I owned character-motion retargeting and the editor frontend, including UX and UI.</p>
+      <p class="text-muted text-sm leading-relaxed mb-6" data-ko="Shotloom은 장면·캐릭터·모션·카메라를 다루는 기본 3D 작업 흐름에 Cinev의 모션·에셋 서비스를 연결하는 웹 에디터입니다. 외부 캐릭터와 내부 모션을 연결하는 리타게터부터 맡았고, 에디터 프런트엔드·UX/UI와 IK 제어 코어로 담당 범위를 넓혔습니다.">Shotloom is a web editor connecting foundational 3D scene, character, motion, and camera workflows with Cinev’s motion and asset services. I started with retargeting external characters to internal motion, then took on editor frontend/UX and the core IK control layer.</p>
       <div class="overflow-x-auto mb-6">
         <table class="tbl">
           <thead><tr><th data-ko="항목">Area</th><th data-ko="내용">Details</th></tr></thead>
@@ -84,7 +79,11 @@
           </tbody>
         </table>
       </div>
-      <p class="text-muted text-sm leading-relaxed" data-ko="전체 제작 흐름의 해피패스를 구현해 개발 서버에 배포했습니다. 회사 사정으로 정식 출시 전 개발이 중단되었고, 기본 편집 기능의 보완과 대상 연출자의 사용 검증은 남아 있었습니다.">The complete production happy path was implemented and deployed to a development server. Company circumstances stopped development before release. Basic editing refinements and validation with the intended directors remained unfinished.</p>
+    </section>
+
+    <section id="product-background" class="mb-16">
+      <h2 class="text-xl font-bold mb-4" data-ko="Shotloom이 필요해진 배경">Why Shotloom was needed</h2>
+      <p class="text-muted text-sm leading-relaxed mb-4" data-ko="Cinev 웹은 스토리보드·캐릭터 시트 생성 등 자체 제작 기능을 확장했습니다. Shotloom은 이 흐름에 맞는 빠른 3D 편집을 제공하기 위해 개발됐습니다.">Cinev expanded its web creation features, including storyboard and character-sheet generation. Shotloom was developed to bring responsive 3D editing into this workflow.</p>
     </section>
 
     <section id="design-goals" class="mb-16">
@@ -102,8 +101,12 @@
     </section>
 
     <section id="flow" class="mb-16">
-      <h2 class="text-xl font-bold mb-4" data-ko="SceneGen 서비스 흐름">The SceneGen service flow</h2>
-      <p class="text-muted text-sm leading-relaxed mb-6" data-ko="이미지 입력과 최종 영상 생성은 기존 CINEV의 영역입니다. 그 사이의 2–4단계에서 Shotloom을 사용해 장면과 연출을 3D로 구성·편집합니다. Shotloom의 입력은 이미지이며, 출력은 수정한 모션과 카메라가 반영된 씬 동영상입니다. 이 동영상을 CINEV의 영상 생성 단계로 전달합니다.">Image input and final video generation belong to the existing CINEV workflow. Shotloom is used in steps 2–4 to compose and edit the scene, motion, and camera direction in 3D. Its input is an image, and its output is a scene video incorporating the edited motion and camera. This video is passed to CINEV’s video generation stage.</p>
+      <h2 class="text-xl font-bold mb-4" data-ko="활용 예시: SceneGen">Use case: SceneGen</h2>
+      <p class="text-muted text-sm leading-relaxed mb-6" data-ko="SceneGen은 Shotloom의 여러 활용 예시 중 하나입니다. CINEV의 이미지 입력과 최종 영상 생성 사이, 2–4단계에서 Shotloom으로 장면·모션·카메라를 구성하고 편집합니다. 이 예시에서는 이미지를 입력받아 편집 결과가 반영된 씬 동영상을 출력하고, CINEV의 영상 생성 단계로 전달합니다.">SceneGen is one of several use cases for Shotloom. Between CINEV’s image input and final video generation, Shotloom is used in steps 2–4 to compose and edit scenes, motion, and cameras. In this example, it takes an image and outputs a scene video reflecting those edits, which is passed to CINEV’s video generation stage.</p>
+      <figure class="mb-8">
+        <img src="../assets/images/shotloom/scenegen-flow-v2.png" alt="SceneGen, one Shotloom use case: CINEV image input, Shotloom 3D editing in steps 2–4, and scene video output to CINEV for video generation" width="1672" height="941" class="w-full h-auto">
+        <figcaption class="text-xs text-muted mt-2 text-center" data-ko="SceneGen 활용 예시 · 02–04: Shotloom · 01·05: CINEV · ImageGen 개념 설명도">SceneGen use case · 02–04: Shotloom · 01 &amp; 05: CINEV · Concept illustration made with ImageGen</figcaption>
+      </figure>
       <div class="overflow-x-auto mb-6">
         <table class="tbl">
           <thead><tr><th data-ko="단계">Step</th><th data-ko="제작 흐름">Production flow</th><th data-ko="사용 도구">Tool</th></tr></thead>
@@ -122,7 +125,7 @@
     <hr class="border-border mb-12">
 
     <section id="retargeting" class="mb-16">
-      <h2 class="text-xl font-bold mb-4" data-ko="리깅 차이를 공통 기준으로 연결">Choosing a common basis for retargeting</h2>
+      <h2 class="text-xl font-bold mb-4" data-ko="리타게터">Retargeter</h2>
       <p class="text-muted text-sm leading-relaxed mb-6" data-ko="캐릭터와 모션의 출처마다 본 구조, 좌표계와 레스트 포즈가 달랐습니다. 사용자에게 소스와 타깃을 직접 고르게 하면 조작 난도가 크게 높아진다고 판단했습니다. 자사 모션 자산에서 많이 사용하던 ARP 리깅과 A포즈를 공통 기준으로 정했습니다.">Characters and motions arrived with different skeletons, coordinate systems, and rest poses. Requiring users to choose and configure source and target rigs would add complexity. I chose ARP and an A-pose as the common basis because they were widely used in the company’s motion assets.</p>
       <div class="overflow-x-auto mb-6">
         <table class="tbl">
@@ -134,7 +137,7 @@
         </table>
       </div>
       <p class="text-muted text-sm leading-relaxed mb-6" data-ko="공통 기준 → 리타게팅 → 캐릭터에 적용">Common basis → Retarget → Apply to character</p>
-      <p class="text-muted text-sm leading-relaxed mb-8" data-ko="캐릭터와 모션의 어댑터를 분리해 새 출처를 각각 추가할 수 있도록 구성했습니다. 예를 들어 Mixamo 캐릭터를 추가할 때는 캐릭터 어댑터를, Mixamo 모션을 추가할 때는 모션 어댑터를 구현하는 구조입니다. 이는 확장 방식의 예시입니다.">Separate character and motion adapters allow each side to support new sources independently. For example, adding a Mixamo character would require a character adapter, while adding Mixamo motion would require a motion adapter. This illustrates the extension design.</p>
+      <p class="text-muted text-sm leading-relaxed mb-8" data-ko="외부 캐릭터와 내부 모션을 연결하는 구현에서 시작해 점진적으로 정규화하고, 캐릭터·모션 어댑터를 분리했습니다. 새 출처를 각각 추가할 수 있도록 한 구조입니다. 예를 들어 Mixamo 캐릭터에는 캐릭터 어댑터를, Mixamo 모션에는 모션 어댑터를 추가하는 방식으로 확장할 수 있습니다.">I began by connecting external characters with internal motion, then progressively normalized the data and separated character and motion adapters. Each side can add sources independently: a Mixamo character would require a character adapter, while Mixamo motion would require a motion adapter.</p>
 
       <h3 class="font-medium mb-3" data-ko="문제 해결: 다리·손목·발의 뒤틀림">Fix: twisted legs, wrists, and feet</h3>
       <p class="text-muted text-sm leading-relaxed mb-4" data-ko="VRM Humanoid 캐릭터에 Unreal MetaHuman 기반 모션을 Blender에서 변환해 적용할 때 뒤틀림이 발생했습니다. 타깃의 레스트 회전을 보존하면서 필요한 본의 방향을 정렬하도록 보정 방식을 바꿨습니다. 본 영역별로 방향 정렬·레스트 유지·손가락 굽힘 처리를 나누었습니다.">Applying Unreal MetaHuman-based motion converted through Blender to VRM Humanoid characters produced twisting. I changed the alignment to preserve the target’s rest rotation while aligning the required bone directions, using direction alignment, rest preservation, and finger curl handling for different bone groups.</p>
@@ -142,7 +145,7 @@
     </section>
 
     <section id="editing" class="mb-16">
-      <h2 class="text-xl font-bold mb-4" data-ko="키프레임보다 모션의 배치와 타이밍을 먼저">Motion placement and timing before keyframes</h2>
+      <h2 class="text-xl font-bold mb-4" data-ko="에디터 UX · 편집 플로우">Editor UX &amp; Editing Workflow</h2>
       <p class="text-muted text-sm leading-relaxed mb-6" data-ko="연출자가 먼저 결정해야 하는 것은 카메라와 타이밍이라고 봤습니다. 자사 프리셋을 먼저 보여주고, 타깃을 중심으로 한 카메라 프리셋에서 씬 구성을 시작하도록 설계했습니다. 영상·3D 편집 도구와 생성 도구를 직접 사용하고, 편집자·디자이너 지인에게도 레퍼런스와 사용 방식에 대한 의견을 구했습니다.">I treated camera and timing as the first decisions a director needs to make. The editor foregrounded company presets and target-based camera presets for composing a scene. I tried video editors, 3D tools, and generative tools myself and discussed references and workflows with editor and designer acquaintances.</p>
       <div class="overflow-x-auto mb-6"><table class="tbl">
   <thead><tr><th class="" data-ko="관점">Aspect</th><th class="" data-ko="초기 구상">Initial approach</th><th class="" data-ko="구현 방향">Implemented direction</th></tr></thead><tbody>
@@ -151,22 +154,27 @@
   </tbody></table></div>
       <p class="text-muted text-sm leading-relaxed mb-8" data-ko="처음에는 키프레임 중심 수정을 생각했지만, 직접 사용하면서 외부 애니메이션은 묶음 단위로 편집하는 경우가 많다는 점을 확인했습니다. After Effects·iMovie의 클립 조작을 참고해 스트립 중심으로 전환했고, 키프레임 조작에는 Figma의 선택·편집 경험을 참고했습니다.">I began with keyframe-based editing, then found through use that imported animations were often edited as whole segments. I shifted toward strips, drawing on clip manipulation in After Effects and iMovie, while referencing Figma for keyframe selection and editing.</p>
 
-      <h3 class="font-medium mb-3" data-ko="남은 개발 기간에 맞춘 우선순위">Priorities for the remaining development time</h3>
-      <p class="text-muted text-sm leading-relaxed" data-ko="마지막 일주일에는 시작·끝 시점 이동, 길이 조절, 소스의 사용 구간 조절, 속도 변경을 우선 구현했습니다. 모션 사이를 생성으로 연결하는 기능의 3프레임 제약에는 임시 스냅 조작을 적용했으며, 다중 스트립·키프레임 편집과 카메라 다중 선택은 보완 과제로 남았습니다.">In the final week, I prioritized start/end placement, duration, source-range selection, and speed changes. A three-frame constraint in motion bridging received a temporary snapping interaction. Multi-strip and multi-keyframe editing and camera multi-selection remained areas for further work.</p>
+      <h3 class="font-medium mb-3" data-ko="UX Writing">UX Writing</h3><p class="text-muted text-sm leading-relaxed mb-4" data-ko="초기에는 개발 용어를 그대로 노출하고 설명서로 안내하는 방향이 논의됐습니다. 여러 편집 도구를 사용한 경험을 바탕으로, 사용자가 편집 대상과 동작을 알아보기 쉽도록 용어를 다듬었습니다. 아래는 타임라인에서 변경한 두 가지 예시입니다.">The early approach considered exposing development terminology and explaining it in a manual. Drawing on my experience with editing tools, I refined terminology to make editing targets and actions easier to understand. The table shows two examples from the timeline.</p><div class="overflow-x-auto mb-6"><table class="tbl"><thead><tr><th data-ko="기존 명칭">Original label</th><th data-ko="변경 명칭">Revised label</th></tr></thead><tbody><tr><td class="lbl" data-ko="multicam">multicam</td><td class="val" data-ko="camera clips">camera clips</td></tr><tr><td class="lbl" data-ko="performance clip">performance clip</td><td class="val" data-ko="motion">motion</td></tr></tbody></table></div>
+      <h3 class="font-medium mb-3" data-ko="개발 우선순위 기준">Development Prioritization Criteria</h3>
+      <p class="text-muted text-sm leading-relaxed" data-ko="모션 배치와 타이밍 조정에 필요한 기본 편집을 우선해, 마지막 일주일에는 시작·끝 시점 이동, 길이 조절, 소스의 사용 구간 조절, 속도 변경을 구현했습니다. 모션 사이를 생성으로 연결하는 기능의 3프레임 제약에는 임시 스냅 조작을 적용했으며, 다중 스트립·키프레임 편집과 카메라 다중 선택은 보완 과제로 남았습니다.">I prioritized the basic controls needed to place motion and adjust timing, implementing start/end placement, duration, source-range selection, and speed changes in the final week. A three-frame constraint in motion bridging received a temporary snapping interaction. Multi-strip and multi-keyframe editing and camera multi-selection remained areas for further work.</p>
     </section>
 
     <section id="collaboration" class="mb-16">
-      <h2 class="text-xl font-bold mb-4" data-ko="내 구현을 동료가 이어갈 수 있도록">Making implementation understandable for the next developer</h2>
-      <p class="text-muted text-sm leading-relaxed mb-6" data-ko="IK 제어 레이어는 제가 코어를 개발하고, 사용자가 직접 조작하는 UI는 동료가 이어서 개발했습니다. 구현 목적, 입력·출력과 책임 경계, 검증 기록을 남겨 다음 개발자가 무엇을 이어가야 하는지 파악할 수 있도록 했습니다.">I implemented the core IK control layer, and a colleague continued with the user-facing manipulation UI. I documented implementation purpose, inputs and outputs, ownership boundaries, and validation so the next developer could understand what to build on.</p>
+      <h2 class="text-xl font-bold mb-4" data-ko="LLM 협업 개발">LLM-Assisted Collaborative Development</h2>
+      <p class="text-muted text-sm leading-relaxed mb-6" data-ko="Claude·OpenAI 도구를 활용하는 4명의 팀원이 하나의 제품을 함께 개발했습니다. 저는 각 작업의 변경 목적·구현 범위·책임 경계와 검증 상태를 서로 이해할 수 있도록 가드레일과 문서화에 집중했습니다.">Four team members used Claude and OpenAI tools to develop one product together. I focused on guardrails and documentation so contributors could understand the purpose, scope, ownership boundaries, and validation status of each change.</p>
       <div class="overflow-x-auto mb-6">
         <table class="tbl">
-          <thead><tr><th data-ko="내 구현">My implementation</th><th data-ko="동료의 후속 구현">Colleague’s continuation</th></tr></thead>
+          <thead><tr><th data-ko="협업 기준">Collaboration focus</th><th data-ko="가드레일·기록">Guardrails &amp; documentation</th></tr></thead>
           <tbody>
-          <tr><td class="lbl" data-ko="IK 코어 · 책임 경계 · 검증 기록">IK core · Ownership boundaries · Validation</td><td class="val" data-ko="사용자 조작 UI">User manipulation UI</td></tr>
+          <tr><td class="lbl" data-ko="구현 범위와 책임">Scope &amp; ownership</td><td class="val" data-ko="스펙과 PR에 변경 목적·구현 범위·입출력·책임 경계를 기록">Record purpose, implementation scope, inputs and outputs, and ownership boundaries in specs and PRs</td></tr>
+          <tr><td class="lbl" data-ko="리뷰와 검증">Review &amp; validation</td><td class="val" data-ko="리뷰·수정·재검증 절차와 결과를 남기고, Git 작업 상태·대상 변경에 유효한 CI 결과 검사">Document review, fix, and revalidation procedures and results; check Git work state and CI results applicable to the changes</td></tr>
+          <tr><td class="lbl" data-ko="작업 맥락 유지">Continuity</td><td class="val" data-ko="결정·미해결 항목·다음 작업을 체크포인트로 남겨 재개와 후속 개발 지원">Save decisions, open items, and next actions in checkpoints to support resuming work and subsequent development</td></tr>
           </tbody>
         </table>
       </div>
-      <p class="text-muted text-sm leading-relaxed mb-4" data-ko="이 작업을 지원하기 위해 Knitten과 Shotloom용 개발 워크플로를 구축해 사용했습니다. 작업·리뷰·검증 기록을 GitHub의 변경 맥락과 연결하는 것이 목적이었습니다. 도구의 직접 사용자는 저였고, 동료에게 전달된 것은 구현을 이해하고 이어갈 수 있는 기록과 코드였습니다.">I built and used Knitten and a Shotloom-specific development workflow to connect task, review, and validation records with GitHub changes. I was the direct user of the tooling; colleagues benefited from the code and records that explained the implementation and how to continue it.</p>
+      <p class="text-muted text-sm leading-relaxed mb-6" data-ko="이를 지원하기 위해 공통 개발 하네스 Knitten과 Shotloom 전용 워크플로를 구축해 제 작업에 적용했습니다. 필요한 지시를 단계별로 읽고, 스펙·구현·리뷰·검증 기록을 GitHub의 변경 맥락과 연결했습니다.">To support this, I built Knitten, a reusable development harness, and a Shotloom-specific workflow and applied them to my work. Instructions are loaded as needed at each stage, while specs, implementation, reviews, and validation records are connected to the changes on GitHub.</p>
+      <h3 class="font-medium mb-3" data-ko="협업 사례: IK 제어 레이어">Collaboration example: the IK control layer</h3>
+      <p class="text-muted text-sm leading-relaxed mb-4" data-ko="IK 제어 레이어에서는 제가 코어를 개발하고, 동료가 사용자 조작 UI를 이어서 구현했습니다. 구현 목적·입출력·책임 경계·검증 기록을 함께 남겨 후속 개발에 활용할 수 있도록 했습니다.">For the IK control layer, I implemented the core and a colleague continued with the user-facing manipulation UI. I documented purpose, inputs and outputs, ownership boundaries, and validation so that subsequent development could build on the work.</p>
       <p class="text-sm"><a href="https://github.com/tomlim2/knitten" target="_blank" rel="noopener" class="text-accent hover:underline">Knitten on GitHub ↗</a></p>
     </section>
 

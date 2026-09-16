@@ -57,9 +57,11 @@
 
     <h1 class="page-title" data-ko="PMX→VRM 파이프라인">PMX to VRM Pipeline</h1>
 
-    <p class="text-body mb-6 page-subtitle" data-ko="ZIP 넣으면 UE용 VRM이 나옵니다">Drop a ZIP, get a UE-ready VRM</p>
+    <p class="text-body mb-6 page-subtitle" data-ko="기존 VRM 경로를 활용하기 위한 PMX 변환과 사내 검증">PMX conversion and internal validation for an existing VRM import path</p>
 
-    <p class="text-xs text-muted mb-12">Production · Python · TypeScript · glTF 2.0</p>
+    <p class="text-xs text-muted mb-12">Internal R&amp;D · Python · TypeScript · glTF 2.0</p>
+
+    <p class="text-sm text-muted leading-relaxed mb-10" data-ko="사내 테스트와 기술 검증을 완료한 파이프라인입니다. Cinev Studio 제품 적용까지는 진행하지 않았습니다.">The pipeline completed internal testing and technical validation. It was not integrated into the Cinev Studio product.</p>
 
     <!-- Problem -->
     <section class="mb-16">
@@ -81,14 +83,14 @@
           <thead>
             <tr>
               <th data-ko="도구">Tool</th>
-              <th data-ko="사용자">User</th>
+              <th data-ko="사용 방식">Interaction</th>
               <th data-ko="방식">Method</th>
             </tr>
           </thead>
           <tbody>
-            <tr ><td class="lbl">Python CLI</td><td class="val" data-ko="TA / 배치 작업">TA / Batch jobs</td><td class="val" data-ko="여러 모델 일괄 변환">Batch-convert multiple models at once</td></tr>
-            <tr ><td class="lbl">Next.js Web App</td><td class="val" data-ko="팀 누구나">Anyone on the team</td><td class="val" data-ko="브라우저에서 ZIP 업로드, VRM 다운로드">Upload ZIP in browser, download VRM</td></tr>
-            <tr><td class="lbl">Browser SPA</td><td class="val" data-ko="외부 / 서버 없음">External / No server</td><td class="val" data-ko="클라이언트 전용 변환">Client-only conversion</td></tr>
+            <tr ><td class="lbl">Python CLI</td><td class="val" data-ko="명령줄·배치 작업">Command line / Batch</td><td class="val" data-ko="여러 모델 일괄 변환">Batch-convert multiple models at once</td></tr>
+            <tr ><td class="lbl">Next.js Web App</td><td class="val" data-ko="웹 업로드·다운로드">Web upload / Download</td><td class="val" data-ko="브라우저에서 ZIP 업로드, VRM 다운로드">Upload ZIP in browser, download VRM</td></tr>
+            <tr><td class="lbl">Browser SPA</td><td class="val" data-ko="서버 없이 실행">Runs without a server</td><td class="val" data-ko="클라이언트 전용 변환">Client-only conversion</td></tr>
           </tbody>
         </table>
       </div>

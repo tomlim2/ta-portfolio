@@ -60,12 +60,12 @@
 
     <p class="text-body mb-6 page-subtitle" data-ko="기술 탐색부터 애니메이션풍 캐릭터 룩의 구현과 조명 대응까지">From research to anime-style character look development and lighting adaptation</p>
 
-    <p class="text-xs text-muted mb-12">Production · UE5 · Material · Post Process · <a href="https://cinev.com" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">cinev.com</a></p>
+    <p class="text-xs text-muted mb-12">Cinev Studio · UE5 · Material · Post Process · <a href="https://cinev.com" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">cinev.com</a></p>
 
     <!-- Problem -->
     <section class="mb-16">
       <h2 class="text-xl font-bold mb-4" data-ko="문제">Problem</h2>
-      <p class="text-muted text-sm leading-relaxed" data-ko="프로젝트 중반에 메타휴먼 기반 PBR에서 애니메 스타일로의 전환 R&amp;D를 실시했습니다. PBR 배경은 유지하면서 캐릭터만 NPR로 렌더링해야 했고, 그 둘의 룩을 어울리게 유지하면서 개발하는 것이 가장 큰 과제였습니다.">Early in the project, a decision was made to switch from MetaHuman-based realistic rendering to an anime style. Characters needed to be rendered in NPR while keeping PBR backgrounds, and the in-house characters and external VRM models had different material structures, making it impossible to achieve a consistent look with a single approach.</p>
+      <p class="text-muted text-sm leading-relaxed" data-ko="Cinev Studio 개발 중 메타휴먼 기반 PBR에서 애니메이션풍 캐릭터로 전환하는 R&amp;D를 진행했습니다. PBR 배경과 NPR 캐릭터가 한 장면에서 어울려야 했습니다. 특히 텍스처를 Emissive에 연결해도 의도한 밝은 색이 탁하게 보여, 원하는 룩에 도달하기 어려웠습니다.">During Cinev Studio development, we explored a shift from MetaHuman-based PBR to anime-style characters while keeping PBR environments. The two looks needed to work together. Even textures connected to Emissive appeared duller than intended, making the desired bright character look difficult to achieve.</p>
     </section>
 
     <!-- Solution -->
@@ -73,6 +73,11 @@
       <h2 class="text-xl font-bold mb-4" data-ko="해결">Solution</h2>
       <p class="text-muted text-sm leading-relaxed mb-4" data-ko="참고 구현이 많지 않던 시기에 관련 제작자와 개발자의 사례를 지속적으로 찾아 직접 검증했습니다. SDF 얼굴 음영, 아웃라인, Matcap과 환경 제어를 결합하면서 NPR 프로토타입을 제품에서 사용하는 룩으로 고도화했습니다.">When reference implementations were limited, I followed practitioners and developers and tested their approaches. I combined SDF face shadows, outlines, Matcap, and environment controls to develop the NPR prototype into looks used in the product.</p>
       <p class="text-muted text-sm leading-relaxed mb-6" data-ko="인하우스용 캐릭터는 Custom Depth + Post Process 버퍼를 활용하여 Emissive 기반 NPR에 비해 빛번짐 없는 깨끗한 룩을 구현했고, PBR/NPR 혼용이 필요한 VRM용 모델은 Emissive + Inverted Hull로 접근하여 NPR 파트에만 아웃라인을 그리는 방식으로 4가지 캐릭터 셰이더 룩 시스템을 만들었습니다. 프로토타입에서 이어진 핵심 노드는 SDF 페이스 섀도와 Dot Product 기반 투톤 셰이딩입니다.">Split the approach into Custom Depth + Post Process for in-house and Emissive + Inverted Hull for VRM, creating <strong class="text-heading">4 NPR looks</strong>. The core nodes carried over from the prototype are SDF face shadow and Dot Product-based two-tone shading.</p>
+    </section>
+
+    <section id="tone-mapping" class="mb-16">
+      <h2 class="text-xl font-bold mb-4" data-ko="밝은 캐릭터 톤을 확보한 전환점">The turning point for a brighter character look</h2>
+      <p class="text-muted text-sm leading-relaxed mb-4" data-ko="결정적인 전환은 FilmToneMapInverse를 적용한 역 톤매핑 대응이었습니다. 이후 톤매핑을 거칠 색을 미리 보정해, 목표로 한 밝은 애니메이션풍 톤에 접근했습니다. 이 변경을 통해 제품에서 사용할 수 있는 룩의 기반이 마련됐다고 판단했습니다.">The decisive step was inverse tone mapping with FilmToneMapInverse. Precompensating the color for the later tone-mapping stage brought the result closer to the bright anime-style look I wanted. This was the point where I judged the look ready to build on for the product.</p><div class="overflow-x-auto mb-6"><table class="tbl"><thead><tr><th data-ko="문제">Problem</th><th data-ko="시도">Change</th><th data-ko="판단">Assessment</th></tr></thead><tbody><tr><td class="lbl" data-ko="Emissive로도 탁해 보이는 색">Dull color even with Emissive</td><td class="val" data-ko="FilmToneMapInverse 적용">Apply FilmToneMapInverse</td><td class="val" data-ko="밝은 캐릭터 룩의 기준 확보">Establish a usable bright character look</td></tr></tbody></table></div>
     </section>
 
     <section class="mb-16">
@@ -193,7 +198,7 @@
       <!-- 4. VRM Zo Toon -->
       <div>
         <h3 class="text-lg font-bold mb-3">4. VRM Zo Toon</h3>
-        <p class="text-muted text-sm leading-relaxed mb-4" data-ko="인하우스 머티리얼은 Custom Depth에서 색을 가져오기 때문에 리얼/비리얼 파트를 한 캐릭터에 섞을 수 없었습니다. Emissive 채널에서 동작하는 새 toon 셰이딩을 만들어 해결했고, 아웃라인은 Inverted Hull 방식입니다. 기존 인하우스 캐릭터와 톤을 맞추는 게 핵심이었습니다.">The existing in-house material grabbed color from the Custom Depth buffer, making realistic/non-realistic mixing impossible. To solve this, I created a new toon shading system that operates in the Emissive channel. Outline uses the Inverted Hull method. Matching the tone with existing in-house characters was critical.</p>
+        <p class="text-muted text-sm leading-relaxed mb-4" data-ko="인하우스의 Post Process 기반 NPR 경로로는 한 캐릭터의 PBR·NPR 파트를 나누어 다루기 어려웠습니다. Emissive 기반 셰이딩과 Inverted Hull 아웃라인을 적용한 별도 머티리얼을 구성하고, 기존 인하우스 캐릭터와 톤을 맞췄습니다.">The in-house post-process NPR approach made mixed PBR and NPR parts within one character difficult to handle. I developed a separate material using Emissive-based shading and inverted-hull outlines, matching its tone to the in-house characters.</p>
 
         <img src="../assets/images/npr-shader/zo-toon-node-graph.png" alt="Zo Toon material node graph" class="w-full mb-1">
         <p class="text-xs text-muted text-center mb-6" data-ko="Zo Toon 머티리얼 노드 그래프 — Emissive 기반 toon 셰이딩">Zo Toon material node graph — Emissive-based toon shading</p>

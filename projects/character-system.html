@@ -57,20 +57,20 @@
 
     <h1 class="page-title" data-ko="캐릭터 시스템">Character System</h1>
 
-    <p class="text-body mb-6 page-subtitle" data-ko="아트팀의 캐릭터 제작과 런타임 로딩을 연결하는 도구">Connecting character authoring with runtime loading</p>
+    <p class="text-body mb-6 page-subtitle" data-ko="아티스트가 캐릭터를 등록하고 변형하며 결과를 확인하는 제작 흐름">A workflow for artists to register characters, create variations, and check the result</p>
 
-    <p class="text-xs text-muted mb-12">Production · UE5 · C++ · Blueprint · <a href="https://cinev.com" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">cinev.com</a></p>
+    <p class="text-xs text-muted mb-12">Cinev Studio · UE5 · C++ · Blueprint · <a href="https://cinev.com" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">cinev.com</a></p>
 
     <!-- Problem -->
     <section class="mb-16">
       <h2 class="text-xl font-bold mb-4" data-ko="문제">Problem</h2>
-      <p class="text-muted text-sm leading-relaxed" data-ko="실사·애니메·혼합 스타일 캐릭터를 한 제품에서 다루면서 파츠 조합, 등록, 프리뷰와 로딩을 함께 관리해야 했습니다. 하나의 Blueprint에 저장·로드와 에셋 참조가 섞여 있어, 런타임이 제작용 데이터까지 불러오는 구조였습니다. 외부 캐릭터가 추가되면서 서로 다른 모델의 카메라 타깃과 썸네일 기준도 필요해졌습니다.">The product needed to manage realistic, anime, and mixed-style characters through parts assembly, registration, preview, and loading. A single Blueprint mixed save/load logic and asset references, causing the runtime to pull in authoring data. External characters also required consistent camera targets and thumbnail framing across different models.</p>
+      <p class="text-muted text-sm leading-relaxed" data-ko="Cinev Studio는 Unreal 기반 3D 에디터를 웹에서 제공한 제품입니다. 아티스트들은 캐릭터를 등록할 때 언리얼에서 무엇을 만져야 할지 모르겠다는 피드백을 주었습니다. 등록한 에셋이 제대로 반영됐는지 확인하는 흐름도 부족했습니다. 초기 캐릭터는 머리·머리카락·몸통이 분리되지 않은 단일 텍스처 구조여서 색상 바리에이션을 만들 때 다시 그려야 했습니다.">Cinev Studio delivered an Unreal-based 3D editor through the web. Artists reported not knowing which Unreal settings to change when registering characters, and lacked a clear way to check that their assets appeared correctly. Early characters used a single texture without separate head, hair, and body parts, so color variations required repainting.</p>
     </section>
 
     <!-- Solution -->
     <section class="mb-16">
       <h2 class="text-xl font-bold mb-4" data-ko="해결">Solution</h2>
-      <p class="text-muted text-sm leading-relaxed mb-4" data-ko="제작용 등록 도구와 서비스용 로딩을 분리했습니다. 에디터에서는 C++ 플러그인과 등록용 Blueprint로 Data Asset·썸네일을 만들고 룩을 확인합니다. 런타임은 필요한 메시·머티리얼·파라미터를 Data Asset에서 불러오도록 구성했습니다. 아트팀이 코드 수정 없이 프리셋을 추가·변경할 수 있도록 만드는 것이 기준이었습니다.">I separated authoring tools from runtime loading. The editor uses a C++ plugin and registration Blueprint to create Data Assets and thumbnails and preview the look. The runtime loads the required meshes, materials, and parameters from those assets. The guiding requirement was letting artists add and change presets without editing code.</p>
+      <p class="text-muted text-sm leading-relaxed mb-4" data-ko="머리·머리카락·몸통을 나눠 색상 바리에이션을 위해 텍스처를 다시 그리지 않는 작업 흐름을 마련했습니다. C++ 플러그인과 등록용 Blueprint에서는 프리셋·Data Asset·썸네일을 만들고 룩을 확인하며, 런타임은 필요한 메시·머티리얼·파라미터를 불러오도록 분리했습니다. 아티스트가 코드 수정 없이 등록·변경하고 결과를 확인할 수 있도록 하는 것이 기준이었습니다.">Separating head, hair, and body enabled color variations without repainting textures. The C++ plugin and registration Blueprint create presets, Data Assets, and thumbnails and preview the look; the runtime loads the required meshes, materials, and parameters. The goal was to let artists register, modify, and verify characters without editing code.</p>
 
       <img src="../assets/images/character-system/data-asset-details.png" alt="NRC Data Asset — Info, Base, Parts, Outline, Chaos Cloth settings" class="mx-auto max-h-[500px] mb-2">
       <p class="text-xs text-muted mb-6 text-center" data-ko="NRC Data Asset — 파츠, 머티리얼, 아웃라인, Chaos Cloth 설정을 한 곳에서 관리">NRC Data Asset — managing parts, materials, outline, and Chaos Cloth settings in one place</p>
@@ -86,17 +86,28 @@
       <p class="text-muted text-sm leading-relaxed" data-ko="VRM4U를 활용한 외부 캐릭터 저장·불러오기 프로토타입을 제안하고, 채택된 구상을 캐릭터 등록·관리 기능으로 구현했습니다. 기존 로더를 활용하면서 제품의 Data Asset·프리셋 흐름을 연결하고, 얼굴 레퍼런스 포인트 탐지를 확장해 카메라 타깃과 썸네일 생성에 사용했습니다.">I proposed a save/load prototype for external characters using VRM4U, then developed the adopted concept into character registration and management features. My work connected the existing loader to the product’s Data Asset and preset workflows and extended facial reference-point detection for camera targeting and thumbnails.</p>
     </section>
 
+    <section id="web-import" class="mb-16">
+      <h2 class="text-xl font-bold mb-4" data-ko="웹 업로드부터 변환 결과 확인까지">From web upload to an import preview</h2>
+      <p class="text-muted text-sm leading-relaxed mb-4" data-ko="웹에 업로드한 VRM을 Studio 플러그인에서 기존 Humanoid 리깅 시스템과 자체 머티리얼로 전환하는 파이프라인을 담당했습니다. 변환된 캐릭터는 Studio 내부에서 썸네일로 촬영되어 웹으로 반환되며, 사용자는 자신이 올린 캐릭터의 변환 결과를 확인합니다.">I owned the pipeline that converts a web-uploaded VRM into Studio’s existing Humanoid rig system and materials through a Studio plugin. Studio captures a thumbnail of the converted character and returns it to the web, where the user can check the import result.</p><figure class="mt-6"><img src="../assets/images/character-system/vrm-studio-import-flow.png" alt="Concept diagram: VRM web upload, Studio rig and material conversion, thumbnail capture, and return to web preview" class="w-full h-auto" loading="lazy"><figcaption class="text-xs text-muted text-center mt-2" data-ko="웹 업로드와 Studio 변환·썸네일 반환 흐름 · ImageGen 개념 설명도">Web upload, Studio conversion, and thumbnail return · Concept illustration made with ImageGen</figcaption></figure>
+    </section>
+
     <!-- Result -->
     <section class="mb-16">
       <h2 class="text-xl font-bold mb-4" data-ko="구조 변경과 결과">Changes and results</h2>
       <div class="overflow-x-auto"><table class="tbl">
         <thead><tr><th class="" data-ko="항목">Area</th><th class="" data-ko="이전">Before</th><th class="" data-ko="구현 결과">After</th></tr></thead>
         <tbody>
+          <tr><td class="lbl" data-ko="색상 바리에이션">Color variations</td><td class="val" data-ko="단일 텍스처를 다시 그려 색상 변경">Repaint a single texture to change colors</td><td class="val" data-ko="머리·머리카락·몸통 분리 후 재도색 없이 변경">Separate head, hair, and body; change colors without repainting</td></tr>
           <tr><td class="lbl" data-ko="저장·로딩">Save / Load</td><td class="val" data-ko="제작·실행 데이터가 한 Blueprint에 결합">Authoring and runtime data combined in one Blueprint</td><td class="val" data-ko="에디터 등록 도구와 Data Asset 기반 런타임 분리">Editor registration separated from Data Asset-based runtime loading</td></tr>
           <tr><td class="lbl" data-ko="프리셋 제작">Preset authoring</td><td class="val" data-ko="복잡한 캐릭터 액터에서 설정 관리">Configuration managed in a complex character actor</td><td class="val" data-ko="코드 수정 없는 등록·변경과 에디터 룩 프리뷰">Registration, edits, and look previews without code changes</td></tr>
           <tr><td class="lbl" data-ko="외부 캐릭터">External characters</td><td class="val" data-ko="모델별 카메라 기준점 설정">Per-model camera reference setup</td><td class="val" data-ko="얼굴 레퍼런스 포인트를 카메라·썸네일에 활용">Facial reference points used for cameras and thumbnails</td></tr>
         </tbody>
       </table></div>
+    </section>
+
+    <section id="texture-budget" class="mb-16">
+      <h2 class="text-xl font-bold mb-4" data-ko="클로즈업에 맞춘 텍스처 기준">A texture budget that accounts for close-ups</h2>
+      <p class="text-muted text-sm leading-relaxed mb-4" data-ko="기본 텍스처 한도는 1024×1024였습니다. 캐릭터도 처음에는 같은 기준을 적용했지만 클로즈업과 줌 연출에서 디테일 부족이 드러났습니다. 얼굴·머리카락에는 2048×2048을 허용해, 실제 화면에서 필요한 품질에 따라 예외를 두었습니다.">The baseline texture limit was 1024×1024. Characters initially followed the same rule, but close-ups and zooms exposed a loss of detail. I allowed 2048×2048 textures for faces and hair, making an exception where shot framing required it.</p>
     </section>
 
         <!-- Production Gallery -->
@@ -137,7 +148,7 @@
     <section class="mb-16">
       <h2 class="text-xl font-bold mb-6" data-ko="시스템 구조">System Structure</h2>
 
-      <p class="text-muted text-sm leading-relaxed mb-6" data-ko="세 독립된 코드베이스이지만 변화무쌍한 프로젝트에 맞춘 최선의 파이프라인입니다. 중심은 로더용 캐릭터 블루프린트이며 인하우스 실사/비실사 캐릭터 및 외부 VRM 캐릭터를 안정적으로 로드합니다.">Three separate codebases, connected through Data Assets and VRM info nodes. The editor tool produces Data Assets. The runtime Blueprint loads them async. VRM Reference Points handles external model info.</p>
+      <p class="text-muted text-sm leading-relaxed mb-6" data-ko="등록 도구, 런타임 캐릭터 Blueprint, 외부 VRM의 기준점 탐지를 Data Asset과 모델 정보로 연결했습니다. 제작용 데이터와 서비스 로딩을 분리하면서 인하우스·외부 캐릭터를 같은 로딩 흐름에서 다루도록 구성했습니다.">The registration tool, runtime character Blueprint, and external VRM reference-point module connect through Data Assets and model information. Authoring data stays separate from runtime loading while internal and external characters share a loading workflow.</p>
 
 
       <!-- System diagram -->
@@ -182,7 +193,7 @@
         </div>
         <div>
           <h3 class="font-medium mb-3" data-ko="외부 모델 지원 — VRM Reference Points">External Model Support — VRM Reference Points</h3>
-          <p class="text-muted text-sm leading-relaxed mb-4" data-ko="VRM4U 플러그인에 작성한 C++ 모듈입니다. 어떤 VRM/PMX든 4단 폴백으로 얼굴 위치를 자동 탐지하고, 카메라 타겟으로 3앵글 썸네일(얼굴·상반신·전신)을 자동 촬영합니다. 커맨드렛 환경으로 에디터 없이 배치 생성이 가능합니다. A포즈/T포즈도 자동 판별합니다.">A C++ module written for the VRM4U plugin that updates VRM info nodes in the runtime character Blueprint. It auto-detects the face position of any external VRM/PMX via a 4-level fallback, then uses the result as a camera target to automatically capture 3-angle thumbnails (face close-up, upper body, full body). A commandlet environment enables batch thumbnail generation for all characters without opening the editor. A-pose/T-pose detection is also automatic.</p>
+          <p class="text-muted text-sm leading-relaxed mb-4" data-ko="VRM4U 플러그인에 작성한 C++ 모듈입니다. 외부 VRM의 얼굴 위치를 4단 폴백으로 탐지하고, 카메라 타깃과 얼굴·상반신·전신 썸네일 촬영에 사용합니다. 커맨드렛을 통한 배치 생성과 A포즈·T포즈 판별도 지원합니다.">I wrote a C++ module for VRM4U that finds facial reference points through a four-level fallback. These points drive camera targets and face, upper-body, and full-body thumbnails. It also supports batch capture through a commandlet and A-pose/T-pose detection.</p>
           <img src="../assets/images/character-system/cpp-header-face-detect.png" alt="C++ Header — Mouth and Nose Detection Priority 1-4 fallback" class="w-full mb-2">
           <p class="text-xs text-muted text-center mb-4" data-ko="C++ 헤더 — Mouth/Nose 4단 폴백 탐지 선언부">C++ header — Mouth/Nose 4-level fallback detection</p>
           <div class="overflow-hidden mb-4">
