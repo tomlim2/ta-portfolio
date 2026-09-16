@@ -18,7 +18,7 @@
     <path d="m430 326 70 18v71l-70 18Zm70 29 20-12v72l-20-12m20-25 274-76m-274 76 273 100" opacity=".7"/>
   </g>
   <g font-family="Arial, sans-serif" fill="#dce5f1">
-    <text x="100" y="107" font-size="22" letter-spacing="5" opacity=".75">SHOTLOOM / PRODUCTION FLOW</text>
+    <text x="100" y="107" font-size="22" letter-spacing="5" opacity=".75">SCENEGEN / SERVICE FLOW</text>
     <text x="110" y="570" font-size="27" letter-spacing="2">IMAGE</text>
     <text x="322" y="570" font-size="27" fill="#a9bed7">→</text>
     <text x="418" y="570" font-size="27" letter-spacing="2">3D SCENE</text>
