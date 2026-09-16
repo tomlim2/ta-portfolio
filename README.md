@@ -6,7 +6,7 @@ Personal portfolio of Younsoo Lim, Technical Artist. The site presents technolog
 
 | Project | Scope | Description |
 |---------|------|-------------|
-| NPR Shader | CineV company project | Research, look development, and lighting decisions |
+| NPR Shading & Look Development | CineV company project | Research, look development, and lighting decisions |
 | Character System | CineV company project | Artist authoring tools and runtime character loading |
 | UE5 Profiling | CineV company project | GPU profiling and documented optimization decisions |
 | PMX to VRM | Production pipeline | Conversion into the existing VRM import path |
