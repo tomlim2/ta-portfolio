@@ -73,7 +73,7 @@
 
     <section id="overview" class="mb-16">
       <h2 class="text-xl font-bold mb-4" data-ko="프로젝트 개요">Project overview</h2>
-      <p class="text-muted text-sm leading-relaxed mb-6" data-ko="Shotloom은 시나몬의 AI 영상 생성 플로우인 CINEV와 연결되는 웹 3D 에디터입니다. SceneGen 서비스 흐름에서 3D 장면·캐릭터 구성, 모션 적용, 카메라·타이밍 편집에 사용됩니다. 저는 캐릭터 모션 리타게터와 에디터 프런트엔드·UX/UI를 담당했습니다.">Shotloom is a web 3D editor connected to CINEV, Cinamon’s AI video generation workflow. Within the SceneGen service flow, it is used to build 3D scenes and characters, apply motion, and edit cameras and timing. I owned character-motion retargeting and the editor frontend, including UX and UI.</p>
+      <p class="text-muted text-sm leading-relaxed mb-6" data-ko="Shotloom은 장면·캐릭터·모션·카메라를 다루는 기본 3D 작업 흐름에, CINEV의 모션·에셋 서비스를 연결하는 웹 3D 에디터입니다. 저는 캐릭터 모션 리타게터와 에디터 프런트엔드·UX/UI를 담당했습니다.">Shotloom is a web 3D editor that connects foundational workflows for scenes, characters, motion, and cameras with CINEV’s motion and asset services. I owned character-motion retargeting and the editor frontend, including UX and UI.</p>
       <div class="overflow-x-auto mb-6">
         <table class="tbl">
           <thead><tr><th data-ko="항목">Area</th><th data-ko="내용">Details</th></tr></thead>
@@ -85,6 +85,20 @@
         </table>
       </div>
       <p class="text-muted text-sm leading-relaxed" data-ko="전체 제작 흐름의 해피패스를 구현해 개발 서버에 배포했습니다. 회사 사정으로 정식 출시 전 개발이 중단되었고, 기본 편집 기능의 보완과 대상 연출자의 사용 검증은 남아 있었습니다.">The complete production happy path was implemented and deployed to a development server. Company circumstances stopped development before release. Basic editing refinements and validation with the intended directors remained unfinished.</p>
+    </section>
+
+    <section id="design-goals" class="mb-16">
+      <h2 class="text-xl font-bold mb-4" data-ko="집중한 세 가지 설계 목표">Three design priorities</h2>
+      <div class="overflow-x-auto">
+        <table class="tbl">
+          <thead><tr><th data-ko="목표">Goal</th><th data-ko="설계 방향">Design direction</th></tr></thead>
+          <tbody>
+          <tr><td class="lbl" data-ko="기본 3D 작업 흐름">Core 3D workflows</td><td class="val" data-ko="Blender에 준하는 기본 작업 흐름을 목표로, 장면 구성부터 캐릭터·모션·카메라 편집까지 이어지는 기반 마련">Establish a foundation from scene composition through character, motion, and camera editing, aiming for core workflows comparable to Blender.</td></tr>
+          <tr><td class="lbl" data-ko="자사 서비스 연동">Company service integration</td><td class="val" data-ko="CINEV의 3D 모션·에셋 서비스를 에디터 안에서 활용하고, 생성한 결과를 편집 작업으로 연결">Bring CINEV’s 3D motion and asset services into the editor so their generated outputs can be used in editing workflows.</td></tr>
+          <tr><td class="lbl" data-ko="손쉬운 작업 경험">Accessible editing</td><td class="val" data-ko="기본 편집 기능과 자사 서비스를 바탕으로, 3D에 익숙하지 않은 연출자도 프리셋과 스트립 중심으로 작업할 수 있도록 구성">Build on the editing foundation and integrated services to let directors unfamiliar with 3D work through presets and motion strips.</td></tr>
+          </tbody>
+        </table>
+      </div>
     </section>
 
     <section id="flow" class="mb-16">
