@@ -63,8 +63,8 @@
   <main class="max-w-4xl mx-auto px-6 pt-16 pb-24">
 
     <div class="mb-8">
-      <img src="../assets/images/shotloom/scenegen-flow.png" alt="SceneGen service flow: image input, 3D scene and character, prompted motion, camera and timing, video generation" width="1672" height="941" class="w-full h-auto">
-      <p class="text-xs text-muted mt-2 text-center" data-ko="SceneGen 서비스 흐름도 · 개념 시각화">SceneGen service flow · Concept illustration</p>
+      <img src="../assets/images/shotloom/scenegen-flow-v2.png" alt="SceneGen flow: CINEV image input, Shotloom 3D scene and character, motion and camera editing in steps 2–4, then scene video output to CINEV for video generation" width="1672" height="941" class="w-full h-auto">
+      <p class="text-xs text-muted mt-2 text-center" data-ko="SceneGen 서비스 흐름도 · 02–04: Shotloom · 01·05: CINEV">SceneGen service flow · 02–04: Shotloom · 01 &amp; 05: CINEV</p>
     </div>
 
     <h1 class="page-title">Shotloom</h1>
@@ -73,7 +73,7 @@
 
     <section id="overview" class="mb-16">
       <h2 class="text-xl font-bold mb-4" data-ko="프로젝트 개요">Project overview</h2>
-      <p class="text-muted text-sm leading-relaxed mb-6" data-ko="Shotloom은 장면·캐릭터·모션·카메라를 편집하고, SceneGen을 비롯한 자사 서비스를 제작 과정에 연결하는 웹 3D 에디터입니다. 저는 캐릭터 모션 리타게터와 에디터 프런트엔드·UX/UI를 담당했습니다.">Shotloom is a web 3D editor for scenes, characters, motion, and cameras, integrating company services such as SceneGen into the production workflow. I owned character-motion retargeting and the editor frontend, including UX and UI.</p>
+      <p class="text-muted text-sm leading-relaxed mb-6" data-ko="Shotloom은 시나몬의 AI 영상 생성 플로우인 CINEV와 연결되는 웹 3D 에디터입니다. SceneGen 서비스 흐름에서 3D 장면·캐릭터 구성, 모션 적용, 카메라·타이밍 편집에 사용됩니다. 저는 캐릭터 모션 리타게터와 에디터 프런트엔드·UX/UI를 담당했습니다.">Shotloom is a web 3D editor connected to CINEV, Cinamon’s AI video generation workflow. Within the SceneGen service flow, it is used to build 3D scenes and characters, apply motion, and edit cameras and timing. I owned character-motion retargeting and the editor frontend, including UX and UI.</p>
       <div class="overflow-x-auto mb-6">
         <table class="tbl">
           <thead><tr><th data-ko="항목">Area</th><th data-ko="내용">Details</th></tr></thead>
@@ -89,19 +89,20 @@
 
     <section id="flow" class="mb-16">
       <h2 class="text-xl font-bold mb-4" data-ko="SceneGen 서비스 흐름">The SceneGen service flow</h2>
+      <p class="text-muted text-sm leading-relaxed mb-6" data-ko="이미지 입력과 최종 영상 생성은 기존 CINEV의 영역입니다. 그 사이의 2–4단계에서 Shotloom을 사용해 장면과 연출을 3D로 구성·편집합니다. Shotloom의 입력은 이미지이며, 출력은 수정한 모션과 카메라가 반영된 씬 동영상입니다. 이 동영상을 CINEV의 영상 생성 단계로 전달합니다.">Image input and final video generation belong to the existing CINEV workflow. Shotloom is used in steps 2–4 to compose and edit the scene, motion, and camera direction in 3D. Its input is an image, and its output is a scene video incorporating the edited motion and camera. This video is passed to CINEV’s video generation stage.</p>
       <div class="overflow-x-auto mb-6">
         <table class="tbl">
-          <thead><tr><th data-ko="단계">Step</th><th data-ko="제작 흐름">Production flow</th></tr></thead>
+          <thead><tr><th data-ko="단계">Step</th><th data-ko="제작 흐름">Production flow</th><th data-ko="사용 도구">Tool</th></tr></thead>
           <tbody>
-          <tr><td class="lbl" data-ko="01">01</td><td class="val" data-ko="이미지 입력">Image input</td></tr>
-          <tr><td class="lbl" data-ko="02">02</td><td class="val" data-ko="3D 장면·캐릭터 생성">3D scene &amp; character</td></tr>
-          <tr><td class="lbl" data-ko="03">03</td><td class="val" data-ko="프롬프트 모션 생성·적용">Generate &amp; apply motion</td></tr>
-          <tr><td class="lbl" data-ko="04">04</td><td class="val" data-ko="카메라·타이밍 편집">Edit camera &amp; timing</td></tr>
-          <tr><td class="lbl" data-ko="05">05</td><td class="val" data-ko="영상 생성">Generate video</td></tr>
+          <tr><td class="lbl" data-ko="01">01</td><td class="val" data-ko="이미지 입력">Image input</td><td class="val">CINEV</td></tr>
+          <tr><td class="lbl" data-ko="02">02</td><td class="val" data-ko="3D 장면·캐릭터 생성">3D scene &amp; character</td><td class="val">Shotloom</td></tr>
+          <tr><td class="lbl" data-ko="03">03</td><td class="val" data-ko="프롬프트 모션 생성·적용">Generate &amp; apply motion</td><td class="val">Shotloom</td></tr>
+          <tr><td class="lbl" data-ko="04">04</td><td class="val" data-ko="카메라·타이밍 편집, 씬 동영상 출력">Edit camera &amp; timing, output scene video</td><td class="val">Shotloom</td></tr>
+          <tr><td class="lbl" data-ko="05">05</td><td class="val" data-ko="영상 생성">Generate video</td><td class="val">CINEV</td></tr>
           </tbody>
         </table>
       </div>
-      <p class="text-muted text-sm leading-relaxed" data-ko="Proxy Scene, Proxy Character, Text to Pose, Text to Motion과 SceneGen을 편집 흐름에 통합했습니다. 구성한 장면을 바탕으로 LLM과 Seedance·MiniMax 등의 영상 생성 서비스를 연결했습니다. 생성 모델과 백엔드는 팀의 다른 담당 영역이었습니다.">I integrated Proxy Scene, Proxy Character, Text to Pose, Text to Motion, and SceneGen into the editing workflow. The composed scene connected with LLMs and video generators such as Seedance and MiniMax. Generative models and backend services belonged to other members of the team.</p>
+      <p class="text-muted text-sm leading-relaxed" data-ko="Proxy Scene, Proxy Character, Text to Pose, Text to Motion을 편집 흐름에 통합하고, 씬 동영상을 CINEV의 영상 생성 단계로 전달하는 흐름을 연결했습니다. 최종 영상 생성에는 LLM과 Seedance·MiniMax 등의 서비스를 연동했습니다. 생성 모델과 백엔드는 팀의 다른 담당 영역이었습니다.">I integrated Proxy Scene, Proxy Character, Text to Pose, and Text to Motion into the editing workflow and connected the scene video output to CINEV’s video generation stage. Final video generation involved LLMs and services such as Seedance and MiniMax. Generative models and backend services belonged to other members of the team.</p>
     </section>
 
     <hr class="border-border mb-12">
