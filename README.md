@@ -2,15 +2,15 @@
 
 Personal portfolio of Younsoo Lim, Technical Artist. The site presents technology research and validation through real-time rendering, character animation pipelines, and 3D creation tools. Hosted on GitHub Pages at ta.tommlimm.net.
 
-## Local Shotloom preview
+## Shotloom case study
 
-This branch, `codex/shotloom-preview`, enables the Shotloom homepage card and case study for local review. Shotloom is included in this branch's build manifest. The live website remains on the published `main` version. Keep this branch local until publication is explicitly requested; pushing it to this public repository would expose the draft. No release tag is needed for previewing.
+The Shotloom homepage card, case study, and SceneGen flow illustration are included in the public portfolio. The case study covers core 3D workflows, company service integration, and accessible editing. It distinguishes Shotloom’s 3D editing and scene video output from CINEV’s image input and final video generation. The product reached development-server deployment; publication of this case study does not imply a product launch.
 
 ## Projects
 
 | Project | Scope | Description |
 |---------|------|-------------|
-| Shotloom | Local portfolio draft; product reached dev deployment | Retargeting, editor UX/frontend, and engineering handoff |
+| Shotloom | Company project; product reached dev deployment | Retargeting, editor UX/frontend, and engineering handoff |
 | NPR Shading & Look Development | CineV company project | Research, look development, and lighting decisions |
 | Character System | CineV company project | Artist authoring tools and runtime character loading |
 | UE5 Profiling | CineV company project | GPU profiling and documented optimization decisions |
@@ -32,7 +32,7 @@ This branch, `codex/shotloom-preview`, enables the Shotloom homepage card and ca
 index.html               # Landing page
 resume.html              # A4 resume source
 assets/resume.pdf        # Download linked from the homepage; regenerate after resume edits
-projects/                # 7 published case studies + Shotloom preview
+projects/                # 8 published case studies
 css/style.css            # Shared portfolio styles
 js/                      # main.js, auth.js, crypto.js
 assets/                  # Images, resume PDF, cursors

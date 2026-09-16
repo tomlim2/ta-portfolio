@@ -8,8 +8,9 @@ TA 포트폴리오 사이트. GitHub Pages + 커스텀 도메인 `ta.tommlimm.ne
 - 한글 `data-ko`와 영문 본문을 함께 수정한다. 담당 범위, 프로젝트 상태와 수치의 측정 조건을 구분한다.
 - 이력서 HTML 수정 시 다운로드용 `assets/resume.pdf`도 재생성하고 확인한다.
 - 미공개 작업은 Git에서 제외된 `tools/drafts/`에 보관한다. 인터뷰·근거 기록은 `tools/career-notes/`에 보관한다.
-- `codex/shotloom-preview`는 사용자 요청으로 Shotloom 홈 카드·상세 페이지·에셋을 활성화한 로컬 검토 브랜치다. 이 브랜치의 로컬 커밋과 미리보기 빌드를 허용한다.
-- Shotloom 공개 보류는 유지한다. 원격 저장소가 공개이므로 별도 공개 요청 전에는 이 브랜치를 푸시하거나 PR·릴리즈 태그를 만들거나 `main`에 병합하지 않는다. 현재 `site-public.json`의 Shotloom 항목은 이 브랜치의 미리보기 빌드용이다.
+- Shotloom 홈 카드·상세 사례·흐름도는 2026-09-16 사용자 요청으로 공개한다. `codex/shotloom-preview`의 검토 내용을 `main`에 반영하며, `site-public.json`에 Shotloom 페이지와 에셋이 포함되어 있다.
+- 포트폴리오 사례 공개와 Shotloom 제품 출시를 구분한다. 제품은 핵심 흐름 구현·개발 서버 배포 단계였으며 정식 출시는 하지 않았다.
+- 일반 수정 후 자동 배포하지 않는다. 사용자가 배포를 요청한 경우에만 릴리즈 태그를 푸시한다.
 
 ## 검증 및 배포
 
