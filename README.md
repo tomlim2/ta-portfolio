@@ -2,10 +2,15 @@
 
 Personal portfolio of Younsoo Lim, Technical Artist. The site presents technology research and validation through real-time rendering, character animation pipelines, and 3D creation tools. Hosted on GitHub Pages at ta.tommlimm.net.
 
+## Local Shotloom preview
+
+This branch, `codex/shotloom-preview`, enables the Shotloom homepage card and case study for local review. Shotloom is included in this branch's build manifest. The live website remains on the published `main` version. Keep this branch local until publication is explicitly requested; pushing it to this public repository would expose the draft. No release tag is needed for previewing.
+
 ## Projects
 
 | Project | Scope | Description |
 |---------|------|-------------|
+| Shotloom | Local portfolio draft; product reached dev deployment | Retargeting, editor UX/frontend, and engineering handoff |
 | NPR Shading & Look Development | CineV company project | Research, look development, and lighting decisions |
 | Character System | CineV company project | Artist authoring tools and runtime character loading |
 | UE5 Profiling | CineV company project | GPU profiling and documented optimization decisions |
@@ -27,8 +32,8 @@ Personal portfolio of Younsoo Lim, Technical Artist. The site presents technolog
 index.html               # Landing page
 resume.html              # A4 resume source
 assets/resume.pdf        # Download linked from the homepage; regenerate after resume edits
-projects/                # 7 published project case studies
-css/style.css            # Custom styles
+projects/                # 7 published case studies + Shotloom preview
+css/                     # Shared styles and Shotloom case styles
 js/                      # main.js, auth.js, crypto.js
 assets/                  # Images, resume PDF, cursors
 site-public.json         # Explicit publication manifest

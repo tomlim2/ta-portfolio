@@ -7,7 +7,3 @@ projects/_dev_*
 # Generated publication bundle
 _site/
 __pycache__/
-
-# Unpublished case study; source is kept under tools/drafts/
-projects/shotloom.html
-assets/images/shotloom/

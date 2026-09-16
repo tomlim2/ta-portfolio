@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#17232d"/><stop offset="1" stop-color="#30385b"/></linearGradient>
+    <radialGradient id="light"><stop stop-color="#8296c7" stop-opacity=".24"/><stop offset="1" stop-color="#8296c7" stop-opacity="0"/></radialGradient>
+    <pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse"><path d="M80 0H0V80" fill="none" stroke="#afc4d6" stroke-opacity=".10"/></pattern>
+  </defs>
+  <path fill="url(#bg)" d="M0 0h1600v900H0z"/>
+  <path fill="url(#grid)" d="M0 0h1600v900H0z"/>
+  <ellipse cx="960" cy="280" rx="700" ry="550" fill="url(#light)"/>
+  <g fill="none" stroke="#b4c5ed" stroke-width="2" opacity=".6">
+    <path d="m656 214 196-103 232 105v226L884 566 656 441Z"/>
+    <path d="m656 214 228 114 200-112M884 328v238M852 111v225l232 106M656 441l196-105"/>
+    <path d="m510 477 375 185 464-261M360 528l524 264 608-343" opacity=".3"/>
+  </g>
+  <g fill="none" stroke="#d9e9bc" stroke-width="3">
+    <circle cx="882" cy="316" r="18"/>
+    <path d="M882 334v79m0-60-50 36m50-36 52 30m-52 30-33 60m33-60 34 56"/>
+    <path d="m430 326 70 18v71l-70 18Zm70 29 20-12v72l-20-12m20-25 274-76m-274 76 273 100" opacity=".7"/>
+  </g>
+  <g font-family="Arial, sans-serif" fill="#dce5f1">
+    <text x="100" y="107" font-size="22" letter-spacing="5" opacity=".75">SHOTLOOM / PRODUCTION FLOW</text>
+    <text x="110" y="570" font-size="27" letter-spacing="2">IMAGE</text>
+    <text x="322" y="570" font-size="27" fill="#a9bed7">→</text>
+    <text x="418" y="570" font-size="27" letter-spacing="2">3D SCENE</text>
+    <text x="735" y="570" font-size="27" fill="#a9bed7">→</text>
+    <text x="830" y="570" font-size="27" letter-spacing="2">MOTION + CAMERA</text>
+    <text x="1260" y="570" font-size="27" fill="#a9bed7">→</text>
+    <text x="1360" y="570" font-size="27" letter-spacing="2">VIDEO</text>
+  </g>
+</svg>
