@@ -34,79 +34,132 @@
   <link rel="icon" href="../favicon.gif" type="image/gif">
   <meta name="description" content="Shotloom: a web 3D editor for AI video production. Retargeting architecture, camera and timeline workflows, and engineering handoff by Technical Artist Younsoo Lim.">
   <link rel="stylesheet" href="../css/style.css">
-  <link rel="stylesheet" href="../css/shotloom.css">
 </head>
 <body class="bg-bg text-body">
 
   <nav class="fixed top-0 w-full z-50 bg-bg/80 backdrop-blur-md">
     <div class="max-w-[1400px] mx-auto px-6 h-16 flex items-center justify-between">
       <a href="../index.html" class="nav-logo">Younsoo Lim</a>
-      <div class="nav-links flex gap-8 text-sm text-body ml-auto">
+      <div class="nav-links hidden md:flex gap-8 text-sm text-body ml-auto">
+        <a href="../index.html#projects" class="hover:text-heading transition">Projects</a>
+        <a href="../index.html#about" class="hover:text-heading transition">About</a>
+      </div>
+      <div class="flex items-center gap-3">
+        <button id="hamburger-btn" class="md:hidden text-body hover:text-heading transition" aria-label="Toggle menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="md:hidden hidden border-t border-border bg-bg/95 backdrop-blur-md">
+      <div class="flex flex-col px-6 py-4 gap-4 text-sm text-body">
         <a href="../index.html#projects" class="hover:text-heading transition">Projects</a>
         <a href="../index.html#about" class="hover:text-heading transition">About</a>
       </div>
     </div>
   </nav>
 
-  <main class="max-w-4xl mx-auto px-6 pt-28 pb-24 shotloom-case">
-<section class="mb-16" id="overview">
-<p class="text-xs text-muted mb-3">Cinamon · 2026.04 - 2026.08 · React / TypeScript · Rust / Bevy</p>
-<h1 class="page-title">Shotloom</h1>
-<p class="page-subtitle text-body mb-6" data-ko="AI 영상 제작 흐름을 연결하는 웹 3D 에디터">A web 3D editor connecting AI video production workflows</p>
-<p class="text-muted text-sm leading-relaxed" data-ko="이미지에서 장면과 캐릭터를 만들고, 프롬프트로 생성한 모션을 적용한 뒤 카메라와 타이밍을 편집해 영상 생성으로 연결하는 제품입니다. 저는 캐릭터 모션 리타게터와 에디터 프런트엔드·UX/UI를 담당했습니다.">Shotloom creates scenes and characters from images, applies prompt-generated motion, and lets directors edit cameras and timing before generating video. I owned character-motion retargeting and the editor frontend, including UX and UI.</p>
-<div class="case-facts my-8">
-  <div><h2 class="case-label" data-ko="내 담당">My role</h2><p class="text-muted text-sm leading-relaxed" data-ko="리타게터 · 프런트엔드 · UX/UI">Retargeter · Frontend · UX/UI</p></div>
-  <div><h2 class="case-label" data-ko="대상 사용자">Intended users</h2><p class="text-muted text-sm leading-relaxed" data-ko="3D에 익숙하지 않은 연출자">Directors unfamiliar with 3D tools</p></div>
-  <div><h2 class="case-label" data-ko="도달 단계">Stage reached</h2><p class="text-muted text-sm leading-relaxed" data-ko="핵심 흐름 구현 · 개발 서버 배포">Core flow implemented · Dev deployment</p></div>
-</div>
-<p class="text-muted text-sm leading-relaxed" data-ko="전체 제작 흐름의 해피패스를 구현해 개발 서버에 배포했습니다. 회사 사정으로 정식 출시 전 개발이 중단되었고, 기본 편집 기능의 보완과 대상 연출자의 사용 검증은 남아 있었습니다.">The complete production happy path was implemented and deployed to a development server. Company circumstances stopped development before release. Basic editing refinements and validation with the intended directors remained unfinished.</p>
-</section>
-<section class="mb-16" id="flow">
-<h2 class="text-xl font-bold mb-5" data-ko="제품의 제작 흐름">The production flow</h2>
-<ol class="production-flow" aria-label="Production flow">
-<li><span class="flow-number">01</span><span class="" data-ko="이미지 입력">Image input</span></li><li><span class="flow-number">02</span><span class="" data-ko="3D 장면·캐릭터 생성">3D scene & character</span></li><li><span class="flow-number">03</span><span class="" data-ko="프롬프트 모션 생성·적용">Generate & apply motion</span></li><li><span class="flow-number">04</span><span class="" data-ko="카메라·타이밍 편집">Edit camera & timing</span></li><li><span class="flow-number">05</span><span class="" data-ko="영상 생성">Generate video</span></li>
-</ol>
-<p class="text-muted text-sm leading-relaxed" data-ko="Proxy Scene, Proxy Character, Text to Pose, Text to Motion과 SceneGen을 편집 흐름에 통합했습니다. 구성한 장면을 바탕으로 LLM과 Seedance·MiniMax 등의 영상 생성 서비스를 연결했습니다. 생성 모델과 백엔드는 팀의 다른 담당 영역이었습니다.">I integrated Proxy Scene, Proxy Character, Text to Pose, Text to Motion, and SceneGen into the editing workflow. The composed scene connected with LLMs and video generators such as Seedance and MiniMax. Generative models and backend services belonged to other members of the team.</p>
-</section>
-<section class="mb-16" id="retargeting">
-<p class="case-kicker">01 / RETARGETING</p><h2 class="text-xl font-bold mb-5" data-ko="리깅 차이를 공통 기준으로 연결">Choosing a common basis for retargeting</h2><p class="text-muted text-sm leading-relaxed" data-ko="캐릭터와 모션의 출처마다 본 구조, 좌표계와 레스트 포즈가 달랐습니다. 사용자에게 소스와 타깃을 직접 고르게 하면 조작 난도가 크게 높아진다고 판단했습니다. 자사 모션 자산에서 많이 사용하던 ARP 리깅과 A포즈를 공통 기준으로 정했습니다.">Characters and motions arrived with different skeletons, coordinate systems, and rest poses. Requiring users to choose and configure source and target rigs would add complexity. I chose ARP and an A-pose as the common basis because they were widely used in the company’s motion assets.</p>
-<div class="retarget-map my-7">
-  <div class="retarget-input"><span class="case-label" data-ko="여러 출처의 캐릭터">Character sources</span><strong class="" data-ko="캐릭터 어댑터">Character adapter</strong><span class="" data-ko="본 구조·레스트 포즈 변환">Skeleton & rest-pose conversion</span></div>
-  <div class="retarget-input"><span class="case-label" data-ko="여러 출처의 모션">Motion sources</span><strong class="" data-ko="모션 어댑터">Motion adapter</strong><span class="" data-ko="본 구조·레스트 포즈 변환">Skeleton & rest-pose conversion</span></div>
-  <div class="retarget-common"><strong class="" data-ko="공통 기준 → 리타게팅 → 캐릭터에 적용">Common basis → Retarget → Apply to character</strong></div>
-</div>
-<p class="text-muted text-sm leading-relaxed" data-ko="캐릭터와 모션의 어댑터를 분리해 새 출처를 각각 추가할 수 있도록 구성했습니다. 예를 들어 Mixamo 캐릭터를 추가할 때는 캐릭터 어댑터를, Mixamo 모션을 추가할 때는 모션 어댑터를 구현하는 구조입니다. 이는 확장 방식의 예시입니다.">Separate character and motion adapters allow each side to support new sources independently. For example, adding a Mixamo character would require a character adapter, while adding Mixamo motion would require a motion adapter. This illustrates the extension design.</p>
-<div class="case-decision mt-7">
-  <h3 class="font-semibold mb-3" data-ko="문제 해결: 다리·손목·발의 뒤틀림">Fix: twisted legs, wrists, and feet</h3><p class="text-muted text-sm leading-relaxed" data-ko="VRM Humanoid 캐릭터에 Unreal MetaHuman 기반 모션을 Blender에서 변환해 적용할 때 뒤틀림이 발생했습니다. 타깃의 레스트 회전을 보존하면서 필요한 본의 방향을 정렬하도록 보정 방식을 바꿨습니다. 본 영역별로 방향 정렬·레스트 유지·손가락 굽힘 처리를 나누었습니다.">Applying Unreal MetaHuman-based motion converted through Blender to VRM Humanoid characters produced twisting. I changed the alignment to preserve the target’s rest rotation while aligning the required bone directions, using direction alignment, rest preservation, and finger curl handling for different bone groups.</p>
-  <p class="text-muted text-sm leading-relaxed" data-ko="확인한 캐릭터·모션 조합에서 다리가 안쪽으로 감기던 변형과 손목·발 뒤틀림이 사라졌습니다. 회귀 검증에는 VRM 0.x와 1.0을 포함한 3개 캐릭터를 사용했습니다.">For the tested character-motion combinations, the inward-wrapping leg deformation and wrist and foot twisting were resolved. Regression checks covered three VRM characters, including VRM 0.x and 1.0.</p>
-</div>
-</section>
-<section class="mb-16" id="editing">
-<p class="case-kicker">02 / EDITING WORKFLOW</p><h2 class="text-xl font-bold mb-5" data-ko="키프레임보다 모션의 배치와 타이밍을 먼저">Motion placement and timing before keyframes</h2><p class="text-muted text-sm leading-relaxed" data-ko="연출자가 먼저 결정해야 하는 것은 카메라와 타이밍이라고 봤습니다. 자사 프리셋을 먼저 보여주고, 타깃을 중심으로 한 카메라 프리셋에서 씬 구성을 시작하도록 설계했습니다. 영상·3D 편집 도구와 생성 도구를 직접 사용하고, 편집자·디자이너 지인에게도 레퍼런스와 사용 방식에 대한 의견을 구했습니다.">I treated camera and timing as the first decisions a director needs to make. The editor foregrounded company presets and target-based camera presets for composing a scene. I tried video editors, 3D tools, and generative tools myself and discussed references and workflows with editor and designer acquaintances.</p>
-<div class="overflow-x-auto my-7"><table class="tbl">
+  <main class="max-w-4xl mx-auto px-6 pt-16 pb-24">
+
+    <div class="mb-8">
+      <img src="../assets/images/shotloom/flow.svg" alt="Shotloom production flow concept diagram" class="w-full h-auto">
+      <p class="text-xs text-muted mt-2 text-center" data-ko="Shotloom 제작 흐름 개념도">Shotloom production flow concept diagram</p>
+    </div>
+
+    <h1 class="page-title">Shotloom</h1>
+    <p class="text-body mb-6 page-subtitle" data-ko="AI 영상 제작 흐름을 연결하는 웹 3D 에디터">A web 3D editor connecting AI video production workflows</p>
+    <p class="text-xs text-muted mb-12">Cinamon · 2026.04 - 2026.08 · React / TypeScript · Rust / Bevy</p>
+
+    <section id="overview" class="mb-16">
+      <h2 class="text-xl font-bold mb-4" data-ko="프로젝트 개요">Project overview</h2>
+      <p class="text-muted text-sm leading-relaxed mb-6" data-ko="이미지에서 장면과 캐릭터를 만들고, 프롬프트로 생성한 모션을 적용한 뒤 카메라와 타이밍을 편집해 영상 생성으로 연결하는 제품입니다. 저는 캐릭터 모션 리타게터와 에디터 프런트엔드·UX/UI를 담당했습니다.">Shotloom creates scenes and characters from images, applies prompt-generated motion, and lets directors edit cameras and timing before generating video. I owned character-motion retargeting and the editor frontend, including UX and UI.</p>
+      <div class="overflow-x-auto mb-6">
+        <table class="tbl">
+          <thead><tr><th data-ko="항목">Area</th><th data-ko="내용">Details</th></tr></thead>
+          <tbody>
+          <tr><td class="lbl" data-ko="내 담당">My role</td><td class="val" data-ko="리타게터 · 프런트엔드 · UX/UI">Retargeter · Frontend · UX/UI</td></tr>
+          <tr><td class="lbl" data-ko="대상 사용자">Intended users</td><td class="val" data-ko="3D에 익숙하지 않은 연출자">Directors unfamiliar with 3D tools</td></tr>
+          <tr><td class="lbl" data-ko="도달 단계">Stage reached</td><td class="val" data-ko="핵심 흐름 구현 · 개발 서버 배포">Core flow implemented · Dev deployment</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-muted text-sm leading-relaxed" data-ko="전체 제작 흐름의 해피패스를 구현해 개발 서버에 배포했습니다. 회사 사정으로 정식 출시 전 개발이 중단되었고, 기본 편집 기능의 보완과 대상 연출자의 사용 검증은 남아 있었습니다.">The complete production happy path was implemented and deployed to a development server. Company circumstances stopped development before release. Basic editing refinements and validation with the intended directors remained unfinished.</p>
+    </section>
+
+    <section id="flow" class="mb-16">
+      <h2 class="text-xl font-bold mb-4" data-ko="제품의 제작 흐름">The production flow</h2>
+      <div class="overflow-x-auto mb-6">
+        <table class="tbl">
+          <thead><tr><th data-ko="단계">Step</th><th data-ko="제작 흐름">Production flow</th></tr></thead>
+          <tbody>
+          <tr><td class="lbl" data-ko="01">01</td><td class="val" data-ko="이미지 입력">Image input</td></tr>
+          <tr><td class="lbl" data-ko="02">02</td><td class="val" data-ko="3D 장면·캐릭터 생성">3D scene &amp; character</td></tr>
+          <tr><td class="lbl" data-ko="03">03</td><td class="val" data-ko="프롬프트 모션 생성·적용">Generate &amp; apply motion</td></tr>
+          <tr><td class="lbl" data-ko="04">04</td><td class="val" data-ko="카메라·타이밍 편집">Edit camera &amp; timing</td></tr>
+          <tr><td class="lbl" data-ko="05">05</td><td class="val" data-ko="영상 생성">Generate video</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-muted text-sm leading-relaxed" data-ko="Proxy Scene, Proxy Character, Text to Pose, Text to Motion과 SceneGen을 편집 흐름에 통합했습니다. 구성한 장면을 바탕으로 LLM과 Seedance·MiniMax 등의 영상 생성 서비스를 연결했습니다. 생성 모델과 백엔드는 팀의 다른 담당 영역이었습니다.">I integrated Proxy Scene, Proxy Character, Text to Pose, Text to Motion, and SceneGen into the editing workflow. The composed scene connected with LLMs and video generators such as Seedance and MiniMax. Generative models and backend services belonged to other members of the team.</p>
+    </section>
+
+    <hr class="border-border mb-12">
+
+    <section id="retargeting" class="mb-16">
+      <h2 class="text-xl font-bold mb-4" data-ko="리깅 차이를 공통 기준으로 연결">Choosing a common basis for retargeting</h2>
+      <p class="text-muted text-sm leading-relaxed mb-6" data-ko="캐릭터와 모션의 출처마다 본 구조, 좌표계와 레스트 포즈가 달랐습니다. 사용자에게 소스와 타깃을 직접 고르게 하면 조작 난도가 크게 높아진다고 판단했습니다. 자사 모션 자산에서 많이 사용하던 ARP 리깅과 A포즈를 공통 기준으로 정했습니다.">Characters and motions arrived with different skeletons, coordinate systems, and rest poses. Requiring users to choose and configure source and target rigs would add complexity. I chose ARP and an A-pose as the common basis because they were widely used in the company’s motion assets.</p>
+      <div class="overflow-x-auto mb-6">
+        <table class="tbl">
+          <thead><tr><th data-ko="입력">Input</th><th data-ko="어댑터">Adapter</th><th data-ko="변환 내용">Conversion</th></tr></thead>
+          <tbody>
+          <tr><td class="lbl" data-ko="여러 출처의 캐릭터">Character sources</td><td class="val" data-ko="캐릭터 어댑터">Character adapter</td><td class="val" data-ko="본 구조·레스트 포즈 변환">Skeleton &amp; rest-pose conversion</td></tr>
+          <tr><td class="lbl" data-ko="여러 출처의 모션">Motion sources</td><td class="val" data-ko="모션 어댑터">Motion adapter</td><td class="val" data-ko="본 구조·레스트 포즈 변환">Skeleton &amp; rest-pose conversion</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-muted text-sm leading-relaxed mb-6" data-ko="공통 기준 → 리타게팅 → 캐릭터에 적용">Common basis → Retarget → Apply to character</p>
+      <p class="text-muted text-sm leading-relaxed mb-8" data-ko="캐릭터와 모션의 어댑터를 분리해 새 출처를 각각 추가할 수 있도록 구성했습니다. 예를 들어 Mixamo 캐릭터를 추가할 때는 캐릭터 어댑터를, Mixamo 모션을 추가할 때는 모션 어댑터를 구현하는 구조입니다. 이는 확장 방식의 예시입니다.">Separate character and motion adapters allow each side to support new sources independently. For example, adding a Mixamo character would require a character adapter, while adding Mixamo motion would require a motion adapter. This illustrates the extension design.</p>
+
+      <h3 class="font-medium mb-3" data-ko="문제 해결: 다리·손목·발의 뒤틀림">Fix: twisted legs, wrists, and feet</h3>
+      <p class="text-muted text-sm leading-relaxed mb-4" data-ko="VRM Humanoid 캐릭터에 Unreal MetaHuman 기반 모션을 Blender에서 변환해 적용할 때 뒤틀림이 발생했습니다. 타깃의 레스트 회전을 보존하면서 필요한 본의 방향을 정렬하도록 보정 방식을 바꿨습니다. 본 영역별로 방향 정렬·레스트 유지·손가락 굽힘 처리를 나누었습니다.">Applying Unreal MetaHuman-based motion converted through Blender to VRM Humanoid characters produced twisting. I changed the alignment to preserve the target’s rest rotation while aligning the required bone directions, using direction alignment, rest preservation, and finger curl handling for different bone groups.</p>
+      <p class="text-muted text-sm leading-relaxed" data-ko="확인한 캐릭터·모션 조합에서 다리가 안쪽으로 감기던 변형과 손목·발 뒤틀림이 사라졌습니다. 회귀 검증에는 VRM 0.x와 1.0을 포함한 3개 캐릭터를 사용했습니다.">For the tested character-motion combinations, the inward-wrapping leg deformation and wrist and foot twisting were resolved. Regression checks covered three VRM characters, including VRM 0.x and 1.0.</p>
+    </section>
+
+    <section id="editing" class="mb-16">
+      <h2 class="text-xl font-bold mb-4" data-ko="키프레임보다 모션의 배치와 타이밍을 먼저">Motion placement and timing before keyframes</h2>
+      <p class="text-muted text-sm leading-relaxed mb-6" data-ko="연출자가 먼저 결정해야 하는 것은 카메라와 타이밍이라고 봤습니다. 자사 프리셋을 먼저 보여주고, 타깃을 중심으로 한 카메라 프리셋에서 씬 구성을 시작하도록 설계했습니다. 영상·3D 편집 도구와 생성 도구를 직접 사용하고, 편집자·디자이너 지인에게도 레퍼런스와 사용 방식에 대한 의견을 구했습니다.">I treated camera and timing as the first decisions a director needs to make. The editor foregrounded company presets and target-based camera presets for composing a scene. I tried video editors, 3D tools, and generative tools myself and discussed references and workflows with editor and designer acquaintances.</p>
+      <div class="overflow-x-auto mb-6"><table class="tbl">
   <thead><tr><th class="" data-ko="관점">Aspect</th><th class="" data-ko="초기 구상">Initial approach</th><th class="" data-ko="구현 방향">Implemented direction</th></tr></thead><tbody>
-<tr><td class="val" data-ko="모션 편집">Motion editing</td><td class="val" data-ko="키프레임을 개별 수정">Edit individual keyframes</td><td class="val" data-ko="생성·외부 모션을 스트립 단위로 배치">Place generated and imported motion as strips</td></tr>
-<tr><td class="val" data-ko="사용자 조작">User controls</td><td class="val" data-ko="다수의 키프레임 노출">Expose many keyframes</td><td class="val" data-ko="배치·길이·사용 구간·속도 조절">Placement, duration, source range, and speed</td></tr>
+<tr><td class="lbl" data-ko="모션 편집">Motion editing</td><td class="val" data-ko="키프레임을 개별 수정">Edit individual keyframes</td><td class="val" data-ko="생성·외부 모션을 스트립 단위로 배치">Place generated and imported motion as strips</td></tr>
+<tr><td class="lbl" data-ko="사용자 조작">User controls</td><td class="val" data-ko="다수의 키프레임 노출">Expose many keyframes</td><td class="val" data-ko="배치·길이·사용 구간·속도 조절">Placement, duration, source range, and speed</td></tr>
   </tbody></table></div>
-<p class="text-muted text-sm leading-relaxed" data-ko="처음에는 키프레임 중심 수정을 생각했지만, 직접 사용하면서 외부 애니메이션은 묶음 단위로 편집하는 경우가 많다는 점을 확인했습니다. After Effects·iMovie의 클립 조작을 참고해 스트립 중심으로 전환했고, 키프레임 조작에는 Figma의 선택·편집 경험을 참고했습니다.">I began with keyframe-based editing, then found through use that imported animations were often edited as whole segments. I shifted toward strips, drawing on clip manipulation in After Effects and iMovie, while referencing Figma for keyframe selection and editing.</p>
-<div class="case-decision mt-7">
-<h3 class="font-semibold mb-3" data-ko="남은 개발 기간에 맞춘 우선순위">Priorities for the remaining development time</h3><p class="text-muted text-sm leading-relaxed" data-ko="마지막 일주일에는 시작·끝 시점 이동, 길이 조절, 소스의 사용 구간 조절, 속도 변경을 우선 구현했습니다. 모션 사이를 생성으로 연결하는 기능의 3프레임 제약에는 임시 스냅 조작을 적용했으며, 다중 스트립·키프레임 편집과 카메라 다중 선택은 보완 과제로 남았습니다.">In the final week, I prioritized start/end placement, duration, source-range selection, and speed changes. A three-frame constraint in motion bridging received a temporary snapping interaction. Multi-strip and multi-keyframe editing and camera multi-selection remained areas for further work.</p>
-</div>
-</section>
-<section class="mb-16" id="collaboration">
-<p class="case-kicker">03 / COLLABORATION</p><h2 class="text-xl font-bold mb-5" data-ko="내 구현을 동료가 이어갈 수 있도록">Making implementation understandable for the next developer</h2><p class="text-muted text-sm leading-relaxed" data-ko="IK 제어 레이어는 제가 코어를 개발하고, 사용자가 직접 조작하는 UI는 동료가 이어서 개발했습니다. 구현 목적, 입력·출력과 책임 경계, 검증 기록을 남겨 다음 개발자가 무엇을 이어가야 하는지 파악할 수 있도록 했습니다.">I implemented the core IK control layer, and a colleague continued with the user-facing manipulation UI. I documented implementation purpose, inputs and outputs, ownership boundaries, and validation so the next developer could understand what to build on.</p>
-<div class="handoff-flow my-7">
-  <div><span class="case-label" data-ko="내 구현">My implementation</span><strong class="" data-ko="IK 코어 · 책임 경계 · 검증 기록">IK core · Ownership boundaries · Validation</strong></div>
-  <span aria-hidden="true">→</span>
-  <div><span class="case-label" data-ko="동료의 후속 구현">Colleague’s continuation</span><strong class="" data-ko="사용자 조작 UI">User manipulation UI</strong></div>
-</div>
-<p class="text-muted text-sm leading-relaxed" data-ko="이 작업을 지원하기 위해 Knitten과 Shotloom용 개발 워크플로를 구축해 사용했습니다. 작업·리뷰·검증 기록을 GitHub의 변경 맥락과 연결하는 것이 목적이었습니다. 도구의 직접 사용자는 저였고, 동료에게 전달된 것은 구현을 이해하고 이어갈 수 있는 기록과 코드였습니다.">I built and used Knitten and a Shotloom-specific development workflow to connect task, review, and validation records with GitHub changes. I was the direct user of the tooling; colleagues benefited from the code and records that explained the implementation and how to continue it.</p>
-<p class="mt-5 text-sm"><a href="https://github.com/tomlim2/knitten" target="_blank" rel="noopener" class="text-accent hover:underline">Knitten on GitHub ↗</a></p>
-</section>
-<div class="flex justify-between items-center mt-16 pt-8 border-t border-border text-sm">
-  <a href="../index.html#projects" class="text-muted hover:text-heading transition" data-ko="← 프로젝트 목록">← All projects</a>
-  <a href="npr-shader.html" class="text-muted hover:text-heading transition">NPR Shading &amp; Look Development →</a>
-</div>
+      <p class="text-muted text-sm leading-relaxed mb-8" data-ko="처음에는 키프레임 중심 수정을 생각했지만, 직접 사용하면서 외부 애니메이션은 묶음 단위로 편집하는 경우가 많다는 점을 확인했습니다. After Effects·iMovie의 클립 조작을 참고해 스트립 중심으로 전환했고, 키프레임 조작에는 Figma의 선택·편집 경험을 참고했습니다.">I began with keyframe-based editing, then found through use that imported animations were often edited as whole segments. I shifted toward strips, drawing on clip manipulation in After Effects and iMovie, while referencing Figma for keyframe selection and editing.</p>
+
+      <h3 class="font-medium mb-3" data-ko="남은 개발 기간에 맞춘 우선순위">Priorities for the remaining development time</h3>
+      <p class="text-muted text-sm leading-relaxed" data-ko="마지막 일주일에는 시작·끝 시점 이동, 길이 조절, 소스의 사용 구간 조절, 속도 변경을 우선 구현했습니다. 모션 사이를 생성으로 연결하는 기능의 3프레임 제약에는 임시 스냅 조작을 적용했으며, 다중 스트립·키프레임 편집과 카메라 다중 선택은 보완 과제로 남았습니다.">In the final week, I prioritized start/end placement, duration, source-range selection, and speed changes. A three-frame constraint in motion bridging received a temporary snapping interaction. Multi-strip and multi-keyframe editing and camera multi-selection remained areas for further work.</p>
+    </section>
+
+    <section id="collaboration" class="mb-16">
+      <h2 class="text-xl font-bold mb-4" data-ko="내 구현을 동료가 이어갈 수 있도록">Making implementation understandable for the next developer</h2>
+      <p class="text-muted text-sm leading-relaxed mb-6" data-ko="IK 제어 레이어는 제가 코어를 개발하고, 사용자가 직접 조작하는 UI는 동료가 이어서 개발했습니다. 구현 목적, 입력·출력과 책임 경계, 검증 기록을 남겨 다음 개발자가 무엇을 이어가야 하는지 파악할 수 있도록 했습니다.">I implemented the core IK control layer, and a colleague continued with the user-facing manipulation UI. I documented implementation purpose, inputs and outputs, ownership boundaries, and validation so the next developer could understand what to build on.</p>
+      <div class="overflow-x-auto mb-6">
+        <table class="tbl">
+          <thead><tr><th data-ko="내 구현">My implementation</th><th data-ko="동료의 후속 구현">Colleague’s continuation</th></tr></thead>
+          <tbody>
+          <tr><td class="lbl" data-ko="IK 코어 · 책임 경계 · 검증 기록">IK core · Ownership boundaries · Validation</td><td class="val" data-ko="사용자 조작 UI">User manipulation UI</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-muted text-sm leading-relaxed mb-4" data-ko="이 작업을 지원하기 위해 Knitten과 Shotloom용 개발 워크플로를 구축해 사용했습니다. 작업·리뷰·검증 기록을 GitHub의 변경 맥락과 연결하는 것이 목적이었습니다. 도구의 직접 사용자는 저였고, 동료에게 전달된 것은 구현을 이해하고 이어갈 수 있는 기록과 코드였습니다.">I built and used Knitten and a Shotloom-specific development workflow to connect task, review, and validation records with GitHub changes. I was the direct user of the tooling; colleagues benefited from the code and records that explained the implementation and how to continue it.</p>
+      <p class="text-sm"><a href="https://github.com/tomlim2/knitten" target="_blank" rel="noopener" class="text-accent hover:underline">Knitten on GitHub ↗</a></p>
+    </section>
+
+    <div class="flex justify-between items-center mt-16 pt-8 border-t border-border">
+      <a href="../index.html#projects" class="text-muted hover:text-heading transition text-sm" data-ko="← 프로젝트 목록">← All projects</a>
+      <a href="npr-shader.html" class="text-muted hover:text-heading transition text-sm">NPR Shading &amp; Look Development →</a>
+    </div>
+
   </main>
 
   <footer class="py-8 text-muted text-xs">

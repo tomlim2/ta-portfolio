@@ -33,7 +33,7 @@ index.html               # Landing page
 resume.html              # A4 resume source
 assets/resume.pdf        # Download linked from the homepage; regenerate after resume edits
 projects/                # 7 published case studies + Shotloom preview
-css/                     # Shared styles and Shotloom case styles
+css/style.css            # Shared portfolio styles
 js/                      # main.js, auth.js, crypto.js
 assets/                  # Images, resume PDF, cursors
 site-public.json         # Explicit publication manifest
