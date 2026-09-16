@@ -2,6 +2,8 @@
 
 Personal portfolio of Younsoo Lim, Technical Artist. The site presents technology research and validation through real-time rendering, character animation pipelines, and 3D creation tools. Hosted on GitHub Pages at ta.tommlimm.net.
 
+For project narratives, editing locations, and evidence-record navigation, start with [map.md](map.md).
+
 ## Shotloom case study
 
 The Shotloom homepage card, case study, and SceneGen flow illustration are included in the public portfolio. The case study covers core 3D workflows, company service integration, and accessible editing. It distinguishes Shotloom’s 3D editing and scene video output from CINEV’s image input and final video generation. The product reached development-server deployment; publication of this case study does not imply a product launch.

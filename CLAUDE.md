@@ -2,6 +2,8 @@
 
 TA 포트폴리오 사이트. GitHub Pages + 커스텀 도메인 `ta.tommlimm.net`.
 
+페이지별 핵심 메시지, 연결된 수정 위치와 로컬 근거 기록은 [map.md](map.md)를 참고한다.
+
 ## 콘텐츠 수정
 
 - 공개 페이지는 `index.html`, `resume.html`, `projects/*.html`에서 편집한다.
