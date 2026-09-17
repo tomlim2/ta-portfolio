@@ -31,7 +31,7 @@
       width: 210mm;
       min-height: 297mm;
       margin: 0 auto;
-      padding: 15mm;
+      padding: 13mm 15mm;
       display: grid;
       grid-template-columns: 176px 1fr;
       gap: 0 26px;
@@ -74,7 +74,7 @@
     .summary.lead {
       font-size: 13px;
       color: #333;
-      margin-bottom: 18px;
+      margin-bottom: 10px;
     }
 
     /* Contact */
@@ -113,7 +113,7 @@
     }
 
     .left h2 { margin-top: 0; margin-bottom: 7px; }
-    .right h2 { margin-top: 0; margin-bottom: 12px; }
+    .right h2 { margin-top: 0; margin-bottom: 8px; }
     .right h2:first-child { margin-top: 0; }
 
     /* Left column sections */
@@ -144,7 +144,7 @@
     .recog-entry .what { font-size: 10px; font-weight: 600; }
 
     /* Right column - experience */
-    .exp-entry { margin-bottom: 17px; }
+    .exp-entry { margin-bottom: 9px; }
     .exp-entry:last-child { margin-bottom: 0; }
     .exp-meta { font-size: 10.5px; color: #666; margin-bottom: 1px; font-family: 'Source Sans 3', sans-serif; font-style: italic; }
     .exp-title { font-size: 13px; font-weight: 700; margin-bottom: 2px; }
@@ -176,6 +176,7 @@
     ul.exp-list li {
       position: relative;
       padding-left: 9px;
+      margin-bottom: 3px;
     }
 
     ul.exp-list li::before {
@@ -269,19 +270,20 @@
 
       <div class="exp-sub">Cinev Studio - 웹으로 제공한 Unreal 3D 에디터</div>
       <ul class="exp-list">
-        <li>NPR 사례를 탐색·검증하고 역 톤매핑으로 밝은 캐릭터 톤 확보. SDF 얼굴 음영·환경 제어를 결합하고 자동 조명에 맞춰 룩 조정.</li>
-        <li>캐릭터 파츠 분리로 재도색 없는 색상 변형 지원. 아트팀이 코드 수정 없이 프리셋을 등록·변경하고 룩을 확인하는 제작 도구 구현.</li>
-        <li>외부 캐릭터 임포트 프로토타입을 제안하고, 웹 업로드 VRM을 Studio의 Humanoid 리깅·자체 머티리얼로 전환하는 파이프라인 담당.</li>
-        <li>UE 에디터의 도시 배경 5개 지점 평균 GPU 프레임 시간 <span class="metric">34.18ms → 18.44ms</span> (약 46%) 개선.</li>
-        <li>프로파일링 방법을 Notion으로 배경·라이팅 팀에 공유. 아트팀 Git 관리·병합 지원과 Python 에셋 일괄 처리 도구 개발.</li>
+        <li>일본 애니메이션 룩을 목표로 NPR 기법을 탐색·검증. Filmic Tone Mapping에 따른 색감 변화를 머티리얼 단계의 역 톤매핑으로 보정하고, SDF 얼굴 음영·환경 제어를 결합해 자동 조명에 맞춰 룩 조정.</li>
+        <li>캐릭터 파츠 분리로 텍스처 재도색 없이 색상 변형 지원. 아트·기획 팀이 언리얼 에디터에서 프리셋을 등록·변경하고 적용 결과를 확인하는 제작 도구 구현.</li>
+        <li>외부 캐릭터 활용을 위한 임포트 프로토타입 제안. 웹 업로드 VRM을 Studio의 Humanoid 리깅·자체 머티리얼로 전환하는 파이프라인 담당.</li>
+        <li>UE 에디터의 도시 배경 5개 지점 평균 GPU 프레임 시간을 <span class="metric">34.18ms → 18.44ms</span>로 약 46% 단축.</li>
+        <li>배경·라이팅 팀이 성능을 자체 점검하도록 프로파일링 방법을 Notion으로 문서화·공유. 라이트·머티리얼·텍스처·폴리곤 비용의 점검 기준 정리.</li>
       </ul>
 
       <div class="exp-sub">Shotloom - AI 영상 제작용 웹 3D 에디터</div>
-      <div class="project-status">약 4개월 개발·핵심 흐름 구현·개발 서버 배포. 회사 사정으로 정식 출시 전 중단.</div>
+      <div class="project-status">약 4개월 개발 · 핵심 제작 흐름 구현 · 개발 서버 배포 단계</div>
       <ul class="exp-list">
-        <li>ARP·A포즈 기준의 Rust/Bevy 리타게터 설계·구현. 캐릭터·모션 어댑터를 분리하고 VRM 레스트 회전을 보존해 다리·손목·발 뒤틀림 수정.</li>
-        <li>자사 장면·캐릭터·모션 생성과 영상 생성 서비스를 React/TypeScript 에디터에 통합. 3D에 익숙하지 않은 연출자를 위해 카메라 프리셋·스트립 중심 타임라인과 모션 배치·길이·사용 구간·속도 조절 구현.</li>
-        <li>Claude·OpenAI 도구를 활용한 4인 공동 개발의 가드레일·문서화 구축. Knitten 개발 하네스로 작업 범위·책임 경계·리뷰·검증 기록을 연결해 변경 맥락 공유.</li>
+        <li>외부 캐릭터와 자사 모션을 연결하는 리타게터 설계·구현. 캐릭터·모션 어댑터를 분리하고 VRM 레스트 회전을 보존해 다리·손목·발 뒤틀림 해결.</li>
+        <li>배경·캐릭터·모션 및 영상 생성 서비스를 React/TypeScript 기반 3D 에디터 프런트엔드에 통합.</li>
+        <li>3D에 익숙하지 않은 연출자를 위해 카메라 프리셋·스트립 중심 편집 UX 구현. 모션의 배치·길이·사용 구간·속도를 조절하는 타임라인 구성.</li>
+        <li>Claude·OpenAI를 활용한 4인 공동 개발에 가드레일·문서화 기반 하네스 엔지니어링 적용. 담당 작업의 범위·책임 경계·리뷰·검증 기록을 관리하고 팀에 공유.</li>
       </ul>
     </div>
 
@@ -299,7 +301,9 @@
       <div class="exp-meta">2019.10 - 2020.07 / San Francisco, CA</div>
       <div class="exp-title">UX Engineer | Varo Money</div>
       <ul class="exp-list">
-        <li>디자인·엔지니어링팀과 After Effects → Lottie 워크플로를 도입해 모션 자산을 앱 온보딩에 적용. 3D 광고 제작 및 이달의 디자이너 선정.</li>
+        <li>최초 이달의 디자이너 선정 및 10개월 동안 우수 성과자 3회 지목.</li>
+        <li>디자인·엔지니어링팀과 After Effects → Lottie 워크플로를 도입해 모션 자산을 앱 스플래시 애니메이션과 온보딩에 적용.</li>
+        <li>금융교육·투자자·홍보용 2D/3D 영상 편집 및 제작.</li>
       </ul>
     </div>
 
@@ -314,10 +318,10 @@
 
     <!-- Freelance -->
     <div class="exp-entry">
-      <div class="exp-meta">2014.02 - Present / 서울 · Remote</div>
+      <div class="exp-meta">2014.02 - Present / 서울 · Remote / 재직 중 병행</div>
       <div class="exp-title">Technical Designer &amp; Tutor | Freelance</div>
       <ul class="exp-list">
-        <li>누적 20명+ 대상 3D·모션·인터랙션 제작 기술 멘토링. 2014-2023년 디자인·리브랜딩 프로젝트 9개+ 수행.</li>
+        <li>누적 20명+ 대상 3D·모션·인터랙션 제작 기술 멘토링. 2014-2026년 디자인·리브랜딩 프로젝트 9개+ 수행.</li>
       </ul>
     </div>
 
