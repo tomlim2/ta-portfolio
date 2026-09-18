@@ -32,7 +32,7 @@ The Shotloom homepage card, case study, and SceneGen flow illustration are inclu
 
 ```
 index.html               # Landing page
-resume.html              # A4 resume source
+resume.html              # Single-column, two-page A4 resume source
 assets/resume.pdf        # Download linked from the homepage; regenerate after resume edits
 projects/                # 8 published case studies
 css/style.css            # Shared portfolio styles
@@ -49,6 +49,8 @@ tools/career-notes/      # Local, gitignored interview, evidence, and revision r
 ## Editing content
 
 Update both the English element content and its Korean `data-ko` value. Keep role ownership, implementation status, and measurement scope consistent across the homepage, case studies, and resume. Legacy encryption scripts expect `projects/originals/`, which is absent from this checkout; do not run them against incomplete source files.
+
+The Korean resume is maintained directly in `resume.html`. Regenerate `assets/resume.pdf` after edits and check both A4 pages, text reading order, and contact links before release.
 
 Build the actual public bundle, then preview it with a static HTTP server:
 
