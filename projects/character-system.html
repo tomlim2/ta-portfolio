@@ -57,7 +57,7 @@
 
     <h1 class="page-title" data-ko="캐릭터 시스템">Character System</h1>
 
-    <p class="text-body mb-6 page-subtitle" data-ko="아티스트가 캐릭터를 등록하고 변형하며 결과를 확인하는 제작 흐름">A workflow for artists to register characters, create variations, and check the result</p>
+    <p class="text-body mb-6 page-subtitle" data-ko="캐릭터 파츠·텍스처·머티리얼 재사용과 등록·프리뷰를 지원하는 언리얼 플러그인">An Unreal plugin for reusing character parts, textures, and materials, with registration and preview tools</p>
 
     <p class="text-xs text-muted mb-12">Cinev Studio · UE5 · C++ · Blueprint · <a href="https://cinev.com" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">cinev.com</a></p>
 
@@ -70,7 +70,7 @@
     <!-- Solution -->
     <section class="mb-16">
       <h2 class="text-xl font-bold mb-4" data-ko="해결">Solution</h2>
-      <p class="text-muted text-sm leading-relaxed mb-4" data-ko="머리·머리카락·몸통을 나눠 색상 바리에이션을 위해 텍스처를 다시 그리지 않는 작업 흐름을 마련했습니다. C++ 플러그인과 등록용 Blueprint에서는 프리셋·Data Asset·썸네일을 만들고 룩을 확인하며, 런타임은 필요한 메시·머티리얼·파라미터를 불러오도록 분리했습니다. 아티스트가 코드 수정 없이 등록·변경하고 결과를 확인할 수 있도록 하는 것이 기준이었습니다.">Separating head, hair, and body enabled color variations without repainting textures. The C++ plugin and registration Blueprint create presets, Data Assets, and thumbnails and preview the look; the runtime loads the required meshes, materials, and parameters. The goal was to let artists register, modify, and verify characters without editing code.</p>
+      <p class="text-muted text-sm leading-relaxed mb-4" data-ko="캐릭터 파츠 분리와 텍스처·머티리얼 재사용을 지원하는 언리얼 C++ 플러그인을 제작·유지보수했습니다. 머리·머리카락·몸통을 나눠 텍스처를 다시 그리지 않고 색상 바리에이션을 만들도록 했습니다. 아트·기획 팀이 코드 수정 없이 프리셋을 등록·변경하고, 언리얼 에디터에서 적용 결과를 확인하는 제작 흐름을 구현했습니다.">I developed and maintained an Unreal C++ plugin that supports character-part separation and texture and material reuse. Separating head, hair, and body enabled color variations without repainting textures. I built tools for the art and planning teams to register and modify presets without code changes and preview the results in the Unreal editor.</p>
 
       <img src="../assets/images/character-system/data-asset-details.png" alt="NRC Data Asset — Info, Base, Parts, Outline, Chaos Cloth settings" class="mx-auto max-h-[500px] mb-2">
       <p class="text-xs text-muted mb-6 text-center" data-ko="NRC Data Asset — 파츠, 머티리얼, 아웃라인, Chaos Cloth 설정을 한 곳에서 관리">NRC Data Asset — managing parts, materials, outline, and Chaos Cloth settings in one place</p>
@@ -97,7 +97,7 @@
       <div class="overflow-x-auto"><table class="tbl">
         <thead><tr><th class="" data-ko="항목">Area</th><th class="" data-ko="이전">Before</th><th class="" data-ko="구현 결과">After</th></tr></thead>
         <tbody>
-          <tr><td class="lbl" data-ko="색상 바리에이션">Color variations</td><td class="val" data-ko="단일 텍스처를 다시 그려 색상 변경">Repaint a single texture to change colors</td><td class="val" data-ko="머리·머리카락·몸통 분리 후 재도색 없이 변경">Separate head, hair, and body; change colors without repainting</td></tr>
+          <tr><td class="lbl" data-ko="파츠·리소스 재사용">Part and resource reuse</td><td class="val" data-ko="단일 텍스처를 다시 그려 색상 변경">Repaint a single texture to change colors</td><td class="val" data-ko="파츠별 텍스처·머티리얼 재사용과 재도색 없는 색상 변경">Reuse textures and materials across parts; change colors without repainting</td></tr>
           <tr><td class="lbl" data-ko="저장·로딩">Save / Load</td><td class="val" data-ko="제작·실행 데이터가 한 Blueprint에 결합">Authoring and runtime data combined in one Blueprint</td><td class="val" data-ko="에디터 등록 도구와 Data Asset 기반 런타임 분리">Editor registration separated from Data Asset-based runtime loading</td></tr>
           <tr><td class="lbl" data-ko="프리셋 제작">Preset authoring</td><td class="val" data-ko="복잡한 캐릭터 액터에서 설정 관리">Configuration managed in a complex character actor</td><td class="val" data-ko="코드 수정 없는 등록·변경과 에디터 룩 프리뷰">Registration, edits, and look previews without code changes</td></tr>
           <tr><td class="lbl" data-ko="외부 캐릭터">External characters</td><td class="val" data-ko="모델별 카메라 기준점 설정">Per-model camera reference setup</td><td class="val" data-ko="얼굴 레퍼런스 포인트를 카메라·썸네일에 활용">Facial reference points used for cameras and thumbnails</td></tr>
@@ -177,7 +177,7 @@
       <div class="space-y-4 mb-6">
         <div>
           <h3 class="font-medium mb-3" data-ko="등록용 캐릭터 블루프린트 — 에디터 틱">Editor — Character Environment Checker</h3>
-          <p class="text-muted text-sm leading-relaxed mb-4" data-ko="C++ 캐릭터 액터 오브젝트 기반 블루프린트입니다. 아티스트가 머리·헤어·바디 파츠를 조합하고 프리셋으로 저장하면 Data Asset이 생산(캐릭터 등록)됩니다. 또한 에디터 Tick으로 게임 실행 없이 에디터에서 애니메이션이 적용된채 배경 위 얹을 수 있어서 룩을 바로 확인할 수 있습니다.">Artists assemble head, hair, and body parts in the editor and save them as presets. The Editor Tick Interface allows verifying characters and animations on a background without launching the game. The runtime reads these Data Assets directly.</p>
+          <p class="text-muted text-sm leading-relaxed mb-4" data-ko="C++ 캐릭터 액터를 기반으로 한 등록용 Blueprint입니다. 아트·기획 팀이 머리·머리카락·몸통을 조합해 프리셋으로 저장하면 Data Asset을 생성합니다. Editor Tick으로 게임을 실행하지 않고도 배경 위에 캐릭터와 애니메이션을 배치해 룩을 확인할 수 있습니다.">This registration Blueprint is based on a C++ character actor. The art and planning teams assemble head, hair, and body parts and save presets as Data Assets. Editor Tick lets them preview characters and animations against a background without launching the game.</p>
           <img src="../assets/images/character-system/cpp-header-envcheck.png" alt="C++ Header — NPRCharacterLookDev UPROPERTY declarations" class="w-full mb-2">
           <p class="text-xs text-muted text-center mb-4" data-ko="C++ 캐릭터 액터 헤더 — DataTable 레퍼런스 선언부">C++ character actor header — DataTable reference declarations</p>
           <img src="../assets/images/character-system/tool-register.png" alt="BP_Character_EnvCheck — Character registration UI" class="w-full mb-4">

@@ -76,7 +76,7 @@
     <!-- Motivation -->
     <section class="mb-16">
       <h2 class="text-xl font-bold mb-4" data-ko="동기">Motivation</h2>
-      <p class="text-muted text-sm leading-relaxed" data-ko="인하우스 <a href=&quot;npr-shader.html&quot; class=&quot;text-accent hover:underline&quot;>NPR Shading &amp; Look Development</a>에서 <strong class=&quot;text-heading&quot;>금속 표면과 헤어 스펙큘러 하이라이트</strong>에 쓸 가짜 반사 마스크용 Matcap 텍스처가 필요했습니다. 기존 워크플로우는 포토샵에서 수작업 → 엔진 임포트 → 확인 → 안 맞으면 다시 포토샵. 이런 결과물을 보는 긴 과정보다는 실시간 피드백을 통해 다양한 프리셋을 보면서 나은 결과물을 얻기 위한 방법이라고 생각하고 작업했습니다.">I needed Matcap textures for fake reflection masks in our <a href="npr-shader.html" class="text-accent hover:underline">NPR Shading &amp; Look Development</a> to achieve <strong class="text-heading">metallic surfaces and hair specular highlights</strong> on our NPR characters. The existing workflow was manual editing in Photoshop → engine import → check → back to Photoshop if it didn't look right. Without real-time feedback, iteration was slow.</p>
+      <p class="text-muted text-sm leading-relaxed" data-ko="인하우스 &lt;a href=&quot;npr-shader.html&quot; class=&quot;text-accent hover:underline&quot;&gt;NPR Shading &amp;amp; Look Development&lt;/a&gt;에 사용할 Matcap 텍스처를 제작할 때, 포토샵 편집과 엔진 임포트를 반복해야 했습니다. 금속 광택이나 헤어 하이라이트를 조정하면서 3D 결과를 바로 확인할 수 있도록 실시간 제작 도구를 만들었습니다.">Creating Matcap textures for the in-house <a href="npr-shader.html" class="text-accent hover:underline">NPR Shading &amp; Look Development</a> required repeated editing in Photoshop and importing into the engine. I built a real-time authoring tool to preview the 3D result while adjusting effects such as metallic reflections and hair highlights.</p>
     </section>
 
     <!-- Solution -->
@@ -99,7 +99,7 @@
         <p class="text-xs text-muted mt-2 text-center" data-ko="Paint 모드 — 프리셋 라이브러리 + 레이어 편집">Paint Mode — Preset library + layer editing</p>
       </div>
 
-      <p class="text-muted text-sm leading-relaxed" data-ko="편집 중인 Matcap 텍스처가 Sphere, Torus 또는 GLB 모델에 실시간 적용됩니다. 포토샵-엔진 왕복 없이 최종 결과를 즉시 확인할 수 있습니다.">The Matcap texture being edited is applied in real time to a Sphere, Torus, or GLB model. The final result can be checked immediately without any Photoshop-to-engine round-trips.</p>
+      <p class="text-muted text-sm leading-relaxed" data-ko="편집 중인 Matcap 텍스처를 Sphere·Torus·GLB 모델에 실시간으로 적용합니다. 엔진에 다시 임포트하기 전에 3D 프리뷰에서 질감과 하이라이트의 변화를 확인할 수 있습니다.">The Matcap texture updates in real time on a sphere, torus, or GLB model, letting artists check changes in texture and highlights in the 3D preview before importing into the engine again.</p>
     </section>
 
     <p class="text-muted text-sm leading-relaxed mb-12" data-ko="벨트의 금속 파트와 기본 목각인형 몸통의 플라스틱 질감을 표현하는 데 직접 사용했습니다. 캐릭터 팀에도 공유해 사용했으며, 편집값을 바꾸면서 3D 결과를 바로 확인하는 흐름에 집중했습니다.">I used the tool for the metal parts of a belt and the plastic appearance of a base wooden mannequin’s torso, and shared it with the character team for use in their work. The focus was seeing the 3D result immediately as editing values changed.</p>
@@ -111,7 +111,7 @@
         <table class="tbl">
           <thead><tr><th data-ko="항목">Category</th><th data-ko="결과">Result</th></tr></thead>
           <tbody>
-            <tr><td class="lbl" data-ko="워크플로우">Workflow</td><td class="val" data-ko="포토샵 왕복 제거 — 실시간 편집 + 3D 프리뷰">Eliminated Photoshop round-trips — real-time editing + 3D preview</td></tr>
+            <tr><td class="lbl" data-ko="워크플로우">Workflow</td><td class="val" data-ko="텍스처 편집과 3D 프리뷰를 한 도구에서 확인">Texture editing and 3D preview in one tool</td></tr>
             <tr><td class="lbl" data-ko="Shader 모드">Shader Mode</td><td class="val" data-ko="실시간 Toon Ramp / Specular / Outline 생성">Real-time Toon Ramp / Specular / Outline generation</td></tr>
             <tr><td class="lbl" data-ko="Paint 모드">Paint Mode</td><td class="val" data-ko="229개 프리셋 + 8레이어 비파괴 편집">229 presets + 8-layer non-destructive editing</td></tr>
             <tr><td class="lbl" data-ko="개발 기간">Dev Time</td><td class="val" data-ko="4일">4 days</td></tr>

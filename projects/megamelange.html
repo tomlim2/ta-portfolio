@@ -58,7 +58,7 @@
 
     <h1 class="page-title" data-ko="실시간 UE 씬 브릿지">Live UE Scene Bridge</h1>
 
-    <p class="text-body mb-6 page-subtitle" data-ko="자연어로 UE 아웃도어 씬 + AI 컨셉">Natural language to UE outdoor scene + AI concept</p>
+    <p class="text-body mb-6 page-subtitle" data-ko="자연어 씬 제어·생성 서비스 연동과 처리 상태 피드백">Natural-language scene control, generative service integration, and processing feedback</p>
 
     <p class="text-xs text-muted mb-12" data-ko="사내 R&amp;D PoC · 내부 시연 · C++ · FastAPI · Next.js">Internal R&D PoC · Demo stage · C++ · FastAPI · Next.js</p>
 
@@ -71,7 +71,7 @@
     <!-- Solution -->
     <section class="mb-16">
       <h2 class="text-xl font-bold mb-4" data-ko="해결">Solution</h2>
-      <p class="text-muted text-sm leading-relaxed mb-6" data-ko="기존 Python–C++ JSON 통신 브릿지를 기반으로 자연어 명령 처리와 UE 환경 제어, 외부 생성 서비스를 연결했습니다. Cesium에는 도시 이름을 좌표로 바꿔 전달하고, UDS로 시간대·날씨를 조정합니다. UE 화면 캡처를 Nano Banana로 스타일 변환하고 Veo-3 영상 생성으로 이어가는 흐름도 구성했습니다.">Using the existing Python–C++ JSON communication bridge, I connected natural-language command handling, UE environment controls, and external generation services. City names become coordinates for Cesium, while UDS controls time and weather. The workflow also passes UE captures through Nano Banana style transformation and Veo-3 video generation.</p>
+      <p class="text-muted text-sm leading-relaxed mb-6" data-ko="기존 플러그인의 Python–C++ JSON 통신 브릿지 위에 자연어 씬 제어와 외부 생성 서비스를 연결했습니다. Cesium으로 위치를, UDS로 시간대·날씨를 설정하고, UE 화면 캡처를 이미지·영상 생성으로 이어가는 흐름을 구성했습니다. 특히 C++·Python·TypeScript 사이의 처리 상태를 정의하고 사용자에게 진행 상황을 전달하는 데 집중했습니다.">I connected natural-language scene control and external generative services using the plugin’s existing Python–C++ JSON bridge. Cesium sets the location and UDS controls time and weather; an Unreal viewport capture then feeds into image and video generation. My focus was defining processing states across C++, Python, and TypeScript and communicating progress to users.</p>
 
       <!-- NL examples -->
       <div class="mb-6">
@@ -115,7 +115,7 @@
       </div>
 
       <h3 class="font-medium mb-3" data-ko="Roblox 연동 — 비즈니스 데모">Roblox Integration — Business Demo</h3>
-      <p class="text-muted text-sm leading-relaxed mb-4" data-ko="Roblox API로 FBX를 가져와 UE에 임포트하고, 생성된 배경 위에 캐릭터를 배치한 뒤 Nano Banana/Veo-3로 이미지·영상을 제작했습니다. CEO와 기획 팀에게 이 시스템으로 무엇이 가능한지 보여주기 위한 데모였습니다.">Fetched FBX via Roblox API, imported into UE, placed characters on generated backgrounds, then produced images/videos with Nano Banana/Veo-3. Demo content targeting CEO, planners, and team leads.</p>
+      <p class="text-muted text-sm leading-relaxed mb-4" data-ko="Roblox API로 FBX를 가져와 UE에 임포트하고, 생성된 배경 위에 캐릭터를 배치한 뒤 Nano Banana·Veo-3로 이미지·영상을 제작했습니다. CEO와 기획 팀에게 활용 가능성을 보여주기 위한 내부 데모였습니다.">I imported FBX assets through the Roblox API into UE, placed characters on generated backgrounds, and produced images and videos with Nano Banana and Veo-3. This internal demo showed the CEO and planning team how the workflow could be used.</p>
 
       <!-- Roblox demo -->
       <div class="mb-6 overflow-hidden">
@@ -125,12 +125,12 @@
     </section>
 
     <section id="status-feedback" class="mb-16">
-      <h2 class="text-xl font-bold mb-4" data-ko="사용자가 지금 무엇을 기다리는지">Making the current processing stage visible</h2>
+      <h2 class="text-xl font-bold mb-4" data-ko="처리 상태 피드백">Processing Status Feedback</h2>
       <p class="text-muted text-sm leading-relaxed mb-4" data-ko="예를 들어 현재 Unreal 화면을 다른 시대의 분위기로 바꾸는 요청은 캡처, 전달, 생성 요청, 응답 대기를 거칩니다. C++의 상태를 Python과 TypeScript UI까지 전달할 값을 정의해, 사용자가 지금 무엇을 기다리는지 알 수 있도록 설계했습니다.">A request to give the current Unreal scene the atmosphere of another era passes through capture, transfer, generation, and waiting for a response. I defined status information across C++, Python, and the TypeScript UI so users could understand what they were waiting for.</p><div class="overflow-x-auto mb-6"><table class="tbl"><thead><tr><th data-ko="단계">Stage</th><th data-ko="처리 흐름">Workflow</th></tr></thead><tbody><tr><td class="lbl" data-ko="화면 캡처">Capture</td><td class="val" data-ko="C++에서 현재 Unreal 화면 촬영">C++ captures the Unreal viewport</td></tr><tr><td class="lbl" data-ko="이미지 전달">Transfer</td><td class="val" data-ko="캡처 결과를 Python으로 전달">Pass the capture to Python</td></tr><tr><td class="lbl" data-ko="생성 요청·대기">Generate / Wait</td><td class="val" data-ko="이미지 생성 API에 입력하고 응답 대기">Submit to the image generation API and wait</td></tr><tr><td class="lbl" data-ko="결과 피드백">Result</td><td class="val" data-ko="생성 결과를 사용자 화면에 표시">Present the generated result in the UI</td></tr></tbody></table></div>
     </section>
 
     <section id="prompt-design" class="mb-16">
-      <h2 class="text-xl font-bold mb-4" data-ko="입력 정보와 호출 비용 다듬기">Refining inputs and call cost</h2>
+      <h2 class="text-xl font-bold mb-4" data-ko="LLM 입력·호출 구조 개선">Refining LLM Inputs and Calls</h2>
       <p class="text-muted text-sm leading-relaxed mb-4" data-ko="구현 후에는 LLM 입력과 호출 구조를 정리했습니다. 프런트의 LLM 처리를 Python으로 모아 중복 호출을 줄이고, 프롬프트의 파라미터 검증·판단 분기·예시·주입 컨텍스트를 간소화했습니다. 이미지 변환 프롬프트는 길이와 명확성을 비교하면서 구도 유지·변환 강도처럼 결과 품질에 필요한 지시를 검토했습니다.">After the workflow was in place, I refined LLM inputs and call structure. I centralized LLM processing in Python to reduce duplicate calls and simplified parameter-validation instructions, decision branches, examples, and injected context. For image transformation, I compared prompt length with clarity while considering instructions needed to preserve composition and control transformation strength.</p><p class="text-muted text-sm leading-relaxed mb-4" data-ko="CJK 에셋명 번역에서는 배치 처리, 공통 이름의 중복 제거, 간결한 입출력 형식도 적용했습니다.">For CJK asset-name translation, I also applied batching, deduplication of shared names, and concise input/output formatting.</p>
     </section>
 

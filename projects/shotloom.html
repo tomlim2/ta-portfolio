@@ -68,12 +68,12 @@
 
     <section id="overview" class="mb-16">
       <h2 class="text-xl font-bold mb-4" data-ko="프로젝트 개요">Project overview</h2>
-      <p class="text-muted text-sm leading-relaxed mb-6" data-ko="Shotloom은 장면·캐릭터·모션·카메라를 다루는 기본 3D 작업 흐름에 Cinev의 모션·에셋 서비스를 연결하는 웹 에디터입니다. 외부 캐릭터와 내부 모션을 연결하는 리타게터부터 맡았고, 에디터 프런트엔드·UX/UI와 IK 제어 코어로 담당 범위를 넓혔습니다.">Shotloom is a web editor connecting foundational 3D scene, character, motion, and camera workflows with Cinev’s motion and asset services. I started with retargeting external characters to internal motion, then took on editor frontend/UX and the core IK control layer.</p>
+      <p class="text-muted text-sm leading-relaxed mb-6" data-ko="Shotloom은 장면·캐릭터·모션·카메라를 다루는 기본 3D 작업 흐름에 Cinev의 모션·에셋 서비스를 연결하는 웹 에디터입니다. 외부 캐릭터와 자사 모션을 연결하는 리타게터를 설계·구현하고, 생성 서비스의 프런트엔드 통합과 카메라·타임라인 편집 UX를 담당했습니다.">Shotloom is a web editor connecting core scene, character, motion, and camera workflows with Cinev’s motion and asset services. I designed and implemented the retargeter for external characters and in-house motion, integrated generative services into the frontend, and developed the camera and timeline editing UX.</p>
       <div class="overflow-x-auto mb-6">
         <table class="tbl">
           <thead><tr><th data-ko="항목">Area</th><th data-ko="내용">Details</th></tr></thead>
           <tbody>
-          <tr><td class="lbl" data-ko="내 담당">My role</td><td class="val" data-ko="리타게터 · 프런트엔드 · UX/UI">Retargeter · Frontend · UX/UI</td></tr>
+          <tr><td class="lbl" data-ko="내 담당">My role</td><td class="val" data-ko="리타게터 · 생성 서비스 프런트엔드 통합 · 편집 UX/UI">Retargeter · Generative service integration in the frontend · Editing UX/UI</td></tr>
           <tr><td class="lbl" data-ko="대상 사용자">Intended users</td><td class="val" data-ko="3D에 익숙하지 않은 연출자">Directors unfamiliar with 3D tools</td></tr>
           <tr><td class="lbl" data-ko="도달 단계">Stage reached</td><td class="val" data-ko="핵심 흐름 구현 · 개발 서버 배포">Core flow implemented · Dev deployment</td></tr>
           </tbody>
@@ -119,7 +119,7 @@
           </tbody>
         </table>
       </div>
-      <p class="text-muted text-sm leading-relaxed" data-ko="Proxy Scene, Proxy Character, Text to Pose, Text to Motion을 편집 흐름에 통합하고, 씬 동영상을 CINEV의 영상 생성 단계로 전달하는 흐름을 연결했습니다. 최종 영상 생성에는 LLM과 Seedance·MiniMax 등의 서비스를 연동했습니다. 생성 모델과 백엔드는 팀의 다른 담당 영역이었습니다.">I integrated Proxy Scene, Proxy Character, Text to Pose, and Text to Motion into the editing workflow and connected the scene video output to CINEV’s video generation stage. Final video generation involved LLMs and services such as Seedance and MiniMax. Generative models and backend services belonged to other members of the team.</p>
+      <p class="text-muted text-sm leading-relaxed" data-ko="React/TypeScript 기반 3D 에디터 프런트엔드에 배경·캐릭터·모션 및 영상 생성 서비스를 통합했습니다. Proxy Scene·Proxy Character·Text to Pose·Text to Motion의 결과를 편집으로 연결하고, SceneGen에서는 편집한 씬 동영상을 CINEV의 영상 생성 단계로 전달하도록 구성했습니다. 이 단계는 LLM과 Seedance·MiniMax 등을 활용하며, 생성 모델·백엔드는 팀의 다른 담당 영역이었습니다.">I integrated background, character, motion, and video generation services into the React/TypeScript 3D editor frontend. Proxy Scene, Proxy Character, Text to Pose, and Text to Motion feed into editing; the SceneGen use case passes the edited scene video to CINEV’s video generation stage. That stage uses LLMs and services such as Seedance and MiniMax, with generative models and backend services handled by other team members.</p>
     </section>
 
     <hr class="border-border mb-12">
@@ -160,11 +160,11 @@
     </section>
 
     <section id="collaboration" class="mb-16">
-      <h2 class="text-xl font-bold mb-4" data-ko="LLM 협업 개발">LLM-Assisted Collaborative Development</h2>
-      <p class="text-muted text-sm leading-relaxed mb-6" data-ko="Claude·OpenAI 도구를 활용하는 4명의 팀원이 하나의 제품을 함께 개발했습니다. 저는 각 작업의 변경 목적·구현 범위·책임 경계와 검증 상태를 서로 이해할 수 있도록 가드레일과 문서화에 집중했습니다.">Four team members used Claude and OpenAI tools to develop one product together. I focused on guardrails and documentation so contributors could understand the purpose, scope, ownership boundaries, and validation status of each change.</p>
+      <h2 class="text-xl font-bold mb-4" data-ko="LLM 협업 · 하네스 엔지니어링">LLM Collaboration &amp; Harness Engineering</h2>
+      <p class="text-muted text-sm leading-relaxed mb-6" data-ko="Claude·OpenAI를 활용하는 4인 개발팀에서 기존 공용 가드레일·문서에 맞춰 개발 하네스를 구성했습니다. 담당 작업의 범위·책임 경계·리뷰·검증 기록을 관리하고 팀에 공유해, 동료가 변경 의도와 구현 상태를 이해하고 후속 개발을 이어갈 수 있도록 했습니다.">In a four-person team using Claude and OpenAI, I configured a development harness around the existing shared guardrails and documentation. I managed and shared records of my work’s scope, ownership boundaries, reviews, and validation so colleagues could understand the changes and continue development.</p>
       <div class="overflow-x-auto mb-6">
         <table class="tbl">
-          <thead><tr><th data-ko="협업 기준">Collaboration focus</th><th data-ko="가드레일·기록">Guardrails &amp; documentation</th></tr></thead>
+          <thead><tr><th data-ko="관리 항목">Managed area</th><th data-ko="하네스에서 관리·공유한 내용">Records managed and shared through the harness</th></tr></thead>
           <tbody>
           <tr><td class="lbl" data-ko="구현 범위와 책임">Scope &amp; ownership</td><td class="val" data-ko="스펙과 PR에 변경 목적·구현 범위·입출력·책임 경계를 기록">Record purpose, implementation scope, inputs and outputs, and ownership boundaries in specs and PRs</td></tr>
           <tr><td class="lbl" data-ko="리뷰와 검증">Review &amp; validation</td><td class="val" data-ko="리뷰·수정·재검증 절차와 결과를 남기고, Git 작업 상태·대상 변경에 유효한 CI 결과 검사">Document review, fix, and revalidation procedures and results; check Git work state and CI results applicable to the changes</td></tr>
@@ -172,7 +172,7 @@
           </tbody>
         </table>
       </div>
-      <p class="text-muted text-sm leading-relaxed mb-6" data-ko="이를 지원하기 위해 공통 개발 하네스 Knitten과 Shotloom 전용 워크플로를 구축해 제 작업에 적용했습니다. 필요한 지시를 단계별로 읽고, 스펙·구현·리뷰·검증 기록을 GitHub의 변경 맥락과 연결했습니다.">To support this, I built Knitten, a reusable development harness, and a Shotloom-specific workflow and applied them to my work. Instructions are loaded as needed at each stage, while specs, implementation, reviews, and validation records are connected to the changes on GitHub.</p>
+      <p class="text-muted text-sm leading-relaxed mb-6" data-ko="직접 개발한 하네스 Knitten에 Shotloom 전용 워크플로를 연결해 제 작업에 적용했습니다. 기존 프로젝트 지침을 단계별로 참조하고, 스펙·구현·리뷰·검증 기록을 GitHub의 변경 맥락과 연결했습니다. 팀에는 이 기록과 코드를 공유했습니다.">I applied Knitten, the harness I developed, to my own work with a Shotloom-specific workflow. It references existing project instructions at each stage and connects specs, implementation, reviews, and validation records to the changes on GitHub. I shared those records and code with the team.</p>
       <h3 class="font-medium mb-3" data-ko="협업 사례: IK 제어 레이어">Collaboration example: the IK control layer</h3>
       <p class="text-muted text-sm leading-relaxed mb-4" data-ko="IK 제어 레이어에서는 제가 코어를 개발하고, 동료가 사용자 조작 UI를 이어서 구현했습니다. 구현 목적·입출력·책임 경계·검증 기록을 함께 남겨 후속 개발에 활용할 수 있도록 했습니다.">For the IK control layer, I implemented the core and a colleague continued with the user-facing manipulation UI. I documented purpose, inputs and outputs, ownership boundaries, and validation so that subsequent development could build on the work.</p>
       <p class="text-sm"><a href="https://github.com/tomlim2/knitten" target="_blank" rel="noopener" class="text-accent hover:underline">Knitten on GitHub ↗</a></p>

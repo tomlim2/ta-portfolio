@@ -58,7 +58,7 @@
     <!-- Problem -->
     <section class="mb-16">
       <h2 class="text-xl font-bold mb-4" data-ko="문제">Problem</h2>
-      <p class="text-muted text-sm leading-relaxed" data-ko="배경 씬이 복잡해지면서 GPU 병목을 못 잡고 있었습니다. 시가지, 공업단지, 식생, 사막 — 전부 타겟(16~20ms)을 크게 넘겼고, 아티스트마다 성능 확인 방식이 달랐습니다. 나나이트 도입 후 기존 기준도 안 맞았습니다. '느린 건 아는데 어디가 문제인지 모르겠다'가 반복됐습니다.">Multiple production environments — city streets, industrial complexes, vegetation areas, desert scenes — were running at 29–56ms, well above the 16–20ms target. Each artist checked performance differently, and after adopting Nanite, existing optimization baselines no longer applied. The team repeatedly found themselves saying "it's slow, but we don't know where."</p>
+      <p class="text-muted text-sm leading-relaxed" data-ko="복잡해진 제작용 씬에서 GPU 프레임 시간이 목표 범위인 16–20ms를 넘었지만, 아티스트마다 성능 확인 방식이 달라 병목을 파악하기 어려웠습니다. Nanite 도입 이후의 제작 방식에 맞춰 프로파일링 절차와 최적화 기준을 정리할 필요가 있었습니다.">As production scenes grew more complex, GPU frame times exceeded the 16–20ms target. Artists used different performance checks, making bottlenecks difficult to identify. The team needed profiling procedures and optimization guidelines suited to its workflow after adopting Nanite.</p>
     </section>
 
     <!-- Solution -->
@@ -70,7 +70,7 @@
         <p class="text-xs font-medium text-heading mb-2" data-ko="내 역할">My Role</p>
         <ul class="text-muted text-sm leading-relaxed space-y-1" style="list-style: disc !important; padding-left: 1.25rem;">
           <li data-ko="초기 씬을 직접 프로파일링하고 최적화해서 방법론과 기준값을 잡았습니다">Personally profiled, diagnosed, and optimized initial scenes to establish methodology and baseline targets</li>
-          <li data-ko="에픽 시티 샘플을 분석해서 나나이트 셋팅 기준을 뽑고 문서화했습니다">Analyzed Epic's City Sample, derived Nanite setting guidelines, and documented them so other TAs and environment/lighting artists could apply them independently</li>
+          <li data-ko="Epic City Sample을 분석해 Nanite 설정 기준을 정리하고 문서화했습니다">Analyzed Epic’s City Sample and documented Nanite configuration guidelines</li>
           <li data-ko="프로파일링 방법을 Notion에 정리해 배경·라이팅 팀에 공유하고, 자체 점검 후 TA팀 지원으로 이어지는 흐름을 마련했습니다">Documented profiling in Notion for the environment and lighting teams, establishing a flow from their own checks to TA support</li>
 
         </ul>
@@ -95,11 +95,11 @@
           </thead>
           <tbody>
             <tr>
-              <td class="lbl" data-ko="시가지 야경 (4스팟)">City Night (4 spots)</td>
+              <td class="lbl" data-ko="도시 배경 (5개 지점 평균)">City environment (5-viewpoint average)</td>
               <td class="val" data-ko="나나이트 + 글로벌 렌더링">Nanite + global render</td>
-              <td class="val-r">29–40ms</td>
-              <td class="val-r">16–19ms</td>
-              <td style="text-align:right"><span class="gain">35–52%↓</span></td>
+              <td class="val-r">34.18ms</td>
+              <td class="val-r">18.44ms</td>
+              <td style="text-align:right"><span class="gain">46%↓</span></td>
             </tr>
             <tr>
               <td class="lbl" data-ko="공업단지">Industrial Complex</td>
@@ -130,9 +130,9 @@
 
         <!-- Case 1: City Night -->
         <div>
-          <h3 class="font-medium mb-1 text-heading" data-ko="시가지 야경 — 글로벌 렌더링 + 나나이트 셋팅">City Night — Global Rendering + Nanite Settings</h3>
+          <h3 class="font-medium mb-1 text-heading" data-ko="도시 배경 — 렌더링·Nanite 설정">City environment — Rendering and Nanite settings</h3>
           <p class="text-xs text-muted mb-4">35–52% reduction across 4 spots</p>
-          <p class="text-muted text-sm leading-relaxed mb-6" data-ko="배경 메시가 화면의 5%도 안 차지하면서 트라이앵글 예산을 다 쓰고 있었습니다. 나나이트 셋팅과 글로벌 렌더링 값을 조정해서 서브픽셀 지오메트리의 쓸데없는 연산을 잘라냈습니다. 4개 스팟에서 35~52% GPU 절감 확인.">Background meshes consumed full triangle budgets despite occupying less than 5% of screen space. I applied project-specific Nanite settings and global rendering values — derived from analyzing Epic's City Sample — to eliminate unnecessary computation on sub-pixel geometry. Verified consistent 35–52% GPU reduction across 4 measurement spots.</p>
+          <p class="text-muted text-sm leading-relaxed mb-6" data-ko="렌더링과 메시의 Nanite 설정을 조정해, 화면 기여도가 낮은 세부 지오메트리의 연산을 줄였습니다. 5개 카메라 지점에서 평균 GPU 프레임 시간이 34.18ms에서 18.44ms로 약 46% 줄었습니다. 그림자가 더 어두워지고 표면 디테일이 줄어드는 영향도 함께 확인했습니다. 아래는 동일 지점에서 비교한 두 사례입니다.">I adjusted rendering and per-mesh Nanite settings to reduce work on geometry with little contribution to the image. Across five camera positions, average GPU frame time fell from 34.18ms to 18.44ms, a reduction of about 46%. I also checked the tradeoffs: darker shadows and less surface detail. Two comparisons from matching viewpoints are shown below.</p>
           <img src="../assets/images/profiling/city-night-spot1.jpg" alt="City night Spot 1 — Original 39.26ms vs Optimized 19.54ms" class="w-full h-auto mb-2">
           <p class="text-xs text-muted text-center mb-6" data-ko="스팟 1: 39.26ms → 19.54ms (50%↓) — 동일 카메라 앵글, stat gpu 오버레이">Spot 1: 39.26ms → 19.54ms (50%↓) — identical camera angle, stat gpu overlay</p>
           <img src="../assets/images/profiling/city-night-spot3.jpg" alt="City night Spot 3 — Original 29.03ms vs Optimized 18.96ms, neon deer by stream" class="w-full h-auto mb-2">
@@ -304,7 +304,7 @@
 
     <!-- Tradeoff -->
     <section class="mb-16">
-      <p class="text-muted text-sm leading-relaxed italic" data-ko="룩이 유지되는 선에서만 최적화했습니다. 수치만 낮추는 게 목적이 아니었습니다.">All optimization decisions were made with visual parity as the constraint. The goal was not lowest possible cost, but stable performance gains with acceptable quality retention.</p>
+      <p class="text-muted text-sm leading-relaxed italic" data-ko="변경 전후의 화면과 GPU 프레임 시간을 함께 비교하며 적용 범위를 판단했습니다. 시각적 영향이 큰 변경은 연출 의도를 확인하고, 필요한 경우 TA팀이 대체 표현이나 커스텀 머티리얼을 검토했습니다.">I assessed each change through both visual comparisons and GPU frame times. Changes with a larger visual impact were checked against the intended look; where needed, the TA team explored alternative treatments or custom materials.</p>
     </section>
 
     <!-- Prev/Next -->
