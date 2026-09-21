@@ -2,7 +2,7 @@
 
 이 문서는 포트폴리오를 수정할 때 **어떤 경험을 보여주려는지, 어디를 수정하고 어떤 근거를 확인해야 하는지** 찾기 위한 안내다. 상세 설명은 각 페이지와 원기록에 둔다.
 
-내용 기준: 2026-09-18. Shotloom 사례 공개 기록은 [v1.1.0](releases/v1.1.0.md), 후속 인터뷰와 LLM 협업 개발 반영 기록은 [v1.1.1](releases/v1.1.1.md)에 있다. 현재 배포 버전은 [GitHub Releases](https://github.com/tomlim2/ta-portfolio/releases)에서 확인한다.
+내용 기준: 2026-09-21. Shotloom 사례 공개 기록은 [v1.1.0](releases/v1.1.0.md), 후속 인터뷰와 LLM 협업 개발 반영 기록은 [v1.1.1](releases/v1.1.1.md)에 있다. 현재 배포 버전은 [GitHub Releases](https://github.com/tomlim2/ta-portfolio/releases)에서 확인한다.
 
 ## 포트폴리오의 중심
 
@@ -80,6 +80,8 @@
 [캐릭터 페이지의 임포트 흐름도](projects/character-system.html#web-import)는 ImageGen 개념 설명이다. 실제 UI나 변환 결과 캡처가 아니다. [이미지 파일](assets/images/character-system/vrm-studio-import-flow.png)에서 Studio 변환·썸네일 촬영 단계를 Cinev Studio 영역으로 묶었다.
 
 ## Shotloom에서 유지할 구분
+
+2026-09-21 요청으로 **메인 프로젝트 카드는 잠시 숨기고 상세 페이지는 유지**한다. `/shotloom` 진입 경로는 [shotloom/index.html](shotloom/index.html)에서 기존 상세 페이지로 연결한다. 홈페이지 소개·경력의 Shotloom 언급은 카드와 별개다.
 
 | 용어 | 이 포트폴리오에서의 의미 |
 |---|---|
