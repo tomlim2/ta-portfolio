@@ -40,7 +40,7 @@
 |---|---|---|
 | [Shotloom](projects/shotloom.html) | 기본 3D 작업 흐름, 자사 서비스, 사용 경험을 연결한 에디터 설계·구현 | Character System: 제작자용 도구 / Live UE Scene Bridge: 생성 서비스 연동 |
 | [NPR Shading & Look Development](projects/npr-shader.html) | 셰이딩 기술을 탐색하고 조명·연출 의도에 맞춰 캐릭터 룩을 조정 | Matcap Painter: 룩 제작 도구 / UE5 Profiling: 시각적 결과와 성능 판단 |
-| [Character System](projects/character-system.html) | 파츠·텍스처·머티리얼 재사용을 위한 언리얼 플러그인 제작·유지보수. 아트·기획 팀의 등록·프리뷰와 웹 VRM의 Studio 변환을 연결 | NPR: 캐릭터 룩 / PMX to VRM: 별도의 변환 R&D |
+| [Character System](projects/character-system.html) | 파츠·리소스 재사용과 아티스트의 캐릭터 등록·프리뷰를 지원하는 제작 도구. 시스템 구조에서 내부 프리셋과 외부 모델의 로딩·기준점 탐지를 설명 | NPR: 캐릭터 룩 / PMX to VRM: 별도의 변환 R&D |
 | [UE5 Profiling](projects/profiling.html) | UE 에디터에서 GPU 비용·룩을 비교. Notion으로 배경·라이팅 팀의 자체 점검과 TA 지원 흐름을 공유 | NPR: 표현 품질과 조명 조건 |
 | [PMX to VRM Pipeline](projects/pmx-to-vrm.html) | 외부 캐릭터 변환 문제를 해결하고 사내 테스트·기술 검증 완료. Cinev Studio 제품에는 미적용 | Character System: 기존 캐릭터 체계 / MMD Player: 원본 검증 |
 | [Matcap Painter](projects/matcap-painter.html) | 실시간 3D 프리뷰를 보며 텍스처 제작. 벨트 금속·목각인형 몸통의 플라스틱 표현에 사용하고 캐릭터 팀에 공유해 사용 | NPR: 실제 텍스처 사용 목적 |
@@ -52,6 +52,10 @@
 **MMD Player의 활용 범위:** 기획자·QA의 실제 사용은 없었다. 본인의 PMX 검증 도구로 개발했다. 후속 설명에서 WebGPU 경험이 Shotloom에 준 도움은 ‘이미 다뤄봤으므로 낯설거나 부담스럽지 않았다’는 의미로 확인됐다. 학습 배경으로만 설명하며 특정 머티리얼 기법의 재사용·코드 이식·개발 시간 단축 성과로 쓰지 않는다. 처음부터 Shotloom을 위한 선행 연구로 계획한 것도 아니다.
 
 **캐릭터 도구의 기여:** 파츠 분리와 텍스처·머티리얼 재사용을 지원하는 언리얼 플러그인을 제작·유지보수했다. 재도색 없는 색상 바리에이션은 활용 사례이며, 아트·기획 팀의 프리셋 등록·변경·에디터 프리뷰까지 연결한다.
+
+**캐릭터 시스템의 사용자 구분과 공개 범위:** 2026-09-21 사용자 정정. [내부 아티스트용 제작 도구](projects/character-system.html#internal-tools)는 파츠·리소스 재사용과 프리셋 등록·프리뷰를 담당한다. VRM4U 기반 외부 캐릭터 임포트는 같은 시스템의 외부 사용자용 프로세스다. 이후 사용자 요청으로 웹 업로드·변환·썸네일 반환을 설명하는 독립 섹션은 제거했다. 현재 페이지는 제작 도구에 집중하고, 외부 모델의 로딩·기준점 탐지 기술은 아래 시스템 구조에 남긴다. 외부 사용자를 대상으로 했다는 사실과 실제 도입 성과는 구분한다.
+
+**룩뎁 공유 갤러리:** 배경 아티스트가 공유한 톤·무드·스케일 확인 화면 6장은 [NPR 페이지](projects/npr-shader.html#lookdev-gallery)에 둔다. 2026-09-21 요청으로 Character System에서 이동했다. 아티스트 협업 중간 결과물이라는 설명과 기존 이미지 경로는 유지한다.
 
 **UE5 Profiling의 조건과 협업:** 측정 환경은 Unreal Engine 에디터다. 도시 배경은 5개 지점 평균 34.18→18.44ms(약 46% 감소)이며, 개별 지점 수치와 구분한다. 기존 4개 지점 표기를 근거 기록에 맞춰 정정했다. 그림자 농도와 표면 디테일의 변화가 있었으므로 무손실 최적화로 표현하지 않는다. GPU 모델·해상도·정확한 실행 모드는 미확인이며 배포 환경의 성능으로 쓰지 않는다. 처음 TA팀이 하던 프로파일링을 Notion으로 배경·라이팅 팀에 공유해 라이트·머티리얼 종류, 텍스처 크기, 폴리곤 수를 자체 점검하도록 했다. 룩을 유지하면서 해결하기 어려운 부분은 TA팀에 요청해 커스터마이징하거나 더 저렴한 표현을 찾았다. 팀 전체의 작업을 본인의 단독 성과로 표현하지 않는다.
 
@@ -77,7 +81,7 @@
 
 이 작업은 웹 업로드와 Studio 변환이 연결된 사례다. Shotloom의 임포트나 독립된 브라우저 내부 변환으로 설명하지 않는다. 썸네일 생성·반환은 확인된 서비스 흐름이며, 해당 단계와 웹 UI·통신 구현까지 모두 본인이 단독 개발했다고 확대하지 않는다. PMX to VRM은 사내 검증 단계의 별도 R&D이며 Studio 적용까지 진행하지 않았다.
 
-[캐릭터 페이지의 임포트 흐름도](projects/character-system.html#web-import)는 ImageGen 개념 설명이다. 실제 UI나 변환 결과 캡처가 아니다. [이미지 파일](assets/images/character-system/vrm-studio-import-flow.png)에서 Studio 변환·썸네일 촬영 단계를 Cinev Studio 영역으로 묶었다.
+기존 [임포트 흐름도 이미지](assets/images/character-system/vrm-studio-import-flow.png)는 ImageGen 개념 설명이며 실제 UI나 변환 결과 캡처가 아니다. 2026-09-21 편집 결정으로 캐릭터 페이지에서는 사용하지 않는다. 설명과 HTML은 로컬 `tools/drafts/character-system/external-user-import-section.html`에 보관한다.
 
 ## Shotloom에서 유지할 구분
 
@@ -86,12 +90,14 @@
 | 용어 | 이 포트폴리오에서의 의미 |
 |---|---|
 | Shotloom | 기본 3D 작업 흐름과 자사 서비스를 연결하는 웹 3D 에디터 |
+| Proxy Character 예시 | 이미지 입력 → 캐릭터 후보 확인·선택 → 씬 배치. 제공된 화면의 후보 선택·적용 흐름을 설명하며, 모든 캐릭터를 이미지에서 새로 생성했다고 표현하지 않는다. |
+| Proxy Scene 예시 | 이미지 입력 → 프록시 장면 생성 → 씬 추가·편집. 오른쪽 참조 이미지와 왼쪽 3D 장면의 관계를 보여주는 실제 개발 화면 |
 | CINEV | 자체 생성 기능을 갖춘 웹 제작 서비스. 현재 SceneGen 도표에서는 이미지 입력·최종 영상 생성 영역으로 표시되며, 서비스 전체 기능을 뜻하는 도표는 아니다. |
 | SceneGen | Shotloom의 여러 활용 예시 중 하나. 현재 도표는 이 예시의 서비스 흐름이며, 2–4단계에 Shotloom 사용 |
 | SceneGen 예시에서의 Shotloom 입력·출력 | 이미지 입력 → 장면·캐릭터·모션·카메라 편집 → 편집 결과를 반영한 씬 동영상 출력 |
 | SceneGen 예시의 다음 단계 | Shotloom의 씬 동영상을 CINEV의 영상 생성 단계로 전달 |
 
-SceneGen으로 Shotloom의 전체 목적·사용 범위·입출력을 한정하지 않는다. 상세 페이지는 웹 3D 에디터의 개요와 설계 목표를 먼저 설명하고, 흐름도는 ‘활용 예시: SceneGen’ 섹션에 둔다.
+SceneGen으로 Shotloom의 전체 목적·사용 범위·입출력을 한정하지 않는다. 상세 페이지는 웹 3D 에디터의 개요와 설계 목표를 먼저 설명하고, [자사 서비스 연동](projects/shotloom.html#services)에서 Proxy Character·Proxy Scene의 실제 개발 화면과 SceneGen 개념 흐름도를 함께 보여준다. 기존 `#flow` 앵커는 SceneGen 소제목으로 유지한다.
 
 세 가지 설계 목표는 [설계 목표 섹션](projects/shotloom.html#design-goals)에 정리되어 있다.
 
@@ -106,6 +112,9 @@ SceneGen으로 Shotloom의 전체 목적·사용 범위·입출력을 한정하�
 - **LLM 협업 개발·Knitten:** Claude·OpenAI 도구를 활용하는 4명이 하나의 제품을 개발했다. 팀의 공용 가드레일과 문서는 이미 존재했다. 본인은 기존 기준에 맞춘 하네스 엔지니어링으로 담당 작업의 범위·책임 경계·리뷰·검증 기록을 관리하고 공유했다. Knitten 공통 코어와 Shotloom 전용 워크플로, 단계별 참조·체크포인트, 설치·Git·CI 검사 도구를 본인 작업에 적용했다. 공용 가드레일·문서화 프로세스 자체를 처음 만든 것으로 표현하지 않는다. Knitten의 직접 사용자는 본인이며, 동료에게는 구현 맥락·검증 기록·코드가 이어졌다. 4명 모두가 Knitten을 실행한 것으로 확대하지 않는다. IK 인계는 공동 개발의 한 예시다.
 - **제품 상태:** 약 4개월 개발해 핵심 제작 흐름의 해피패스를 구현하고 개발 서버에 배포했다. 기본 편집 기능 보완과 대상 연출자 사용 검증은 남아 있었다. 외부 사용자에게 제공됐던 Cinev Studio와 구분한다.
 - **사례 공개:** 포트폴리오 공개와 Shotloom 제품의 정식 출시를 구분한다.
+- **서비스 연동 화면:** [Proxy Character](projects/shotloom.html#proxy-character)와 [Proxy Scene](projects/shotloom.html#proxy-scene)에 2026-09-21 사용자가 제공한 원본 캡처를 추가했다. 사용자가 확인한 서비스명과 이미지 입력·선택/구성·씬 적용 흐름을 설명한다. 파일명 날짜를 서비스 개발 완료일로 해석하지 않는다. 생성 모델·백엔드를 본인 단독 개발로 표현하지 않는다.
+- **실제 프런트엔드 화면:** [에디터 UX 섹션](projects/shotloom.html#frontend-example)에 사용자가 제공한 2026-08-21 원본 캡처를 추가했다. 포즈 라이브러리·3D 카메라 뷰·클립 타임라인이 보이는 실제 개발 화면이며, 클릭하면 원본 크기로 열린다. AI 보정 시안과 구분한다.
+- **리타게터 개발 화면:** [ARP 전환과 캐릭터 호환성](projects/shotloom.html#retargeting-examples)에 2026-06-30 기준 리깅 전환 초기의 변형과 2026-08-19 VRM 포즈 적용·여러 출처 캐릭터 확인 화면을 원본 그대로 추가했다. 기준은 기존 Cinev의 MetaHuman 기반 Blender export에서 ARP로 전환했다. 세 캐릭터 화면은 왼쪽부터 외부 ARP, ARP를 적용한 기존 Cinev, Humanoid 기반 VRM이다. 개발 단계별 기록이며, 동일 조건 Before/After나 특정 PR 하나의 결과로 단정하지 않는다. 본문의 VRM 3종 회귀 검증과 별개의 자료다.
 - **이미지:** 현재 [흐름도](assets/images/shotloom/scenegen-flow-v2.png)는 ImageGen으로 만든 개념 설명이다. 실제 UI 캡처나 실제 생성 결과로 설명하지 않는다. 이전 PNG·SVG는 현재 홈 카드와 상세 페이지에서 사용하지 않는다.
 
 ## 수정할 때 함께 확인할 곳
@@ -131,6 +140,9 @@ SceneGen으로 Shotloom의 전체 목적·사용 범위·입출력을 한정하�
 |---|---|
 | 전체 자료 조사·Shotloom 인터뷰 | `2026-09-14-15-shotloom-interview.md` |
 | 리타게터 구조·근거 자료 위치 | `2026-09-15-retargeter-architecture-sources.md` |
+| ARP 전환 초기·개선 결과·캐릭터별 리깅 확인 | `2026-09-21-shotloom-retargeter-screenshots.md` |
+| Proxy Character·Proxy Scene 실제 서비스 연동 화면 | `2026-09-21-shotloom-proxy-service-examples.md` |
+| 캐릭터 시스템의 내부 아티스트·외부 사용자 구분 | `2026-09-21-character-system-user-workflows.md` |
 | Knitten과 협업 범위 | `2026-09-15-knitten-review.md` |
 | 전체 경력 원본에서 참조한 내용 | `2026-09-15-resume-master-review.md` |
 | 이력서 반영 내용 | `2026-09-15-resume-applied.md` |
@@ -149,7 +161,7 @@ SceneGen으로 Shotloom의 전체 목적·사용 범위·입출력을 한정하�
 
 | 우선 확인할 자료 | 포트폴리오에서 설명할 판단 | 필요한 근거 |
 |---|---|---|
-| Shotloom 리타게팅 Before/After | 보정 방식 변경이 어떤 변형을 해결했는지 | 같은 캐릭터·모션·카메라 조건의 전후 영상 또는 캡처 |
+| Shotloom 리타게팅 Before/After | 보정 방식 변경이 어떤 변형을 해결했는지 | 개발 단계별 캡처 3장은 확보·반영. 엄밀한 비교에는 같은 캐릭터·모션·카메라 조건의 전후 자료가 추가로 필요 |
 | Shotloom 프리셋·스트립 편집 예시 | 기본 기능과 자사 서비스를 어떻게 손쉬운 작업으로 연결했는지 | 실제 편집 조작과 결과를 보여주는 짧은 데모 |
 | NPR 조명 대응 사례 | 기술 적용 결과를 보고 표현 방식을 바꾼 이유 | 같은 장면에서 초기 룩·수정 룩을 비교할 자료 |
 

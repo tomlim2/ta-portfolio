@@ -61,15 +61,13 @@
 
     <p class="text-xs text-muted mb-12">Cinev Studio · UE5 · C++ · Blueprint · <a href="https://cinev.com" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">cinev.com</a></p>
 
-    <!-- Problem -->
-    <section class="mb-16">
-      <h2 class="text-xl font-bold mb-4" data-ko="문제">Problem</h2>
-      <p class="text-muted text-sm leading-relaxed" data-ko="Cinev Studio는 Unreal 기반 3D 에디터를 웹에서 제공한 제품입니다. 아티스트들은 캐릭터를 등록할 때 언리얼에서 무엇을 만져야 할지 모르겠다는 피드백을 주었습니다. 등록한 에셋이 제대로 반영됐는지 확인하는 흐름도 부족했습니다. 초기 캐릭터는 머리·머리카락·몸통이 분리되지 않은 단일 텍스처 구조여서 색상 바리에이션을 만들 때 다시 그려야 했습니다.">Cinev Studio delivered an Unreal-based 3D editor through the web. Artists reported not knowing which Unreal settings to change when registering characters, and lacked a clear way to check that their assets appeared correctly. Early characters used a single texture without separate head, hair, and body parts, so color variations required repainting.</p>
-    </section>
+    <!-- Internal artist tools -->
+    <section id="internal-tools" class="mb-16 scroll-mt-24">
+      <h2 class="text-xl font-bold mb-4" data-ko="내부 아티스트용 제작 도구">Tools for In-house Artists</h2>
+      <h3 class="font-medium mb-3" data-ko="문제">Problem</h3>
+      <p class="text-muted text-sm leading-relaxed mb-6" data-ko="Cinev Studio는 Unreal 기반 3D 에디터를 웹에서 제공한 제품입니다. 아티스트들은 캐릭터를 등록할 때 언리얼에서 무엇을 만져야 할지 모르겠다는 피드백을 주었습니다. 등록한 에셋이 제대로 반영됐는지 확인하는 흐름도 부족했습니다. 초기 캐릭터는 머리·머리카락·몸통이 분리되지 않은 단일 텍스처 구조여서 색상 바리에이션을 만들 때 다시 그려야 했습니다.">Cinev Studio delivered an Unreal-based 3D editor through the web. Artists reported not knowing which Unreal settings to change when registering characters, and lacked a clear way to check that their assets appeared correctly. Early characters used a single texture without separate head, hair, and body parts, so color variations required repainting.</p>
 
-    <!-- Solution -->
-    <section class="mb-16">
-      <h2 class="text-xl font-bold mb-4" data-ko="해결">Solution</h2>
+      <h3 class="font-medium mb-3" data-ko="파츠 재사용과 등록·프리뷰">Part Reuse, Registration &amp; Preview</h3>
       <p class="text-muted text-sm leading-relaxed mb-4" data-ko="캐릭터 파츠 분리와 텍스처·머티리얼 재사용을 지원하는 언리얼 C++ 플러그인을 제작·유지보수했습니다. 머리·머리카락·몸통을 나눠 텍스처를 다시 그리지 않고 색상 바리에이션을 만들도록 했습니다. 아트·기획 팀이 코드 수정 없이 프리셋을 등록·변경하고, 언리얼 에디터에서 적용 결과를 확인하는 제작 흐름을 구현했습니다.">I developed and maintained an Unreal C++ plugin that supports character-part separation and texture and material reuse. Separating head, hair, and body enabled color variations without repainting textures. I built tools for the art and planning teams to register and modify presets without code changes and preview the results in the Unreal editor.</p>
 
       <img src="../assets/images/character-system/data-asset-details.png" alt="NRC Data Asset — Info, Base, Parts, Outline, Chaos Cloth settings" class="mx-auto max-h-[500px] mb-2">
@@ -79,16 +77,10 @@
         <img src="../assets/images/character-system/editor-preview.png" alt="Editor preview — verifying NPR character placement on a background" class="w-full h-auto">
         <p class="text-xs text-muted text-center mt-2" data-ko="등록 용도 캐릭터 블루프린트로 배경 위에서 바로 프리뷰">Editor preview — checking NPR characters on background without launching the game</p>
       </div>
-    </section>
-
-    <section class="mb-16">
-      <h2 class="text-xl font-bold mb-4" data-ko="내가 제안하고 구현한 범위">What I proposed and built</h2>
-      <p class="text-muted text-sm leading-relaxed" data-ko="VRM4U를 활용한 외부 캐릭터 저장·불러오기 프로토타입을 제안하고, 채택된 구상을 캐릭터 등록·관리 기능으로 구현했습니다. 기존 로더를 활용하면서 제품의 Data Asset·프리셋 흐름을 연결하고, 얼굴 레퍼런스 포인트 탐지를 확장해 카메라 타깃과 썸네일 생성에 사용했습니다.">I proposed a save/load prototype for external characters using VRM4U, then developed the adopted concept into character registration and management features. My work connected the existing loader to the product’s Data Asset and preset workflows and extended facial reference-point detection for camera targeting and thumbnails.</p>
-    </section>
-
-    <section id="web-import" class="mb-16">
-      <h2 class="text-xl font-bold mb-4" data-ko="웹 업로드부터 변환 결과 확인까지">From web upload to an import preview</h2>
-      <p class="text-muted text-sm leading-relaxed mb-4" data-ko="웹에 업로드한 VRM을 Studio 플러그인에서 기존 Humanoid 리깅 시스템과 자체 머티리얼로 전환하는 파이프라인을 담당했습니다. 변환된 캐릭터는 Studio 내부에서 썸네일로 촬영되어 웹으로 반환되며, 사용자는 자신이 올린 캐릭터의 변환 결과를 확인합니다.">I owned the pipeline that converts a web-uploaded VRM into Studio’s existing Humanoid rig system and materials through a Studio plugin. Studio captures a thumbnail of the converted character and returns it to the web, where the user can check the import result.</p><figure class="mt-6"><img src="../assets/images/character-system/vrm-studio-import-flow.png" alt="Concept diagram: VRM web upload, Studio rig and material conversion, thumbnail capture, and return to web preview" class="w-full h-auto" loading="lazy"><figcaption class="text-xs text-muted text-center mt-2" data-ko="웹 업로드와 Studio 변환·썸네일 반환 흐름 · ImageGen 개념 설명도">Web upload, Studio conversion, and thumbnail return · Concept illustration made with ImageGen</figcaption></figure>
+      <div id="texture-budget" class="mt-8 scroll-mt-24">
+      <h3 class="font-medium mb-3" data-ko="클로즈업에 맞춘 텍스처 기준">A texture budget that accounts for close-ups</h3>
+      <p class="text-muted text-sm leading-relaxed mb-4" data-ko="기본 텍스처 한도는 1024×1024였습니다. 캐릭터도 처음에는 같은 기준을 적용했지만 클로즈업과 줌 연출에서 디테일 부족이 드러났습니다. 얼굴·머리카락에는 2048×2048을 허용해, 실제 화면에서 필요한 품질에 따라 예외를 두었습니다.">The baseline texture limit was 1024×1024. Characters initially followed the same rule, but close-ups and zooms exposed a loss of detail. I allowed 2048×2048 textures for faces and hair, making an exception where shot framing required it.</p>
+      </div>
     </section>
 
     <!-- Result -->
@@ -105,42 +97,6 @@
       </table></div>
     </section>
 
-    <section id="texture-budget" class="mb-16">
-      <h2 class="text-xl font-bold mb-4" data-ko="클로즈업에 맞춘 텍스처 기준">A texture budget that accounts for close-ups</h2>
-      <p class="text-muted text-sm leading-relaxed mb-4" data-ko="기본 텍스처 한도는 1024×1024였습니다. 캐릭터도 처음에는 같은 기준을 적용했지만 클로즈업과 줌 연출에서 디테일 부족이 드러났습니다. 얼굴·머리카락에는 2048×2048을 허용해, 실제 화면에서 필요한 품질에 따라 예외를 두었습니다.">The baseline texture limit was 1024×1024. Characters initially followed the same rule, but close-ups and zooms exposed a loss of detail. I allowed 2048×2048 textures for faces and hair, making an exception where shot framing required it.</p>
-    </section>
-
-        <!-- Production Gallery -->
-    <section class="mb-16">
-      <h2 class="text-xl font-bold mb-4" data-ko="룩뎁 공유">Look Dev Snapshots</h2>
-      <p class="text-muted text-sm leading-relaxed mb-6" data-ko="배경 아티스트들이 에디터 프리뷰로 캐릭터 프리셋을 배치하고, 톤·무드·스케일을 맞추며 공유한 중간 결과물입니다.">Mid-production snapshots shared by environment artists — placing character presets via editor preview to match tone, mood, and scale.</p>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div>
-          <img src="../assets/images/character-system/gallery-station.png" alt="Autumn train station scene" class="w-full h-48 md:h-56 object-cover">
-          <p class="text-xs text-muted text-center mt-2" data-ko="기차역 — 아웃도어 라이팅 톤 확인">Station — outdoor lighting tone check</p>
-        </div>
-        <div>
-          <img src="../assets/images/character-system/gallery-closeup.png" alt="Character close-up with hand pose" class="w-full h-48 md:h-56 object-cover">
-          <p class="text-xs text-muted text-center mt-2" data-ko="클로즈업 — 표정·피부톤 확인">Close-up — expression & skin tone check</p>
-        </div>
-        <div>
-          <img src="../assets/images/character-system/gallery-indoor.png" alt="Indoor scene with natural lighting" class="w-full h-48 md:h-56 object-cover">
-          <p class="text-xs text-muted text-center mt-2" data-ko="실내 — 자연광 환경에서 캐릭터 프리셋 스케일 확인">Indoor — character preset scale under natural light</p>
-        </div>
-        <div>
-          <img src="../assets/images/character-system/gallery-library.png" alt="Library scene with two characters" class="w-full h-48 md:h-56 object-cover">
-          <p class="text-xs text-muted text-center mt-2" data-ko="도서관 — 멀티 캐릭터 프리셋 배치·그림자 확인">Library — multi-character preset placement & shadow check</p>
-        </div>
-        <div>
-          <img src="../assets/images/character-system/gallery-hallway.png" alt="School hallway with directional light" class="w-full h-48 md:h-56 object-cover">
-          <p class="text-xs text-muted text-center mt-2" data-ko="복도 — 강한 역광에서 무드 확인">Hallway — mood check under strong backlight</p>
-        </div>
-        <div>
-          <img src="../assets/images/character-system/gallery-room.png" alt="Character in a room with backlight" class="w-full h-48 md:h-56 object-cover">
-          <p class="text-xs text-muted text-center mt-2" data-ko="방 — 어두운 톤에서 캐릭터 프리셋 가시성 확인">Room — character preset visibility in dark tone</p>
-        </div>
-      </div>
-    </section>
 
     <hr class="border-border mb-12">
 
@@ -148,12 +104,12 @@
     <section class="mb-16">
       <h2 class="text-xl font-bold mb-6" data-ko="시스템 구조">System Structure</h2>
 
-      <p class="text-muted text-sm leading-relaxed mb-6" data-ko="등록 도구, 런타임 캐릭터 Blueprint, 외부 VRM의 기준점 탐지를 Data Asset과 모델 정보로 연결했습니다. 제작용 데이터와 서비스 로딩을 분리하면서 인하우스·외부 캐릭터를 같은 로딩 흐름에서 다루도록 구성했습니다.">The registration tool, runtime character Blueprint, and external VRM reference-point module connect through Data Assets and model information. Authoring data stays separate from runtime loading while internal and external characters share a loading workflow.</p>
+      <p class="text-muted text-sm leading-relaxed mb-6" data-ko="내부 아티스트가 제작한 프리셋과 외부 사용자가 가져온 VRM을 같은 런타임 캐릭터 Blueprint에서 다루도록 구성했습니다. 제작 도구는 Data Asset을 생성하고, 외부 임포트는 기존 VRM 로더와 얼굴 기준점 탐지를 활용합니다. 두 입력 경로를 제품의 캐릭터 로딩 흐름으로 연결했습니다.">The same runtime character Blueprint handles presets authored by in-house artists and VRMs imported by external users. The authoring tools produce Data Assets, while external imports use the existing VRM loader and facial reference-point detection. Both input paths feed into the product’s character loading workflow.</p>
 
 
       <!-- System diagram -->
         <pre class="text-xs mb-8"><code>[1] NPR Character Manager (C++ Plugin)
-    └─ BP_Character_EnvCheck ─── Editor (for artists)
+    └─ BP_Character_EnvCheck ─── Editor (for in-house artists)
         ├─ Parts assembly (Head/Hair/Body)
         ├─ Preset save → Data Asset production
         └─ Editor Tick → Preview without PIE
