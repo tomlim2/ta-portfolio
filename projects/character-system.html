@@ -33,6 +33,7 @@
   </script>
   <link rel="icon" href="../favicon.gif" type="image/gif">
   <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/image-viewer.css">
 </head>
 <body class="bg-bg text-body">
 
@@ -52,7 +53,9 @@
 
 
     <div class="mb-8">
-      <img src="../assets/images/character-system/gallery-station.png" alt="Autumn train station — NPR character on PBR background" class="w-full h-auto">
+      <a href="../assets/images/character-system/gallery-station.png" data-image-viewer class="block w-full min-w-0" aria-label="View full-size image: Autumn train station — NPR character on PBR background">
+        <img src="../assets/images/character-system/gallery-station.png" alt="Autumn train station — NPR character on PBR background" class="w-full h-auto">
+      </a>
     </div>
 
     <h1 class="page-title" data-ko="캐릭터 시스템">Character System</h1>
@@ -70,11 +73,15 @@
       <h3 class="font-medium mb-3" data-ko="파츠 재사용과 등록·프리뷰">Part Reuse, Registration &amp; Preview</h3>
       <p class="text-muted text-sm leading-relaxed mb-4" data-ko="캐릭터 파츠 분리와 텍스처·머티리얼 재사용을 지원하는 언리얼 C++ 플러그인을 제작·유지보수했습니다. 머리·머리카락·몸통을 나눠 텍스처를 다시 그리지 않고 색상 바리에이션을 만들도록 했습니다. 아트·기획 팀이 코드 수정 없이 프리셋을 등록·변경하고, 언리얼 에디터에서 적용 결과를 확인하는 제작 흐름을 구현했습니다.">I developed and maintained an Unreal C++ plugin that supports character-part separation and texture and material reuse. Separating head, hair, and body enabled color variations without repainting textures. I built tools for the art and planning teams to register and modify presets without code changes and preview the results in the Unreal editor.</p>
 
-      <img src="../assets/images/character-system/data-asset-details.png" alt="NRC Data Asset — Info, Base, Parts, Outline, Chaos Cloth settings" class="mx-auto max-h-[500px] mb-2">
+      <a href="../assets/images/character-system/data-asset-details.png" data-image-viewer class="block w-full min-w-0" aria-label="View full-size image: NRC Data Asset — Info, Base, Parts, Outline, Chaos Cloth settings">
+        <img src="../assets/images/character-system/data-asset-details.png" alt="NRC Data Asset — Info, Base, Parts, Outline, Chaos Cloth settings" class="mx-auto max-h-[500px] mb-2">
+      </a>
       <p class="text-xs text-muted mb-6 text-center" data-ko="NRC Data Asset — 파츠, 머티리얼, 아웃라인, Chaos Cloth 설정을 한 곳에서 관리">NRC Data Asset — managing parts, materials, outline, and Chaos Cloth settings in one place</p>
 
       <div class="mb-6 overflow-hidden">
-        <img src="../assets/images/character-system/editor-preview.png" alt="Editor preview — verifying NPR character placement on a background" class="w-full h-auto">
+        <a href="../assets/images/character-system/editor-preview.png" data-image-viewer class="block w-full min-w-0" aria-label="View full-size image: Editor preview — verifying NPR character placement on a background">
+          <img src="../assets/images/character-system/editor-preview.png" alt="Editor preview — verifying NPR character placement on a background" class="w-full h-auto">
+        </a>
         <p class="text-xs text-muted text-center mt-2" data-ko="등록 용도 캐릭터 블루프린트로 배경 위에서 바로 프리뷰">Editor preview — checking NPR characters on background without launching the game</p>
       </div>
       <div id="texture-budget" class="mt-8 scroll-mt-24">
@@ -126,7 +133,9 @@
     ├─ 4-level fallback face detection (crown/eyes/mouth/nose)
     └─ Camera target + automatic thumbnail capture</code></pre>
 
-      <img src="../assets/images/character-system/cpp-plugin-structure.png" alt="CinevNPRCharacterManager C++ plugin headers" class="mx-auto max-h-[500px] mb-2">
+      <a href="../assets/images/character-system/cpp-plugin-structure.png" data-image-viewer class="block w-full min-w-0" aria-label="View full-size image: CinevNPRCharacterManager C++ plugin headers">
+        <img src="../assets/images/character-system/cpp-plugin-structure.png" alt="CinevNPRCharacterManager C++ plugin headers" class="mx-auto max-h-[500px] mb-2">
+      </a>
       <p class="text-xs text-muted text-center mb-6" data-ko="CinevNPRCharacterManager — C++ 플러그인 헤더 목록">CinevNPRCharacterManager — C++ plugin headers</p>
 
       <!-- Three components -->
@@ -134,41 +143,61 @@
         <div>
           <h3 class="font-medium mb-3" data-ko="등록용 캐릭터 블루프린트 — 에디터 틱">Editor — Character Environment Checker</h3>
           <p class="text-muted text-sm leading-relaxed mb-4" data-ko="C++ 캐릭터 액터를 기반으로 한 등록용 Blueprint입니다. 아트·기획 팀이 머리·머리카락·몸통을 조합해 프리셋으로 저장하면 Data Asset을 생성합니다. Editor Tick으로 게임을 실행하지 않고도 배경 위에 캐릭터와 애니메이션을 배치해 룩을 확인할 수 있습니다.">This registration Blueprint is based on a C++ character actor. The art and planning teams assemble head, hair, and body parts and save presets as Data Assets. Editor Tick lets them preview characters and animations against a background without launching the game.</p>
-          <img src="../assets/images/character-system/cpp-header-envcheck.png" alt="C++ Header — NPRCharacterLookDev UPROPERTY declarations" class="w-full mb-2">
+          <a href="../assets/images/character-system/cpp-header-envcheck.png" data-image-viewer class="block w-full min-w-0" aria-label="View full-size image: C++ Header — NPRCharacterLookDev UPROPERTY declarations">
+            <img src="../assets/images/character-system/cpp-header-envcheck.png" alt="C++ Header — NPRCharacterLookDev UPROPERTY declarations" class="w-full mb-2">
+          </a>
           <p class="text-xs text-muted text-center mb-4" data-ko="C++ 캐릭터 액터 헤더 — DataTable 레퍼런스 선언부">C++ character actor header — DataTable reference declarations</p>
-          <img src="../assets/images/character-system/tool-register.png" alt="BP_Character_EnvCheck — Character registration UI" class="w-full mb-4">
-          <img src="../assets/images/character-system/editor-tick-bp.png" alt="BP_EditorTicker + BPI_EditorTick node graph" class="w-full">
+          <a href="../assets/images/character-system/tool-register.png" data-image-viewer class="block w-full min-w-0" aria-label="View full-size image: BP_Character_EnvCheck — Character registration UI">
+            <img src="../assets/images/character-system/tool-register.png" alt="BP_Character_EnvCheck — Character registration UI" class="w-full mb-4">
+          </a>
+          <a href="../assets/images/character-system/editor-tick-bp.png" data-image-viewer class="block w-full min-w-0" aria-label="View full-size image: BP_EditorTicker + BPI_EditorTick node graph">
+            <img src="../assets/images/character-system/editor-tick-bp.png" alt="BP_EditorTicker + BPI_EditorTick node graph" class="w-full">
+          </a>
           <p class="text-xs text-muted mt-2 text-center" data-ko="Editor Tick — PIE 없이 프리뷰">Editor Tick — preview without PIE</p>
         </div>
         <div>
           <h3 class="font-medium mb-3" data-ko="로드용 캐릭터 블루프린트 — 런타임">Runtime — Character Blueprint</h3>
           <p class="text-muted text-sm leading-relaxed mb-4" data-ko="로드 전용 BP입니다. 인하우스 캐릭터는 Data Asset에서 파츠별 비동기 로드, 외부 VRM은 실시간 로더로 로드합니다. BP 안에는 Data Asset 경로만 들고 있어 300+ 프리셋과 커뮤니티 캐릭터를 하나의 BP로 통합 로드합니다.">A separate codebase from the editor tool -- a runtime character Blueprint inheriting the base character class. Internal characters load parts asynchronously from editor-produced Data Assets (Head/Hair/Body split), while external VRM loads the entire model through a loader. The same Blueprint handles both, branching only at the load path.</p>
-          <img src="../assets/images/character-system/data-asset-load-bp.png" alt="BP_Basemodel_TF — Loading NRC Data Asset from DataTable" class="w-full mb-4">
-          <img src="../assets/images/character-system/part-branch-bp.png" alt="BP nodes — Unified/split skeletal mesh load branching" class="w-full">
+          <a href="../assets/images/character-system/data-asset-load-bp.png" data-image-viewer class="block w-full min-w-0" aria-label="View full-size image: BP_Basemodel_TF — Loading NRC Data Asset from DataTable">
+            <img src="../assets/images/character-system/data-asset-load-bp.png" alt="BP_Basemodel_TF — Loading NRC Data Asset from DataTable" class="w-full mb-4">
+          </a>
+          <a href="../assets/images/character-system/part-branch-bp.png" data-image-viewer class="block w-full min-w-0" aria-label="View full-size image: BP nodes — Unified/split skeletal mesh load branching">
+            <img src="../assets/images/character-system/part-branch-bp.png" alt="BP nodes — Unified/split skeletal mesh load branching" class="w-full">
+          </a>
           <p class="text-xs text-muted mt-2 text-center" data-ko="통합 / 분리 스켈레탈 메시 로드 분기">Unified / split skeletal mesh load branching</p>
         </div>
         <div>
           <h3 class="font-medium mb-3" data-ko="외부 모델 지원 — VRM Reference Points">External Model Support — VRM Reference Points</h3>
           <p class="text-muted text-sm leading-relaxed mb-4" data-ko="VRM4U 플러그인에 작성한 C++ 모듈입니다. 외부 VRM의 얼굴 위치를 4단 폴백으로 탐지하고, 카메라 타깃과 얼굴·상반신·전신 썸네일 촬영에 사용합니다. 커맨드렛을 통한 배치 생성과 A포즈·T포즈 판별도 지원합니다.">I wrote a C++ module for VRM4U that finds facial reference points through a four-level fallback. These points drive camera targets and face, upper-body, and full-body thumbnails. It also supports batch capture through a commandlet and A-pose/T-pose detection.</p>
-          <img src="../assets/images/character-system/cpp-header-face-detect.png" alt="C++ Header — Mouth and Nose Detection Priority 1-4 fallback" class="w-full mb-2">
+          <a href="../assets/images/character-system/cpp-header-face-detect.png" data-image-viewer class="block w-full min-w-0" aria-label="View full-size image: C++ Header — Mouth and Nose Detection Priority 1-4 fallback">
+            <img src="../assets/images/character-system/cpp-header-face-detect.png" alt="C++ Header — Mouth and Nose Detection Priority 1-4 fallback" class="w-full mb-2">
+          </a>
           <p class="text-xs text-muted text-center mb-4" data-ko="C++ 헤더 — Mouth/Nose 4단 폴백 탐지 선언부">C++ header — Mouth/Nose 4-level fallback detection</p>
           <div class="overflow-hidden mb-4">
             <video src="../assets/images/character-system/reference-points.mp4" autoplay muted loop playsinline class="w-full h-auto"></video>
             <p class="text-xs text-muted text-center mt-2" data-ko="외부 VRM에서 자동 얼굴 탐지 실행">Auto face detection running on an external VRM</p>
           </div>
           <div class="overflow-hidden mb-4">
-            <img src="../assets/images/character-system/auto-thumbnail.png" alt="VRM Reference Points auto-thumbnail — face, upper body, and full body 3-angle auto-capture results" class="w-full h-auto">
+            <a href="../assets/images/character-system/auto-thumbnail.png" data-image-viewer class="block w-full min-w-0" aria-label="View full-size image: VRM Reference Points auto-thumbnail — face, upper body, and full body 3-angle auto-capture results">
+              <img src="../assets/images/character-system/auto-thumbnail.png" alt="VRM Reference Points auto-thumbnail — face, upper body, and full body 3-angle auto-capture results" class="w-full h-auto">
+            </a>
             <p class="text-xs text-muted text-center mt-2" data-ko="3앵글 자동 촬영 썸네일">3-angle auto-captured thumbnails</p>
           </div>
-          <img src="../assets/images/character-system/cpp-camera-distance.png" alt="C++ — CalculateCameraDistanceForFace/UpperBody with margin and aspect ratio" class="w-full mb-2">
+          <a href="../assets/images/character-system/cpp-camera-distance.png" data-image-viewer class="block w-full min-w-0" aria-label="View full-size image: C++ — CalculateCameraDistanceForFace/UpperBody with margin and aspect ratio">
+            <img src="../assets/images/character-system/cpp-camera-distance.png" alt="C++ — CalculateCameraDistanceForFace/UpperBody with margin and aspect ratio" class="w-full mb-2">
+          </a>
           <p class="text-xs text-muted text-center mb-2" data-ko="C++ — 3앵글 카메라 거리 자동 계산">C++ — auto camera distance calculation for 3-angle thumbnails</p>
-          <img src="../assets/images/character-system/cpp-render-frame.png" alt="C++ — PerformRenderWarmup and RenderFrame for thumbnail capture" class="w-full mb-2">
+          <a href="../assets/images/character-system/cpp-render-frame.png" data-image-viewer class="block w-full min-w-0" aria-label="View full-size image: C++ — PerformRenderWarmup and RenderFrame for thumbnail capture">
+            <img src="../assets/images/character-system/cpp-render-frame.png" alt="C++ — PerformRenderWarmup and RenderFrame for thumbnail capture" class="w-full mb-2">
+          </a>
           <p class="text-xs text-muted text-center mb-4" data-ko="C++ — 커맨드렛 렌더 프레임 캡처 (Lumen GI, SSS 워밍업 포함)">C++ — commandlet render frame capture (Lumen GI, SSS warmup)</p>
         </div>
       </div>
 
       <div class="mb-6 overflow-hidden">
-        <img src="../assets/images/character-system/lineup.png" alt="Internal and external VRM character lineup" class="w-full h-auto">
+        <a href="../assets/images/character-system/lineup.png" data-image-viewer class="block w-full min-w-0" aria-label="View full-size image: Internal and external VRM character lineup">
+          <img src="../assets/images/character-system/lineup.png" alt="Internal and external VRM character lineup" class="w-full h-auto">
+        </a>
         <p class="text-xs text-muted text-center mt-2" data-ko="인하우스 + 외부 VRM 캐릭터 라인업">In-house + external VRM character lineup</p>
       </div>
     </section>
@@ -196,5 +225,6 @@
   <script src="../js/i18n.js"></script>
   <script src="../js/theme.js"></script>
   <script src="../js/main.js"></script>
+  <script src="../js/image-viewer.js"></script>
 </body>
 </html>

@@ -33,6 +33,7 @@
   </script>
   <link rel="icon" href="../favicon.gif" type="image/gif">
   <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/image-viewer.css">
 </head>
 <body class="bg-bg text-body">
 
@@ -53,7 +54,9 @@
 
 
     <div class="mb-8">
-      <img src="../assets/images/character-system/hero.png" alt="NPR character over PBR background — cel shading + outline" class="w-full h-auto">
+      <a href="../assets/images/character-system/hero.png" data-image-viewer class="block w-full min-w-0" aria-label="View full-size image: NPR character over PBR background — cel shading + outline">
+        <img src="../assets/images/character-system/hero.png" alt="NPR character over PBR background — cel shading + outline" class="w-full h-auto">
+      </a>
     </div>
 
     <h1 class="page-title" data-ko="NPR Shading &amp; Look Development">NPR Shading &amp; Look Development</h1>
@@ -108,7 +111,9 @@
       </div>
     </section>
 
-    <img src="../assets/images/npr-shader/pbr-npr-coexist-scene.png" alt="PBR background + NPR character coexistence scene" class="w-full mb-2">
+    <a href="../assets/images/npr-shader/pbr-npr-coexist-scene.png" data-image-viewer class="block w-full min-w-0" aria-label="View full-size image: PBR background + NPR character coexistence scene">
+      <img src="../assets/images/npr-shader/pbr-npr-coexist-scene.png" alt="PBR background + NPR character coexistence scene" class="w-full mb-2">
+    </a>
     <p class="text-xs text-muted text-center mt-2 mb-12" data-ko="PBR 배경 + NPR 캐릭터 동일 씬">PBR background + NPR character in the same scene</p>
 
     <hr class="border-border mb-12">
@@ -121,7 +126,9 @@
       <h2 class="text-xl font-bold mb-4" data-ko="4가지 베이스 머티리얼">4 Base Materials</h2>
       <p class="text-muted text-sm leading-relaxed mb-6" data-ko="인하우스 캐릭터와 VRM 캐릭터의 머티리얼 구조가 다르고, VRM 안에서도 리얼/비리얼 파트가 섞여 있어 각각에 맞는 4개의 베이스 머티리얼이 필요했습니다.">In-house and VRM have different material structures, and even within VRM, realistic and non-realistic parts are mixed. So four separate base materials were created.</p>
 
-      <img src="../assets/images/npr-shader/material-4types.png" alt="4 Base Materials — VRM Toon, VRM Zo Std, VRM Zo Toon, M Cell" class="w-full mb-2">
+      <a href="../assets/images/npr-shader/material-4types.png" data-image-viewer class="block w-full min-w-0" aria-label="View full-size image: 4 Base Materials — VRM Toon, VRM Zo Std, VRM Zo Toon, M Cell">
+        <img src="../assets/images/npr-shader/material-4types.png" alt="4 Base Materials — VRM Toon, VRM Zo Std, VRM Zo Toon, M Cell" class="w-full mb-2">
+      </a>
       <p class="text-xs text-muted text-center mt-2 mb-8" data-ko="4가지 베이스 머티리얼">4 base materials</p>
 
       <!-- 1. In-house Toon -->
@@ -143,11 +150,15 @@
             <p class="text-xs text-muted mt-2 text-center" data-ko="SDF 페이스 섀도 라이팅 데모">SDF face shadow lighting demo</p>
           </div>
           <div>
-            <img src="../assets/images/npr-shader/sdf-shadow-mask.png" alt="SDF Shadow Mask texture" class="w-full">
+            <a href="../assets/images/npr-shader/sdf-shadow-mask.png" data-image-viewer class="block w-full min-w-0" aria-label="View full-size image: SDF Shadow Mask texture">
+              <img src="../assets/images/npr-shader/sdf-shadow-mask.png" alt="SDF Shadow Mask texture" class="w-full">
+            </a>
             <p class="text-xs text-muted mt-2 text-center" data-ko="SDF Shadow Mask 텍스처">SDF Shadow Mask texture</p>
           </div>
         </div>
-        <img src="../assets/images/npr-shader/sdf-material-graph.png" alt="SDF material node graph" class="w-full mb-1">
+        <a href="../assets/images/npr-shader/sdf-material-graph.png" data-image-viewer class="block w-full min-w-0" aria-label="View full-size image: SDF material node graph">
+          <img src="../assets/images/npr-shader/sdf-material-graph.png" alt="SDF material node graph" class="w-full mb-1">
+        </a>
         <p class="text-xs text-muted text-center mb-4" data-ko="SDF 텍스처 샘플 → Light Direction dot → 섀도 마스크 출력">SDF texture sample → Light Direction dot → shadow mask output</p>
 
         <!-- Matcap -->
@@ -158,8 +169,12 @@
           <p class="text-xs text-muted mt-2 text-center" data-ko="Matcap 반사 데모">Matcap reflection demo</p>
         </div>
         <div class="grid md:grid-cols-2 gap-4 mb-4">
-          <img src="../assets/images/npr-shader/matcap-material-function.png" alt="Matcap Material Function node" class="w-full">
-          <img src="../assets/images/npr-shader/matcap-in-material.png" alt="MF_MatCAP call site" class="w-full">
+          <a href="../assets/images/npr-shader/matcap-material-function.png" data-image-viewer class="block w-full min-w-0" aria-label="View full-size image: Matcap Material Function node">
+            <img src="../assets/images/npr-shader/matcap-material-function.png" alt="Matcap Material Function node" class="w-full">
+          </a>
+          <a href="../assets/images/npr-shader/matcap-in-material.png" data-image-viewer class="block w-full min-w-0" aria-label="View full-size image: MF_MatCAP call site">
+            <img src="../assets/images/npr-shader/matcap-in-material.png" alt="MF_MatCAP call site" class="w-full">
+          </a>
         </div>
       </div>
 
@@ -168,7 +183,9 @@
         <h3 class="text-lg font-bold mb-3">2. VRM Toon</h3>
         <p class="text-muted text-sm leading-relaxed mb-4" data-ko="인하우스 toon 머티리얼을 기반으로 파라미터 이름을 MToon 규격에 맞췄습니다. VRM 임포트 시 텍스처와 플래그가 자동 연결됩니다. 아웃라인은 인하우스와 동일한 Post Process 방식입니다.">Restructured parameter input names based on the in-house toon material to conform to MToon conventions. Ensured MToon textures and flags are automatically connected upon VRM import. Outline uses the same Post Process approach as the in-house material.</p>
 
-        <img src="../assets/images/npr-shader/pp-outline-mask.png" alt="PP outline mask — Before/After + Material/Blueprint" class="w-full mb-1">
+        <a href="../assets/images/npr-shader/pp-outline-mask.png" data-image-viewer class="block w-full min-w-0" aria-label="View full-size image: PP outline mask — Before/After + Material/Blueprint">
+          <img src="../assets/images/npr-shader/pp-outline-mask.png" alt="PP outline mask — Before/After + Material/Blueprint" class="w-full mb-1">
+        </a>
         <p class="text-xs text-muted text-center mb-4" data-ko="PP 아웃라인 마스크 처리 — 불필요한 선 제거 + Material/Blueprint 구현">PP outline mask processing — unnecessary line removal + Material/Blueprint implementation</p>
 
         <!-- Angel Ring Matcap -->
@@ -176,11 +193,15 @@
         <p class="text-muted text-sm leading-relaxed mb-4" data-ko="스펙큘러 맵에 Matcap을 적용하여 카메라 방향에 따라 자연스럽게 이동하는 광택 효과를 구현했습니다. 엔젤링(천사의 고리) 같은 헤어 하이라이트를 ShadowSoft Matcap 텍스처 하나로 표현하며, Matcap 관련 파라미터를 머티리얼 인스턴스에 노출시켜 아트팀이 캐릭터별 룩뎁을 쉽게 조정할 수 있도록 했습니다.">Applied Matcap to the specular map to create a natural sheen effect that shifts with camera direction. Hair highlights like angel rings are achieved with a single ShadowSoft Matcap texture, and Matcap parameters are exposed on the material instance so the art team can easily adjust per-character look dev.</p>
         <div class="grid md:grid-cols-2 gap-4 mb-4">
           <div>
-            <img src="../assets/images/npr-shader/matcap-angel-ring.png" alt="Angel Ring Matcap — Before/After comparison" class="w-full">
+            <a href="../assets/images/npr-shader/matcap-angel-ring.png" data-image-viewer class="block w-full min-w-0" aria-label="View full-size image: Angel Ring Matcap — Before/After comparison">
+              <img src="../assets/images/npr-shader/matcap-angel-ring.png" alt="Angel Ring Matcap — Before/After comparison" class="w-full">
+            </a>
             <p class="text-xs text-muted mt-2 text-center" data-ko="엔젤링 Matcap 적용 전/후">Angel Ring Matcap Before / After</p>
           </div>
           <div>
-            <img src="../assets/images/npr-shader/matcap-angel-ring-settings.png" alt="Matcap ShadowSoft settings" class="w-full">
+            <a href="../assets/images/npr-shader/matcap-angel-ring-settings.png" data-image-viewer class="block w-full min-w-0" aria-label="View full-size image: Matcap ShadowSoft settings">
+              <img src="../assets/images/npr-shader/matcap-angel-ring-settings.png" alt="Matcap ShadowSoft settings" class="w-full">
+            </a>
             <p class="text-xs text-muted mt-2 text-center" data-ko="Matcap_ShadowSoft 파라미터 설정">Matcap_ShadowSoft parameter settings</p>
           </div>
         </div>
@@ -192,7 +213,9 @@
         <h3 class="text-lg font-bold mb-3">3. VRM PBR</h3>
         <p class="text-muted text-sm leading-relaxed mb-4" data-ko="VRM4U 기반으로 VRM 캐릭터의 PBR 표현을 조정한 머티리얼입니다. SSS Profile로 피부 등에 양감을 더해 비스크돌 같은 질감을 만들고, 다른 Toon 캐릭터와 PBR 배경에 어울리도록 톤을 맞췄습니다.">This material adapts VRM4U-based PBR shading for VRM characters. An SSS Profile adds volume to the skin for a bisque-doll-like finish, with the tone adjusted to sit alongside Toon characters and PBR environments.</p>
 
-        <img src="../assets/images/npr-shader/vrm-pbr-scene.png" alt="VRM PBR character rendering" class="w-full">
+        <a href="../assets/images/npr-shader/vrm-pbr-scene.png" data-image-viewer class="block w-full min-w-0" aria-label="View full-size image: VRM PBR character rendering">
+          <img src="../assets/images/npr-shader/vrm-pbr-scene.png" alt="VRM PBR character rendering" class="w-full">
+        </a>
       </div>
 
       <!-- 4. VRM Zo Toon -->
@@ -200,10 +223,14 @@
         <h3 class="text-lg font-bold mb-3">4. VRM Zo Toon</h3>
         <p class="text-muted text-sm leading-relaxed mb-4" data-ko="인하우스의 Post Process 기반 NPR 경로로는 한 캐릭터의 PBR·NPR 파트를 나누어 다루기 어려웠습니다. Emissive 기반 셰이딩과 Inverted Hull 아웃라인을 적용한 별도 머티리얼을 구성하고, 기존 인하우스 캐릭터와 톤을 맞췄습니다.">The in-house post-process NPR approach made mixed PBR and NPR parts within one character difficult to handle. I developed a separate material using Emissive-based shading and inverted-hull outlines, matching its tone to the in-house characters.</p>
 
-        <img src="../assets/images/npr-shader/zo-toon-node-graph.png" alt="Zo Toon material node graph" class="w-full mb-1">
+        <a href="../assets/images/npr-shader/zo-toon-node-graph.png" data-image-viewer class="block w-full min-w-0" aria-label="View full-size image: Zo Toon material node graph">
+          <img src="../assets/images/npr-shader/zo-toon-node-graph.png" alt="Zo Toon material node graph" class="w-full mb-1">
+        </a>
         <p class="text-xs text-muted text-center mb-6" data-ko="Zo Toon 머티리얼 노드 그래프 — Emissive 기반 toon 셰이딩">Zo Toon material node graph — Emissive-based toon shading</p>
 
-        <img src="../assets/images/npr-shader/inverted-hull-vs-pp.png" alt="Zo Toon(Inverted Hull) vs VRM Toon(Post Process) outline comparison" class="w-full mb-1">
+        <a href="../assets/images/npr-shader/inverted-hull-vs-pp.png" data-image-viewer class="block w-full min-w-0" aria-label="View full-size image: Zo Toon(Inverted Hull) vs VRM Toon(Post Process) outline comparison">
+          <img src="../assets/images/npr-shader/inverted-hull-vs-pp.png" alt="Zo Toon(Inverted Hull) vs VRM Toon(Post Process) outline comparison" class="w-full mb-1">
+        </a>
         <p class="text-xs text-muted text-center mb-6" data-ko="Zo Toon(Inverted Hull) vs VRM Toon(Post Process) 아웃라인 비교">Zo Toon(Inverted Hull) vs VRM Toon(Post Process) outline comparison</p>
 
         <div class="mb-4">
@@ -211,7 +238,9 @@
           <p class="text-xs text-muted mt-2 text-center" data-ko="Zo Toon + PBR 비리얼리스틱/리얼리스틱 조합 쇼케이스">Zo Toon + PBR non-realistic/realistic combination showcase</p>
         </div>
 
-        <img src="../assets/images/npr-shader/mixed-pbr-toon.png" alt="PBR + Toon mixed rendering" class="w-full mb-1">
+        <a href="../assets/images/npr-shader/mixed-pbr-toon.png" data-image-viewer class="block w-full min-w-0" aria-label="View full-size image: PBR + Toon mixed rendering">
+          <img src="../assets/images/npr-shader/mixed-pbr-toon.png" alt="PBR + Toon mixed rendering" class="w-full mb-1">
+        </a>
         <p class="text-xs text-muted text-center mb-6" data-ko="PBR 리얼리스틱 파트 + Toon 비리얼리스틱 파트 혼합 결과">PBR realistic part + Toon non-realistic part mixed result</p>
 
         <div class="overflow-x-auto mb-6">
@@ -238,7 +267,9 @@
     <section class="mb-16">
       <h2 class="text-xl font-bold mb-4" data-ko="UDS / ToD 통합 테스트">UDS / ToD Integration Test</h2>
       <p class="text-muted text-sm leading-relaxed mb-6" data-ko="조명과 Time of Day를 바꿔가며 캐릭터와 배경의 룩을 비교한 9프레임 기록입니다. 단일 조명에서의 셰이더 결과에 더해 실제 장면 구성에서의 일관성을 확인했습니다.">A nine-frame record comparing character and environment looks across lighting and Time of Day settings. I checked the results in scene context as well as under individual lighting setups.</p>
-      <img src="../assets/images/npr-shader/dual-npr-comparison.png" alt="UDS / ToD integration test — 9-frame shader results across lighting conditions" class="w-full">
+      <a href="../assets/images/npr-shader/dual-npr-comparison.png" data-image-viewer class="block w-full min-w-0" aria-label="View full-size image: UDS / ToD integration test — 9-frame shader results across lighting conditions">
+        <img src="../assets/images/npr-shader/dual-npr-comparison.png" alt="UDS / ToD integration test — 9-frame shader results across lighting conditions" class="w-full">
+      </a>
     </section>
 
     <!-- Look Dev Snapshots -->
@@ -247,27 +278,39 @@
       <p class="text-muted text-sm leading-relaxed mb-6" data-ko="배경 아티스트들이 에디터 프리뷰로 캐릭터 프리셋을 배치하고, 톤·무드·스케일을 맞추며 공유한 중간 결과물입니다.">Mid-production snapshots shared by environment artists — placing character presets via editor preview to match tone, mood, and scale.</p>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
-          <img src="../assets/images/character-system/gallery-station.png" alt="Autumn train station scene" class="w-full h-48 md:h-56 object-cover">
+          <a href="../assets/images/character-system/gallery-station.png" data-image-viewer class="block w-full min-w-0" aria-label="View full-size image: Autumn train station scene">
+            <img src="../assets/images/character-system/gallery-station.png" alt="Autumn train station scene" class="w-full h-48 md:h-56 object-cover">
+          </a>
           <p class="text-xs text-muted text-center mt-2" data-ko="기차역 — 아웃도어 라이팅 톤 확인">Station — outdoor lighting tone check</p>
         </div>
         <div>
-          <img src="../assets/images/character-system/gallery-closeup.png" alt="Character close-up with hand pose" class="w-full h-48 md:h-56 object-cover">
+          <a href="../assets/images/character-system/gallery-closeup.png" data-image-viewer class="block w-full min-w-0" aria-label="View full-size image: Character close-up with hand pose">
+            <img src="../assets/images/character-system/gallery-closeup.png" alt="Character close-up with hand pose" class="w-full h-48 md:h-56 object-cover">
+          </a>
           <p class="text-xs text-muted text-center mt-2" data-ko="클로즈업 — 표정·피부톤 확인">Close-up — expression & skin tone check</p>
         </div>
         <div>
-          <img src="../assets/images/character-system/gallery-indoor.png" alt="Indoor scene with natural lighting" class="w-full h-48 md:h-56 object-cover">
+          <a href="../assets/images/character-system/gallery-indoor.png" data-image-viewer class="block w-full min-w-0" aria-label="View full-size image: Indoor scene with natural lighting">
+            <img src="../assets/images/character-system/gallery-indoor.png" alt="Indoor scene with natural lighting" class="w-full h-48 md:h-56 object-cover">
+          </a>
           <p class="text-xs text-muted text-center mt-2" data-ko="실내 — 자연광 환경에서 캐릭터 프리셋 스케일 확인">Indoor — character preset scale under natural light</p>
         </div>
         <div>
-          <img src="../assets/images/character-system/gallery-library.png" alt="Library scene with two characters" class="w-full h-48 md:h-56 object-cover">
+          <a href="../assets/images/character-system/gallery-library.png" data-image-viewer class="block w-full min-w-0" aria-label="View full-size image: Library scene with two characters">
+            <img src="../assets/images/character-system/gallery-library.png" alt="Library scene with two characters" class="w-full h-48 md:h-56 object-cover">
+          </a>
           <p class="text-xs text-muted text-center mt-2" data-ko="도서관 — 멀티 캐릭터 프리셋 배치·그림자 확인">Library — multi-character preset placement & shadow check</p>
         </div>
         <div>
-          <img src="../assets/images/character-system/gallery-hallway.png" alt="School hallway with directional light" class="w-full h-48 md:h-56 object-cover">
+          <a href="../assets/images/character-system/gallery-hallway.png" data-image-viewer class="block w-full min-w-0" aria-label="View full-size image: School hallway with directional light">
+            <img src="../assets/images/character-system/gallery-hallway.png" alt="School hallway with directional light" class="w-full h-48 md:h-56 object-cover">
+          </a>
           <p class="text-xs text-muted text-center mt-2" data-ko="복도 — 강한 역광에서 무드 확인">Hallway — mood check under strong backlight</p>
         </div>
         <div>
-          <img src="../assets/images/character-system/gallery-room.png" alt="Character in a room with backlight" class="w-full h-48 md:h-56 object-cover">
+          <a href="../assets/images/character-system/gallery-room.png" data-image-viewer class="block w-full min-w-0" aria-label="View full-size image: Character in a room with backlight">
+            <img src="../assets/images/character-system/gallery-room.png" alt="Character in a room with backlight" class="w-full h-48 md:h-56 object-cover">
+          </a>
           <p class="text-xs text-muted text-center mt-2" data-ko="방 — 어두운 톤에서 캐릭터 프리셋 가시성 확인">Room — character preset visibility in dark tone</p>
         </div>
       </div>
@@ -295,5 +338,6 @@
   <script src="../js/i18n.js"></script>
   <script src="../js/theme.js"></script>
   <script src="../js/main.js"></script>
+  <script src="../js/image-viewer.js"></script>
 </body>
 </html>
