@@ -33,6 +33,7 @@
   </script>
   <link rel="icon" href="../favicon.gif" type="image/gif">
   <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/image-viewer.css">
 </head>
 <body class="bg-bg text-body">
 
@@ -89,7 +90,9 @@
       <p class="text-muted text-sm leading-relaxed mb-4" data-ko="VMD 모션 파일을 로드하면 PMX 모델 대비 본 매치율을 자동 계산하고, IK 충돌과 소스 모델 패밀리를 감지합니다. PMX는 제작자마다 본 구조가 다르고, 게임 스튜디오 모델도 이 패밀리 규칙을 따릅니다.">Analyzes VMD motion files to calculate bone match rates against PMX models, and automatically detects IK conflicts and source model families. Game studio PMX models also follow these families — e.g., Honkai: Star Rail uses the DIVA family, Genshin Impact uses the ミリシタ family.</p>
 
       <div class="mb-8 overflow-hidden max-w-lg mx-auto">
-        <img src="../assets/images/mmd-player/debug.png" alt="Bone Compatibility Analysis — match rates, IK conflicts, source model detection" class="w-full">
+        <a href="../assets/images/mmd-player/debug.png" data-image-viewer class="block w-full min-w-0" aria-label="View full-size image: Bone Compatibility Analysis — match rates, IK conflicts, source model detection">
+          <img src="../assets/images/mmd-player/debug.png" alt="Bone Compatibility Analysis — match rates, IK conflicts, source model detection" class="w-full">
+        </a>
         <p class="text-xs text-muted text-center mt-2" data-ko="본 호환성 분석">Bone compatibility analysis</p>
       </div>
 
@@ -122,7 +125,9 @@
       <p class="text-muted text-sm leading-relaxed mb-4" data-ko="PMX 머티리얼(matcap + additive overlay + alpha)을 TSL 노드로 옮겼습니다. 원본에서 투명 파트가 흰색으로 뭉개지는 문제를 additive overlay 방식으로 해결하고, 텍스처 샘플링 중복도 정리했습니다.">PMX matcap + additive overlay + alpha converted to TSL <code class="text-heading/80">MeshBasicNodeMaterial</code>. On this model, <code class="text-heading/80">textureSample()</code> was called 2–3 times per fragment for the same texture — cached the node once and reused it. Also pulled opacity out of <code class="text-heading/80">Fn()</code> to fix a bug where materials went invisible in the reflector pass.</p>
 
       <div class="mb-8 overflow-hidden max-w-3xl mx-auto">
-        <img src="../assets/images/mmd-player/toon-shader-before-after.png" alt="Before and after TSL toon shader fix — white regions resolved to transparent overlay" class="w-full">
+        <a href="../assets/images/mmd-player/toon-shader-before-after.png" data-image-viewer class="block w-full min-w-0" aria-label="View full-size image: Before and after TSL toon shader fix — white regions resolved to transparent overlay">
+          <img src="../assets/images/mmd-player/toon-shader-before-after.png" alt="Before and after TSL toon shader fix — white regions resolved to transparent overlay" class="w-full">
+        </a>
         <p class="text-xs text-muted text-center py-2" data-ko="Before — 알파 무시, 흰색 채움 / After — additive overlay + 투명도">Before — alpha ignored, white fill / After — additive overlay + transparency</p>
       </div>
 
@@ -133,11 +138,15 @@
 
       <div class="grid grid-cols-2 gap-3 mb-8 max-w-3xl mx-auto">
         <div class="overflow-hidden">
-          <img src="../assets/images/mmd-player/pp-off.png" alt="Before Post-Process" class="w-full">
+          <a href="../assets/images/mmd-player/pp-off.png" data-image-viewer class="block w-full min-w-0" aria-label="View full-size image: Before Post-Process">
+            <img src="../assets/images/mmd-player/pp-off.png" alt="Before Post-Process" class="w-full">
+          </a>
           <p class="text-xs text-muted text-center py-2" data-ko="Before — Raw 렌더">Before — Raw render</p>
         </div>
         <div class="overflow-hidden">
-          <img src="../assets/images/mmd-player/pp-on.png" alt="After Post-Process" class="w-full">
+          <a href="../assets/images/mmd-player/pp-on.png" data-image-viewer class="block w-full min-w-0" aria-label="View full-size image: After Post-Process">
+            <img src="../assets/images/mmd-player/pp-on.png" alt="After Post-Process" class="w-full">
+          </a>
           <p class="text-xs text-muted text-center py-2" data-ko="After — ACES, CA, 대비, 그레인">After — ACES, CA, contrast, grain</p>
         </div>
       </div>
@@ -162,7 +171,9 @@
     </section>
 
     <div class="mb-12 max-w-2xl mx-auto">
-      <img src="../assets/images/mmd-player/fx-panels.png" alt="FX control panels — VFX, Post-Process, and PMX tabs" class="w-full">
+      <a href="../assets/images/mmd-player/fx-panels.png" data-image-viewer class="block w-full min-w-0" aria-label="View full-size image: FX control panels — VFX, Post-Process, and PMX tabs">
+        <img src="../assets/images/mmd-player/fx-panels.png" alt="FX control panels — VFX, Post-Process, and PMX tabs" class="w-full">
+      </a>
       <p class="text-xs text-muted mt-2 text-center" data-ko="실시간 FX 컨트롤 — VFX (파티클, 미러), Post-Process (bloom, ACES, CA, 그레인), PMX (아웃라인, FOV)">Real-time FX controls — VFX (particles, mirror), Post-Process (bloom, ACES, CA, grain), PMX (outline, FOV)</p>
     </div>
 
@@ -184,5 +195,6 @@
   <script src="../js/i18n.js"></script>
   <script src="../js/theme.js"></script>
   <script src="../js/main.js"></script>
+  <script src="../js/image-viewer.js"></script>
 </body>
 </html>

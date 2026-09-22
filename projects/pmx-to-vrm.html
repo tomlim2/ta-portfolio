@@ -33,6 +33,7 @@
   </script>
   <link rel="icon" href="../favicon.gif" type="image/gif">
   <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/image-viewer.css">
 </head>
 <body class="bg-bg text-body">
 
@@ -52,7 +53,9 @@
 
 
     <div class="mb-8">
-      <img src="../assets/images/pmx-to-vrm/hero-converted-characters.png" alt="Characters converted from PMX to VRM" class="w-full h-auto">
+      <a href="../assets/images/pmx-to-vrm/hero-converted-characters.png" data-image-viewer class="block w-full min-w-0" aria-label="View full-size image: Characters converted from PMX to VRM">
+        <img src="../assets/images/pmx-to-vrm/hero-converted-characters.png" alt="Characters converted from PMX to VRM" class="w-full h-auto">
+      </a>
     </div>
 
     <h1 class="page-title" data-ko="PMX→VRM 파이프라인">PMX to VRM Pipeline</h1>
@@ -95,7 +98,9 @@
         </table>
       </div>
 
-      <img src="../assets/images/pmx-to-vrm/webapp-ui.png" alt="pmx2vrm Web App — ZIP Upload to VRM Conversion + 6-Layer Validation" class="w-full">
+      <a href="../assets/images/pmx-to-vrm/webapp-ui.png" data-image-viewer class="block w-full min-w-0" aria-label="View full-size image: pmx2vrm Web App — ZIP Upload to VRM Conversion + 6-Layer Validation">
+        <img src="../assets/images/pmx-to-vrm/webapp-ui.png" alt="pmx2vrm Web App — ZIP Upload to VRM Conversion + 6-Layer Validation" class="w-full">
+      </a>
       <p class="text-xs text-muted text-center mt-2" data-ko="웹 앱 — ZIP 넣으면 VRM이 나옵니다">Web app — ZIP in, VRM out</p>
     </section>
 
@@ -120,7 +125,9 @@
     </section>
 
     <div class="mb-12">
-      <img src="../assets/images/pmx-to-vrm/before-after-comparison.png" alt="Before (Star Rail PMX) / After (VRM conversion result)" class="w-full">
+      <a href="../assets/images/pmx-to-vrm/before-after-comparison.png" data-image-viewer class="block w-full min-w-0" aria-label="View full-size image: Before (Star Rail PMX) / After (VRM conversion result)">
+        <img src="../assets/images/pmx-to-vrm/before-after-comparison.png" alt="Before (Star Rail PMX) / After (VRM conversion result)" class="w-full">
+      </a>
       <p class="text-xs text-muted mt-2 text-center" data-ko="왼쪽: 원본 게임 스크린샷 — 오른쪽: PMX→VRM 변환 후 뷰어 렌더링">Left: Original game screenshot — Right: Viewer rendering after PMX to VRM conversion</p>
     </div>
 
@@ -139,13 +146,17 @@
         <div class="grid md:grid-cols-2 gap-4">
           <div class="flex flex-col">
             <div class="flex-1 flex items-center rounded border border-border overflow-hidden" style="background:#1a1a1a">
-              <img src="../assets/images/pmx-to-vrm/mojibake-broken-zip.png" alt="Mojibake — ZIP filenames completely garbled" class="w-full h-full object-contain">
+              <a href="../assets/images/pmx-to-vrm/mojibake-broken-zip.png" data-image-viewer class="block w-full min-w-0 h-full" aria-label="View full-size image: Mojibake — ZIP filenames completely garbled">
+                <img src="../assets/images/pmx-to-vrm/mojibake-broken-zip.png" alt="Mojibake — ZIP filenames completely garbled" class="w-full h-full object-contain">
+              </a>
             </div>
             <p class="text-xs text-muted mt-2 text-center" data-ko="ZIP을 풀면 파일명이 이렇게 깨진다">ZIP extraction produces garbled filenames like this</p>
           </div>
           <div class="flex flex-col">
             <div class="flex-1 flex items-center rounded border border-border overflow-hidden" style="background:#1a1a1a">
-              <img src="../assets/images/pmx-to-vrm/mojibake-correct-cjk.png" alt="Correct CJK texture filenames inside PMX" class="w-full h-full object-contain">
+              <a href="../assets/images/pmx-to-vrm/mojibake-correct-cjk.png" data-image-viewer class="block w-full min-w-0 h-full" aria-label="View full-size image: Correct CJK texture filenames inside PMX">
+                <img src="../assets/images/pmx-to-vrm/mojibake-correct-cjk.png" alt="Correct CJK texture filenames inside PMX" class="w-full h-full object-contain">
+              </a>
             </div>
             <p class="text-xs text-muted mt-2 text-center" data-ko="PMX 내부에는 정확한 CJK 텍스처 파일명이 저장되어 있다">PMX binary stores the correct CJK texture filenames</p>
           </div>
@@ -191,5 +202,6 @@
   <script src="../js/i18n.js"></script>
   <script src="../js/theme.js"></script>
   <script src="../js/main.js"></script>
+  <script src="../js/image-viewer.js"></script>
 </body>
 </html>

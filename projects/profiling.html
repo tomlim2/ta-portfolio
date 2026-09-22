@@ -29,6 +29,7 @@
   </script>
   <link rel="icon" href="../favicon.gif" type="image/gif">
   <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/image-viewer.css">
 </head>
 <body class="bg-bg text-body">
 
@@ -46,7 +47,9 @@
 
     <!-- Hero -->
     <div class="mb-8">
-      <img src="../assets/images/profiling/desert-oasis.png" alt="Desert oasis scene — optimized to 15-20ms target" class="w-full h-auto">
+      <a href="../assets/images/profiling/desert-oasis.png" data-image-viewer class="block w-full min-w-0" aria-label="View full-size image: Desert oasis scene — optimized to 15-20ms target">
+        <img src="../assets/images/profiling/desert-oasis.png" alt="Desert oasis scene — optimized to 15-20ms target" class="w-full h-auto">
+      </a>
     </div>
 
     <h1 class="page-title" data-ko="UE5 GPU 프로파일링 & 최적화">UE5 Profiling & Optimization</h1>
@@ -133,9 +136,13 @@
           <h3 class="font-medium mb-1 text-heading" data-ko="도시 배경 — 렌더링·Nanite 설정">City environment — Rendering and Nanite settings</h3>
           <p class="text-xs text-muted mb-4">35–52% reduction across 4 spots</p>
           <p class="text-muted text-sm leading-relaxed mb-6" data-ko="렌더링과 메시의 Nanite 설정을 조정해, 화면 기여도가 낮은 세부 지오메트리의 연산을 줄였습니다. 5개 카메라 지점에서 평균 GPU 프레임 시간이 34.18ms에서 18.44ms로 약 46% 줄었습니다. 그림자가 더 어두워지고 표면 디테일이 줄어드는 영향도 함께 확인했습니다. 아래는 동일 지점에서 비교한 두 사례입니다.">I adjusted rendering and per-mesh Nanite settings to reduce work on geometry with little contribution to the image. Across five camera positions, average GPU frame time fell from 34.18ms to 18.44ms, a reduction of about 46%. I also checked the tradeoffs: darker shadows and less surface detail. Two comparisons from matching viewpoints are shown below.</p>
-          <img src="../assets/images/profiling/city-night-spot1.jpg" alt="City night Spot 1 — Original 39.26ms vs Optimized 19.54ms" class="w-full h-auto mb-2">
+          <a href="../assets/images/profiling/city-night-spot1.jpg" data-image-viewer class="block w-full min-w-0" aria-label="View full-size image: City night Spot 1 — Original 39.26ms vs Optimized 19.54ms">
+            <img src="../assets/images/profiling/city-night-spot1.jpg" alt="City night Spot 1 — Original 39.26ms vs Optimized 19.54ms" class="w-full h-auto mb-2">
+          </a>
           <p class="text-xs text-muted text-center mb-6" data-ko="스팟 1: 39.26ms → 19.54ms (50%↓) — 동일 카메라 앵글, stat gpu 오버레이">Spot 1: 39.26ms → 19.54ms (50%↓) — identical camera angle, stat gpu overlay</p>
-          <img src="../assets/images/profiling/city-night-spot3.jpg" alt="City night Spot 3 — Original 29.03ms vs Optimized 18.96ms, neon deer by stream" class="w-full h-auto mb-2">
+          <a href="../assets/images/profiling/city-night-spot3.jpg" data-image-viewer class="block w-full min-w-0" aria-label="View full-size image: City night Spot 3 — Original 29.03ms vs Optimized 18.96ms, neon deer by stream">
+            <img src="../assets/images/profiling/city-night-spot3.jpg" alt="City night Spot 3 — Original 29.03ms vs Optimized 18.96ms, neon deer by stream" class="w-full h-auto mb-2">
+          </a>
           <p class="text-xs text-muted text-center" data-ko="스팟 3: 29.03ms → 18.96ms (35%↓) — 네온 사슴 조형물, 청계천 다리">Spot 3: 29.03ms → 18.96ms (35%↓) — neon deer sculpture by stream bridge</p>
         </div>
 
@@ -146,7 +153,9 @@
           <h3 class="font-medium mb-1 text-heading" data-ko="공업단지 — 나나이트 메시 분할">Industrial Complex — Nanite Mesh Split</h3>
           <p class="text-xs text-muted mb-4">68% reduction</p>
           <p class="text-muted text-sm leading-relaxed mb-6" data-ko="하나의 거대한 메시가 나나이트 컬링과 LOD를 막고 있었습니다. 56ms. 오클루전 경계를 따라 쪼개서 나나이트가 가려진 부분을 개별로 컬링하게 했습니다.">A single monolithic mesh prevented Nanite from culling occluded sections, resulting in 56ms frame time. I split the model along natural occlusion boundaries, enabling per-piece culling and proper LOD transitions.</p>
-          <img src="../assets/images/profiling/industrial-mesh-split.png" alt="Industrial complex — 56ms to 18ms after Nanite mesh split" class="w-full h-auto mb-2">
+          <a href="../assets/images/profiling/industrial-mesh-split.png" data-image-viewer class="block w-full min-w-0" aria-label="View full-size image: Industrial complex — 56ms to 18ms after Nanite mesh split">
+            <img src="../assets/images/profiling/industrial-mesh-split.png" alt="Industrial complex — 56ms to 18ms after Nanite mesh split" class="w-full h-auto mb-2">
+          </a>
           <p class="text-xs text-muted text-center" data-ko="56ms → 18ms (68%↓) — 메시 분할 후 나나이트 컬링 정상화">56ms → 18ms (68%↓) — Nanite culling restored after mesh split</p>
         </div>
 
@@ -185,7 +194,9 @@
             .opt-ms { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
           </style>
 
-          <img src="../assets/images/profiling/slum-shader-complexity.png" alt="Shader complexity view — white areas indicate extreme GPU cost" class="w-full h-auto mb-2">
+          <a href="../assets/images/profiling/slum-shader-complexity.png" data-image-viewer class="block w-full min-w-0" aria-label="View full-size image: Shader complexity view — white areas indicate extreme GPU cost">
+            <img src="../assets/images/profiling/slum-shader-complexity.png" alt="Shader complexity view — white areas indicate extreme GPU cost" class="w-full h-auto mb-2">
+          </a>
           <p class="text-xs text-muted text-center mb-6" data-ko="셰이더 복잡도 뷰 — 흰색 영역이 극단적 GPU 비용. 폴리지와 라이팅이 주요 병목임을 확인">Shader complexity view — white areas = extreme GPU cost, confirming foliage and lighting as primary bottlenecks</p>
 
           <div class="opt-log">
@@ -240,9 +251,13 @@
           </div>
 
           <div class="mb-2">
-            <img src="../assets/images/profiling/slum-before-36ms.png" alt="Slum area before — 36ms" class="w-full h-auto mb-2">
+            <a href="../assets/images/profiling/slum-before-36ms.png" data-image-viewer class="block w-full min-w-0" aria-label="View full-size image: Slum area before — 36ms">
+              <img src="../assets/images/profiling/slum-before-36ms.png" alt="Slum area before — 36ms" class="w-full h-auto mb-2">
+            </a>
             <p class="text-xs text-muted text-center mb-4" data-ko="최적화 전: 36ms">Before: 36ms</p>
-            <img src="../assets/images/profiling/slum-after-29ms.png" alt="Slum area intermediate result — GPU average 29.73ms" class="w-full h-auto mb-2">
+            <a href="../assets/images/profiling/slum-after-29ms.png" data-image-viewer class="block w-full min-w-0" aria-label="View full-size image: Slum area intermediate result — GPU average 29.73ms">
+              <img src="../assets/images/profiling/slum-after-29ms.png" alt="Slum area intermediate result — GPU average 29.73ms" class="w-full h-auto mb-2">
+            </a>
             <p class="text-xs text-muted text-center" data-ko="중간 결과 캡처: GPU 평균 29.73ms">Intermediate capture: GPU average 29.73ms</p>
           </div>
         </div>
@@ -254,7 +269,9 @@
           <h3 class="font-medium mb-1 text-heading" data-ko="벚꽃 식생 — 머티리얼 교체">Cherry Blossom — Material Replacement</h3>
           <p class="text-xs text-muted mb-4">34% reduction</p>
           <p class="text-muted text-sm leading-relaxed mb-6" data-ko="외부 식생 머티리얼이 픽셀당 텍스처 샘플 14개에 안 쓰는 서브서피스 스캐터링까지 달고 있었습니다. 같은 룩을 6개 샘플로 만든 커스텀 머티리얼로 교체했습니다. 라이트를 끈 상태(6.84ms)에서 따로 측정해서 머티리얼 비용만 분리했습니다.">External vegetation material used 14 texture samples per pixel with unnecessary subsurface scattering. I replaced it with a custom material that achieved equivalent visual quality with 6 samples. Measured a lights-off baseline (6.84ms) to isolate material cost precisely.</p>
-          <img src="../assets/images/profiling/hillside-after-8ms.png" alt="Cherry blossom trees with stat gpu — 8.09ms after custom material" class="w-full h-auto mb-2">
+          <a href="../assets/images/profiling/hillside-after-8ms.png" data-image-viewer class="block w-full min-w-0" aria-label="View full-size image: Cherry blossom trees with stat gpu — 8.09ms after custom material">
+            <img src="../assets/images/profiling/hillside-after-8ms.png" alt="Cherry blossom trees with stat gpu — 8.09ms after custom material" class="w-full h-auto mb-2">
+          </a>
           <p class="text-xs text-muted text-center" data-ko="12.23ms → 8.09ms (34%↓) — 라이트 오프 기준선 6.84ms로 머티리얼 비용 분리">12.23ms → 8.09ms (34%↓) — lights-off baseline 6.84ms isolating material cost</p>
         </div>
 
@@ -290,7 +307,9 @@
         </table>
       </div>
 
-      <img src="../assets/images/profiling/slum-composite.png" alt="Slum area 3-panel composite — wireframe, render, and debug views" class="w-full h-auto mb-2">
+      <a href="../assets/images/profiling/slum-composite.png" data-image-viewer class="block w-full min-w-0" aria-label="View full-size image: Slum area 3-panel composite — wireframe, render, and debug views">
+        <img src="../assets/images/profiling/slum-composite.png" alt="Slum area 3-panel composite — wireframe, render, and debug views" class="w-full h-auto mb-2">
+      </a>
       <p class="text-xs text-muted text-center mb-4" data-ko="빈민가 3패널 — 와이어프레임 + 렌더 + 디버그 뷰를 합성하여 병목 분석">Slum area 3-panel composite — wireframe, render, and debug views for bottleneck analysis</p>
     </section>
 
@@ -298,7 +317,9 @@
     <section class="mb-16">
       <h2 class="text-xl font-bold mb-4" data-ko="검증">Validation</h2>
       <p class="text-muted text-sm leading-relaxed mb-4" data-ko="사막 오아시스는 모든 카메라에서 15~20ms 타겟을 찍었습니다.">The desert oasis map hit the 15–20ms target across all camera positions.</p>
-      <img src="../assets/images/profiling/desert-oasis.png" alt="Desert oasis — camel scene with GPU Visualizer, all cameras 15-20ms" class="w-full h-auto mb-2">
+      <a href="../assets/images/profiling/desert-oasis.png" data-image-viewer class="block w-full min-w-0" aria-label="View full-size image: Desert oasis — camel scene with GPU Visualizer, all cameras 15-20ms">
+        <img src="../assets/images/profiling/desert-oasis.png" alt="Desert oasis — camel scene with GPU Visualizer, all cameras 15-20ms" class="w-full h-auto mb-2">
+      </a>
       <p class="text-xs text-muted text-center" data-ko="사막 오아시스 — 모든 카메라 포지션에서 15~20ms 타겟 달성">Desert oasis — 15–20ms target achieved across all camera positions</p>
     </section>
 
@@ -326,5 +347,6 @@
   <script src="../js/i18n.js"></script>
   <script src="../js/theme.js"></script>
   <script src="../js/main.js"></script>
+  <script src="../js/image-viewer.js"></script>
 </body>
 </html>

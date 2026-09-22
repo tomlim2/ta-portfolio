@@ -44,6 +44,11 @@
       close.textContent = korean ? '닫기 ×' : 'Close ×';
       var figure = link.closest('figure');
       var description = figure && figure.querySelector('figcaption');
+      // Older case studies use a small paragraph next to the image as a caption.
+      if (!description) {
+        var sibling = link.nextElementSibling || link.parentElement.nextElementSibling;
+        if (sibling && sibling.matches('p.text-xs')) description = sibling;
+      }
       caption.textContent = description ? description.textContent.trim() : '';
       image.alt = source.alt;
       image.src = link.href;
