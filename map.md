@@ -2,7 +2,7 @@
 
 이 문서는 포트폴리오를 수정할 때 **어떤 경험을 보여주려는지, 어디를 수정하고 어떤 근거를 확인해야 하는지** 찾기 위한 안내다. 상세 설명은 각 페이지와 원기록에 둔다.
 
-내용 기준: 2026-09-21. Shotloom 사례 공개 기록은 [v1.1.0](releases/v1.1.0.md), 후속 인터뷰와 LLM 협업 개발 반영 기록은 [v1.1.1](releases/v1.1.1.md)에 있다. 현재 배포 버전은 [GitHub Releases](https://github.com/tomlim2/ta-portfolio/releases)에서 확인한다.
+내용 기준: 2026-09-22. Shotloom 사례 공개 기록은 [v1.1.0](releases/v1.1.0.md), 후속 인터뷰와 LLM 협업 개발 반영 기록은 [v1.1.1](releases/v1.1.1.md)에 있다. 현재 배포 버전은 [GitHub Releases](https://github.com/tomlim2/ta-portfolio/releases)에서 확인한다.
 
 ## 포트폴리오의 중심
 
@@ -85,7 +85,7 @@
 
 ## Shotloom에서 유지할 구분
 
-2026-09-21 요청으로 **메인 프로젝트 카드는 잠시 숨기고 상세 페이지는 유지**한다. `/shotloom` 진입 경로는 [shotloom/index.html](shotloom/index.html)에서 기존 상세 페이지로 연결한다. 홈페이지 소개·경력의 Shotloom 언급은 카드와 별개다.
+2026-09-22 요청으로 **메인 주요 프로젝트의 네 번째에 Shotloom 카드를 표시하고, 승인한 썸네일을 카드와 상세 페이지 히어로에 적용**한다. 순서는 NPR → Character System → UE5 Profiling → Shotloom이다. `/shotloom` 진입 경로는 [shotloom/index.html](shotloom/index.html)에서 기존 상세 페이지로 연결한다. 전날의 카드 숨김 결정은 이번 요청으로 변경됐다.
 
 | 용어 | 이 포트폴리오에서의 의미 |
 |---|---|
@@ -112,6 +112,7 @@ SceneGen으로 Shotloom의 전체 목적·사용 범위·입출력을 한정하�
 - **LLM 협업 개발·Knitten:** Claude·OpenAI 도구를 활용하는 4명이 하나의 제품을 개발했다. 팀의 공용 가드레일과 문서는 이미 존재했다. 본인은 기존 기준에 맞춘 하네스 엔지니어링으로 담당 작업의 범위·책임 경계·리뷰·검증 기록을 관리하고 공유했다. Knitten 공통 코어와 Shotloom 전용 워크플로, 단계별 참조·체크포인트, 설치·Git·CI 검사 도구를 본인 작업에 적용했다. 공용 가드레일·문서화 프로세스 자체를 처음 만든 것으로 표현하지 않는다. Knitten의 직접 사용자는 본인이며, 동료에게는 구현 맥락·검증 기록·코드가 이어졌다. 4명 모두가 Knitten을 실행한 것으로 확대하지 않는다. IK 인계는 공동 개발의 한 예시다.
 - **제품 상태:** 약 4개월 개발해 핵심 제작 흐름의 해피패스를 구현하고 개발 서버에 배포했다. 기본 편집 기능 보완과 대상 연출자 사용 검증은 남아 있었다. 외부 사용자에게 제공됐던 Cinev Studio와 구분한다.
 - **사례 공개:** 포트폴리오 공개와 Shotloom 제품의 정식 출시를 구분한다.
+- **카드·히어로 썸네일:** [thumbnail-editor-v2.png](assets/images/shotloom/thumbnail-editor-v2.png)는 실제 Proxy Scene 화면을 바탕으로 캐릭터 외형과 엄지를 ImageGen으로 보정한 이미지다. 사용자 승인에 따라 메인 카드와 [상세 히어로](projects/shotloom.html#hero-thumbnail)에 같은 파일을 사용하며 AI 보정 썸네일로 표시한다. 실제 렌더링 품질·구현 결과를 입증하는 원본 캡처로 설명하지 않는다. 본문의 실제 서비스·리타게터·프런트엔드 캡처는 그대로 유지한다.
 - **서비스 연동 화면:** [Proxy Character](projects/shotloom.html#proxy-character)와 [Proxy Scene](projects/shotloom.html#proxy-scene)에 2026-09-21 사용자가 제공한 원본 캡처를 추가했다. 사용자가 확인한 서비스명과 이미지 입력·선택/구성·씬 적용 흐름을 설명한다. 파일명 날짜를 서비스 개발 완료일로 해석하지 않는다. 생성 모델·백엔드를 본인 단독 개발로 표현하지 않는다.
 - **실제 프런트엔드 화면:** [에디터 UX 섹션](projects/shotloom.html#frontend-example)에 사용자가 제공한 2026-08-21 원본 캡처를 추가했다. 포즈 라이브러리·3D 카메라 뷰·클립 타임라인이 보이는 실제 개발 화면이며, 클릭하면 원본 크기로 열린다. AI 보정 시안과 구분한다.
 - **리타게터 개발 화면:** [ARP 전환과 캐릭터 호환성](projects/shotloom.html#retargeting-examples)에 2026-06-30 기준 리깅 전환 초기의 변형과 2026-08-19 VRM 포즈 적용·여러 출처 캐릭터 확인 화면을 원본 그대로 추가했다. 기준은 기존 Cinev의 MetaHuman 기반 Blender export에서 ARP로 전환했다. 세 캐릭터 화면은 왼쪽부터 외부 ARP, ARP를 적용한 기존 Cinev, Humanoid 기반 VRM이다. 개발 단계별 기록이며, 동일 조건 Before/After나 특정 PR 하나의 결과로 단정하지 않는다. 본문의 VRM 3종 회귀 검증과 별개의 자료다.
@@ -142,6 +143,7 @@ SceneGen으로 Shotloom의 전체 목적·사용 범위·입출력을 한정하�
 | 리타게터 구조·근거 자료 위치 | `2026-09-15-retargeter-architecture-sources.md` |
 | ARP 전환 초기·개선 결과·캐릭터별 리깅 확인 | `2026-09-21-shotloom-retargeter-screenshots.md` |
 | Proxy Character·Proxy Scene 실제 서비스 연동 화면 | `2026-09-21-shotloom-proxy-service-examples.md` |
+| Shotloom 썸네일 생성·엄지 보정·카드와 히어로 적용 | `2026-09-22-shotloom-thumbnail-concept.md` |
 | 캐릭터 시스템의 내부 아티스트·외부 사용자 구분 | `2026-09-21-character-system-user-workflows.md` |
 | Knitten과 협업 범위 | `2026-09-15-knitten-review.md` |
 | 전체 경력 원본에서 참조한 내용 | `2026-09-15-resume-master-review.md` |
