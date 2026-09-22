@@ -6,7 +6,7 @@ For project narratives, editing locations, and evidence-record navigation, start
 
 ## Shotloom case study
 
-The Shotloom homepage card is temporarily hidden. The case study remains available by direct URL: `/shotloom` redirects to `/projects/shotloom.html`. The case study covers core 3D workflows, company service integration, and accessible editing. SceneGen illustrates one of several Shotloom use cases: in this example, Shotloom’s 3D editing and scene video output connect CINEV’s image input with final video generation. The product reached development-server deployment; publication of this case study does not imply a product launch.
+Shotloom is the fourth Selected Work card, after NPR Shading & Look Development, Character System, and UE5 Profiling. Its homepage card and case-study hero use the approved `assets/images/shotloom/thumbnail-editor-v2.png`, labeled as an AI-retouched thumbnail. Original development screenshots remain in the case study. Direct access is also available: `/shotloom` redirects to `/projects/shotloom.html`. The case study covers core 3D workflows, company service integration, and accessible editing. SceneGen illustrates one of several Shotloom use cases: in this example, Shotloom’s 3D editing and scene video output connect CINEV’s image input with final video generation. The product reached development-server deployment; publication of this case study does not imply a product launch.
 
 ## Projects
 
@@ -35,7 +35,7 @@ index.html               # Landing page
 resume.html              # Single-column, two-page A4 resume source
 assets/resume.pdf        # Download linked from the homepage; regenerate after resume edits
 projects/                # 8 published case studies
-shotloom/index.html      # Direct-entry redirect; Shotloom is omitted from home cards
+shotloom/index.html      # Direct-entry redirect to the Shotloom case study
 css/style.css            # Shared portfolio styles
 js/                      # main.js, auth.js, crypto.js
 assets/                  # Images, resume PDF, cursors

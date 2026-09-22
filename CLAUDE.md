@@ -10,7 +10,7 @@ TA 포트폴리오 사이트. GitHub Pages + 커스텀 도메인 `ta.tommlimm.ne
 - 한글 `data-ko`와 영문 본문을 함께 수정한다. 담당 범위, 프로젝트 상태와 수치의 측정 조건을 구분한다.
 - 이력서 HTML 수정 시 다운로드용 `assets/resume.pdf`도 재생성하고 확인한다.
 - 미공개 작업은 Git에서 제외된 `tools/drafts/`에 보관한다. 인터뷰·근거 기록은 `tools/career-notes/`에 보관한다.
-- 2026-09-21 사용자 요청으로 Shotloom 홈 카드는 잠시 숨긴다. 상세 페이지와 흐름도는 유지하며, `/shotloom` 또는 `/shotloom/`으로 접속하면 `shotloom/index.html`에서 기존 `projects/shotloom.html`로 연결한다. 페이지·진입 경로·에셋은 `site-public.json`에 포함한다.
+- 2026-09-22 사용자 요청으로 Shotloom 홈 카드를 주요 프로젝트의 네 번째(NPR → Character System → UE5 Profiling → Shotloom)에 표시하고, 승인한 `assets/images/shotloom/thumbnail-editor-v2.png`를 카드와 상세 페이지 히어로에 사용한다. AI 보정 썸네일로 표시하며 본문의 실제 개발 캡처와 구분한다. `/shotloom` 또는 `/shotloom/` 직접 진입 경로도 유지한다. 페이지·진입 경로·에셋은 `site-public.json`에 포함한다.
 - 포트폴리오 사례 공개와 Shotloom 제품 출시를 구분한다. 제품은 핵심 흐름 구현·개발 서버 배포 단계였으며 정식 출시는 하지 않았다.
 - 일반 수정 후 자동 배포하지 않는다. 사용자가 배포를 요청한 경우에만 릴리즈 태그를 푸시한다.
 
