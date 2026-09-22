@@ -34,6 +34,7 @@
   <link rel="icon" href="../favicon.gif" type="image/gif">
   <meta name="description" content="Shotloom: a web 3D editor for AI video production. Retargeting architecture, camera and timeline workflows, and engineering handoff by Technical Artist Younsoo Lim.">
   <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/image-viewer.css">
 </head>
 <body class="bg-bg text-body">
 
@@ -63,7 +64,7 @@
   <main class="max-w-4xl mx-auto px-6 pt-16 pb-24">
 
     <figure id="hero-thumbnail" class="mb-8">
-      <a href="../assets/images/shotloom/thumbnail-editor-v2.png" target="_blank" rel="noopener" class="block cursor-zoom-in" aria-label="View the full-size AI-retouched Shotloom thumbnail">
+      <a href="../assets/images/shotloom/thumbnail-editor-v2.png" data-image-viewer class="block cursor-zoom-in" aria-label="View the full-size AI-retouched Shotloom thumbnail">
         <img src="../assets/images/shotloom/thumbnail-editor-v2.png" alt="AI-retouched Shotloom thumbnail showing three characters in the 3D editor with camera and motion tracks" width="1668" height="943" class="w-full h-auto" fetchpriority="high" decoding="async">
       </a>
       <figcaption class="text-xs text-muted mt-2 text-center" data-ko="썸네일 · 실제 에디터 화면을 바탕으로 AI 보정">Thumbnail · AI-retouched from an editor screenshot</figcaption>
@@ -114,7 +115,7 @@
       <figure id="proxy-character" class="mb-10 scroll-mt-24">
         <h3 class="font-medium mb-3">Proxy Character</h3>
         <p class="text-muted text-sm leading-relaxed mb-4" data-ko="이미지 입력 → 캐릭터 후보 확인·선택 → 씬에 배치">Image input → Review and select character candidates → Place in the scene</p>
-        <a href="../assets/images/shotloom/proxy-character-service-20260827.png" target="_blank" rel="noopener" class="block cursor-zoom-in" aria-label="View the full-size Proxy Character service screenshot">
+        <a href="../assets/images/shotloom/proxy-character-service-20260827.png" data-image-viewer class="block cursor-zoom-in" aria-label="View the full-size Proxy Character service screenshot">
           <img src="../assets/images/shotloom/proxy-character-service-20260827.png" alt="Shotloom Proxy Character service showing an input image and character candidates on the right, a character preview, and the selected character placed in the 3D scene" width="1512" height="859" class="w-full h-auto" loading="lazy" decoding="async">
         </a>
         <figcaption class="text-xs text-muted mt-2" data-ko="입력 이미지의 캐릭터 후보를 확인하고, 선택한 캐릭터를 에디터에 배치하는 개발 화면 · 클릭하여 크게 보기">Development screenshot showing character candidates for an input image and the selected character placed in the editor · Click to enlarge</figcaption>
@@ -123,7 +124,7 @@
       <figure id="proxy-scene" class="mb-10 scroll-mt-24">
         <h3 class="font-medium mb-3">Proxy Scene</h3>
         <p class="text-muted text-sm leading-relaxed mb-4" data-ko="이미지 입력 → 프록시 장면 생성 → 씬에 추가·편집">Image input → Generate a proxy scene → Add to the scene and edit</p>
-        <a href="../assets/images/shotloom/proxy-scene-service-20260921.png" target="_blank" rel="noopener" class="block cursor-zoom-in" aria-label="View the full-size Proxy Scene service screenshot">
+        <a href="../assets/images/shotloom/proxy-scene-service-20260921.png" data-image-viewer class="block cursor-zoom-in" aria-label="View the full-size Proxy Scene service screenshot">
           <img src="../assets/images/shotloom/proxy-scene-service-20260921.png" alt="Shotloom Proxy Scene service showing the source image on the right and its character and prop layout represented as an editable 3D scene on the left" width="3008" height="1700" class="w-full h-auto" loading="lazy" decoding="async">
         </a>
         <figcaption class="text-xs text-muted mt-2" data-ko="오른쪽 입력 이미지를 바탕으로 구성한 왼쪽 3D 장면을 에디터에서 편집하는 개발 화면 · 클릭하여 크게 보기">Development screenshot showing the 3D scene on the left, composed from the input image on the right, within the editor · Click to enlarge</figcaption>
@@ -132,7 +133,9 @@
       <h3 id="flow" class="font-medium mb-3 scroll-mt-24" data-ko="활용 예시: SceneGen">Use case: SceneGen</h3>
       <p class="text-muted text-sm leading-relaxed mb-6" data-ko="SceneGen은 Shotloom의 여러 활용 예시 중 하나입니다. CINEV의 이미지 입력과 최종 영상 생성 사이, 2–4단계에서 Shotloom으로 장면·모션·카메라를 구성하고 편집합니다. 이 예시에서는 이미지를 입력받아 편집 결과가 반영된 씬 동영상을 출력하고, CINEV의 영상 생성 단계로 전달합니다.">SceneGen is one of several use cases for Shotloom. Between CINEV’s image input and final video generation, Shotloom is used in steps 2–4 to compose and edit scenes, motion, and cameras. In this example, it takes an image and outputs a scene video reflecting those edits, which is passed to CINEV’s video generation stage.</p>
       <figure class="mb-8">
-        <img src="../assets/images/shotloom/scenegen-flow-v2.png" alt="SceneGen, one Shotloom use case: CINEV image input, Shotloom 3D editing in steps 2–4, and scene video output to CINEV for video generation" width="1672" height="941" class="w-full h-auto">
+        <a href="../assets/images/shotloom/scenegen-flow-v2.png" data-image-viewer class="block cursor-zoom-in" aria-label="View the full-size SceneGen flow illustration">
+          <img src="../assets/images/shotloom/scenegen-flow-v2.png" alt="SceneGen, one Shotloom use case: CINEV image input, Shotloom 3D editing in steps 2–4, and scene video output to CINEV for video generation" width="1672" height="941" class="w-full h-auto">
+        </a>
         <figcaption class="text-xs text-muted mt-2 text-center" data-ko="SceneGen 활용 예시 · 02–04: Shotloom · 01·05: CINEV · ImageGen 개념 설명도">SceneGen use case · 02–04: Shotloom · 01 &amp; 05: CINEV · Concept illustration made with ImageGen</figcaption>
       </figure>
       <div class="overflow-x-auto mb-6">
@@ -177,14 +180,14 @@
         <div class="grid grid-cols-1 md:grid-cols-[0.77fr_1.06fr] gap-6 mb-8">
           <figure>
             <h4 class="text-sm font-medium mb-3" data-ko="ARP 전환 초기">Initial ARP Transition</h4>
-            <a href="../assets/images/shotloom/retargeting-arp-transition-20260630.png" target="_blank" rel="noopener" class="block cursor-zoom-in" aria-label="View the full-size initial ARP transition screenshot">
+            <a href="../assets/images/shotloom/retargeting-arp-transition-20260630.png" data-image-viewer class="block cursor-zoom-in" aria-label="View the full-size initial ARP transition screenshot">
               <img src="../assets/images/shotloom/retargeting-arp-transition-20260630.png" alt="Early ARP reference-rig transition showing a deformed VRM character with bone debug lines" width="618" height="804" class="w-full h-auto" loading="lazy" decoding="async">
             </a>
             <figcaption class="text-xs text-muted mt-2" data-ko="2026.06.30 · 기준 리깅 전환 중 발생한 캐릭터 변형">2026.06.30 · Character deformation during the reference-rig transition</figcaption>
           </figure>
           <figure>
             <h4 class="text-sm font-medium mb-3" data-ko="VRM Humanoid 포즈 적용">Pose Application to VRM Humanoid</h4>
-            <a href="../assets/images/shotloom/retargeting-vrm-pose-20260819.png" target="_blank" rel="noopener" class="block cursor-zoom-in" aria-label="View the full-size VRM Humanoid pose screenshot">
+            <a href="../assets/images/shotloom/retargeting-vrm-pose-20260819.png" data-image-viewer class="block cursor-zoom-in" aria-label="View the full-size VRM Humanoid pose screenshot">
               <img src="../assets/images/shotloom/retargeting-vrm-pose-20260819.png" alt="VRM Humanoid character holding a pose in Shotloom, with the pose library visible beside it" width="1350" height="1276" class="w-full h-auto" loading="lazy" decoding="async">
             </a>
             <figcaption class="text-xs text-muted mt-2" data-ko="2026.08.19 · 리타게터 보완 후 VRM 캐릭터에 포즈 적용">2026.08.19 · Pose applied to a VRM character after retargeter improvements</figcaption>
@@ -192,7 +195,7 @@
         </div>
         <figure>
           <h4 class="text-sm font-medium mb-3" data-ko="서로 다른 출처의 캐릭터 적용 예시">Application Across Character Sources</h4>
-          <a href="../assets/images/shotloom/retargeting-character-sources-20260819.png" target="_blank" rel="noopener" class="block cursor-zoom-in" aria-label="View the full-size ARP and VRM character screenshot">
+          <a href="../assets/images/shotloom/retargeting-character-sources-20260819.png" data-image-viewer class="block cursor-zoom-in" aria-label="View the full-size ARP and VRM character screenshot">
             <img src="../assets/images/shotloom/retargeting-character-sources-20260819.png" alt="Three posed characters in Shotloom: an external ARP character on the left, a Cinev character using ARP in the center, and a VRM Humanoid character on the right" width="2310" height="1710" class="w-full h-auto" loading="lazy" decoding="async">
           </a>
           <figcaption class="text-xs text-muted mt-2" data-ko="2026.08.19 · 왼쪽부터 외부 ARP 캐릭터, ARP를 적용한 기존 Cinev 캐릭터, Humanoid 기반 VRM 캐릭터">2026.08.19 · Left to right: external ARP character, existing Cinev character using ARP, and Humanoid-based VRM character</figcaption>
@@ -205,7 +208,7 @@
       <h2 class="text-xl font-bold mb-4" data-ko="에디터 UX · 편집 플로우">Editor UX &amp; Editing Workflow</h2>
       <figure id="frontend-example" class="mb-8">
         <h3 class="font-medium mb-3" data-ko="프런트엔드 구현 예시">Frontend Implementation</h3>
-        <a href="../assets/images/shotloom/frontend-editor-20260821.png" target="_blank" rel="noopener" class="block cursor-zoom-in" aria-label="View the full-size Shotloom frontend screenshot">
+        <a href="../assets/images/shotloom/frontend-editor-20260821.png" data-image-viewer class="block cursor-zoom-in" aria-label="View the full-size Shotloom frontend screenshot">
           <img src="../assets/images/shotloom/frontend-editor-20260821.png" alt="Shotloom editor showing a 3D character in the camera viewport, pose presets in the right sidebar, and camera and motion clips in the timeline" width="3014" height="1716" class="w-full h-auto" loading="lazy" decoding="async">
         </a>
         <figcaption class="text-xs text-muted mt-2 text-center" data-ko="포즈 라이브러리·3D 카메라 뷰·클립 타임라인을 연결한 개발 화면 · 클릭하여 크게 보기">Development screenshot connecting the pose library, 3D camera view, and clip timeline · Click to enlarge</figcaption>
@@ -260,5 +263,6 @@
   <script src="../js/i18n.js"></script>
   <script src="../js/theme.js"></script>
   <script src="../js/main.js"></script>
+  <script src="../js/image-viewer.js"></script>
 </body>
 </html>
