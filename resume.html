@@ -31,6 +31,9 @@ h1 { font-size: 25pt; line-height: 1.2; letter-spacing: -.6px; font-weight: 700;
 .role { font-size: 12pt; color: #5b6067; }
 .portrait { width: 18mm; height: 18mm; flex-shrink: 0; border-radius: 50%; object-fit: cover; }
 .contact { font-size: 9pt; line-height: 1.7; color: #555b61; }
+.contact-row { display: flex; flex-wrap: wrap; align-items: center; column-gap: 14px; }
+.contact-item { display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }
+.contact-icon { width: 13px; height: 13px; flex: 0 0 13px; color: #697178; }
 a { color: inherit; text-decoration: none; }
 .primary-link { font-weight: 600; color: #222; }
 .dot { margin: 0 6px; color: #a2a6aa; }
@@ -93,8 +96,34 @@ h2 {
       <div class="header-main">
         <div class="identity"><h1>임연수</h1><p class="role">Technical Artist</p></div>
         <div class="contact">
-          <a href="mailto:tomandlim@gmail.com">tomandlim@gmail.com</a><span class="dot">·</span>010-6334-1747<span class="dot">·</span>서울 강남구<br>
-          <a class="primary-link" href="https://ta.tommlimm.net">ta.tommlimm.net</a><span class="dot">·</span><a href="https://github.com/tomlim2">GitHub</a><span class="dot">·</span><a href="https://linkedin.com/in/tommlimm">LinkedIn</a>
+          <div class="contact-row">
+            <a class="contact-item" href="mailto:tomandlim@gmail.com">
+              <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+              <span>tomandlim@gmail.com</span>
+            </a>
+            <a class="contact-item" href="tel:+821063341747">
+              <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.2 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.96.35 1.9.69 2.79a2 2 0 0 1-.45 2.11L8.09 9.89a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.83.57 2.79.69A2 2 0 0 1 22 16.92Z"/></svg>
+              <span>010-6334-1747</span>
+            </a>
+            <span class="contact-item">
+              <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+              <span>서울 강남구</span>
+            </span>
+          </div>
+          <div class="contact-row">
+            <a class="contact-item primary-link" href="https://ta.tommlimm.net">
+              <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18"/></svg>
+              <span>ta.tommlimm.net</span>
+            </a>
+            <a class="contact-item" href="https://github.com/tomlim2">
+              <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 19c-4.3 1.3-4.3-2.2-6-2.7M9 22v-3.9a3.4 3.4 0 0 1 .9-2.6c-3-.3-6.2-1.5-6.2-6.7A5.2 5.2 0 0 1 5.1 5.2 4.8 4.8 0 0 1 5.3 1.7S6.4 1.4 9 3.1a13.4 13.4 0 0 1 6 0c2.6-1.7 3.7-1.4 3.7-1.4a4.8 4.8 0 0 1 .2 3.5 5.2 5.2 0 0 1 1.4 3.6c0 5.2-3.2 6.4-6.2 6.7a3.4 3.4 0 0 1 .9 2.6V22"/></svg>
+              <span>GitHub</span>
+            </a>
+            <a class="contact-item" href="https://linkedin.com/in/tommlimm">
+              <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7.5 10v7M11.5 17v-7m0 3a3 3 0 0 1 6 0v4"/><circle cx="7.5" cy="7" r=".8" fill="currentColor" stroke="none"/></svg>
+              <span>LinkedIn</span>
+            </a>
+          </div>
         </div>
       </div>
       <img class="portrait" src="assets/images/profile.jpg" alt="임연수">
