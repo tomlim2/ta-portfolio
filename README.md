@@ -4,6 +4,14 @@ Personal portfolio of Younsoo Lim, Technical Artist. The site presents technolog
 
 For project narratives, editing locations, and evidence-record navigation, start with [map.md](map.md).
 
+## Design and page authoring
+
+- [Current style guide](docs/style-guide.md): colors, typography, spacing, responsive layouts, media, and interaction rules.
+- [Component Library](component-library.html): visual examples using the shared CSS, including overlay cards and the image viewer.
+- [Project authoring guide](docs/project-template.md) and [HTML starter](projects/_template.html): migrate one project at a time.
+
+These internal references are excluded from `site-public.json`. Preview them locally from the repository root with `python3 -m http.server 8781 --bind 127.0.0.1`, then open `/component-library.html` or `/projects/_template.html`. The normal `_site/` preview does not include them. The February documents in `docs/plans/` are historical plans, not the current style specification.
+
 ## Shotloom case study
 
 Shotloom is the fourth Selected Work card, after NPR Shading & Look Development, Character System, and UE5 Profiling. Its homepage card and case-study hero use the approved `assets/images/shotloom/thumbnail-editor-v2.png`, labeled as an AI-retouched thumbnail. Original development screenshots remain in the case study. Direct access is also available: `/shotloom` redirects to `/projects/shotloom.html`. The case study covers core 3D workflows, company service integration, and accessible editing. SceneGen illustrates one of several Shotloom use cases: in this example, Shotloom’s 3D editing and scene video output connect CINEV’s image input with final video generation. The product reached development-server deployment; publication of this case study does not imply a product launch.
@@ -25,7 +33,7 @@ Shotloom is the fourth Selected Work card, after NPR Shading & Look Development,
 
 - **Hosting** — GitHub Pages + custom domain
 - **Styling** — Tailwind CSS + custom CSS variables
-- **Language** — Korean by default; English content is paired with `data-ko` attributes
+- **Language** — The footer dropdown follows browser preferences initially and saves explicit choices; English content is paired with `data-ko` attributes
 - **Legacy encryption** — AES-256-GCM helpers remain in `js/auth.js` and `js/crypto.js`; the current checked-in project pages contain plain HTML
 
 ## Structure
@@ -33,11 +41,14 @@ Shotloom is the fourth Selected Work card, after NPR Shading & Look Development,
 ```
 index.html               # Landing page
 resume.html              # Single-column, two-page A4 resume source
-assets/resume.pdf        # Download linked from the homepage; regenerate after resume edits
+resume-viewer.html       # Direct-link fallback for the resume modal
+assets/resume.pdf        # Download from the preview; regenerate after resume edits
 projects/                # 8 published case studies
 shotloom/index.html      # Direct-entry redirect to the Shotloom case study
 css/style.css            # Shared portfolio styles
-js/                      # main.js, auth.js, crypto.js
+css/preview-modal.css    # Common preview shell and icon toolbar
+js/preview-modal.js      # Shared close, focus and scroll behavior
+js/                      # Shared behavior, including image and resume previews
 assets/                  # Images, resume PDF, cursors
 site-public.json         # Explicit publication manifest
 scripts/                 # Site validation and release-note generation
@@ -48,6 +59,8 @@ tools/career-notes/      # Local, gitignored interview, evidence, and revision r
 ```
 
 ## Editing content
+
+All on-demand previews use the shared modal: content name on the left, contextual actions on the right, and close always rightmost. Image and resume previews use the same shell. The resume preview shows the PDF filename and offers a separate download action. See the [preview rules](docs/style-guide.md#모든-미리보기는-모달).
 
 Update both the English element content and its Korean `data-ko` value. Keep role ownership, implementation status, and measurement scope consistent across the homepage, case studies, and resume. Legacy encryption scripts expect `projects/originals/`, which is absent from this checkout; do not run them against incomplete source files.
 

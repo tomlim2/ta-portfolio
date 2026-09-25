@@ -87,6 +87,19 @@ h2 {
   body { background: #fff; }
   .sheet { margin: 0; box-shadow: none; }
 }
+@media screen {
+  a[href] { cursor: pointer; }
+  .sheet { width: min(210mm, calc(100% - 32px)); }
+}
+@media screen and (max-width: 600px) {
+  .sheet { min-height: 0; padding: 24px 20px; margin: 16px auto; }
+  .masthead { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .portrait { order: -1; width: 56px; height: 56px; }
+  .identity { flex-wrap: wrap; gap: 4px 12px; }
+  .contact-row { row-gap: 4px; }
+  .skill-row { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+  .footer { position: static; margin-top: 32px; }
+}
 </style>
 </head>
 <body>
@@ -98,29 +111,29 @@ h2 {
         <div class="contact">
           <div class="contact-row">
             <a class="contact-item" href="mailto:tomandlim@gmail.com">
-              <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+              <svg class="contact-icon" fill="currentColor" aria-hidden="true" focusable="false" data-symbol="mail" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M180.31-212q-27.01 0-45.66-18.66Q116-249.32 116-276.35v-407.62q0-27.03 18.65-45.53t45.66-18.5h599.38q27.01 0 45.66 18.66Q844-710.68 844-683.65v407.62q0 27.03-18.65 45.53T779.69-212H180.31ZM480-449.69 168-633.31v357q0 5.39 3.46 8.85t8.85 3.46h599.38q5.39 0 8.85-3.46t3.46-8.85v-357L480-449.69Zm0-67.31 305.85-179h-611.7L480-517ZM168-633.31V-696v419.69q0 5.39 3.46 8.85t8.85 3.46H168v-369.31Z"/></svg>
               <span>tomandlim@gmail.com</span>
             </a>
             <a class="contact-item" href="tel:+821063341747">
-              <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.2 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.96.35 1.9.69 2.79a2 2 0 0 1-.45 2.11L8.09 9.89a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.83.57 2.79.69A2 2 0 0 1 22 16.92Z"/></svg>
+              <svg class="contact-icon" fill="currentColor" aria-hidden="true" focusable="false" data-symbol="call" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M742.61-165q-109.07-9-209.69-57.58-100.61-48.58-182.19-130.34-81.57-81.77-129.15-181.7Q174-634.54 164-743.61q-2-21.17 12.29-36.78Q190.57-796 212-796h104.46q18.15 0 31.23 10.89 13.08 10.88 18.23 28.42L386.85-673q2.38 13.38-1.5 26.15-3.89 12.77-12.66 20.77l-92.38 89.93q22.3 41.84 49.46 78.77 27.15 36.92 59.51 69.06 31.95 31.94 69.03 59.17t80.08 49.54l94.76-92.54q8.39-8.77 19.24-11.7 10.84-2.92 24.23-.92l80.07 17.62q18.15 5 28.73 18.46 10.58 13.46 10.58 32V-213q0 21.43-16.11 35.71Q763.78-163 742.61-165ZM256.92-586.92l75.39-72.31q1.92-1.54 2.5-4.23.58-2.69-.19-5l-17.55-69.39q-.77-3.07-2.69-4.61-1.92-1.54-5-1.54H223q-2.31 0-3.85 1.54-1.53 1.54-1.53 3.85 3.07 38 13.42 75.8 10.34 37.81 25.88 75.89Zm334 331.69q35.87 15.78 75.01 23.97 39.15 8.18 72.68 12.03 2.31 0 3.85-1.54t1.54-3.85v-86.15q0-3.08-1.54-5t-4.61-2.69l-65-14.08q-2.31-.77-4.04-.19-1.73.58-3.66 2.5l-74.23 75Zm-334-331.69Zm334 331.69Z"/></svg>
               <span>010-6334-1747</span>
             </a>
             <span class="contact-item">
-              <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+              <svg class="contact-icon" fill="currentColor" aria-hidden="true" focusable="false" data-symbol="location_on" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480.28-485.39q26.64 0 45.33-18.97 18.7-18.97 18.7-45.61t-18.98-45.34Q506.36-614 479.72-614t-45.33 18.97q-18.7 18.98-18.7 45.62 0 26.64 18.98 45.33 18.97 18.69 45.61 18.69ZM480-184.46q114.38-100.08 178.15-195.08 63.77-95 63.77-167.54 0-105.38-68.5-175.34-68.5-69.96-173.42-69.96-104.92 0-173.42 69.96-68.5 69.96-68.5 175.34 0 72.54 63.77 167.54 63.77 95 178.15 195.08Zm0 68.84Q333.03-240.57 259.55-348.21q-73.47-107.64-73.47-198.87 0-122.46 82.07-209.69Q350.23-844 479.5-844q129.27 0 211.85 87.23 82.57 87.23 82.57 209.69 0 91.23-72.96 198.43Q628-241.46 480-115.62Zm0-434.07Z"/></svg>
               <span>서울 강남구</span>
             </span>
           </div>
           <div class="contact-row">
             <a class="contact-item primary-link" href="https://ta.tommlimm.net">
-              <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18"/></svg>
+              <svg class="contact-icon" fill="currentColor" aria-hidden="true" focusable="false" data-symbol="language" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-116q-75.15 0-141.5-28.46t-115.96-78.08q-49.62-49.61-78.08-115.96T116-480q0-75.77 28.46-141.81t78.08-115.65q49.61-49.62 115.96-78.08T480-844q75.77 0 141.81 28.46t115.65 78.08q49.62 49.61 78.08 115.65T844-480q0 75.15-28.46 141.5t-78.08 115.96q-49.61 49.62-115.65 78.08T480-116Zm0-53.85q21.62-21.61 40.54-70.42 18.92-48.81 29.08-108.81H410.38q10.93 61.54 29.47 110.35 18.53 48.81 40.15 68.88Zm-64.46-5q-19-30-34.31-75.53-15.31-45.54-23.46-98.7H197.08q31.69 69.31 89.5 115.2 57.81 45.88 128.96 59.03Zm128.92 0q71.15-13.15 128.96-59.03 57.81-45.89 89.5-115.2H602.23q-10.08 53.54-25.39 99.08-15.3 45.54-32.38 75.15ZM178.92-401.08h173.7q-2.77-21.3-3.47-41.73-.69-20.42-.69-39.19 0-18.77.69-38.19.7-19.43 3.47-38.73h-173.7q-5.77 19.38-8.34 39.38-2.58 20-2.58 39.54t2.58 39.54q2.57 20 8.34 39.38Zm226.69 0h148.78q2.76-22.3 3.46-41.34.69-19.04.69-37.58t-.69-38.08q-.7-19.54-3.46-40.84H405.61q-2.76 21.3-3.46 40.84-.69 19.54-.69 38.08t.69 38.08q.7 19.54 3.46 40.84Zm201.77 0h173.7q5.77-19.38 8.34-39.38 2.58-20 2.58-39.54t-2.58-40.04q-2.57-20.5-8.34-38.88h-173.7q2.77 21.3 3.47 41.73.69 20.42.69 39.19 0 18.77-.69 38.19-.7 19.43-3.47 38.73Zm-5.15-209.84h160.69Q730.85-681 674-726.12q-56.85-45.11-129.54-59.42 19 31.92 33.92 76.89 14.93 44.96 23.85 97.73Zm-191.85 0h139.24q-10.93-61.16-30.04-110.93-19.12-49.77-39.58-68.3-20.46 18.53-39.58 68.3-19.11 49.77-30.04 110.93Zm-213.3 0h160.69q8.92-52.77 23.85-97.73 14.92-44.97 33.92-76.89-73.08 14.31-129.73 59.62-56.66 45.3-88.73 115Z"/></svg>
               <span>ta.tommlimm.net</span>
             </a>
             <a class="contact-item" href="https://github.com/tomlim2">
-              <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 19c-4.3 1.3-4.3-2.2-6-2.7M9 22v-3.9a3.4 3.4 0 0 1 .9-2.6c-3-.3-6.2-1.5-6.2-6.7A5.2 5.2 0 0 1 5.1 5.2 4.8 4.8 0 0 1 5.3 1.7S6.4 1.4 9 3.1a13.4 13.4 0 0 1 6 0c2.6-1.7 3.7-1.4 3.7-1.4a4.8 4.8 0 0 1 .2 3.5 5.2 5.2 0 0 1 1.4 3.6c0 5.2-3.2 6.4-6.2 6.7a3.4 3.4 0 0 1 .9 2.6V22"/></svg>
+              <svg class="contact-icon" fill="currentColor" aria-hidden="true" focusable="false" data-brand="github" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 98 96"><path d="M41.4395 69.3848C28.8066 67.8535 19.9062 58.7617 19.9062 46.9902C19.9062 42.2051 21.6289 37.0371 24.5 33.5918C23.2559 30.4336 23.4473 23.7344 24.8828 20.959C28.7109 20.4805 33.8789 22.4902 36.9414 25.2656C40.5781 24.1172 44.4062 23.543 49.0957 23.543C53.7852 23.543 57.6133 24.1172 61.0586 25.1699C64.0254 22.4902 69.2891 20.4805 73.1172 20.959C74.457 23.543 74.6484 30.2422 73.4043 33.4961C76.4668 37.1328 78.0937 42.0137 78.0937 46.9902C78.0937 58.7617 69.1934 67.6621 56.3691 69.2891C59.623 71.3945 61.8242 75.9883 61.8242 81.252L61.8242 91.2051C61.8242 94.0762 64.2168 95.7031 67.0879 94.5547C84.4102 87.9512 98 70.6289 98 49.1914C98 22.1074 75.9883 6.69539e-07 48.9043 4.309e-07C21.8203 1.92261e-07 -1.9479e-07 22.1074 -4.3343e-07 49.1914C-6.20631e-07 70.4375 13.4941 88.0469 31.6777 94.6504C34.2617 95.6074 36.75 93.8848 36.75 91.3008L36.75 83.6445C35.4102 84.2188 33.6875 84.6016 32.1562 84.6016C25.8398 84.6016 22.1074 81.1563 19.4277 74.7441C18.375 72.1602 17.2266 70.6289 15.0254 70.3418C13.877 70.2461 13.4941 69.7676 13.4941 69.1934C13.4941 68.0449 15.4082 67.1836 17.3223 67.1836C20.0977 67.1836 22.4902 68.9063 24.9785 72.4473C26.8926 75.2227 28.9023 76.4668 31.2949 76.4668C33.6875 76.4668 35.2187 75.6055 37.4199 73.4043C39.0469 71.7773 40.291 70.3418 41.4395 69.3848Z"/></svg>
               <span>GitHub</span>
             </a>
             <a class="contact-item" href="https://linkedin.com/in/tommlimm">
-              <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7.5 10v7M11.5 17v-7m0 3a3 3 0 0 1 6 0v4"/><circle cx="7.5" cy="7" r=".8" fill="currentColor" stroke="none"/></svg>
+              <svg class="contact-icon" fill="currentColor" aria-hidden="true" focusable="false" data-brand="linkedin" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28"><path d="m25.9 0h-23.8c-1.2 0-2.1 0.9-2.1 2v24c0 1.1 0.9 2 2.1 2h23.9c1.1 0 2.1-0.9 2.1-2v-24c-0.1-1.1-1-2-2.2-2zm-17.6 23.9h-4.1v-13.4h4.2v13.4zm-2.1-15.2c-1.3 0-2.4-1.1-2.4-2.4s1.1-2.4 2.4-2.4 2.4 1.1 2.4 2.4-1 2.4-2.4 2.4zm17.7 15.2h-4.1v-6.5c0-1.5 0-3.5-2.2-3.5s-2.5 1.7-2.5 3.4v6.6h-4.1v-13.4h4v1.8h0.1c0.6-1 1.9-2.2 3.9-2.2 4.2 0 5 2.8 5 6.4v7.4z"/></svg>
               <span>LinkedIn</span>
             </a>
           </div>

@@ -133,9 +133,9 @@ ${content}
       <input id="section-pw-input" type="password" placeholder="Password" autocomplete="off"
         class="w-full bg-bg border border-border rounded-lg px-4 py-2.5 text-sm text-white placeholder-muted focus:outline-none focus:border-accent transition mb-3">
       <p id="section-pw-error" class="hidden text-red-400 text-xs mb-3 text-center">비밀번호가 틀렸습니다</p>
-      <button id="section-pw-submit"
-        class="w-full px-5 py-2.5 bg-white text-black text-sm font-medium rounded-lg hover:bg-white/90 transition">Unlock</button>
-      <button id="section-pw-close" class="block w-full mt-3 text-muted text-sm hover:text-white transition">닫기</button>
+      <button type="button" id="section-pw-submit"
+        class="btn btn--filled w-full">Unlock</button>
+      <button type="button" id="section-pw-close" class="btn btn--ghost w-full mt-3">닫기</button>
     </div>
   </div>
 

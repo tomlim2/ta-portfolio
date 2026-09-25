@@ -127,6 +127,8 @@ SceneGen으로 Shotloom의 전체 목적·사용 범위·입출력을 한정하�
 | 역할·성과·수치 | 해당 상세 페이지, 관련 홈·이력서 설명, 로컬 근거 기록 |
 | 이력서 | HTML 수정 후 PDF 재생성·내용과 레이아웃 확인 |
 | 공통 스타일·언어 전환 | [css/style.css](css/style.css), [js/i18n.js](js/i18n.js), [js/main.js](js/main.js), [js/theme.js](js/theme.js) |
+| 디자인 규칙·컴포넌트 | [현재 스타일 가이드](docs/style-guide.md), [Component Library](component-library.html) — 구현 변경 시 함께 갱신 |
+| 새 상세 페이지·기존 작업 이식 | [작성 가이드](docs/project-template.md), [HTML 템플릿](projects/_template.html) |
 | Shotloom 썸네일·흐름도 | 홈 카드와 상세 페이지의 이미지 경로·설명, CINEV/Shotloom 영역 구분 |
 | 새 공개 페이지·에셋 | `site-public.json`과 [빌드 검증](scripts/build_site.py) |
 | 배포 | `releases/<tag>.md`, [릴리즈 워크플로](.github/workflows/release.yml), [릴리즈 노트 생성](scripts/release_notes.py) |

@@ -1,39 +1,26 @@
-// Theme toggle — Light (default) / Dark
+// Follow the system by default; the library can override this for this visit.
 (function () {
-  var theme = 'light';
+  var preference = 'system';
+  var systemTheme = window.matchMedia('(prefers-color-scheme: dark)');
 
-  function applyTheme(t) {
-    theme = t;
-    if (t === 'dark') {
-      document.documentElement.setAttribute('data-theme', 'dark');
-    } else {
-      document.documentElement.removeAttribute('data-theme');
-    }
-
-    // Update toggle button text
-    document.querySelectorAll('#theme-toggle').forEach(function (btn) {
-      if (t === 'dark') {
-        btn.innerHTML = '<span data-theme-label="light" style="opacity:0.4">Lt</span> / <span data-theme-label="dark">Dk</span>';
-      } else {
-        btn.innerHTML = '<span data-theme-label="light">Lt</span> / <span data-theme-label="dark" style="opacity:0.4">Dk</span>';
-      }
+  function applyTheme() {
+    var theme = preference === 'system' ? (systemTheme.matches ? 'dark' : 'light') : preference;
+    document.documentElement.dataset.theme = theme;
+    document.documentElement.dataset.themePreference = preference;
+    document.querySelectorAll('[data-theme-choice]').forEach(function (button) {
+      button.setAttribute('aria-pressed', String(button.dataset.themeChoice === preference));
     });
   }
 
-  // Apply on load
-  document.addEventListener('DOMContentLoaded', function () {
-    applyTheme('light');
+  document.addEventListener('click', function (event) {
+    var button = event.target.closest('[data-theme-choice]');
+    if (!button || !['system', 'light', 'dark'].includes(button.dataset.themeChoice)) return;
+    preference = button.dataset.themeChoice;
+    applyTheme();
   });
 
-  // Click handler — click Lt or Dk directly
-  document.addEventListener('click', function (e) {
-    var target = e.target;
-    if (target.getAttribute('data-theme-label') === 'dark') {
-      applyTheme('dark');
-    } else if (target.getAttribute('data-theme-label') === 'light') {
-      applyTheme('light');
-    } else if (target.id === 'theme-toggle') {
-      applyTheme(theme === 'light' ? 'dark' : 'light');
-    }
+  systemTheme.addEventListener('change', function () {
+    if (preference === 'system') applyTheme();
   });
+  applyTheme();
 })();

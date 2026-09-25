@@ -1,5 +1,7 @@
 # TA Portfolio Site Design
 
+> Historical plan (2026-02-15). The dark-first layout, private-page workflow, colors, and wireframe reference below are not the current specification. Use the [current style guide](../style-guide.md), [Component Library](../../component-library.html), and [project authoring guide](../project-template.md). Preserved for design history; do not implement it as current requirements.
+
 ## Overview
 
 Technical Artist portfolio site with public projects and password-protected NDA section.

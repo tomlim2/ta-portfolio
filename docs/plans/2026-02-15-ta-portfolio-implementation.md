@@ -1,5 +1,7 @@
 # TA Portfolio Site Implementation Plan
 
+> Historical implementation plan (2026-02-15), not an active task list. Its dark-first design and encryption workflow have been superseded. Use the [current style guide](../style-guide.md) and [project authoring guide](../project-template.md) for new work. The original instructions below are preserved as history.
+
 > **For Claude:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task.
 
 **Goal:** Build a dark minimal TA portfolio site with public projects and AES-encrypted private NDA section.
