@@ -1,23 +1,32 @@
 /* ── Design System ── */
+/* Usage: docs/style-guide.md. Visual examples: component-library.html. */
 
-:root {
+:root,
+[data-theme="light"] {
+  color-scheme: light;
   /* Background — pure white for max contrast */
   --c-bg: 255 255 255;
   /* Surface — visible distinction from bg */
   --c-surface: 245 245 247;
   /* Border — clear but not heavy */
   --c-border: 225 225 230;
-  /* Muted — secondary text (WCAG AA on white: 4.6:1) */
+  /* Muted — secondary text; check contrast against its actual background */
   --c-muted: 110 110 115;
-  /* Body — primary readable text (WCAG AAA: 14.5:1) */
+  /* Body — primary readable text */
   --c-body: 40 40 45;
-  /* Heading — near-black for maximum weight (WCAG AAA: 19:1) */
+  /* Heading — softer gray than body; also used for labels and hover states */
   --c-heading: 85 85 90;
   /* Accent — single brand color */
   --c-accent: 80 95 230;
+  --c-button-bg: 245 245 247;
+  --c-button-text: 40 40 45;
+  --c-button-border: 140 140 145;
+  --c-button-hover: 235 235 239;
+  --c-button-active: 225 225 230;
 }
 
 [data-theme="dark"] {
+  color-scheme: dark;
   --c-bg: 22 22 26;
   --c-surface: 32 32 38;
   --c-border: 50 50 58;
@@ -25,17 +34,38 @@
   --c-body: 210 210 215;
   --c-heading: 175 175 180;
   --c-accent: 100 120 240;
+  --c-button-bg: 32 32 38;
+  --c-button-text: 210 210 215;
+  --c-button-border: 120 120 128;
+  --c-button-hover: 44 44 52;
+  --c-button-active: 55 55 65;
+}
+
+/* Match the system before JS runs, and when JavaScript is unavailable. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    color-scheme: dark;
+    --c-bg: 22 22 26;
+    --c-surface: 32 32 38;
+    --c-border: 50 50 58;
+    --c-muted: 150 150 155;
+    --c-body: 210 210 215;
+    --c-heading: 175 175 180;
+    --c-accent: 100 120 240;
+    --c-button-bg: 32 32 38;
+    --c-button-text: 210 210 215;
+    --c-button-border: 120 120 128;
+    --c-button-hover: 44 44 52;
+    --c-button-active: 55 55 65;
+  }
 }
 
 /*
-  Typography Scale (7 steps):
-  --t-display: 2.0rem    hero, page titles
-  --t-h2:      1.25rem   section headings
-  --t-h3:      1.05rem   card/panel headings, nav
-  --t-body:    0.9375rem body text (15px)
-  --t-small:   0.8125rem labels, meta, captions (13px)
-  --t-xs:      0.75rem   fine print, timestamps (12px)
-  --t-micro:   0.6875rem tooltip, decorative (11px)
+  Typography reference, not CSS custom properties:
+  display: 2rem; section heading: 1.25rem; base card title: 1.05rem;
+  body: 0.9375rem; detail: 0.8125rem; caption: 0.75rem; tooltip: 0.6875rem.
+  Hero summary is fluid. Overlay cards override titles to 1.1rem and
+  subtitles to 0.875rem. See docs/style-guide.md for context and weights.
 */
 
 /* ── Code Blocks (always dark) ── */
@@ -65,6 +95,258 @@ pre code {
   font-size: inherit;
 }
 
+/* ── UI Icons: Material Symbols Outlined, default weight 300 ── */
+/* Load only used icon_names with wght=300 in the page's Google Fonts URL.
+   General UI uses this family; SNS links use their brand SVG artwork. */
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: 300;
+  font-style: normal;
+  font-size: 24px;
+  font-synthesis: none;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  flex-shrink: 0;
+  width: 1em;
+  height: 1em;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  vertical-align: middle;
+  font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+  font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+}
+
+.material-symbols-outlined.icon-sm {
+  font-size: 20px;
+  font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 20;
+}
+
+/* A 16px brand mark in the shared 20px box balances outlined UI glyphs. */
+.brand-icon {
+  display: inline-block;
+  flex: 0 0 20px;
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  color: inherit;
+  background: currentColor;
+  mask: var(--brand-icon) center / 16px 16px no-repeat;
+}
+.brand-icon--github { --brand-icon: url('../assets/brands/github.svg'); }
+.brand-icon--linkedin { --brand-icon: url('../assets/brands/linkedin.svg'); }
+
+/* Inline text links stay aligned with their decorative icon. */
+.icon-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* ── Buttons: text / icon + text / icon only; outline / filled / ghost ── */
+/* Defaults: text only, outline, nearest theme. See #buttons in the library. */
+.btn {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 44px;
+  min-height: 44px;
+  max-width: 100%;
+  padding: 10px 16px;
+  border: 1px solid rgb(var(--c-button-border));
+  border-radius: 6px;
+  background: rgb(var(--c-button-bg));
+  color: rgb(var(--c-button-text));
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  transition: color 0.15s, background-color 0.15s, border-color 0.15s;
+}
+
+.btn--ghost {
+  border-color: transparent;
+  background: transparent;
+}
+
+.btn--icon {
+  flex: 0 0 44px;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+}
+
+/* Compact rows of icon-only controls; keep the full vertical target. */
+.icon-group {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+.icon-group > .btn--icon {
+  flex-basis: 32px;
+  min-width: 32px;
+  width: 32px;
+}
+
+.btn--disclosure {
+  width: 100%;
+  justify-content: flex-start;
+  text-align: left;
+}
+
+/* Layout visibility is separate from the button's visual variant. */
+@media (min-width: 768px) {
+  .mobile-menu-toggle { display: none; }
+}
+
+.btn:where(:not(.btn--ghost)):not(:disabled):hover {
+  background: rgb(var(--c-button-hover));
+}
+
+.btn--ghost:not(:disabled):hover {
+  color: rgb(var(--c-accent));
+}
+
+.btn:not(:disabled):active,
+.btn[aria-pressed="true"] {
+  background: rgb(var(--c-button-active));
+  border-color: rgb(var(--c-button-text));
+}
+
+/* Keep the border space for matching dimensions, including pressed states. */
+.btn--filled,
+.btn--filled:not(:disabled):active,
+.btn--filled[aria-pressed="true"] {
+  border-color: transparent;
+}
+
+.btn:focus-visible {
+  outline: 2px solid rgb(var(--c-accent));
+  outline-offset: 3px;
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.btn[hidden] {
+  display: none;
+}
+
+/* Language preference: native dropdown with a visible label. */
+.language-switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 100%;
+  color: rgb(var(--c-muted));
+  font-size: 14px;
+  line-height: 20px;
+}
+.language-select {
+  box-sizing: border-box;
+  min-width: 100px;
+  min-height: 44px;
+  max-width: 100%;
+  padding: 8px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background-color: transparent;
+  color: rgb(var(--c-button-text));
+  font: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.15s;
+}
+.language-select:hover { color: rgb(var(--c-accent)); }
+.language-select:focus-visible {
+  outline: 2px solid rgb(var(--c-accent));
+  outline-offset: 3px;
+}
+.language-select option {
+  background: rgb(var(--c-bg));
+  color: rgb(var(--c-body));
+}
+
+/* Footer: copyright left, contact links centered, language right. */
+.site-footer { container-type: inline-size; }
+.footer-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: 8px 24px;
+}
+.footer-copyright {
+  grid-area: 1 / 1;
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+}
+.footer-language { grid-area: 1 / 3; justify-self: end; }
+.footer-links {
+  grid-area: 1 / 2;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0 24px;
+}
+.footer-item {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  max-width: 100%;
+}
+.footer-item + .footer-item::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: -12px;
+  width: 1px;
+  height: 12px;
+  background: rgb(var(--c-muted) / 0.5);
+}
+.site-footer .footer-link {
+  padding: 0;
+  gap: 4px;
+  color: inherit;
+  font: inherit;
+  white-space: nowrap;
+}
+.site-footer .footer-link:hover { color: rgb(var(--c-accent)); }
+.site-footer .language-switcher {
+  font-size: inherit;
+  line-height: inherit;
+}
+.site-footer .language-select { min-width: 80px; }
+@container (max-width: 800px) {
+  .footer-layout {
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    row-gap: 0;
+  }
+  .footer-copyright,
+  .footer-links,
+  .footer-language { grid-area: auto; justify-self: center; }
+  .footer-copyright,
+  .footer-item,
+  .site-footer .footer-link,
+  .site-footer .language-select { min-height: 32px; }
+  .site-footer .language-select { padding-block: 4px; }
+  .footer-links { column-gap: 16px; }
+  .footer-item + .footer-item::before { display: none; }
+}
+
 /* ── Typography Classes ── */
 
 .hero-tagline {
@@ -82,6 +364,14 @@ pre code {
   word-break: keep-all;
   overflow-wrap: anywhere;
 }
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  margin-top: 16px;
+}
+.hero-actions > .btn { padding-inline: 0; }
 
 .page-title {
   font-family: 'Noto Rashi Hebrew', serif;
@@ -160,53 +450,26 @@ p, h1, h2, h3, td, th, summary, blockquote {
   word-break: keep-all;
 }
 
-a[target="_blank"],
-a[href^="http"]:not([href*="ta.tommlimm.net"]) {
-  cursor: url('../assets/cursor-link.png') 12 12, pointer;
+/* Cursor semantics: navigation, actions, and downloadable resources. */
+a[href] {
+  cursor: pointer;
 }
 
-a[href$="resume.pdf"] {
+button,
+summary,
+[role="button"],
+a[role="button"],
+a[data-cursor="action"] {
+  cursor: pointer;
+}
+
+a[download],
+a[data-cursor="download"] {
   cursor: url('../assets/cursor-download.png') 12 12, pointer;
-}
-
-a[href^="mailto:"] {
-  cursor: url('../assets/cursor-mail.png') 12 12, pointer;
 }
 
 #projects {
   padding-top: 3rem;
-}
-
-/* ── Language Toggle ── */
-
-#lang-toggle {
-  font-size: inherit;
-  font-weight: inherit;
-  letter-spacing: 0.05em;
-  cursor: pointer;
-  padding: 0;
-  border: none;
-  background: none;
-  color: inherit;
-}
-
-#lang-toggle:hover {
-  color: rgb(var(--c-heading));
-}
-
-#theme-toggle {
-  font-size: inherit;
-  font-weight: inherit;
-  letter-spacing: 0.05em;
-  cursor: pointer;
-  padding: 0;
-  border: none;
-  background: none;
-  color: inherit;
-}
-
-#theme-toggle:hover {
-  color: rgb(var(--c-heading));
 }
 
 /* ── Nav ── */
@@ -219,7 +482,6 @@ nav .nav-logo {
   line-height: 1;
   text-decoration: none;
   color: inherit;
-  cursor: pointer;
 }
 
 nav .nav-links a {
@@ -233,7 +495,7 @@ nav {
 
 .card-locked .card-placeholder,
 .card-locked .card-thumb {
-  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='12' fill='%23fff'/%3E%3Csvg x='2' y='2' width='20' height='20' viewBox='0 -960 960 960' fill='%23222'%3E%3Cpath d='M252.31-100q-29.92 0-51.12-21.19Q180-142.39 180-172.31v-375.38q0-29.92 21.19-51.12Q222.39-620 252.31-620H300v-80q0-74.92 52.54-127.46Q405.08-880 480-880q74.92 0 127.46 52.54Q660-774.92 660-700v80h47.69q29.92 0 51.12 21.19Q780-577.61 780-547.69v375.38q0 29.92-21.19 51.12Q737.61-100 707.69-100H252.31Zm0-60h455.38q5.39 0 8.85-3.46t3.46-8.85v-375.38q0-5.39-3.46-8.85t-8.85-3.46H252.31q-5.39 0-8.85 3.46t-3.46 8.85v375.38q0 5.39 3.46 8.85t8.85 3.46Zm277.27-150.42Q550-330.85 550-360t-20.42-49.58Q509.15-430 480-430t-49.58 20.42Q410-389.15 410-360t20.42 49.58Q450.85-290 480-290t49.58-20.42ZM360-620h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z'/%3E%3C/svg%3E%3C/svg%3E") 12 12, pointer;
+  cursor: pointer;
 }
 
 .card-placeholder:hover,
@@ -316,8 +578,13 @@ details summary::-webkit-details-marker {
   display: none;
 }
 
-details summary::before {
-  content: '▶';
+details > summary::before {
+  content: '';
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  background: currentColor;
+  mask: url('../assets/icons/chevron_right.svg') center / contain no-repeat;
   display: inline-block;
   margin-right: 0.5rem;
   font-size: 0.6875rem;
@@ -325,8 +592,14 @@ details summary::before {
   color: rgb(var(--c-muted));
 }
 
-details[open] summary::before {
+details[open] > summary::before {
   transform: rotate(90deg);
+}
+
+summary.btn::before {
+  flex: 0 0 20px;
+  margin-right: 0;
+  color: inherit;
 }
 
 blockquote {
@@ -345,14 +618,14 @@ blockquote {
   margin: 1rem 0;
 }
 
-.encrypted-placeholder svg {
+.encrypted-placeholder .material-symbols-outlined {
   width: 1.25rem;
   height: 1.25rem;
-  fill: rgb(var(--c-muted));
+  color: rgb(var(--c-muted));
 }
 
 .encrypted-placeholder:hover {
-  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='12' fill='%23fff'/%3E%3Csvg x='2' y='2' width='20' height='20' viewBox='0 -960 960 960' fill='%23222'%3E%3Cpath d='M252.31-100q-29.92 0-51.12-21.19Q180-142.39 180-172.31v-375.38q0-29.92 21.19-51.12Q222.39-620 252.31-620H300v-80q0-74.92 52.54-127.46Q405.08-880 480-880q74.92 0 127.46 52.54Q660-774.92 660-700v80h47.69q29.92 0 51.12 21.19Q780-577.61 780-547.69v375.38q0 29.92-21.19 51.12Q737.61-100 707.69-100H252.31Zm0-60h455.38q5.39 0 8.85-3.46t3.46-8.85v-375.38q0-5.39-3.46-8.85t-8.85-3.46H252.31q-5.39 0-8.85 3.46t-3.46 8.85v375.38q0 5.39 3.46 8.85t8.85 3.46Zm277.27-150.42Q550-330.85 550-360t-20.42-49.58Q509.15-430 480-430t-49.58 20.42Q410-389.15 410-360t20.42 49.58Q450.85-290 480-290t49.58-20.42ZM360-620h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z'/%3E%3C/svg%3E%3C/svg%3E") 12 12, pointer;
+  cursor: pointer;
 }
 
 .encrypted-payload {
@@ -385,7 +658,8 @@ table {
   transition: opacity 0.1s;
 }
 
-[data-tip]:hover::after {
+[data-tip]:hover::after,
+[data-tip]:focus-visible::after {
   opacity: 1;
 }
 

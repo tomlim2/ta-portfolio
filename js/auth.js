@@ -132,7 +132,7 @@ var Auth = (function () {
       '<div class="w-full max-w-sm mx-6 bg-surface border border-border rounded-lg p-6 text-center">' +
         '<p class="text-muted text-sm mb-4">이 브라우저에서는 NDA 콘텐츠 잠금 해제가<br>지원되지 않습니다.</p>' +
         '<p class="text-muted text-xs mb-6">Chrome 또는 Safari에서 열어주세요.</p>' +
-        '<button class="w-full px-5 py-2.5 bg-white text-black text-sm font-medium rounded-lg hover:bg-white/90 transition">확인</button>' +
+        '<button type="button" class="btn btn--filled w-full">확인</button>' +
       '</div>';
     document.body.appendChild(overlay);
     overlay.querySelector('button').addEventListener('click', function () {

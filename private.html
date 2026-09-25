@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..24,300,0,0&amp;icon_names=close,lock,lock_open,menu&amp;display=block" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -56,18 +57,14 @@
         <a href="index.html#about" class="hover:text-heading transition">About</a>
         <a href="index.html#contact" class="hover:text-heading transition">Contact</a>
         <a href="private.html" class="text-heading transition flex items-center gap-1.5">
-          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
-          </svg>
+          <span class="material-symbols-outlined icon-sm text-muted" aria-hidden="true">lock</span>
           Private
         </a>
       </div>
 
       <!-- Hamburger button (visible on mobile only) -->
-      <button id="hamburger-btn" class="md:hidden text-muted hover:text-heading transition" aria-label="Toggle menu">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-        </svg>
+      <button type="button" id="hamburger-btn" class="btn btn--ghost btn--icon mobile-menu-toggle" aria-label="Toggle menu">
+        <span class="material-symbols-outlined icon-sm" aria-hidden="true">menu</span>
       </button>
     </div>
 
@@ -78,9 +75,7 @@
         <a href="index.html#about" class="hover:text-heading transition">About</a>
         <a href="index.html#contact" class="hover:text-heading transition">Contact</a>
         <a href="private.html" class="text-heading transition flex items-center gap-1.5">
-          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
-          </svg>
+          <span class="material-symbols-outlined icon-sm text-muted" aria-hidden="true">lock</span>
           Private
         </a>
       </div>
@@ -101,11 +96,11 @@
             id="password-input"
             placeholder="Password"
             autocomplete="off"
-            class="flex-1 bg-transparent border border-border rounded-lg px-4 py-2 text-sm text-heading placeholder-muted focus:outline-none focus:border-muted transition"
+            class="min-w-0 flex-1 bg-transparent border border-border rounded-lg px-4 py-2 text-sm text-heading placeholder-muted focus:outline-none focus:border-muted transition"
           >
           <button
             type="submit"
-            class="bg-heading text-bg px-5 py-2 rounded-lg text-sm font-medium hover:bg-heading/90 transition"
+            class="btn btn--filled shrink-0"
           >Enter</button>
         </form>
         <p id="error-message" class="hidden text-red-500 text-sm mt-3">Incorrect password.</p>
@@ -132,14 +127,21 @@
       var mobileMenu = document.getElementById('mobile-menu');
 
       if (hamburgerBtn && mobileMenu) {
+        function setMenuOpen(open) {
+          mobileMenu.classList.toggle('hidden', !open);
+          hamburgerBtn.setAttribute('aria-expanded', String(open));
+          hamburgerBtn.querySelector('.material-symbols-outlined').textContent = open ? 'close' : 'menu';
+        }
+        hamburgerBtn.setAttribute('aria-controls', 'mobile-menu');
+        setMenuOpen(false);
         hamburgerBtn.addEventListener('click', function () {
-          mobileMenu.classList.toggle('hidden');
+          setMenuOpen(mobileMenu.classList.contains('hidden'));
         });
 
         var mobileLinks = mobileMenu.querySelectorAll('a');
         mobileLinks.forEach(function (link) {
           link.addEventListener('click', function () {
-            mobileMenu.classList.add('hidden');
+            setMenuOpen(false);
           });
         });
       }

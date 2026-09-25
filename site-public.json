@@ -1,6 +1,6 @@
 {
   "files": [
-    "index.html", "resume.html", "CNAME", ".nojekyll",
+    "index.html", "resume.html", "resume-viewer.html", "CNAME", ".nojekyll",
     "favicon.gif", "favicon.png", "logo.svg", "logo-invert.svg",
     "projects/npr-shader.html", "projects/character-system.html",
     "projects/profiling.html", "projects/pmx-to-vrm.html",
@@ -10,10 +10,13 @@
     "assets/cursor-download.png", "assets/cursor-download.svg",
     "assets/cursor-link.png", "assets/cursor-link.svg",
     "assets/cursor-mail.png", "assets/cursor-mail.svg",
-    "assets/cursor-wave.png", "assets/cursor-wave.svg"
+    "assets/cursor-wave.png", "assets/cursor-wave.svg",
+    "assets/cursor-lock.png", "assets/cursor-lock.svg",
+    "assets/cursor-zoom_in.png", "assets/cursor-zoom_in.svg",
+    "assets/cursor-zoom_out.png", "assets/cursor-zoom_out.svg"
   ],
   "directories": [
-    "css", "js",
+    "css", "js", "assets/icons", "assets/brands",
     "assets/images/npr-shader", "assets/images/character-system",
     "assets/images/profiling", "assets/images/pmx-to-vrm",
     "assets/images/matcap-painter", "assets/images/mmd-player",
