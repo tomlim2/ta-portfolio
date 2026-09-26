@@ -25,6 +25,13 @@
 | 알아보려는 것 | 위치 |
 |---|---|
 | 첫인상, 프로젝트 카드, 소개·경력 | [index.html](index.html) |
+| 디자인 포트폴리오 홈, TA와 전환 | [design/index.html](design/index.html) · [이식 기록](docs/design-portfolio-migration.md) |
+| Office of Civic Innovation 브랜드 아이덴티티 | [상세](projects/civic-innovation.html) · `assets/images/civic-innovation/` · [이식 기록](docs/design-portfolio-migration.md#office-of-civic-innovation-상세) |
+| Curiosity · CCA Concept 2017 키 비주얼 | [상세](projects/curiosity.html) · `assets/images/curiosity/` · [이식 기록](docs/design-portfolio-migration.md#curiosityolivia-상세) |
+| Olivia 브랜드 아이덴티티 | [상세](projects/olivia.html) · `assets/images/olivia/` · [이식 기록](docs/design-portfolio-migration.md#curiosityolivia-상세) |
+| Personal Projects · 3D 모션 실험 | [상세](projects/personal-projects.html) · `assets/images/personal-projects/` |
+| Summer VR Project · 2018–2019 VR 협업 | [상세](projects/summer-vr.html) · `assets/images/summer-vr/` |
+| Junkyard · 웹·크리에이티브 코딩 | [상세](projects/junkyard.html) · `assets/images/junkyard/` · `children/codes/assets/web/` · `children/codes/bluecat.html` |
 | 채용용 경력 요약 | [resume.html](resume.html) · [다운로드 PDF](assets/resume.pdf) |
 | 프로젝트별 문제·판단·구현·결과 | 아래 프로젝트 맵 |
 | 개발·배포 방법 | [README.md](README.md) |

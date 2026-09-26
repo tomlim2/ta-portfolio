@@ -7,14 +7,18 @@ For project narratives, editing locations, and evidence-record navigation, start
 ## Design and page authoring
 
 - [Current style guide](docs/style-guide.md): colors, typography, spacing, responsive layouts, media, and interaction rules.
-- [Component Library](component-library.html): visual examples using the shared CSS, including overlay cards and the image viewer.
+- [Component Library](component-library.html): visual examples using the shared CSS, including project cards and the image viewer.
 - [Project authoring guide](docs/project-template.md) and [HTML starter](projects/_template.html): migrate one project at a time.
 
 These internal references are excluded from `site-public.json`. Preview them locally from the repository root with `python3 -m http.server 8781 --bind 127.0.0.1`, then open `/component-library.html` or `/projects/_template.html`. The normal `_site/` preview does not include them. The February documents in `docs/plans/` are historical plans, not the current style specification.
 
+## Design portfolio home
+
+`design/index.html` presents all six projects from the original design portfolio using the shared navigation, card layout, language preference, and footer. Its hero starts directly with the original Vimeo demo reel. Both homepages link to each other in their footers. All six design cards now open local case studies under `projects/`; their legacy `children/` paths redirect to the new pages. Junkyard also includes six original interactive demos at their existing local paths. Command G retains its separately hosted demo link. Source assets, migration changes, and verification limits are recorded in [the migration notes](docs/design-portfolio-migration.md).
+
 ## Shotloom case study
 
-Shotloom is the fourth Selected Work card, after NPR Shading & Look Development, Character System, and UE5 Profiling. Its homepage card and case-study hero use the approved `assets/images/shotloom/thumbnail-editor-v2.png`, labeled as an AI-retouched thumbnail. Original development screenshots remain in the case study. Direct access is also available: `/shotloom` redirects to `/projects/shotloom.html`. The case study covers core 3D workflows, company service integration, and accessible editing. SceneGen illustrates one of several Shotloom use cases: in this example, Shotloom’s 3D editing and scene video output connect CINEV’s image input with final video generation. The product reached development-server deployment; publication of this case study does not imply a product launch.
+Shotloom is the fourth Projects card, after NPR Shading & Look Development, Character System, and UE5 Profiling. Its homepage card and case-study hero use the approved `assets/images/shotloom/thumbnail-editor-v2.png`, labeled as an AI-retouched thumbnail. Original development screenshots remain in the case study. Direct access is also available: `/shotloom` redirects to `/projects/shotloom.html`. The case study covers core 3D workflows, company service integration, and accessible editing. SceneGen illustrates one of several Shotloom use cases: in this example, Shotloom’s 3D editing and scene video output connect CINEV’s image input with final video generation. The product reached development-server deployment; publication of this case study does not imply a product launch.
 
 ## Projects
 

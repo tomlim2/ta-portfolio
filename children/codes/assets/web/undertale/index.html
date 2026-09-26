@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Undertale</title>
+  <style>#defaultCanvas0{display:block;position:static!important;margin:80px auto 24px!important;max-width:calc(100vw - 32px);height:auto!important}</style><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" href="../../../demo-shell.css"></head>
+  <style media="screen">
+  body{
+    margin: 0;
+    background: #F1F0E2;
+  }
+  #defaultCanvas0{
+    position: relative;
+
+    left: 50%;
+    top: 50%;
+    margin-left: -200px;
+    margin-top: 100px;
+
+
+  }
+
+  </style>
+  <body>
+<h1 class="legacy-demo-title">Undertale</h1><a class="legacy-demo-back" href="../../../../../projects/junkyard.html#undertale">← Junkyard</a>
+    
+    <script src="p5.min.js"></script>
+    <script src="p5.dom.min.js"></script>
+    <script src="p5.sound.min.js"></script>
+    <script type="text/javascript">
+
+    var mySound;
+    var mySound2;
+    var mySound3;
+    var mySound4;
+    var mySound5;
+    var mySound6;
+    var mySound7;
+    var myHeartOut;
+    var myHeartIn;
+    var pulse1;
+    var x3;
+    var y3;
+    var vx3 = 3;
+    var vy3 = -2;
+    var r3 = 12;
+
+    var dr4 = 0;
+    var r4 = 100;
+    let txt1
+    var n1 = 0;
+    var n2 = 0;
+    var n3 = 0;
+    var n4 = 0;
+    var n5 = 0;
+    var sc1bx = [];
+    var sc2bx = [];
+    var dcol6 = 90;
+    var dcol7 = 0;
+
+    function setup() {
+      createCanvas(400, 400,WEBGL);
+
+      x3 = random (200+r3*2, width - r3*2);
+      y3 = random (r3*2, 200 - r3*2);
+
+      for (var i = 0; i < 4; i++) {
+        // var sqw = 25;
+        sc1bx.push({
+          x: 0,
+          y: i*25,
+          wd: 0,
+          he: 25,
+        });
+      }
+      for (var i1 = 0; i1 < 2; i1++) {
+        for (var i2 = 0; i2 < 3; i2++) {
+          sc2bx.push({
+            x: 100+i1*60,
+            y: 175+i2*60,
+            z: 100,
+            wd: 30,
+          });
+        }
+      }
+
+    }
+
+
+
+    function preload() {
+      soundFormats('wav', 'ogg');
+      mySound = loadSound('sound/00002a05.wav');
+      mySound2 = loadSound('sound/000029f3.wav');
+      mySound3 = loadSound('sound/000029e6.wav');
+      mySound4 = loadSound('sound/00002991.wav');
+      mySound5 = loadSound('sound/000029f2.wav');
+      mySound6 = loadSound('sound/000029e7.wav');
+      mySound7 = loadSound('sound/000029c2.wav');
+      myHeartIn = loadSound('sound/00002a69.wav');
+      myHeartOut = loadSound('sound/00002a68.wav');
+      txt1 = loadImage('img/big-abstract.jpg');
+    }
+
+
+
+
+    var cubes = [];
+
+    function draw() {
+      colorMode(HSB);
+      // var col1 = color(194, 20, 95);
+      var col1 = color(map(mouseY,0,400,0,200), 20, 95);
+      var col2 = color(56, 6, 95);
+      var col3 = color(34, 32, 85);
+      var col4 = color(1, 66, 82);
+      var col5 = color(204, 30, 35);
+
+      var col6 = color(dcol6,20,100);
+      var col7 = color(dcol7,20,100);
+
+      background(255,255,248);
+      noStroke();
+
+      push();
+      translate(-width/2,-width/2);
+
+//section1
+      fill(col4);
+      rect(0,0,200,100);
+
+
+      for (var t = 0; t < 4; t++) {
+        var bxs = sc1bx[t];
+        var dbx1 = bxs.wd + n1*3.2;
+        var dbx2 = bxs.wd + n2*4.1;
+        var dbx4 = bxs.wd + n4*5.2;
+        var dbx5 = bxs.wd + n5*6.1;
+        fill(col5);
+
+        if(t==0){
+          rect(bxs.x, bxs.y, dbx1, bxs.he);
+        }
+        if(t==1){
+          rect(bxs.x, bxs.y, dbx4, bxs.he);
+        }
+        if(t==2){
+          rect(bxs.x, bxs.y, dbx2, bxs.he);
+        }
+        if(t==3){
+          rect(bxs.x, bxs.y, dbx5, bxs.he);
+        }
+
+        if(dbx1>=200){
+          n1 = 0;
+          mySound2.rate(random(0.5,1.5));
+          mySound3.play();
+        }
+        if(dbx2>=200){
+          n2 = 0;
+          mySound2.rate(random(0.5,1.5));
+          mySound2.play();
+        }
+        if(dbx4>=200){
+          n4 = 0;
+          mySound2.rate(random(0.5,1.5));
+          mySound5.play();
+        }
+        if(dbx5>=200){
+          n5 = 0;
+          mySound2.rate(random(0.5,1.5));
+          mySound6.play();
+        }
+
+      }
+
+//section2
+      fill(col1);
+      rect(0,100,200,300);
+
+//section3
+      fill(col3);
+      rect(200,0,200,200);
+
+      fill(col2);
+      ellipse(x3, y3, r3*2);
+      x3 += vx3;
+      y3 += vy3;
+
+      if (x3-200 < r3 || x3 > width-r3) {
+        vx3 = -vx3;
+        mySound.rate(random(0.5,1.5));
+        mySound.play();
+      }
+      if (y3 < r3 || y3 > 200-r3) {
+        vy3 = -vy3;
+        mySound.rate(random(0.5,1.5));
+        mySound.play();
+      }
+//section4
+
+      fill(col5);
+      rect(200,200,200,200);
+
+      pulse3 = 180+map(cos(radians(dr4)),-1,1,-5,5);
+      dr4 = dr4+5;
+      if (dr4 == 360){
+        dr4 = 0;
+      }
+
+      fill(col4);
+      ellipse(300, 300, pulse3);
+      if(pulse3 >= 184.99){
+        myHeartIn.play();
+      }
+      if(pulse3 <= 175.02){
+        myHeartOut.play();
+      }
+
+
+      //3D model
+      let dx = mouseX - 100;
+      let dy = mouseY - 300;
+      // let v = createVector(dx, dy, -1);
+      // let nv = createVector(-dx, -dy, -1);
+      let v = createVector(1, 1, -1);
+      let nv = createVector(-1, -1, -1);
+      v.normalize();
+      nv.normalize();
+
+      directionalLight(dcol6, 6, 100, v);
+      directionalLight(dcol7, 32, 100, nv);
+
+      // if( abs(mouseX) > 1 || abs(mouseY) > 1 ) {
+      // }
+
+      for (var t = 0; t < 6; t++) {
+        var bxs = sc2bx[t];
+
+          push();
+          translate(bxs.x,bxs.y,bxs.z);
+          rotateX(-mouseY*0.01);
+          rotateY(-mouseX*0.01);
+          ambientMaterial(dcol6,20,100);
+          // texture(txt1);
+          box(bxs.wd)
+          pop();
+      }
+      fill(col6);
+      rect(0,100,200,300);
+      fill(col7);
+      rect(0,100,200,300-n3);
+
+      // mousePressed
+      // for (var i = 0; i < 1; i++) {
+      //   var warnr = warnrs[i];
+      //
+      //   fill(360,100,100);
+      //   rect(warnr.x, warnr.y, warnr.w, warnr.y);
+      //   warnr.x = warnr.x + warnr.vx;
+      //   warnr.y = warnr.y + warnr.vy;
+      //   warnr.vx = warnr.vx * 0.99;
+      //   warnr.vy = warnr.vy * 0.99 + 0.2;
+      //   warnr.frames = warnr.frames + 1;
+      //
+      //
+      // }
+      //
+      // while(warnr.length > 0 && warnr.frames>240){
+      //   warnr.shift();
+      // }
+      //
+      for (var i = 0; i < cubes.length; i = i + 1) {
+
+        var sparkle = cubes[i];
+        push();
+
+        translate(sparkle.x,sparkle.y,200);
+        ambientMaterial(dcol6,20,100);
+        box(sparkle.w)
+
+
+        sparkle.x = sparkle.x + sparkle.vx;
+        sparkle.y = sparkle.y + sparkle.vy;
+
+        // add a little friction & gravity
+        sparkle.vx = sparkle.vx * 0.99;
+        sparkle.vy = sparkle.vy * 0.99 + 0.2;
+
+        // count how many frames the sparkle has been visible
+        sparkle.frames = sparkle.frames + 1;
+        pop();
+      }
+
+      // remove any sparkles older than 240 frames
+      while (cubes.length > 0 && cubes[0].frames > 240) {
+        cubes.shift();
+      }
+
+    }
+
+    function mouseMoved(){
+        n1 = n1 + 1;
+        n2 = n2 + 1;
+        n3 = n3 + 2;
+        n4 = n4 + 1;
+        n5 = n5 + 1;
+        if(n3>300){
+          mySound4.play();
+          n3=0;
+          dcol6 = dcol6 + 90;
+          dcol7 = dcol7 + 90;
+
+          if(dcol6>=360){
+            dcol6=0
+          }
+          if(dcol7>=360){
+            dcol7=0
+          }
+        }
+    }
+    function mousePressed(){
+      getAudioContext().resume();
+      mySound7.rate(random(0.5,1.5));
+      mySound7.play();
+      // for(var i = 0; i < 1; i++){
+      //   var angle = random(TWO_PI);
+      //   var distance = random(1.5,2);
+      //     warnrs.push({
+      //       w:400,
+      //       h:400,
+      //       x: mouseX,
+      //       y: mouseY,
+      //       vx: distance*sin(angle),
+      //       vy: distance*cos(angle),
+      //       frames:0,
+      //     });
+      // }
+
+      for (var i = 0; i < 1; i = i + 1) {
+        var angle = random(TWO_PI);
+        var distance = random(1.5,2);
+
+        cubes.push({
+          w: random(100,180),
+          h: random(100,180),
+          x: mouseX,
+          y: mouseY,
+          vx: distance * sin(angle),
+          vy: distance * cos(angle),
+          frames: 0,
+        });
+      }
+
+    }
+
+    </script>
+  </body>
+</html>

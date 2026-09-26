@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Summer VR Project — Younsoo Lim</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Noto+Rashi+Hebrew:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Keep icon_names alphabetically sorted; add new symbols when this page uses them. -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..24,300,0,0&amp;icon_names=arrow_back,arrow_forward,article_person,close,download,expand_more,menu,zoom_in,zoom_out&amp;display=block" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg: 'rgb(var(--c-bg) / <alpha-value>)',
+            surface: 'rgb(var(--c-surface) / <alpha-value>)',
+            border: 'rgb(var(--c-border) / <alpha-value>)',
+            muted: 'rgb(var(--c-muted) / <alpha-value>)',
+            accent: 'rgb(var(--c-accent) / <alpha-value>)',
+            heading: 'rgb(var(--c-heading) / <alpha-value>)',
+            body: 'rgb(var(--c-body) / <alpha-value>)',
+          },
+          fontSize: {
+            sm: '0.9375rem',
+          },
+          fontFamily: {
+            sans: ['Noto Sans KR', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <link rel="icon" href="../favicon.gif" type="image/gif">
+  <meta name="description" content="Collaborative virtual reality experiences: Table, Sensory, and Stage (2019), and CUBE (2018).">
+  <link rel="stylesheet" href="../css/style.css?v=20260926-project-cards">
+  <link rel="stylesheet" href="../css/preview-modal.css?v=20260926-compact-toolbar">
+  <link rel="stylesheet" href="../css/resume-viewer.css?v=20260925-toolbar-right">
+  <link rel="stylesheet" href="../css/image-viewer.css?v=20260926-no-caption">
+  <style>
+    /* Preserve the original white ground of the transparent vector artwork. */
+    .image-viewer-image[src*="/summer-vr/"][src$=".svg"] { background: #fff; }
+  </style>
+</head>
+<body class="bg-bg text-body">
+  <a href="#project-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:bg-heading focus:text-bg focus:px-4 focus:py-2 focus:z-[60]">Skip to content</a>
+
+  <nav class="fixed top-0 w-full z-50 bg-bg/80 backdrop-blur-md">
+    <div class="max-w-[1400px] mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="../design/index.html" class="nav-logo">Younsoo Lim</a>
+      <div class="nav-links hidden md:flex gap-8 text-sm text-body ml-auto">
+        <a href="../design/index.html#projects" class="hover:text-heading transition">Projects</a>
+        <a href="../design/index.html#about" class="hover:text-heading transition">About</a>
+      </div>
+      <div class="flex items-center gap-3">
+        <button id="hamburger-btn" type="button" class="btn btn--ghost btn--icon mobile-menu-toggle" aria-label="Toggle menu">
+        <span class="material-symbols-outlined icon-sm" aria-hidden="true">menu</span>
+      </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="md:hidden hidden border-t border-border bg-bg/95 backdrop-blur-md">
+      <div class="flex flex-col px-6 py-4 gap-4 text-sm text-body">
+        <a href="../design/index.html#projects" class="hover:text-heading transition">Projects</a>
+        <a href="../design/index.html#about" class="hover:text-heading transition">About</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="project-content" class="max-w-4xl mx-auto px-6 pt-16 pb-24">
+<figure class="mb-8 last:mb-0"><a href="../assets/images/summer-vr/img_thumb.png" data-image-viewer data-preview-title="Summer VR Project" data-preview-title-ko="Summer VR Project" class="block" aria-label="Preview: Summer VR Project"><img src="../assets/images/summer-vr/img_thumb.png" alt="Summer VR Project" width="1440" height="810" class="w-full h-auto" fetchpriority="high" decoding="async"></a><figcaption class="text-xs text-muted mt-2 text-center" data-ko="Summer VR Project">Summer VR Project</figcaption></figure>
+<h1 class="page-title">Summer VR Project</h1>
+<p class="text-body mb-6 page-subtitle" data-ko="손의 움직임과 시각·소리로 구성한 VR 경험">VR experiences shaped by hand movement, visuals, and sound</p>
+<p class="text-xs text-muted mb-12" data-ko="2018–2019 · 협업 프로젝트 · Unreal Engine / HTC Vive / Leap Motion">2018–2019 · Collaborative work · Unreal Engine / HTC Vive / Leap Motion</p>
+<section id="overview" class="mb-16 scroll-mt-24">
+<h2 class="text-xl font-bold mb-4" data-ko="프로젝트 개요">Overview</h2>
+<p class="text-muted text-sm leading-relaxed mb-6" data-ko="Unreal Engine과 HTC Vive로 제작한 VR 경험 시리즈입니다. 2019년의 Table, Sensory, and Stage와 2018년의 CUBE를 통해 손의 움직임, 추상적인 공간, 시각과 소리의 상호작용을 탐구했습니다.">A series of VR experiences built with Unreal Engine and HTC Vive. Table, Sensory, and Stage (2019) and CUBE (2018) explore hand movement, abstract spaces, and interactions between visuals and sound.</p>
+</section>
+
+<section id="table-sensory-stage" class="mb-16 scroll-mt-24">
+<h2 class="text-xl font-bold mb-4" data-ko="Table, Sensory, and Stage · 2019">Table, Sensory, and Stage · 2019</h2>
+<p class="text-muted text-sm leading-relaxed mb-6" data-ko="2019 Summer VR Project에서 제작한 경험 시리즈입니다. HTC Vive와 Leap Motion을 사용한 Table을 비롯해 Sensory, Stage와 여러 미니 프로젝트를 영상으로 정리했습니다.">A series of experiences for the 2019 Summer VR Project. The film brings together Table, using HTC Vive and Leap Motion, as well as Sensory, Stage, and additional mini projects.</p><dl class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8"><div><dt class="text-xs text-muted mb-1" data-ko="콘셉트·디자인">Concept &amp; design</dt><dd class="text-sm leading-relaxed">Jeremy Mende, Rachel Berger, Tom Lim</dd></div><div><dt class="text-xs text-muted mb-1" data-ko="기술">Technology</dt><dd class="text-sm leading-relaxed">Unreal Engine · HTC Vive · Leap Motion</dd></div></dl><figure class="mb-8">
+      <iframe src="https://player.vimeo.com/video/356564492?title=0&amp;byline=0&amp;portrait=0&amp;dnt=1" title="Table, Sensory, and Stage — Summer VR 2019" class="w-full aspect-video h-auto border-0 bg-black" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+      <figcaption class="text-xs text-muted mt-2 text-right"><a href="https://vimeo.com/356564492" target="_blank" rel="noopener" class="hover:text-heading" data-ko="Vimeo에서 보기">Watch on Vimeo</a></figcaption>
+    </figure><h3 class="font-semibold mb-4" data-ko="영상 흐름">Film sequence</h3><div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+<figure class="mb-8 last:mb-0"><a href="../assets/images/summer-vr/img/img_flow_1.jpg" data-image-viewer data-preview-title="2019 VR film sequence 01" data-preview-title-ko="2019 VR 영상 시퀀스 01" class="block" aria-label="Preview: 2019 VR film sequence 01"><img src="../assets/images/summer-vr/img/img_flow_1.jpg" alt="2019 VR film sequence 01" width="1280" height="720" class="w-full h-auto" loading="lazy" decoding="async"></a><figcaption class="text-xs text-muted mt-2 text-center" data-ko="2019 VR 영상 시퀀스 01">2019 VR film sequence 01</figcaption></figure>
+<figure class="mb-8 last:mb-0"><a href="../assets/images/summer-vr/img/img_flow_2.jpg" data-image-viewer data-preview-title="2019 VR film sequence 02" data-preview-title-ko="2019 VR 영상 시퀀스 02" class="block" aria-label="Preview: 2019 VR film sequence 02"><img src="../assets/images/summer-vr/img/img_flow_2.jpg" alt="2019 VR film sequence 02" width="1280" height="720" class="w-full h-auto" loading="lazy" decoding="async"></a><figcaption class="text-xs text-muted mt-2 text-center" data-ko="2019 VR 영상 시퀀스 02">2019 VR film sequence 02</figcaption></figure>
+<figure class="mb-8 last:mb-0"><a href="../assets/images/summer-vr/img/img_flow_3.jpg" data-image-viewer data-preview-title="2019 VR film sequence 03" data-preview-title-ko="2019 VR 영상 시퀀스 03" class="block" aria-label="Preview: 2019 VR film sequence 03"><img src="../assets/images/summer-vr/img/img_flow_3.jpg" alt="2019 VR film sequence 03" width="1280" height="720" class="w-full h-auto" loading="lazy" decoding="async"></a><figcaption class="text-xs text-muted mt-2 text-center" data-ko="2019 VR 영상 시퀀스 03">2019 VR film sequence 03</figcaption></figure>
+<figure class="mb-8 last:mb-0"><a href="../assets/images/summer-vr/img/img_flow_4.jpg" data-image-viewer data-preview-title="2019 VR film sequence 04" data-preview-title-ko="2019 VR 영상 시퀀스 04" class="block" aria-label="Preview: 2019 VR film sequence 04"><img src="../assets/images/summer-vr/img/img_flow_4.jpg" alt="2019 VR film sequence 04" width="1280" height="720" class="w-full h-auto" loading="lazy" decoding="async"></a><figcaption class="text-xs text-muted mt-2 text-center" data-ko="2019 VR 영상 시퀀스 04">2019 VR film sequence 04</figcaption></figure>
+<figure class="mb-8 last:mb-0"><a href="../assets/images/summer-vr/img/img_flow_5.jpg" data-image-viewer data-preview-title="2019 VR film sequence 05" data-preview-title-ko="2019 VR 영상 시퀀스 05" class="block" aria-label="Preview: 2019 VR film sequence 05"><img src="../assets/images/summer-vr/img/img_flow_5.jpg" alt="2019 VR film sequence 05" width="1280" height="720" class="w-full h-auto" loading="lazy" decoding="async"></a><figcaption class="text-xs text-muted mt-2 text-center" data-ko="2019 VR 영상 시퀀스 05">2019 VR film sequence 05</figcaption></figure>
+<figure class="mb-8 last:mb-0"><a href="../assets/images/summer-vr/img/img_flow_6.jpg" data-image-viewer data-preview-title="2019 VR film sequence 06" data-preview-title-ko="2019 VR 영상 시퀀스 06" class="block" aria-label="Preview: 2019 VR film sequence 06"><img src="../assets/images/summer-vr/img/img_flow_6.jpg" alt="2019 VR film sequence 06" width="1280" height="720" class="w-full h-auto" loading="lazy" decoding="async"></a><figcaption class="text-xs text-muted mt-2 text-center" data-ko="2019 VR 영상 시퀀스 06">2019 VR film sequence 06</figcaption></figure>
+<figure class="mb-8 last:mb-0"><a href="../assets/images/summer-vr/img/img_flow_7.jpg" data-image-viewer data-preview-title="2019 VR film sequence 07" data-preview-title-ko="2019 VR 영상 시퀀스 07" class="block" aria-label="Preview: 2019 VR film sequence 07"><img src="../assets/images/summer-vr/img/img_flow_7.jpg" alt="2019 VR film sequence 07" width="1280" height="720" class="w-full h-auto" loading="lazy" decoding="async"></a><figcaption class="text-xs text-muted mt-2 text-center" data-ko="2019 VR 영상 시퀀스 07">2019 VR film sequence 07</figcaption></figure>
+<figure class="mb-8 last:mb-0"><a href="../assets/images/summer-vr/img/img_flow_8.jpg" data-image-viewer data-preview-title="2019 VR film sequence 08" data-preview-title-ko="2019 VR 영상 시퀀스 08" class="block" aria-label="Preview: 2019 VR film sequence 08"><img src="../assets/images/summer-vr/img/img_flow_8.jpg" alt="2019 VR film sequence 08" width="1280" height="720" class="w-full h-auto" loading="lazy" decoding="async"></a><figcaption class="text-xs text-muted mt-2 text-center" data-ko="2019 VR 영상 시퀀스 08">2019 VR film sequence 08</figcaption></figure>
+<figure class="mb-8 last:mb-0"><a href="../assets/images/summer-vr/img/img_flow_9.jpg" data-image-viewer data-preview-title="2019 VR film sequence 09" data-preview-title-ko="2019 VR 영상 시퀀스 09" class="block" aria-label="Preview: 2019 VR film sequence 09"><img src="../assets/images/summer-vr/img/img_flow_9.jpg" alt="2019 VR film sequence 09" width="1280" height="720" class="w-full h-auto" loading="lazy" decoding="async"></a><figcaption class="text-xs text-muted mt-2 text-center" data-ko="2019 VR 영상 시퀀스 09">2019 VR film sequence 09</figcaption></figure>
+<figure class="mb-8 last:mb-0"><a href="../assets/images/summer-vr/img/img_flow_10.jpg" data-image-viewer data-preview-title="2019 VR film sequence 10" data-preview-title-ko="2019 VR 영상 시퀀스 10" class="block" aria-label="Preview: 2019 VR film sequence 10"><img src="../assets/images/summer-vr/img/img_flow_10.jpg" alt="2019 VR film sequence 10" width="1280" height="720" class="w-full h-auto" loading="lazy" decoding="async"></a><figcaption class="text-xs text-muted mt-2 text-center" data-ko="2019 VR 영상 시퀀스 10">2019 VR film sequence 10</figcaption></figure>
+<figure class="mb-8 last:mb-0"><a href="../assets/images/summer-vr/img/img_flow_11.jpg" data-image-viewer data-preview-title="2019 VR film sequence 11" data-preview-title-ko="2019 VR 영상 시퀀스 11" class="block" aria-label="Preview: 2019 VR film sequence 11"><img src="../assets/images/summer-vr/img/img_flow_11.jpg" alt="2019 VR film sequence 11" width="1280" height="720" class="w-full h-auto" loading="lazy" decoding="async"></a><figcaption class="text-xs text-muted mt-2 text-center" data-ko="2019 VR 영상 시퀀스 11">2019 VR film sequence 11</figcaption></figure>
+<figure class="mb-8 last:mb-0"><a href="../assets/images/summer-vr/img/img_flow_12.jpg" data-image-viewer data-preview-title="2019 VR film sequence 12" data-preview-title-ko="2019 VR 영상 시퀀스 12" class="block" aria-label="Preview: 2019 VR film sequence 12"><img src="../assets/images/summer-vr/img/img_flow_12.jpg" alt="2019 VR film sequence 12" width="1280" height="720" class="w-full h-auto" loading="lazy" decoding="async"></a><figcaption class="text-xs text-muted mt-2 text-center" data-ko="2019 VR 영상 시퀀스 12">2019 VR film sequence 12</figcaption></figure>
+<figure class="mb-8 last:mb-0"><a href="../assets/images/summer-vr/img/img_flow_13.jpg" data-image-viewer data-preview-title="2019 VR film sequence 13" data-preview-title-ko="2019 VR 영상 시퀀스 13" class="block" aria-label="Preview: 2019 VR film sequence 13"><img src="../assets/images/summer-vr/img/img_flow_13.jpg" alt="2019 VR film sequence 13" width="1280" height="720" class="w-full h-auto" loading="lazy" decoding="async"></a><figcaption class="text-xs text-muted mt-2 text-center" data-ko="2019 VR 영상 시퀀스 13">2019 VR film sequence 13</figcaption></figure>
+<figure class="mb-8 last:mb-0"><a href="../assets/images/summer-vr/img/img_flow_14.jpg" data-image-viewer data-preview-title="2019 VR film sequence 14" data-preview-title-ko="2019 VR 영상 시퀀스 14" class="block" aria-label="Preview: 2019 VR film sequence 14"><img src="../assets/images/summer-vr/img/img_flow_14.jpg" alt="2019 VR film sequence 14" width="1280" height="720" class="w-full h-auto" loading="lazy" decoding="async"></a><figcaption class="text-xs text-muted mt-2 text-center" data-ko="2019 VR 영상 시퀀스 14">2019 VR film sequence 14</figcaption></figure>
+<figure class="mb-8 last:mb-0"><a href="../assets/images/summer-vr/img/img_flow_15.jpg" data-image-viewer data-preview-title="2019 VR film sequence 15" data-preview-title-ko="2019 VR 영상 시퀀스 15" class="block" aria-label="Preview: 2019 VR film sequence 15"><img src="../assets/images/summer-vr/img/img_flow_15.jpg" alt="2019 VR film sequence 15" width="1280" height="720" class="w-full h-auto" loading="lazy" decoding="async"></a><figcaption class="text-xs text-muted mt-2 text-center" data-ko="2019 VR 영상 시퀀스 15">2019 VR film sequence 15</figcaption></figure>
+</div><p class="text-xs text-muted mt-6">© Jeremy Mende, Rachel Berger, Tom Lim · 2019</p>
+</section>
+
+<section id="cube" class="mb-16 scroll-mt-24">
+<h2 class="text-xl font-bold mb-4" data-ko="CUBE · 2018">CUBE · 2018</h2>
+<p class="text-muted text-sm leading-relaxed mb-6" data-ko="사용자가 추상적인 그리드를 채우는 행동에 따라 화음과 불협화음이 발생하는 VR 경험입니다. 시각적 상호작용과 소리가 즐거움 또는 불편함으로 이어지는 감각을 탐구했습니다.">CUBE is a VR experience in which filling an abstract grid triggers harmonic and dissonant sounds. It explores how visual interaction and sound can create pleasing or discordant reactions.</p><dl class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8"><div><dt class="text-xs text-muted mb-1" data-ko="콘셉트·디자인">Concept &amp; design</dt><dd class="text-sm leading-relaxed">Jeremy Mende, Tom Lim</dd></div><div><dt class="text-xs text-muted mb-1" data-ko="사운드 엔지니어링">Sound engineering</dt><dd class="text-sm leading-relaxed">Kirk Johnson, Shengkai Zhao</dd></div><div><dt class="text-xs text-muted mb-1" data-ko="기술">Technology</dt><dd class="text-sm leading-relaxed">Unreal Engine · HTC Vive</dd></div></dl><figure class="mb-8">
+      <iframe src="https://player.vimeo.com/video/308779530?title=0&amp;byline=0&amp;portrait=0&amp;dnt=1" title="CUBE — Summer VR 2018" class="w-full aspect-video h-auto border-0 bg-black" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+      <figcaption class="text-xs text-muted mt-2 text-right"><a href="https://vimeo.com/308779530" target="_blank" rel="noopener" class="hover:text-heading" data-ko="Vimeo에서 보기">Watch on Vimeo</a></figcaption>
+    </figure><h3 class="font-semibold mb-4" data-ko="영상 흐름">Film sequence</h3><div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+<figure class="mb-8 last:mb-0"><a href="../assets/images/summer-vr/img/VRcube/storyboard_1.png" data-image-viewer data-preview-title="CUBE film sequence 01" data-preview-title-ko="CUBE 영상 시퀀스 01" class="block" aria-label="Preview: CUBE film sequence 01"><img src="../assets/images/summer-vr/img/VRcube/storyboard_1.png" alt="CUBE film sequence 01" width="1280" height="720" class="w-full h-auto" loading="lazy" decoding="async"></a><figcaption class="text-xs text-muted mt-2 text-center" data-ko="CUBE 영상 시퀀스 01">CUBE film sequence 01</figcaption></figure>
+<figure class="mb-8 last:mb-0"><a href="../assets/images/summer-vr/img/VRcube/storyboard_2.png" data-image-viewer data-preview-title="CUBE film sequence 02" data-preview-title-ko="CUBE 영상 시퀀스 02" class="block" aria-label="Preview: CUBE film sequence 02"><img src="../assets/images/summer-vr/img/VRcube/storyboard_2.png" alt="CUBE film sequence 02" width="1280" height="720" class="w-full h-auto" loading="lazy" decoding="async"></a><figcaption class="text-xs text-muted mt-2 text-center" data-ko="CUBE 영상 시퀀스 02">CUBE film sequence 02</figcaption></figure>
+<figure class="mb-8 last:mb-0"><a href="../assets/images/summer-vr/img/VRcube/storyboard_3.png" data-image-viewer data-preview-title="CUBE film sequence 03" data-preview-title-ko="CUBE 영상 시퀀스 03" class="block" aria-label="Preview: CUBE film sequence 03"><img src="../assets/images/summer-vr/img/VRcube/storyboard_3.png" alt="CUBE film sequence 03" width="1280" height="720" class="w-full h-auto" loading="lazy" decoding="async"></a><figcaption class="text-xs text-muted mt-2 text-center" data-ko="CUBE 영상 시퀀스 03">CUBE film sequence 03</figcaption></figure>
+<figure class="mb-8 last:mb-0"><a href="../assets/images/summer-vr/img/VRcube/storyboard_4.png" data-image-viewer data-preview-title="CUBE film sequence 04" data-preview-title-ko="CUBE 영상 시퀀스 04" class="block" aria-label="Preview: CUBE film sequence 04"><img src="../assets/images/summer-vr/img/VRcube/storyboard_4.png" alt="CUBE film sequence 04" width="1280" height="720" class="w-full h-auto" loading="lazy" decoding="async"></a><figcaption class="text-xs text-muted mt-2 text-center" data-ko="CUBE 영상 시퀀스 04">CUBE film sequence 04</figcaption></figure>
+<figure class="mb-8 last:mb-0"><a href="../assets/images/summer-vr/img/VRcube/storyboard_5.png" data-image-viewer data-preview-title="CUBE film sequence 05" data-preview-title-ko="CUBE 영상 시퀀스 05" class="block" aria-label="Preview: CUBE film sequence 05"><img src="../assets/images/summer-vr/img/VRcube/storyboard_5.png" alt="CUBE film sequence 05" width="1280" height="720" class="w-full h-auto" loading="lazy" decoding="async"></a><figcaption class="text-xs text-muted mt-2 text-center" data-ko="CUBE 영상 시퀀스 05">CUBE film sequence 05</figcaption></figure>
+<figure class="mb-8 last:mb-0"><a href="../assets/images/summer-vr/img/VRcube/storyboard_6.png" data-image-viewer data-preview-title="CUBE film sequence 06" data-preview-title-ko="CUBE 영상 시퀀스 06" class="block" aria-label="Preview: CUBE film sequence 06"><img src="../assets/images/summer-vr/img/VRcube/storyboard_6.png" alt="CUBE film sequence 06" width="1280" height="720" class="w-full h-auto" loading="lazy" decoding="async"></a><figcaption class="text-xs text-muted mt-2 text-center" data-ko="CUBE 영상 시퀀스 06">CUBE film sequence 06</figcaption></figure>
+<figure class="mb-8 last:mb-0"><a href="../assets/images/summer-vr/img/VRcube/storyboard_7.png" data-image-viewer data-preview-title="CUBE film sequence 07" data-preview-title-ko="CUBE 영상 시퀀스 07" class="block" aria-label="Preview: CUBE film sequence 07"><img src="../assets/images/summer-vr/img/VRcube/storyboard_7.png" alt="CUBE film sequence 07" width="1280" height="720" class="w-full h-auto" loading="lazy" decoding="async"></a><figcaption class="text-xs text-muted mt-2 text-center" data-ko="CUBE 영상 시퀀스 07">CUBE film sequence 07</figcaption></figure>
+<figure class="mb-8 last:mb-0"><a href="../assets/images/summer-vr/img/VRcube/storyboard_8.png" data-image-viewer data-preview-title="CUBE film sequence 08" data-preview-title-ko="CUBE 영상 시퀀스 08" class="block" aria-label="Preview: CUBE film sequence 08"><img src="../assets/images/summer-vr/img/VRcube/storyboard_8.png" alt="CUBE film sequence 08" width="1280" height="720" class="w-full h-auto" loading="lazy" decoding="async"></a><figcaption class="text-xs text-muted mt-2 text-center" data-ko="CUBE 영상 시퀀스 08">CUBE film sequence 08</figcaption></figure>
+<figure class="mb-8 last:mb-0"><a href="../assets/images/summer-vr/img/VRcube/storyboard_9.png" data-image-viewer data-preview-title="CUBE film sequence 09" data-preview-title-ko="CUBE 영상 시퀀스 09" class="block" aria-label="Preview: CUBE film sequence 09"><img src="../assets/images/summer-vr/img/VRcube/storyboard_9.png" alt="CUBE film sequence 09" width="1280" height="720" class="w-full h-auto" loading="lazy" decoding="async"></a><figcaption class="text-xs text-muted mt-2 text-center" data-ko="CUBE 영상 시퀀스 09">CUBE film sequence 09</figcaption></figure>
+<figure class="mb-8 last:mb-0"><a href="../assets/images/summer-vr/img/VRcube/storyboard_10.png" data-image-viewer data-preview-title="CUBE film sequence 10" data-preview-title-ko="CUBE 영상 시퀀스 10" class="block" aria-label="Preview: CUBE film sequence 10"><img src="../assets/images/summer-vr/img/VRcube/storyboard_10.png" alt="CUBE film sequence 10" width="1280" height="720" class="w-full h-auto" loading="lazy" decoding="async"></a><figcaption class="text-xs text-muted mt-2 text-center" data-ko="CUBE 영상 시퀀스 10">CUBE film sequence 10</figcaption></figure>
+<figure class="mb-8 last:mb-0"><a href="../assets/images/summer-vr/img/VRcube/storyboard_11.png" data-image-viewer data-preview-title="CUBE film sequence 11" data-preview-title-ko="CUBE 영상 시퀀스 11" class="block" aria-label="Preview: CUBE film sequence 11"><img src="../assets/images/summer-vr/img/VRcube/storyboard_11.png" alt="CUBE film sequence 11" width="1280" height="720" class="w-full h-auto" loading="lazy" decoding="async"></a><figcaption class="text-xs text-muted mt-2 text-center" data-ko="CUBE 영상 시퀀스 11">CUBE film sequence 11</figcaption></figure>
+<figure class="mb-8 last:mb-0"><a href="../assets/images/summer-vr/img/VRcube/storyboard_12.png" data-image-viewer data-preview-title="CUBE film sequence 12" data-preview-title-ko="CUBE 영상 시퀀스 12" class="block" aria-label="Preview: CUBE film sequence 12"><img src="../assets/images/summer-vr/img/VRcube/storyboard_12.png" alt="CUBE film sequence 12" width="1280" height="720" class="w-full h-auto" loading="lazy" decoding="async"></a><figcaption class="text-xs text-muted mt-2 text-center" data-ko="CUBE 영상 시퀀스 12">CUBE film sequence 12</figcaption></figure>
+</div><p class="text-xs text-muted mt-6">© Jeremy Mende, Tom Lim · 2018</p>
+</section>
+<nav aria-label="Related work" class="border-t border-border pt-8 flex flex-wrap justify-between gap-4 text-sm">
+<a href="../design/index.html#projects" class="icon-label text-muted hover:text-heading"><span class="material-symbols-outlined icon-sm" aria-hidden="true">arrow_back</span> <span data-ko="디자인 프로젝트 목록">Design projects</span></a>
+<a href="personal-projects.html" class="text-muted hover:text-heading" data-ko="이전: Personal Projects">Previous: Personal Projects</a>
+<a href="junkyard.html" class="icon-label text-muted hover:text-heading"><span data-ko="다음: Junkyard">Next: Junkyard</span> <span class="material-symbols-outlined icon-sm" aria-hidden="true">arrow_forward</span></a>
+</nav>
+</main>
+  <footer class="site-footer py-8 text-muted text-xs">
+    <div class="footer-layout max-w-[1400px] mx-auto px-6">
+      <span class="footer-copyright">&copy; 2026 Younsoo Lim</span>
+      <ul class="footer-links">
+        <li class="footer-item">
+          <a href="mailto:tomandlim@gmail.com" class="btn btn--ghost footer-link"><span>tomandlim@gmail.com</span></a>
+        </li>
+        <li class="footer-item">
+          <a href="../resume-viewer.html" data-resume-viewer class="btn btn--ghost footer-link"><span data-ko="이력서">Resume</span></a>
+        </li>
+        <li class="footer-item">
+          <a href="https://github.com/tomlim2" target="_blank" rel="noopener" class="btn btn--ghost footer-link"><span data-ko="깃허브">GitHub</span></a>
+        </li>
+        <li class="footer-item">
+          <a href="https://www.linkedin.com/in/tommlimm/" target="_blank" rel="noopener" class="btn btn--ghost footer-link"><span data-ko="링크드인">LinkedIn</span></a>
+        </li>
+        <li class="footer-item">
+          <a href="../index.html" class="btn btn--ghost footer-link"><span data-ko="TA 포트폴리오">TA portfolio</span></a>
+        </li>
+      </ul>
+      <label class="footer-language language-switcher">
+        <span id="footer-language-label" data-ko="언어:">Language:</span>
+        <select class="language-select" data-language-select aria-labelledby="footer-language-label">
+          <option value="ko" lang="ko">한국어</option>
+          <option value="en" lang="en">English</option>
+        </select>
+      </label>
+    </div>
+  </footer>
+  <script src="../js/main.js"></script>
+  <script src="../js/i18n.js?v=20260925-language-auto"></script>
+  <script src="../js/theme.js"></script>
+  <script src="../js/preview-modal.js?v=20260925-toolbar-right"></script>
+  <script src="../js/resume-viewer.js?v=20260925-filename"></script>
+  <script src="../js/image-viewer.js?v=20260926-click-zoom"></script>
+</body>
+</html>

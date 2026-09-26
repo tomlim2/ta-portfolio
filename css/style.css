@@ -64,8 +64,8 @@
   Typography reference, not CSS custom properties:
   display: 2rem; section heading: 1.25rem; base card title: 1.05rem;
   body: 0.9375rem; detail: 0.8125rem; caption: 0.75rem; tooltip: 0.6875rem.
-  Hero summary is fluid. Overlay cards override titles to 1.1rem and
-  subtitles to 0.875rem. See docs/style-guide.md for context and weights.
+  TA hero summary is fluid. Below-image project captions use fluid
+  1.125–1.5rem titles (weight 500) and 0.875rem subtitles. See docs/style-guide.md for context and weights.
 */
 
 /* ── Code Blocks (always dark) ── */
