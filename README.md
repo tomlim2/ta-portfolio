@@ -14,7 +14,7 @@ These internal references are excluded from `site-public.json`. Preview them loc
 
 ## Design portfolio home
 
-`design/index.html` presents the six projects from the original design portfolio using the same navigation, card layout, language preference, and footer as the TA homepage. Its hero starts directly with the original Vimeo demo reel. The two homepages link to each other in their footers. Office of Civic Innovation has been migrated to `projects/civic-innovation.html`, with `children/tbd/index.html` redirecting to the new page. The other five design cards still open the original pages at `tommlimm.net/children/`. Source assets and follow-up work are recorded in [the migration notes](docs/design-portfolio-migration.md).
+`design/index.html` presents the six projects from the original design portfolio using the same navigation, card layout, language preference, and footer as the TA homepage. Its hero starts directly with the original Vimeo demo reel. The two homepages link to each other in their footers. Office of Civic Innovation, Curiosity, and Olivia have been migrated to `projects/civic-innovation.html`, `projects/curiosity.html`, and `projects/olivia.html`. Their legacy paths (`children/tbd/`, `children/concept2017/`, and `children/gd3/`) redirect to the new pages. The other three design cards still open the original pages at `tommlimm.net/children/`. Source assets and follow-up work are recorded in [the migration notes](docs/design-portfolio-migration.md).
 
 ## Shotloom case study
 

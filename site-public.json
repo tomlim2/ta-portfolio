@@ -5,6 +5,7 @@
     "projects/npr-shader.html", "projects/character-system.html",
     "projects/civic-innovation.html", "children/tbd/index.html",
     "projects/curiosity.html", "children/concept2017/index.html",
+    "projects/olivia.html", "children/gd3/index.html",
     "projects/profiling.html", "projects/pmx-to-vrm.html",
     "projects/matcap-painter.html", "projects/mmd-player.html",
     "projects/megamelange.html", "projects/shotloom.html", "shotloom/index.html",
@@ -23,6 +24,6 @@
     "assets/images/profiling", "assets/images/pmx-to-vrm",
     "assets/images/matcap-painter", "assets/images/mmd-player",
     "assets/images/megamelange", "assets/images/shotloom", "assets/images/design",
-    "assets/images/civic-innovation", "assets/images/curiosity"
+    "assets/images/civic-innovation", "assets/images/curiosity", "assets/images/olivia"
   ]
 }

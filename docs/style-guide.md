@@ -161,7 +161,7 @@
 </a>
 ```
 
-위 경로는 루트 `index.html`의 작성 예시다. 디자인 홈에서는 이미지 경로가 `../assets/images/design/...`이며, Office of Civic Innovation은 `../projects/civic-innovation.html`, 나머지 5개는 기존 `https://tommlimm.net/children/...`로 연결한다. 상세를 이식한 뒤 해당 카드의 링크도 함께 교체한다. 실제 파일로 바꾼 뒤 공개 목록에 넣는다. 화면 처음에 보이는 핵심 이미지는 무조건 lazy로 설정하지 않는다.
+위 경로는 루트 `index.html`의 작성 예시다. 디자인 홈에서는 이미지 경로가 `../assets/images/design/...`이며, Office of Civic Innovation·Curiosity·Olivia는 각각 `../projects/civic-innovation.html`·`../projects/curiosity.html`·`../projects/olivia.html`, 나머지 3개는 기존 `https://tommlimm.net/children/...`로 연결한다. 상세를 이식한 뒤 해당 카드의 링크도 함께 교체한다. 실제 파일로 바꾼 뒤 공개 목록에 넣는다. 화면 처음에 보이는 핵심 이미지는 무조건 lazy로 설정하지 않는다.
 
 ### 패널·표·코드
 

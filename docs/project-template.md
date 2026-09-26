@@ -92,7 +92,7 @@ mkdir -p assets/images/project-slug
 4. [map.md](../map.md)에 핵심 메시지와 관련 수정 위치를 기록한다.
 5. 기존 URL이 있다면 해당 URL의 리다이렉트 페이지도 공개 목록에 추가한다. 새 페이지와 관련 파일 위치를 [콘텐츠 맵](../map.md)에 반영한다.
 
-디자인 홈의 Office of Civic Innovation은 로컬 상세로, 나머지 5개는 기존 외부 사이트로 연결한다. [디자인 이식 기록](design-portfolio-migration.md)의 원본과 링크를 확인하고, 상세를 옮기는 시점에 해당 카드의 외부 링크를 새 로컬 경로로 교체한다.
+디자인 홈의 Office of Civic Innovation·Curiosity·Olivia는 로컬 상세로, 나머지 3개는 기존 외부 사이트로 연결한다. [디자인 이식 기록](design-portfolio-migration.md)의 원본과 링크를 확인하고, 상세를 옮기는 시점에 해당 카드의 외부 링크를 새 로컬 경로로 교체한다.
 
 `projects/_template.html`, `component-library.html`, 내부 문서는 공개 목록에 추가하지 않는다. 파일을 공개 목록에 추가하는 작업과 운영 배포는 별개다.
 
