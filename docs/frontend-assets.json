@@ -1,0 +1,240 @@
+[
+  {
+    "file": "assets/images/cork-nft/hero.webp",
+    "source": "https://younsoo.notion.site/image/https%3A%2F%2Fuser-images.githubusercontent.com%2F22067260%2F152477028-73db4a9b-9242-4a78-b4d6-908c51aff343.jpg?table=block&id=ccab9fdb-f17b-44ba-8209-f5a93fe20b2a&spaceId=9a8e0cb1-bd08-4e55-8095-fd114d2214e9&width=2000&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl",
+    "width": 1280,
+    "height": 724,
+    "frames": 1
+  },
+  {
+    "file": "assets/images/cork-nft/navigation.webp",
+    "source": "https://younsoo.notion.site/image/https%3A%2F%2Fuser-images.githubusercontent.com%2F22067260%2F152487457-3659cb48-3b01-41b2-b9b1-8fa0ebad97bf.jpg?table=block&id=0197edf9-85ce-467f-a8f4-18559fdb2a39&spaceId=9a8e0cb1-bd08-4e55-8095-fd114d2214e9&width=2000&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl",
+    "width": 1280,
+    "height": 728,
+    "frames": 1
+  },
+  {
+    "file": "assets/images/cork-nft/market-search.webp",
+    "source": "https://younsoo.notion.site/image/https%3A%2F%2Fuser-images.githubusercontent.com%2F22067260%2F152487468-dcbd4d59-2668-41a5-973c-66e2f69a83c4.jpg?table=block&id=b1a07541-d584-4c54-b970-03b4c447c0ca&spaceId=9a8e0cb1-bd08-4e55-8095-fd114d2214e9&width=2000&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl",
+    "width": 1280,
+    "height": 670,
+    "frames": 1
+  },
+  {
+    "file": "assets/images/cork-nft/artwork-grid.webp",
+    "source": "https://younsoo.notion.site/image/https%3A%2F%2Fuser-images.githubusercontent.com%2F22067260%2F152487474-48c4c262-5190-4448-8cda-2e02b8501e51.jpg?table=block&id=4efa69da-23ed-4c3d-87ca-fa53b8dcdb9e&spaceId=9a8e0cb1-bd08-4e55-8095-fd114d2214e9&width=2000&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl",
+    "width": 1280,
+    "height": 728,
+    "frames": 1
+  },
+  {
+    "file": "assets/images/cork-nft/artist-slider.webp",
+    "source": "https://younsoo.notion.site/image/https%3A%2F%2Fuser-images.githubusercontent.com%2F22067260%2F152487476-0875b99d-aa70-4b6e-8b4e-7356bea7d81e.jpg?table=block&id=9dfb72e4-fd66-4bee-ab7d-83fa3f6278a4&spaceId=9a8e0cb1-bd08-4e55-8095-fd114d2214e9&width=2000&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl",
+    "width": 1280,
+    "height": 647,
+    "frames": 1
+  },
+  {
+    "file": "assets/images/cork-nft/artwork-detail.webp",
+    "source": "https://younsoo.notion.site/image/https%3A%2F%2Fuser-images.githubusercontent.com%2F22067260%2F152531012-248b77d0-ae77-48ba-ae79-e48bc3138c61.png?table=block&id=bfb5d561-cc6b-44f8-9d22-c4d65efcb121&spaceId=9a8e0cb1-bd08-4e55-8095-fd114d2214e9&width=2000&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl",
+    "width": 1280,
+    "height": 1428,
+    "frames": 1
+  },
+  {
+    "file": "assets/images/cork-nft/artist-detail.webp",
+    "source": "https://younsoo.notion.site/image/https%3A%2F%2Fuser-images.githubusercontent.com%2F22067260%2F152520302-53798f3a-5f35-4aa8-b4ab-d1eaa87b8580.png?table=block&id=6909ae96-68e1-497e-a5ad-76b67fac6e89&spaceId=9a8e0cb1-bd08-4e55-8095-fd114d2214e9&width=2000&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl",
+    "width": 1280,
+    "height": 2498,
+    "frames": 1
+  },
+  {
+    "file": "assets/images/winterest/hero.webp",
+    "source": "https://younsoo.notion.site/image/https%3A%2F%2Fuser-images.githubusercontent.com%2F22067260%2F150178162-8c0d8f37-f019-4897-80b1-ff8ecbf31ea9.jpg?table=block&id=767d254a-51a0-4c29-95c2-6bbae111274c&spaceId=9a8e0cb1-bd08-4e55-8095-fd114d2214e9&width=2000&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl",
+    "width": 1280,
+    "height": 720,
+    "frames": 1
+  },
+  {
+    "file": "assets/images/winterest/skeleton.webp",
+    "source": "https://younsoo.notion.site/image/https%3A%2F%2Fuser-images.githubusercontent.com%2F22067260%2F150178157-081926cc-3a2c-446d-9e6c-8b684e1fadce.jpg?table=block&id=217f7f4b-8574-4264-a08d-e7b1c979b7f4&spaceId=9a8e0cb1-bd08-4e55-8095-fd114d2214e9&width=2000&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl",
+    "width": 1280,
+    "height": 720,
+    "frames": 1
+  },
+  {
+    "file": "assets/images/winterest/pin-detail.webp",
+    "source": "https://younsoo.notion.site/image/https%3A%2F%2Fuser-images.githubusercontent.com%2F22067260%2F150178175-8f6ace31-b23e-4c9b-8fa4-1aab9b5d89dc.jpg?table=block&id=4097df4a-c737-4123-aee8-80cc14052ba7&spaceId=9a8e0cb1-bd08-4e55-8095-fd114d2214e9&width=2000&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl",
+    "width": 1280,
+    "height": 720,
+    "frames": 1
+  },
+  {
+    "file": "assets/images/winterest/profile.webp",
+    "source": "https://younsoo.notion.site/image/https%3A%2F%2Fuser-images.githubusercontent.com%2F22067260%2F150178173-3cd8d945-2e9d-46fe-ab20-9ce8c5077e7e.jpg?table=block&id=d80c22fe-03d9-4709-bad9-0136618e0338&spaceId=9a8e0cb1-bd08-4e55-8095-fd114d2214e9&width=2000&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl",
+    "width": 1280,
+    "height": 720,
+    "frames": 1
+  },
+  {
+    "file": "assets/images/winterest/search.webp",
+    "source": "https://younsoo.notion.site/image/https%3A%2F%2Fuser-images.githubusercontent.com%2F22067260%2F150178177-2f47b93c-271c-4ec5-be70-d37b500c38b4.jpg?table=block&id=3fe1d174-9973-46b1-89b1-e908775d32ad&spaceId=9a8e0cb1-bd08-4e55-8095-fd114d2214e9&width=2000&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl",
+    "width": 1280,
+    "height": 720,
+    "frames": 1
+  },
+  {
+    "file": "assets/images/winterest/saved-pins.webp",
+    "source": "https://younsoo.notion.site/image/https%3A%2F%2Fuser-images.githubusercontent.com%2F22067260%2F150178181-0f98adf9-1742-43cd-928e-590e137b9a8e.jpg?table=block&id=37cf5d8a-2ed1-4ef3-a870-7213d25beecd&spaceId=9a8e0cb1-bd08-4e55-8095-fd114d2214e9&width=2000&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl",
+    "width": 2048,
+    "height": 1152,
+    "frames": 1
+  },
+  {
+    "file": "assets/images/winterest/dark-detail.webp",
+    "source": "https://younsoo.notion.site/image/https%3A%2F%2Fuser-images.githubusercontent.com%2F22067260%2F150178189-08a3935a-6663-4271-aa22-5cb6dd6338bc.jpg?table=block&id=0a676f6f-c774-4f08-8d9d-74577531b339&spaceId=9a8e0cb1-bd08-4e55-8095-fd114d2214e9&width=2000&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl",
+    "width": 2048,
+    "height": 1152,
+    "frames": 1
+  },
+  {
+    "file": "assets/images/winterest/dark-feed.webp",
+    "source": "https://younsoo.notion.site/image/https%3A%2F%2Fuser-images.githubusercontent.com%2F22067260%2F150178192-421baeb0-fba8-42aa-8e02-fc25179d19e4.jpg?table=block&id=7475ff39-00b3-4114-905e-408ce9525273&spaceId=9a8e0cb1-bd08-4e55-8095-fd114d2214e9&width=2000&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl",
+    "width": 1280,
+    "height": 720,
+    "frames": 1
+  },
+  {
+    "file": "assets/images/winterest/feed-demo.webp",
+    "source": "https://younsoo.notion.site/image/https%3A%2F%2Fuser-images.githubusercontent.com%2F22067260%2F143684435-6ef21dd7-b8e6-4cfb-9fa6-112c4c33393f.gif?table=block&id=eba09676-af3e-4632-957a-805ca582a412&spaceId=9a8e0cb1-bd08-4e55-8095-fd114d2214e9&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl",
+    "width": 500,
+    "height": 282,
+    "frames": 60
+  },
+  {
+    "file": "assets/images/winterest/detail-demo.webp",
+    "source": "https://younsoo.notion.site/image/https%3A%2F%2Fuser-images.githubusercontent.com%2F22067260%2F143684288-d7e92edf-a708-42ea-92be-5321ecd9bfa4.gif?table=block&id=c4e15345-819a-439f-baae-049d35761f00&spaceId=9a8e0cb1-bd08-4e55-8095-fd114d2214e9&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl",
+    "width": 500,
+    "height": 282,
+    "frames": 60
+  },
+  {
+    "file": "assets/images/winterest/search-demo.webp",
+    "source": "https://younsoo.notion.site/image/https%3A%2F%2Fuser-images.githubusercontent.com%2F22067260%2F143684292-1125acdb-b792-4ac6-8a25-24712565a310.gif?table=block&id=8ad5c659-c874-4483-85f0-13d0dedc16c8&spaceId=9a8e0cb1-bd08-4e55-8095-fd114d2214e9&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl",
+    "width": 500,
+    "height": 281,
+    "frames": 60
+  },
+  {
+    "file": "assets/images/winterest/upload-demo.webp",
+    "source": "https://younsoo.notion.site/image/https%3A%2F%2Fuser-images.githubusercontent.com%2F22067260%2F143684062-efc312dc-5db4-418a-995a-45e1b87f0fb0.gif?table=block&id=8fb7cbb9-11ac-4ae1-b6fd-12427ccb32cd&spaceId=9a8e0cb1-bd08-4e55-8095-fd114d2214e9&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl",
+    "width": 800,
+    "height": 450,
+    "frames": 57
+  },
+  {
+    "file": "assets/images/winterest/uploads-demo.webp",
+    "source": "https://younsoo.notion.site/image/https%3A%2F%2Fuser-images.githubusercontent.com%2F22067260%2F143684082-10f83baf-ab26-4775-8750-4fb44e423420.gif?table=block&id=0b9fe4df-c739-4f6c-aefe-e5115789d247&spaceId=9a8e0cb1-bd08-4e55-8095-fd114d2214e9&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl",
+    "width": 800,
+    "height": 450,
+    "frames": 58
+  },
+  {
+    "file": "assets/images/winterest/saved-demo.webp",
+    "source": "https://younsoo.notion.site/image/https%3A%2F%2Fuser-images.githubusercontent.com%2F22067260%2F143684094-4b96db50-b56e-4e86-954a-f4cc1fceb76e.gif?table=block&id=3b25d176-8be8-433e-8ef5-ddab5760575a&spaceId=9a8e0cb1-bd08-4e55-8095-fd114d2214e9&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl",
+    "width": 800,
+    "height": 450,
+    "frames": 60
+  },
+  {
+    "file": "assets/images/winterest/theme-demo.webp",
+    "source": "https://younsoo.notion.site/image/https%3A%2F%2Fuser-images.githubusercontent.com%2F22067260%2F143766048-f1133154-cdb4-4aa8-9382-54291f8310bf.gif?table=block&id=2533662e-37a5-40fa-8527-a01f93cf4a8d&spaceId=9a8e0cb1-bd08-4e55-8095-fd114d2214e9&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl",
+    "width": 800,
+    "height": 450,
+    "frames": 60
+  },
+  {
+    "file": "assets/images/like/hero.webp",
+    "source": "https://younsoo.notion.site/image/https%3A%2F%2Fuser-images.githubusercontent.com%2F22067260%2F150178929-d397a677-671e-45f8-895b-0892e06c7cb1.jpg?table=block&id=23e319a0-a424-41b6-a805-542a99ac017f&spaceId=9a8e0cb1-bd08-4e55-8095-fd114d2214e9&width=2000&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl",
+    "width": 1280,
+    "height": 685,
+    "frames": 1
+  },
+  {
+    "file": "assets/images/like/product-detail.webp",
+    "source": "https://younsoo.notion.site/image/https%3A%2F%2Fuser-images.githubusercontent.com%2F22067260%2F141606669-6b040a91-f51f-4913-99f2-cecbeb1a2a38.png?table=block&id=56e971b8-9964-4f87-bd54-31ee3ea219b3&spaceId=9a8e0cb1-bd08-4e55-8095-fd114d2214e9&width=1330&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl",
+    "width": 2048,
+    "height": 1123,
+    "frames": 1
+  },
+  {
+    "file": "assets/images/like/mini-cart.webp",
+    "source": "https://younsoo.notion.site/image/https%3A%2F%2Fuser-images.githubusercontent.com%2F22067260%2F141607177-7a4748f3-64c1-4229-a2ad-499d6b9d5896.png?table=block&id=2d347f0c-d7fe-47d0-bf7c-ef323dbe3b33&spaceId=9a8e0cb1-bd08-4e55-8095-fd114d2214e9&width=2000&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl",
+    "width": 2048,
+    "height": 1161,
+    "frames": 1
+  },
+  {
+    "file": "assets/images/like/cart.webp",
+    "source": "https://younsoo.notion.site/image/https%3A%2F%2Fuser-images.githubusercontent.com%2F22067260%2F141607185-73b62508-a4b5-4baf-8dd6-82cec09a5d3e.png?table=block&id=b3977543-c426-416d-a015-bf3a47f4001e&spaceId=9a8e0cb1-bd08-4e55-8095-fd114d2214e9&width=2000&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl",
+    "width": 2048,
+    "height": 1161,
+    "frames": 1
+  },
+  {
+    "file": "assets/images/like/orders.webp",
+    "source": "https://younsoo.notion.site/image/https%3A%2F%2Fuser-images.githubusercontent.com%2F22067260%2F141607195-163b8458-bfae-41a8-9f60-6c1732d00bb6.png?table=block&id=65e17482-1e7d-4f03-81d2-1569e765b445&spaceId=9a8e0cb1-bd08-4e55-8095-fd114d2214e9&width=2000&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl",
+    "width": 2048,
+    "height": 1161,
+    "frames": 1
+  },
+  {
+    "file": "assets/images/like/navigation-demo.webp",
+    "source": "https://younsoo.notion.site/image/https%3A%2F%2Fuser-images.githubusercontent.com%2F22067260%2F150146221-8878dfdb-d426-4734-9b88-31f5dc934a4d.gif?table=block&id=508363c7-1337-4b6e-af9b-db70b4f830ef&spaceId=9a8e0cb1-bd08-4e55-8095-fd114d2214e9&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl",
+    "width": 800,
+    "height": 429,
+    "frames": 60
+  },
+  {
+    "file": "assets/images/like/detail-demo.webp",
+    "source": "https://younsoo.notion.site/image/https%3A%2F%2Fuser-images.githubusercontent.com%2F22067260%2F150146229-c5159f59-62df-423b-836f-a929ff993e10.gif?table=block&id=354ebc77-d10d-4fd4-aff4-9a49c5c0c8ec&spaceId=9a8e0cb1-bd08-4e55-8095-fd114d2214e9&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl",
+    "width": 800,
+    "height": 420,
+    "frames": 60
+  },
+  {
+    "file": "assets/images/like/quantity-demo.webp",
+    "source": "https://younsoo.notion.site/image/https%3A%2F%2Fuser-images.githubusercontent.com%2F22067260%2F150146182-43b698ac-e3e4-4192-8a08-e15bf9ef7540.gif?table=block&id=dd641dc5-b588-468b-ae93-18dd543c564c&spaceId=9a8e0cb1-bd08-4e55-8095-fd114d2214e9&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl",
+    "width": 800,
+    "height": 450,
+    "frames": 60
+  },
+  {
+    "file": "assets/images/like/reviews-demo.webp",
+    "source": "https://younsoo.notion.site/image/https%3A%2F%2Fuser-images.githubusercontent.com%2F22067260%2F150146232-1a9b41f8-7348-4cf0-ad02-3a34c6f80cb7.gif?table=block&id=44704606-b7dc-4e18-ae5c-d24434b8fc8b&spaceId=9a8e0cb1-bd08-4e55-8095-fd114d2214e9&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl",
+    "width": 800,
+    "height": 420,
+    "frames": 60
+  },
+  {
+    "file": "assets/images/like/mini-cart-demo.webp",
+    "source": "https://younsoo.notion.site/image/https%3A%2F%2Fuser-images.githubusercontent.com%2F22067260%2F150146236-fb3b5a6a-fb9a-4604-b618-1dcb10c30234.gif?table=block&id=2e6704b6-b02a-4191-8794-c7d7936d7c36&spaceId=9a8e0cb1-bd08-4e55-8095-fd114d2214e9&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl",
+    "width": 800,
+    "height": 420,
+    "frames": 60
+  },
+  {
+    "file": "assets/images/like/cart-demo.webp",
+    "source": "https://younsoo.notion.site/image/https%3A%2F%2Fuser-images.githubusercontent.com%2F22067260%2F150146244-9daf0a34-21f5-4a3b-9d60-720d0119deb5.gif?table=block&id=4411a460-c0fd-4076-a311-022799beb7b9&spaceId=9a8e0cb1-bd08-4e55-8095-fd114d2214e9&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl",
+    "width": 800,
+    "height": 450,
+    "frames": 60
+  },
+  {
+    "file": "assets/images/like/orders-demo.webp",
+    "source": "https://younsoo.notion.site/image/https%3A%2F%2Fuser-images.githubusercontent.com%2F22067260%2F150146249-518ef12d-1dee-4861-b97b-bcc869c7d386.gif?table=block&id=3a4ab225-f31b-400d-9060-4185e364955c&spaceId=9a8e0cb1-bd08-4e55-8095-fd114d2214e9&userId=&cache=v2&imgBuildSrc=requestProxiedImageUrl",
+    "width": 800,
+    "height": 420,
+    "frames": 60
+  }
+]

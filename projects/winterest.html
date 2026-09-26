@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Winterest — Younsoo Lim</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Noto+Rashi+Hebrew:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Keep icon_names alphabetically sorted; add new symbols when this page uses them. -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..24,300,0,0&amp;icon_names=arrow_back,arrow_forward,article_person,close,download,expand_more,link_2,menu,zoom_in,zoom_out&amp;display=block" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg: 'rgb(var(--c-bg) / <alpha-value>)',
+            surface: 'rgb(var(--c-surface) / <alpha-value>)',
+            border: 'rgb(var(--c-border) / <alpha-value>)',
+            muted: 'rgb(var(--c-muted) / <alpha-value>)',
+            accent: 'rgb(var(--c-accent) / <alpha-value>)',
+            heading: 'rgb(var(--c-heading) / <alpha-value>)',
+            body: 'rgb(var(--c-body) / <alpha-value>)',
+          },
+          fontSize: {
+            sm: '0.9375rem',
+          },
+          fontFamily: {
+            sans: ['Noto Sans KR', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <link rel="icon" href="../favicon.gif" type="image/gif">
+  <meta name="description" content="Winterest: An image-sharing interface with infinite scrolling and dark mode.">
+  <link rel="stylesheet" href="../css/style.css?v=20260926-footer-compact-controls">
+  <link rel="stylesheet" href="../css/preview-modal.css?v=20260926-compact-toolbar">
+  <link rel="stylesheet" href="../css/resume-viewer.css?v=20260925-toolbar-right">
+  <link rel="stylesheet" href="../css/image-viewer.css?v=20260926-no-caption">
+</head>
+<body class="bg-bg text-body">
+  <a href="#project-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:bg-heading focus:text-bg focus:px-4 focus:py-2 focus:z-[60]">Skip to content</a>
+
+  <nav class="fixed top-0 w-full z-50 bg-bg/80 backdrop-blur-md">
+    <div class="max-w-[1400px] mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="../frontend/index.html" class="nav-logo">Younsoo Lim</a>
+      <div class="nav-links hidden md:flex gap-8 text-sm text-body ml-auto">
+        <a href="../frontend/index.html#projects" class="hover:text-heading transition">Projects</a>
+        <a href="../frontend/index.html#about" class="hover:text-heading transition">About</a>
+      </div>
+      <div class="flex items-center gap-3">
+        <button id="hamburger-btn" type="button" class="btn btn--ghost btn--icon mobile-menu-toggle" aria-label="Toggle menu">
+        <span class="material-symbols-outlined icon-sm" aria-hidden="true">menu</span>
+      </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="md:hidden hidden border-t border-border bg-bg/95 backdrop-blur-md">
+      <div class="flex flex-col px-6 py-4 gap-4 text-sm text-body">
+        <a href="../frontend/index.html#projects" class="hover:text-heading transition">Projects</a>
+        <a href="../frontend/index.html#about" class="hover:text-heading transition">About</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="project-content" class="max-w-4xl mx-auto px-6 pt-16 pb-24">
+<figure class="mb-8 last:mb-0">
+  <a href="../assets/images/winterest/hero.webp" data-image-viewer data-preview-title="Winterest · Image feed" data-preview-title-ko="Winterest · 이미지 피드" class="block" aria-label="Preview: Winterest · Image feed">
+    <img src="../assets/images/winterest/hero.webp" alt="Winterest · Image feed" width="1280" height="720" class="w-full h-auto" fetchpriority="high" decoding="async">
+  </a>
+  <figcaption class="text-xs text-muted mt-2 text-center" data-ko="Winterest · 이미지 피드">Winterest · Image feed</figcaption>
+</figure>
+<div class="flex items-center gap-1">
+<h1 class="page-title">Winterest</h1>
+<a href="https://github.com/tomlim2/project-winterest" target="_blank" rel="noopener" class="btn btn--ghost btn--icon" aria-label="Winterest GitHub repository (opens in a new tab)" data-tip="GitHub"><span class="material-symbols-outlined icon-sm" aria-hidden="true">link_2</span></a>
+</div>
+<p class="text-body mb-6 page-subtitle" data-ko="무한 스크롤과 다크 모드를 갖춘 이미지 공유 인터페이스">An image-sharing interface with infinite scrolling and dark mode</p>
+<p class="text-xs text-muted mb-12" data-ko="팀 프로젝트 · 2주 · 프론트엔드 3인 + 백엔드 2인">Team project · 2 weeks · 3 frontend + 2 backend developers</p>
+<section id="overview" class="mb-16 scroll-mt-24">
+<h2 class="text-xl font-bold mb-4" data-ko="프로젝트 개요와 담당 범위">Overview and role</h2>
+<p class="text-muted text-sm leading-relaxed mb-6" data-ko="Winterest는 Pinterest에서 영감을 받아 2주 동안 프론트엔드 3인·백엔드 2인이 함께 개발한 이미지 공유 프로젝트입니다. 피드 공통 컴포넌트, 핀 저장, 다크 모드와 AWS S3 프론트엔드 배포를 담당했습니다.">Winterest is a Pinterest-inspired image-sharing project built over two weeks by three frontend and two backend developers. I implemented reusable feed components, pin saving, dark mode, and the frontend deployment to AWS S3.</p>
+</section><section id="feed" class="mb-16 scroll-mt-24">
+<h2 class="text-xl font-bold mb-4" data-ko="무한 스크롤과 로딩 상태">Infinite scrolling and loading states</h2>
+<p class="text-muted text-sm leading-relaxed mb-6" data-ko="메인·상세·검색 페이지에서 재사용하는 무한 스크롤 커스텀 훅과 매직 그리드 컴포넌트를 제작했습니다. 이미지 로딩 전에는 컬러 스켈레톤을 표시했습니다.">A custom infinite-scroll hook and masonry-style grid component serve the main feed, pin detail, and search pages. Color skeletons appear before the images load.</p>
+<figure class="mb-8 last:mb-0">
+  <a href="../assets/images/winterest/skeleton.webp" data-image-viewer data-preview-title="Color skeletons while images load" data-preview-title-ko="이미지 로딩 중 컬러 스켈레톤" class="block" aria-label="Preview: Color skeletons while images load">
+    <img src="../assets/images/winterest/skeleton.webp" alt="Color skeletons while images load" width="1280" height="720" class="w-full h-auto" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="text-xs text-muted mt-2 text-center" data-ko="이미지 로딩 중 컬러 스켈레톤">Color skeletons while images load</figcaption>
+</figure>
+<figure class="mb-8 last:mb-0">
+  <a href="../assets/images/winterest/search.webp" data-image-viewer data-preview-title="Search results" data-preview-title-ko="검색 결과" class="block" aria-label="Preview: Search results">
+    <img src="../assets/images/winterest/search.webp" alt="Search results" width="1280" height="720" class="w-full h-auto" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="text-xs text-muted mt-2 text-center" data-ko="검색 결과">Search results</figcaption>
+</figure>
+
+<figure class="mb-8 last:mb-0">
+  <a href="../assets/images/winterest/feed-demo.webp" data-image-viewer data-preview-title="Main feed interaction" data-preview-title-ko="메인 피드 동작" class="block" aria-label="Preview: Main feed interaction">
+    <img src="../assets/images/winterest/feed-demo.webp" alt="Main feed interaction" width="500" height="282" class="w-full h-auto" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="text-xs text-muted mt-2 text-center" data-ko="메인 피드 동작">Main feed interaction</figcaption>
+</figure>
+<figure class="mb-8 last:mb-0">
+  <a href="../assets/images/winterest/search-demo.webp" data-image-viewer data-preview-title="Search interaction" data-preview-title-ko="검색 동작" class="block" aria-label="Preview: Search interaction">
+    <img src="../assets/images/winterest/search-demo.webp" alt="Search interaction" width="500" height="281" class="w-full h-auto" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="text-xs text-muted mt-2 text-center" data-ko="검색 동작">Search interaction</figcaption>
+</figure>
+
+</section><section id="pins" class="mb-16 scroll-mt-24">
+<h2 class="text-xl font-bold mb-4" data-ko="핀 상세와 개인 컬렉션">Pin details and personal collections</h2>
+<p class="text-muted text-sm leading-relaxed mb-6" data-ko="핀 저장·저장 취소 기능과 마이 페이지의 일반 그리드 컴포넌트를 구현했습니다. 상세 화면, 업로드한 이미지, 저장한 핀을 확인하는 흐름을 캡처로 정리했습니다.">I implemented saving and unsaving pins, together with regular grid components for the personal page. The captures show the detail view, uploaded images, and saved-pin flow.</p>
+<figure class="mb-8 last:mb-0">
+  <a href="../assets/images/winterest/pin-detail.webp" data-image-viewer data-preview-title="Pin detail" data-preview-title-ko="핀 상세 페이지" class="block" aria-label="Preview: Pin detail">
+    <img src="../assets/images/winterest/pin-detail.webp" alt="Pin detail" width="1280" height="720" class="w-full h-auto" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="text-xs text-muted mt-2 text-center" data-ko="핀 상세 페이지">Pin detail</figcaption>
+</figure>
+<figure class="mb-8 last:mb-0">
+  <a href="../assets/images/winterest/profile.webp" data-image-viewer data-preview-title="Profile page" data-preview-title-ko="프로필 페이지" class="block" aria-label="Preview: Profile page">
+    <img src="../assets/images/winterest/profile.webp" alt="Profile page" width="1280" height="720" class="w-full h-auto" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="text-xs text-muted mt-2 text-center" data-ko="프로필 페이지">Profile page</figcaption>
+</figure>
+<figure class="mb-8 last:mb-0">
+  <a href="../assets/images/winterest/saved-pins.webp" data-image-viewer data-preview-title="Saved pins" data-preview-title-ko="저장한 핀" class="block" aria-label="Preview: Saved pins">
+    <img src="../assets/images/winterest/saved-pins.webp" alt="Saved pins" width="2048" height="1152" class="w-full h-auto" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="text-xs text-muted mt-2 text-center" data-ko="저장한 핀">Saved pins</figcaption>
+</figure>
+<figure class="mb-8 last:mb-0">
+  <a href="../assets/images/winterest/detail-demo.webp" data-image-viewer data-preview-title="Pin detail interaction" data-preview-title-ko="상세 페이지 동작" class="block" aria-label="Preview: Pin detail interaction">
+    <img src="../assets/images/winterest/detail-demo.webp" alt="Pin detail interaction" width="500" height="282" class="w-full h-auto" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="text-xs text-muted mt-2 text-center" data-ko="상세 페이지 동작">Pin detail interaction</figcaption>
+</figure>
+<figure class="mb-8 last:mb-0">
+  <a href="../assets/images/winterest/upload-demo.webp" data-image-viewer data-preview-title="Upload preview" data-preview-title-ko="업로드 미리보기" class="block" aria-label="Preview: Upload preview">
+    <img src="../assets/images/winterest/upload-demo.webp" alt="Upload preview" width="800" height="450" class="w-full h-auto" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="text-xs text-muted mt-2 text-center" data-ko="업로드 미리보기">Upload preview</figcaption>
+</figure>
+<figure class="mb-8 last:mb-0">
+  <a href="../assets/images/winterest/uploads-demo.webp" data-image-viewer data-preview-title="My page · Uploaded images" data-preview-title-ko="마이 페이지 · 업로드한 이미지" class="block" aria-label="Preview: My page · Uploaded images">
+    <img src="../assets/images/winterest/uploads-demo.webp" alt="My page · Uploaded images" width="800" height="450" class="w-full h-auto" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="text-xs text-muted mt-2 text-center" data-ko="마이 페이지 · 업로드한 이미지">My page · Uploaded images</figcaption>
+</figure>
+<figure class="mb-8 last:mb-0">
+  <a href="../assets/images/winterest/saved-demo.webp" data-image-viewer data-preview-title="My page · Saved pins" data-preview-title-ko="마이 페이지 · 저장한 핀" class="block" aria-label="Preview: My page · Saved pins">
+    <img src="../assets/images/winterest/saved-demo.webp" alt="My page · Saved pins" width="800" height="450" class="w-full h-auto" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="text-xs text-muted mt-2 text-center" data-ko="마이 페이지 · 저장한 핀">My page · Saved pins</figcaption>
+</figure>
+
+</section><section id="theme" class="mb-16 scroll-mt-24">
+<h2 class="text-xl font-bold mb-4" data-ko="테마 상태와 배포">Theme state and deployment</h2>
+<p class="text-muted text-sm leading-relaxed mb-6" data-ko="Redux 상태와 styled-components의 ThemeProvider를 연결해 다크 모드를 구현하고 프론트엔드를 AWS S3에 배포했습니다.">I connected Redux state to the styled-components ThemeProvider to implement dark mode, and deployed the frontend to AWS S3.</p>
+<figure class="mb-8 last:mb-0">
+  <a href="../assets/images/winterest/dark-feed.webp" data-image-viewer data-preview-title="Dark theme · Image feed" data-preview-title-ko="다크 테마 · 이미지 피드" class="block" aria-label="Preview: Dark theme · Image feed">
+    <img src="../assets/images/winterest/dark-feed.webp" alt="Dark theme · Image feed" width="1280" height="720" class="w-full h-auto" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="text-xs text-muted mt-2 text-center" data-ko="다크 테마 · 이미지 피드">Dark theme · Image feed</figcaption>
+</figure>
+<figure class="mb-8 last:mb-0">
+  <a href="../assets/images/winterest/dark-detail.webp" data-image-viewer data-preview-title="Dark theme · Pin detail" data-preview-title-ko="다크 테마 · 핀 상세" class="block" aria-label="Preview: Dark theme · Pin detail">
+    <img src="../assets/images/winterest/dark-detail.webp" alt="Dark theme · Pin detail" width="2048" height="1152" class="w-full h-auto" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="text-xs text-muted mt-2 text-center" data-ko="다크 테마 · 핀 상세">Dark theme · Pin detail</figcaption>
+</figure>
+<figure class="mb-8 last:mb-0">
+  <a href="../assets/images/winterest/theme-demo.webp" data-image-viewer data-preview-title="Dark mode interaction" data-preview-title-ko="다크 모드 전환" class="block" aria-label="Preview: Dark mode interaction">
+    <img src="../assets/images/winterest/theme-demo.webp" alt="Dark mode interaction" width="800" height="450" class="w-full h-auto" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="text-xs text-muted mt-2 text-center" data-ko="다크 모드 전환">Dark mode interaction</figcaption>
+</figure>
+</section><section id="demo" class="mb-16 scroll-mt-24">
+<div class="flex items-center gap-1 mb-4">
+<h2 class="text-xl font-bold min-w-0" data-ko="프로젝트 시연">Project demo</h2>
+<a href="https://www.youtube.com/watch?v=RJuzyevZDn4" target="_blank" rel="noopener" class="btn btn--ghost btn--icon" aria-label="Winterest demo on YouTube (opens in a new tab)" data-tip="YouTube"><span class="material-symbols-outlined icon-sm" aria-hidden="true">link_2</span></a>
+</div>
+</section><section id="stack" class="mb-16 scroll-mt-24">
+<h2 class="text-xl font-bold mb-4" data-ko="사용 기술과 협업 도구">Tools and technologies</h2>
+<p class="text-muted text-sm leading-relaxed mb-6" data-ko="React Hooks · Redux · JavaScript · styled-components · HTML5 · AWS S3">React Hooks · Redux · JavaScript · styled-components · HTML5 · AWS S3</p><p class="text-muted text-sm leading-relaxed mb-6" data-ko="Trello · Slack · Notion · GitHub · Postman">Trello · Slack · Notion · GitHub · Postman</p>
+</section>
+</main>
+  <footer class="site-footer py-8 text-muted text-xs">
+    <div class="footer-layout max-w-[1400px] mx-auto px-6">
+      <div class="footer-identity">
+        <span class="footer-copyright">&copy; 2026 Younsoo Lim</span>
+      </div>
+      <ul class="footer-links">
+        <li class="footer-item">
+          <a href="mailto:tomandlim@gmail.com" class="btn btn--ghost footer-link"><span>tomandlim@gmail.com</span></a>
+        </li>
+        <li class="footer-item">
+          <a href="../resume-viewer.html" data-resume-viewer class="btn btn--ghost footer-link"><span data-ko="이력서">Resume</span></a>
+        </li>
+        <li class="footer-item footer-item--social">
+          <a href="https://github.com/tomlim2" target="_blank" rel="noopener" class="btn btn--ghost footer-link"><span data-ko="깃허브">GitHub</span></a>
+        </li>
+        <li class="footer-item footer-item--social">
+          <a href="https://www.linkedin.com/in/tommlimm/" target="_blank" rel="noopener" class="btn btn--ghost footer-link"><span data-ko="링크드인">LinkedIn</span></a>
+        </li>
+        <li class="footer-item">
+          <a href="../index.html" class="btn btn--ghost footer-link"><span data-ko="TA 포트폴리오">TA portfolio</span></a>
+        </li>
+        <li class="footer-item"><a href="../design/index.html" class="btn btn--ghost footer-link"><span data-ko="디자이너 포트폴리오">Designer portfolio</span></a></li>
+      </ul>
+      <div class="footer-controls">
+        <ul class="footer-social-links" aria-label="Social links">
+          <li><a href="https://github.com/tomlim2" target="_blank" rel="noopener" class="btn btn--ghost btn--icon footer-social-link" aria-label="GitHub"><span class="brand-icon brand-icon--github" aria-hidden="true"></span></a></li>
+          <li><a href="https://www.linkedin.com/in/tommlimm/" target="_blank" rel="noopener" class="btn btn--ghost btn--icon footer-social-link" aria-label="LinkedIn"><span class="brand-icon brand-icon--linkedin" aria-hidden="true"></span></a></li>
+        </ul>
+        <div class="footer-language language-switcher">
+          <span class="language-label" id="footer-language-label" data-ko="언어:">Language:</span>
+          <select class="language-select" data-language-select aria-labelledby="footer-language-label">
+            <option value="ko" lang="ko">한국어</option>
+            <option value="en" lang="en">English</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="../js/main.js"></script>
+  <script src="../js/i18n.js?v=20260926-language-menu"></script>
+  <script src="../js/theme.js"></script>
+  <script src="../js/preview-modal.js?v=20260925-toolbar-right"></script>
+  <script src="../js/resume-viewer.js?v=20260925-filename"></script>
+  <script src="../js/image-viewer.js?v=20260926-click-zoom"></script>
+</body>
+</html>

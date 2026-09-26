@@ -14,7 +14,11 @@ These internal references are excluded from `site-public.json`. Preview them loc
 
 ## Design portfolio home
 
-`design/index.html` presents all six projects from the original design portfolio using the shared navigation, card layout, language preference, and footer. Its hero starts directly with the original Vimeo demo reel. Both homepages link to each other in their footers. All six design cards now open local case studies under `projects/`; their legacy `children/` paths redirect to the new pages. Junkyard also includes six original interactive demos at their existing local paths. Command G retains its separately hosted demo link. Source assets, migration changes, and verification limits are recorded in [the migration notes](docs/design-portfolio-migration.md).
+`design/index.html` presents all six projects from the original design portfolio using the shared navigation, card layout, language preference, and footer. Its hero starts directly with the original Vimeo demo reel. The TA, designer, and frontend homepages link to each other in their footers. All six design cards now open local case studies under `projects/`; their legacy `children/` paths redirect to the new pages. Junkyard also includes six original interactive demos at their existing local paths. Command G retains its separately hosted demo link. Source assets, migration changes, and verification limits are recorded in [the migration notes](docs/design-portfolio-migration.md).
+
+## Frontend portfolio home
+
+`frontend/index.html` presents Cork NFT, Winterest, LIKE, and Junkyard using the TA text hero and shared components. The first three projects have dedicated case studies; Junkyard shares its existing design case study. Screenshots and animated captures are stored locally and displayed in one column. Demo, repository, and video links sit beside their subject headings. Source material, contribution scope, and media provenance are recorded in [the frontend migration notes](docs/frontend-portfolio-migration.md).
 
 ## Shotloom case study
 
@@ -44,10 +48,12 @@ Shotloom is the fourth Projects card, after NPR Shading & Look Development, Char
 
 ```
 index.html               # Landing page
+design/index.html        # Designer portfolio home
+frontend/index.html      # Frontend portfolio home
 resume.html              # Single-column, two-page A4 resume source
 resume-viewer.html       # Direct-link fallback for the resume modal
 assets/resume.pdf        # Download from the preview; regenerate after resume edits
-projects/                # 8 published case studies
+projects/                # 17 published TA, design, and frontend case studies
 shotloom/index.html      # Direct-entry redirect to the Shotloom case study
 css/style.css            # Shared portfolio styles
 css/preview-modal.css    # Common preview shell and icon toolbar

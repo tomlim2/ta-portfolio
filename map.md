@@ -26,6 +26,8 @@
 |---|---|
 | 첫인상, 프로젝트 카드, 소개·경력 | [index.html](index.html) |
 | 디자인 포트폴리오 홈, TA와 전환 | [design/index.html](design/index.html) · [이식 기록](docs/design-portfolio-migration.md) |
+| 프론트엔드 포트폴리오 홈, React 프로젝트·웹 인터랙션 | [frontend/index.html](frontend/index.html) · [이식 기록](docs/frontend-portfolio-migration.md) |
+| Cork NFT · Winterest · LIKE | [Cork NFT](projects/cork-nft.html) · [Winterest](projects/winterest.html) · [LIKE](projects/like.html) |
 | Office of Civic Innovation 브랜드 아이덴티티 | [상세](projects/civic-innovation.html) · `assets/images/civic-innovation/` · [이식 기록](docs/design-portfolio-migration.md#office-of-civic-innovation-상세) |
 | Curiosity · CCA Concept 2017 키 비주얼 | [상세](projects/curiosity.html) · `assets/images/curiosity/` · [이식 기록](docs/design-portfolio-migration.md#curiosityolivia-상세) |
 | Olivia 브랜드 아이덴티티 | [상세](projects/olivia.html) · `assets/images/olivia/` · [이식 기록](docs/design-portfolio-migration.md#curiosityolivia-상세) |
