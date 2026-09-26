@@ -177,29 +177,39 @@
 
 본문 링크는 `text-accent hover:underline`, 내비는 `text-body hover:text-heading`을 사용한다. 외부 새 탭 링크에는 `target="_blank" rel="noopener"`를 함께 쓴다. 아이콘 링크에는 `aria-label`을 제공한다. `data-tip`은 hover·키보드 포커스 보조 설명이며 접근 가능한 이름을 대신하지 않는다.
 
-홈 내비는 스크롤 다운 시 숨고 위로 스크롤하면 나타난다. 모바일 메뉴는 `#hamburger-btn` / `#mobile-menu`를 사용하고 링크 클릭 후 닫힌다. 메뉴 버튼의 `.mobile-menu-toggle`은 768px 이상에서 숨기는 배치 규칙이다. 일부 오래된 상세에는 모바일 메뉴가 없으므로 새 페이지는 템플릿의 메뉴를 따른다. 모든 TA·디자인 홈과 상세 페이지의 푸터는 메인과 동일한 `max-w-[1400px] mx-auto px-6` 너비와 `py-8` 여백을 사용한다. 상세 본문의 896px 너비와 독립적으로 배치하며, **왼쪽 저작권 · 가운데 tomandlim@gmail.com / 이력서 / 깃허브 / 링크드인 / 디자이너 포트폴리오 · 오른쪽 언어 선택**으로 배치한다. `.footer-layout`은 좌우 열 너비가 같은 3열 grid이며, `.footer-copyright`, `.footer-links`, `.footer-language`를 순서대로 놓는다. 가운데 목록 안의 `.footer-item`에 `.btn.btn--ghost.footer-link`를 사용한다. 푸터 텍스트·링크·언어 선택은 모두 12px / 16px이며, 조작 높이는 데스크톱 44px, 세로 배치 32px를 사용한다. 이력서는 공통 미리보기 모달, GitHub·LinkedIn은 외부 새 탭, 이메일은 `mailto:`로 연결한다. 라벨은 `data-ko`로 번역하며 링크 자체를 번역 과정에서 교체하지 않는다. 언어 선택은 보이는 라벨을 `aria-labelledby`로 연결한다.
+홈 내비는 스크롤 다운 시 숨고 위로 스크롤하면 나타난다. 모바일 메뉴는 `#hamburger-btn` / `#mobile-menu`를 사용하고 링크 클릭 후 닫힌다. 메뉴 버튼의 `.mobile-menu-toggle`은 768px 이상에서 숨기는 배치 규칙이다. 일부 오래된 상세에는 모바일 메뉴가 없으므로 새 페이지는 템플릿의 메뉴를 따른다.
 
-가운데 링크 묶음은 푸터 중심에 정렬하고 링크 사이에 24px 간격과 장식 세로 구분선을 둔다. 구분선은 CSS로 그려 스크린리더가 읽지 않게 한다. `.site-footer`의 컨테이너 너비가 800px 이하이면 첫 행 저작권, 가운데 묶음 이메일·이력서·깃허브·링크드인·디자이너 포트폴리오, 마지막 행 언어 선택으로 나누어 모두 가운데 정렬한다. 이 세로 배치에서는 저작권·링크·드롭다운의 최소 높이를 모두 32px로 줄이고 내용을 세로 중앙에 둔다. 드롭다운의 세로 패딩은 4px, 행 사이 추가 간격은 0이며, 한 줄씩 표시될 때 각 행의 중심 간격은 32px로 동일하다. 모바일 푸터 링크와 언어 선택에만 이 작은 높이를 적용한다. TA 홈·상세의 마지막 링크는 디자이너 포트폴리오로, 디자인 홈·상세의 마지막 링크는 TA 포트폴리오로 같은 탭에서 연결한다. 홈은 `design/index.html` 또는 `../index.html`, 상세는 `../design/index.html` 또는 `../index.html`을 사용한다. 이메일·이력서·GitHub·LinkedIn·언어 선택은 모든 페이지에서 동일하게 제공하며 마지막 포트폴리오 링크의 목적지만 바꾼다. 링크가 한 줄에 들어가지 않으면 가운데 묶음 안에서 줄바꿈하고 언어 선택은 그 아래에 둔다. 이때 링크 간격은 16px로 줄이고 구분선을 숨기며 필요한 경우 순서대로 줄바꿈한다. 이메일 주소는 한 항목으로 유지한다. 상세에도 `data-resume-viewer`와 resume-viewer CSS·JS를 포함해 이력서를 같은 모달로 연다. 새 상세는 `projects/_template.html`의 전체 푸터를 유지한다. 디자인 상세의 로고·상단 내비·프로젝트 목록 링크는 디자인 홈으로 돌아간다.
+모든 TA·디자인 홈과 상세 페이지의 푸터는 **데스크톱과 모바일에서 동일한 구조**를 사용한다. `max-w-[1400px] mx-auto px-6` 너비와 `py-8` 여백을 유지하며 상세 본문의 896px 너비와 독립적으로 배치한다. 상단에는 `.footer-layout::before`로 1px 구분선을 그린다. 구분선은 좌우 24px 안쪽의 콘텐츠 경계에 맞추고 아래 위 패딩은 26.5px, 저작권 아래부터 다음 구분선까지는 32px로 둔다. 첫 링크의 32px 클릭 영역과 글자 여백 때문에 생기는 5.5px 차이를 위 패딩에서 보정한 값이다. 현재 폰트에서 실제 글자 경계 기준 간격은 위아래 약 37px로 맞추며, 폰트나 링크 높이를 바꾸면 다시 시각 검증한다.
 
-### 언어 선택 — Language 드롭다운
+`.footer-layout`은 1열 grid다. 별도 이름 표기 없이 `.footer-links`에 이메일·이력서·포트폴리오 전환 링크를 왼쪽 정렬한 세로 목록으로 놓고, 그 아래 `.footer-identity`에 저작권을 위 간격 16px로 배치한다. 링크는 패딩·테두리 너비를 0으로 두고 내부도 왼쪽 정렬해 짧은 라벨의 글자 시작점까지 저작권과 맞춘다. `.btn.btn--ghost.footer-link`의 최소 조작 너비는 44px, 높이는 32px다. 링크 사이의 장식 세로 구분선은 사용하지 않는다. 푸터 텍스트·링크는 12px / 16px, 저작권은 12px / 20px다.
 
-`.language-switcher`는 보이는 `언어:` / `Language:` 라벨과 네이티브 `select[data-language-select]`를 사용한다. 선택지는 **한국어 / English**이며, 처음에는 시스템 언어에 맞는 항목을 자동으로 선택한다. 별도의 System 항목은 표시하지 않는다. 높이 44px, 기본 글자 14px / 20px(푸터 안에서는 12px / 16px), 투명 배경, hover accent 색상과 2px 포커스 외곽선을 사용한다. 네이티브 선택 목록으로 키보드·터치 조작을 제공하며 선택 컨트롤 자체를 번역 과정에서 교체하지 않는다.
+하단 `.footer-controls`는 위 간격 32px, 1px 구분선, 위 패딩 20px를 둔다. GitHub·LinkedIn 아이콘은 왼쪽, 언어 버튼은 오른쪽에 배치하며 최소 간격 16px를 둔다. `justify-content: space-between`과 `align-items: center`로 양끝 배치와 세로 중앙 정렬을 유지한다. GitHub·LinkedIn은 모든 화면에서 `.footer-social-links`의 브랜드 아이콘 링크로 제공하고 기존 텍스트 항목은 숨긴다. 아이콘은 20px, 조작 영역은 40×44px이며 접근 가능한 서비스 이름을 갖는다. 언어 버튼은 144×44px, 글자는 14px / 20px를 유지하고 메뉴는 위로 열린다. 현재 언어를 포함한 접근 가능한 이름과 `aria-haspopup`, `aria-expanded`, `aria-controls`를 제공한다.
+
+TA 홈·상세의 마지막 링크는 디자이너 포트폴리오로, 디자인 홈·상세의 마지막 링크는 TA 포트폴리오로 같은 탭에서 연결한다. 홈은 `design/index.html` 또는 `../index.html`, 상세는 `../design/index.html` 또는 `../index.html`을 사용한다. 이메일·이력서·GitHub·LinkedIn·언어 선택은 모든 페이지에서 동일하게 제공하며 마지막 포트폴리오 링크의 목적지만 바꾼다. 이메일 주소는 한 항목으로 유지하고 `mailto:`로 연결한다. 이력서는 `data-resume-viewer`와 resume-viewer CSS·JS로 공통 미리보기 모달에서 열고, GitHub·LinkedIn은 외부 새 탭에서 연다. 라벨은 `data-ko`로 번역하며 링크 자체를 번역 과정에서 교체하지 않는다. 새 상세는 `projects/_template.html`의 전체 푸터를 유지한다. 디자인 상세의 로고·상단 내비·프로젝트 목록 링크는 디자인 홈으로 돌아간다.
+
+### 언어 선택 — 지구본 버튼과 위로 열리는 메뉴
+
+`.language-switcher`는 지구본 아이콘·현재 언어·아래 화살표가 있는 버튼이다. 선택지는 **한국어 / English**이며 처음에는 시스템 언어에 맞는 항목을 자동 선택한다. 별도의 System 항목은 표시하지 않는다. 너비 144px, 높이 44px, 글자 14px / 20px, 모서리 12px와 1px 테두리를 사용한다. 지구본과 화살표는 기존 Material Symbols SVG(`language.svg`, `chevron_right.svg`)를 재사용한다.
+
+누르면 버튼 바로 위로 같은 너비의 메뉴가 열리고, 메뉴 위쪽과 버튼 아래쪽에만 둥근 모서리를 남겨 하나로 이어진 형태를 만든다. 메뉴의 배경은 `bg`, 열린 버튼·항목 hover는 `surface`, 테두리는 `border`를 사용해 시스템 테마를 따른다. 항목 높이는 44px이며 현재 선택은 굵기로 표시한다.
+
+공통 `js/i18n.js`가 기본 select를 확장한다. JavaScript가 없으면 라벨과 네이티브 select가 그대로 표시된다. 확장 후 select와 `.language-label`은 숨기고, button/listbox/option 구조와 선택 상태를 접근성 속성으로 전달한다. 클릭·Enter·Space로 열고 선택하며, 위/아래 화살표·Home·End로 항목 사이를 이동한다. Esc는 닫고 버튼으로 포커스를 돌린다. Tab은 닫고 정상 탭 순서로 이동하며 바깥 클릭·포커스 이탈도 메뉴를 닫는다. 한 번에 하나의 메뉴만 열고, 모든 컨트롤의 표시와 선택 상태를 함께 갱신한다.
 
 1. 저장한 `ko` / `en` 설정이 있으면 우선 적용한다. 선택은 사이트 출처별 `localStorage`의 `portfolio.language`에 저장한다.
 2. 저장한 설정이 없으면 `navigator.languages`의 순서대로 지원 언어(`ko`, `en`)를 찾는다. `ko-KR`, `en-US` 같은 지역 코드는 기본 언어로 해석하며 목록이 없으면 `navigator.language`를 사용한다. 둘 다 지원하지 않는 경우 영어를 표시한다.
 3. 자동으로 감지한 언어는 저장하지 않는다. 저장한 선택이 없는 동안에는 브라우저의 `languagechange`도 반영한다. 직접 선택하면 그 값을 저장하고 시스템 언어가 바뀌어도 유지한다.
 4. 페이지 이동·새로고침과 방문 재개 시 저장한 설정을 읽는다. 뒤로가기 캐시 복원은 `pageshow`, 같은 출처의 다른 탭 변경은 `storage` 이벤트로 반영한다. 저장이 차단된 환경에서도 현재 페이지의 언어 변경은 작동한다.
 
-`html[lang]`과 모든 드롭다운은 실제 표시 언어(`ko` / `en`)로 일치한다. 자동 감지한 영어도 드롭다운에는 `English`로 표시한다. `data-language-preference`는 내부적으로 자동 감지(`system`)와 명시적 선택(`ko` / `en`)을 구분한다. 공통 `js/i18n.js`를 사용하며, 한국어 전용 이력서 본문을 자동 번역하지는 않는다.
+`html[lang]`과 모든 언어 버튼·메뉴는 실제 표시 언어(`ko` / `en`)로 일치한다. 자동 감지한 영어도 버튼에는 `English`로 표시한다. `data-language-preference`는 내부적으로 자동 감지(`system`)와 명시적 선택(`ko` / `en`)을 구분한다. 공통 `js/i18n.js`를 사용하며, 한국어 전용 이력서 본문을 자동 번역하지는 않는다.
 
 ```html
-<label class="language-switcher">
-  <span>Language:</span>
+<div class="language-switcher">
+  <span class="language-label">Language:</span>
   <select class="language-select" data-language-select aria-label="Language">
     <option value="ko" lang="ko">한국어</option>
     <option value="en" lang="en">English</option>
   </select>
-</label>
+</div>
 ```
 
 ### 버튼 — Kind · Theme · Style
@@ -246,7 +256,7 @@
 |---|---|
 | 모바일 메뉴·목차, 이력서·소셜 아이콘 링크 | `btn btn--ghost btn--icon` |
 | 테마 선택 | `btn btn--ghost` |
-| 언어 설정 | `language-select` 네이티브 드롭다운 |
+| 언어 설정 | `language-trigger` 지구본 버튼 + 위로 열리는 `language-menu` |
 | 코드 복사·이미지 원본 크기 | `btn` (Outline) |
 | 뷰어·이전 모달 닫기 | `btn btn--ghost` |
 | 이전 비밀번호 폼·확인 모달 | `btn btn--filled` |
@@ -337,7 +347,7 @@
 
 브랜드 로고는 `color: inherit`과 `background: currentColor`로 버튼 색상을 따른다. Ghost 버튼을 hover하면 Google 아이콘과 동일한 `--c-accent` 파란색으로 바뀌며 opacity는 1을 유지한다. 배경·테두리는 Ghost 규칙을 따른다. Google 아이콘의 weight 300 규칙은 로고에 적용하지 않는다. 이력서 연락처 행은 같은 SVG 경로를 13px로 사용하고 PDF에도 반영한다.
 
-아이콘끼리 모인 행은 `.icon-group`으로 묶는다. 각 `.btn--icon`은 가로 32px · 세로 44px, 추가 gap은 0이며 클릭 영역을 겹치지 않는다. 소셜·툴팁 그룹 예시에 적용한다. 홈 푸터는 텍스트 링크를 사용한다. 실제 아이콘 크기는 Google 20px 상자 / SNS 16px 도형을 유지한다. 단독 아이콘·메뉴는 기본 44×44px를 사용한다. 미리보기 모달 상단은 32×32px 조작 영역과 18px 아이콘을 사용한다.
+아이콘끼리 모인 행은 `.icon-group`으로 묶는다. 각 `.btn--icon`은 가로 32px · 세로 44px, 추가 gap은 0이며 클릭 영역을 겹치지 않는다. 소셜·툴팁 그룹 예시에 적용한다. 실제 아이콘 크기는 Google 20px 상자 / SNS 16px 도형을 유지한다. 공통 푸터의 소셜 링크는 예외로 20px 도형과 40×44px 조작 영역을 사용한다. 단독 아이콘·메뉴는 기본 44×44px를 사용한다. 미리보기 모달 상단은 32×32px 조작 영역과 18px 아이콘을 사용한다.
 
 ```html
 <a href="https://github.com/tomlim2" target="_blank" rel="noopener"
