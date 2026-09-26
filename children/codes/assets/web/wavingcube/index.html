@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Waving Cube</title>
+    <style media="screen">
+      body{
+        margin: 0;
+        overflow: hidden;
+        font-family: Monospace;
+      }
+    </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" href="../../../demo-shell.css"></head>
+  <body>
+<h1 class="legacy-demo-title">Waving Cube</h1><a class="legacy-demo-back" href="../../../../../projects/junkyard.html#waving-cube">← Junkyard</a>
+    <script src="js/three.js"></script>
+    <script src="js/renderers/Projector.js"></script>
+    <script src="js/renderers/CanvasRenderer.js"></script>
+    <script type="text/javascript">
+      var container;
+      var camera, scene, renderer;
+      var cube, helix, cubes;
+
+      var angle = 0;
+
+      var windowHalfX = window.innerWidth/2;
+      var windowHalfY = window.innerHeight/2;
+
+      init();
+      animate();
+
+      function  init(){
+        container = document.createElement('div');
+        document.body.appendChild(container);
+
+        renderer = new THREE.CanvasRenderer();
+        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.setSize(window.innerWidth,window.innerHeight);
+        container.appendChild(renderer.domElement);
+
+        window.addEventListener('resize',onWindowResize,false);
+        fillScene();
+
+      }
+
+      function fillScene(){
+        scene = new THREE.Scene();
+        scene.background = new THREE.Color(0xf0f0f0);
+
+        camera = new THREE.PerspectiveCamera(45,window.innerWidth / window.innerHeight,1,2600);
+        camera.position.set(-960,940,1280);
+        camera.rotation.set(-48*Math.PI/180, -45*Math.PI/180, -38*Math.PI/180);
+        // camera.position.set(3894,1362,-3555);
+        // camera.rotation.set(36*Math.PI/180, -13*Math.PI/180, -80*Math.PI/180);
+
+
+
+        var geometry = new THREE.BoxGeometry(70,70,70);
+        for(var i = 0; i < geometry.faces.length; i +=2){
+          var hex = Math.random()*0xffffff;
+          geometry.faces[i].color.setHex(hex);
+          geometry.faces[i+1].color.setHex(hex);
+        }
+
+        cubes = new THREE.Object3D();
+        scene.add(cubes);
+
+        var material = new THREE.MeshBasicMaterial({vertexColors:THREE.FaceColors,overdraw:0.5});
+        for (var x = 0; x < 12; x++) {
+            for (var z = 0; z < 12; z++) {
+              cube = new THREE.Mesh(geometry,material);
+              cube.position.set(x*72, 0, z*72);
+              cubes.add(cube);
+            }
+        }
+
+      }
+
+      function onWindowResize(){
+        windowHalfX = window.innerWidth/2;
+        windowHalfY = window.innerHeight/2;
+
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+
+        renderer.setSize(window.innerWidth,window.innerHeight);
+
+      }
+
+      function animate(){
+        requestAnimationFrame(animate);
+        render();
+      }
+
+      function render(){
+          var time = Date.now();
+
+          var offset = 1;
+          cubes.children.forEach(function(child,index){
+
+            d = Math.sqrt(Math.pow((792/2) - child.position.x-35, 2) + Math.pow((792/2) - child.position.z-35, 2));
+            // child.position.x=10;
+            // console.log(d)
+            var offset = -d/110;
+            offset = offset + 0.002;
+            var a = time*0.005 + offset;
+            var h = Math.sin(a)*1.8+1.9;
+            child.scale.y = h;
+            // child.rotation.y = h/8*3.2;
+
+				});
+        // cubes.rotation.x+=.01
+        renderer.render(scene,camera);
+
+      }
+
+
+    </script>
+  </body>
+</html>

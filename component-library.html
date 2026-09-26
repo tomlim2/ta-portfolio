@@ -35,7 +35,7 @@
   </script>
   <link rel="icon" href="favicon.png" type="image/png">
   <link rel="stylesheet" href="css/style.css?v=20260926-project-cards">
-  <link rel="stylesheet" href="css/preview-modal.css?v=20260926-viewport80">
+  <link rel="stylesheet" href="css/preview-modal.css?v=20260926-compact-toolbar">
   <link rel="stylesheet" href="css/resume-viewer.css?v=20260925-toolbar-right">
   <link rel="stylesheet" href="css/image-viewer.css?v=20260926-no-caption">
   <link rel="stylesheet" href="docs/component-library.css?v=20260925-neutral-actions">
@@ -1005,10 +1005,10 @@ console.log(`Converted ${result.count} models`);</code></pre>
     <section id="footer" class="cl-section" tabindex="-1">
       <h2>Footer</h2>
 
-      <p class="cl-label">TA Home Footer — left copyright / centered contact links / right language</p>
+      <p class="cl-label">Shared Portfolio Footer — home and project pages</p>
       <div class="cl-specimen">
-        <div class="site-footer py-6 text-muted text-xs">
-          <div class="footer-layout">
+        <div class="site-footer py-8 text-muted text-xs">
+          <div class="footer-layout max-w-[1400px] mx-auto px-6">
             <span class="footer-copyright">&copy; 2026 Younsoo Lim</span>
             <ul class="footer-links">
               <li class="footer-item">
@@ -1037,19 +1037,21 @@ console.log(`Converted ${result.count} models`);</code></pre>
           </div>
         </div>
       </div>
-      <p class="text-xs text-muted mt-4">왼쪽 저작권 · 가운데 이메일 주소 / 이력서 / 깃허브 / 링크드인 / 디자인 포트폴리오 · 오른쪽 언어 선택. 좌우 열 너비를 같게 두어 링크 묶음을 정확히 중앙에 맞춥니다. 모든 글자는 12px / 16px, 데스크톱 조작 높이는 44px입니다. 푸터 영역이 800px 이하이면 저작권 → 이메일·이력서·깃허브·링크드인·디자인 포트폴리오 → 언어 선택 순서로 가운데 정렬하고 구분선을 숨깁니다. 가운데 링크 묶음은 공간에 따라 줄바꿈합니다. 세로 배치에서는 저작권·링크·드롭다운을 모두 최소 32px 높이로 줄이고, 드롭다운 세로 패딩 4px와 행 간격 0을 적용해 각 줄을 일정하고 타이트하게 모읍니다. 디자인 포트폴리오는 design/index.html을 같은 탭으로 엽니다. 디자인 홈은 같은 푸터 구성에 TA 포트폴리오 링크를 두어 TA 홈으로 돌아옵니다. 이력서는 공통 미리보기 모달로 엽니다.</p>
+      <p class="text-xs text-muted mt-4">왼쪽 저작권 · 가운데 이메일 주소 / 이력서 / 깃허브 / 링크드인 / 디자인 포트폴리오 · 오른쪽 언어 선택. 좌우 열 너비를 같게 두어 링크 묶음을 정확히 중앙에 맞춥니다. 모든 글자는 12px / 16px, 데스크톱 조작 높이는 44px입니다. 푸터 영역이 800px 이하이면 저작권 → 이메일·이력서·깃허브·링크드인·디자인 포트폴리오 → 언어 선택 순서로 가운데 정렬하고 구분선을 숨깁니다. 가운데 링크 묶음은 공간에 따라 줄바꿈합니다. 세로 배치에서는 저작권·링크·드롭다운을 모두 최소 32px 높이로 줄이고, 드롭다운 세로 패딩 4px와 행 간격 0을 적용해 각 줄을 일정하고 타이트하게 모읍니다. 디자인 포트폴리오는 design/index.html을 같은 탭으로 엽니다. TA·디자인 홈과 모든 상세 페이지에 같은 링크·최대 너비 1400px·좌우 여백 24px·상하 여백 32px를 적용합니다. 디자인 페이지에서는 마지막 링크를 TA 포트폴리오로 바꿉니다. 이력서는 모든 페이지에서 공통 미리보기 모달로 엽니다.</p>
 
       <div class="overflow-x-auto mt-6">
         <table class="cl-reference-table">
-          <caption class="sr-only">홈별 포트폴리오 전환 링크</caption>
+          <caption class="sr-only">페이지별 포트폴리오 전환 링크</caption>
           <thead><tr><th scope="col">현재 페이지</th><th scope="col">마지막 링크</th><th scope="col">href</th></tr></thead>
           <tbody>
             <tr><th scope="row">TA · index.html</th><td>디자인 포트폴리오 / Design portfolio</td><td><code>design/index.html</code></td></tr>
             <tr><th scope="row">디자인 · design/index.html</th><td>TA 포트폴리오 / TA portfolio</td><td><code>../index.html</code></td></tr>
+            <tr><th scope="row">TA 상세 · projects/*.html</th><td>디자인 포트폴리오 / Design portfolio</td><td><code>../design/index.html</code></td></tr>
+            <tr><th scope="row">디자인 상세 · projects/*.html</th><td>TA 포트폴리오 / TA portfolio</td><td><code>../index.html</code></td></tr>
           </tbody>
         </table>
       </div>
-      <p class="cl-note">같은 탭에서 이동하며 저장한 언어 선택이 유지됩니다. 디자인 홈의 이력서 href도 <code>../resume-viewer.html</code>로 맞춥니다. 외부 프로젝트 상세 링크와 두 홈 사이의 전환 링크는 별개입니다.</p>
+      <p class="cl-note">같은 탭에서 이동하며 저장한 언어 선택이 유지됩니다. 디자인 홈과 모든 상세의 이력서 href는 <code>../resume-viewer.html</code>입니다. 상세에도 resume-viewer CSS·JS와 다운로드·닫기 아이콘을 포함합니다. 외부 프로젝트 상세 링크와 두 홈 사이의 전환 링크는 별개입니다.</p>
       <details class="cl-source">
         <summary class="btn btn--ghost btn--disclosure">포트폴리오 전환 링크 · HTML 코드</summary>
         <div class="cl-source-body">
@@ -1078,8 +1080,8 @@ console.log(`Converted ${result.count} models`);</code></pre>
           <caption class="sr-only">미리보기 모달의 공통 규칙</caption>
           <thead><tr><th scope="col">항목</th><th scope="col">규칙</th></tr></thead>
           <tbody>
-            <tr><th scope="row">상단</th><td>왼쪽 콘텐츠 이름 / 오른쪽 액션 묶음. 콘텐츠 액션 다음에 닫기를 두어 닫기는 항상 맨 오른쪽. 각 버튼 44px, 버튼 사이 4px.</td></tr>
-            <tr><th scope="row">종류별 동작</th><td>래스터 이미지: 화면 맞춤(최대 100%) → 원본 크기. SVG: 영역에 맞춤 → 표시 크기의 150%. 확대는 별도 선택 시 적용. 이력서: PDF 다운로드(기본 손 모양 커서). 44×44px Ghost · Google Outlined weight 300.</td></tr>
+            <tr><th scope="row">상단</th><td>왼쪽 콘텐츠 이름 / 오른쪽 액션 묶음. 콘텐츠 액션 다음에 닫기를 두어 닫기는 항상 맨 오른쪽. 기본 높이 41px, 제목 13px / 행간 20px / weight 500. 각 버튼 32px, 버튼 사이 4px, 상하 여백 각 4px.</td></tr>
+            <tr><th scope="row">종류별 동작</th><td>래스터 이미지: 화면 맞춤(최대 100%) → 원본 크기. SVG: 영역에 맞춤 → 표시 크기의 150%. 확대는 별도 선택 시 적용. 이력서: PDF 다운로드(기본 손 모양 커서). 32×32px Ghost · 아이콘 18px · Google Outlined weight 300.</td></tr>
             <tr><th scope="row">화면</th><td>모든 화면에서 너비 80% · 높이 80dvh · 중앙 정렬. 테두리·반경 0 · 바깥 배경 검정 65%. 툴바 안전 영역 유지.</td></tr>
             <tr><th scope="row">테마·읽기</th><td>페이지 테마 상속 · 상단 유지 · 내용 영역 스크롤. 긴 이름은 말줄임. 이미지 미리보기에는 하단 캡션 없이 이미지만 표시하고, 설명은 본문에 유지.</td></tr>
             <tr><th scope="row">닫기</th><td>닫기 · Esc · 모달 바깥 배경 클릭. 이미지·내부 여백 클릭은 닫지 않음.</td></tr>

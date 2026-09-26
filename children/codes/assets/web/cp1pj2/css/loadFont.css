@@ -1,0 +1,20 @@
+@font-face {
+  font-family: 'fs-l';
+  src:  url('../other/FS-Light.otf') format('opentype');
+}
+@font-face {
+  font-family: 'fs-bk';
+  src:  url('../other/FS-Book.otf') format('opentype');
+}
+@font-face {
+  font-family: 'fs-m';
+  src:  url('../other/FS-Medium.otf') format('opentype');
+}
+@font-face {
+  font-family: 'fs-h';
+  src:  url('../other/FS-Heavy.otf') format('opentype');
+}
+@font-face {
+  font-family: 'fs-eb';
+  src:  url('../other/FS-ExtraBold.otf') format('opentype');
+}

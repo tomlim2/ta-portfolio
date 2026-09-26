@@ -1,0 +1,5 @@
+/* Navigation around the original interactive studies; artwork styles stay local. */
+.legacy-demo-title { position: absolute !important; width: 1px !important; height: 1px !important; padding: 0 !important; margin: -1px !important; overflow: hidden !important; clip-path: inset(50%) !important; white-space: nowrap !important; border: 0 !important; }
+.legacy-demo-back { position: fixed; z-index: 2147483647; top: 16px; right: 16px; display: inline-block; padding: 10px 14px; border: 1px solid #666; border-radius: 4px; background: #171719; color: #fff; font: 14px/1.4 system-ui, sans-serif; text-decoration: none; cursor: pointer; }
+.legacy-demo-back:hover { background: #303036; }
+.legacy-demo-back:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }

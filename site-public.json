@@ -6,6 +6,10 @@
     "projects/civic-innovation.html", "children/tbd/index.html",
     "projects/curiosity.html", "children/concept2017/index.html",
     "projects/olivia.html", "children/gd3/index.html",
+    "projects/personal-projects.html", "children/test2019/index.html",
+    "projects/summer-vr.html", "children/vr2019/index.html",
+    "projects/junkyard.html", "children/codes/index.html",
+    "children/codes/bluecat.html", "children/codes/demo-shell.css",
     "projects/profiling.html", "projects/pmx-to-vrm.html",
     "projects/matcap-painter.html", "projects/mmd-player.html",
     "projects/megamelange.html", "projects/shotloom.html", "shotloom/index.html",
@@ -24,6 +28,8 @@
     "assets/images/profiling", "assets/images/pmx-to-vrm",
     "assets/images/matcap-painter", "assets/images/mmd-player",
     "assets/images/megamelange", "assets/images/shotloom", "assets/images/design",
-    "assets/images/civic-innovation", "assets/images/curiosity", "assets/images/olivia"
+    "assets/images/civic-innovation", "assets/images/curiosity", "assets/images/olivia",
+    "assets/images/personal-projects", "assets/images/summer-vr", "assets/images/junkyard",
+    "children/codes/assets/web"
   ]
 }

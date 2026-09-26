@@ -1,0 +1,304 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0px;
+  background-color: #183432;
+  height: 100%;
+  overflow-y: hidden;
+}
+
+
+h1{
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-size: 1.8em;
+  font-weight: 600;
+}
+h2{
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-size: 1.5em;
+}
+h3{
+  font-size: 0.9em;
+  margin-bottom: -0.5em;
+  opacity: 0.8;
+}
+
+
+/*screen fixed*/
+.container0{
+  position: absolute;
+  height: 768px;
+  top: 50%;
+  margin-top: -384px;
+  background-color: #f1f1f1;
+  color: #183432;
+  overflow: hidden;
+}
+
+.maincanvas{
+  position: relative;
+  left: 0px;
+  width: 8600px;
+  height: 768px;
+}
+
+.bgimage{
+  position: absolute;
+  left: -10px;
+  width: 6600px;
+  height: 768px;
+  background-image: url(../img/bg0.svg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/*section start*/
+/*section1*/
+.section1{
+
+}
+.s1img{
+  position: fixed;
+  left: 256px;
+  top: 50%;
+  margin-top: -176px;
+  background-image: url(../img/aboutimg.jpg);
+  background-position: bottom;
+  background-size: cover;
+  width: 270px;
+  height: 360px;
+}
+
+.s1txt{
+  position: fixed;
+  left: 550px;
+  top: 50%;
+  margin-top: -121px;
+  /*top: 230px;*/
+  width: 480px;
+  text-align: left;
+}
+/*section1 end*/
+
+
+/*section2*/
+.section2{
+  position: absolute;
+  left: 1900px;
+  width: 3300px;
+  height: 768px;
+}
+
+
+.s2txt{
+  position: absolute;
+  top: 264px;
+  width: 480px;
+  text-align: left;
+}
+
+.s2info{
+  position: absolute;
+  top: 480px;
+}
+
+.s2img{
+  position: absolute;
+  top: 134px;
+  height: 480px;
+  background-size: cover;
+  background-position: bottom;
+}
+
+.s2img1{
+  left: 680px;
+  width: 680px;
+  background-image: url(../img/img_001.jpg);
+}
+.s2img2{
+  left: 1500px;
+  width: 584px;
+  background-image: url(../img/img_002.jpg);
+}
+.s2img3{
+  left: 2230px;
+  width: 440px;
+  background-image: url(../img/img_003.jpg);
+}
+.s2img4{
+  position: absolute;
+  left: 2820px;
+  width: 460px;
+  background-image: url(../img/img_004.jpg);
+}
+/*section2 end*/
+
+/*section3*/
+.section3{
+  position: absolute;
+  left: 5400px;
+  width: 1000px;
+  height: 768px;
+}
+
+.s3box{
+  position: absolute;
+  left: 240px;
+  top: 134px;
+}
+
+.post1img {
+  background-image: url(../img/img_001_2.jpg);
+  background-position: top;
+  background-size: cover;
+  width: 630px;
+  height: 380px;
+}
+
+.postinfo{
+  line-height: 1.5em
+}
+/*section3 end*/
+
+
+/*section4*/
+.section4{
+
+}
+
+.s4txt{
+  position: fixed;
+  left: 50%;
+  margin-left: -400px;
+  top: 50%;
+  margin-top: -130px;
+  width: 800px;
+  display: none;
+  text-align: center;
+}
+
+
+.s4bttn{
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  margin-left: -110px;
+  top: 50%;
+  margin-top: 6px;
+  /*top: 385px;*/
+  cursor: pointer;
+  display: none;
+}
+
+.s4bttnimg{
+  position: absolute;
+  background-image: url(../img/bttn_02.png);
+  background-position: top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 224px;
+  height: 118px;
+}
+
+.s4bttntxt{
+  position: absolute;
+  top: 36px;
+  left: 70px;
+  color: white;
+  font-size: 30px;
+  text-transform: uppercase;
+}
+.s4info{
+  line-height: 1.5em;
+}
+
+/*section4 end*/
+
+
+/*logo*/
+
+.sfmomalogo{
+  position: absolute;
+  width: 340px;
+  height: 180px;
+  top: 250px;
+  left: 350px;
+  background-image: url(../img/sfmomalogo2.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.logoclick{
+  position: absolute;
+  width: 340px;
+  height: 180px;
+  top: 250px;
+  left: 350px;
+  z-index: 20;
+}
+
+/*logo end*/
+
+.petal{
+  position: absolute;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+
+.petal1{
+  left: 100px;
+  top: 53%;
+  margin-top: -296px;
+  width: 1096px;
+  height: 542px;
+  background-image: url(../img/test6.svg);
+  z-index: 6;
+}
+
+.logocover {
+  position: absolute;
+  left: 280px;
+  top: 234px;
+  width: 0;
+  height: 0;
+  transform: rotate(38deg);
+  border-style: solid;
+  border-width: 105px 0px 415px 900px;
+  border-color: transparent transparent transparent transparent;
+  z-index: 30;
+  /* triangle generator: http://apps.eky.hk/css-triangle-generator/ */
+}
+
+
+.petal2{
+  left: 100px;
+  top: 44px;
+  width: 858px;
+  height: 720px;
+  background-image: url(../img/test5.svg);
+  z-index: 4;
+}
+
+.petal3{
+  left: 500px;
+  top: 4px;
+  margin-left: -840px;
+  width: 1505px;
+  height: 1770px;
+  background-image: url(../img/test4.svg);
+  z-index: 3;
+}
+
+.petal4{
+  left: 100px;
+  top: 34px;
+  width: 1000px;
+  height: 978px;
+  background-image: url(../img/test3.svg);
+  z-index: 2;
+}
