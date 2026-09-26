@@ -1,6 +1,6 @@
 # 포트폴리오 스타일 가이드
 
-기준일: 2026-09-25 · 대상: `tomlim2/ta-portfolio`의 TA 포트폴리오.
+기준일: 2026-09-26 · 대상: `tomlim2/ta-portfolio`의 TA 포트폴리오.
 
 현재 구현을 설명하고 기존 포폴을 이식할 때 사용할 기준을 정리한다. **현재 구현**과 **새 페이지 작성 기준**을 구분한다. 이 문서를 추가하면서 공개 화면의 스타일을 변경하지는 않았다.
 
@@ -60,7 +60,7 @@
 
 **현재 구현:** 기본은 시스템의 `prefers-color-scheme`을 따른다. `js/theme.js`가 실제 테마를 html의 `data-theme="light|dark"`에 반영하고 시스템 변경도 추적한다. 컴포넌트 문서의 System / Light / Dark 컨트롤에서 방문 중 테마를 지정할 수 있다. 선택은 저장하지 않으므로 새로고침하면 System으로 돌아온다. 공개 홈·상세 푸터에는 테마 전환 버튼이 없으며 시스템 설정을 따른다. JavaScript 실행 전·비활성 시에도 CSS 미디어 쿼리가 시스템 테마를 적용한다. 명시적인 `data-theme="light"` 또는 `data-theme="dark"`는 버튼 하나나 그룹에 지정할 수 있고, 상위 테마보다 우선한다.
 
-예외 색상은 코드 블록(`#1A1A2E` / `#B8D4A8`), 썸네일 위 흰 글자·검은 그라데이션, 이미지 확대 뷰어의 어두운 바탕이다.
+예외 색상은 코드 블록(`#1A1A2E` / `#B8D4A8`), AI 보정 썸네일 표시의 흰 글자·반투명 검은 바탕, 이미지 확대 뷰어의 어두운 바탕이다.
 
 컴포넌트 문서의 기본 팔레트는 현재 미리보기 테마를 따른다. 색상칩은 `--c-*`를 사용하고 HEX 표시는 같은 변수에서 읽는다. 접힌 다크 팔레트는 별도의 `data-theme="dark"` 범위로 표시한다. 위 Markdown 표는 기준일의 수동 기록이므로 CSS 색상을 바꾸면 함께 갱신해야 한다.
 
@@ -73,7 +73,7 @@
 
 아래 px 값은 루트 글자 크기 16px 기준이다.
 
-[Typography 예시](../component-library.html#typography)의 언어 버튼으로 한·영을 전환하면, 예시 아래의 글꼴·크기·굵기·줄높이가 계산된 CSS 값으로 갱신된다. 글꼴명은 지정된 첫 번째 글꼴이며 실제 다운로드 성공이나 글리프별 대체 글꼴 사용을 보증하지 않는다. 본문은 15px, 패널 안 본문은 14px, 오버레이 카드 제목은 17.6px인 문맥 차이도 함께 확인한다.
+[Typography 예시](../component-library.html#typography)의 언어 버튼으로 한·영을 전환하면, 예시 아래의 글꼴·크기·굵기·줄높이가 계산된 CSS 값으로 갱신된다. 글꼴명은 지정된 첫 번째 글꼴이며 실제 다운로드 성공이나 글리프별 대체 글꼴 사용을 보증하지 않는다. 본문은 15px, 패널 안 본문은 14px, 홈 카드 제목은 화면 너비에 따라 18–24px인 문맥 차이도 함께 확인한다.
 
 | 역할 / 클래스 | 크기 | 굵기·행간 / 비고 |
 |---|---|---|
@@ -83,8 +83,8 @@
 | 상세 부제 `.page-subtitle` | 15px | 설명 문장 |
 | 일반 섹션 `text-xl font-bold` | 20px | 700 |
 | 기본 카드 제목 `.card-title` | 16.8px | 500 |
-| **홈 이미지 위 카드 제목** | **17.6px** | **600**, 흰색; 상위 `.card-overlay-text`가 재정의 |
-| 기본 카드 부제 `.card-subtitle` | 13px | 홈 오버레이 안에서는 **14px** |
+| **홈 이미지 아래 카드 제목** | **18–24px** (`clamp`) | **500**, heading 색상; `.project-card-caption`에서 재정의 |
+| 기본 카드 부제 `.card-subtitle` | 13px | 홈 캡션에서는 **14px**, muted 색상 |
 | 본문 `text-sm leading-relaxed` | 15px | 행간 1.625; Tailwind 기본 `text-sm`을 확장함 |
 | 패널 본문 `.bg-surface p/div` | 14px | 행간 1.7 |
 | 경력 직무 / 세부 `.about-role` / `.about-detail` | 15px / 13px | 직무 500, 세부 400 |
@@ -113,7 +113,7 @@
 | 상세 본문 | `max-w-4xl mx-auto px-6` — 외곽 최대 896px |
 | 비교 이미지 / 좁은 미디어 | 문맥에 따라 `max-w-3xl` 768px, `max-w-xl` 576px, `max-w-lg` 512px |
 | 공통 좌우 여백 | `px-6` — 24px |
-| 홈 카드 | `grid-cols-1 md:grid-cols-2 gap-6` — 24px 간격 |
+| 홈 카드 | `.project-grid` — 가로 24px · 세로 40px 간격, 768px부터 2열 |
 | `md` 경계 | 768px; 카드 2열, 데스크톱 내비 표시 |
 | 내비 높이 | `h-16` — 64px, 상단 고정 |
 | 홈 소개 | `pt-32 pb-12` — 위 128px, 아래 48px |
@@ -134,16 +134,16 @@
 
 ### 홈 작업 카드
 
-카드 전체를 상세 페이지로 연결한다. 썸네일은 16:9, `object-fit: cover`; 제목과 부제는 하단 검은 그라데이션 위에 항상 보인다. 제목을 hover 때만 노출하지 않는다. hover는 이미지 1.04배, 0.5초 전환이다.
+카드 전체를 상세 페이지로 연결한다. `.project-card-media`의 썸네일은 16:9, `object-fit: cover`를 유지하고, 제목과 부제는 이미지 밖 아래쪽 `.project-card-caption`에 가운데 정렬한다. 이미지와 캡션 사이는 18px, 제목과 부제 사이는 4px다. 제목의 줄높이는 1.4, 부제는 1.65이며 긴 문장은 자르지 않고 균형 있게 줄바꿈한다(`text-wrap: balance`). 배경은 페이지 색상을 사용하고 그라데이션·텍스트 그림자는 넣지 않는다. AI 보정 표시는 이미지 오른쪽 위에 유지한다. 마우스 hover는 이미지 1.04배, 0.4초 전환이며 키보드 포커스 외곽선을 제공한다. 동작 줄이기 설정에서는 확대와 전환을 생략한다.
 
 ```html
-<a href="projects/project-slug.html" class="card-overlay group">
-  <div class="card-overlay-inner">
-    <img src="assets/images/project-slug/thumbnail.webp" alt="결과물을 식별할 수 있는 설명" class="card-overlay-img" loading="lazy" decoding="async">
-    <div class="card-overlay-text">
-      <h3 class="card-title" data-ko="프로젝트 제목">Project title</h3>
-      <p class="card-subtitle" data-ko="역할과 핵심 내용을 한 문장으로">One line about the role and the work</p>
-    </div>
+<a href="projects/project-slug.html" class="project-card">
+  <div class="project-card-media">
+    <img src="assets/images/project-slug/thumbnail.webp" alt="결과물을 식별할 수 있는 설명" class="project-card-img" loading="lazy" decoding="async">
+  </div>
+  <div class="project-card-caption">
+    <h3 class="card-title" data-ko="프로젝트 제목">Project title</h3>
+    <p class="card-subtitle" data-ko="역할과 핵심 내용을 한 문장으로">One line about the role and the work</p>
   </div>
 </a>
 ```

@@ -85,7 +85,7 @@ mkdir -p assets/images/project-slug
 
 ## 5. 홈 연결과 공개 목록
 
-1. 적절한 분류를 정하고 `index.html`에 현재 `.card-overlay` 카드로 연결한다. 기존 주요 프로젝트 순서를 바꾸려면 콘텐츠 구성을 함께 검토한다.
+1. 적절한 분류를 정하고 `index.html`에 현재 `.project-card` 카드로 연결한다. 기존 주요 프로젝트 순서를 바꾸려면 콘텐츠 구성을 함께 검토한다.
 2. `site-public.json`의 `files`에 `projects/project-slug.html`을 추가한다.
 3. `directories`에 `assets/images/project-slug`를 추가한다. 이 디렉터리의 파일은 공개 번들에 들어가므로 초안은 따로 보관한다.
 4. [map.md](../map.md)에 핵심 메시지와 관련 수정 위치를 기록한다.

@@ -34,7 +34,7 @@
     }
   </script>
   <link rel="icon" href="favicon.png" type="image/png">
-  <link rel="stylesheet" href="css/style.css?v=20260925-footer-compact-rows">
+  <link rel="stylesheet" href="css/style.css?v=20260926-project-cards">
   <link rel="stylesheet" href="css/preview-modal.css?v=20260925-toolbar-right">
   <link rel="stylesheet" href="css/resume-viewer.css?v=20260925-toolbar-right">
   <link rel="stylesheet" href="css/image-viewer.css?v=20260925-preview-modal">
@@ -124,7 +124,7 @@
           </table>
         </div>
       </details>
-      <p class="cl-note">코드 블록, 이미지 위 흰 글자·검은 그라데이션, 확대 뷰어는 별도 색상을 사용합니다. <a href="#panels">코드 블록 예시</a> · <a href="#cards">카드 예시</a></p>
+      <p class="cl-note">코드 블록, AI 보정 썸네일 배지, 확대 뷰어는 별도 색상을 사용합니다. <a href="#panels">코드 블록 예시</a> · <a href="#cards">카드 예시</a></p>
     </section>
 
     <div class="cl-divider"></div>
@@ -172,7 +172,7 @@
         <div class="cl-type-name"><strong>캡션</strong><code>text-xs</code></div>
         <div class="cl-type-example"><p id="type-sample-7" class="text-xs text-muted" data-ko="실제 개발 화면 · 촬영 시점과 조건">Development screenshot · Date and conditions</p><p class="cl-type-spec" data-type-for="type-sample-7">CSS 값 읽는 중</p></div>
       </div>
-      <p class="cl-note">CSS 정보 순서: 글꼴 · 크기 · 굵기 · 줄높이. 카드 위 제목은 <strong>17.6px / 600</strong>, 부제는 <strong>14px</strong>로 재정의됩니다. <a href="#cards">실제 카드</a>에서 확인하세요. 내비·경력 서체는 <a href="#navigation">Navigation</a>과 <a href="#about-layout">About Layout</a> 예시를 참고합니다.</p>
+      <p class="cl-note">CSS 정보 순서: 글꼴 · 크기 · 굵기 · 줄높이. 이미지 아래 카드 제목은 <strong>18–24px / 500</strong>, 부제는 <strong>14px</strong>로 재정의됩니다. <a href="#cards">실제 카드</a>에서 확인하세요. 내비·경력 서체는 <a href="#navigation">Navigation</a>과 <a href="#about-layout">About Layout</a> 예시를 참고합니다.</p>
     </section>
 
     <div class="cl-divider"></div>
@@ -370,31 +370,31 @@
     <!-- ==================== CARDS ==================== -->
     <section id="cards" class="cl-section" tabindex="-1">
       <h2>Cards</h2>
-      <p class="cl-intro">사용 상황: 홈에서 작업을 고르는 목록. 16:9 썸네일에 제목과 한 문장 소개를 올리고 상세로 연결합니다. UI 세부를 읽어야 하는 이미지는 상세에서 원본 비율로 제공합니다.</p>
+      <p class="cl-intro">사용 상황: 홈에서 작업을 고르는 목록. 16:9 썸네일 아래에 제목과 한 문장 소개를 가운데 정렬하고 상세로 연결합니다. UI 세부를 읽어야 하는 이미지는 상세에서 원본 비율로 제공합니다.</p>
 
-      <p class="cl-label">Current Project Card — 16:9 image / persistent bottom overlay / whole-card link</p>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
-        <a href="projects/mmd-player.html" class="card-overlay group">
-          <div class="card-overlay-inner">
-            <img src="assets/images/mmd-player/thumb.png" alt="MMD Player preview" width="1920" height="1080" class="card-overlay-img" loading="lazy" decoding="async">
-            <div class="card-overlay-text">
-              <h3 class="card-title">MMD Player</h3>
-              <p class="card-subtitle" data-ko="PMX 원본 검증용 개인 도구 · WebGPU 표현 실험">Personal PMX validation tool · WebGPU experiments</p>
-            </div>
+      <p class="cl-label">Current Project Card — 16:9 image / centered caption below / whole-card link</p>
+      <div class="project-grid mb-10">
+        <a href="projects/mmd-player.html" class="project-card">
+          <div class="project-card-media">
+            <img src="assets/images/mmd-player/thumb.png" alt="MMD Player preview" width="1920" height="1080" class="project-card-img" loading="lazy" decoding="async">
+          </div>
+          <div class="project-card-caption">
+            <h3 class="card-title">MMD Player</h3>
+            <p class="card-subtitle" data-ko="PMX 원본 검증용 개인 도구 · WebGPU 표현 실험">Personal PMX validation tool · WebGPU experiments</p>
           </div>
         </a>
-        <a href="projects/shotloom.html" class="card-overlay group">
-          <div class="card-overlay-inner">
-            <img src="assets/images/shotloom/thumbnail-editor-v2.png" alt="AI-retouched Shotloom editor thumbnail" width="1668" height="943" class="card-overlay-img" loading="lazy" decoding="async">
+        <a href="projects/shotloom.html" class="project-card">
+          <div class="project-card-media">
+            <img src="assets/images/shotloom/thumbnail-editor-v2.png" alt="AI-retouched Shotloom editor thumbnail" width="1668" height="943" class="project-card-img" loading="lazy" decoding="async">
             <span class="absolute top-3 right-3 px-2 py-1 bg-black/70 text-white text-xs rounded" data-ko="AI 보정 썸네일">AI-retouched thumbnail</span>
-            <div class="card-overlay-text">
-              <h3 class="card-title">Shotloom</h3>
-              <p class="card-subtitle" data-ko="웹 3D 에디터 · 리타게터·서비스 연동·편집 UX">Web 3D editor · Retargeting, service integration &amp; editing UX</p>
-            </div>
+          </div>
+          <div class="project-card-caption">
+            <h3 class="card-title">Shotloom</h3>
+            <p class="card-subtitle" data-ko="웹 3D 에디터 · 리타게터·서비스 연동·편집 UX">Web 3D editor · Retargeting, service integration &amp; editing UX</p>
           </div>
         </a>
       </div>
-      <p class="text-sm text-muted">Overlay titles override the base class to 1.1rem / 600, subtitles to 0.875rem. Hover scales the image to 1.04 over 0.5s. Titles remain visible on touch screens. Cards navigate; they do not open the image viewer.</p>
+      <p class="text-sm text-muted">Captions sit 18px below the image with a centered 18–24px / 500 title and a 14px subtitle. Long text wraps. Pointer hover scales only the image to 1.04 over 0.4s; reduced motion disables this. Keyboard focus outlines the whole card. Cards navigate to project pages.</p>
       <details class="cl-source">
         <summary class="btn btn--ghost btn--disclosure">프로젝트 카드 · HTML 코드</summary>
         <div class="cl-source-body">
@@ -402,15 +402,15 @@
           <button type="button" class="btn cl-copy" data-copy="code-card" aria-label="프로젝트 카드 HTML 복사" hidden><span class="material-symbols-outlined icon-sm" aria-hidden="true">content_copy</span> 코드 복사</button>
           <span class="cl-copy-status" role="status" aria-live="polite"></span>
           <pre tabindex="0" aria-label="프로젝트 카드 HTML 코드"><code id="code-card">&lt;!-- index.html 기준. [REPLACE]와 경로를 교체합니다. --&gt;
-&lt;a href="projects/project-slug.html" class="card-overlay group"&gt;
-  &lt;div class="card-overlay-inner"&gt;
+&lt;a href="projects/project-slug.html" class="project-card"&gt;
+  &lt;div class="project-card-media"&gt;
     &lt;img src="assets/images/project-slug/thumbnail.webp"
-         alt="[REPLACE] 결과물 설명" class="card-overlay-img"
+         alt="[REPLACE] 결과물 설명" class="project-card-img"
          loading="lazy" decoding="async"&gt;
-    &lt;div class="card-overlay-text"&gt;
-      &lt;h3 class="card-title" data-ko="[REPLACE] 프로젝트 제목"&gt;[REPLACE] Project title&lt;/h3&gt;
-      &lt;p class="card-subtitle" data-ko="[REPLACE] 역할과 핵심 내용"&gt;[REPLACE] Role and work&lt;/p&gt;
-    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="project-card-caption"&gt;
+    &lt;h3 class="card-title" data-ko="[REPLACE] 프로젝트 제목"&gt;[REPLACE] Project title&lt;/h3&gt;
+    &lt;p class="card-subtitle" data-ko="[REPLACE] 역할과 핵심 내용"&gt;[REPLACE] Role and work&lt;/p&gt;
   &lt;/div&gt;
 &lt;/a&gt;</code></pre>
         </div>
@@ -1127,7 +1127,7 @@ console.log(`Converted ${result.count} models`);</code></pre>
           <thead><tr><th scope="col">Pattern</th><th scope="col">Current value</th></tr></thead>
           <tbody>
             <tr><td class="lbl">Home / detail maximum</td><td class="val">1400px / 896px, including 24px side padding</td></tr>
-            <tr><td class="lbl">Card grid</td><td class="val">1 column below 768px; 2 columns at 768px and up; 24px gap</td></tr>
+            <tr><td class="lbl">Card grid</td><td class="val">1 column below 768px; 2 columns at 768px and up; 24px column gap / 40px row gap</td></tr>
             <tr><td class="lbl">Main section spacing</td><td class="val">Detail mb-16: 64px; title mb-4: 16px; paragraph mb-6: 24px</td></tr>
             <tr><td class="lbl">Navigation</td><td class="val">64px tall; mobile menu below 768px</td></tr>
             <tr><td class="lbl">Reduced motion</td><td class="val">CSS transitions and smooth scrolling reduced; autoplay media is separate</td></tr>
