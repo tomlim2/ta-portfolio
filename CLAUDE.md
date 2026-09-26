@@ -8,11 +8,11 @@ TA 포트폴리오 사이트. GitHub Pages + 커스텀 도메인 `ta.tommlimm.ne
 
 - 현재 디자인 기준은 [docs/style-guide.md](docs/style-guide.md), 시각 예시는 [component-library.html](component-library.html)을 따른다. 공통 스타일을 변경하면 둘을 함께 갱신한다. 초기 `docs/plans/2026-02-15-*`는 과거 기획이다.
 - 새 상세 페이지는 [docs/project-template.md](docs/project-template.md)와 `projects/_template.html`을 출발점으로 사용한다. 템플릿과 컴포넌트 문서는 공개 목록에 추가하지 않는다.
-- 언어 선택은 푸터의 `언어:` / `Language:` 네이티브 드롭다운(한국어 / English)을 사용한다. 처음에는 브라우저 선호 언어에 맞는 항목을 선택하고, 직접 선택은 `portfolio.language`에 저장한다. 새 페이지는 공통 `js/i18n.js`를 유지한다.
+- 언어 선택은 푸터의 지구본·현재 언어·아래 화살표 버튼과 위로 열리는 메뉴(한국어 / English)를 사용한다. 공통 `js/i18n.js`가 네이티브 select를 확장하며 JavaScript가 없으면 기본 select를 유지한다. 처음에는 브라우저 선호 언어에 맞는 항목을 선택하고, 직접 선택은 `portfolio.language`에 저장한다. 새 페이지는 공통 `js/i18n.js`를 유지한다.
 
 - 공개 페이지는 `index.html`, `resume.html`, `projects/*.html`에서 편집한다.
 - 디자인 홈은 `design/index.html`이며 TA 홈과 공통 CSS·JS를 사용한다. 두 홈의 푸터에서 같은 탭으로 서로 이동한다. 디자인 프로젝트 6개는 모두 `projects/`의 로컬 상세로 연결한다. 이전 `children/` 상세 경로는 새 상세로 리다이렉트하며 Junkyard의 로컬 데모 6개는 기존 실행 경로를 유지한다. 카드·디자인 홈 복귀 링크·기존 URL을 함께 관리하고, 이식 내역은 [docs/design-portfolio-migration.md](docs/design-portfolio-migration.md)에 기록한다.
-- 모든 TA·디자인 홈과 프로젝트 상세는 메인의 전체 푸터(이메일·이력서·GitHub·LinkedIn·포트폴리오 전환·언어 선택), 최대 너비 1400px와 동일한 여백을 유지한다. 디자인 페이지에서는 마지막 링크만 TA 포트폴리오로 바꾼다. 상세에도 이력서 미리보기 CSS·JS를 로드한다.
+- 모든 TA·디자인 홈과 프로젝트 상세는 메인의 전체 푸터(이메일·이력서·GitHub·LinkedIn·포트폴리오 전환·언어 선택), 최대 너비 1400px와 동일한 여백을 유지한다. 푸터 상단에는 좌우 콘텐츠 경계에 맞춘 1px 구분선을 두고, 링크·저작권 영역의 위아래는 실제 글자 경계 기준으로 같은 간격을 유지한다. 첫 링크의 클릭 영역과 글자 여백을 보정해 위 패딩은 26.5px, 저작권 아래 간격은 32px로 둔다. 링크 내부도 왼쪽 정렬해 저작권과 글자 시작점을 맞춘다. 데스크톱과 모바일 모두 같은 구조로, 별도 이름 표기 없이 이메일·이력서·포트폴리오 전환 링크를 왼쪽에 세로 정렬하고, 저작권은 그 아래 별도 행의 왼쪽에 배치한다. 이어서 가로 구분선 아래 소셜 아이콘은 왼쪽, 언어 버튼은 오른쪽에 배치하고 세로 중심만 맞춘다. 디자인 페이지에서는 마지막 링크만 TA 포트폴리오로 바꾼다. 상세에도 이력서 미리보기 CSS·JS를 로드한다.
 - 한글 `data-ko`와 영문 본문을 함께 수정한다. 담당 범위, 프로젝트 상태와 수치의 측정 조건을 구분한다.
 - 모든 별도 미리보기는 현재 페이지의 공통 모달을 사용한다. `css/preview-modal.css`·`js/preview-modal.js`를 먼저 로드하고 유형별 뷰어를 연결한다. 왼쪽 콘텐츠 이름·오른쪽 액션 묶음·맨 오른쪽 닫기 아이콘, 데스크톱·모바일 화면 가로·세로 80% 크기의 중앙 배치, 닫기·바깥 배경 클릭·Esc·포커스 복귀를 공통으로 유지한다. 사진·도표에는 `data-image-viewer`와 `css/image-viewer.css`·`js/image-viewer.js`, 이력서에는 `data-resume-viewer`와 resume-viewer CSS/JS를 사용한다. 새 영상·문서 미리보기도 같은 모달 안에 구현한다. 본문 영상 재생과 프로젝트·외부 서비스 탐색 링크는 각각의 원래 동작을 유지한다. 상세 규칙은 스타일 가이드의 “모든 미리보기는 모달”을 따른다.
 - 이력서 HTML 수정 시 다운로드용 `assets/resume.pdf`도 재생성하고 확인한다.

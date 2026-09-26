@@ -34,7 +34,7 @@
   </script>
   <link rel="icon" href="../favicon.gif" type="image/gif">
   <meta name="description" content="Shotloom: a web 3D editor for AI video production. Retargeting architecture, camera and timeline workflows, and engineering handoff by Technical Artist Younsoo Lim.">
-  <link rel="stylesheet" href="../css/style.css?v=20260925-footer-compact-rows">
+  <link rel="stylesheet" href="../css/style.css?v=20260926-footer-optical-spacing">
   <link rel="stylesheet" href="../css/preview-modal.css?v=20260926-compact-toolbar">
   <link rel="stylesheet" href="../css/resume-viewer.css?v=20260925-toolbar-right">
   <link rel="stylesheet" href="../css/image-viewer.css?v=20260926-no-caption">
@@ -255,7 +255,9 @@
 
   <footer class="site-footer py-8 text-muted text-xs">
     <div class="footer-layout max-w-[1400px] mx-auto px-6">
-      <span class="footer-copyright">&copy; 2026 Younsoo Lim</span>
+      <div class="footer-identity">
+        <span class="footer-copyright">&copy; 2026 Younsoo Lim</span>
+      </div>
       <ul class="footer-links">
         <li class="footer-item">
           <a href="mailto:tomandlim@gmail.com" class="btn btn--ghost footer-link"><span>tomandlim@gmail.com</span></a>
@@ -263,28 +265,34 @@
         <li class="footer-item">
           <a href="../resume-viewer.html" data-resume-viewer class="btn btn--ghost footer-link"><span data-ko="이력서">Resume</span></a>
         </li>
-        <li class="footer-item">
+        <li class="footer-item footer-item--social">
           <a href="https://github.com/tomlim2" target="_blank" rel="noopener" class="btn btn--ghost footer-link"><span data-ko="깃허브">GitHub</span></a>
         </li>
-        <li class="footer-item">
+        <li class="footer-item footer-item--social">
           <a href="https://www.linkedin.com/in/tommlimm/" target="_blank" rel="noopener" class="btn btn--ghost footer-link"><span data-ko="링크드인">LinkedIn</span></a>
         </li>
         <li class="footer-item">
           <a href="../design/index.html" class="btn btn--ghost footer-link"><span data-ko="디자이너 포트폴리오">Designer portfolio</span></a>
         </li>
       </ul>
-      <label class="footer-language language-switcher">
-        <span id="footer-language-label" data-ko="언어:">Language:</span>
-        <select class="language-select" data-language-select aria-labelledby="footer-language-label">
-          <option value="ko" lang="ko">한국어</option>
-          <option value="en" lang="en">English</option>
-        </select>
-      </label>
+      <div class="footer-controls">
+        <ul class="footer-social-links" aria-label="Social links">
+          <li><a href="https://github.com/tomlim2" target="_blank" rel="noopener" class="btn btn--ghost btn--icon footer-social-link" aria-label="GitHub"><span class="brand-icon brand-icon--github" aria-hidden="true"></span></a></li>
+          <li><a href="https://www.linkedin.com/in/tommlimm/" target="_blank" rel="noopener" class="btn btn--ghost btn--icon footer-social-link" aria-label="LinkedIn"><span class="brand-icon brand-icon--linkedin" aria-hidden="true"></span></a></li>
+        </ul>
+        <div class="footer-language language-switcher">
+          <span class="language-label" id="footer-language-label" data-ko="언어:">Language:</span>
+          <select class="language-select" data-language-select aria-labelledby="footer-language-label">
+            <option value="ko" lang="ko">한국어</option>
+            <option value="en" lang="en">English</option>
+          </select>
+        </div>
+      </div>
     </div>
   </footer>
 
   <script src="../js/auth.js"></script>
-  <script src="../js/i18n.js?v=20260925-language-auto"></script>
+  <script src="../js/i18n.js?v=20260926-language-menu"></script>
   <script src="../js/theme.js"></script>
   <script src="../js/main.js"></script>
   <script src="../js/preview-modal.js?v=20260925-toolbar-right"></script>
