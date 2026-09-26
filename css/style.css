@@ -378,7 +378,8 @@ pre code {
 }
 .footer-identity {
   grid-area: 2 / 1;
-  margin-top: 16px;
+  /* Match the 32px link rhythm: 16px + 6px + 10px between row centers. */
+  margin-top: 6px;
 }
 .footer-copyright {
   display: flex;
@@ -418,6 +419,32 @@ pre code {
   line-height: inherit;
 }
 .site-footer .language-select { min-width: 80px; }
+.site-footer .language-switcher--enhanced { width: 128px; }
+.site-footer .language-trigger {
+  min-height: 38px;
+  padding: 8px 10px;
+  gap: 8px;
+  border-radius: 10px;
+  font-size: 13px;
+}
+.site-footer .language-globe,
+.site-footer .language-chevron {
+  flex-basis: 16px;
+  width: 16px;
+  height: 16px;
+}
+.site-footer .language-menu {
+  padding: 6px 0;
+  border-radius: 10px 10px 0 0;
+}
+.site-footer .language-switcher.is-open .language-trigger {
+  border-radius: 0 0 10px 10px;
+}
+.site-footer .language-option {
+  min-height: 38px;
+  padding: 8px 10px;
+  font-size: 13px;
+}
 .footer-controls {
   grid-column: 1 / -1;
   display: flex;
@@ -442,7 +469,7 @@ pre code {
   flex-basis: 40px;
   color: rgb(var(--c-muted));
 }
-.footer-social-link .brand-icon { mask-size: 20px 20px; }
+.footer-social-link .brand-icon { mask-size: 16px 16px; }
 .footer-language { flex-shrink: 0; margin: 0; }
 
 /* ── Typography Classes ── */

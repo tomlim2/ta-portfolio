@@ -1,7 +1,8 @@
 {
   "files": [
-    "index.html", "design/index.html", "resume.html", "resume-viewer.html", "CNAME", ".nojekyll",
+    "index.html", "design/index.html", "frontend/index.html", "resume.html", "resume-viewer.html", "CNAME", ".nojekyll",
     "favicon.gif", "favicon.png", "logo.svg", "logo-invert.svg",
+    "projects/cork-nft.html", "projects/winterest.html", "projects/like.html",
     "projects/npr-shader.html", "projects/character-system.html",
     "projects/civic-innovation.html", "children/tbd/index.html",
     "projects/curiosity.html", "children/concept2017/index.html",
@@ -24,6 +25,7 @@
   ],
   "directories": [
     "css", "js", "assets/icons", "assets/brands",
+    "assets/images/cork-nft", "assets/images/winterest", "assets/images/like",
     "assets/images/npr-shader", "assets/images/character-system",
     "assets/images/profiling", "assets/images/pmx-to-vrm",
     "assets/images/matcap-painter", "assets/images/mmd-player",

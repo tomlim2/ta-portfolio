@@ -23,7 +23,7 @@
 3. **문제·제약:** 해결할 문제를 구체적으로 적는다.
 4. **접근·구현 과정:** 선택과 이유, 근거가 되는 자료를 연결한다.
 5. **결과·한계:** 확인한 사실과 아직 검증하지 못한 부분을 나눈다.
-6. **관련 작업·홈 복귀:** 존재하는 링크를 사용한다.
+6. **관련 작업:** 화살표와 프로젝트명만으로 이전·다음 작업에 연결한다. 본문 하단에는 프로젝트 목록 복귀 링크를 두지 않는다.
 
 이 순서는 출발점이다. 필요한 하위 사례·비교 표·영상·갤러리를 넣되, 동일한 설명을 여러 섹션에서 반복하지 않는다. 현재 [Office of Civic Innovation](../projects/civic-innovation.html)은 브랜드 아이덴티티·응용 디자인, [Shotloom](../projects/shotloom.html)은 역할·단계·서비스 연동 설명, [NPR](../projects/npr-shader.html)은 시각 비교, [Profiling](../projects/profiling.html)은 조건과 수치 정리의 참고 사례다.
 
@@ -53,8 +53,8 @@ mkdir -p assets/images/project-slug
 - `[REPLACE]`로 표시한 한국어·영어 본문과 표 값.
 - 샘플 MMD 이미지·캡션·대체텍스트·뷰어 레이블. 샘플은 레이아웃 확인용이며 새 작업의 결과가 아니다.
 - 관련 프로젝트 링크 또는 필요 없는 항목.
-- 로고·내비·하단 홈 복귀 링크: TA 상세는 `../index.html`, 디자인 상세는 `../design/index.html`. 템플릿의 기본값은 TA 홈이므로 디자인 작업을 이식할 때 함께 교체한다.
-- 푸터는 메인과 동일한 전체 링크·1400px 최대 너비·여백을 유지한다. 상단 구분선은 `.footer-layout::before`로 그리며 좌우 24px 안쪽에 배치하고 첫 링크까지 위 패딩은 26.5px, 저작권 아래부터 하단 구분선까지는 32px로 둔다. 첫 링크의 클릭 영역·글자 여백 차이 5.5px를 보정해 실제 글자와 구분선 사이의 간격을 같게 맞춘 값이다. 링크는 테두리·패딩 없이 내부 왼쪽 정렬한다. 이메일·이력서·GitHub·LinkedIn·언어 선택을 생략하지 않는다. 모든 화면 크기에서 동일하게 이름 표기 없이 상단의 왼쪽 정렬 연락 링크, 그 아래 저작권 행과 가로 구분선 아래 양끝에 배치하고 세로 중심을 맞춘 소셜 아이콘·언어 버튼 행으로 나누므로 `.footer-identity`, `.footer-controls`, `.footer-social-links`도 유지한다. TA 상세의 마지막 링크는 `../design/index.html`(디자이너 포트폴리오), 디자인 상세는 `../index.html`(TA 포트폴리오)이다. 이력서 모달 CSS·JS와 `download,close` 아이콘도 유지한다.
+- 로고·상단 내비 링크: TA 상세는 `../index.html`, 디자인 상세는 `../design/index.html`, 프론트엔드 상세는 `../frontend/index.html`. 템플릿의 기본값은 TA 홈이므로 디자인 작업을 이식할 때 함께 교체한다. 본문 하단에는 목록 복귀 링크 없이 관련 프로젝트만 연결한다.
+- 푸터는 메인과 동일한 전체 링크·1400px 최대 너비·여백을 유지한다. 상단 구분선은 `.footer-layout::before`로 그리며 좌우 24px 안쪽에 배치하고 첫 링크까지 위 패딩은 26.5px, 저작권 아래부터 하단 구분선까지는 32px로 둔다. 첫 링크의 클릭 영역·글자 여백 차이 5.5px를 보정해 실제 글자와 구분선 사이의 간격을 같게 맞춘 값이다. 링크는 테두리·패딩 없이 내부 왼쪽 정렬한다. 이메일·이력서·GitHub·LinkedIn·언어 선택을 생략하지 않는다. 모든 화면 크기에서 동일하게 이름 표기 없이 상단의 왼쪽 정렬 연락 링크, 그 아래 저작권 행과 가로 구분선 아래 양끝에 배치하고 세로 중심을 맞춘 소셜 아이콘·언어 버튼 행으로 나누므로 `.footer-identity`, `.footer-controls`, `.footer-social-links`도 유지한다. 현재 분야를 제외한 나머지 두 포트폴리오로 전환 링크를 제공한다. TA는 디자이너·프론트엔드, 디자이너는 TA·프론트엔드, 프론트엔드는 TA·디자이너로 연결한다. 이력서 모달 CSS·JS와 `download,close` 아이콘도 유지한다.
 - 내부 템플릿 안내 배너와 `noindex` 메타. 초안 단계에서는 유지한다.
 
 한국어는 `data-ko`, 영어는 요소 본문을 함께 수정한다. 푸터의 지구본·현재 언어 버튼과 위로 열리는 메뉴를 유지한다. 공통 `js/i18n.js`가 `.language-switcher` 안의 네이티브 select를 확장하므로 템플릿의 div·라벨·select 구조를 유지한다. 처음에는 시스템 언어에 맞는 한국어·English가 선택되며, 직접 선택한 언어는 페이지 이동·재방문에도 저장된다. 번역 대상 요소 안에 이미지 뷰어 링크나 버튼을 넣지 않는다. 역할·기간·상태 같은 고유 정보는 두 언어에서 같은 사실을 말해야 한다.
@@ -63,7 +63,7 @@ mkdir -p assets/images/project-slug
 
 1. [Component Library](../component-library.html)에서 필요한 패턴의 사용 상황과 실제 예시를 확인한다.
 2. 「HTML 코드」를 펼쳐 복사한다. 자동 복사가 제한되면 선택된 코드를 Ctrl+C / ⌘C로 복사한다.
-3. 본문·패널·표 코드는 상세의 해당 섹션에, 미디어 코드는 `projects/` 기준 경로로 붙인다. 홈 카드 코드는 TA 작업이면 `index.html`, 디자인 작업이면 `design/index.html`에 넣는다. 디자인 홈에서는 로컬 이미지·상세 링크에 `../`를 붙인다.
+3. 본문·패널·표 코드는 상세의 해당 섹션에, 미디어 코드는 `projects/` 기준 경로로 붙인다. 홈 카드 코드는 TA 작업이면 `index.html`, 디자인 작업이면 `design/index.html`, 프론트엔드 작업이면 `frontend/index.html`에 넣는다. 디자인·프론트엔드 홈에서는 로컬 이미지·상세 링크에 `../`를 붙인다.
 4. `[REPLACE]`, `project-slug`, 한·영 문구, alt·aria-label, 샘플 수치와 경로를 교체한다. 정적 이미지에는 실제 width/height를 추가한다.
 5. 이미지 뷰어는 템플릿의 CSS/JS를 유지한다. 내부 문서의 `cl-*` 클래스나 `docs/component-library.*`는 새 프로젝트에 복사하지 않는다.
 6. 이미지 링크·영상·코드가 있는 컨테이너 전체를 번역 대상으로 지정하지 않았는지 확인한다.
@@ -87,7 +87,7 @@ mkdir -p assets/images/project-slug
 
 ## 5. 홈 연결과 공개 목록
 
-1. 적절한 홈과 분류를 정하고 TA 작업은 `index.html`, 디자인 작업은 `design/index.html`에 공통 `.project-card` 카드로 연결한다. 기존 주요 프로젝트 순서를 바꾸려면 콘텐츠 구성을 함께 검토한다.
+1. 적절한 홈과 분류를 정하고 TA 작업은 `index.html`, 디자인 작업은 `design/index.html`, 프론트엔드 작업은 `frontend/index.html`에 공통 `.project-card` 카드로 연결한다. 기존 주요 프로젝트 순서를 바꾸려면 콘텐츠 구성을 함께 검토한다.
 2. `site-public.json`의 `files`에 `projects/project-slug.html`을 추가한다.
 3. `directories`에 `assets/images/project-slug`를 추가한다. 이 디렉터리의 파일은 공개 번들에 들어가므로 초안은 따로 보관한다.
 4. [map.md](../map.md)에 핵심 메시지와 관련 수정 위치를 기록한다.
@@ -115,3 +115,5 @@ python3 -m http.server 8780 --bind 127.0.0.1 --directory _site
 프로젝트 하나씩 커밋해 이식 단위를 분리한다. 배포는 README의 절차와 사용자의 배포 요청을 따른다.
 
 SNS 링크에는 일반 기호 대신 `assets/brands/`의 실제 SVG 로고와 `.brand-icon`을 사용한다. [SNS·커서 규칙](style-guide.md#sns-아이콘--브랜드-svg)에 따라 이동 링크와 버튼은 기본 손 모양을 사용한다. 이미지 클릭은 확대하지 않은 미리보기만 연다. 래스터 이미지는 큰 이미지만 축소하고, 확대해도 원본 크기의 100%를 넘지 않는다. SVG는 비율을 유지해 미리보기 영역에 맞추고, 별도 확대 시 그 표시 크기의 150%로 보여준다. 이미지 클릭·터치 확대는 누른 지점을 기준으로, 툴바 버튼·키보드 확대는 중앙을 기준으로 한다. 본문의 이미지 미리보기 링크는 `pointer`를 사용한다. 미리보기 안에서만 확대 가능한 이미지에는 `zoom-in`, 확대된 이미지에는 `zoom-out` 커서를 사용한다. 래스터 이미지가 화면 맞춤 상태에서 이미 원본 크기라면 기본 화살표로 표시하고 확대 버튼·이미지 클릭 확대를 비활성화한다. 이력서 미리보기는 `data-resume-viewer` 링크와 공통 preview-modal CSS/JS와 `css/resume-viewer.css` · `js/resume-viewer.js`로 모달을 열고(`href`는 `../resume-viewer.html` 폴백, Google Fonts에 `article_person,close,download` 포함), 파일명은 왼쪽 정렬하고 오른쪽에는 다운로드·닫기를 순서대로 둔다. 파일 저장에는 `download`를 유지하며 이력서 미리보기 상단의 다운로드 버튼은 기본 손 모양 커서를 사용한다.
+
+프론트엔드 상세는 로고·상단 내비 링크를 `../frontend/index.html`로 설정하며 푸터에는 TA·디자이너 포트폴리오를 제공한다. [프론트엔드 이식 기록](frontend-portfolio-migration.md)을 참고한다. 기존 TA·디자인 페이지는 공통 푸터에 프론트엔드 전환 링크도 유지한다.

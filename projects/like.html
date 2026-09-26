@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LIKE — Younsoo Lim</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Noto+Rashi+Hebrew:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Keep icon_names alphabetically sorted; add new symbols when this page uses them. -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..24,300,0,0&amp;icon_names=arrow_back,arrow_forward,article_person,close,download,expand_more,link_2,menu,zoom_in,zoom_out&amp;display=block" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg: 'rgb(var(--c-bg) / <alpha-value>)',
+            surface: 'rgb(var(--c-surface) / <alpha-value>)',
+            border: 'rgb(var(--c-border) / <alpha-value>)',
+            muted: 'rgb(var(--c-muted) / <alpha-value>)',
+            accent: 'rgb(var(--c-accent) / <alpha-value>)',
+            heading: 'rgb(var(--c-heading) / <alpha-value>)',
+            body: 'rgb(var(--c-body) / <alpha-value>)',
+          },
+          fontSize: {
+            sm: '0.9375rem',
+          },
+          fontFamily: {
+            sans: ['Noto Sans KR', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <link rel="icon" href="../favicon.gif" type="image/gif">
+  <meta name="description" content="LIKE: Product options, cart state, and a connected purchase flow.">
+  <link rel="stylesheet" href="../css/style.css?v=20260926-footer-compact-controls">
+  <link rel="stylesheet" href="../css/preview-modal.css?v=20260926-compact-toolbar">
+  <link rel="stylesheet" href="../css/resume-viewer.css?v=20260925-toolbar-right">
+  <link rel="stylesheet" href="../css/image-viewer.css?v=20260926-no-caption">
+</head>
+<body class="bg-bg text-body">
+  <a href="#project-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:bg-heading focus:text-bg focus:px-4 focus:py-2 focus:z-[60]">Skip to content</a>
+
+  <nav class="fixed top-0 w-full z-50 bg-bg/80 backdrop-blur-md">
+    <div class="max-w-[1400px] mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="../frontend/index.html" class="nav-logo">Younsoo Lim</a>
+      <div class="nav-links hidden md:flex gap-8 text-sm text-body ml-auto">
+        <a href="../frontend/index.html#projects" class="hover:text-heading transition">Projects</a>
+        <a href="../frontend/index.html#about" class="hover:text-heading transition">About</a>
+      </div>
+      <div class="flex items-center gap-3">
+        <button id="hamburger-btn" type="button" class="btn btn--ghost btn--icon mobile-menu-toggle" aria-label="Toggle menu">
+        <span class="material-symbols-outlined icon-sm" aria-hidden="true">menu</span>
+      </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="md:hidden hidden border-t border-border bg-bg/95 backdrop-blur-md">
+      <div class="flex flex-col px-6 py-4 gap-4 text-sm text-body">
+        <a href="../frontend/index.html#projects" class="hover:text-heading transition">Projects</a>
+        <a href="../frontend/index.html#about" class="hover:text-heading transition">About</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="project-content" class="max-w-4xl mx-auto px-6 pt-16 pb-24">
+<figure class="mb-8 last:mb-0">
+  <a href="../assets/images/like/hero.webp" data-image-viewer data-preview-title="LIKE · Product catalog" data-preview-title-ko="LIKE · 상품 목록" class="block" aria-label="Preview: LIKE · Product catalog">
+    <img src="../assets/images/like/hero.webp" alt="LIKE · Product catalog" width="1280" height="685" class="w-full h-auto" fetchpriority="high" decoding="async">
+  </a>
+  <figcaption class="text-xs text-muted mt-2 text-center" data-ko="LIKE · 상품 목록">LIKE · Product catalog</figcaption>
+</figure>
+<div class="flex items-center gap-1">
+<h1 class="page-title">LIKE</h1>
+<a href="https://github.com/tomlim2/project-LIKE" target="_blank" rel="noopener" class="btn btn--ghost btn--icon" aria-label="LIKE GitHub repository (opens in a new tab)" data-tip="GitHub"><span class="material-symbols-outlined icon-sm" aria-hidden="true">link_2</span></a>
+</div>
+<p class="text-body mb-6 page-subtitle" data-ko="상품 옵션·장바구니·구매 흐름을 연결한 이커머스">Product options, cart state, and a connected purchase flow</p>
+<p class="text-xs text-muted mb-12" data-ko="팀 프로젝트 · 2주 · 프론트엔드 3인 + 백엔드 2인">Team project · 2 weeks · 3 frontend + 2 backend developers</p>
+<section id="overview" class="mb-16 scroll-mt-24">
+<h2 class="text-xl font-bold mb-4" data-ko="프로젝트 개요와 담당 범위">Overview and role</h2>
+<p class="text-muted text-sm leading-relaxed mb-6" data-ko="LIKE는 Nike의 이커머스 경험을 재현한 2주간의 팀 프로젝트입니다. 프론트엔드 3인·백엔드 2인으로 개발했으며, 내비게이션·상품 상세·리뷰·장바구니와 백엔드에 연결된 구매 흐름을 구현했습니다. 팀에서 프론트엔드와 백엔드를 AWS에 배포했습니다.">LIKE is a two-week team project recreating a Nike-style ecommerce experience with three frontend and two backend developers. I implemented navigation, product details, reviews, cart interfaces, and the purchase flow connected to the backend. The team deployed the frontend and backend on AWS.</p>
+</section><section id="products" class="mb-16 scroll-mt-24">
+<h2 class="text-xl font-bold mb-4" data-ko="데이터 기반 내비게이션과 상품 옵션">Data-driven navigation and product options</h2>
+<p class="text-muted text-sm leading-relaxed mb-6" data-ko="카테고리 데이터로 내비게이션의 메뉴·서브메뉴를 갱신하고, 라우터와 경로 파라미터로 선택한 상품 정보를 표시했습니다. 사이즈를 선택하면 해당 사이즈의 최대 구매 수량이 갱신되도록 구현했습니다.">Navigation menus and submenus reflect category data. Product pages use router path parameters to display the selected product, and update the maximum quantity when a size is chosen.</p><figure class="mb-8 last:mb-0">
+  <a href="../assets/images/like/product-detail.webp" data-image-viewer data-preview-title="Product detail and size selection" data-preview-title-ko="상품 상세와 사이즈 선택" class="block" aria-label="Preview: Product detail and size selection">
+    <img src="../assets/images/like/product-detail.webp" alt="Product detail and size selection" width="2048" height="1123" class="w-full h-auto" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="text-xs text-muted mt-2 text-center" data-ko="상품 상세와 사이즈 선택">Product detail and size selection</figcaption>
+</figure>
+<figure class="mb-8 last:mb-0">
+  <a href="../assets/images/like/navigation-demo.webp" data-image-viewer data-preview-title="Navigation menus" data-preview-title-ko="내비게이션 메뉴" class="block" aria-label="Preview: Navigation menus">
+    <img src="../assets/images/like/navigation-demo.webp" alt="Navigation menus" width="800" height="429" class="w-full h-auto" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="text-xs text-muted mt-2 text-center" data-ko="내비게이션 메뉴">Navigation menus</figcaption>
+</figure>
+<figure class="mb-8 last:mb-0">
+  <a href="../assets/images/like/detail-demo.webp" data-image-viewer data-preview-title="Product detail interaction" data-preview-title-ko="상품 상세 동작" class="block" aria-label="Preview: Product detail interaction">
+    <img src="../assets/images/like/detail-demo.webp" alt="Product detail interaction" width="800" height="420" class="w-full h-auto" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="text-xs text-muted mt-2 text-center" data-ko="상품 상세 동작">Product detail interaction</figcaption>
+</figure>
+<figure class="mb-8 last:mb-0">
+  <a href="../assets/images/like/quantity-demo.webp" data-image-viewer data-preview-title="Size and quantity selection" data-preview-title-ko="사이즈와 수량 선택" class="block" aria-label="Preview: Size and quantity selection">
+    <img src="../assets/images/like/quantity-demo.webp" alt="Size and quantity selection" width="800" height="450" class="w-full h-auto" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="text-xs text-muted mt-2 text-center" data-ko="사이즈와 수량 선택">Size and quantity selection</figcaption>
+</figure>
+<figure class="mb-8 last:mb-0">
+  <a href="../assets/images/like/reviews-demo.webp" data-image-viewer data-preview-title="Review accordion" data-preview-title-ko="리뷰 아코디언" class="block" aria-label="Preview: Review accordion">
+    <img src="../assets/images/like/reviews-demo.webp" alt="Review accordion" width="800" height="420" class="w-full h-auto" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="text-xs text-muted mt-2 text-center" data-ko="리뷰 아코디언">Review accordion</figcaption>
+</figure>
+<p class="text-muted text-sm leading-relaxed mb-6" data-ko="상품 상세 페이지에서는 리뷰 목록과 별점을 표시하고, 아코디언으로 리뷰를 펼쳐 확인하도록 구성했습니다.">The product detail page also displays review lists and star ratings through an expandable review interface.</p>
+</section><section id="purchase" class="mb-16 scroll-mt-24">
+<h2 class="text-xl font-bold mb-4" data-ko="미니 장바구니부터 주문 내역까지">From mini cart to order history</h2>
+<p class="text-muted text-sm leading-relaxed mb-6" data-ko="GET·POST·DELETE 요청으로 백엔드와 통신하며 미니 장바구니, 장바구니 페이지, 주문 내역과 구매 흐름을 구현했습니다.">I connected the mini cart, shopping cart, order history, and purchase flow to backend endpoints using GET, POST, and DELETE requests.</p>
+<figure class="mb-8 last:mb-0">
+  <a href="../assets/images/like/mini-cart.webp" data-image-viewer data-preview-title="Mini cart" data-preview-title-ko="미니 장바구니" class="block" aria-label="Preview: Mini cart">
+    <img src="../assets/images/like/mini-cart.webp" alt="Mini cart" width="2048" height="1161" class="w-full h-auto" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="text-xs text-muted mt-2 text-center" data-ko="미니 장바구니">Mini cart</figcaption>
+</figure>
+<figure class="mb-8 last:mb-0">
+  <a href="../assets/images/like/cart.webp" data-image-viewer data-preview-title="Shopping cart" data-preview-title-ko="장바구니" class="block" aria-label="Preview: Shopping cart">
+    <img src="../assets/images/like/cart.webp" alt="Shopping cart" width="2048" height="1161" class="w-full h-auto" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="text-xs text-muted mt-2 text-center" data-ko="장바구니">Shopping cart</figcaption>
+</figure>
+<figure class="mb-8 last:mb-0">
+  <a href="../assets/images/like/orders.webp" data-image-viewer data-preview-title="Order history" data-preview-title-ko="주문 내역" class="block" aria-label="Preview: Order history">
+    <img src="../assets/images/like/orders.webp" alt="Order history" width="2048" height="1161" class="w-full h-auto" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="text-xs text-muted mt-2 text-center" data-ko="주문 내역">Order history</figcaption>
+</figure>
+<figure class="mb-8 last:mb-0">
+  <a href="../assets/images/like/mini-cart-demo.webp" data-image-viewer data-preview-title="Mini cart interaction" data-preview-title-ko="미니 장바구니 동작" class="block" aria-label="Preview: Mini cart interaction">
+    <img src="../assets/images/like/mini-cart-demo.webp" alt="Mini cart interaction" width="800" height="420" class="w-full h-auto" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="text-xs text-muted mt-2 text-center" data-ko="미니 장바구니 동작">Mini cart interaction</figcaption>
+</figure>
+<figure class="mb-8 last:mb-0">
+  <a href="../assets/images/like/cart-demo.webp" data-image-viewer data-preview-title="Cart interaction" data-preview-title-ko="장바구니 동작" class="block" aria-label="Preview: Cart interaction">
+    <img src="../assets/images/like/cart-demo.webp" alt="Cart interaction" width="800" height="450" class="w-full h-auto" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="text-xs text-muted mt-2 text-center" data-ko="장바구니 동작">Cart interaction</figcaption>
+</figure>
+<figure class="mb-8 last:mb-0">
+  <a href="../assets/images/like/orders-demo.webp" data-image-viewer data-preview-title="Order history interaction" data-preview-title-ko="주문 내역 동작" class="block" aria-label="Preview: Order history interaction">
+    <img src="../assets/images/like/orders-demo.webp" alt="Order history interaction" width="800" height="420" class="w-full h-auto" loading="lazy" decoding="async">
+  </a>
+  <figcaption class="text-xs text-muted mt-2 text-center" data-ko="주문 내역 동작">Order history interaction</figcaption>
+</figure>
+
+</section><section id="demo" class="mb-16 scroll-mt-24">
+<div class="flex items-center gap-1 mb-4">
+<h2 class="text-xl font-bold min-w-0" data-ko="프로젝트 시연">Project demo</h2>
+<a href="https://www.youtube.com/watch?v=RPRh9mO4mkc" target="_blank" rel="noopener" class="btn btn--ghost btn--icon" aria-label="LIKE demo on YouTube (opens in a new tab)" data-tip="YouTube"><span class="material-symbols-outlined icon-sm" aria-hidden="true">link_2</span></a>
+</div>
+</section><section id="stack" class="mb-16 scroll-mt-24">
+<h2 class="text-xl font-bold mb-4" data-ko="사용 기술과 협업 도구">Tools and technologies</h2>
+<p class="text-muted text-sm leading-relaxed mb-6" data-ko="React · JavaScript · Sass · HTML5 · AWS S3">React · JavaScript · Sass · HTML5 · AWS S3</p><p class="text-muted text-sm leading-relaxed mb-6" data-ko="Git · GitHub · Slack · Trello · Postman">Git · GitHub · Slack · Trello · Postman</p>
+</section>
+</main>
+  <footer class="site-footer py-8 text-muted text-xs">
+    <div class="footer-layout max-w-[1400px] mx-auto px-6">
+      <div class="footer-identity">
+        <span class="footer-copyright">&copy; 2026 Younsoo Lim</span>
+      </div>
+      <ul class="footer-links">
+        <li class="footer-item">
+          <a href="mailto:tomandlim@gmail.com" class="btn btn--ghost footer-link"><span>tomandlim@gmail.com</span></a>
+        </li>
+        <li class="footer-item">
+          <a href="../resume-viewer.html" data-resume-viewer class="btn btn--ghost footer-link"><span data-ko="이력서">Resume</span></a>
+        </li>
+        <li class="footer-item footer-item--social">
+          <a href="https://github.com/tomlim2" target="_blank" rel="noopener" class="btn btn--ghost footer-link"><span data-ko="깃허브">GitHub</span></a>
+        </li>
+        <li class="footer-item footer-item--social">
+          <a href="https://www.linkedin.com/in/tommlimm/" target="_blank" rel="noopener" class="btn btn--ghost footer-link"><span data-ko="링크드인">LinkedIn</span></a>
+        </li>
+        <li class="footer-item">
+          <a href="../index.html" class="btn btn--ghost footer-link"><span data-ko="TA 포트폴리오">TA portfolio</span></a>
+        </li>
+        <li class="footer-item"><a href="../design/index.html" class="btn btn--ghost footer-link"><span data-ko="디자이너 포트폴리오">Designer portfolio</span></a></li>
+      </ul>
+      <div class="footer-controls">
+        <ul class="footer-social-links" aria-label="Social links">
+          <li><a href="https://github.com/tomlim2" target="_blank" rel="noopener" class="btn btn--ghost btn--icon footer-social-link" aria-label="GitHub"><span class="brand-icon brand-icon--github" aria-hidden="true"></span></a></li>
+          <li><a href="https://www.linkedin.com/in/tommlimm/" target="_blank" rel="noopener" class="btn btn--ghost btn--icon footer-social-link" aria-label="LinkedIn"><span class="brand-icon brand-icon--linkedin" aria-hidden="true"></span></a></li>
+        </ul>
+        <div class="footer-language language-switcher">
+          <span class="language-label" id="footer-language-label" data-ko="언어:">Language:</span>
+          <select class="language-select" data-language-select aria-labelledby="footer-language-label">
+            <option value="ko" lang="ko">한국어</option>
+            <option value="en" lang="en">English</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="../js/main.js"></script>
+  <script src="../js/i18n.js?v=20260926-language-menu"></script>
+  <script src="../js/theme.js"></script>
+  <script src="../js/preview-modal.js?v=20260925-toolbar-right"></script>
+  <script src="../js/resume-viewer.js?v=20260925-filename"></script>
+  <script src="../js/image-viewer.js?v=20260926-click-zoom"></script>
+</body>
+</html>

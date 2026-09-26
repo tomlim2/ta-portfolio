@@ -36,7 +36,7 @@
   <link rel="icon" href="../favicon.gif" type="image/gif">
   <meta name="description" content="[REPLACE] One sentence describing this project and your role.">
   <meta name="robots" content="noindex">
-  <link rel="stylesheet" href="../css/style.css?v=20260926-footer-optical-spacing">
+  <link rel="stylesheet" href="../css/style.css?v=20260926-footer-compact-controls">
   <link rel="stylesheet" href="../css/preview-modal.css?v=20260926-compact-toolbar">
   <link rel="stylesheet" href="../css/resume-viewer.css?v=20260925-toolbar-right">
   <link rel="stylesheet" href="../css/image-viewer.css?v=20260926-no-caption">
@@ -120,9 +120,8 @@
     </section>
 
     <nav aria-label="Related work" class="border-t border-border pt-8 flex flex-wrap justify-between gap-4 text-sm">
-      <a href="../index.html#projects" class="icon-label text-muted hover:text-heading"><span class="material-symbols-outlined icon-sm" aria-hidden="true">arrow_back</span> <span data-ko="프로젝트 목록">All projects</span></a>
-      <!-- Replace this reference link with relevant work, or remove it. -->
-      <a href="mmd-player.html" class="icon-label text-muted hover:text-heading"><span data-ko="템플릿 샘플 출처: MMD Player">Template sample source: MMD Player</span> <span class="material-symbols-outlined icon-sm" aria-hidden="true">arrow_forward</span></a>
+      <!-- Use only project names and direction arrows. Add an optional previous link with arrow_back and rel="prev"; remove this nav if there are no related projects. -->
+      <a href="mmd-player.html" rel="next" class="icon-label ml-auto text-muted hover:text-heading"><span>MMD Player</span> <span class="material-symbols-outlined icon-sm" aria-hidden="true">arrow_forward</span></a>
     </nav>
   </main>
 
@@ -147,6 +146,7 @@
         <li class="footer-item">
           <a href="../design/index.html" class="btn btn--ghost footer-link"><span data-ko="디자이너 포트폴리오">Designer portfolio</span></a>
         </li>
+        <li class="footer-item"><a href="../frontend/index.html" class="btn btn--ghost footer-link"><span data-ko="프론트엔드 포트폴리오">Frontend portfolio</span></a></li>
       </ul>
       <div class="footer-controls">
         <ul class="footer-social-links" aria-label="Social links">
