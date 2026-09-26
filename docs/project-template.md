@@ -25,7 +25,7 @@
 5. **결과·한계:** 확인한 사실과 아직 검증하지 못한 부분을 나눈다.
 6. **관련 작업·홈 복귀:** 존재하는 링크를 사용한다.
 
-이 순서는 출발점이다. 필요한 하위 사례·비교 표·영상·갤러리를 넣되, 동일한 설명을 여러 섹션에서 반복하지 않는다. 현재 [Shotloom](../projects/shotloom.html)은 역할·단계·서비스 연동 설명, [NPR](../projects/npr-shader.html)은 시각 비교, [Profiling](../projects/profiling.html)은 조건과 수치 정리의 참고 사례다.
+이 순서는 출발점이다. 필요한 하위 사례·비교 표·영상·갤러리를 넣되, 동일한 설명을 여러 섹션에서 반복하지 않는다. 현재 [Office of Civic Innovation](../projects/civic-innovation.html)은 브랜드 아이덴티티·응용 디자인, [Shotloom](../projects/shotloom.html)은 역할·단계·서비스 연동 설명, [NPR](../projects/npr-shader.html)은 시각 비교, [Profiling](../projects/profiling.html)은 조건과 수치 정리의 참고 사례다.
 
 ### 작업 성격별 구성 예시
 
@@ -53,6 +53,7 @@ mkdir -p assets/images/project-slug
 - `[REPLACE]`로 표시한 한국어·영어 본문과 표 값.
 - 샘플 MMD 이미지·캡션·대체텍스트·뷰어 레이블. 샘플은 레이아웃 확인용이며 새 작업의 결과가 아니다.
 - 관련 프로젝트 링크 또는 필요 없는 항목.
+- 로고·내비·하단 홈 복귀 링크: TA 상세는 `../index.html`, 디자인 상세는 `../design/index.html`. 템플릿의 기본값은 TA 홈이므로 디자인 작업을 이식할 때 함께 교체한다.
 - 내부 템플릿 안내 배너와 `noindex` 메타. 초안 단계에서는 유지한다.
 
 한국어는 `data-ko`, 영어는 요소 본문을 함께 수정한다. 푸터의 `언어:` / `Language:` 드롭다운과 공통 `js/i18n.js`를 유지한다. 처음에는 시스템 언어에 맞는 한국어·English가 선택되며, 직접 선택한 언어는 페이지 이동·재방문에도 저장된다. 번역 대상 요소 안에 이미지 뷰어 링크나 버튼을 넣지 않는다. 역할·기간·상태 같은 고유 정보는 두 언어에서 같은 사실을 말해야 한다.
@@ -61,7 +62,7 @@ mkdir -p assets/images/project-slug
 
 1. [Component Library](../component-library.html)에서 필요한 패턴의 사용 상황과 실제 예시를 확인한다.
 2. 「HTML 코드」를 펼쳐 복사한다. 자동 복사가 제한되면 선택된 코드를 Ctrl+C / ⌘C로 복사한다.
-3. 본문·패널·표 코드는 상세의 해당 섹션에, 미디어 코드는 `projects/` 기준 경로로 붙인다. 홈 카드 코드는 `index.html`에 넣는다.
+3. 본문·패널·표 코드는 상세의 해당 섹션에, 미디어 코드는 `projects/` 기준 경로로 붙인다. 홈 카드 코드는 TA 작업이면 `index.html`, 디자인 작업이면 `design/index.html`에 넣는다. 디자인 홈에서는 로컬 이미지·상세 링크에 `../`를 붙인다.
 4. `[REPLACE]`, `project-slug`, 한·영 문구, alt·aria-label, 샘플 수치와 경로를 교체한다. 정적 이미지에는 실제 width/height를 추가한다.
 5. 이미지 뷰어는 템플릿의 CSS/JS를 유지한다. 내부 문서의 `cl-*` 클래스나 `docs/component-library.*`는 새 프로젝트에 복사하지 않는다.
 6. 이미지 링크·영상·코드가 있는 컨테이너 전체를 번역 대상으로 지정하지 않았는지 확인한다.
@@ -75,7 +76,7 @@ mkdir -p assets/images/project-slug
 - 대표 결과는 문맥을 이해할 수 있는 이미지·영상 하나부터 시작한다.
 - 캡처 속 UI·노드 텍스트가 잘리지 않도록 상세 이미지는 원본 비율을 유지한다.
 - 모든 별도 미리보기는 [공통 모달 규칙](style-guide.md#모든-미리보기는-모달)을 따른다. 왼쪽 콘텐츠 이름 · 오른쪽 액션 묶음 · 맨 오른쪽 닫기을 유지한다.
-- 사진·도표는 `figure > a[data-image-viewer] > img`와 `figcaption`을 사용한다. 템플릿에 포함된 preview-modal CSS/JS → image-viewer CSS/JS 로드 순서를 유지한다. 짧은 제목이 필요하면 `data-preview-title` · `data-preview-title-ko`를 지정한다.
+- 사진·도표는 `figure > a[data-image-viewer] > img`와 `figcaption`을 사용한다. 캡션은 본문에만 표시하며 미리보기 모달에는 복제하지 않는다. 템플릿에 포함된 preview-modal CSS/JS → image-viewer CSS/JS 로드 순서를 유지한다. 짧은 제목이 필요하면 `data-preview-title` · `data-preview-title-ko`를 지정한다.
 - 아래쪽 정적 이미지는 실제 크기와 lazy loading을 적용한다. 큰 GIF·영상은 이식 시 용량과 재생 방식을 함께 검토한다.
 - 영상 기본 예시: `<video controls playsinline preload="metadata" class="w-full h-auto" src="../assets/images/project-slug/demo.mp4"></video>`.
 - Before/After는 같은 조건의 비교인지 밝힌다. 측정 표에는 단위·환경·측정 범위를 캡션이나 본문에 둔다.
@@ -85,11 +86,13 @@ mkdir -p assets/images/project-slug
 
 ## 5. 홈 연결과 공개 목록
 
-1. 적절한 분류를 정하고 `index.html`에 현재 `.project-card` 카드로 연결한다. 기존 주요 프로젝트 순서를 바꾸려면 콘텐츠 구성을 함께 검토한다.
+1. 적절한 홈과 분류를 정하고 TA 작업은 `index.html`, 디자인 작업은 `design/index.html`에 공통 `.project-card` 카드로 연결한다. 기존 주요 프로젝트 순서를 바꾸려면 콘텐츠 구성을 함께 검토한다.
 2. `site-public.json`의 `files`에 `projects/project-slug.html`을 추가한다.
 3. `directories`에 `assets/images/project-slug`를 추가한다. 이 디렉터리의 파일은 공개 번들에 들어가므로 초안은 따로 보관한다.
 4. [map.md](../map.md)에 핵심 메시지와 관련 수정 위치를 기록한다.
 5. 기존 URL이 있다면 해당 URL의 리다이렉트 페이지도 공개 목록에 추가한다. 새 페이지와 관련 파일 위치를 [콘텐츠 맵](../map.md)에 반영한다.
+
+디자인 홈의 Office of Civic Innovation은 로컬 상세로, 나머지 5개는 기존 외부 사이트로 연결한다. [디자인 이식 기록](design-portfolio-migration.md)의 원본과 링크를 확인하고, 상세를 옮기는 시점에 해당 카드의 외부 링크를 새 로컬 경로로 교체한다.
 
 `projects/_template.html`, `component-library.html`, 내부 문서는 공개 목록에 추가하지 않는다. 파일을 공개 목록에 추가하는 작업과 운영 배포는 별개다.
 
@@ -104,10 +107,10 @@ python3 -m http.server 8780 --bind 127.0.0.1 --directory _site
 - 빌드의 링크·앵커·제목 검증을 통과한다. `h1`은 하나, 섹션 ID는 고유하다.
 - 390px와 데스크톱에서 가로 넘침, 제목·캡션 잘림, 이미지 왜곡이 없다.
 - 시스템 언어에 맞는 초기 선택, 한국어/English 전환과 새로고침·페이지 이동 후 선택 유지를 확인하고 메뉴·이미지 확대가 작동한다.
-- Tab/Enter로 미리보기 열기, 확대/맞춤, 모달 내 Tab 순환, Esc·바깥 배경 클릭 닫기와 원래 트리거로의 포커스 복귀를 확인한다.
+- Tab/Enter로 미리보기 열기, 확대/맞춤, 모달 내 Tab 순환, 닫기 버튼·Esc와 원래 트리거로의 포커스 복귀를 확인한다.
 - 영상·외부 데모·관련 작업·기존 URL을 실제로 열어 확인한다.
 - 원본 근거와 담당 범위·출시 상태가 일치한다.
 
 프로젝트 하나씩 커밋해 이식 단위를 분리한다. 배포는 README의 절차와 사용자의 배포 요청을 따른다.
 
-SNS 링크에는 일반 기호 대신 `assets/brands/`의 실제 SVG 로고와 `.brand-icon`을 사용한다. [SNS·커서 규칙](style-guide.md#sns-아이콘--브랜드-svg)에 따라 이동 링크와 버튼·이미지 뷰어 동작은 기본 손 모양, 이력서 미리보기는 `data-resume-viewer` 링크와 공통 preview-modal CSS/JS와 `css/resume-viewer.css` · `js/resume-viewer.js`로 모달을 열고(`href`는 `../resume-viewer.html` 폴백, Google Fonts에 `article_person,close,download` 포함), 파일명은 왼쪽 정렬하고 오른쪽에는 다운로드·닫기를 순서대로 둔다. 파일 저장에는 `download`를 유지하며 이력서 미리보기 상단의 다운로드 버튼은 기본 손 모양 커서를 사용한다.
+SNS 링크에는 일반 기호 대신 `assets/brands/`의 실제 SVG 로고와 `.brand-icon`을 사용한다. [SNS·커서 규칙](style-guide.md#sns-아이콘--브랜드-svg)에 따라 이동 링크와 버튼은 기본 손 모양을 사용한다. 이미지 클릭은 확대하지 않은 미리보기만 연다. 래스터 이미지는 큰 이미지만 축소하고, 확대해도 원본 크기의 100%를 넘지 않는다. SVG는 비율을 유지해 미리보기 영역에 맞추고, 별도 확대 시 그 표시 크기의 150%로 보여준다. 이미지 클릭·터치 확대는 누른 지점을 기준으로, 툴바 버튼·키보드 확대는 중앙을 기준으로 한다. 본문의 이미지 미리보기 링크는 `pointer`를 사용한다. 미리보기 안에서만 확대 가능한 이미지에는 `zoom-in`, 확대된 이미지에는 `zoom-out` 커서를 사용한다. 래스터 이미지가 화면 맞춤 상태에서 이미 원본 크기라면 기본 화살표로 표시하고 확대 버튼·이미지 클릭 확대를 비활성화한다. 이력서 미리보기는 `data-resume-viewer` 링크와 공통 preview-modal CSS/JS와 `css/resume-viewer.css` · `js/resume-viewer.js`로 모달을 열고(`href`는 `../resume-viewer.html` 폴백, Google Fonts에 `article_person,close,download` 포함), 파일명은 왼쪽 정렬하고 오른쪽에는 다운로드·닫기를 순서대로 둔다. 파일 저장에는 `download`를 유지하며 이력서 미리보기 상단의 다운로드 버튼은 기본 손 모양 커서를 사용한다.

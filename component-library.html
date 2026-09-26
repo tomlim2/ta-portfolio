@@ -35,9 +35,9 @@
   </script>
   <link rel="icon" href="favicon.png" type="image/png">
   <link rel="stylesheet" href="css/style.css?v=20260926-project-cards">
-  <link rel="stylesheet" href="css/preview-modal.css?v=20260925-toolbar-right">
+  <link rel="stylesheet" href="css/preview-modal.css?v=20260926-viewport80">
   <link rel="stylesheet" href="css/resume-viewer.css?v=20260925-toolbar-right">
-  <link rel="stylesheet" href="css/image-viewer.css?v=20260925-preview-modal">
+  <link rel="stylesheet" href="css/image-viewer.css?v=20260926-no-caption">
   <link rel="stylesheet" href="docs/component-library.css?v=20260925-neutral-actions">
 </head>
 <body class="bg-bg text-body">
@@ -49,13 +49,15 @@
     <header id="overview" tabindex="-1">
     <p class="cl-label" style="margin-bottom:0.5rem">INTERNAL</p>
     <h1 class="page-title" style="margin-bottom:0.75rem;">Component Library</h1>
-    <p class="text-muted text-sm mb-2">현재 구현 기준 · 2026-09-25</p>
-    <p class="text-muted text-sm mb-4">기존 포폴을 옮길 때 사용할 패턴과 기준입니다. 먼저 사용 상황을 고르고, 실제 예시를 확인한 뒤 코드를 복사하세요. 문서의 예시 프레임은 내부 UI입니다.</p>
+    <p class="text-muted text-sm mb-2">현재 체크아웃 기준 · 2026-09-26 · TA + 디자인</p>
+    <p class="text-muted text-sm mb-4">기존 포폴을 옮길 때 사용할 패턴과 기준입니다. 먼저 사용 상황을 고르고, 실제 예시를 확인한 뒤 코드를 복사하세요. 문서의 예시 프레임은 내부 UI입니다. 디자인 홈은 현재 작업 브랜치의 미배포 화면입니다.</p>
     <div class="flex flex-wrap gap-4 text-sm">
       <a href="docs/style-guide.md" class="text-accent hover:underline">스타일 규칙</a>
       <a href="docs/project-template.md" class="text-accent hover:underline">프로젝트 작성 가이드</a>
       <a href="projects/_template.html" class="text-accent hover:underline">상세 템플릿</a>
       <a href="#language-controls" class="text-accent hover:underline">언어·테마 점검</a>
+      <a href="index.html" class="text-accent hover:underline">TA 홈</a>
+      <a href="design/index.html" class="text-accent hover:underline">디자인 홈</a>
     </div>
     </header>
 
@@ -104,10 +106,10 @@
             </tbody>
           </table>
         </div>
-      <p class="cl-note"><code>heading</code>은 <code>body</code>보다 밝습니다. 색만으로 성과·상태를 구분하지 말고 텍스트도 함께 제공합니다.</p>
+      <p class="cl-note">라이트 모드의 <code>heading</code>은 <code>body</code>보다 밝습니다. 색만으로 성과·상태를 구분하지 말고 텍스트도 함께 제공합니다.</p>
       <details class="cl-details">
         <summary class="btn btn--ghost btn--disclosure">보조 다크 팔레트 · 내부 점검용</summary>
-        <p class="cl-note">공개 페이지는 라이트로 시작하며 테마 버튼이 없습니다. 아래 팔레트는 공통 CSS의 다크 변수입니다. 전체 화면 점검은 <a href="#language-controls">테마 미리보기</a>에서 합니다.</p>
+        <p class="cl-note">공개 페이지는 시스템의 라이트·다크 설정을 따르며 테마 버튼이 없습니다. 아래 팔레트는 공통 CSS의 다크 변수입니다. 전체 화면 점검은 <a href="#language-controls">테마 미리보기</a>에서 합니다.</p>
         <div class="overflow-x-auto cl-palette" data-theme="dark">
           <table class="cl-reference-table">
             <caption class="sr-only">보조 다크 색상 토큰과 용도</caption>
@@ -141,11 +143,11 @@
         </select>
       </label>
       <div class="cl-type-row">
-        <div class="cl-type-name"><strong>홈 직무</strong><code>.hero-tagline</code></div>
+        <div class="cl-type-name"><strong>TA 홈 직무</strong><code>.hero-tagline</code></div>
         <div class="cl-type-example"><p id="type-sample-0" class="hero-tagline text-body" data-ko="테크니컬 아티스트">Technical Artist</p><p class="cl-type-spec" data-type-for="type-sample-0">CSS 값 읽는 중</p></div>
       </div>
       <div class="cl-type-row">
-        <div class="cl-type-name"><strong>홈 설명</strong><code>.hero-summary</code></div>
+        <div class="cl-type-name"><strong>TA 홈 설명</strong><code>.hero-summary</code></div>
         <div class="cl-type-example"><p id="type-sample-1" class="hero-summary text-body" data-ko="시각적 표현을 위한 기술을 탐색하고, 창작자가 활용하는 도구로 구현합니다.">I explore technologies for visual expression and build tools for creators.</p><p class="cl-type-spec" data-type-for="type-sample-1">CSS 값 읽는 중</p></div>
       </div>
       <div class="cl-type-row">
@@ -367,6 +369,67 @@
 
     <div class="cl-divider"></div>
 
+    <!-- ==================== HOME HEROES ==================== -->
+    <section id="home-heroes" class="cl-section" tabindex="-1">
+      <h2>Home Heroes</h2>
+      <p class="cl-intro">두 홈은 공통 CSS·내비·카드·푸터를 사용합니다. TA는 소개문으로, 디자인은 영상으로 시작합니다. 전체 배치는 아래 실제 페이지에서 확인하고, 코드는 각 홈의 현재 히어로를 기준으로 사용하세요.</p>
+      <div class="overflow-x-auto">
+        <table class="cl-reference-table">
+          <caption class="sr-only">TA 홈과 디자인 홈의 히어로 구성</caption>
+          <thead><tr><th scope="col">홈</th><th scope="col">첫 화면</th><th scope="col">간격·연락처</th></tr></thead>
+          <tbody>
+            <tr><th scope="row"><a href="index.html">TA 홈</a></th><td>직무 h1 → 소개문 → 이메일·이력서</td><td>위 128px · 아래 48px. 연락처는 히어로와 푸터.</td></tr>
+            <tr><th scope="row"><a href="design/index.html#design-reel">디자인 홈</a></th><td>스크린리더용 h1 → 16:9 Vimeo 영상 → 2020 / 원본 링크</td><td>위 96px · 아래 48px. 연락처는 푸터.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="cl-note">디자인 홈에는 보이는 직무 제목·소개문·히어로 액션이 없습니다. 영상은 자동재생하지 않으며 캡션에는 제목 대신 <code>2020</code>을 표시합니다. 연도는 원본 포트폴리오의 표기를 따릅니다. iframe의 설명적인 title과 원본 링크는 유지합니다. <a href="docs/design-portfolio-migration.md">원본·재생 확인 범위</a></p>
+      <details class="cl-source">
+        <summary class="btn btn--ghost btn--disclosure">TA 히어로 · HTML 코드</summary>
+        <div class="cl-source-body">
+          <p class="cl-note">루트 <code>index.html</code> 기준. 공통 스타일·이력서 뷰어 CSS/JS를 함께 사용합니다.</p>
+          <button type="button" class="btn cl-copy" data-copy="code-ta-hero" aria-label="TA 히어로 코드 복사" hidden><span class="material-symbols-outlined icon-sm" aria-hidden="true">content_copy</span> 코드 복사</button>
+          <span class="cl-copy-status" role="status" aria-live="polite"></span>
+          <pre tabindex="0" aria-label="TA 히어로 HTML 코드"><code id="code-ta-hero">&lt;section class="flex flex-col justify-end px-6 pt-32 pb-12 max-w-[1400px] mx-auto"&gt;
+  &lt;div&gt;
+    &lt;h1 class="text-body hero-tagline" data-ko="테크니컬 아티스트"&gt;Technical Artist&lt;/h1&gt;
+    &lt;p class="hero-summary text-body" data-ko="시각적 표현을 위한 기술을 탐색·검증하고, 아티스트들을 위한 도구와 제작 파이프라인을 구현합니다."&gt;I explore and validate technologies for visual expression and build tools and production pipelines for artists.&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class="hero-actions"&gt;
+    &lt;a href="mailto:tomandlim@gmail.com" class="btn btn--ghost"&gt;&lt;span&gt;tomandlim@gmail.com&lt;/span&gt;&lt;/a&gt;
+    &lt;a href="resume-viewer.html" data-resume-viewer class="btn btn--ghost"&gt;&lt;span data-ko="이력서 보기"&gt;View resume&lt;/span&gt;&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+        </div>
+      </details>
+      <details class="cl-source">
+        <summary class="btn btn--ghost btn--disclosure">디자인 히어로 · HTML 코드</summary>
+        <div class="cl-source-body">
+          <p class="cl-note"><code>design/index.html</code> 기준. 페이지의 h1은 하나만 두고 공통 CSS/JS 경로는 <code>../</code>로 시작합니다. 플레이어는 실제 페이지에서 확인합니다.</p>
+          <button type="button" class="btn cl-copy" data-copy="code-design-hero" aria-label="디자인 히어로 코드 복사" hidden><span class="material-symbols-outlined icon-sm" aria-hidden="true">content_copy</span> 코드 복사</button>
+          <span class="cl-copy-status" role="status" aria-live="polite"></span>
+          <pre tabindex="0" aria-label="디자인 히어로 HTML 코드"><code id="code-design-hero">&lt;section class="px-6 pt-24 pb-12 max-w-[1400px] mx-auto"&gt;
+  &lt;h1 class="sr-only" data-ko="디자인 포트폴리오"&gt;Design portfolio&lt;/h1&gt;
+  &lt;figure id="design-reel"&gt;
+    &lt;iframe
+      src="https://player.vimeo.com/video/323372233"
+      title="Younsoo Lim — Design Demo Reel"
+      width="1920" height="1080"
+      class="block w-full aspect-video h-auto border-0 bg-black"
+      allow="fullscreen; picture-in-picture"
+      allowfullscreen&gt;&lt;/iframe&gt;
+    &lt;figcaption class="flex items-center justify-between gap-4 mt-3 text-xs text-muted"&gt;
+      &lt;time datetime="2020"&gt;2020&lt;/time&gt;
+      &lt;a href="https://vimeo.com/323372233" target="_blank" rel="noopener" class="underline underline-offset-4 hover:text-heading transition"&gt;&lt;span data-ko="Vimeo에서 보기"&gt;Watch on Vimeo&lt;/span&gt;&lt;/a&gt;
+    &lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/section&gt;</code></pre>
+        </div>
+      </details>
+    </section>
+
+    <div class="cl-divider"></div>
+
     <!-- ==================== CARDS ==================== -->
     <section id="cards" class="cl-section" tabindex="-1">
       <h2>Cards</h2>
@@ -535,14 +598,14 @@ console.log(`Converted ${result.count} models`);</code></pre>
     <section id="links-cursors" class="cl-section" tabindex="-1">
       <h2>Links &amp; Cursors</h2>
 
-      <p class="cl-label">Hero contact links — text-only Ghost</p>
+      <p class="cl-label">TA hero contact links — text-only Ghost</p>
       <div class="cl-specimen mb-8">
-        <p class="text-sm text-muted" data-ko="소개문 아래에 이메일과 이력서 링크를 배치합니다.">Email and resume links sit below the introduction.</p>
+        <p class="text-sm text-muted" data-ko="TA 홈 소개문 아래에 이메일과 이력서 링크를 배치합니다.">Email and resume links sit below the TA introduction.</p>
         <div class="hero-actions">
           <a href="mailto:tomandlim@gmail.com" class="btn btn--ghost"><span>tomandlim@gmail.com</span></a>
           <a href="resume-viewer.html" data-resume-viewer class="btn btn--ghost"><span data-ko="이력서 보기">View resume</span></a>
         </div>
-        <p class="cl-note">14px / 20px · 최소 높이 44px · 소개와 간격 16px · 링크 사이 24px. 텍스트 시작선을 소개문에 맞추고 좁은 화면에서는 줄바꿈합니다. 이력서는 공통 모달로 열며 GitHub·LinkedIn은 홈 푸터에 둡니다.</p>
+        <p class="cl-note">14px / 20px · 최소 높이 44px · 소개와 간격 16px · 링크 사이 24px. 텍스트 시작선을 소개문에 맞추고 좁은 화면에서는 줄바꿈합니다. 이력서는 공통 모달로 열며 GitHub·LinkedIn은 홈 푸터에 둡니다. 디자인 홈은 히어로 액션 없이 푸터에 연락처·이력서를 둡니다.</p>
       </div>
 
       <p class="cl-label">Link Styles</p>
@@ -584,7 +647,7 @@ console.log(`Converted ${result.count} models`);</code></pre>
         <div class="cl-cursor-example">
           <h3>Action</h3>
           <div class="cl-cursor-asset"><span class="cl-code">System pointer</span></div>
-          <p class="cl-note">메뉴, 언어 전환, 펼치기, 모달, 이미지 확대·축소</p>
+          <p class="cl-note">메뉴, 언어 전환, 펼치기, 모달, 이미지 뷰어 도구 버튼</p>
           <button type="button" class="btn" data-cursor-demo>Try action</button>
         </div>
         <div class="cl-cursor-example">
@@ -596,7 +659,7 @@ console.log(`Converted ${result.count} models`);</code></pre>
       </div>
       <p id="cursor-demo-status" class="cl-note" role="status" aria-live="polite">Try action은 이 메시지만 변경합니다. Download PDF는 이력서 파일을 저장합니다.</p>
       <p class="cl-note">다운로드 커서: 24×24px 흰 원형 배경, 중앙 20px 아이콘, <strong>hotspot 12 12</strong>. 마우스의 실제 클릭 좌표가 이미지 중심에 놓입니다. 일반 링크와 동작은 커스텀 이미지 없이 기본 손 모양을 사용합니다.</p>
-      <p class="cl-note">Resume 열기는 기본 손 모양으로 현재 페이지에서 모달을 엽니다. 상단은 왼쪽 PDF 파일명(Younsoo-Lim-Resume.pdf) · 오른쪽 다운로드 / 닫기 순서이며, 닫기는 항상 맨 오른쪽입니다. 이력서 상단 다운로드 버튼은 download 속성으로 파일을 저장하며 기본 손 모양 커서를 사용합니다. 동작을 하는 예외적인 링크는 data-cursor="action"을 사용합니다. 이미지 뷰어는 활성화 여부에 관계없이 기본 손 모양입니다. JavaScript가 없으면 원본으로 이동하는 링크로 동작합니다. 비활성 버튼은 not-allowed를 유지합니다. 기존 링크·확대·메일·자물쇠·손 흔들기 전용 이미지 커서는 사용하지 않습니다.</p>
+      <p class="cl-note">Resume 열기는 기본 손 모양으로 현재 페이지에서 모달을 엽니다. 상단은 왼쪽 PDF 파일명(Younsoo-Lim-Resume.pdf) · 오른쪽 다운로드 / 닫기 순서이며, 닫기는 항상 맨 오른쪽입니다. 이력서 상단 다운로드 버튼은 download 속성으로 파일을 저장하며 기본 손 모양 커서를 사용합니다. 동작을 하는 예외적인 링크는 data-cursor="action"을 사용합니다. 본문의 이미지 미리보기 링크는 기본 손 모양 pointer입니다. 줌 커서는 미리보기 안에서만 사용하며, 원본보다 작게 표시된 래스터 이미지와 화면 맞춤 SVG는 zoom-in, 확대된 이미지는 zoom-out을 사용합니다. 래스터 이미지가 화면 맞춤 상태에서 이미 원본 크기라면 기본 화살표로 표시하고 확대 버튼과 이미지 클릭 확대를 없앱니다. <a href="#media">Media 예시</a>에서 확대·축소를 확인하세요. JavaScript가 없으면 원본으로 이동하는 링크로 동작합니다. 비활성 버튼은 not-allowed를 유지합니다. 확대·축소에는 별도 이미지 에셋을 쓰지 않습니다. 기존 링크·메일·자물쇠·손 흔들기 전용 이미지 커서는 사용하지 않습니다.</p>
       <details class="cl-source">
         <summary class="btn btn--ghost btn--disclosure">SNS SVG·커서 · HTML 코드</summary>
         <div class="cl-source-body">
@@ -667,7 +730,7 @@ console.log(`Converted ${result.count} models`);</code></pre>
       </div>
       <p class="cl-note">Resume은 이력서 모달을 열고, GitHub는 새 탭으로 엽니다. 이력서는 모달 오른쪽 위 다운로드 아이콘으로 저장합니다. 툴팁 표시만 확인할 때는 hover 또는 Tab을 사용하세요.</p>
 
-      <p class="cl-note">이력서 모달: 600px 이하에서는 전체 화면, 데스크톱에서는 최대 960px · 바깥 여백 24px. 파일명은 왼쪽 정렬하며 오른쪽에는 44px Ghost 다운로드·닫기 버튼을 순서대로 둡니다. 닫기는 항상 맨 오른쪽입니다. 문서만 스크롤되며 상단은 유지됩니다. 닫기·배경 클릭·Esc로 종료하고 Resume 트리거로 포커스를 돌려줍니다.</p>
+      <p class="cl-note">이력서 모달: 데스크톱·모바일 모두 화면 가로·세로의 80% 크기로 중앙 정렬합니다. 테두리·모서리 반경은 없습니다. 파일명은 왼쪽 정렬하며 오른쪽에는 44px Ghost 다운로드·닫기 버튼을 순서대로 둡니다. 닫기는 항상 맨 오른쪽입니다. 문서만 스크롤되며 상단은 유지됩니다. 닫기·바깥 배경 클릭·Esc로 종료하고 Resume 트리거로 포커스를 돌려줍니다.</p>
 
       <p class="cl-label">Visual specification · current implementation</p>
       <div class="overflow-x-auto">
@@ -820,20 +883,21 @@ console.log(`Converted ${result.count} models`);</code></pre>
       <h2>About Layout</h2>
 
       <p class="cl-label">Role-first layout — role on top (.about-role), company/year below (.about-detail)</p>
+      <p class="cl-note">TA 홈 경력의 일부를 사용한 서식 예시입니다. 전체 경력은 <a href="index.html#about">TA About</a>, 디자인 홈의 Practice·Education 구성은 <a href="design/index.html#about">디자인 About</a>에서 확인합니다.</p>
       <div class="cl-specimen mb-8">
         <h3 class="text-muted uppercase tracking-[0.15em] mb-5 section-label">Career</h3>
         <div class="space-y-5">
           <div>
-            <p class="text-body about-role">Technical Artist</p>
-            <p class="text-muted about-detail">Cinamon · 2023–Present</p>
+            <p class="text-body about-role" data-ko="테크니컬 아티스트 · 클라이언트 개발">Technical Artist · Client Development</p>
+            <p class="text-muted about-detail">Cinamon · 2023.02 - 2026.08</p>
           </div>
           <div>
-            <p class="text-body about-role">Frontend Engineer</p>
-            <p class="text-muted about-detail">FLFI · 2022–2023</p>
+            <p class="text-body about-role" data-ko="프론트엔드 개발자">Frontend Developer</p>
+            <p class="text-muted about-detail">FLFI · 2022.02 - 2023.01</p>
           </div>
           <div>
-            <p class="text-body about-role">UX Engineer</p>
-            <p class="text-muted about-detail">Varo Bank · 2019–2020</p>
+            <p class="text-body about-role" data-ko="UX 엔지니어">UX Engineer</p>
+            <p class="text-muted about-detail">Varo Money · 2019.10 - 2020.07</p>
           </div>
         </div>
       </div>
@@ -941,7 +1005,7 @@ console.log(`Converted ${result.count} models`);</code></pre>
     <section id="footer" class="cl-section" tabindex="-1">
       <h2>Footer</h2>
 
-      <p class="cl-label">Current Site Footer — left copyright / centered contact links / right language</p>
+      <p class="cl-label">TA Home Footer — left copyright / centered contact links / right language</p>
       <div class="cl-specimen">
         <div class="site-footer py-6 text-muted text-xs">
           <div class="footer-layout">
@@ -960,7 +1024,7 @@ console.log(`Converted ${result.count} models`);</code></pre>
                 <a href="https://www.linkedin.com/in/tommlimm/" target="_blank" rel="noopener" class="btn btn--ghost footer-link"><span data-ko="링크드인">LinkedIn</span></a>
               </li>
               <li class="footer-item">
-                <a href="https://tommlimm.net/" target="_blank" rel="noopener" class="btn btn--ghost footer-link"><span data-ko="디자인 포트폴리오">Design portfolio</span></a>
+                <a href="design/index.html" class="btn btn--ghost footer-link"><span data-ko="디자인 포트폴리오">Design portfolio</span></a>
               </li>
             </ul>
             <label class="footer-language language-switcher">
@@ -973,7 +1037,36 @@ console.log(`Converted ${result.count} models`);</code></pre>
           </div>
         </div>
       </div>
-      <p class="text-xs text-muted mt-4">왼쪽 저작권 · 가운데 이메일 주소 / 이력서 / 깃허브 / 링크드인 / 디자인 포트폴리오 · 오른쪽 언어 선택. 좌우 열 너비를 같게 두어 링크 묶음을 정확히 중앙에 맞춥니다. 모든 글자는 12px / 16px, 데스크톱 조작 높이는 44px입니다. 푸터 영역이 800px 이하이면 저작권 → 이메일·이력서·깃허브·링크드인·디자인 포트폴리오 → 언어 선택 순서로 가운데 정렬하고 구분선을 숨깁니다. 가운데 링크 묶음은 공간에 따라 줄바꿈합니다. 세로 배치에서는 저작권·링크·드롭다운을 모두 최소 32px 높이로 줄이고, 드롭다운 세로 패딩 4px와 행 간격 0을 적용해 각 줄을 일정하고 타이트하게 모읍니다. 디자인 포트폴리오는 기존 사이트 tommlimm.net을 새 탭으로 엽니다. 이력서는 공통 미리보기 모달로 엽니다.</p>
+      <p class="text-xs text-muted mt-4">왼쪽 저작권 · 가운데 이메일 주소 / 이력서 / 깃허브 / 링크드인 / 디자인 포트폴리오 · 오른쪽 언어 선택. 좌우 열 너비를 같게 두어 링크 묶음을 정확히 중앙에 맞춥니다. 모든 글자는 12px / 16px, 데스크톱 조작 높이는 44px입니다. 푸터 영역이 800px 이하이면 저작권 → 이메일·이력서·깃허브·링크드인·디자인 포트폴리오 → 언어 선택 순서로 가운데 정렬하고 구분선을 숨깁니다. 가운데 링크 묶음은 공간에 따라 줄바꿈합니다. 세로 배치에서는 저작권·링크·드롭다운을 모두 최소 32px 높이로 줄이고, 드롭다운 세로 패딩 4px와 행 간격 0을 적용해 각 줄을 일정하고 타이트하게 모읍니다. 디자인 포트폴리오는 design/index.html을 같은 탭으로 엽니다. 디자인 홈은 같은 푸터 구성에 TA 포트폴리오 링크를 두어 TA 홈으로 돌아옵니다. 이력서는 공통 미리보기 모달로 엽니다.</p>
+
+      <div class="overflow-x-auto mt-6">
+        <table class="cl-reference-table">
+          <caption class="sr-only">홈별 포트폴리오 전환 링크</caption>
+          <thead><tr><th scope="col">현재 페이지</th><th scope="col">마지막 링크</th><th scope="col">href</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">TA · index.html</th><td>디자인 포트폴리오 / Design portfolio</td><td><code>design/index.html</code></td></tr>
+            <tr><th scope="row">디자인 · design/index.html</th><td>TA 포트폴리오 / TA portfolio</td><td><code>../index.html</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="cl-note">같은 탭에서 이동하며 저장한 언어 선택이 유지됩니다. 디자인 홈의 이력서 href도 <code>../resume-viewer.html</code>로 맞춥니다. 외부 프로젝트 상세 링크와 두 홈 사이의 전환 링크는 별개입니다.</p>
+      <details class="cl-source">
+        <summary class="btn btn--ghost btn--disclosure">포트폴리오 전환 링크 · HTML 코드</summary>
+        <div class="cl-source-body">
+          <p class="cl-note">각 페이지의 <code>.footer-links</code> 안에서 마지막 <code>li</code> 하나로 사용합니다. 위 실제 푸터는 TA 홈 예시입니다.</p>
+          <button type="button" class="btn cl-copy" data-copy="code-portfolio-switch" aria-label="포트폴리오 전환 링크 코드 복사" hidden><span class="material-symbols-outlined icon-sm" aria-hidden="true">content_copy</span> 코드 복사</button>
+          <span class="cl-copy-status" role="status" aria-live="polite"></span>
+          <pre tabindex="0" aria-label="포트폴리오 전환 링크 HTML 코드"><code id="code-portfolio-switch">&lt;!-- index.html: TA → Design --&gt;
+&lt;li class="footer-item"&gt;
+  &lt;a href="design/index.html" class="btn btn--ghost footer-link"&gt;&lt;span data-ko="디자인 포트폴리오"&gt;Design portfolio&lt;/span&gt;&lt;/a&gt;
+&lt;/li&gt;
+
+&lt;!-- design/index.html: Design → TA --&gt;
+&lt;li class="footer-item"&gt;
+  &lt;a href="../index.html" class="btn btn--ghost footer-link"&gt;&lt;span data-ko="TA 포트폴리오"&gt;TA portfolio&lt;/span&gt;&lt;/a&gt;
+&lt;/li&gt;</code></pre>
+        </div>
+      </details>
     </section>
 
     <div class="cl-divider"></div>
@@ -986,10 +1079,10 @@ console.log(`Converted ${result.count} models`);</code></pre>
           <thead><tr><th scope="col">항목</th><th scope="col">규칙</th></tr></thead>
           <tbody>
             <tr><th scope="row">상단</th><td>왼쪽 콘텐츠 이름 / 오른쪽 액션 묶음. 콘텐츠 액션 다음에 닫기를 두어 닫기는 항상 맨 오른쪽. 각 버튼 44px, 버튼 사이 4px.</td></tr>
-            <tr><th scope="row">종류별 동작</th><td>이미지: 원본 크기 ↔ 화면 맞춤. 이력서: PDF 다운로드(기본 손 모양 커서). 44×44px Ghost · Google Outlined weight 300.</td></tr>
-            <tr><th scope="row">화면</th><td>최대 960px · 바깥 여백 24px · 반경 12px · 검정 65% 배경. 600px 이하는 전체 화면.</td></tr>
-            <tr><th scope="row">테마·읽기</th><td>페이지 테마 상속 · 상단 유지 · 내용 영역 스크롤. 긴 이름은 말줄임, 설명은 캡션에 유지.</td></tr>
-            <tr><th scope="row">닫기</th><td>닫기 · Esc · 모달 바깥 배경 클릭. 내부 여백·캡션 클릭은 닫지 않음.</td></tr>
+            <tr><th scope="row">종류별 동작</th><td>래스터 이미지: 화면 맞춤(최대 100%) → 원본 크기. SVG: 영역에 맞춤 → 표시 크기의 150%. 확대는 별도 선택 시 적용. 이력서: PDF 다운로드(기본 손 모양 커서). 44×44px Ghost · Google Outlined weight 300.</td></tr>
+            <tr><th scope="row">화면</th><td>모든 화면에서 너비 80% · 높이 80dvh · 중앙 정렬. 테두리·반경 0 · 바깥 배경 검정 65%. 툴바 안전 영역 유지.</td></tr>
+            <tr><th scope="row">테마·읽기</th><td>페이지 테마 상속 · 상단 유지 · 내용 영역 스크롤. 긴 이름은 말줄임. 이미지 미리보기에는 하단 캡션 없이 이미지만 표시하고, 설명은 본문에 유지.</td></tr>
+            <tr><th scope="row">닫기</th><td>닫기 · Esc · 모달 바깥 배경 클릭. 이미지·내부 여백 클릭은 닫지 않음.</td></tr>
             <tr><th scope="row">키보드</th><td>닫기 버튼으로 진입 · Tab/Shift+Tab 내부 순환 · 종료 시 트리거로 포커스 복귀. 배경 스크롤 잠금.</td></tr>
             <tr><th scope="row">폴백</th><td>JavaScript 미지원·직접 URL·수정 키 클릭만 원본 경로 사용. 기본 미리보기는 새 탭을 열지 않음.</td></tr>
           </tbody>
@@ -1034,7 +1127,7 @@ console.log(`Converted ${result.count} models`);</code></pre>
 &lt;script src="../js/resume-viewer.js"&gt;&lt;/script&gt;</code></pre>
         </div>
       </details>
-      <p class="cl-note"><a href="docs/style-guide.md#모든-미리보기는-모달">상세 규칙·확장 기준</a> · 이미지 확대 상태 초기화, 이름·캡션, 한·영·테마·모바일·키보드 동작을 확인하세요.</p>
+      <p class="cl-note"><a href="docs/style-guide.md#모든-미리보기는-모달">상세 규칙·확장 기준</a> · 이미지 확대 상태 초기화, 상단 이름·본문 캡션 유지, 한·영·테마·모바일·키보드 동작을 확인하세요.</p>
     </section>
 
     <div class="cl-divider"></div>
@@ -1048,7 +1141,7 @@ console.log(`Converted ${result.count} models`);</code></pre>
         </a>
         <figcaption class="text-xs text-muted mt-2 text-center" data-ko="예시 · 실제 에디터 화면을 바탕으로 AI 보정한 Shotloom 썸네일. 클릭하면 확대됩니다.">Example · AI-retouched Shotloom thumbnail based on an editor screenshot. Click to enlarge.</figcaption>
       </figure>
-      <p class="text-sm text-muted mb-8">공통 미리보기 모달입니다. 왼쪽 이름 · 오른쪽 원본 크기/화면 맞춤 · 맨 오른쪽 닫기. 이미지 클릭으로도 확대를 전환합니다. Esc·바깥 배경 클릭으로 닫으면 원래 이미지로 포커스가 돌아옵니다. 캡션은 현재 언어를 따릅니다.</p>
+      <p class="text-sm text-muted mb-8">공통 미리보기 모달입니다. 왼쪽 이름 · 오른쪽 확대/화면 맞춤 · 맨 오른쪽 닫기. 래스터 이미지는 축소된 경우에만 원본 크기로 확대할 수 있습니다. 모달은 모든 화면에서 가로·세로 80% 크기로 중앙에 열립니다. 이미지를 누르면 확대하지 않은 미리보기만 엽니다. 래스터 이미지는 비율을 유지해 큰 이미지만 축소하고 작은 이미지는 원본 크기를 유지합니다. 확대해도 100%를 넘지 않으며, 원본이 모달에 들어가면 확대 기능을 숨깁니다. SVG는 원본 크기 제한 없이 비율을 유지해 영역에 맞추고, 별도 확대 시 그 표시 크기의 150%로 보여줍니다. 이미지를 누른 지점을 기준으로 확대하며 스크롤 가능한 범위 안에서 그 위치를 유지합니다. 툴바 버튼·키보드 조작은 중앙을 기준으로 확대합니다. 축소하거나 다시 열면 화면 맞춤으로 돌아갑니다. 창 크기가 바뀌면 선택한 모드를 유지하면서 확대·축소 가능 여부를 다시 판단합니다. 닫기·바깥 배경 클릭·Esc로 닫으면 원래 이미지로 포커스가 돌아옵니다. 미리보기에는 하단 캡션을 표시하지 않으며 본문의 캡션과 상단 제목은 유지합니다.</p>
       <details class="cl-source">
         <summary class="btn btn--ghost btn--disclosure">상세 이미지 · HTML 코드</summary>
         <div class="cl-source-body">
@@ -1127,6 +1220,7 @@ console.log(`Converted ${result.count} models`);</code></pre>
           <thead><tr><th scope="col">Pattern</th><th scope="col">Current value</th></tr></thead>
           <tbody>
             <tr><td class="lbl">Home / detail maximum</td><td class="val">1400px / 896px, including 24px side padding</td></tr>
+            <tr><td class="lbl">TA / Design hero</td><td class="val">Top padding 128px / 96px; bottom padding 48px; Design video 16:9, caption gap 12px</td></tr>
             <tr><td class="lbl">Card grid</td><td class="val">1 column below 768px; 2 columns at 768px and up; 24px column gap / 40px row gap</td></tr>
             <tr><td class="lbl">Main section spacing</td><td class="val">Detail mb-16: 64px; title mb-4: 16px; paragraph mb-6: 24px</td></tr>
             <tr><td class="lbl">Navigation</td><td class="val">64px tall; mobile menu below 768px</td></tr>
@@ -1162,6 +1256,7 @@ console.log(`Converted ${result.count} models`);</code></pre>
           <li><a href="#typography">Typography</a></li>
           <li><a href="#icons">Icons</a></li>
           <li><a href="#buttons">Buttons</a></li>
+          <li><a href="#home-heroes">Home Heroes</a></li>
           <li><a href="#cards">Cards</a></li>
           <li><a href="#panels">Panels</a></li>
           <li><a href="#tables">Tables</a></li>
@@ -1187,7 +1282,7 @@ console.log(`Converted ${result.count} models`);</code></pre>
   <script src="js/i18n.js?v=20260925-language-auto"></script>
   <script src="js/theme.js"></script>
   <script src="js/preview-modal.js?v=20260925-toolbar-right"></script>
-  <script src="js/image-viewer.js?v=20260925-preview-modal"></script>
+  <script src="js/image-viewer.js?v=20260926-click-zoom"></script>
   <script src="js/resume-viewer.js?v=20260925-filename"></script>
   <script src="docs/component-library.js"></script>
 </body>
