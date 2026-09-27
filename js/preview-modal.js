@@ -4,6 +4,17 @@
       typeof HTMLDialogElement.prototype.showModal !== 'function') return;
   var count = 0;
 
+  // Keep native navigation for modified clicks and unsupported preview content.
+  function bindLinks(links, openPreview) {
+    links.forEach(function (link) {
+      link.setAttribute('aria-haspopup', 'dialog');
+      link.addEventListener('click', function (event) {
+        if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+        if (openPreview(link) !== false) event.preventDefault();
+      });
+    });
+  }
+
   function create(options) {
     var viewer = document.createElement('dialog');
     var titleId = 'preview-modal-title-' + (++count);
@@ -21,6 +32,10 @@
     var close = viewer.querySelector('.preview-modal-close');
     var title = viewer.querySelector('.preview-modal-title');
     var trigger = null;
+
+    function focusClose() {
+      close.focus({ preventScroll: true });
+    }
 
     function tabStops(root) {
       var result = [];
@@ -68,6 +83,7 @@
 
     return {
       element: viewer,
+      focusClose: focusClose,
       open: function (link, labels) {
         trigger = link;
         title.textContent = labels.title;
@@ -75,7 +91,7 @@
         close.dataset.tip = labels.closeTip;
         document.documentElement.classList.add('preview-modal-open');
         viewer.showModal();
-        close.focus({ preventScroll: true });
+        focusClose();
       },
       // Same-origin document keyboard events do not bubble to the dialog.
       connectFrame: function (frame) {
@@ -86,5 +102,5 @@
     };
   }
 
-  window.PreviewModal = { create: create };
+  window.PreviewModal = { create: create, bindLinks: bindLinks };
 })();

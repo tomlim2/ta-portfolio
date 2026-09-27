@@ -35,9 +35,9 @@
   </script>
   <link rel="icon" href="favicon.png" type="image/png">
   <link rel="stylesheet" href="css/style.css?v=20260927-link-button-compact">
-  <link rel="stylesheet" href="css/preview-modal.css?v=20260926-compact-toolbar">
+  <link rel="stylesheet" href="css/preview-modal.css?v=20260927-preview-states">
   <link rel="stylesheet" href="css/resume-viewer.css?v=20260925-toolbar-right">
-  <link rel="stylesheet" href="css/image-viewer.css?v=20260926-no-caption">
+  <link rel="stylesheet" href="css/image-viewer.css?v=20260927-preview-states">
   <link rel="stylesheet" href="docs/component-library.css?v=20260925-neutral-actions">
 </head>
 <body class="bg-bg text-body">
@@ -49,7 +49,7 @@
     <header id="overview" tabindex="-1">
     <p class="cl-label" style="margin-bottom:0.5rem">INTERNAL</p>
     <h1 class="page-title" style="margin-bottom:0.75rem;">Component Library</h1>
-    <p class="text-muted text-sm mb-2">현재 체크아웃 기준 · 2026-09-26 · TA + 디자이너 + 프론트엔드</p>
+    <p class="text-muted text-sm mb-2">현재 체크아웃 기준 · 2026-09-27 · TA + 디자이너 + 프론트엔드</p>
     <p class="text-muted text-sm mb-4">기존 포폴을 옮길 때 사용할 패턴과 기준입니다. 먼저 사용 상황을 고르고, 실제 예시를 확인한 뒤 코드를 복사하세요. 문서의 예시 프레임은 내부 UI입니다. 이 문서는 현재 체크아웃 기준이며 배포 상태와는 별개입니다.</p>
     <div class="flex flex-wrap gap-4 text-sm">
       <a href="docs/style-guide.md" class="text-accent hover:underline">스타일 규칙</a>
@@ -328,7 +328,7 @@
       </div>
       <p id="button-demo-status" class="cl-button-status" role="status" aria-live="polite">예시 버튼을 누르면 선택한 조합이 표시됩니다.</p>
       <p class="cl-note">Hover: Outline·Filled는 배경, Ghost는 텍스트·아이콘 색상만 강조 · Pressed: 누르는 동안 더 진한 배경, Filled는 테두리 없음 · Focus: Tab 키로 확인하는 외곽선 · Disabled: 클릭·키보드 활성화 불가. 위 버튼은 동작 예시이며 파일을 다운로드하지 않습니다.</p>
-      <p class="cl-note">최소 높이 44px · 아이콘 전용 기본 44×44px / icon-group 32×44px · 글자 14px / 20px · 내부 간격 8px · 모서리 6px · 아이콘 20px / weight 300. 긴 텍스트는 줄바꿈하고 버튼 높이가 늘어납니다.</p>
+      <p class="cl-note">기본 최소 높이 44px · 아이콘 전용 기본 44×44px / icon-group 32×44px · 글자 14px / 20px · 내부 간격 8px · 모서리 6px · 아이콘 20px / weight 300. 긴 텍스트는 줄바꿈하고 버튼 높이가 늘어납니다. 제목 링크·미리보기 상단 버튼은 32×32px, 푸터 소셜은 40×44px, 푸터 언어 선택은 128×38px입니다. 문맥별 예외는 <a href="docs/style-guide.md">스타일 가이드의 버튼 규격 표</a>를 따릅니다.</p>
       <details class="cl-source">
         <summary class="btn btn--ghost btn--disclosure">버튼 종류·테마·스타일 · HTML 코드</summary>
         <div class="cl-source-body">
@@ -457,6 +457,19 @@
       &lt;a href="https://vimeo.com/323372233" target="_blank" rel="noopener" class="underline underline-offset-4 hover:text-heading transition"&gt;&lt;span data-ko="Vimeo에서 보기"&gt;Watch on Vimeo&lt;/span&gt;&lt;/a&gt;
     &lt;/figcaption&gt;
   &lt;/figure&gt;
+&lt;/section&gt;</code></pre>
+        </div>
+      </details>
+      <details class="cl-source">
+        <summary class="btn btn--ghost btn--disclosure">프론트엔드 히어로 · HTML 코드</summary>
+        <div class="cl-source-body">
+          <p class="cl-note"><code>frontend/index.html</code> 기준. TA 히어로와 같은 컴포넌트를 사용하며 공통 에셋·이력서 경로는 <code>../</code>로 시작합니다.</p>
+          <button type="button" class="btn cl-copy" data-copy="code-frontend-hero" aria-label="프론트엔드 히어로 코드 복사" hidden><span class="material-symbols-outlined icon-sm" aria-hidden="true">content_copy</span> 코드 복사</button>
+          <span class="cl-copy-status" role="status" aria-live="polite"></span>
+          <pre tabindex="0" aria-label="프론트엔드 히어로 HTML 코드"><code id="code-frontend-hero">&lt;section class="flex flex-col justify-end px-6 pt-32 pb-12 max-w-[1400px] mx-auto"&gt;
+&lt;h1 class="text-body hero-tagline" data-ko="프론트엔드 개발자"&gt;Frontend Developer&lt;/h1&gt;
+&lt;p class="hero-summary text-body" data-ko="사용자가 편하게 탐색하는 인터페이스와 동료가 이해하기 쉬운 컴포넌트를 만듭니다."&gt;I build interfaces that are easy to navigate and components that are easy to understand.&lt;/p&gt;
+&lt;div class="hero-actions"&gt;&lt;a href="mailto:tomandlim@gmail.com" class="btn btn--ghost"&gt;&lt;span&gt;tomandlim@gmail.com&lt;/span&gt;&lt;/a&gt;&lt;a href="../resume-viewer.html" data-resume-viewer class="btn btn--ghost"&gt;&lt;span data-ko="이력서 보기"&gt;View resume&lt;/span&gt;&lt;/a&gt;&lt;/div&gt;
 &lt;/section&gt;</code></pre>
         </div>
       </details>
@@ -764,7 +777,7 @@ console.log(`Converted ${result.count} models`);</code></pre>
       </div>
       <p class="cl-note">Resume은 이력서 모달을 열고, GitHub는 새 탭으로 엽니다. 이력서는 모달 오른쪽 위 다운로드 아이콘으로 저장합니다. 툴팁 표시만 확인할 때는 hover 또는 Tab을 사용하세요.</p>
 
-      <p class="cl-note">이력서 모달: 데스크톱·모바일 모두 화면 가로·세로의 80% 크기로 중앙 정렬합니다. 테두리·모서리 반경은 없습니다. 파일명은 왼쪽 정렬하며 오른쪽에는 44px Ghost 다운로드·닫기 버튼을 순서대로 둡니다. 닫기는 항상 맨 오른쪽입니다. 문서만 스크롤되며 상단은 유지됩니다. 닫기·바깥 배경 클릭·Esc로 종료하고 Resume 트리거로 포커스를 돌려줍니다.</p>
+      <p class="cl-note">이력서 모달: 데스크톱·모바일 모두 화면 가로·세로의 80% 크기로 중앙 정렬합니다. 테두리·모서리 반경은 없습니다. 파일명은 왼쪽 정렬하며 오른쪽에는 32×32px Ghost 다운로드·닫기 버튼(아이콘 18px)을 순서대로 둡니다. 닫기는 항상 맨 오른쪽입니다. 문서만 스크롤되며 상단은 유지됩니다. 닫기·바깥 배경 클릭·Esc로 종료하고 Resume 트리거로 포커스를 돌려줍니다.</p>
 
       <p class="cl-label">Visual specification · current implementation</p>
       <div class="overflow-x-auto">
@@ -1000,15 +1013,27 @@ console.log(`Converted ${result.count} models`);</code></pre>
           <div class="space-y-4">
             <div class="flex items-center gap-4">
               <div class="w-16 h-16 bg-surface border border-border" style="border-radius:0"></div>
-              <div><p class="text-sm">0px</p><p class="text-xs" style="color:rgb(var(--c-muted))">editorial, sharp elements</p></div>
+              <div><p class="text-sm">0px</p><p class="text-xs" style="color:rgb(var(--c-muted))">project cards, images, preview modals</p></div>
             </div>
             <div class="flex items-center gap-4">
               <div class="w-16 h-16 bg-surface border border-border" style="border-radius:4px"></div>
-              <div><p class="text-sm">4px</p><p class="text-xs" style="color:rgb(var(--c-muted))">tooltip</p></div>
+              <div><p class="text-sm">4px</p><p class="text-xs" style="color:rgb(var(--c-muted))">tooltips, gain badges</p></div>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="w-16 h-16 bg-surface border border-border" style="border-radius:6px"></div>
+              <div><p class="text-sm">6px</p><p class="text-xs" style="color:rgb(var(--c-muted))">buttons, native language fallback</p></div>
             </div>
             <div class="flex items-center gap-4">
               <div class="w-16 h-16 bg-surface border border-border" style="border-radius:8px"></div>
-              <div><p class="text-sm">8px — rounded-lg</p><p class="text-xs" style="color:rgb(var(--c-muted))">panels, input, code block</p></div>
+              <div><p class="text-sm">8px — rounded-lg</p><p class="text-xs" style="color:rgb(var(--c-muted))">panels, code blocks</p></div>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="w-16 h-16 bg-surface border border-border" style="border-radius:10px"></div>
+              <div><p class="text-sm">10px</p><p class="text-xs" style="color:rgb(var(--c-muted))">footer language selector</p></div>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="w-16 h-16 bg-surface border border-border" style="border-radius:12px"></div>
+              <div><p class="text-sm">12px</p><p class="text-xs" style="color:rgb(var(--c-muted))">general language selector</p></div>
             </div>
             <div class="flex items-center gap-4">
               <div class="w-16 h-16 bg-surface border border-border" style="border-radius:9999px"></div>
@@ -1080,35 +1105,51 @@ console.log(`Converted ${result.count} models`);</code></pre>
           </div>
         </div>
       </div>
-      <p class="text-xs text-muted mt-4">데스크톱과 모바일에 같은 푸터 구조를 적용합니다. 상단에는 콘텐츠 너비에 맞춘 1px 구분선을 둡니다. 위 패딩은 26.5px, 저작권 아래부터 다음 구분선까지는 32px입니다. 첫 링크의 클릭 영역·글자 여백 차이 5.5px를 보정하여 실제 글자 기준 위아래 간격을 약 37px로 맞춥니다. 이메일·이력서·포트폴리오 링크를 왼쪽 정렬한 세로 목록으로 놓고, 저작권 행의 위 여백은 6px로 두어 마지막 링크와 저작권의 글자 중심 간격을 위 링크들과 동일한 32px로 맞춥니다. 링크의 테두리·패딩을 없애고 내부도 왼쪽 정렬해 글자 시작점을 맞춥니다. 최소 조작 너비는 44px, 높이는 32px입니다. 링크는 12px / 16px, 저작권은 12px / 20px입니다. 아래 구분선 다음 행에는 GitHub·LinkedIn 아이콘을 왼쪽, 128×38px 언어 버튼을 오른쪽에 놓고 세로 중심을 맞춥니다. 소셜 아이콘은 16px이며 조작 영역은 40×44px입니다. 언어 버튼·메뉴 글자는 13px, 지구본·화살표는 16px, 메뉴 항목 높이는 38px, 모서리는 10px입니다. 소셜 텍스트 링크는 모든 화면에서 숨기고 아이콘 링크에 서비스 이름을 제공합니다. TA·디자인 홈과 모든 상세 페이지에 최대 너비 1400px·좌우 여백 24px·상하 여백 32px를 적용합니다. 현재 분야를 제외한 두 포트폴리오의 전환 링크를 제공하며 같은 탭에서 엽니다. TA는 디자이너·프론트엔드, 디자이너는 TA·프론트엔드, 프론트엔드는 TA·디자이너로 연결합니다. 이력서는 모든 페이지에서 공통 미리보기 모달로 엽니다.</p>
+      <p class="text-xs text-muted mt-4">데스크톱과 모바일에 같은 푸터 구조를 적용합니다. 상단에는 콘텐츠 너비에 맞춘 1px 구분선을 둡니다. 위 패딩은 26.5px, 저작권 아래부터 다음 구분선까지는 32px입니다. 첫 링크의 클릭 영역·글자 여백 차이 5.5px를 보정하여 실제 글자 기준 위아래 간격을 약 37px로 맞춥니다. 이메일·이력서·포트폴리오 링크를 왼쪽 정렬한 세로 목록으로 놓고, 저작권 행의 위 여백은 6px로 두어 마지막 링크와 저작권의 글자 중심 간격을 위 링크들과 동일한 32px로 맞춥니다. 링크의 테두리·패딩을 없애고 내부도 왼쪽 정렬해 글자 시작점을 맞춥니다. 최소 조작 너비는 44px, 높이는 32px입니다. 링크는 12px / 16px, 저작권은 12px / 20px입니다. 아래 구분선 다음 행에는 GitHub·LinkedIn 아이콘을 왼쪽, 128×38px 언어 버튼을 오른쪽에 놓고 세로 중심을 맞춥니다. 소셜 아이콘은 16px이며 조작 영역은 40×44px입니다. 언어 버튼·메뉴 글자는 13px, 지구본·화살표는 16px, 메뉴 항목 높이는 38px, 모서리는 10px입니다. 소셜 텍스트 링크는 모든 화면에서 숨기고 아이콘 링크에 서비스 이름을 제공합니다. TA·디자이너·프론트엔드 홈과 모든 상세 페이지에 최대 너비 1400px·좌우 여백 24px·상하 여백 32px를 적용합니다. 현재 분야를 제외한 두 포트폴리오의 전환 링크를 제공하며 같은 탭에서 엽니다. TA는 디자이너·프론트엔드, 디자이너는 TA·프론트엔드, 프론트엔드는 TA·디자이너로 연결합니다. 이력서는 모든 페이지에서 공통 미리보기 모달로 엽니다.</p>
 
       <div class="overflow-x-auto mt-6">
         <table class="cl-reference-table">
           <caption class="sr-only">페이지별 포트폴리오 전환 링크</caption>
-          <thead><tr><th scope="col">현재 페이지</th><th scope="col">마지막 링크</th><th scope="col">href</th></tr></thead>
+          <thead><tr><th scope="col">현재 페이지</th><th scope="col">다른 포트폴리오 링크</th><th scope="col">href</th></tr></thead>
           <tbody>
-            <tr><th scope="row">TA · index.html</th><td>디자이너 포트폴리오 / Designer portfolio</td><td><code>design/index.html</code></td></tr>
-            <tr><th scope="row">디자인 · design/index.html</th><td>TA 포트폴리오 / TA portfolio</td><td><code>../index.html</code></td></tr>
-            <tr><th scope="row">TA 상세 · projects/*.html</th><td>디자이너 포트폴리오 / Designer portfolio</td><td><code>../design/index.html</code></td></tr>
-            <tr><th scope="row">디자인 상세 · projects/*.html</th><td>TA 포트폴리오 / TA portfolio</td><td><code>../index.html</code></td></tr>
+            <tr><th scope="row">TA · index.html</th><td>디자이너 / 프론트엔드</td><td><code>design/index.html</code><br><code>frontend/index.html</code></td></tr>
+            <tr><th scope="row">디자이너 · design/index.html</th><td>TA / 프론트엔드</td><td><code>../index.html</code><br><code>../frontend/index.html</code></td></tr>
+            <tr><th scope="row">프론트엔드 · frontend/index.html</th><td>TA / 디자이너</td><td><code>../index.html</code><br><code>../design/index.html</code></td></tr>
+            <tr><th scope="row">TA 상세 · projects/*.html</th><td>디자이너 / 프론트엔드</td><td><code>../design/index.html</code><br><code>../frontend/index.html</code></td></tr>
+            <tr><th scope="row">디자이너 상세 · projects/*.html</th><td>TA / 프론트엔드</td><td><code>../index.html</code><br><code>../frontend/index.html</code></td></tr>
+            <tr><th scope="row">프론트엔드 상세 · projects/*.html</th><td>TA / 디자이너</td><td><code>../index.html</code><br><code>../design/index.html</code></td></tr>
           </tbody>
         </table>
       </div>
-      <p class="cl-note">같은 탭에서 이동하며 저장한 언어 선택이 유지됩니다. 디자인 홈과 모든 상세의 이력서 href는 <code>../resume-viewer.html</code>입니다. 상세에도 resume-viewer CSS·JS와 다운로드·닫기 아이콘을 포함합니다. 외부 프로젝트 상세 링크와 두 홈 사이의 전환 링크는 별개입니다.</p>
+      <p class="cl-note">같은 탭에서 이동하며 저장한 언어 선택이 유지됩니다. 디자이너·프론트엔드 홈과 모든 상세의 이력서 href는 <code>../resume-viewer.html</code>입니다. 상세에도 resume-viewer CSS·JS와 다운로드·닫기 아이콘을 포함합니다. 외부 프로젝트 상세 링크와 세 홈 사이의 전환 링크는 별개입니다.</p>
       <details class="cl-source">
         <summary class="btn btn--ghost btn--disclosure">포트폴리오 전환 링크 · HTML 코드</summary>
         <div class="cl-source-body">
-          <p class="cl-note">각 페이지의 <code>.footer-links</code> 안에서 마지막 <code>li</code> 하나로 사용합니다. 위 실제 푸터는 TA 홈 예시입니다.</p>
+          <p class="cl-note">각 페이지의 <code>.footer-links</code> 안에서 현재 분야를 제외한 두 포트폴리오의 <code>li</code>를 마지막 두 항목으로 사용합니다. 상세 페이지에서는 두 링크 모두 <code>../</code> 기준 경로를 사용합니다. 위 실제 푸터는 TA 홈 예시입니다.</p>
           <button type="button" class="btn cl-copy" data-copy="code-portfolio-switch" aria-label="포트폴리오 전환 링크 코드 복사" hidden><span class="material-symbols-outlined icon-sm" aria-hidden="true">content_copy</span> 코드 복사</button>
           <span class="cl-copy-status" role="status" aria-live="polite"></span>
-          <pre tabindex="0" aria-label="포트폴리오 전환 링크 HTML 코드"><code id="code-portfolio-switch">&lt;!-- index.html: TA → Design --&gt;
+          <pre tabindex="0" aria-label="포트폴리오 전환 링크 HTML 코드"><code id="code-portfolio-switch">&lt;!-- index.html: TA → other portfolios --&gt;
 &lt;li class="footer-item"&gt;
   &lt;a href="design/index.html" class="btn btn--ghost footer-link"&gt;&lt;span data-ko="디자이너 포트폴리오"&gt;Designer portfolio&lt;/span&gt;&lt;/a&gt;
 &lt;/li&gt;
+&lt;li class="footer-item"&gt;
+  &lt;a href="frontend/index.html" class="btn btn--ghost footer-link"&gt;&lt;span data-ko="프론트엔드 포트폴리오"&gt;Frontend portfolio&lt;/span&gt;&lt;/a&gt;
+&lt;/li&gt;
 
-&lt;!-- design/index.html: Design → TA --&gt;
+&lt;!-- design/index.html: Designer → other portfolios --&gt;
 &lt;li class="footer-item"&gt;
   &lt;a href="../index.html" class="btn btn--ghost footer-link"&gt;&lt;span data-ko="TA 포트폴리오"&gt;TA portfolio&lt;/span&gt;&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class="footer-item"&gt;
+  &lt;a href="../frontend/index.html" class="btn btn--ghost footer-link"&gt;&lt;span data-ko="프론트엔드 포트폴리오"&gt;Frontend portfolio&lt;/span&gt;&lt;/a&gt;
+&lt;/li&gt;
+
+&lt;!-- frontend/index.html: Frontend → other portfolios --&gt;
+&lt;li class="footer-item"&gt;
+  &lt;a href="../index.html" class="btn btn--ghost footer-link"&gt;&lt;span data-ko="TA 포트폴리오"&gt;TA portfolio&lt;/span&gt;&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class="footer-item"&gt;
+  &lt;a href="../design/index.html" class="btn btn--ghost footer-link"&gt;&lt;span data-ko="디자이너 포트폴리오"&gt;Designer portfolio&lt;/span&gt;&lt;/a&gt;
 &lt;/li&gt;</code></pre>
         </div>
       </details>
@@ -1133,6 +1174,29 @@ console.log(`Converted ${result.count} models`);</code></pre>
           </tbody>
         </table>
       </div>
+      <h3 id="preview-states" class="cl-label mt-8">Image states · 로딩과 실패</h3>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="cl-specimen">
+          <p class="cl-label">Loading · 시각 예시</p>
+          <div class="preview-status">
+            <div class="preview-status-copy">
+              <span class="preview-status-spinner" aria-hidden="true"></span>
+              <p class="preview-status-title" data-ko="이미지 불러오는 중…">Loading image…</p>
+            </div>
+          </div>
+        </div>
+        <div class="cl-specimen">
+          <p class="cl-label">Error · 시각 예시</p>
+          <div class="preview-status">
+            <div class="preview-status-copy">
+              <p class="preview-status-title" data-ko="이미지를 불러오지 못했습니다">Could not load the image</p>
+              <p class="preview-status-description" data-ko="연결 상태를 확인한 뒤 다시 시도하거나 원본 이미지를 열어주세요.">Check your connection and try again, or open the original image.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="cl-note">위는 상태 문구·스피너의 시각 예시입니다. 실제 이미지 모달은 로딩 중 확대를 숨기고, 완료 시 화면 맞춤으로 표시합니다. 요청 실패 또는 30초 초과 시 안내 아래에 기본 Outline 「다시 시도」와 Ghost 「원본 열기」를 제공합니다. 다시 시도는 같은 URL을 재요청하고 원본 열기는 새 탭으로 연결합니다.</p>
+      <p class="cl-note">상태 문구는 role=status로 전달하며, 재시도 버튼이 숨겨지면 닫기로 포커스를 옮깁니다. 닫기·Esc는 로딩 중에도 동작합니다. 동작 줄이기 설정에서 스피너는 회전하지 않습니다. 로딩·실패 처리는 이미지 뷰어에 구현되어 있으며 이력서 iframe·본문 영상에는 자동 적용되지 않습니다.</p>
       <p class="cl-label mt-8">Live previews · 같은 모달, 콘텐츠별 주 동작</p>
       <figure class="max-w-xl mb-4">
         <a href="assets/images/shotloom/thumbnail-editor-v2.png" data-image-viewer
@@ -1147,7 +1211,7 @@ console.log(`Converted ${result.count} models`);</code></pre>
         <span class="material-symbols-outlined icon-sm" aria-hidden="true">article_person</span>
         <span data-ko="이력서 모달 열기">Open resume modal</span>
       </a>
-      <p class="cl-note">본문 안의 영상 재생, 프로젝트 상세 페이지 이동, 외부 서비스 이동은 해당 콘텐츠·탐색 동작입니다. 여기에 별도 미리보기를 추가할 때는 같은 모달을 사용합니다. 현재 구현은 이미지와 이력서이며, 새 유형에는 콘텐츠 어댑터와 미디어·키보드 검증이 필요합니다.</p>
+      <p class="cl-note">본문 안의 영상 재생, 프로젝트 상세 페이지 이동, 외부 서비스 이동은 해당 콘텐츠·탐색 동작입니다. 여기에 별도 미리보기를 추가할 때는 같은 모달을 사용합니다. 현재 구현은 이미지와 이력서이며, 새 유형에는 콘텐츠 어댑터와 미디어·키보드 검증이 필요합니다. 공통 링크 연결은 <code>PreviewModal.bindLinks()</code>, 모달 생성은 <code>PreviewModal.create()</code>, 닫기로 포커스 이동은 반환된 <code>focusClose()</code>를 사용합니다. 이미지 뷰어는 요청 수명·상태 표시·크기 계산·한영 문구를 각각 분리합니다.</p>
       <details class="cl-source">
         <summary class="btn btn--ghost btn--disclosure">공통 모달 연결 · HTML 코드</summary>
         <div class="cl-source-body">
@@ -1265,7 +1329,7 @@ console.log(`Converted ${result.count} models`);</code></pre>
           <thead><tr><th scope="col">Pattern</th><th scope="col">Current value</th></tr></thead>
           <tbody>
             <tr><td class="lbl">Home / detail maximum</td><td class="val">1400px / 896px, including 24px side padding</td></tr>
-            <tr><td class="lbl">TA / Design hero</td><td class="val">Top padding 128px / 96px; bottom padding 48px; Design video 16:9, caption gap 12px</td></tr>
+            <tr><td class="lbl">TA · Frontend / Design hero</td><td class="val">Top padding 128px / 96px; bottom padding 48px; Design video 16:9, caption gap 12px</td></tr>
             <tr><td class="lbl">Card grid</td><td class="val">1 column below 768px; 2 columns at 768px and up; 24px column gap / 40px row gap</td></tr>
             <tr><td class="lbl">Main section spacing</td><td class="val">Detail mb-16: 64px; title mb-4: 16px; paragraph mb-6: 24px</td></tr>
             <tr><td class="lbl">Navigation</td><td class="val">64px tall; mobile menu below 768px</td></tr>
@@ -1326,9 +1390,9 @@ console.log(`Converted ${result.count} models`);</code></pre>
 
   <script src="js/i18n.js?v=20260926-language-menu"></script>
   <script src="js/theme.js"></script>
-  <script src="js/preview-modal.js?v=20260925-toolbar-right"></script>
-  <script src="js/image-viewer.js?v=20260926-click-zoom"></script>
-  <script src="js/resume-viewer.js?v=20260925-filename"></script>
+  <script src="js/preview-modal.js?v=20260927-preview-refactor"></script>
+  <script src="js/image-viewer.js?v=20260927-preview-refactor"></script>
+  <script src="js/resume-viewer.js?v=20260927-preview-refactor"></script>
   <script src="docs/component-library.js"></script>
 </body>
 </html>

@@ -72,6 +72,55 @@ html.preview-modal-open { overflow: hidden; }
 }
 
 .preview-modal-body { min-height: 0; min-width: 0; overflow: hidden; }
+
+/* Shared loading/failure presentation; each viewer owns its loading behavior. */
+.preview-status {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: safe center;
+  min-width: 0;
+  min-height: 0;
+  overflow: auto;
+  padding: 24px;
+  text-align: center;
+}
+.preview-status-copy { max-width: 34ch; }
+.preview-status-title {
+  margin: 0;
+  color: rgb(var(--c-body));
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.6;
+}
+.preview-status-description {
+  margin: 8px 0 0;
+  color: rgb(var(--c-muted));
+  font-size: 13px;
+  line-height: 1.7;
+}
+.preview-status-spinner {
+  display: block;
+  width: 20px;
+  height: 20px;
+  margin: 0 auto 12px;
+  border: 2px solid rgb(var(--c-border));
+  border-top-color: rgb(var(--c-muted));
+  border-radius: 50%;
+  animation: preview-loading 0.9s linear infinite;
+}
+.preview-status-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+.preview-status[hidden], .preview-status [hidden] { display: none; }
+@keyframes preview-loading { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) {
+  .preview-status-spinner { animation: none; }
+}
 /* Keep short labels inside the panel edges and above its content. */
 .preview-modal-action [data-tip]::after { left: auto; right: 0; transform: none; }
 

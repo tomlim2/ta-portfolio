@@ -14,6 +14,7 @@ a[data-image-viewer] { cursor: pointer; }
   overflow: auto;
   overscroll-behavior: contain;
 }
+.image-viewer-stage[hidden] { display: none; }
 .image-viewer-image {
   display: block;
   width: auto;
