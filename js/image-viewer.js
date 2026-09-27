@@ -6,17 +6,107 @@
     className: 'image-viewer',
     actionHTML: '<button type="button" class="btn btn--ghost btn--icon image-viewer-zoom" aria-pressed="false" hidden disabled>' +
       '<span class="material-symbols-outlined icon-sm" aria-hidden="true">zoom_in</span></button>',
-    bodyHTML: '<div class="image-viewer-stage" tabindex="0"><img class="image-viewer-image" alt=""></div>',
-    onClose: function () { image.removeAttribute('src'); }
+    bodyHTML: '<div class="image-viewer-stage" tabindex="0"><img class="image-viewer-image" alt=""></div>' +
+      '<div class="preview-status" hidden>' +
+      '<div class="preview-status-copy" role="status" aria-live="polite" aria-atomic="true">' +
+      '<span class="preview-status-spinner" aria-hidden="true"></span>' +
+      '<p class="preview-status-title"></p><p class="preview-status-description" hidden></p></div>' +
+      '<div class="preview-status-actions" hidden>' +
+      '<button type="button" class="btn image-viewer-retry"></button>' +
+      '<a class="btn btn--ghost image-viewer-original" target="_blank" rel="noopener"></a>' +
+      '</div></div>',
+    onClose: function () {
+      cancelLoad();
+      image.removeAttribute('src');
+    }
   });
   var viewer = modal.element;
   var stage = viewer.querySelector('.image-viewer-stage');
   var image = viewer.querySelector('img');
   var zoom = viewer.querySelector('.image-viewer-zoom');
+  var status = viewer.querySelector('.preview-status');
+  var statusTitle = status.querySelector('.preview-status-title');
+  var statusDescription = status.querySelector('.preview-status-description');
+  var spinner = status.querySelector('.preview-status-spinner');
+  var actions = status.querySelector('.preview-status-actions');
+  var retry = status.querySelector('.image-viewer-retry');
+  var original = status.querySelector('.image-viewer-original');
+  var close = viewer.querySelector('.preview-modal-close');
   var korean = true;
   var canZoom = false;
   var isSvg = false;
   var zoomRequested = false;
+  var sourceUrl = '';
+  var sourceAlt = '';
+  var pendingImage = null;
+  var loadId = 0;
+  var loadTimer = null;
+
+  function cancelLoad() {
+    loadId++;
+    clearTimeout(loadTimer);
+    if (pendingImage) {
+      pendingImage.removeAttribute('src');
+      pendingImage = null;
+    }
+  }
+
+  function showState(state) {
+    // A retry hides its button; keep keyboard focus inside the modal.
+    if (status.contains(document.activeElement)) close.focus({ preventScroll: true });
+    stage.hidden = state !== 'ready';
+    status.hidden = state === 'ready';
+    spinner.hidden = state !== 'loading';
+    statusDescription.hidden = state !== 'error';
+    actions.hidden = state !== 'error';
+    retry.disabled = state !== 'error';
+    if (state === 'ready') {
+      statusTitle.textContent = '';
+      return;
+    }
+    canZoom = false;
+    zoomRequested = false;
+    updateZoom(false);
+    statusTitle.textContent = state === 'loading'
+      ? (korean ? '이미지 불러오는 중…' : 'Loading image…')
+      : (korean ? '이미지를 불러오지 못했습니다' : 'Could not load the image');
+    statusDescription.textContent = korean
+      ? '연결 상태를 확인한 뒤 다시 시도하거나 원본 이미지를 열어주세요.'
+      : 'Check your connection and try again, or open the original image.';
+    retry.textContent = korean ? '다시 시도' : 'Try again';
+    original.textContent = korean ? '원본 열기' : 'Open original';
+    original.setAttribute('aria-label', korean ? '원본 이미지 새 탭에서 열기' : 'Open original image in a new tab');
+    original.href = sourceUrl;
+  }
+
+  function loadImage() {
+    cancelLoad();
+    var requestId = loadId;
+    showState('loading');
+    var nextImage = new Image();
+    pendingImage = nextImage;
+    nextImage.className = 'image-viewer-image';
+    nextImage.alt = sourceAlt;
+    nextImage.addEventListener('click', toggleZoom);
+    nextImage.addEventListener('load', function () {
+      if (requestId !== loadId || !viewer.open) return;
+      clearTimeout(loadTimer);
+      pendingImage = null;
+      image.replaceWith(nextImage);
+      image = nextImage;
+      showState('ready');
+      sizeImage();
+    });
+    function failed() {
+      if (requestId !== loadId || !viewer.open) return;
+      cancelLoad();
+      showState('error');
+    }
+    nextImage.addEventListener('error', failed);
+    loadTimer = setTimeout(failed, 30000);
+    // Preserve the original URL, including any signed query parameters.
+    nextImage.src = sourceUrl;
+  }
 
   function sizeImage() {
     if (!viewer.open || !image.complete || !image.naturalWidth || !image.naturalHeight ||
@@ -81,8 +171,8 @@
       // Opening the preview and zooming are separate actions.
       zoomRequested = false;
       updateZoom(false);
-      image.alt = source.alt;
-      image.src = link.href;
+      sourceAlt = source.alt;
+      sourceUrl = link.href;
       stage.setAttribute('aria-label', korean ? '이미지 미리보기 영역' : 'Image preview area');
       stage.scrollTop = 0;
       stage.scrollLeft = 0;
@@ -91,7 +181,7 @@
         closeLabel: korean ? '이미지 미리보기 닫기' : 'Close image preview',
         closeTip: korean ? '닫기' : 'Close'
       });
-      sizeImage();
+      loadImage();
     });
   });
   function toggleZoom(event) {
@@ -99,8 +189,7 @@
     if (canZoom) setZoom(!viewer.classList.contains('is-zoomed'), point);
   }
   zoom.addEventListener('click', toggleZoom);
-  image.addEventListener('click', toggleZoom);
-  image.addEventListener('load', sizeImage);
+  retry.addEventListener('click', loadImage);
   if (typeof ResizeObserver !== 'undefined') {
     new ResizeObserver(sizeImage).observe(stage);
   } else {
