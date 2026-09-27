@@ -145,6 +145,9 @@ pre code {
   align-items: center;
   gap: 0.5rem;
 }
+.icon-label > .material-symbols-outlined.icon-sm {
+  font-size: clamp(16px, 1em, 24px);
+}
 
 /* ── Buttons: text / icon + text / icon only; outline / filled / ghost ── */
 /* Defaults: text only, outline, nearest theme. See #buttons in the library. */
@@ -195,6 +198,39 @@ pre code {
   flex-basis: 32px;
   min-width: 32px;
   width: 32px;
+}
+
+/* Keep link_2 smaller than the heading while aligning its visible center.
+   The glyph has built-in whitespace and sits high beside Noto headings. */
+.heading-with-link {
+  --heading-link-size: 22px;
+  --heading-link-offset: 1px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.heading-with-link--page {
+  --heading-link-size: 28px;
+  --heading-link-offset: -2px; /* Noto Rashi Hebrew page titles. */
+}
+html:lang(ko) .heading-with-link--page {
+  --heading-link-offset: 2px; /* i18n uses Noto Sans KR in Korean mode. */
+}
+.heading-with-link > :is(h1, h2, h3) {
+  min-width: 0;
+  margin-block: 0;
+}
+.heading-with-link > .heading-link {
+  flex-basis: 32px;
+  min-width: 32px;
+  min-height: 32px;
+  width: 32px;
+  height: 32px;
+}
+.heading-with-link > .heading-link .material-symbols-outlined {
+  font-size: var(--heading-link-size);
+  font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+  transform: translateY(var(--heading-link-offset));
 }
 
 .btn--disclosure {

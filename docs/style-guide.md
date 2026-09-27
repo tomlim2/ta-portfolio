@@ -317,7 +317,10 @@
 | 상황 | 클래스 | 크기 / Optical size | Weight |
 |---|---|---|---|
 | 독립 아이콘 예시 | `material-symbols-outlined` | 24px / 24 | 300 |
-| 버튼·텍스트 옆 아이콘 | `material-symbols-outlined icon-sm` | 20px / 20 | 300 |
+| 일반 버튼 아이콘 | `material-symbols-outlined icon-sm` | 20px / 20 | 300 |
+| 본문·이전/다음 링크 아이콘 | `.icon-label > .material-symbols-outlined.icon-sm` | 글자 크기에 따라 16–24px / 20 | 300 |
+| 섹션 제목 링크 | `.heading-with-link > .heading-link` | 22px / 24 | 300 |
+| 페이지 제목 링크 | `.heading-with-link--page > .heading-link` | 28px / 24 | 300 |
 
 색상은 주변 글자색을 상속한다. 아이콘만 있는 버튼·링크의 조작 영역은 아이콘 크기와 별개로 기본 44×44px, `.icon-group` 안에서는 32×44px로 확보하고, 목적을 나타내는 `aria-label`을 제공한다. 장식 아이콘에는 `aria-hidden="true"`를 붙인다. 아이콘 이름은 번역하지 않으며 아이콘 span을 `data-ko` 텍스트 요소 밖에 둔다.
 
@@ -337,7 +340,9 @@
 
 홈·상세·내부 문서·템플릿·이미지 뷰어의 일반 UI 아이콘에 적용한다. **SNS·브랜드 아이콘은 예외**이며 GitHub·LinkedIn의 실제 SVG 로고를 사용한다. `code`·`work` 같은 일반 기호로 서비스를 대신하지 않는다. 서비스 이름은 `aria-label`과 `data-tip` 또는 보이는 텍스트로 명시한다. 이전/다음 링크는 `arrow_back` / `arrow_forward`, 새 탭 표시는 `open_in_new`를 쓴다. 본문 안의 수치·파이프라인 화살표는 문장 일부다.
 
-아이콘만 있는 링크에는 `.btn.btn--ghost.btn--icon`을 사용한다. 기본 44×44px(아이콘 그룹은 32×44px) flex 컨테이너 안에 아이콘을 중앙 정렬하므로 텍스트 baseline 차이로 높이가 어긋나지 않는다. 본문에서 텍스트와 함께 쓰는 링크는 `.icon-label`로 중앙 정렬하고 8px 간격을 둔다.
+아이콘만 있는 링크에는 `.btn.btn--ghost.btn--icon`을 사용한다. 기본 44×44px(아이콘 그룹은 32×44px) 조작 영역 안에서 아이콘을 중앙 정렬한다. 제목 링크는 `.heading-with-link` 안에 제목과 `.heading-link`를 형제로 두고 gap 4px로 세로 중앙 정렬한다. 20px 섹션 제목에는 22px 아이콘, 32px 페이지 제목에는 `.heading-with-link--page`를 추가해 28px 아이콘을 사용한다. 이는 내부 여백이 있는 `link_2` 도형을 제목보다 작게 표시하는 규격이며 제목 링크의 클릭 영역은 32×32px로 둔다. 아이콘 도형에만 세로 보정을 적용한다. 섹션 제목은 아래로 1px, 페이지 제목은 한글 모드(Noto Sans KR)에서 아래로 2px, 영문 모드(Noto Rashi Hebrew)에서 위로 2px 이동한다. 박스 중심이 같아도 글자 윤곽의 중심은 다르므로, 글꼴 변경 시 한·영 화면의 실제 윤곽을 다시 확인한다. 제목이 줄바꿈되면 제목 블록 중앙에 맞춘다. 번역은 제목에만 적용하고 아이콘 링크에는 적용하지 않는다. [제목 링크 예시](../component-library.html#heading-links)를 참고한다.
+
+본문·이전/다음에서 텍스트와 함께 쓰는 링크는 `.icon-label`로 중앙 정렬하고 8px 간격을 둔다. 아이콘은 `clamp(16px, 1em, 24px)`로 글자 크기를 따라가므로 14px 본문 옆에는 16px로 표시한다. 일반 버튼·모달·소셜 아이콘에는 이 규칙을 적용하지 않는다. 박스 정렬과 실제 도형 크기는 별개이므로 한·영 글꼴과 긴 제목을 함께 확인한다.
 
 일반 UI용 SVG도 같은 Google Outlined / weight 300 / Fill 0 / Grade 0 원본을 사용한다. `assets/icons/`에 공식 20px 원본과 라이선스를 보관하며 [출처·변환 규칙](../assets/icons/README.md)을 따른다. 이력서의 좁은 연락처 행은 이 원본을 13px로 축소해 HTML과 PDF에 함께 반영한다. 다운로드 커서는 같은 원본에 흰 원형 배경을 더한 24px SVG/PNG다. details 화살표는 `chevron_right.svg` CSS mask로 표시한다.
 
