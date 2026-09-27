@@ -3,6 +3,11 @@
   var links = document.querySelectorAll('a[data-resume-viewer]');
   if (!links.length || !window.PreviewModal) return;
   var root = new URL('../', document.currentScript.src);
+  var documentUrl = new URL('resume.html', root).href;
+  var copy = {
+    ko: { download: '이력서 PDF 다운로드', downloadTip: 'PDF 다운로드', title: '임연수 이력서', close: '이력서 닫기', closeTip: '닫기' },
+    en: { download: 'Download resume PDF', downloadTip: 'Download PDF', title: 'Younsoo Lim resume', close: 'Close resume', closeTip: 'Close' }
+  };
   var modal = PreviewModal.create({
     className: 'resume-viewer',
     actionHTML: '<a class="btn btn--ghost btn--icon resume-toolbar-download" download="Younsoo-Lim-Resume.pdf">' +
@@ -15,21 +20,16 @@
   download.href = new URL('assets/resume.pdf', root).href;
   modal.connectFrame(frame);
 
-  links.forEach(function (link) {
-    link.setAttribute('aria-haspopup', 'dialog');
-    link.addEventListener('click', function (event) {
-      if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
-      event.preventDefault();
-      var korean = document.documentElement.lang === 'ko';
-      download.setAttribute('aria-label', korean ? '이력서 PDF 다운로드' : 'Download resume PDF');
-      download.dataset.tip = korean ? 'PDF 다운로드' : 'Download PDF';
-      frame.title = korean ? '임연수 이력서' : 'Younsoo Lim resume';
-      frame.src = new URL('resume.html', root).href;
-      modal.open(link, {
-        title: download.download,
-        closeLabel: korean ? '이력서 닫기' : 'Close resume',
-        closeTip: korean ? '닫기' : 'Close'
-      });
+  PreviewModal.bindLinks(links, function (link) {
+    var labels = copy[document.documentElement.lang] || copy.en;
+    download.setAttribute('aria-label', labels.download);
+    download.dataset.tip = labels.downloadTip;
+    frame.title = labels.title;
+    frame.src = documentUrl;
+    modal.open(link, {
+      title: download.download,
+      closeLabel: labels.close,
+      closeTip: labels.closeTip
     });
   });
 })();

@@ -1211,7 +1211,7 @@ console.log(`Converted ${result.count} models`);</code></pre>
         <span class="material-symbols-outlined icon-sm" aria-hidden="true">article_person</span>
         <span data-ko="이력서 모달 열기">Open resume modal</span>
       </a>
-      <p class="cl-note">본문 안의 영상 재생, 프로젝트 상세 페이지 이동, 외부 서비스 이동은 해당 콘텐츠·탐색 동작입니다. 여기에 별도 미리보기를 추가할 때는 같은 모달을 사용합니다. 현재 구현은 이미지와 이력서이며, 새 유형에는 콘텐츠 어댑터와 미디어·키보드 검증이 필요합니다.</p>
+      <p class="cl-note">본문 안의 영상 재생, 프로젝트 상세 페이지 이동, 외부 서비스 이동은 해당 콘텐츠·탐색 동작입니다. 여기에 별도 미리보기를 추가할 때는 같은 모달을 사용합니다. 현재 구현은 이미지와 이력서이며, 새 유형에는 콘텐츠 어댑터와 미디어·키보드 검증이 필요합니다. 공통 링크 연결은 <code>PreviewModal.bindLinks()</code>, 모달 생성은 <code>PreviewModal.create()</code>, 닫기로 포커스 이동은 반환된 <code>focusClose()</code>를 사용합니다. 이미지 뷰어는 요청 수명·상태 표시·크기 계산·한영 문구를 각각 분리합니다.</p>
       <details class="cl-source">
         <summary class="btn btn--ghost btn--disclosure">공통 모달 연결 · HTML 코드</summary>
         <div class="cl-source-body">
@@ -1390,9 +1390,9 @@ console.log(`Converted ${result.count} models`);</code></pre>
 
   <script src="js/i18n.js?v=20260926-language-menu"></script>
   <script src="js/theme.js"></script>
-  <script src="js/preview-modal.js?v=20260925-toolbar-right"></script>
-  <script src="js/image-viewer.js?v=20260927-preview-states"></script>
-  <script src="js/resume-viewer.js?v=20260925-filename"></script>
+  <script src="js/preview-modal.js?v=20260927-preview-refactor"></script>
+  <script src="js/image-viewer.js?v=20260927-preview-refactor"></script>
+  <script src="js/resume-viewer.js?v=20260927-preview-refactor"></script>
   <script src="docs/component-library.js"></script>
 </body>
 </html>

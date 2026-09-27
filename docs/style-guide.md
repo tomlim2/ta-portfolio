@@ -444,13 +444,13 @@ LinkedIn은 `brand-icon--linkedin`을 사용한다. SVG 파일 경로는 공통 
 
 상태 제목은 14px / 500 / 줄높이 1.6, 안내는 13px / 줄높이 1.7이다. 본문과 같은 body·muted 색상을 쓰며 별도의 경고색을 추가하지 않는다. 상태 문구는 `role="status"`로 전달하고, 재시도 시 숨겨질 버튼의 포커스는 닫기 버튼으로 옮긴다. 스피너는 장식이며 동작 줄이기 설정에서 회전하지 않는다. 닫기·다른 이미지 열기·재시도 후에는 이전 요청 결과가 현재 미리보기를 덮어쓰지 않는다.
 
-상태 스타일은 `css/preview-modal.css`, 이미지 요청 처리는 `js/image-viewer.js`에 있다. 현재 로딩·실패 처리는 이미지 미리보기에 적용하며, 이력서 iframe이나 본문 영상에 자동 적용되지 않는다. [상태 예시](../component-library.html#preview-states)를 참고한다.
+상태 스타일은 `css/preview-modal.css`, 이미지 요청 처리는 `js/image-viewer.js`에 있다. 이미지 뷰어의 내부 상태는 `idle → loading → ready / error`로 구분한다. 각 요청이 타이머·이벤트와 취소 처리를 소유하며, 확대 가능 여부와 표시 크기는 원본 크기·영역 크기에서 계산한다. 한·영 문구는 각 뷰어의 `copy` 객체에서 관리한다. 현재 로딩·실패 처리는 이미지 미리보기에 적용하며, 이력서 iframe이나 본문 영상에 자동 적용되지 않는다. [상태 예시](../component-library.html#preview-states)를 참고한다.
 
 ### 모든 미리보기는 모달
 
 **이미지·이력서·문서·영상 등 콘텐츠를 따로 열어 살펴보는 미리보기는 모두 현재 페이지의 공통 모달을 사용한다.** 새로운 미리보기 전용 페이지나 새 탭을 기본 동작으로 만들지 않는다. 실제 예시는 [Preview Modals](../component-library.html#preview-modals)에서 확인한다.
 
-- **공통 틀:** `css/preview-modal.css`와 `js/preview-modal.js`의 `PreviewModal.create()`를 사용한다. 유형별 파일에는 콘텐츠·확대·저장·재생만 구현하며, 닫기·배경·포커스 규칙을 복제하지 않는다.
+- **공통 틀:** `css/preview-modal.css`와 `js/preview-modal.js`의 `PreviewModal.create()`를 사용한다. 유형별 파일에는 콘텐츠·확대·저장·재생만 구현하며, 닫기·배경·포커스 규칙을 복제하지 않는다. 링크 연결은 `PreviewModal.bindLinks(links, openPreview)`를 사용한다. 기본 클릭만 처리하며 콜백이 `false`를 반환하면 원본 링크 동작을 유지한다. 숨겨질 컨트롤의 포커스는 모달의 `focusClose()`로 옮긴다.
 - **상단:** 콘텐츠 이름은 왼쪽, 액션 묶음은 오른쪽 정렬한다. DOM 순서도 제목 → 콘텐츠 액션 → 닫기이며 닫기는 항상 맨 오른쪽이다. 제목 열은 `minmax(0, 1fr)`, 액션 열은 `auto`, 버튼 사이 간격은 4px이다. 이미지 액션은 래스터 원본 크기 ↔ 화면 맞춤 또는 SVG 150% ↔ 화면 맞춤이며, 이력서는 PDF 다운로드다. 별도 액션이 없으면 오른쪽에 닫기만 둔다.
 - **상단 크기:** 기본 높이 41px(버튼 32px + 상하 여백 각 4px + 하단 경계 1px). 제목 13px / 행간 20px / weight 500. 좌우 여백은 데스크톱 12px, 모바일 8px이며 안전 영역은 별도로 반영한다. 이미지·이력서와 직접 열기용 이력서 화면에 같은 크기를 적용한다.
 - **버튼:** `btn btn--ghost btn--icon`, 상단에서만 32×32px 조작 영역과 18px 아이콘, Google Outlined weight 300. 항상 `aria-label`을 제공하며 짧은 `data-tip`은 보조 라벨이다. 뒤로가기 아이콘이나 Close 텍스트 버튼을 사용하지 않는다.
