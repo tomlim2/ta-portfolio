@@ -627,7 +627,10 @@ a[data-cursor="download"] {
 
 /* ── Nav ── */
 
-nav .nav-links { align-items: center; }
+nav .nav-links {
+  align-items: center;
+  gap: 8px;
+}
 
 nav .nav-logo,
 nav .nav-links a {
@@ -647,7 +650,10 @@ nav .nav-logo {
 }
 
 /* Center the larger Korean glyphs optically without moving the hit area. */
-html:lang(ko) nav .nav-logo { padding-bottom: 2px; }
+html:lang(ko) nav .nav-logo {
+  padding-bottom: 2px;
+  letter-spacing: 0;
+}
 
 nav .nav-links a {
   justify-content: center;
