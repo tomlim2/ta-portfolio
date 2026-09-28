@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Younsoo Lim | Frontend Developer</title>
+  <title>About | Younsoo Lim — Frontend Developer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Noto+Rashi+Hebrew:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -32,7 +32,7 @@
       },
     }
   </script>
-  <meta name="description" content="Younsoo Lim — Frontend Developer. React interfaces, reusable components, and creative coding.">
+  <meta name="description" content="About Younsoo Lim — Frontend Developer. Background, experience, and areas of practice.">
   <link rel="icon" href="../favicon.gif" type="image/gif">
   <link rel="stylesheet" href="../css/popover.css?v=20260928-popover">
   <link rel="stylesheet" href="../css/style.css?v=20260928-nav-middle">
@@ -40,32 +40,34 @@
   <link rel="stylesheet" href="../css/resume-viewer.css?v=20260925-toolbar-right">
 </head>
 <body class="bg-bg text-body">
-  <a href="#projects" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:bg-heading focus:text-bg focus:px-4 focus:py-2 focus:rounded focus:z-[60]">Skip to content</a>
+  <a href="#about" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:bg-heading focus:text-bg focus:px-4 focus:py-2 focus:rounded focus:z-[60]">Skip to content</a>
 
   <!-- Navigation -->
   <nav class="fixed top-0 w-full z-50 bg-bg/80 backdrop-blur-md">
     <div class="max-w-[1400px] mx-auto px-6 h-16 flex items-center justify-between">
       <a href="index.html" id="nav-name" class="nav-logo" data-ko="임 연수">Younsoo Lim</a>
       <div class="nav-links flex gap-8 text-sm text-body ml-auto" id="desktop-nav">
-        <a href="#projects" class="nav-projects nav-link hover:text-heading transition" data-ko="작업">Projects</a>
-        <a href="about.html" class="nav-about nav-link hover:text-heading transition" data-ko="소개">About</a>
+        <a href="index.html#projects" class="nav-projects nav-link hover:text-heading transition" data-ko="작업">Projects</a>
+        <a aria-current="page" href="about.html" class="nav-about nav-link hover:text-heading transition" data-ko="소개">About</a>
       </div>
     </div>
   </nav>
 
-  <main>
-<section class="flex flex-col justify-end px-6 pt-32 pb-12 max-w-[1400px] mx-auto">
-<h1 class="text-body hero-tagline" data-ko="프론트엔드 개발자">Frontend Developer</h1>
-<p class="hero-summary text-body" data-ko="사용자가 편하게 탐색하는 인터페이스와 동료가 이해하기 쉬운 컴포넌트를 만듭니다.">I build interfaces that are easy to navigate and components that are easy to understand.</p>
-<div class="hero-actions"><a href="mailto:tomandlim@gmail.com" class="btn btn--ghost"><span>tomandlim@gmail.com</span></a><a href="../resume-viewer.html" data-resume-viewer class="btn btn--ghost"><span data-ko="이력서 보기">View resume</span></a></div>
-</section>
-<section id="projects" class="max-w-[1400px] mx-auto px-6 py-16"><h2 class="text-muted section-label uppercase mb-6" data-ko="프로젝트">Projects</h2><div class="project-grid">
-<a href="../projects/cork-nft.html" class="project-card"><div class="project-card-media"><img src="../assets/images/cork-nft/hero.webp" alt="Cork NFT project screenshot" width="1280" height="724" class="project-card-img" fetchpriority="high" decoding="async"></div><div class="project-card-caption"><h3 class="card-title">Cork NFT</h3><p class="card-subtitle" data-ko="React · 회원 관리·검색·갤러리 컴포넌트">React · Accounts, search &amp; gallery components</p></div></a>
-<a href="../projects/winterest.html" class="project-card"><div class="project-card-media"><img src="../assets/images/winterest/hero.webp" alt="Winterest project screenshot" width="1280" height="720" class="project-card-img" loading="lazy" decoding="async"></div><div class="project-card-caption"><h3 class="card-title">Winterest</h3><p class="card-subtitle" data-ko="React · 이미지 피드·무한 스크롤·다크 모드">React · Image feeds, infinite scrolling &amp; dark mode</p></div></a>
-<a href="../projects/like.html" class="project-card"><div class="project-card-media"><img src="../assets/images/like/hero.webp" alt="LIKE project screenshot" width="1280" height="685" class="project-card-img" loading="lazy" decoding="async"></div><div class="project-card-caption"><h3 class="card-title">LIKE</h3><p class="card-subtitle" data-ko="React · 상품 옵션·장바구니·구매 흐름">React · Product options, cart &amp; purchase flow</p></div></a>
-<a href="../projects/junkyard.html" class="project-card"><div class="project-card-media"><img src="../assets/images/junkyard/img_hero.png" alt="Junkyard project screenshot" width="1440" height="810" class="project-card-img" loading="lazy" decoding="async"></div><div class="project-card-caption"><h3 class="card-title">Junkyard</h3><p class="card-subtitle" data-ko="Three.js / p5.js · 크리에이티브 코딩">Three.js / p5.js · Creative coding</p></div></a></div></section>
-</main>
-
+  <main id="about" class="max-w-[1400px] mx-auto px-6 pt-32 pb-24">
+    <h1 class="sr-only" data-ko="소개">About</h1>
+<p class="text-muted text-sm leading-relaxed mb-12 max-w-3xl" data-ko="사용자가 인터페이스를 어떻게 탐색하고 조작하는지, 동료 개발자가 코드를 어떻게 이해하는지 함께 고민합니다. React 기반 서비스의 화면·상태·API 연결을 구현하고, Three.js와 p5.js를 활용한 웹 인터랙션도 탐구해왔습니다.">I consider both how people navigate an interface and how other developers understand its code. My work spans React interfaces, state and API integration, alongside web interaction experiments with Three.js and p5.js.</p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+<div><h2 class="text-muted uppercase tracking-[0.15em] mb-5 section-label" data-ko="구현 영역">Focus</h2><div class="space-y-5">
+<div><p class="text-body about-role" data-ko="서비스 인터페이스">Service interfaces</p><p class="text-muted about-detail" data-ko="회원 관리 · 검색 · 상품 상세 · 장바구니">Accounts · Search · Product details · Carts</p></div>
+<div><p class="text-body about-role" data-ko="재사용 가능한 UI">Reusable UI</p><p class="text-muted about-detail" data-ko="커스텀 훅 · 그리드 · 무한 스크롤 · 테마">Custom hooks · Grids · Infinite scrolling · Themes</p></div>
+<div><p class="text-body about-role" data-ko="웹 인터랙션">Web interaction</p><p class="text-muted about-detail" data-ko="데이터 시각화 · 3D · 모션 · 반응형 웹">Data visualization · 3D · Motion · Responsive web</p></div>
+</div></div>
+<div><h2 class="text-muted uppercase tracking-[0.15em] mb-5 section-label" data-ko="프로젝트 사용 기술">Project stack</h2><div class="space-y-5">
+<div><p class="text-body about-role">React · JavaScript</p><p class="text-muted about-detail">Redux · Recoil · Firebase</p></div>
+<div><p class="text-body about-role">HTML · CSS · Sass</p><p class="text-muted about-detail">styled-components · Three.js · p5.js</p></div>
+<div><p class="text-body about-role" data-ko="협업과 배포">Collaboration &amp; deployment</p><p class="text-muted about-detail">Git · GitHub · Figma · Postman · AWS S3</p></div>
+</div></div></div>
+  </main>
 
   <footer class="site-footer py-8 text-muted text-xs">
     <div class="footer-layout max-w-[1400px] mx-auto px-6">

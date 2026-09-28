@@ -239,11 +239,6 @@ html:lang(ko) .heading-with-link--page {
   text-align: left;
 }
 
-/* Layout visibility is separate from the button's visual variant. */
-@media (min-width: 768px) {
-  .mobile-menu-toggle { display: none; }
-}
-
 .btn:where(:not(.btn--ghost)):not(:disabled):hover {
   background: rgb(var(--c-button-hover));
 }
@@ -279,7 +274,7 @@ html:lang(ko) .heading-with-link--page {
   display: none;
 }
 
-/* Native fallback, enhanced by i18n.js into an upward-opening language menu. */
+/* Native fallback, enhanced by i18n.js with the shared popover. */
 .language-switcher {
   position: relative;
   display: inline-flex;
@@ -365,17 +360,12 @@ html:lang(ko) .heading-with-link--page {
 }
 .language-current { white-space: nowrap; }
 .language-menu {
-  position: absolute;
-  z-index: 40;
-  inset-inline: 0;
-  bottom: calc(100% - 1px);
   padding: 8px 0;
-  border: 1px solid rgb(var(--c-border));
   border-radius: 12px 12px 0 0;
-  background: rgb(var(--c-bg));
 }
-.language-menu[hidden] { display: none; }
 .language-switcher.is-open .language-trigger { border-radius: 0 0 12px 12px; }
+.language-menu[data-placement^="bottom"] { border-radius: 0 0 12px 12px; }
+.language-switcher.is-open:has([data-placement^="bottom"]) .language-trigger { border-radius: 12px 12px 0 0; }
 .language-option {
   display: block;
   width: 100%;
@@ -476,6 +466,8 @@ html:lang(ko) .heading-with-link--page {
 .site-footer .language-switcher.is-open .language-trigger {
   border-radius: 0 0 10px 10px;
 }
+.site-footer .language-menu[data-placement^="bottom"] { border-radius: 0 0 10px 10px; }
+.site-footer .language-switcher.is-open:has([data-placement^="bottom"]) .language-trigger { border-radius: 10px 10px 0 0; }
 .site-footer .language-option {
   min-height: 38px;
   padding: 8px 10px;
@@ -635,19 +627,39 @@ a[data-cursor="download"] {
 
 /* ── Nav ── */
 
+nav .nav-links { align-items: center; }
+
+nav .nav-logo,
+nav .nav-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  line-height: 24px;
+}
+
 nav .nav-logo {
   font-family: 'Noto Sans KR', sans-serif;
   font-size: 1.25rem;
   font-weight: 700;
   letter-spacing: 0.02em;
-  line-height: 1;
   text-decoration: none;
   color: inherit;
 }
 
+/* Center the larger Korean glyphs optically without moving the hit area. */
+html:lang(ko) nav .nav-logo { padding-bottom: 2px; }
+
 nav .nav-links a {
+  justify-content: center;
+  min-width: 44px;
   font-family: 'Noto Rashi Hebrew', serif;
   font-size: 0.875rem;
+}
+
+nav .nav-links a[aria-current="page"] { color: rgb(var(--c-heading)); }
+
+@media (max-width: 767px) {
+  nav .nav-links .nav-projects { display: none; }
 }
 
 nav {

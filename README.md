@@ -20,6 +20,10 @@ These internal references are excluded from `site-public.json`. Preview them loc
 
 `frontend/index.html` presents Cork NFT, Winterest, LIKE, and Junkyard using the TA text hero and shared components. The first three projects have dedicated case studies; Junkyard shares its existing design case study. Screenshots and animated captures are stored locally and displayed in one column. Demo, repository, and video links sit beside their subject headings. Source material, contribution scope, and media provenance are recorded in [the frontend migration notes](docs/frontend-portfolio-migration.md).
 
+## About pages
+
+The TA, designer, and frontend portfolios have separate About pages at `about.html`, `design/about.html`, and `frontend/about.html`. Navigation opens the corresponding page, with the same shared header, footer, language preference, and resume preview as its home. About content lives only on these pages; legacy homepage `#about` links redirect to them.
+
 ## Shotloom case study
 
 Shotloom is the fourth Projects card, after NPR Shading & Look Development, Character System, and UE5 Profiling. Its homepage card and case-study hero use the approved `assets/images/shotloom/thumbnail-editor-v2.png`, labeled as an AI-retouched thumbnail. Original development screenshots remain in the case study. Direct access is also available: `/shotloom` redirects to `/projects/shotloom.html`. The case study covers core 3D workflows, company service integration, and accessible editing. SceneGen illustrates one of several Shotloom use cases: in this example, Shotloom’s 3D editing and scene video output connect CINEV’s image input with final video generation. The product reached development-server deployment; publication of this case study does not imply a product launch.
@@ -48,14 +52,19 @@ Shotloom is the fourth Projects card, after NPR Shading & Look Development, Char
 
 ```
 index.html               # Landing page
+about.html               # TA introduction, career, education, and skills
 design/index.html        # Designer portfolio home
+design/about.html        # Designer introduction, practice, and education
 frontend/index.html      # Frontend portfolio home
+frontend/about.html      # Frontend introduction, focus, and stack
 resume.html              # Single-column, two-page A4 resume source
 resume-viewer.html       # Direct-link fallback for the resume modal
 assets/resume.pdf        # Download from the preview; regenerate after resume edits
 projects/                # 17 published TA, design, and frontend case studies
 shotloom/index.html      # Direct-entry redirect to the Shotloom case study
 css/style.css            # Shared portfolio styles
+css/popover.css          # Shared anchored popover surface
+js/popover.js           # Shared popover lifecycle, focus and positioning
 css/preview-modal.css    # Common preview shell and icon toolbar
 js/preview-modal.js      # Shared close, focus and scroll behavior
 js/                      # Shared behavior, including image and resume previews
@@ -71,6 +80,8 @@ tools/career-notes/      # Local, gitignored interview, evidence, and revision r
 ## Editing content
 
 All on-demand previews use the shared modal: content name on the left, contextual actions on the right, and close always rightmost. Image and resume previews use the same shell. The resume preview shows the PDF filename and offers a separate download action. See the [preview rules](docs/style-guide.md#모든-미리보기는-모달).
+
+Small anchored information and selection panels use `Popover.create()`. Load `css/popover.css` before `css/style.css` and `js/popover.js` before the adapter, including `js/i18n.js` for language selectors. See the [popover rules](docs/style-guide.md#공용-팝오버) and [live examples](component-library.html#popovers).
 
 Update both the English element content and its Korean `data-ko` value. Keep role ownership, implementation status, and measurement scope consistent across the homepage, case studies, and resume. Legacy encryption scripts expect `projects/originals/`, which is absent from this checkout; do not run them against incomplete source files.
 

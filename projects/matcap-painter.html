@@ -33,7 +33,8 @@
     }
   </script>
   <link rel="icon" href="../favicon.gif" type="image/gif">
-  <link rel="stylesheet" href="../css/style.css?v=20260927-link-button-compact">
+  <link rel="stylesheet" href="../css/popover.css?v=20260928-popover">
+  <link rel="stylesheet" href="../css/style.css?v=20260928-nav-middle">
   <link rel="stylesheet" href="../css/preview-modal.css?v=20260927-preview-states">
   <link rel="stylesheet" href="../css/resume-viewer.css?v=20260925-toolbar-right">
   <link rel="stylesheet" href="../css/image-viewer.css?v=20260927-preview-states">
@@ -42,21 +43,10 @@
 
   <nav class="fixed top-0 w-full z-50 bg-bg/80 backdrop-blur-md">
     <div class="max-w-[1400px] mx-auto px-6 h-16 flex items-center justify-between">
-      <a href="../index.html" class="nav-logo">Younsoo Lim</a>
-      <div class="nav-links hidden md:flex gap-8 text-sm text-body ml-auto">
-        <a href="../index.html#projects" class="hover:text-heading transition">Projects</a>
-        <a href="../index.html#about" class="hover:text-heading transition">About</a>
-      </div>
-      <div class="flex items-center gap-3">
-        <button type="button" id="hamburger-btn" class="btn btn--ghost btn--icon mobile-menu-toggle" aria-label="Toggle menu">
-        <span class="material-symbols-outlined icon-sm" aria-hidden="true">menu</span>
-      </button>
-      </div>
-    </div>
-    <div id="mobile-menu" class="md:hidden hidden border-t border-border bg-bg/95 backdrop-blur-md">
-      <div class="flex flex-col px-6 py-4 gap-4 text-sm text-body">
-        <a href="../index.html#projects" class="hover:text-heading transition">Projects</a>
-        <a href="../index.html#about" class="hover:text-heading transition">About</a>
+      <a href="../index.html" class="nav-logo" data-ko="임 연수">Younsoo Lim</a>
+      <div class="nav-links flex gap-8 text-sm text-body ml-auto">
+        <a href="../index.html#projects" class="nav-projects hover:text-heading transition" data-ko="작업">Projects</a>
+        <a href="../about.html" class="nav-about hover:text-heading transition" data-ko="소개">About</a>
       </div>
     </div>
   </nav>
@@ -174,9 +164,10 @@
     </div>
   </footer>
 
-  <script src="../js/i18n.js?v=20260926-language-menu"></script>
+  <script src="../js/popover.js?v=20260928-about-pages"></script>
+  <script src="../js/main.js?v=20260928-about-pages"></script>
+  <script src="../js/i18n.js?v=20260928-about-pages"></script>
   <script src="../js/theme.js"></script>
-  <script src="../js/main.js"></script>
   <script src="../js/preview-modal.js?v=20260927-preview-refactor"></script>
   <script src="../js/resume-viewer.js?v=20260927-preview-refactor"></script>
   <script src="../js/image-viewer.js?v=20260927-preview-refactor"></script>
