@@ -1,6 +1,6 @@
 # 포트폴리오 스타일 가이드
 
-기준일: 2026-09-27 · 대상: `tomlim2/ta-portfolio`의 TA·디자이너·프론트엔드 포트폴리오.
+기준일: 2026-09-28 · 대상: `tomlim2/ta-portfolio`의 TA·디자이너·프론트엔드 포트폴리오.
 
 현재 체크아웃의 구현을 설명하고 기존 포폴을 이식할 때 사용할 기준을 정리한다. **현재 구현**과 **새 페이지 작성 기준**을 구분한다. 이 문서는 현재 체크아웃 기준이며 운영 배포 상태를 보증하지 않는다.
 
@@ -192,7 +192,13 @@ TA·프론트엔드 히어로는 위 128px·아래 48px 여백을 공유한다. 
 
 본문 링크는 `text-accent hover:underline`, 내비는 `text-body hover:text-heading`을 사용한다. 외부 새 탭 링크에는 `target="_blank" rel="noopener"`를 함께 쓴다. 아이콘 링크에는 `aria-label`을 제공한다. `data-tip`은 hover·키보드 포커스 보조 설명이며 접근 가능한 이름을 대신하지 않는다.
 
-홈 내비는 스크롤 다운 시 숨고 위로 스크롤하면 나타난다. 모바일 메뉴는 `#hamburger-btn` / `#mobile-menu`를 사용하고 링크 클릭 후 닫힌다. 메뉴 버튼의 `.mobile-menu-toggle`은 768px 이상에서 숨기는 배치 규칙이다. 일부 오래된 상세에는 모바일 메뉴가 없으므로 새 페이지는 템플릿의 메뉴를 따른다.
+홈·상세 내비는 스크롤 다운 시 숨고 위로 스크롤하면 나타난다. 왼쪽 이름 로고는 한국어에서 **임 연수**, 영어에서 **Younsoo Lim**으로 표시하며 해당 포트폴리오 홈의 맨 위로 연결한다. 프로젝트나 소개 앵커를 붙이지 않는다.
+
+상단 메뉴는 한국어에서 **작업 · 소개**, 영어에서 **Projects · About**으로 표시한다. 768px 미만에서는 오른쪽에 **소개(About) 링크**만 표시한다. `.nav-projects`는 모바일에서 숨기고, 768px 이상에서는 작업·소개를 함께 표시한다. 64px 높이 헤더 안에서 로고와 메뉴를 세로 중앙 정렬한다. 로고·메뉴의 조작 영역 높이는 44px, 줄높이는 24px로 통일하고 메뉴 묶음도 `align-items: center`를 사용한다. 한국어 로고는 글자 크기 차이에 따른 시각적 중심을 맞추기 위해 아래 패딩 2px로 글자만 1px 위로 보정한다. 링크는 14px 글자와 최소 44×44px 조작 영역을 사용한다. [Navigation 예시](../component-library.html#navigation)를 따른다.
+
+소개는 독립된 페이지다. TA는 `about.html`, 디자이너는 `design/about.html`, 프론트엔드는 `frontend/about.html`에서 각 분야의 소개·경력·학력·기술 내용을 관리한다. 홈과 상세의 `.nav-about` 링크는 소속 분야의 소개 페이지로 연결한다. 소개 페이지에서는 `aria-current="page"`로 현재 위치를 표시하며, 로고는 소속 홈의 맨 위로, 작업 링크는 소속 홈의 `#projects`로 돌아간다. 메인에는 프로젝트와 히어로만 유지하고 소개 본문을 반복하지 않는다.
+
+소개 페이지는 공통 헤더·푸터·언어 선택·이력서 미리보기를 유지한다. 본문은 최대 너비 1400px, 좌우 24px, 위 128px·아래 96px 여백이며, 큰 소개 제목 없이 본문부터 표시한다. 문서 구조용 h1은 `.sr-only`로 화면에서 숨긴다. 경력·학력·기술 등은 데스크톱에서 2열, 768px 미만에서 1열로 배치한다. JavaScript 없이도 소개 본문과 페이지 링크를 사용할 수 있다. 기존 홈 `#about` 주소는 `js/main.js`가 새 소개 페이지로 이동시킨다. 소개 전용 팝오버·배경 어둡게 처리·닫기 버튼은 사용하지 않는다.
 
 모든 TA·디자이너·프론트엔드 홈과 상세 페이지의 푸터는 **데스크톱과 모바일에서 동일한 구조**를 사용한다. `max-w-[1400px] mx-auto px-6` 너비와 `py-8` 여백을 유지하며 상세 본문의 896px 너비와 독립적으로 배치한다. 상단에는 `.footer-layout::before`로 1px 구분선을 그린다. 구분선은 좌우 24px 안쪽의 콘텐츠 경계에 맞추고 아래 위 패딩은 26.5px, 저작권 아래부터 다음 구분선까지는 32px로 둔다. 첫 링크의 32px 클릭 영역과 글자 여백 때문에 생기는 5.5px 차이를 위 패딩에서 보정한 값이다. 현재 폰트에서 실제 글자 경계 기준 간격은 위아래 약 37px로 맞추며, 폰트나 링크 높이를 바꾸면 다시 시각 검증한다.
 
@@ -202,15 +208,46 @@ TA·프론트엔드 히어로는 위 128px·아래 48px 여백을 공유한다. 
 
 각 홈·상세에서 현재 분야를 제외한 두 포트폴리오로 같은 탭에서 연결한다. 홈 경로는 `index.html`, `design/index.html`, `frontend/index.html`이며 현재 파일의 깊이에 맞춰 상대 경로를 사용한다. 이메일·이력서·GitHub·LinkedIn·언어 선택은 모든 페이지에서 동일하게 제공하며 포트폴리오 전환 링크의 목적지만 바꾼다. 이메일 주소는 한 항목으로 유지하고 `mailto:`로 연결한다. 이력서는 `data-resume-viewer`와 resume-viewer CSS·JS로 공통 미리보기 모달에서 열고, GitHub·LinkedIn은 외부 새 탭에서 연다. 라벨은 `data-ko`로 번역하며 링크 자체를 번역 과정에서 교체하지 않는다. 새 상세는 `projects/_template.html`의 전체 푸터를 유지한다. 디자인 상세의 로고·상단 내비 링크는 디자인 홈으로 돌아간다.
 
-상세 본문 하단의 관련 작업 내비게이션에는 프로젝트명과 방향 화살표만 표시한다. 이전 작업은 왼쪽의 `arrow_back`, 다음 작업은 오른쪽의 `arrow_forward`를 사용하고 `이전:`·`다음:`·`Previous:`·`Next:` 접두어는 넣지 않는다. 프로젝트 목록 복귀 링크는 제거하며 상단 Projects 내비게이션과 푸터의 포트폴리오 전환을 사용한다. 다음 링크만 있으면 오른쪽에 정렬하고, 관련 작업이 없으면 빈 내비게이션과 구분선도 만들지 않는다. [관련 작업 예시](../component-library.html#related-work)를 따른다.
+상세 본문 하단의 관련 작업 내비게이션에는 프로젝트명과 방향 화살표만 표시한다. 이전 작업은 왼쪽의 `arrow_back`, 다음 작업은 오른쪽의 `arrow_forward`를 사용하고 `이전:`·`다음:`·`Previous:`·`Next:` 접두어는 넣지 않는다. 프로젝트 목록 복귀 링크는 제거하며 상단 Younsoo Lim 로고·데스크톱 Projects 링크와 푸터의 포트폴리오 전환을 사용한다. 다음 링크만 있으면 오른쪽에 정렬하고, 관련 작업이 없으면 빈 내비게이션과 구분선도 만들지 않는다. [관련 작업 예시](../component-library.html#related-work)를 따른다.
+
+### 공용 팝오버
+
+버튼에 붙는 짧은 정보·선택 UI는 `css/popover.css` · `js/popover.js`의 `Popover.create()`를 사용한다. 실제 예시는 [Popovers](../component-library.html#popovers)에서 확인한다. 이미지·이력서 미리보기는 기존 모달을 유지한다.
+
+- 기본 패널: 너비 320px, 내부 패딩 16px, 1px `border` 테두리, 모서리 12px, `bg` 배경·`body` 글자, 글자 14px / 줄높이 1.6. 버튼과 8px 간격, 화면 가장자리에서 최소 12px 여백을 둔다. 작은 화면에서는 너비를 줄이고, 세로 공간이 부족하면 위/아래를 전환하거나 패널 내부를 스크롤한다.
+- 배경 차단·스크롤 잠금·포커스 가두기를 하지 않는다. 클릭·Enter·Space로 열고, Esc·바깥 클릭·포커스 이탈로 닫는다. Esc·명시적 닫기는 트리거로 포커스를 돌리며 바깥 조작의 포커스를 빼앗지 않는다. 일반 패널의 Tab은 내부 컨트롤 사이를 이동한다.
+- 동시에 하나만 연다. 중첩 팝오버는 지원하지 않는다. 스크롤·화면 크기·패널 크기 변화에 따라 위치를 다시 계산하며 트리거가 화면 밖으로 나가면 닫는다.
+- 네이티브 `popover="auto"`를 사용해 상위 컨테이너의 잘림을 피하고, 모달이 열리면 닫힌 상태를 동기화한다. [브라우저 동작 참고](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API/Using). 지원하지 않는 브라우저에서는 `create()`가 `null`을 반환하므로 select·기본 링크 등 대체 UI를 유지한다.
+- CSS는 `popover.css → style.css`, 스크립트는 `popover.js → i18n.js 또는 사용처 스크립트` 순서다. 초기 패널은 `hidden`으로 둔다. 컴포넌트가 열림 상태·위치·접근성 연결을 관리하고, 사용처는 본문·선택 동작을 관리한다.
+
+```js
+var popover = Popover.create({
+  trigger: document.getElementById('details-trigger'), // button
+  panel: document.getElementById('details-panel'),
+  placement: 'bottom-start'
+});
+// popover가 null이면 기본 UI를 유지한다.
+```
+
+| 옵션 | 기본값 / 용도 |
+|---|---|
+| `trigger`, `panel` | 필수 DOM 요소. 트리거는 button, 패널은 사용처에서 작성 |
+| `root` | 선택. 지정하면 열릴 때 `.is-open`을 붙임 |
+| `placement` | `bottom-start`. `bottom-end`, `top-start`, `top-end` 지원. start/end는 글 방향을 따름 |
+| `gap`, `matchTriggerWidth` | `8`, `false`. 버튼 간격과 동일 너비 사용 여부 |
+| `initialFocus` | 콜백이 포커스할 요소를 반환. 기본은 첫 컨트롤 또는 패널 |
+| `closeOnTab` | `false`. 언어 listbox는 `true`로 닫고 버튼 다음/이전 탭 순서로 진행 |
+| `onOpen`, `onClose` | 사용처의 열기/닫기 후속 동작 |
+
+반환 객체의 `open()`, `close()`, `toggle()`, `updatePosition()`, `destroy()`를 사용한다. `close({ restoreFocus: false })`는 포커스를 옮기지 않고 닫는다. `destroy()`는 이벤트와 관찰을 정리하고 생성 전 속성을 복원한다. 패널의 기본 역할은 비모달 `dialog`이며 `aria-label`·`aria-labelledby`가 없으면 트리거로 이름을 연결한다. listbox·menu 등의 역할을 미리 지정한 경우 해당 키보드 선택 규칙은 사용처에서 구현한다.
 
 ### 언어 선택 — 지구본 버튼과 위로 열리는 메뉴
 
 `.language-switcher`는 지구본 아이콘·현재 언어·아래 화살표가 있는 버튼이다. 선택지는 **한국어 / English**이며 처음에는 시스템 언어에 맞는 항목을 자동 선택한다. 별도의 System 항목은 표시하지 않는다. 너비 144px, 높이 44px, 글자 14px / 20px, 모서리 12px와 1px 테두리를 사용한다. 푸터에서는 너비 128px·높이 38px·글자 13px·모서리 10px로 축소하며 지구본과 화살표는 각각 16px다. 지구본과 화살표는 기존 Material Symbols SVG(`language.svg`, `chevron_right.svg`)를 재사용한다.
 
-누르면 버튼 바로 위로 같은 너비의 메뉴가 열리고, 메뉴 위쪽과 버튼 아래쪽에만 둥근 모서리를 남겨 하나로 이어진 형태를 만든다. 메뉴의 배경은 `bg`, 열린 버튼·항목 hover는 `surface`, 테두리는 `border`를 사용해 시스템 테마를 따른다. 항목 높이는 44px이며 현재 선택은 굵기로 표시한다.
+누르면 버튼 바로 위로 같은 너비의 메뉴가 열리고, 메뉴 위쪽과 버튼 아래쪽에만 둥근 모서리를 남겨 하나로 이어진 형태를 만든다. 위 공간이 부족하면 아래로 열고 둥근 모서리 방향도 맞춘다. 메뉴의 배경은 `bg`, 열린 버튼·항목 hover는 `surface`, 테두리는 `border`를 사용해 시스템 테마를 따른다. 항목 높이는 44px이며 현재 선택은 굵기로 표시한다.
 
-공통 `js/i18n.js`가 기본 select를 확장한다. JavaScript가 없으면 라벨과 네이티브 select가 그대로 표시된다. 확장 후 select와 `.language-label`은 숨기고, button/listbox/option 구조와 선택 상태를 접근성 속성으로 전달한다. 클릭·Enter·Space로 열고 선택하며, 위/아래 화살표·Home·End로 항목 사이를 이동한다. Esc는 닫고 버튼으로 포커스를 돌린다. Tab은 닫고 정상 탭 순서로 이동하며 바깥 클릭·포커스 이탈도 메뉴를 닫는다. 한 번에 하나의 메뉴만 열고, 모든 컨트롤의 표시와 선택 상태를 함께 갱신한다.
+공통 `js/i18n.js`가 `Popover.create()`로 기본 select를 확장한다. JavaScript 또는 Popover API가 없으면 라벨과 네이티브 select가 그대로 표시된다. 확장 후 select와 `.language-label`은 숨기고, button/listbox/option 구조와 선택 상태를 접근성 속성으로 전달한다. 클릭·Enter·Space로 열고 선택하며, 위/아래 화살표·Home·End로 항목 사이를 이동한다. Esc는 닫고 버튼으로 포커스를 돌린다. Tab은 닫고 정상 탭 순서로 이동하며 바깥 클릭·포커스 이탈도 메뉴를 닫는다. 한 번에 하나의 팝오버만 열고, 모든 언어 컨트롤의 표시와 선택 상태를 함께 갱신한다.
 
 1. 저장한 `ko` / `en` 설정이 있으면 우선 적용한다. 선택은 사이트 출처별 `localStorage`의 `portfolio.language`에 저장한다.
 2. 저장한 설정이 없으면 `navigator.languages`의 순서대로 지원 언어(`ko`, `en`)를 찾는다. `ko-KR`, `en-US` 같은 지역 코드는 기본 언어로 해석하며 목록이 없으면 `navigator.language`를 사용한다. 둘 다 지원하지 않는 경우 영어를 표시한다.

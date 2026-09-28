@@ -1,9 +1,21 @@
 // TA Portfolio - Main JS
 
 (function () {
+  // Keep links to the former home About section working.
+  function redirectLegacyAbout() {
+    var link = document.querySelector('nav .nav-about');
+    if (document.getElementById('projects') && window.location.hash === '#about' && link) {
+      window.location.replace(link.href);
+      return true;
+    }
+    return false;
+  }
+  if (redirectLegacyAbout()) return;
+  window.addEventListener('hashchange', redirectLegacyAbout);
+
   // --- Active nav highlighting with IntersectionObserver ---
 
-  const sections = document.querySelectorAll('#projects, #about');
+  const sections = document.querySelectorAll('#projects');
   const navLinks = document.querySelectorAll('.nav-link');
 
   function setActiveLink(sectionId) {
@@ -40,6 +52,7 @@
 
   window.addEventListener('scroll', function () {
     var currentScrollY = window.scrollY;
+    if (!nav) return;
     if (currentScrollY > lastScrollY && currentScrollY > 56) {
       nav.style.transform = 'translateY(-100%)';
     } else {
@@ -221,29 +234,4 @@
     });
   }
 
-  // --- Mobile hamburger menu toggle ---
-
-  var hamburgerBtn = document.getElementById('hamburger-btn');
-  var mobileMenu = document.getElementById('mobile-menu');
-
-  if (hamburgerBtn && mobileMenu) {
-    function setMenuOpen(open) {
-      mobileMenu.classList.toggle('hidden', !open);
-      hamburgerBtn.setAttribute('aria-expanded', String(open));
-      hamburgerBtn.querySelector('.material-symbols-outlined').textContent = open ? 'close' : 'menu';
-    }
-    hamburgerBtn.setAttribute('aria-controls', 'mobile-menu');
-    setMenuOpen(false);
-    hamburgerBtn.addEventListener('click', function () {
-      setMenuOpen(mobileMenu.classList.contains('hidden'));
-    });
-
-    // Close menu when a link inside it is clicked
-    var mobileLinks = mobileMenu.querySelectorAll('a');
-    mobileLinks.forEach(function (link) {
-      link.addEventListener('click', function () {
-        setMenuOpen(false);
-      });
-    });
-  }
 })();

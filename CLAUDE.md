@@ -8,13 +8,15 @@ TA 포트폴리오 사이트. GitHub Pages + 커스텀 도메인 `ta.tommlimm.ne
 
 - 현재 디자인 기준은 [docs/style-guide.md](docs/style-guide.md), 시각 예시는 [component-library.html](component-library.html)을 따른다. 공통 스타일을 변경하면 둘을 함께 갱신한다. 초기 `docs/plans/2026-02-15-*`는 과거 기획이다.
 - 새 상세 페이지는 [docs/project-template.md](docs/project-template.md)와 `projects/_template.html`을 출발점으로 사용한다. 템플릿과 컴포넌트 문서는 공개 목록에 추가하지 않는다.
-- 언어 선택은 푸터의 지구본·현재 언어·아래 화살표 버튼과 위로 열리는 메뉴(한국어 / English)를 사용한다. 공통 `js/i18n.js`가 네이티브 select를 확장하며 JavaScript가 없으면 기본 select를 유지한다. 처음에는 브라우저 선호 언어에 맞는 항목을 선택하고, 직접 선택은 `portfolio.language`에 저장한다. 새 페이지는 공통 `js/i18n.js`를 유지한다.
+- 언어 선택은 푸터의 지구본·현재 언어·아래 화살표 버튼과 위로 열리는 메뉴(한국어 / English)를 사용한다. 공통 `js/popover.js`를 먼저 로드한 뒤 `js/i18n.js`가 네이티브 select를 확장하며 JavaScript 또는 Popover API가 없으면 기본 select를 유지한다. 처음에는 브라우저 선호 언어에 맞는 항목을 선택하고, 직접 선택은 `portfolio.language`에 저장한다. 새 페이지는 공통 `js/i18n.js`를 유지한다.
 
-- 공개 페이지는 `index.html`, `resume.html`, `projects/*.html`에서 편집한다.
+- 공개 페이지는 `index.html`, `about.html`, `design/*.html`, `frontend/*.html`, `resume.html`, `projects/*.html`에서 편집한다.
 - 디자인 홈은 `design/index.html`이며 TA 홈과 공통 CSS·JS를 사용한다. TA·디자이너·프론트엔드 홈은 푸터에서 같은 탭으로 서로 이동한다. 디자인 프로젝트 6개는 모두 `projects/`의 로컬 상세로 연결한다. 이전 `children/` 상세 경로는 새 상세로 리다이렉트하며 Junkyard의 로컬 데모 6개는 기존 실행 경로를 유지한다. 카드·상단 내비게이션·관련 프로젝트 링크·기존 URL을 함께 관리하고, 이식 내역은 [docs/design-portfolio-migration.md](docs/design-portfolio-migration.md)에 기록한다.
 - 프론트엔드 홈은 `frontend/index.html`이며 TA의 텍스트 히어로와 공통 카드·About·푸터를 사용한다. Cork NFT·Winterest·LIKE는 프론트엔드 상세로, Junkyard는 기존 디자인 상세로 연결한다. [docs/frontend-portfolio-migration.md](docs/frontend-portfolio-migration.md)에 원본과 담당 범위·미디어 이식 내역을 기록한다.
 - 모든 TA·디자이너·프론트엔드 홈과 프로젝트 상세는 메인의 전체 푸터(이메일·이력서·GitHub·LinkedIn·포트폴리오 전환·언어 선택), 최대 너비 1400px와 동일한 여백을 유지한다. 푸터 상단에는 좌우 콘텐츠 경계에 맞춘 1px 구분선을 두고, 링크·저작권 영역의 위아래는 실제 글자 경계 기준으로 같은 간격을 유지한다. 첫 링크의 클릭 영역과 글자 여백을 보정해 위 패딩은 26.5px, 저작권 아래 간격은 32px로 둔다. 링크 내부도 왼쪽 정렬해 저작권과 글자 시작점을 맞춘다. 데스크톱과 모바일 모두 같은 구조로, 별도 이름 표기 없이 이메일·이력서·포트폴리오 전환 링크를 왼쪽에 세로 정렬하고, 저작권은 그 아래 별도 행의 왼쪽에 배치한다. 이어서 가로 구분선 아래 소셜 아이콘은 왼쪽, 언어 버튼은 오른쪽에 배치하고 세로 중심만 맞춘다. 포트폴리오 전환 링크는 현재 분야를 제외한 나머지 두 분야로 연결한다. 상세에도 이력서 미리보기 CSS·JS를 로드한다.
 - 한글 `data-ko`와 영문 본문을 함께 수정한다. 담당 범위, 프로젝트 상태와 수치의 측정 조건을 구분한다.
+- 버튼 주변의 정보·선택 패널은 공용 `Popover.create()`를 사용한다. `css/popover.css`는 `style.css` 앞에, `js/popover.js`는 사용처 스크립트 앞에 로드한다. 닫기·포커스·화면 경계 위치 보정은 공용 컴포넌트에서 처리하고, 선택·화살표 이동 등 콘텐츠 동작은 사용처에 둔다. 중첩 팝오버는 지원하지 않는다.
+- 모바일 상단 내비게이션은 왼쪽 이름 로고(한국어: 임 연수 / 영어: Younsoo Lim)와 오른쪽 소개(About) 링크를 사용한다. 로고는 해당 분야 홈의 맨 위로 이동한다. 소개는 `about.html`, `design/about.html`, `frontend/about.html`의 독립 페이지에서 관리하고 메인 본문에 반복하지 않는다. 각 홈·상세의 `.nav-about`은 해당 소개 페이지로 연결한다. `.nav-projects`는 768px 미만에서 숨기며 소개 페이지의 소개 링크에는 `aria-current="page"`를 표시한다. 기존 홈 `#about` 주소는 `js/main.js`에서 소개 페이지로 이동시킨다.
 - 모든 별도 미리보기는 현재 페이지의 공통 모달을 사용한다. `css/preview-modal.css`·`js/preview-modal.js`를 먼저 로드하고 유형별 뷰어를 연결한다. 왼쪽 콘텐츠 이름·오른쪽 액션 묶음·맨 오른쪽 닫기 아이콘, 데스크톱·모바일 화면 가로·세로 80% 크기의 중앙 배치, 닫기·바깥 배경 클릭·Esc·포커스 복귀를 공통으로 유지한다. 사진·도표에는 `data-image-viewer`와 `css/image-viewer.css`·`js/image-viewer.js`, 이력서에는 `data-resume-viewer`와 resume-viewer CSS/JS를 사용한다. 새 영상·문서 미리보기도 같은 모달 안에 구현한다. 본문 영상 재생과 프로젝트·외부 서비스 탐색 링크는 각각의 원래 동작을 유지한다. 상세 규칙은 스타일 가이드의 “모든 미리보기는 모달”을 따른다.
 - 이력서 HTML 수정 시 다운로드용 `assets/resume.pdf`도 재생성하고 확인한다.
 - 미공개 작업은 Git에서 제외된 `tools/drafts/`에 보관한다. 인터뷰·근거 기록은 `tools/career-notes/`에 보관한다.

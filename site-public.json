@@ -1,6 +1,6 @@
 {
   "files": [
-    "index.html", "design/index.html", "frontend/index.html", "resume.html", "resume-viewer.html", "CNAME", ".nojekyll",
+    "index.html", "about.html", "design/index.html", "design/about.html", "frontend/index.html", "frontend/about.html", "resume.html", "resume-viewer.html", "CNAME", ".nojekyll",
     "favicon.gif", "favicon.png", "logo.svg", "logo-invert.svg",
     "projects/cork-nft.html", "projects/winterest.html", "projects/like.html",
     "projects/npr-shader.html", "projects/character-system.html",

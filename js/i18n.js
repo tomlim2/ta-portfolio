@@ -4,27 +4,8 @@
   var preference = readPreference();
   var switchers = [];
 
-  function closeSwitcher(switcher, restoreFocus) {
-    switcher.menu.hidden = true;
-    switcher.root.classList.remove('is-open');
-    switcher.button.setAttribute('aria-expanded', 'false');
-    if (restoreFocus) switcher.button.focus({ preventScroll: true });
-  }
-
-  function openSwitcher(switcher) {
-    switchers.forEach(function (other) {
-      if (other !== switcher) closeSwitcher(other, false);
-    });
-    switcher.menu.hidden = false;
-    switcher.root.classList.add('is-open');
-    switcher.button.setAttribute('aria-expanded', 'true');
-    var selected = switcher.options.find(function (option) {
-      return option.dataset.language === switcher.select.value;
-    });
-    (selected || switcher.options[0]).focus({ preventScroll: true });
-  }
-
   function initSwitchers() {
+    if (!window.Popover || !window.Popover.supported) return;
     document.querySelectorAll('select[data-language-select]').forEach(function (select, index) {
       var root = select.closest('.language-switcher');
       if (!root) return;
@@ -32,8 +13,6 @@
       var button = document.createElement('button');
       button.type = 'button';
       button.className = 'language-trigger';
-      button.setAttribute('aria-haspopup', 'listbox');
-      button.setAttribute('aria-expanded', 'false');
       button.innerHTML = '<span class="language-globe" aria-hidden="true"></span><span class="language-current"></span><span class="language-chevron" aria-hidden="true"></span>';
 
       var menu = document.createElement('div');
@@ -41,7 +20,6 @@
       menu.className = 'language-menu';
       menu.setAttribute('role', 'listbox');
       menu.hidden = true;
-      button.setAttribute('aria-controls', menu.id);
 
       var switcher = { root: root, select: select, button: button, menu: menu, options: [] };
       Array.from(select.options).forEach(function (item) {
@@ -57,20 +35,16 @@
         option.addEventListener('click', function () {
           select.value = item.value;
           select.dispatchEvent(new Event('change', { bubbles: true }));
-          closeSwitcher(switcher, true);
+          switcher.popover.close();
         });
         menu.appendChild(option);
         switcher.options.push(option);
       });
 
-      button.addEventListener('click', function () {
-        if (menu.hidden) openSwitcher(switcher);
-        else closeSwitcher(switcher, false);
-      });
       button.addEventListener('keydown', function (event) {
         if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
           event.preventDefault();
-          openSwitcher(switcher);
+          switcher.popover.open();
         }
       });
       menu.addEventListener('keydown', function (event) {
@@ -85,31 +59,25 @@
           switcher.options[next].focus({ preventScroll: true });
         }
       });
-      root.addEventListener('keydown', function (event) {
-        if (event.key === 'Escape' && !menu.hidden) {
-          event.preventDefault();
-          closeSwitcher(switcher, true);
-        }
-        if (event.key === 'Tab' && !menu.hidden) {
-          // Resume the normal tab order from the trigger, outside the popup.
-          closeSwitcher(switcher, true);
+      root.appendChild(button);
+      root.appendChild(menu);
+      switcher.popover = window.Popover.create({
+        trigger: button,
+        panel: menu,
+        root: root,
+        placement: 'top-start',
+        gap: -1,
+        matchTriggerWidth: true,
+        closeOnTab: true,
+        initialFocus: function () {
+          return switcher.options.find(function (option) {
+            return option.dataset.language === select.value;
+          }) || switcher.options[0];
         }
       });
-      root.appendChild(menu);
-      root.appendChild(button);
       select.hidden = true;
       root.classList.add('language-switcher--enhanced');
       switchers.push(switcher);
-    });
-    document.addEventListener('pointerdown', function (event) {
-      switchers.forEach(function (switcher) {
-        if (!switcher.root.contains(event.target)) closeSwitcher(switcher, false);
-      });
-    });
-    document.addEventListener('focusin', function (event) {
-      switchers.forEach(function (switcher) {
-        if (!switcher.root.contains(event.target)) closeSwitcher(switcher, false);
-      });
     });
   }
 

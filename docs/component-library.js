@@ -1,5 +1,25 @@
 // Internal documentation navigation; keep this out of public site scripts.
 (function () {
+  if (!window.Popover) return;
+  ['info', 'links'].forEach(function (name) {
+    var trigger = document.getElementById('popover-' + name + '-trigger');
+    var panel = document.getElementById('popover-' + name + '-panel');
+    var popover = window.Popover.create({ trigger: trigger, panel: panel });
+    if (!popover) return;
+    trigger.hidden = false;
+    panel.querySelectorAll('[data-popover-close]').forEach(function (button) {
+      button.addEventListener('click', function () { popover.close(); });
+    });
+    panel.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function (event) {
+        if (event.button || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+        popover.close({ restoreFocus: false });
+      });
+    });
+  });
+})();
+
+(function () {
   var disclosure = document.getElementById('cl-toc-disclosure');
   var links = Array.from(document.querySelectorAll('.cl-toc-list a'));
   var targets = links.map(function (link) {

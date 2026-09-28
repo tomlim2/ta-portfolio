@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Younsoo Lim | Frontend Developer</title>
+  <title>About | Younsoo Lim — Designer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Noto+Rashi+Hebrew:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -32,7 +32,7 @@
       },
     }
   </script>
-  <meta name="description" content="Younsoo Lim — Frontend Developer. React interfaces, reusable components, and creative coding.">
+  <meta name="description" content="About Younsoo Lim — Designer. Background, experience, and areas of practice.">
   <link rel="icon" href="../favicon.gif" type="image/gif">
   <link rel="stylesheet" href="../css/popover.css?v=20260928-popover">
   <link rel="stylesheet" href="../css/style.css?v=20260928-nav-middle">
@@ -40,32 +40,55 @@
   <link rel="stylesheet" href="../css/resume-viewer.css?v=20260925-toolbar-right">
 </head>
 <body class="bg-bg text-body">
-  <a href="#projects" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:bg-heading focus:text-bg focus:px-4 focus:py-2 focus:rounded focus:z-[60]">Skip to content</a>
+  <a href="#about" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:bg-heading focus:text-bg focus:px-4 focus:py-2 focus:rounded focus:z-[60]">Skip to content</a>
 
   <!-- Navigation -->
   <nav class="fixed top-0 w-full z-50 bg-bg/80 backdrop-blur-md">
     <div class="max-w-[1400px] mx-auto px-6 h-16 flex items-center justify-between">
       <a href="index.html" id="nav-name" class="nav-logo" data-ko="임 연수">Younsoo Lim</a>
       <div class="nav-links flex gap-8 text-sm text-body ml-auto" id="desktop-nav">
-        <a href="#projects" class="nav-projects nav-link hover:text-heading transition" data-ko="작업">Projects</a>
-        <a href="about.html" class="nav-about nav-link hover:text-heading transition" data-ko="소개">About</a>
+        <a href="index.html#projects" class="nav-projects nav-link hover:text-heading transition" data-ko="작업">Projects</a>
+        <a aria-current="page" href="about.html" class="nav-about nav-link hover:text-heading transition" data-ko="소개">About</a>
       </div>
     </div>
   </nav>
 
-  <main>
-<section class="flex flex-col justify-end px-6 pt-32 pb-12 max-w-[1400px] mx-auto">
-<h1 class="text-body hero-tagline" data-ko="프론트엔드 개발자">Frontend Developer</h1>
-<p class="hero-summary text-body" data-ko="사용자가 편하게 탐색하는 인터페이스와 동료가 이해하기 쉬운 컴포넌트를 만듭니다.">I build interfaces that are easy to navigate and components that are easy to understand.</p>
-<div class="hero-actions"><a href="mailto:tomandlim@gmail.com" class="btn btn--ghost"><span>tomandlim@gmail.com</span></a><a href="../resume-viewer.html" data-resume-viewer class="btn btn--ghost"><span data-ko="이력서 보기">View resume</span></a></div>
-</section>
-<section id="projects" class="max-w-[1400px] mx-auto px-6 py-16"><h2 class="text-muted section-label uppercase mb-6" data-ko="프로젝트">Projects</h2><div class="project-grid">
-<a href="../projects/cork-nft.html" class="project-card"><div class="project-card-media"><img src="../assets/images/cork-nft/hero.webp" alt="Cork NFT project screenshot" width="1280" height="724" class="project-card-img" fetchpriority="high" decoding="async"></div><div class="project-card-caption"><h3 class="card-title">Cork NFT</h3><p class="card-subtitle" data-ko="React · 회원 관리·검색·갤러리 컴포넌트">React · Accounts, search &amp; gallery components</p></div></a>
-<a href="../projects/winterest.html" class="project-card"><div class="project-card-media"><img src="../assets/images/winterest/hero.webp" alt="Winterest project screenshot" width="1280" height="720" class="project-card-img" loading="lazy" decoding="async"></div><div class="project-card-caption"><h3 class="card-title">Winterest</h3><p class="card-subtitle" data-ko="React · 이미지 피드·무한 스크롤·다크 모드">React · Image feeds, infinite scrolling &amp; dark mode</p></div></a>
-<a href="../projects/like.html" class="project-card"><div class="project-card-media"><img src="../assets/images/like/hero.webp" alt="LIKE project screenshot" width="1280" height="685" class="project-card-img" loading="lazy" decoding="async"></div><div class="project-card-caption"><h3 class="card-title">LIKE</h3><p class="card-subtitle" data-ko="React · 상품 옵션·장바구니·구매 흐름">React · Product options, cart &amp; purchase flow</p></div></a>
-<a href="../projects/junkyard.html" class="project-card"><div class="project-card-media"><img src="../assets/images/junkyard/img_hero.png" alt="Junkyard project screenshot" width="1440" height="810" class="project-card-img" loading="lazy" decoding="async"></div><div class="project-card-caption"><h3 class="card-title">Junkyard</h3><p class="card-subtitle" data-ko="Three.js / p5.js · 크리에이티브 코딩">Three.js / p5.js · Creative coding</p></div></a></div></section>
-</main>
-
+  <main id="about" class="max-w-[1400px] mx-auto px-6 pt-32 pb-24">
+    <h1 class="sr-only" data-ko="소개">About</h1>
+    <p class="text-muted text-sm leading-relaxed mb-12 max-w-3xl" data-ko="그래픽 디자인을 바탕으로 브랜딩과 2D·3D 모션을 작업하고, 프로그래밍을 활용한 인터랙션을 탐구합니다. 인쇄물부터 화면과 가상 공간까지, 매체에 맞는 시각적 표현을 만들고 있습니다.">With a background in graphic design, I work across branding and 2D/3D motion, and explore interaction through programming. My projects span print, screen-based media, and virtual spaces.</p>
+    <div class="grid md:grid-cols-2 gap-16">
+      <div>
+        <h2 class="text-muted uppercase tracking-[0.15em] mb-5 section-label" data-ko="작업 영역">Practice</h2>
+        <div class="space-y-5">
+          <div>
+            <p class="text-body about-role" data-ko="브랜딩 · 그래픽 디자인">Branding &amp; graphic design</p>
+            <p class="text-muted about-detail" data-ko="아이덴티티 · 키 비주얼 · 인쇄물">Identity · Key visuals · Print</p>
+          </div>
+          <div>
+            <p class="text-body about-role" data-ko="모션 그래픽">Motion graphics</p>
+            <p class="text-muted about-detail" data-ko="2D·3D 모션 · 애니메이션">2D/3D motion · Animation</p>
+          </div>
+          <div>
+            <p class="text-body about-role" data-ko="인터랙션">Interaction</p>
+            <p class="text-muted about-detail" data-ko="웹 · 크리에이티브 코딩 · VR">Web · Creative coding · VR</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h2 class="text-muted uppercase tracking-[0.15em] mb-5 section-label" data-ko="학력">Education</h2>
+        <div class="space-y-5">
+          <div>
+            <p class="text-body about-role" data-ko="그래픽 디자인 (Degree with <strong>Distinction</strong>)">Graphic Design (Degree with <strong>Distinction</strong>)</p>
+            <p class="text-muted about-detail">California College of the Arts · 2016–2019</p>
+          </div>
+          <div>
+            <p class="text-body about-role" data-ko="컴퓨터 디자인">Computer Design</p>
+            <p class="text-muted about-detail">Woosong University · 2008–2014</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
 
   <footer class="site-footer py-8 text-muted text-xs">
     <div class="footer-layout max-w-[1400px] mx-auto px-6">
@@ -88,7 +111,7 @@
         <li class="footer-item">
           <a href="../index.html" class="btn btn--ghost footer-link"><span data-ko="TA 포트폴리오">TA portfolio</span></a>
         </li>
-        <li class="footer-item"><a href="../design/index.html" class="btn btn--ghost footer-link"><span data-ko="디자이너 포트폴리오">Designer portfolio</span></a></li>
+        <li class="footer-item"><a href="../frontend/index.html" class="btn btn--ghost footer-link"><span data-ko="프론트엔드 포트폴리오">Frontend portfolio</span></a></li>
       </ul>
       <div class="footer-controls">
         <ul class="footer-social-links" aria-label="Social links">
